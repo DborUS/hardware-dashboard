@@ -6,6 +6,172 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- Zen 6 / EPYC 9006 "Venice" — 31 new server SKUs (2026-08-12):
+  - New `zen6` architecture entry (2026, magenta `#ec4899` extending the warm end of the
+    AMD accent progression), a `2026` era separator, and a codename-table row.
+  - Split into two SKU cards by socket, since the series spans both: **Venice SP7**
+    (9 models, up to 256C/512T, PCIe 6.0 x96) and **Venice SP8** (22 models, 8C–128C,
+    PCIe 6.0 x128). All DDR5 RDIMM/MRDIMM at 8000 / 12800 MT/s.
+  - Imported with `tools/import-specs.py` from AMD's Server Processor Specifications CSV
+    (240 rows → 31 after `--filter "Series=EPYC 9006 Series"`).
+  - **Every field of all 31 models was verified against the source CSV** — cores, threads,
+    clocks, cache, TDP, socket, socket count, PCIe, memory and tray ID all match exactly.
+  - Subtitle is `EPYC 9006 (Venice) · SP7 / SP8`. **Process node deliberately omitted** —
+    AMD's CSV has no process/lithography column, and the house convention is to lead the
+    subtitle with the node. Add `TSMC 2 nm · ` to the front once confirmed from an
+    official source, and set `process` in the codename table (currently `—`).
+
+### Fixed
+- SKU names ending in a digit broke spec-table search (2026-08-12):
+  - `applyFilters()` recovered the SKU name by splitting the rendered card text on
+    `/\d+\sSKUs/`. For "Venice SP7" the card reads `Venice SP79 SKUs`, so the regex
+    consumed the trailing `7` and produced `Venice SP` — which matches no spec key, so
+    searching `EPYC 9996` found nothing while `EPYC 9755` worked.
+  - Fixed by stamping `data-sku-name` on each card and reading that instead of parsing
+    rendered text. The fragile regex is gone from both call sites.
+  - Also made `.sku-spec-count` `inline-block` so its margin actually separates the count
+    from a name ending in a digit (`Venice SP79 SKUs` → `Venice SP7 9 SKUs`).
+- `tools/import-specs.py` gained `--filter COL=VALUE` (repeatable) and
+  `--transform FIELD:NAME` for vendor CSVs that need row selection or value cleanup:
+  `strip-amd` (`AMD EPYC™ 9996` → `EPYC 9996`), `up-to`, `tight-watt`.
+- `tools/import-specs.py` — CSV → JSON importer for new silicon (2026-08-12):
+  - `inspect` prints CSV columns with guessed schema mappings and sample values;
+    `import` does a dry run by default and only writes with `--write`; `export` dumps
+    existing specs back to CSV for diffing against a vendor update.
+  - Encodes the project's known silent failures as checks: **blocks** when the `--sku`
+    key doesn't match any `skus[].name` (the table would never render), and **warns** on
+    `_srv`/field mismatches, unit-phrasing drift (`"600 W"` vs `"600W"`), and duplicate
+    model names.
+  - Verified end-to-end against a synthetic EPYC 9006 CSV: guessed all 12 AMD columns
+    correctly, blocked an invalid SKU key, warned on a missing `--server` flag and on
+    TDP spacing drift, wrote 3 models, round-tripped via `export`, then rolled back.
+  - Documented as Workflow 2b in `docs/WORKFLOWS.md`. GPU import not yet supported —
+    GPU specs nest inside the architecture entry rather than a separate keyed file.
+
+### Fixed
+- Search now covers spec fields, not just model names (2026-08-12):
+  - **Searching a socket like `sp5` returned nothing.** The index only included the model
+    name (`m.n`) from each spec record — socket, TDP, PCIe, memory and product ID were all
+    unsearchable on every CPU tab.
+  - Added `CPU_SEARCH_FIELDS = ['sk','tdp','pcie','mem','tr']` with `cpuModelSearchText()`
+    and `cpuModelMatches()` helpers, so `render()` and both `applyFilters()` fallbacks use
+    one definition instead of three copies of `m.n.toLowerCase()`.
+  - Raw numerics (cores, threads, clocks, cache) are deliberately **not** indexed — a bare
+    `128` would match core counts, thread counts and cache sizes simultaneously.
+  - GPU search gained `form`, `tbp`, `bw` and `pcie`, so `OAM`, `1400 W` and `8000 GB/s`
+    now work. Also removed a dead `specs.consumer || specs.workstation` branch there
+    (those flags don't exist in the data).
+  - Row highlighting now matches on the whole row rather than just the model-name cell,
+    and applies to GPU tables too. Searching `sp5` highlights all 51 SP5 rows in amber.
+  - Verified: `sp5` → Zen 5 + Zen 4 (Turin, Turin Dense, Genoa, Genoa-X, Bergamo — exactly
+    the 5 codenames with SP5 parts) and 51 highlighted rows, matching the data.
+    `AM5`, `sTR5`, `500W`, tray IDs, Intel `LGA1851`/`DDR5-6400`/`125W`, GPU `OAM` all work.
+
+### Changed
+- Unified filter bar completed on the Intel tab + legacy code removed (2026-08-12):
+  - Intel CPU now uses the same multi-select bar (Segment + Brand). All three tabs are
+    consistent; the old legend row and single-select button row are gone everywhere.
+  - **Fixed: three Intel brands had no filter chip and were unreachable.** The data
+    contains 8 brands but `VENDOR_CONFIG.intel.brandTags` listed only 5 — `Xeon 6+`
+    (Clearwater Forest), `Xeon D` (Xeon D Embedded) and `Atom` (Atom Embedded) could not
+    be filtered at all. Added with distinct colours; each now correctly narrows to its
+    single architecture.
+  - Bar auto-stacks into one row per group when a vendor has more than 10 chips, since
+    12 chips wrapped awkwardly around the vertical divider. AMD (9) stays inline,
+    Intel (12) stacks.
+  - Removed the now-dead legacy path: `buildLegend()`, `buildFilters()`,
+    `toggleLegendTag()`, `updateLegendDimming()`, `syncLegendToggles()`, the
+    `buildCpuFilterUI()` dispatcher, the empty `#legendToggles` container, and 30
+    orphaned CSS rules (`.legend*`, `.filter-btn*`, `.filter-divider`).
+  - Net across the whole filter rework: **215 lines deleted, 157 added** — the dashboard
+    gained multi-select on every tab while shrinking.
+
+- Unified filter bar extended to the AMD GPU tab (2026-08-12):
+  - GPU tab now uses the same single multi-select bar as the CPU tab: one `SEGMENT`
+    group (Datacenter / Workstation / Consumer / Mobile) plus the contextual
+    `Clear filters` chip. The decorative legend row and the old single-select button
+    row are both gone.
+  - **GPU segments are now multi-select**, which they never were before.
+    `activeGpuSegment` (a string) became `activeGpuSegments` (a Set); empty means
+    "show all", so the `All` button was no longer needed.
+    Verified: Datacenter 7, Workstation 9, Consumer 22, Mobile 4 individually;
+    Datacenter+Mobile = 11; +Workstation = 20; Clear = 42.
+  - Refactored `buildUnifiedFilters()` into a generic `buildFilterBar(groups)` shared by
+    both tabs, so CPU and GPU can't drift apart. CPU passes two groups
+    (Segment + Brand), GPU passes one. `syncUnifiedFilters()` now reads the active bar's
+    group descriptors from `filterBarGroups`.
+  - Deleted `buildGpuLegend()`, `updateGpuLegend()` and `buildGpuFilters()` (~42 lines).
+  - The GPU legend was previously decorative only — it had no click handler despite
+    looking identical to the interactive CPU legend.
+  - Intel still uses the legacy two-row layout; verified unchanged.
+
+- Unified filter bar on the AMD CPU tab (2026-08-12):
+  - Replaced the two-row filter design (legend pills + button row) with a single
+    multi-select bar: `SEGMENT` group + `BRAND` group, divided, plus a `Clear filters`
+    chip that appears only when a filter is active.
+  - **Why:** the two rows carried the same segment labels but behaved differently and
+    nothing on screen said so. The legend row was multi-select (Desktop + Laptop = 32
+    cards); the button row was single-select (clicking Laptop silently deselected
+    Desktop = 20 cards). Selecting two legend pills also left the button row with no
+    active state, so it looked broken. Brands existed only in the legend row.
+  - All chips are now multi-select. Within a group selections are OR'd; the two groups
+    are AND'd. Verified: Desktop+Laptop = 32 cards, +Ryzen narrows further, Clear
+    restores 44.
+  - Opt-in per vendor via `unifiedFilters: true` in `VENDOR_CONFIG`. Only AMD has it;
+    **Intel deliberately keeps the legacy two-row layout for now** and was verified
+    unchanged. New `buildCpuFilterUI()` dispatches between the two.
+  - New `buildUnifiedFilters()` / `syncUnifiedFilters()`; new `.filter-bar`, `.fgroup`,
+    `.fchip`, `.fclear` styles with a stacked layout below 768px. Chips carry
+    `aria-pressed` and a `:focus-visible` outline.
+
+- GPU filtering reworked (2026-08-12):
+  - Removed the PCIe / OAM form-factor filter buttons and their legend pills. They hid
+    12 of 42 GPU families, because the matcher only recognised the substrings `pcie` and
+    `oam` while the data contains 8 distinct `form` values. Workstation cards labelled
+    `Desktops`, `Laptops` or `Workstations` silently vanished when PCIe was selected.
+  - GPU segment filters are now: All / Datacenter / Workstation / Consumer / Mobile.
+    Counts are datacenter 7 + workstation 9 + consumer 22 + mobile 4 = 42, so every
+    family is now reachable.
+  - New `Mobile` segment, derived at render time by `gpuSegmentOf()` from a family's form
+    factors (`Laptops` / `Mobile Workstations`) rather than stored in the data, so new
+    mobile families categorise themselves. Covers PRO W6000/W5000/WX X100/WX X200 Mobile.
+  - Added `GPU_SEGMENTS` as the single source of truth for both the legend and the filter
+    buttons, replacing two hardcoded lists.
+  - `Form` column moved to second position in GPU spec tables, immediately after Model,
+    with a new `.gpu-form-cell` style.
+  - Bumped the `script.js?v=` cache-buster so browsers pick up the change.
+
+### Known (pre-existing, reviewed 2026-08-12, won't fix)
+- `gpuSpecs.consumer` / `gpuSpecs.workstation` flags are absent from all 42 GPU families,
+  so the consumer and workstation table layouts in `renderGpu()` are unreachable and every
+  family renders the datacenter column set. Verified against the pre-change build.
+  **Cosmetic only — all displayed values are accurate.** Consumer tables carry two
+  low-value columns (`FP32 Matrix` duplicates `FP32` on consumer parts; `Form` is `PCIe`
+  for all 201 consumer models) and omit gaming specs (SPs, boost/game clocks, bus, cache)
+  that don't exist in the data. Closed as not worth the sourcing effort.
+
+### Added
+- Project documentation and verification system (2026-08-12):
+  - `CLAUDE.md` - architecture, conventions, golden rules, known issues
+  - `docs/PROJECT-STATE.md` - living status document with verified baseline and session log
+  - `docs/WORKFLOWS.md` - step-by-step recipes for common tasks
+  - `docs/DESIGN-SYSTEM.md` - colour tokens, typography, motion, component patterns
+  - `docs/DATA-SCHEMA.md` - JSON contracts for all five data files
+  - `tools/smoke-test.py` - headless browser regression test; exercises every tab,
+    reports element counts and JS errors, exits non-zero on failure
+  - Marked `docs/AUDIT-2026-02-14.md` as superseded (most findings already fixed)
+
+### Documented (bugs found during audit, not yet fixed)
+- GPU form-factor filter hides 12 of 42 groups - buttons offer only PCIe/OAM but the data
+  contains 8 distinct `form` values; `Desktops`, `Laptops` etc. silently vanish
+- All 219 Intel CPU records flagged `_srv: true`, including desktop parts, so desktop
+  chips render server table columns instead of GPU columns
+- Notes textarea interpolates unescaped (`script.js:664`)
+- `getLinks()` returns unvalidated `JSON.parse` output (`script.js:1174`)
+- Working tree is CRLF while the repo stores LF - a fresh clone shows all files as
+  modified; use `git diff --ignore-all-space` to see real changes
+
+### Added
 - Intel CPU detailed specifications (2026-02-15):
   - Parsed intel_cpu_complete.csv into intel-cpu-specs.json (88KB, 219 CPUs, 25 architectures)
   - All 216 unique CPU models verified accurate (100% field match with source CSV)

@@ -1,5 +1,40 @@
 [
   {
+    "era": "2026"
+  },
+  {
+    "id": "zen6",
+    "arch": "Zen 6",
+    "color": "#ec4899",
+    "year": "2026",
+    "segment": "server",
+    "subtitle": "TSMC 2 nm · EPYC 9006 (Venice) · SP7 / SP8",
+    "defaultLinks": [
+      {
+        "label": "AMD EPYC Server Processors",
+        "url": "https://www.amd.com/en/products/processors/server-processors.html"
+      }
+    ],
+    "skus": [
+      {
+        "name": "Venice SP7",
+        "desc": "EPYC 9006 series — SP7 high-core-count server processors",
+        "tags": [
+          "server"
+        ],
+        "brand": "Epyc"
+      },
+      {
+        "name": "Venice SP8",
+        "desc": "EPYC 9006 series — SP8 mainstream server processors",
+        "tags": [
+          "server"
+        ],
+        "brand": "Epyc"
+      }
+    ]
+  },
+  {
     "era": "2024"
   },
   {

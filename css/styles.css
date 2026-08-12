@@ -43,26 +43,29 @@
   .search-clear.visible { opacity: 1; pointer-events: auto; }
   .search-clear:hover { color: var(--text-primary); }
 
-  .legend { display: flex; gap: 8px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; align-items: center; }
-  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; padding: 8px 14px; border-radius: 20px; border: 1px solid var(--border-subtle); cursor: pointer; transition: all 0.25s ease; user-select: none; min-height: 40px; }
-  .legend-item:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); }
-  .legend-item.active { border-color: var(--tag-color, rgba(255,255,255,0.2)); background: color-mix(in srgb, var(--tag-color, #fff) 10%, transparent); color: var(--text-secondary); }
-  .legend-item.inactive { opacity: 0.35; border-color: transparent; }
-  .legend-item.inactive:hover { opacity: 0.6; border-color: rgba(255,255,255,0.08); }
-  .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; transition: opacity 0.25s ease; }
-  .legend-item.inactive .legend-dot { opacity: 0.4; }
-  .legend-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.1); margin: 0 4px; flex-shrink: 0; }
 
-  .controls { display: flex; gap: 8px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
-  .filter-btn { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; padding: 10px 18px; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-card); color: var(--text-secondary); cursor: pointer; transition: all 0.25s ease; letter-spacing: 0.5px; min-height: 44px; }
-  .filter-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text-primary); }
-  .filter-btn.active { border-color: currentColor; color: var(--text-primary); background: rgba(255,255,255,0.05); }
-  .filter-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.1); margin: 0 4px; flex-shrink: 0; }
-  .filter-btn[data-filter="all"].active { border-color: #60a5fa; color: #60a5fa; }
-  .filter-btn[data-filter="desktop"].active { border-color: #4ade80; color: #4ade80; }
-  .filter-btn[data-filter="mobile"].active, .filter-btn[data-filter="laptop"].active { border-color: #f472b6; color: #f472b6; }
-  .filter-btn[data-filter="server"].active { border-color: #fbbf24; color: #fbbf24; }
-  .filter-btn[data-filter="embedded"].active { border-color: #c084fc; color: #c084fc; }
+  .controls { display: flex; justify-content: center; margin-bottom: 24px; }
+  /* ── Unified filter bar (single multi-select row) ───────────────── */
+  .filter-bar { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; width: 100%; }
+  .fgroup { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .fgroup-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-right: 2px; }
+  .fgroup-sep { width: 1px; height: 24px; background: rgba(255,255,255,0.1); margin: 0 6px; flex-shrink: 0; }
+  /* Many chips (e.g. Intel's 12) wrap awkwardly around a vertical divider, so give
+     each group its own row and drop the separator. */
+  .filter-bar.stacked { flex-direction: column; gap: 10px; }
+  .filter-bar.stacked .fgroup-sep { display: none; }
+  .filter-bar.stacked .fgroup { width: 100%; }
+  .fchip { display: inline-flex; align-items: center; gap: 7px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.3px; padding: 9px 15px; min-height: 40px; border-radius: 20px; border: 1px solid var(--border-subtle); background: var(--bg-card); color: var(--text-secondary); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, opacity 0.2s ease; }
+  .fchip:hover { border-color: rgba(255,255,255,0.2); color: var(--text-primary); }
+  .fchip:focus-visible { outline: 2px solid var(--tag-color, #60a5fa); outline-offset: 2px; }
+  .fchip.active { border-color: var(--tag-color); color: var(--text-primary); background: color-mix(in srgb, var(--tag-color) 14%, transparent); }
+  .fchip.inactive { opacity: 0.4; }
+  .fchip.inactive:hover { opacity: 0.75; }
+  .fchip-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .fclear { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.5px; padding: 9px 14px; min-height: 40px; border-radius: 20px; border: 1px dashed rgba(255,255,255,0.18); background: transparent; color: var(--text-muted); cursor: pointer; transition: all 0.2s ease; }
+  .fclear:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.35); }
+  .fclear[hidden] { display: none; }
+
 
   .toolbar { display: flex; justify-content: center; gap: 8px; margin-bottom: 16px; }
   .expand-all-btn { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; padding: 10px 16px; border: 1px solid var(--border-subtle); border-radius: 5px; background: transparent; color: var(--text-muted); cursor: pointer; transition: all 0.2s ease; letter-spacing: 0.5px; min-height: 44px; }
@@ -262,6 +265,7 @@
   .gpu-spec-table tbody tr:last-child td { border-bottom: none; }
   .gpu-spec-table .gpu-model-name { color: var(--text-primary); font-weight: 600; }
   .gpu-spec-table .gpu-val-highlight { color: #4ade80; }
+  .gpu-spec-table .gpu-form-cell { color: var(--text-secondary); font-size: 0.68rem; letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap; }
   .gpu-family-desc {
     font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 4px;
   }
@@ -281,7 +285,7 @@
   .sku-card.has-specs:hover { border-color: rgba(255,255,255,0.15); }
   .sku-spec-toggle { position: absolute; top: 8px; right: 8px; font-size: 0.6rem; color: var(--text-muted); opacity: 0.5; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; text-transform: uppercase; transition: opacity 0.2s; pointer-events: none; }
   .sku-card.has-specs:hover .sku-spec-toggle { opacity: 1; }
-  .sku-spec-count { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--accent); opacity: 0.7; margin-left: 6px; }
+  .sku-spec-count { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--accent); opacity: 0.7; margin-left: 6px; white-space: nowrap; }
   .unreleased-notice { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: #94a3b8; opacity: 0.6; margin-left: 6px; font-style: italic; }
   .unreleased-text { color: #94a3b8 !important; opacity: 0.6 !important; }
   .sku-card.unreleased-sku { opacity: 0.75; border-color: rgba(148,163,184,0.15); }
@@ -302,7 +306,7 @@
   .cpu-spec-table tbody tr { transition: background 0.15s ease; }
   .cpu-spec-table tbody tr:hover { background: rgba(255,255,255,0.03); }
   .cpu-spec-table tbody tr:last-child td { border-bottom: none; }
-  .cpu-spec-table tbody tr.search-match { background: rgba(251, 191, 36, 0.15); box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.3); animation: highlightPulse 0.6s ease; }
+  .cpu-spec-table tbody tr.search-match, .gpu-spec-table tbody tr.search-match { background: rgba(251, 191, 36, 0.15); box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.3); animation: highlightPulse 0.6s ease; }
   .cpu-spec-table tbody tr.row-selected { background: rgba(34, 197, 94, 0.15); box-shadow: inset 0 0 0 1px rgba(34, 197, 94, 0.3); cursor: pointer; }
   .cpu-spec-table tbody tr { cursor: pointer; }
   @keyframes highlightPulse { 0% { background: rgba(251, 191, 36, 0.3); } 100% { background: rgba(251, 191, 36, 0.15); } }
@@ -317,12 +321,13 @@
 
   /* Tablet breakpoint */
   @media (max-width: 768px) {
+    .filter-bar { flex-direction: column; gap: 10px; }
+    .fgroup-sep { width: 40px; height: 1px; margin: 2px 0; }
+    .fchip { font-size: 0.7rem; padding: 8px 12px; }
+
     .container { padding: 32px 16px 60px; }
     header h1 { font-size: 1.5rem; }
     .skus-grid { grid-template-columns: minmax(0, 1fr); max-width: 100%; width: 100%; }
-    .legend { font-size: 0.7rem; }
-    .legend-item { padding: 7px 12px; gap: 5px; }
-    .filter-btn { padding: 10px 14px; font-size: 0.7rem; }
     .search-wrap { max-width: 100%; }
     .cpu-spec-table { font-size: 0.6rem; }
     .cpu-spec-table th, .cpu-spec-table td { padding: 5px 6px; }
@@ -350,10 +355,6 @@
     .add-link-form { flex-wrap: wrap; }
     .vendor-tab { font-size: 1rem; padding: 10px 24px; min-height: 44px; }
     .vendor-tabs { margin-bottom: 10px; }
-    .filter-btn { padding: 10px 14px; font-size: 0.7rem; }
-    .controls { gap: 6px; margin-bottom: 20px; }
-    .legend { gap: 6px; margin-bottom: 20px; }
-    .legend-item { padding: 7px 10px; font-size: 0.7rem; }
     .expand-all-btn { padding: 8px 14px; font-size: 0.65rem; }
     .toolbar { gap: 6px; margin-bottom: 14px; }
     .codename-table-wrap { margin-bottom: 20px; }
@@ -397,8 +398,4 @@
     .timeline-dot { left: -20px; }
     .arch-name { font-size: 0.9rem; }
     .arch-header { padding: 10px 12px; }
-    .filter-btn { padding: 10px 12px; font-size: 0.65rem; }
-    .legend-item { padding: 6px 8px; font-size: 0.65rem; }
-    .controls { gap: 5px; }
-    .legend { gap: 5px; }
   }

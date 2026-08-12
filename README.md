@@ -36,9 +36,30 @@ hardware_portal/
 │       ├── amd-gpu-data.json       # AMD GPU accelerators
 │       └── amd-cpu-specs.json      # Detailed AMD CPU specifications
 ├── docs/
-│   └── AUDIT-2026-02-14.md        # Performance audit report
+│   ├── PROJECT-STATE.md            # Living status + session log
+│   ├── WORKFLOWS.md                # Step-by-step task recipes
+│   ├── DESIGN-SYSTEM.md            # Colours, type, spacing, components
+│   ├── DATA-SCHEMA.md              # JSON contracts
+│   ├── MOBILE-TESTING.md           # Mobile test notes
+│   └── AUDIT-2026-02-14.md         # Historical audit (superseded)
+├── tools/
+│   └── smoke-test.py               # Headless browser regression test
+├── CLAUDE.md                       # Start here when working on this project
 ├── CHANGELOG.md                    # Version history and changes
 └── README.md                       # Documentation
+```
+
+## Contributing
+
+Before making changes, read [`CLAUDE.md`](CLAUDE.md) for architecture and conventions,
+then [`docs/PROJECT-STATE.md`](docs/PROJECT-STATE.md) for current status.
+
+Verify any change with the smoke test:
+
+```bash
+pip install playwright
+python3 -m playwright install chromium-headless-shell
+python3 tools/smoke-test.py --shots
 ```
 
 ## Deployment

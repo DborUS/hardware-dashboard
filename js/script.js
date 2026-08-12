@@ -95,9 +95,13 @@ const VENDOR_CONFIG = {
       { tag: 'Core', color: '#fb923c' },
       { tag: 'Xeon', color: '#a78bfa' },
       { tag: 'Xeon 6 P', color: '#ef4444' },
-      { tag: 'Xeon 6 E', color: '#14b8a6' }
+      { tag: 'Xeon 6 E', color: '#14b8a6' },
+      { tag: 'Xeon 6+', color: '#f59e0b' },
+      { tag: 'Xeon D', color: '#818cf8' },
+      { tag: 'Atom', color: '#84cc16' }
     ],
-    filterButtons: ['all', 'desktop', 'mobile', 'server', 'embedded']
+    filterButtons: ['all', 'desktop', 'mobile', 'server', 'embedded'],
+    unifiedFilters: true    // single multi-select filter bar (see buildFilterBar)
   },
   amd: {
     title: 'AMD Zen Architecture Roadmap',
@@ -117,7 +121,9 @@ const VENDOR_CONFIG = {
       { tag: 'Athlon', color: '#8b5cf6' }
     ],
     filterButtons: ['all', 'desktop', 'laptop', 'handheld', 'server'],
+    unifiedFilters: true,   // single multi-select filter bar (see buildUnifiedFilters)
     codenameTable: [
+      { zen: 'Zen 6', id: 'zen6', process: '2 nm', color: '#ec4899', desktop: '—', hedt: '', laptop: '—', server: 'Venice (SP7 / SP8)', handheld: '' },
       { zen: 'Zen 5', id: 'zen5', process: '4/3 nm', color: '#ef4444', desktop: 'Granite Ridge', hedt: 'Shimada Peak', laptop: 'Strix Point · Strix Halo · Gorgon Point · Fire Range', server: 'Turin / Turin Dense', handheld: 'Z2' },
       { zen: 'Zen 4', id: 'zen4', process: '5 nm', color: '#f97316', desktop: 'Raphael', hedt: 'Storm Peak', laptop: 'Dragon Range · Phoenix · Hawk Point · Hawk Point Refresh', server: 'Genoa · Genoa-X · Bergamo · Siena', handheld: 'Z1' },
       { zen: 'Zen 3+', id: 'zen3plus', process: '6 nm', color: '#f59e0b', desktop: '—', hedt: '', laptop: 'Rembrandt', server: '—', handheld: '' },
@@ -132,6 +138,69 @@ const VENDOR_CONFIG = {
 };
 
 // ════════════════════════════════════════
+// SEARCH INDEXING
+// ════════════════════════════════════════
+/**
+ * Spec fields included in the search index, beyond the model name.
+ *
+ * Deliberately excludes raw numerics (cores, threads, clocks, cache) -- a bare "128"
+ * would otherwise match core counts, thread counts and cache sizes at once. These five
+ * are the fields people search by name: socket, TDP, PCIe, memory, product ID.
+ */
+const CPU_SEARCH_FIELDS = ['sk', 'tdp', 'pcie', 'mem', 'tr'];
+
+/**
+ * Builds the searchable text for one CPU model row.
+ * @param {Object} m - a record from amd-cpu-specs.json / intel-cpu-specs.json
+ * @returns {string} space-joined haystack for this model
+ */
+function cpuModelSearchText(m) {
+  return [m.n, ...CPU_SEARCH_FIELDS.map(f => m[f] || '')].join(' ');
+}
+
+/**
+ * True if a CPU model matches the search term, checking the model name and the
+ * indexed spec fields. Single source of truth so render() and applyFilters() agree.
+ * @param {Object} m - CPU model record
+ * @param {string} term - already-lowercased search term
+ */
+function cpuModelMatches(m, term) {
+  return cpuModelSearchText(m).toLowerCase().includes(term);
+}
+
+// ════════════════════════════════════════
+// GPU SEGMENTS
+// ════════════════════════════════════════
+/**
+ * GPU segment categories, used for both the legend and the filter buttons.
+ * `mobile` is derived at render time from a family's form factors (Laptops /
+ * Mobile Workstations) rather than stored in the data -- see gpuSegmentOf().
+ */
+const GPU_SEGMENTS = [
+  { tag: 'datacenter',  label: 'Datacenter',  color: '#ef4444' },
+  { tag: 'workstation', label: 'Workstation', color: '#818cf8' },
+  { tag: 'consumer',    label: 'Consumer',    color: '#10b981' },
+  { tag: 'mobile',      label: 'Mobile',      color: '#22d3ee' }
+];
+
+/** Form-factor strings that mean "this is a laptop / mobile part". */
+const MOBILE_FORMS = ['laptops', 'mobile workstations'];
+
+/**
+ * Resolve a GPU family's segment. Families whose every model is a mobile form
+ * factor are reported as 'mobile'; everything else keeps its data segment.
+ * @param {Object} arch - GPU architecture entry
+ * @returns {string} one of datacenter | workstation | consumer | mobile
+ */
+function gpuSegmentOf(arch) {
+  const forms = (arch.gpuSpecs && arch.gpuSpecs.models ? arch.gpuSpecs.models : [])
+    .map(m => (m.form || '').toLowerCase())
+    .filter(Boolean);
+  if (forms.length && forms.every(f => MOBILE_FORMS.includes(f))) return 'mobile';
+  return arch.segment || 'datacenter';
+}
+
+// ════════════════════════════════════════
 // STATE
 // ════════════════════════════════════════
 let currentVendor = 'intel';
@@ -139,8 +208,8 @@ let currentTechTab = 'cpu';
 let expandedGroups = new Set();
 let activeSegmentTags = new Set();
 let activeBrandTags = new Set();
-let activeGpuSegment = 'all';
-let activeGpuFormFactor = 'all';
+let activeGpuSegments = new Set();   // empty = show all
+let filterBarGroups = [];            // group descriptors for the active unified bar
 
 // ════════════════════════════════════════
 // CACHED DOM REFERENCES (Performance)
@@ -153,7 +222,6 @@ function initDomCache() {
     searchInput: document.getElementById('searchInput'),
     searchClear: document.getElementById('searchClear'),
     pageHeader: document.getElementById('pageHeader'),
-    legendToggles: document.getElementById('legendToggles'),
     filterControls: document.getElementById('filterControls'),
     codenameTableWrap: document.getElementById('codenameTableWrap'),
     techTabs: document.getElementById('techTabs'),
@@ -198,7 +266,7 @@ async function switchVendor(vendor) {
   expandedGroups.clear();
   activeSegmentTags.clear();
   activeBrandTags.clear();
-  activeGpuSegment = 'all';
+  activeGpuSegments.clear();
   dom.searchInput.value = '';
 
   // Tab styling
@@ -258,8 +326,7 @@ async function switchVendor(vendor) {
   // Header
   dom.pageHeader.innerHTML = `<h1 class="${cfg.headerClass}">${cfg.title}</h1><p>Processor Architecture Generations</p>`;
 
-  buildLegend();
-  buildFilters();
+  buildUnifiedFilters();
   buildCodenameTable();
   render();
 }
@@ -270,7 +337,7 @@ function switchTech(tab) {
   expandedGroups.clear();
   activeSegmentTags.clear();
   activeBrandTags.clear();
-  activeGpuSegment = 'all';
+  activeGpuSegments.clear();
   dom.searchInput.value = '';
 
   dom.techTabCpu.classList.toggle('active', tab === 'cpu');
@@ -281,12 +348,10 @@ function switchTech(tab) {
     dom.pageHeader.innerHTML = `<h1 class="${cfg.headerClass}">${cfg.gpuTitle}</h1><p>Instinct · Radeon · Radeon PRO · FirePro</p>`;
     // Hide CPU-only UI
     dom.codenameTableWrap.innerHTML = '';
-    buildGpuLegend();
-    buildGpuFilters();
+    buildGpuUnifiedFilters();
   } else {
     dom.pageHeader.innerHTML = `<h1 class="${cfg.headerClass}">${cfg.title}</h1><p>Processor Architecture Generations</p>`;
-    buildLegend();
-    buildFilters();
+    buildUnifiedFilters();
     buildCodenameTable();
   }
   render();
@@ -342,176 +407,104 @@ function jumpToArch(id) {
   }, 100);
 }
 
-function buildLegend() {
+/**
+ * Single multi-select filter bar: Segment group + Brand group, divided, plus a Clear
+ * chip that appears only when something is selected.
+ *
+ * Replaces the old two-row design where the legend was multi-select and the button row
+ * was single-select for the same tags -- same labels, different behaviour, no way to tell.
+ * Everything here is multi-select; selections within a group are OR'd, and the two groups
+ * are AND'd together by applyFilters().
+ */
+function buildUnifiedFilters() {
   const cfg = VENDOR_CONFIG[currentVendor];
-  const el = dom.legendToggles;
-  let html = '';
-  cfg.segmentTags.forEach(t => {
-    html += `<div class="legend-item" data-tag-type="segment" data-tag="${t.tag}" style="--tag-color:${t.color}" onclick="toggleLegendTag(this)"><div class="legend-dot" style="background:${t.color}"></div>${t.label}</div>`;
-  });
-  html += '<div class="legend-sep"></div>';
-  cfg.brandTags.forEach(t => {
-    html += `<div class="legend-item" data-tag-type="brand" data-tag="${t.tag}" style="--tag-color:${t.color}" onclick="toggleLegendTag(this)"><div class="legend-dot" style="background:${t.color}"></div>${t.tag}</div>`;
-  });
-  el.innerHTML = html;
+  buildFilterBar([
+    { key: 'segment', label: 'Segment', set: activeSegmentTags,
+      tags: cfg.segmentTags.map(t => ({ tag: t.tag, label: t.label, color: t.color })) },
+    { key: 'brand', label: 'Brand', set: activeBrandTags,
+      tags: cfg.brandTags.map(t => ({ tag: t.tag, label: t.tag, color: t.color })) }
+  ]);
 }
 
-function buildFilters() {
-  const cfg = VENDOR_CONFIG[currentVendor];
-  const el = dom.filterControls;
-  el.innerHTML = cfg.filterButtons.map(f =>
-    `<button class="filter-btn${f === 'all' ? ' active' : ''}" data-filter="${f}">${f.charAt(0).toUpperCase() + f.slice(1)}</button>`
-  ).join('');
-  el.querySelectorAll('.filter-btn').forEach(btn => {
+/** GPU tab: one multi-select Segment group. GPU data has no clean second axis. */
+function buildGpuUnifiedFilters() {
+  buildFilterBar([
+    { key: 'segment', label: 'Segment', set: activeGpuSegments,
+      tags: GPU_SEGMENTS.map(t => ({ tag: t.tag, label: t.label, color: t.color })) }
+  ]);
+}
+
+/**
+ * Renders the unified multi-select filter bar.
+ *
+ * Shared by the CPU and GPU tabs so both behave identically. Within a group the
+ * selected tags are OR'd; separate groups are AND'd by applyFilters(). An empty
+ * group means "no constraint", so the bar needs no All button -- a Clear chip
+ * appears instead once anything is selected.
+ *
+ * @param {Array<{key:string,label:string,set:Set<string>,tags:Array<{tag:string,label:string,color:string}>}>} groups
+ */
+function buildFilterBar(groups) {
+  filterBarGroups = groups;
+
+  const chip = (key, t) =>
+    `<button class="fchip" data-tag-type="${key}" data-tag="${t.tag}" style="--tag-color:${t.color}" aria-pressed="false">
+       <span class="fchip-dot" style="background:${t.color}"></span>${t.label}
+     </button>`;
+
+  const html = groups.map(g =>
+    `<div class="fgroup" role="group" aria-label="Filter by ${g.label.toLowerCase()}">
+       <span class="fgroup-label">${g.label}</span>${g.tags.map(t => chip(g.key, t)).join('')}
+     </div>`
+  ).join('<div class="fgroup-sep"></div>');
+
+  // A single row reads best, but past ~10 chips it wraps around the divider and looks
+  // broken. Stack the groups instead once the bar gets crowded.
+  const chipCount = groups.reduce((n, g) => n + g.tags.length, 0);
+  const stacked = groups.length > 1 && chipCount > 10 ? ' stacked' : '';
+
+  dom.filterControls.innerHTML =
+    `<div class="filter-bar${stacked}">${html}<button class="fclear" id="filterClear" hidden>Clear filters</button></div>`;
+
+  const byKey = Object.fromEntries(groups.map(g => [g.key, g.set]));
+
+  dom.filterControls.querySelectorAll('.fchip').forEach(btn => {
     btn.addEventListener('click', () => {
-      el.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      if (filter === 'all') { activeSegmentTags.clear(); }
-      else { activeSegmentTags = new Set([filter]); }
-      syncLegendToggles();
+      const set = byKey[btn.dataset.tagType];
+      const tag = btn.dataset.tag;
+      set.has(tag) ? set.delete(tag) : set.add(tag);
+      syncUnifiedFilters();
       applyFilters();
     });
   });
+
+  dom.filterControls.querySelector('#filterClear').addEventListener('click', () => {
+    groups.forEach(g => g.set.clear());
+    syncUnifiedFilters();
+    applyFilters();
+  });
+
+  syncUnifiedFilters();
 }
 
-function buildGpuLegend() {
-  const el = dom.legendToggles;
-  const segments = [
-    { tag: 'datacenter', label: 'Datacenter', color: '#ef4444' },
-    { tag: 'workstation', label: 'Workstation', color: '#818cf8' },
-    { tag: 'consumer', label: 'Consumer', color: '#10b981' }
-  ];
+/** Repaint chip states + show/hide the Clear chip. */
+function syncUnifiedFilters() {
+  if (!filterBarGroups.length) return;
+  const anyActive = filterBarGroups.some(g => g.set.size > 0);
+  const byKey = Object.fromEntries(filterBarGroups.map(g => [g.key, g.set]));
 
-  const formFactors = [
-    { tag: 'pcie', label: 'PCIe', color: '#60a5fa' },
-    { tag: 'oam', label: 'OAM', color: '#f59e0b' }
-  ];
-
-  let html = '';
-  segments.forEach(t => {
-    html += `<div class="legend-item gpu-legend-segment" data-tag="${t.tag}" style="--tag-color:${t.color}"><div class="legend-dot" style="background:${t.color}"></div>${t.label}</div>`;
-  });
-  html += '<div class="legend-sep"></div>';
-  formFactors.forEach(t => {
-    html += `<div class="legend-item gpu-legend-form" data-tag="${t.tag}" style="--tag-color:${t.color}"><div class="legend-dot" style="background:${t.color}"></div>${t.label}</div>`;
-  });
-  el.innerHTML = html;
-}
-
-// Update GPU legend to reflect active filters
-function updateGpuLegend() {
-  // Update segment indicators
-  document.querySelectorAll('.gpu-legend-segment').forEach(item => {
-    if (item.dataset.tag === activeGpuSegment) {
-      item.classList.add('active');
-    } else {
-      item.classList.remove('active');
-    }
+  dom.filterControls.querySelectorAll('.fchip').forEach(btn => {
+    const set = byKey[btn.dataset.tagType];
+    if (!set) return;
+    const on = set.has(btn.dataset.tag);
+    btn.classList.toggle('active', on);
+    // dim unselected chips only within a group that has a selection
+    btn.classList.toggle('inactive', !on && set.size > 0);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
   });
 
-  // Update form factor indicators
-  document.querySelectorAll('.gpu-legend-form').forEach(item => {
-    if (item.dataset.tag === activeGpuFormFactor) {
-      item.classList.add('active');
-    } else {
-      item.classList.remove('active');
-    }
-  });
-}
-
-function buildGpuFilters() {
-  activeGpuSegment = 'all';
-  activeGpuFormFactor = 'all';
-  const el = document.getElementById('filterControls');
-
-  // Segment filters
-  const segmentButtons = ['all', 'datacenter', 'workstation', 'consumer'];
-  const segmentHtml = segmentButtons.map(f =>
-    `<button class="filter-btn${f === 'all' ? ' active' : ''}" data-filter-type="segment" data-filter="${f}">${f.charAt(0).toUpperCase() + f.slice(1)}</button>`
-  ).join('');
-
-  // Form factor filters
-  const formButtons = ['pcie', 'oam'];
-  const formHtml = formButtons.map(f =>
-    `<button class="filter-btn" data-filter-type="form" data-filter="${f}">${f.toUpperCase()}</button>`
-  ).join('');
-
-  el.innerHTML = segmentHtml + '<div class="filter-divider"></div>' + formHtml;
-
-  el.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filterType = btn.dataset.filterType;
-      const filterValue = btn.dataset.filter;
-
-      if (filterType === 'segment') {
-        // Clear other segment buttons
-        el.querySelectorAll('[data-filter-type="segment"]').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeGpuSegment = filterValue;
-      } else if (filterType === 'form') {
-        // Toggle form factor button
-        if (btn.classList.contains('active')) {
-          btn.classList.remove('active');
-          activeGpuFormFactor = 'all';
-        } else {
-          el.querySelectorAll('[data-filter-type="form"]').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          activeGpuFormFactor = filterValue;
-        }
-      }
-      updateGpuLegend();
-      applyFilters();
-    });
-  });
-}
-
-// ════════════════════════════════════════
-// LEGEND TOGGLE LOGIC
-// ════════════════════════════════════════
-function toggleLegendTag(el) {
-  const tagType = el.dataset.tagType;
-  const tag = el.dataset.tag;
-  const targetSet = tagType === 'segment' ? activeSegmentTags : activeBrandTags;
-  if (targetSet.has(tag)) { targetSet.delete(tag); el.classList.remove('active'); }
-  else { targetSet.add(tag); el.classList.add('active'); }
-
-  if (tagType === 'segment') {
-    const allSegs = VENDOR_CONFIG[currentVendor].segmentTags.map(t => t.tag);
-    const filterEl = dom.filterControls;
-    filterEl.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    if (activeSegmentTags.size === 0) {
-      filterEl.querySelector('[data-filter="all"]')?.classList.add('active');
-    } else if (activeSegmentTags.size === 1) {
-      const v = [...activeSegmentTags][0];
-      filterEl.querySelector(`[data-filter="${v}"]`)?.classList.add('active');
-    }
-  }
-  updateLegendDimming();
-  applyFilters();
-}
-
-function updateLegendDimming() {
-  document.querySelectorAll('#legendToggles .legend-item').forEach(el => {
-    const tagType = el.dataset.tagType;
-    if (!tagType) return;
-    const tag = el.dataset.tag;
-    const targetSet = tagType === 'segment' ? activeSegmentTags : activeBrandTags;
-    el.classList.remove('inactive');
-    if (targetSet.size > 0 && !targetSet.has(tag)) el.classList.add('inactive');
-  });
-}
-
-function syncLegendToggles() {
-  document.querySelectorAll('#legendToggles .legend-item').forEach(el => {
-    const tagType = el.dataset.tagType;
-    if (!tagType) return;
-    const tag = el.dataset.tag;
-    const targetSet = tagType === 'segment' ? activeSegmentTags : activeBrandTags;
-    el.classList.toggle('active', targetSet.has(tag));
-    el.classList.remove('inactive');
-  });
-  updateLegendDimming();
+  const clearBtn = dom.filterControls.querySelector('#filterClear');
+  if (clearBtn) clearBtn.hidden = !anyActive;
 }
 
 // ════════════════════════════════════════
@@ -571,7 +564,7 @@ function render() {
         sku.desc,
         ...sku.tags,
         sku.brand || '',
-        ...((AMD_CPU_SPECS && AMD_CPU_SPECS[sku.name]) ? AMD_CPU_SPECS[sku.name].map(m => m.n) : (INTEL_CPU_SPECS && INTEL_CPU_SPECS[sku.name]) ? INTEL_CPU_SPECS[sku.name].map(m => m.n) : [])
+        ...((AMD_CPU_SPECS && AMD_CPU_SPECS[sku.name]) ? AMD_CPU_SPECS[sku.name].map(cpuModelSearchText) : (INTEL_CPU_SPECS && INTEL_CPU_SPECS[sku.name]) ? INTEL_CPU_SPECS[sku.name].map(cpuModelSearchText) : [])
       ])
     ].join('|').toLowerCase();
 
@@ -605,7 +598,7 @@ function render() {
             const hasSpecs = cpuSpecs && cpuSpecs.length > 0;
             const specId = arch.id + '-' + sku.name.replace(/[^a-zA-Z0-9]/g, '_');
             return `
-            <div class="sku-card${hasSpecs ? ' has-specs' : ''}${arch.unreleased && !hasSpecs ? ' unreleased-sku' : ''}" style="--card-order: ${i * 2};" data-sku-tags="${sku.tags.join(',')}" data-sku-brand="${sku.brand || ''}" ${hasSpecs ? `onclick="toggleCpuSpecs('${specId}')"` : ''}>
+            <div class="sku-card${hasSpecs ? ' has-specs' : ''}${arch.unreleased && !hasSpecs ? ' unreleased-sku' : ''}" style="--card-order: ${i * 2};" data-sku-tags="${sku.tags.join(',')}" data-sku-brand="${sku.brand || ''}" data-sku-name="${escHtml(sku.name)}" ${hasSpecs ? `onclick="toggleCpuSpecs('${specId}')"` : ''}>
               <div class="sku-name">${sku.name}${hasSpecs ? `<span class="sku-spec-count">${cpuSpecs.length} SKUs</span>` : arch.unreleased ? '<span class="unreleased-notice">No specs yet</span>' : ''}</div>
               <div class="sku-desc">${sku.desc}</div>
               <div class="sku-tags">
@@ -707,17 +700,15 @@ function renderGpu(timeline, data) {
     animIndex++;
 
     // Store filter metadata for CSS-based filtering
-    const gpuSegment = arch.segment || 'datacenter'; // Use segment from data (datacenter, workstation, consumer)
-    const modelText = (specs.consumer || specs.workstation)
-      ? specs.models.map(m => `${m.name} ${m.cu} ${m.mem} ${m.memType} ${m.fp32} ${m.boost || ''}`)
-      : specs.models.map(m => `${m.name} ${m.arch} ${m.process} ${m.mem} ${m.memType}`);
+    const gpuSegment = gpuSegmentOf(arch); // datacenter | workstation | consumer | mobile
+    // Mirrors CPU_SEARCH_FIELDS: name plus the fields people search by, including
+    // form factor (OAM / PCIe), TBP and bandwidth, which were previously unindexed.
+    const modelText = specs.models.map(m =>
+      [m.name, m.arch, m.process, m.mem, m.memType, m.form, m.tbp, m.bw, m.pcie]
+        .filter(Boolean).join(' '));
     const searchText = [arch.arch, arch.subtitle || '', specs.family, specs.desc, ...modelText].join('|').toLowerCase();
 
-    // Collect unique form factors from all models
-    const formFactors = [...new Set(specs.models.map(m => m.form).filter(Boolean))].join(',');
-
     group.dataset.gpuSegment = gpuSegment;
-    group.dataset.gpuForms = formFactors;
     group.dataset.searchText = searchText;
 
     group.innerHTML = `
@@ -725,7 +716,7 @@ function renderGpu(timeline, data) {
         <div class="timeline-dot"></div>
         <span class="arch-name">${arch.arch}</span>
         <span class="arch-year">${arch.year}</span>
-        <span class="arch-segment-badge ${gpuSegment === 'consumer' ? 'client-badge' : gpuSegment === 'workstation' ? 'workstation-badge' : 'server-badge'}">${gpuSegment.charAt(0).toUpperCase() + gpuSegment.slice(1)}</span>
+        <span class="arch-segment-badge ${gpuSegment === 'consumer' ? 'client-badge' : (gpuSegment === 'workstation' || gpuSegment === 'mobile') ? 'workstation-badge' : 'server-badge'}">${gpuSegment.charAt(0).toUpperCase() + gpuSegment.slice(1)}</span>
         <span class="expand-icon">▾</span>
         ${arch.subtitle ? `<div class="arch-subtitle">${arch.subtitle.replace(/ · /g, '<span class="sub-sep">·</span>')}</div>` : ''}
       </div>
@@ -739,7 +730,7 @@ function renderGpu(timeline, data) {
                   ? '<th>Model</th><th>CUs</th><th>SPs</th><th>Boost</th><th>Game Clock</th><th>VRAM</th><th>Type</th><th>Bus</th><th>Bandwidth</th><th>Cache</th><th>FP32</th><th>TBP</th>'
                   : specs.workstation
                   ? '<th>Model</th><th>CUs</th><th>SPs</th><th>Boost</th><th>VRAM</th><th>Type</th><th>Bus</th><th>Bandwidth</th><th>Cache</th><th>FP32</th><th>FP64</th><th>TBP</th>'
-                  : '<th>Model</th><th>Architecture</th><th>Process</th><th>CUs</th><th>Memory</th><th>Type</th><th>Bandwidth</th><th>FP32</th><th>FP32 Matrix</th><th>PCIe</th><th>Form</th><th>TBP</th>'
+                  : '<th>Model</th><th>Form</th><th>Architecture</th><th>Process</th><th>CUs</th><th>Memory</th><th>Type</th><th>Bandwidth</th><th>FP32</th><th>FP32 Matrix</th><th>PCIe</th><th>TBP</th>'
                 }
               </tr>
             </thead>
@@ -781,6 +772,7 @@ function renderGpu(timeline, data) {
                 : specs.models.map(m => `
                 <tr>
                   <td class="gpu-model-name">${m.name}</td>
+                  <td class="gpu-form-cell">${m.form || '—'}</td>
                   <td>${m.arch}</td>
                   <td>${m.process}</td>
                   <td>${m.cu}</td>
@@ -790,7 +782,6 @@ function renderGpu(timeline, data) {
                   <td class="gpu-val-highlight">${m.fp32}</td>
                   <td>${m.fp32m}</td>
                   <td>${m.pcie}</td>
-                  <td>${m.form}</td>
                   <td>${m.tbp}</td>
                 </tr>
               `).join('')
@@ -858,24 +849,13 @@ function applyFilters() {
     if (isGpu) {
       // GPU filtering
       const gpuSegment = group.dataset.gpuSegment;
-      const gpuForms = group.dataset.gpuForms; // Comma-separated list of form factors
       const searchText = group.dataset.searchText;
 
-      // Segment filter
-      if (activeGpuSegment !== 'all' && gpuSegment !== activeGpuSegment) {
+      // Segment filter (multi-select: empty set = show all)
+      if (activeGpuSegments.size > 0 && !activeGpuSegments.has(gpuSegment)) {
         visible = false;
       }
 
-      // Form factor filter
-      if (visible && activeGpuFormFactor !== 'all') {
-        const forms = gpuForms ? gpuForms.toLowerCase().split(',') : [];
-        const hasMatchingForm = forms.some(form => {
-          if (activeGpuFormFactor === 'pcie') return form.includes('pcie');
-          if (activeGpuFormFactor === 'oam') return form.includes('oam');
-          return false;
-        });
-        if (!hasMatchingForm) visible = false;
-      }
 
       // Search filter
       if (visible && searchTerm && !searchText.includes(searchTerm)) {
@@ -910,10 +890,10 @@ function applyFilters() {
           if (specsSource) {
             const skuCards = group.querySelectorAll('.sku-card');
             for (const skuCard of skuCards) {
-              const skuName = skuCard.querySelector('.sku-name')?.textContent?.split(/\d+\sSKUs/)[0].trim();
+              const skuName = skuCard.dataset.skuName;
               if (skuName && specsSource[skuName]) {
                 const cpuModels = specsSource[skuName];
-                if (cpuModels.some(m => m.n.toLowerCase().includes(searchTerm))) {
+                if (cpuModels.some(m => cpuModelMatches(m, searchTerm))) {
                   found = true;
                   break;
                 }
@@ -958,10 +938,10 @@ function applyFilters() {
           if (!found) {
             const specsSource = (currentVendor === 'amd' && AMD_CPU_SPECS) ? AMD_CPU_SPECS : (currentVendor === 'intel' && INTEL_CPU_SPECS) ? INTEL_CPU_SPECS : null;
             if (specsSource) {
-              const skuName = card.querySelector('.sku-name')?.textContent?.split(/\d+\sSKUs/)[0].trim();
+              const skuName = card.dataset.skuName;
               if (skuName && specsSource[skuName]) {
                 const cpuModels = specsSource[skuName];
-                found = cpuModels.some(m => m.n.toLowerCase().includes(searchTerm));
+                found = cpuModels.some(m => cpuModelMatches(m, searchTerm));
               }
             }
           }
@@ -1020,28 +1000,24 @@ function applyFilters() {
 // Highlight CPU spec table rows that match the search term
 function highlightSearchMatches(searchTerm) {
   // Clear all existing search highlights (but preserve manual selections)
-  document.querySelectorAll('.cpu-spec-table tbody tr').forEach(row => {
+  document.querySelectorAll('.cpu-spec-table tbody tr, .gpu-spec-table tbody tr').forEach(row => {
     row.classList.remove('search-match');
   });
 
   // If no search term, we're done
   if (!searchTerm) return;
 
-  // Highlight matching rows in CPU spec tables (works for all vendors)
-  if ((currentVendor === 'amd' && AMD_CPU_SPECS) || (currentVendor === 'intel' && INTEL_CPU_SPECS)) {
-    document.querySelectorAll('.cpu-spec-table tbody tr').forEach(row => {
-      const modelNameCell = row.querySelector('.cpu-model-name');
-      if (modelNameCell) {
-        const modelName = modelNameCell.textContent.toLowerCase();
-        if (modelName.includes(searchTerm)) {
-          // Only add yellow highlight if not manually selected (green)
-          if (!row.classList.contains('row-selected')) {
-            row.classList.add('search-match');
-          }
-        }
+  // Highlight matching rows across CPU and GPU spec tables. Matches on the whole row,
+  // not just the model name, so a search like "sp5" or "oam" highlights the rows whose
+  // socket / form-factor cell matched -- consistent with what the search now indexes.
+  document.querySelectorAll('.cpu-spec-table tbody tr, .gpu-spec-table tbody tr').forEach(row => {
+    if (row.textContent.toLowerCase().includes(searchTerm)) {
+      // Only add the amber highlight if the row isn't manually selected (green)
+      if (!row.classList.contains('row-selected')) {
+        row.classList.add('search-match');
       }
-    });
-  }
+    }
+  });
 }
 
 // Handle row selection in CPU spec tables
