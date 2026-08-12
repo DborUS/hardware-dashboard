@@ -26,3 +26,7 @@ debug*.html
 screenshots/
 archive/
 /data/
+
+# Python bytecode
+__pycache__/
+*.pyc
