@@ -6,8 +6,32 @@ This is how a new session picks up without re-deriving everything.
 **Last updated:** 2026-08-12 (session closed)
 **Current version:** 0.3.0 + unreleased work
 **Health:** Good — all tabs render, zero JS errors, smoke test passes
-**Uncommitted:** YES — a full day's work sits in the working tree. **Commit first thing
-next session** (see Suggested next steps #0) before making further changes.
+**Committed:** yes — 2026-08-12's work landed as `104c4bd` (day's work) and `e45f93a`
+(ignore bytecode), plus a `.gitignore` commit. Remote moved to `DborUS/hardware-dashboard`.
+Confirm with Daniel that the push to the new remote succeeded before building on top.
+
+---
+
+## Start here — first 5 minutes of a new session
+
+1. **Read `CLAUDE.md`, especially "Working efficiently here."** It has the sandbox
+   pitfalls that cost the most time. Don't skip it to save tokens; it pays for itself.
+2. **Ask Daniel whether the tree is committed** before editing. If the header above says
+   uncommitted, get that landed first — a day's work in an uncommitted tree is fragile.
+3. **Set up verification** (`docs/WORKFLOWS.md` Workflow 0, ~3 min) and run
+   `python3 tools/smoke-test.py` to confirm the baseline *before* changing anything.
+   If it already fails, say so rather than layering changes on top.
+4. **Don't re-audit.** Known issues below are current and were verified by running the
+   code, not by reading it. Items marked "won't fix" or "reviewed" are decided.
+
+**Cadence that worked:** small, verified increments. One change → smoke test →
+screenshot → tell Daniel what changed and what was verified → he commits. He'll happily
+go several rounds; he does not want a large unverified batch.
+
+**How Daniel works:** he spots real problems from the rendered page and asks *why*, not
+just for a fix. Explain the cause, classify it (cosmetic vs correctness), offer options
+with a recommendation, then implement the one he picks. He pushes back when a path looks
+wrong — he's usually right, so re-check rather than defend.
 
 ---
 
@@ -134,7 +158,20 @@ Key gotchas: `NODE_OPTIONS="--use-system-ca"` is required behind Zscaler; browse
 installed to native disk, not a network mount; `libXdamage1` may need manual extraction.
 
 **Git from the sandbox fails** on the mounted Windows folder (`Operation not permitted`).
-Daniel runs all git commands.
+Daniel runs all git commands. It can also leave a `.git/index.lock` behind that the
+sandbox cannot delete — if a git command from the sandbox fails, tell Daniel so he can
+`Remove-Item .git\index.lock`. Better: never run git from the sandbox.
+
+**Repo moved 2026-08-12.** Origin is now Daniel's AMD EMU account:
+`https://github.com/DborUS/hardware-dashboard.git` (private). The old personal repo
+`DanchuBorchik/hardware-dashboard` still holds the pre-2026-08-12 history and is the
+rollback safety net — don't delete it. Local `user.email` is set to `Daniel.Bor@amd.com`
+for this repo; the 29 pre-existing commits still carry the old personal Gmail, which was
+accepted rather than rewritten.
+
+**Credential gotcha:** pushing may fail with 403 if Windows hands over a cached
+`DanchuBorchik` credential. Fix is Credential Manager → Windows Credentials →
+`git:https://github.com` → Remove, then push and sign in as `DborUS`.
 
 ---
 
@@ -142,22 +179,8 @@ Daniel runs all git commands.
 
 No urgent fixes outstanding — the app is healthy. Ordered by value:
 
-0. **Commit 2026-08-12's work — do this before anything else.** A full day of changes is
-   uncommitted: project docs, two tools, the filter rework across all three tabs, the
-   search fix, and the Zen 6 / EPYC 9006 import. Suggested split if you'd rather not
-   land it as one commit:
-
-   ```powershell
-   cd C:\Users\dbor\dev\hardware-dashboard
-   git status --short
-   git add CLAUDE.md docs/ tools/ README.md
-   git commit -m "Add project docs, smoke test and CSV importer"
-   git add js/ css/ index.html CHANGELOG.md
-   git commit -m "Unify filters, extend search to spec fields, add Zen 6 / EPYC 9006"
-   ```
-
-   Verify with `git diff --stat --ignore-all-space` first — a plain `git diff` shows all
-   files as changed because of CRLF.
+0. **Confirm the push to `DborUS/hardware-dashboard` completed**, then update
+   `README.md` — it still cites the old repo URL and live-site link.
 
 1. **Accessibility pass** (#1) — the clear quality gap. Keyboard nav for collapsibles,
    ARIA labels, focus states.
@@ -168,9 +191,17 @@ No urgent fixes outstanding — the app is healthy. Ordered by value:
 4. **Housekeeping** — escape the notes textarea (#4), validate `getLinks()` (#5), remove
    the dead file (#7).
 
-Open question for Daniel: the AMD GitHub EMU move (see session log below) is unresolved.
-Repo is currently public with roadmap data including unreleased architectures; README
-states all sources are public.
+**Follow-ups from the repo move (2026-08-12):**
+
+- `README.md` still points at the old repo URL and the `danchuborchik.github.io` live
+  site. Both are stale — update to the `DborUS` repo, and to whatever hosting replaces
+  Pages.
+- **Hosting is unresolved.** Under a private EMU repo, GitHub Pages is likely
+  unavailable or restricted, so the dashboard may have no live URL. It still runs locally
+  via `python -m http.server 8084`. Worth confirming what EMU allows if Daniel shows this
+  to customers.
+- Decide what happens to the old public repo — archiving (Settings → Archive) makes it
+  read-only without losing history.
 
 ---
 

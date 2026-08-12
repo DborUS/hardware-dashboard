@@ -34,6 +34,92 @@ and customers who want to find a part and compare specs quickly.
 
 ---
 
+## Working efficiently here — read this before your first tool call
+
+Lessons from the 2026-08-12 session. Each of these cost real time; none are obvious from
+reading the code.
+
+### 1. The sandbox's view of these files is UNRELIABLE. Windows is the authority.
+
+The repo lives on a mounted Windows share. Reads through it can be **stale**, and writes
+can **silently truncate or not land at all**.
+
+Observed in one session: three docs were cut off mid-sentence by the `Edit` tool while
+reporting success; a `.gitignore` append looked absent to the sandbox but was actually
+present; `.git/config` appeared corrupted with null bytes but git on Windows parsed it
+fine; a stale `.git/index.lock` was left behind and could not be deleted
+(`Operation not permitted`).
+
+**Rules that follow:**
+
+- Write via `python3` in bash with an explicit read-back assertion, not the `Edit` tool:
+  ```python
+  open(p,'w',encoding='utf-8',newline='').write(out)
+  assert open(p,'r',encoding='utf-8',newline='').read() == out
+  ```
+- After any edit, sanity-check with `wc -l` and `tail -1` — truncation cuts the tail.
+- **When Daniel's terminal output contradicts your file reads, believe his terminal.**
+  Do not send him on a repair errand for a problem that only exists in your view. This
+  happened; he correctly called it out.
+- Never leave a `.git/*.lock` behind. If a git command from the sandbox fails midway,
+  tell Daniel immediately so he can remove it — you cannot.
+
+### 2. Don't run git from the sandbox at all.
+
+It fails on the mount and can leave locks. Make the edits; hand Daniel the commands.
+He runs every git operation.
+
+### 3. Match a data file's existing formatting exactly.
+
+`js/data/*.json` are **4-space indent, `ensure_ascii=True`** (`\uXXXX` escapes). Writing
+2-space or literal Unicode reformats every untouched record — a 469-line addition became
+a 1409-line diff. `tools/import-specs.py` handles this; hand edits must too.
+
+### 4. The recurring bug class: data values with no UI chip.
+
+A tag present in the data but missing from `VENDOR_CONFIG` is **silently unreachable by
+filter**. Hit three times (GPU form factors, then Intel `Xeon 6+` / `Xeon D` / `Atom`).
+Check after any data change:
+
+```bash
+python3 - <<'EOF'
+import json, re
+d = json.load(open('js/data/intel-data.json'))
+data = {s.get('brand') for a in d if 'era' not in a for s in a['skus'] if s.get('brand')}
+cfg  = set(re.findall(r"tag: '([^']+)'", open('js/script.js').read()))
+print("brands with no chip:", data - cfg or "none")
+EOF
+```
+
+Corollary: **segment counts must sum to the total.** GPU 7+9+22+4 = 42. If they don't,
+something is unreachable.
+
+### 5. Verify against the source data, not against the rendered page.
+
+The page happily renders wrong data. After an import, diff every field back against the
+CSV. After a filter change, check the arithmetic (does datacenter+mobile really equal
+11?). "It looks right" is not verification.
+
+### 6. Check whether a "bug" is cosmetic or a correctness problem — say which.
+
+Daniel triages on this distinction. The GPU table-layout issue was cosmetic (all values
+accurate, columns merely generic) and he closed it in one message. Intel `_srv` is a
+correctness issue and stayed open. Lead with that classification.
+
+### 7. Bump the cache-buster after any JS/CSS change.
+
+`index.html` has `js/script.js?v=YYYYMMDD-tag`. Without bumping it Daniel hard-refreshes
+and sees nothing change. It also doubles as a diagnostic: if view-source shows an old
+version string, he's loading a different directory than you edited.
+
+### 8. Ask before inventing a value, always.
+
+The Zen 6 process node wasn't in AMD's CSV. Putting "2 nm" in from general knowledge
+violated golden rule #1; it was removed and left blank until Daniel confirmed it. Blank
+is fine. Wrong is not.
+
+---
+
 ## Architecture in one pass
 
 Three files do everything:
