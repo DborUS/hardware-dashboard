@@ -6,6 +6,50 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- Keyboard accessibility for the timeline (2026-08-13):
+  - **Architecture headers and SKU cards are now keyboard-operable.** They were `<div>`s
+    with `onclick`, so browsers never placed them in the Tab order — 8 headers and 46
+    cards were mouse-only. Measured before: 0 of 54 reachable. After: 54 of 54.
+  - Added `role="button"`, `tabindex="0"`, `aria-expanded` and a descriptive `aria-label`
+    in `render()` and `renderGpu()`; `aria-expanded` is kept truthful by `syncExpanded()`
+    on every toggle path (`toggleGroup`, `toggleCpuSpecs`, `collapseAllSpecs`).
+  - `setupKeyboardHandlers()` activates any `role="button"` on Enter or Space using **one
+    delegated document listener**, matching the existing row-selection pattern rather
+    than binding ~54 individual handlers. Space is `preventDefault()`'d so it doesn't
+    scroll the page.
+  - Visible focus rings via `:focus-visible` (keyboard only, not on mouse click), using
+    each architecture's own `--arch-color`. Extended to tabs, toolbar buttons and search.
+  - New `#filterStatus` `aria-live="polite"` region announces result counts — e.g.
+    searching `epyc` announces "6 architectures shown". Kept to a single small node,
+    since live regions are watched continuously by the browser.
+  - Search input gained an `aria-label`; the clear "✕" became a real `<button>` with a
+    label (styling reset so it looks identical).
+  - **Performance verified unchanged** under identical conditions (clean load, nothing
+    expanded): `render()` 27.6 → 31.1 ms, `applyFilters()` 1.3 → 1.5 ms — within noise.
+    An initial reading of 70 ms was a measurement error: that run happened after
+    expanding an architecture, so `render()` was rebuilding a much larger open DOM.
+  - Spec-table rows (640) deliberately left non-focusable — making each tabbable would
+    mean 640 Tab presses to traverse one table. A roving-tabindex pattern would be the
+    right fix if that becomes desirable.
+
+### Changed
+- Rewrote `README.md` to describe the project as it actually is (2026-08-13):
+  - **Corrected factual errors**, not just stale links. It described GPU coverage as
+    "CDNA accelerators" when the data holds 42 families across consumer (22),
+    workstation (13) and datacenter (7); claimed an "Instinct" brand filter that has
+    never existed; and listed segment tags as one flat set when they differ per vendor.
+  - Added the two missing data files (`intel-cpu-specs.json`) and tool
+    (`tools/import-specs.py`); added Zen 6 / EPYC 9006 and the spec-field search.
+  - Repository link updated to `DborUS/hardware-dashboard`; removed the dead
+    `danchuborchik.github.io` Pages link and the GitHub Pages deployment instructions,
+    which don't apply to a private repo. Hosting noted as an open question.
+  - Documented that opening `index.html` directly yields a blank page (`fetch` is blocked
+    on `file://`) — a local server is required.
+  - Dropped the unverifiable performance figures, keeping the qualitative claims.
+  - Every count in the new README was taken from the data files, and all seven internal
+    doc links were checked to resolve.
+
+### Added
 - Zen 6 / EPYC 9006 "Venice" — 31 new server SKUs (2026-08-12):
   - New `zen6` architecture entry (2026, magenta `#ec4899` extending the warm end of the
     AMD accent progression), a `2026` era separator, and a codename-table row.
@@ -16,10 +60,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     (240 rows → 31 after `--filter "Series=EPYC 9006 Series"`).
   - **Every field of all 31 models was verified against the source CSV** — cores, threads,
     clocks, cache, TDP, socket, socket count, PCIe, memory and tray ID all match exactly.
-  - Subtitle is `EPYC 9006 (Venice) · SP7 / SP8`. **Process node deliberately omitted** —
-    AMD's CSV has no process/lithography column, and the house convention is to lead the
-    subtitle with the node. Add `TSMC 2 nm · ` to the front once confirmed from an
-    official source, and set `process` in the codename table (currently `—`).
+  - Subtitle is `TSMC 2 nm · EPYC 9006 (Venice) · SP7 / SP8`, following the house
+    convention of leading with the process node. AMD's CSV has no process/lithography
+    column, so the node was left blank until **Daniel confirmed 2 nm** — it was not
+    inferred. Codename table `process` set to `2 nm` at the same time.
 
 ### Fixed
 - SKU names ending in a digit broke spec-table search (2026-08-12):

@@ -223,6 +223,7 @@ function initDomCache() {
     searchClear: document.getElementById('searchClear'),
     pageHeader: document.getElementById('pageHeader'),
     filterControls: document.getElementById('filterControls'),
+    filterStatus: document.getElementById('filterStatus'),
     codenameTableWrap: document.getElementById('codenameTableWrap'),
     techTabs: document.getElementById('techTabs'),
     tabIntel: document.getElementById('tabIntel'),
@@ -580,7 +581,7 @@ function render() {
     else segBadge = '<span class="arch-segment-badge client-badge">Client</span><span class="arch-segment-badge server-badge">Server</span>';
 
     group.innerHTML = `
-      <div class="arch-header${arch.unreleased ? ' unreleased-arch' : ''}" onclick="toggleGroup('${arch.id}')">
+      <div class="arch-header${arch.unreleased ? ' unreleased-arch' : ''}" onclick="toggleGroup('${arch.id}')" role="button" tabindex="0" aria-expanded="${isExpanded}" aria-label="${escHtml(arch.arch)}, ${arch.year}">
         <div class="timeline-dot"></div>
         <span class="arch-name">${arch.arch}</span>
         <span class="arch-year">${arch.year}</span>
@@ -598,7 +599,7 @@ function render() {
             const hasSpecs = cpuSpecs && cpuSpecs.length > 0;
             const specId = arch.id + '-' + sku.name.replace(/[^a-zA-Z0-9]/g, '_');
             return `
-            <div class="sku-card${hasSpecs ? ' has-specs' : ''}${arch.unreleased && !hasSpecs ? ' unreleased-sku' : ''}" style="--card-order: ${i * 2};" data-sku-tags="${sku.tags.join(',')}" data-sku-brand="${sku.brand || ''}" data-sku-name="${escHtml(sku.name)}" ${hasSpecs ? `onclick="toggleCpuSpecs('${specId}')"` : ''}>
+            <div class="sku-card${hasSpecs ? ' has-specs' : ''}${arch.unreleased && !hasSpecs ? ' unreleased-sku' : ''}" style="--card-order: ${i * 2};" data-sku-tags="${sku.tags.join(',')}" data-sku-brand="${sku.brand || ''}" data-sku-name="${escHtml(sku.name)}" ${hasSpecs ? `onclick="toggleCpuSpecs('${specId}')" role="button" tabindex="0" aria-expanded="false" aria-label="${escHtml(sku.name)}, ${cpuSpecs.length} models"` : ''}>
               <div class="sku-name">${sku.name}${hasSpecs ? `<span class="sku-spec-count">${cpuSpecs.length} SKUs</span>` : arch.unreleased ? '<span class="unreleased-notice">No specs yet</span>' : ''}</div>
               <div class="sku-desc">${sku.desc}</div>
               <div class="sku-tags">
@@ -712,7 +713,7 @@ function renderGpu(timeline, data) {
     group.dataset.searchText = searchText;
 
     group.innerHTML = `
-      <div class="arch-header" onclick="toggleGroup('${arch.id}')">
+      <div class="arch-header" onclick="toggleGroup('${arch.id}')" role="button" tabindex="0" aria-expanded="${isExpanded}" aria-label="${escHtml(arch.arch)}, ${arch.year}">
         <div class="timeline-dot"></div>
         <span class="arch-name">${arch.arch}</span>
         <span class="arch-year">${arch.year}</span>
@@ -994,7 +995,23 @@ function applyFilters() {
   // Highlight matching rows in CPU spec tables
   highlightSearchMatches(searchTerm);
 
+  announceFilterResults();
+
   perfEnd('applyFilters');
+}
+
+/**
+ * Announces the visible result count to screen readers.
+ *
+ * Sighted users see filtering happen instantly; without this a screen-reader user gets
+ * no feedback that anything changed. Writes to a single small aria-live node -- keeping
+ * it small matters, since the browser watches that node for changes.
+ */
+function announceFilterResults() {
+  if (!dom.filterStatus) return;
+  const groups = dom.timeline.querySelectorAll('.arch-group:not(.hidden)').length;
+  const label = currentTechTab === 'gpu' ? 'GPU families' : 'architectures';
+  dom.filterStatus.textContent = `${groups} ${label} shown`;
 }
 
 // Highlight CPU spec table rows that match the search term
@@ -1018,6 +1035,28 @@ function highlightSearchMatches(searchTerm) {
       }
     }
   });
+}
+
+/**
+ * Makes every role="button" element activate on Enter/Space, the way a real <button>
+ * does. Uses ONE delegated listener rather than binding to each of the ~54 headers and
+ * cards, so this costs nothing as the dataset grows.
+ *
+ * Space is preventDefault()'d because its default action is to scroll the page.
+ */
+function setupKeyboardHandlers() {
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    const target = e.target.closest('[role="button"][tabindex]');
+    if (!target) return;
+    e.preventDefault();
+    target.click();   // reuse the existing onclick path -- no duplicated logic
+  });
+}
+
+/** Keeps aria-expanded truthful after a toggle, so screen readers track open/closed. */
+function syncExpanded(el, isOpen) {
+  if (el) el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
 // Handle row selection in CPU spec tables
@@ -1068,7 +1107,9 @@ function clearAllSelections() {
 // ════════════════════════════════════════
 function toggleGroup(id) {
   expandedGroups.has(id) ? expandedGroups.delete(id) : expandedGroups.add(id);
-  document.querySelector(`[data-id="${id}"]`)?.classList.toggle('expanded');
+  const group = document.querySelector(`[data-id="${id}"]`);
+  group?.classList.toggle('expanded');
+  syncExpanded(group?.querySelector('.arch-header'), expandedGroups.has(id));
 }
 function toggleCpuSpecs(specId) {
   const wrapper = document.getElementById('cpu-spec-' + specId);
@@ -1092,6 +1133,7 @@ function toggleCpuSpecs(specId) {
       const toggle = card.querySelector('.sku-spec-toggle');
       if (toggle) toggle.textContent = isNowOpen ? '▴ Specs' : '▾ Specs';
       card.classList.toggle('selected', isNowOpen);
+      syncExpanded(card, isNowOpen);
     }
 
     // Recalculate order for ALL open spec tables in this group
@@ -1134,6 +1176,7 @@ function collapseAllSpecs(archId) {
     if (card) {
       const toggle = card.querySelector('.sku-spec-toggle');
       if (toggle) toggle.textContent = '▾ Specs';
+      syncExpanded(card, false);
     }
   });
   updateCollapseBtn(group);
@@ -1177,6 +1220,7 @@ function removeLink(id, idx) {
 // Init DOM cache and event listeners
 initDomCache();
 setupRowSelectionHandlers();
+setupKeyboardHandlers();
 
 // Search (with debouncing for performance)
 const debouncedFilter = debounce(applyFilters, 300);

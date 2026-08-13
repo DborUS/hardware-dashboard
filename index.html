@@ -29,8 +29,8 @@
   </div>
   <div class="search-wrap">
     <span class="search-icon">⌕</span>
-    <input type="text" id="searchInput" placeholder="Search architectures, SKUs, brands...">
-    <span class="search-clear" id="searchClear">✕</span>
+    <input type="text" id="searchInput" placeholder="Search architectures, SKUs, brands..." aria-label="Search architectures, SKUs, brands and specifications">
+    <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
   </div>
   <div class="controls" id="filterControls"></div>
   <div class="toolbar">
@@ -39,9 +39,10 @@
     <button class="expand-all-btn" id="clearSelectionsBtn">Clear Selections</button>
   </div>
   <div id="codenameTableWrap"></div>
+  <div class="sr-only" id="filterStatus" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="timeline" id="timeline"></div>
 </div>
 
-<script src="js/script.js?v=20260812-zen6d"></script>
+<script src="js/script.js?v=20260813-a11y"></script>
 </body>
 </html>

@@ -1,60 +1,118 @@
 # Hardware Portal
 
-A comprehensive hub for navigating the modern Silicon landscape. This interactive web application provides detailed architectural timelines, specifications, and product information for Intel and AMD processors, as well as AMD GPU accelerators.
+An interactive dashboard for navigating the modern silicon landscape: AMD and Intel CPU
+architectures and the full AMD GPU line, placed on a timeline with expandable
+specification tables.
 
-## Purpose
+Built as a working reference for technical conversations — find a part, compare specs,
+and see where it sits generationally.
 
-Hardware Portal serves as a centralized reference for understanding the evolution and current state of x86 CPU architectures and CDNA GPU accelerators. It provides technical professionals, enthusiasts, and researchers with quick access to:
+## Coverage
 
-- Historical and current processor architectures
-- Detailed SKU specifications and segmentation
-- Architectural relationships and generational progressions
-- Market positioning and product differentiation
+| Tab | Architectures | Models |
+|---|---|---|
+| AMD CPU | 8 (Zen → Zen 6) | 640 |
+| Intel CPU | 19 (Comet Lake → Nova Lake, plus Xeon/Atom embedded) | 219 |
+| AMD GPU | 42 families | 258 |
+
+The GPU side is **not just Instinct** — it covers 22 consumer families (Radeon RX),
+13 workstation (Radeon PRO), and 7 datacenter (Instinct/CDNA).
+
+Newest entry: **Zen 6 / EPYC 9006 "Venice"** — 31 models across SP7 and SP8.
 
 ## Features
 
-- **Multi-Vendor Coverage**: Intel CPUs, AMD CPUs (Zen family), AMD GPU Accelerators (CDNA)
-- **Architectural Timeline**: Chronological view of processor generations and microarchitectures
-- **Segment Filtering**: Desktop, mobile, server, embedded, and workstation categories
-- **Brand Filtering**: Filter by product lines (Core, Xeon, Ryzen, EPYC, Threadripper, Instinct)
-- **Search**: Real-time search across architectures, SKUs, and specifications
-- **Expandable Specifications**: Detailed CPU/GPU spec tables with core counts, frequencies, TDP, and more
-- **Performance Optimized**: CSS-based filtering, lazy-loaded data, sub-5ms filter operations
+- **Timeline view** — architectures grouped by year, newest first, each with its own
+  accent colour and a client/server badge derived from its SKUs.
+- **Multi-select filtering** — one filter bar per tab. Tags within a group are OR'd,
+  groups are AND'd. CPU tabs filter by Segment and Brand; the GPU tab by Segment
+  (Datacenter / Workstation / Consumer / Mobile).
+- **Search across specs, not just names** — socket, TDP, PCIe, memory and tray product
+  ID are all indexed. Searching `sp5` finds every SP5 part and highlights the matching
+  table rows; `LGA1851`, `DDR5-6400` and `OAM` work the same way.
+- **Expandable spec tables** — cores, threads, clocks, cache, TDP, socket and
+  platform details. Click any row to mark it; shift-click to compare several.
+- **Per-architecture notes and links** — saved to `localStorage`, so they persist
+  between visits on that browser.
+- **Responsive** — three breakpoints; spec tables scroll horizontally on mobile.
 
-## Project Structure
+## Running it
+
+The dashboard fetches its data at runtime, so **opening `index.html` directly will not
+work** — browsers block `fetch` over `file://` and you'll get a blank page. Serve it:
+
+```bash
+cd hardware-dashboard
+python -m http.server 8084
+```
+
+Then open <http://localhost:8084>.
+
+After changing data or code, hard-refresh with **Ctrl+Shift+R**. The `?v=` string on the
+`script.js` tag in `index.html` is bumped on each change and doubles as a diagnostic — if
+view-source shows an old version, you're serving a different directory than you edited.
+
+**Hosting:** currently local-only. The repository is private, so GitHub Pages is not in
+use; a hosting decision is still open.
+
+## Project structure
 
 ```
-hardware_portal/
-├── index.html                      # Main entry point
-├── css/
-│   └── styles.css                  # Styling and animations
+hardware-dashboard/
+├── index.html                      # Static shell — JS fills the containers
+├── css/styles.css                  # All styling, tokens, animations
 ├── js/
-│   ├── script.js                   # Application logic
-│   └── data/                       # JSON data files (lazy-loaded)
-│       ├── intel-data.json         # Intel CPU architectures
-│       ├── amd-data.json           # AMD CPU architectures
-│       ├── amd-gpu-data.json       # AMD GPU accelerators
-│       └── amd-cpu-specs.json      # Detailed AMD CPU specifications
-├── docs/
-│   ├── PROJECT-STATE.md            # Living status + session log
-│   ├── WORKFLOWS.md                # Step-by-step task recipes
-│   ├── DESIGN-SYSTEM.md            # Colours, type, spacing, components
-│   ├── DATA-SCHEMA.md              # JSON contracts
-│   ├── MOBILE-TESTING.md           # Mobile test notes
-│   └── AUDIT-2026-02-14.md         # Historical audit (superseded)
+│   ├── script.js                   # All logic — config, render, filter, persistence
+│   └── data/                       # Fetched at runtime, cached per vendor
+│       ├── amd-data.json           # AMD CPU architectures + SKUs
+│       ├── intel-data.json         # Intel CPU architectures + SKUs
+│       ├── amd-gpu-data.json       # AMD GPU families + models
+│       ├── amd-cpu-specs.json      # AMD CPU models, keyed by SKU name
+│       └── intel-cpu-specs.json    # Intel CPU models, keyed by SKU name
 ├── tools/
-│   └── smoke-test.py               # Headless browser regression test
-├── CLAUDE.md                       # Start here when working on this project
-├── CHANGELOG.md                    # Version history and changes
-└── README.md                       # Documentation
+│   ├── smoke-test.py               # Headless regression test
+│   └── import-specs.py             # Vendor CSV → JSON importer
+├── docs/                           # See below
+├── CLAUDE.md                       # Conventions + gotchas — read first
+├── CHANGELOG.md
+└── README.md
 ```
 
-## Contributing
+`cpu-architecture-roadmap.html` is a dead file — the original single-page version, kept
+as history. Nothing links to it.
 
-Before making changes, read [`CLAUDE.md`](CLAUDE.md) for architecture and conventions,
-then [`docs/PROJECT-STATE.md`](docs/PROJECT-STATE.md) for current status.
+## Documentation
 
-Verify any change with the smoke test:
+| File | Purpose |
+|---|---|
+| [`CLAUDE.md`](CLAUDE.md) | Architecture, conventions, known issues. **Start here.** |
+| [`docs/PROJECT-STATE.md`](docs/PROJECT-STATE.md) | Living status + session log |
+| [`docs/WORKFLOWS.md`](docs/WORKFLOWS.md) | Step-by-step recipes for common tasks |
+| [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md) | Colours, type, spacing, components |
+| [`docs/DATA-SCHEMA.md`](docs/DATA-SCHEMA.md) | JSON contracts for every data file |
+| [`docs/MOBILE-TESTING.md`](docs/MOBILE-TESTING.md) | Mobile test notes |
+| [`docs/AUDIT-2026-02-14.md`](docs/AUDIT-2026-02-14.md) | Historical audit — superseded |
+
+## Adding data
+
+New silicon usually arrives as a CSV from a vendor specifications page. Use the importer
+rather than hand-editing JSON — it catches the failure modes that are otherwise silent
+(a SKU key that matches nothing, a brand with no filter chip, unit phrasing that drifts):
+
+```bash
+python3 tools/import-specs.py inspect specs.csv --target amd-cpu
+python3 tools/import-specs.py import specs.csv --target amd-cpu \
+    --sku "Venice SP7" --map map.json --server        # dry run
+python3 tools/import-specs.py import ... --write      # apply
+```
+
+Full walkthrough in [`docs/WORKFLOWS.md`](docs/WORKFLOWS.md) (Workflow 2b).
+
+**Never invent a specification.** Every value must come from an official vendor source.
+Omit an unknown field rather than guessing — a wrong spec in front of a customer is the
+worst failure this project can have.
+
+## Verifying changes
 
 ```bash
 pip install playwright
@@ -62,98 +120,32 @@ python3 -m playwright install chromium-headless-shell
 python3 tools/smoke-test.py --shots
 ```
 
-## Deployment
+Loads the real page, exercises every tab, reports element counts and JavaScript errors,
+and exits non-zero on failure. With `--shots` it also writes screenshots to
+`tools/screenshots/` — read them, since passing counts don't prove the layout is right.
 
-### Local Development
+Expected baseline: `amd_cpu_groups 8 · amd_cpu_skus 46 · amd_gpu_groups 42 ·
+intel_cpu_groups 19 · intel_cpu_skus 44 · spec_tables 47 · JS errors none`.
 
-Run a local web server in the project directory:
+## Technical notes
 
-```bash
-python3 -m http.server 8084
-```
+Vanilla HTML/CSS/JavaScript — no framework, no build step, no dependencies. Open it
+through a web server and it runs.
 
-Access at `http://localhost:8084`
+The core convention is **render once, then filter with CSS classes**: `render()` builds
+the entire DOM and stamps filter metadata as data attributes; `applyFilters()` only
+toggles a `.hidden` class. This keeps filtering under ~5 ms and is load-bearing — a
+feature that re-renders on every keystroke would undo it.
 
-### Production Deployment
+Data is lazy-loaded per vendor and cached. Search is debounced at 300 ms.
 
-**GitHub Pages:**
-1. Enable Pages in repository Settings
-2. Select `main` branch and `/ (root)` directory
-3. Site will be available at `https://username.github.io/repository-name/`
+Targets modern browsers with ES6 support (Chrome/Edge 90+, Firefox 88+, Safari 14+).
 
-**Static Hosting:**
-Upload all files to any static web host. The application requires no server-side processing or database. All data is loaded dynamically via JSON files.
+## Data sources
 
-## Data Management
-
-Architecture and SKU data is stored in JSON files located in `js/data/`:
-
-- **intel-data.json**: Intel CPU architectures and SKUs
-- **amd-data.json**: AMD CPU architectures and SKUs
-- **amd-gpu-data.json**: AMD GPU accelerators (CDNA)
-- **amd-cpu-specs.json**: Detailed specifications for AMD CPUs
-
-### Adding New Architectures
-
-Edit the appropriate JSON file and add entries following the existing schema:
-
-```json
-{
-  "id": "unique-identifier",
-  "arch": "Architecture Name",
-  "color": "#hexcolor",
-  "year": "2024",
-  "segment": "client|server|mobile|embedded",
-  "defaultLinks": [{"label": "Source", "url": "https://..."}],
-  "skus": [
-    {
-      "name": "Product SKU",
-      "desc": "Description",
-      "tags": ["desktop", "mobile"],
-      "brand": "Product Line"
-    }
-  ]
-}
-```
-
-Data is lazy-loaded on vendor switch and cached for performance.
-
-## Technical Architecture
-
-- **HTML5**: Semantic markup structure
-- **CSS3**: Custom properties, animations, responsive design
-- **Vanilla JavaScript**: Zero dependencies, pure ES6+
-- **Performance**:
-  - CSS-based filtering (95% faster than DOM re-rendering)
-  - Debounced search (300ms)
-  - DOM caching system
-  - Lazy-loaded JSON data with caching
-  - Sub-5ms filter operations
-
-## Performance Metrics
-
-- Initial load: ~200ms (excluding network)
-- Filter/search: <5ms
-- Vendor switch: ~200-300ms (includes data fetch on first load)
-- Animation duration: 450ms
-
-## Browser Compatibility
-
-Modern browsers with ES6+ support:
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Data Sources
-
-Architecture and specification data compiled from:
-- Official vendor documentation and roadmaps
-- Public processor specifications
-- Industry announcements and technical publications
-- Wikipedia and verified technical resources
+Compiled from official vendor specification pages and documentation, public processor
+specifications, and industry announcements.
 
 ## Repository
 
-**GitHub**: https://github.com/DanchuBorchik/hardware-dashboard
-**Live Site**: https://danchuborchik.github.io/hardware-dashboard/
+**GitHub:** https://github.com/DborUS/hardware-dashboard (private)

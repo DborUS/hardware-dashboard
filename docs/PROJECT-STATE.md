@@ -89,12 +89,20 @@ unreleased-architecture indicators.
 
 Verified against current code on 2026-08-12 — all reproducible.
 
-### 1. Accessibility — the biggest gap
-Four `aria-`/keyboard references in the entire codebase; zero in `index.html` and
-`styles.css`. Collapsible sections are click-only. Effectively unusable by keyboard or
-screen reader. Touch targets (44×44) and contrast are fine — it's interaction that's missing.
+### 1. ~~Accessibility — the biggest gap~~ — LARGELY FIXED 2026-08-13
+Architecture headers and SKU cards are now keyboard-operable (Tab to reach, Enter/Space
+to open), carry `role="button"` / `aria-expanded` / `aria-label`, and show a
+`:focus-visible` ring in the architecture's accent colour. A polite live region
+announces filter result counts. Verified: 54 of 54 targets reachable, up from 0.
 
-*Scope: medium. Well-defined, self-contained.*
+**Still open, smaller:**
+- Spec-table rows (640) are click-to-compare but not keyboard-reachable. Deliberate —
+  making each tabbable would mean 640 Tab presses to pass one table. Needs a roving
+  tabindex or arrow-key navigation if wanted.
+- No skip-link to jump past the filter bar to the timeline.
+- The codename quick-reference table's rows are click-to-jump, still mouse-only.
+- Not yet tested with a real screen reader (NVDA/JAWS/VoiceOver) — the markup is correct
+  and verified programmatically, but that isn't the same as hearing it.
 
 ### 2. ~~GPU form-factor filter hides 12 of 42 groups~~ — FIXED 2026-08-12
 Form-factor buttons removed; `Mobile` added as a fifth segment. Counts now sum to 42, so
@@ -178,9 +186,6 @@ accepted rather than rewritten.
 ## Suggested next steps
 
 No urgent fixes outstanding — the app is healthy. Ordered by value:
-
-0. **Confirm the push to `DborUS/hardware-dashboard` completed**, then update
-   `README.md` — it still cites the old repo URL and live-site link.
 
 1. **Accessibility pass** (#1) — the clear quality gap. Keyboard nav for collapsibles,
    ARIA labels, focus states.

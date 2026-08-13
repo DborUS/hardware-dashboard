@@ -195,14 +195,27 @@ Tables scroll horizontally rather than wrapping — 8px scrollbars for touch. Se
 
 ## Accessibility — current state
 
-Honest assessment: **this is the weakest area.** Four `aria-`/keyboard references in the
-whole codebase, none in `index.html` or `styles.css`.
+Substantially addressed on 2026-08-13.
 
-Done: 44×44px touch targets, sufficient contrast on the dark theme.
+**In place:** 44×44px touch targets; sufficient contrast on the dark theme; every
+interactive element reachable by Tab and activatable with Enter/Space; `role="button"`,
+`aria-expanded` and `aria-label` on architecture headers and SKU cards; `aria-pressed`
+on filter chips; `:focus-visible` rings; a polite live region (`#filterStatus`)
+announcing result counts.
 
-Missing: keyboard navigation for collapsibles (click-only), ARIA labels on search and
-filters, `aria-expanded` on expandable regions, focus indicators, live-region
-announcements for filter results.
+**Patterns to follow when adding UI:**
 
-When adding UI, at minimum: make it reachable by keyboard, give it an accessible name, and
-show a visible focus state. Don't add to the debt.
+- Prefer a real `<button>`. It gets keyboard access, focus and semantics for free — the
+  filter chips are buttons for exactly this reason. Reset its default chrome with
+  `background: none; border: 0; padding: 0; font-family: inherit`.
+- If a `<div>` must be clickable, it needs `role="button"`, `tabindex="0"`, an
+  `aria-label`, and `aria-expanded` when it toggles something. Activation is already
+  handled — `setupKeyboardHandlers()` catches Enter/Space on any `[role="button"][tabindex]`
+  via one delegated listener, so don't add per-element key handlers.
+- Use `:focus-visible`, never `:focus` — the latter shows an outline on mouse clicks too.
+  Use `var(--arch-color)` inside an architecture, `#60a5fa` for global chrome.
+- `.sr-only` hides content visually while leaving it available to screen readers.
+
+**Still open:** spec-table rows aren't keyboard-reachable (640 of them; needs a roving
+tabindex), there's no skip-link, the codename table's click-to-jump rows are mouse-only,
+and none of it has been tested with a real screen reader.

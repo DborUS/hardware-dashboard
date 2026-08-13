@@ -39,7 +39,7 @@
   .search-wrap input:focus { border-color: rgba(255,255,255,0.2); }
   .search-wrap input::placeholder { color: var(--text-muted); }
   .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem; }
-  .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.1rem; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, color 0.2s ease; }
+  .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.1rem; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, color 0.2s ease; background: none; border: 0; padding: 0; line-height: 1; font-family: inherit; }
   .search-clear.visible { opacity: 1; pointer-events: auto; }
   .search-clear:hover { color: var(--text-primary); }
 
@@ -58,6 +58,23 @@
   .fchip { display: inline-flex; align-items: center; gap: 7px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.3px; padding: 9px 15px; min-height: 40px; border-radius: 20px; border: 1px solid var(--border-subtle); background: var(--bg-card); color: var(--text-secondary); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, opacity 0.2s ease; }
   .fchip:hover { border-color: rgba(255,255,255,0.2); color: var(--text-primary); }
   .fchip:focus-visible { outline: 2px solid var(--tag-color, #60a5fa); outline-offset: 2px; }
+
+  /* ── Keyboard focus ──────────────────────────────────────────────
+     :focus-visible (not :focus) so the outline appears for keyboard users but not
+     on mouse clicks. Uses the architecture's own accent colour where available. */
+  .arch-header:focus-visible { outline: 2px solid var(--arch-color, #60a5fa); outline-offset: -2px; border-radius: 4px; }
+  .sku-card:focus-visible { outline: 2px solid var(--arch-color, #60a5fa); outline-offset: 2px; }
+  .expand-all-btn:focus-visible,
+  .vendor-tab:focus-visible,
+  .tech-tab:focus-visible,
+  .fclear:focus-visible,
+  .add-link-btn:focus-visible,
+  .link-remove-btn:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+  .search-wrap input:focus-visible { outline: 2px solid #60a5fa; outline-offset: 1px; }
+
+  /* Screen-reader-only: present to assistive tech, invisible on screen. */
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+             overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   .fchip.active { border-color: var(--tag-color); color: var(--text-primary); background: color-mix(in srgb, var(--tag-color) 14%, transparent); }
   .fchip.inactive { opacity: 0.4; }
   .fchip.inactive:hover { opacity: 0.75; }
