@@ -214,6 +214,262 @@ No urgent fixes outstanding — the app is healthy. Ordered by value:
 
 Newest first. One short entry per session — what changed, what was verified, what's next.
 
+### 2026-08-16e — Prototype audited against the ordering rule
+
+Applied golden rule #2 to all three sub-tabs. Audited every block rather than
+spot-fixing; found violations on Xeon and Graphics, none on Client.
+
+**Xeon — intra-tier performance order was wrong in four blocks.** Tier order was already
+correct, so `check-order.py` would not have caught these; they need the domain knowledge
+the script deliberately lacks.
+
+| Block | Was | Now | Why |
+|---|---|---|---|
+| Xeon 6 | SP → AP | **AP → SP** | AP is max core count (6900P/6900E), SP is mainstream |
+| Xeon 5 | XCC → MCC → SP | **XCC → SP → MCC** | MCC is the Gold tier, trails the Platinum entries |
+| Xeon 2 | SP → AP | **AP → SP** | AP is Platinum 9200, up to 56C |
+| Xeon W | W-2400 → W-3400 | **W-3400 → W-2400** | W-3400/3500 is the expert tier, up to 56C |
+
+**Graphics — the top level violated the rule outright.** Blocks ran Xe2 → Xe-HPG →
+Xe-HPC, so consumer Battlemage sat above datacenter Ponte Vecchio. Restructured into two
+eras, reusing the divider mechanism from the Client tab:
+
+```
+◇ DATA CENTER              HPC, AI and media acceleration
+    Xe-HPC — Ponte Vecchio    Max 1550 · 1350 · 1100
+    Xe-HPG — Flex Series      Flex 170 · Flex 140
+
+◇ WORKSTATION AND CONSUMER  Discrete Arc — newest architecture first
+    Xe2 — Battlemage          Arc Pro B60 · B50  |  Arc B580 · B570
+    Xe-HPG — Alchemist        Arc Pro A-series   |  Arc A-series · Mobile
+```
+
+**Flex split into its own block** as a consequence. It is Alchemist silicon, so it used
+to sit inside the Alchemist block — good for showing the shared ACM-G10 dies, but it
+forced datacenter parts under a consumer-led heading. The block note now carries the
+relationship in words ("the same DG2 silicon as the Arc A-series", and Alchemist points
+back with "Data Center Flex above is the same silicon"), which preserves the insight
+without breaking the ordering rule. Architecture filter chips renamed to match.
+
+**Client needed no changes** — desktop already led mobile, embedded already trailed, and
+HX → H → P → U was already in performance order.
+
+**Verified:** Xeon 12/26, Client 11/47, Graphics 4 blocks (was 3) / 12 families. Block
+order read back from the rendered DOM, not just the source. Zero JS errors. Main smoke
+test PASS.
+
+### 2026-08-16d — Datacenter-first ordering is now a golden rule
+
+Daniel: everything that enumerates parts should run **datacenter → client → desktop →
+mobile**, and within a tier the highest-performing part leads (Strix Halo above Strix
+Point). Rationale: the audience is datacenter presales, so a consumer part sitting above
+an EPYC part is a defect, not a nitpick.
+
+**Documented in four places**, each for a different moment:
+
+| Where | Why there |
+|---|---|
+| `CLAUDE.md` golden rule #2 | Read before the first tool call; rules renumbered 3–6 |
+| `CLAUDE.md` Data conventions | Where I look while editing a data file |
+| `docs/DATA-SCHEMA.md` — new "SKU ordering" section | The full rank table + worked example |
+| `docs/DESIGN-SYSTEM.md` | Visual rationale — the eye lands top-left |
+
+**The rank:** 0 datacenter · 1 workstation/HEDT · 2 desktop · 3 mobile · 4 handheld ·
+5 embedded. A multi-tag SKU takes its *strongest* tier, so `["desktop","pro"]` is
+workstation, not desktop. Threadripper and Xeon W are workstation regardless of tags.
+
+**New `tools/check-order.py`.** Enforces tier ordering across both data files; `--fix`
+prints the corrected sequence without writing. Deliberately does **not** check intra-tier
+performance order — knowing Strix Halo outranks Strix Point needs domain knowledge the
+script lacks, so that stays a review-time judgement. The script says so in its output
+rather than implying a clean run means fully-ordered data.
+
+**Two real violations found, both still unfixed** (data changes, left for Daniel to
+confirm):
+
+- **Zen 4** — `Phoenix` (desktop+laptop+pro) sits after `Dragon Range` (laptop).
+- **Raptor Lake (14th Gen)** — `Xeon E` and `Xeon W-2400/2500` are last in a list that
+  opens with desktop parts. Worst instance in the dataset: two server lines below
+  consumer silicon.
+
+**Prototype brought into line.** The Graphics tab violated the rule I had just written —
+Brand chips read `Arc · Arc Pro · Data Center` and Xe2/Xe-HPG blocks led with consumer
+cards. Reordered chips to `Data Center · Arc Pro · Arc`, and the brand-line `order` array
+so Data Center leads inside a block. Xeon and Client already complied.
+
+**Verified:** Graphics now reports "2 Data Center · 1 Arc Pro · 2 Arc" for Alchemist.
+All three tabs unchanged in counts. Zero JS errors. Main smoke test PASS.
+
+### 2026-08-16c — Graphics tab built (generation-first, not ARK-first)
+
+ARK organises GPU **segment-first**: Arc → Arc Pro → Data Center, then the letter.
+The prototype deliberately inverts that to **architecture-first**, matching Xeon and
+Client.
+
+**Why invert it.** Data Center **Flex is Alchemist silicon** — ACM-G10 / ACM-G11, the
+same DG2 dies as the Arc A-series. ARK files it three menus away, so the relationship is
+invisible. Architecture-first puts Flex 170 / 140 in the same block as the A-series,
+where the shared silicon shows. The letter already encodes the generation (B580 →
+Battlemage), so segment-first would scatter one architecture across three entries.
+
+```
+Xe2 — Battlemage    2024–25   Arc: B580 · B570        Arc Pro: B60 · B50
+Xe-HPG — Alchemist  2022–23   Arc: A-series ·  mobile  Arc Pro: A-series
+                              Data Center: Flex 170 · Flex 140
+Xe-HPC — Ponte Vecchio 2022–24 Data Center: Max 1550 · 1350 · 1100
+```
+
+**Graphics breaks the one-column-set-per-tab rule.** On Xeon and Client the spec-table
+columns are a property of the tab — that is what removed the `_srv` bug. Consumer,
+workstation and data-center GPU need genuinely different fields, so `V2_COLUMNS.graphics`
+is an object keyed by brand line and `v2Columns(tier)` resolves per card:
+
+| Brand line | Distinct columns |
+|---|---|
+| Arc | RT Units · XMX · Bus · PCIe |
+| Arc Pro | ECC · Form Factor |
+| Data Center | Xe Vector · Xe Matrix · Xe Link · Form Factor |
+
+Other tabs pass a plain array and are unaffected. The alternative — splitting Graphics
+into Client Graphics and Data Center sub-tabs — was rejected: four Intel sub-tabs for
+12 families is heavy, and it would re-scatter the Flex/A-series silicon link.
+
+**Also fixed:** a stray `.fgroup-sep` divider stranded at the end of a wrapped filter
+row. The bar now stacks at >8 chips *or* >2 groups, rather than >10 chips.
+
+**Two deliberate omissions.** No Xe3 / Celestial discrete block — Panther Lake ships Xe3
+integrated, but a discrete card is unannounced, and golden rule #1 says leave it out.
+No B770 either; Battlemage's high end went to Arc Pro B60, and the block note says so
+to pre-empt "why is the flagship missing".
+
+**Verified:** Graphics 3 architectures / 12 families, 5 brand sub-headings, all three
+column sets resolving correctly per card. Xeon 12/26 and Client 11/47 unchanged. Zero JS
+errors. Main smoke test PASS.
+
+### 2026-08-16b — Series blocks renamed and brand lines surfaced
+
+Follow-up to Daniel's review of the restructure. Two issues, both valid.
+
+**1. Block labels said "Core Ultra Series N".** The blocks already held both brand
+lines, but the label hid that — it read as if plain Core parts were missing. Renamed to
+**`Core / Core Ultra Series N`**, matching how ARK lists them as two entries.
+
+**2. Nova Lake was a floating block.** It is expected Series 4, so it now sits in a
+`Core / Core Ultra Series 4` block. Every entry in the Series era is now a Series block —
+no exceptions, which is what makes the era read cleanly.
+
+**Brand lines are now visible inside each block.** Cards group under `CORE ULTRA` and
+`CORE` sub-headings with a coloured rule, and the block header shows the mix
+("7 Core Ultra · 2 Core · 52 models"). Opt-in via `brandGroups: true` on the client tab
+only; Xeon and Graphics still render one flat grid.
+
+**Bug caught by screenshot, not by counts.** Sub-headings rendered *below* their cards.
+Cause: `.sku-card` uses `order: var(--card-order)` with card `i` at `i*2` and its spec
+wrapper at `i*2+1`, so a heading had no free slot between groups. Widened the stride to
+4 (`i*4` / `i*4+1`), leaving `start*4-2` for the heading. The counts passed the whole
+time — this is the case `CLAUDE.md` warns about: read the PNGs, don't trust the numbers.
+
+**Verified:** Client 11 gens / 47 codenames. 8 brand sub-headings; filtering to Core
+Ultra correctly drops it to 3. Headers read "7 Core Ultra · 2 Core" (S2), "3 Core Ultra ·
+1 Core" (S1). Xeon 12/26 and Graphics 4/7 unchanged. Zero JS errors. Main smoke test
+PASS at baseline.
+
+### 2026-08-16 — Client tab restructured around the branding change
+
+Daniel pointed at ARK's Core listing: it shows **"Intel Core processors (Series 1/2/3)"**
+— plain Core, no "Ultra". That exposed a real error in the prototype.
+
+**What I had wrong.** I treated Series 1/2/3 as a single Core Ultra line. There are two
+parallel lines per Series: **Core Ultra** = newest architecture, **plain Core** = rebadged
+older silicon. Both ship simultaneously under the same Series number.
+
+**Also corrected:** I previously told Daniel `Raptor Lake-U Refresh` (Core 5 220U /
+Core 7 250U) was a Series 1 part filed under 14th Gen. Wrong twice — the **2xx** model
+numbers make it Series **2**. The 1xx parts (Core 3 100U / 5 120U / 7 150U) are the
+Series 1 ones. Both now have cards under the correct Series.
+
+**The three eras, now explicit dividers in the timeline:**
+
+| Era | Branding | Blocks |
+|---|---|---|
+| Series branding | No generation number | Nova Lake, Series 3 / 2 / 1 |
+| Numbered generations | `Core i3/i5/i7/i9`, retired after 14th Gen | 14th → 10th Gen |
+| Outside the scheme | Never followed mainstream numbering | Core X-series, Atom / N |
+
+The 3→2→1→14th ordering Daniel flagged as incoherent was chronologically right but
+visually unexplained. The divider now states *why* the numbering restarts.
+
+**Two supporting changes:**
+
+- **Every card carries a `silicon:` line.** Arrow Lake-U reads `Meteor Lake derived ·
+  Intel 3` while its Series 2 siblings read `Arrow Lake · TSMC N3B`. Marketing names
+  hide this; an FAE needs it. The line is searchable.
+- **Brand chip split `Core Ultra` / `Core` / `Core i`.** Selecting `Core` isolates the
+  4 rebadged parts across both eras — impossible before, since `Core` and `Core Ultra`
+  were one tag.
+
+**Renderer additions:** `v2Era()` emits the dividers; `applyFilters()` hides an era
+heading whose generations are all filtered out, mirroring how the production page
+handles orphan year separators.
+
+**Verified:** Client 11 gens / 47 codenames (was 45). Brand=Core → 3 gens / 4 codenames,
+1 era visible. Brand=Core i → 5 gens / 22 codenames, 1 era visible. Xeon and Graphics
+unchanged. Zero JS errors. Main smoke test at baseline.
+
+**Still open:** whether Cascade Lake-AP (Platinum 9200) deserves its own Xeon 2 block;
+Core X-series spans four generations in one block; Graphics taxonomy is a first pass.
+
+**Hosting note:** `danchuborchik.github.io` still serves a **February** build
+(`v=20260215-2125`). The AMD repo `DborUS/hardware-dashboard` has no Pages site — 404.
+No live URL reflects current work, and nothing since 2026-08-13 is committed.
+
+### 2026-08-14 — Intel restructure prototype (`intel-v2.html`)
+
+Structure-only preview of the proposed Intel reorganisation. **No spec data** — every
+table renders its real column set with an empty body, deliberately, so the shape can be
+judged before the bulk CSV import fills it.
+
+**The proposal, in one line:** three sub-tabs (Xeon / Client / Graphics), each with
+generation blocks holding codename cards. Tier is a filter chip, not a nesting level.
+
+| Level | What it is | Example |
+|---|---|---|
+| Sub-tab | Product line — **also picks the spec-table columns** | Xeon |
+| Generation | Timeline block | Xeon 6, 14th Gen |
+| Codename | Today's SKU card | Granite Rapids AP |
+
+Three points worth carrying forward:
+
+- **Sub-tabs delete the `_srv` bug rather than fixing it.** Column layout becomes a
+  property of the tab, so the per-SKU `_srv` flag — currently `true` on all 219 Intel
+  parts, which is why the Core Ultra 9 285K renders server columns — stops existing.
+- **Tier stays out of the DOM.** It is already in every model name and searchable;
+  four sparse rows per generation reads worse than one chip. This is the one place the
+  prototype departs from the generation → tier → codename plan in
+  `docs/INTEL-RESTRUCTURE-PLAN.md`.
+- **Core Ultra Series 1/2/3 are the generation sequence continuing.** Intel retired the
+  numbered scheme after 14th Gen, so there is no "15th Gen". They sit at the top of the
+  same timeline, subtitled with the equivalence.
+
+**Files:** `intel-v2.html`, `js/intel-v2.js` (new, self-contained), plus a WIP vendor tab
+in `index.html` and `.vendor-tab-wip` styling in `css/styles.css`. `js/script.js` and all
+`js/data/*.json` are untouched — the prototype cannot destabilise `render()`, and deleting
+the two new files plus the tab removes it cleanly.
+
+**Verified:** Xeon 9 generations / 18 codenames · Client 11 / 45 · Graphics 4 / 7.
+Filters compose correctly (Mobile → 27 cards; + Core Ultra → 9). Search "tiger" isolates
+11th Gen. Spec tables open with the right column set and an empty body. Zero JS errors.
+Main smoke test unchanged at baseline (amd 8/46, intel 20/47, gpu 42, tables 47).
+
+**Fixed during review:** long codename titles ran under the SPECS toggle.
+
+**Open for Daniel:** does `Raptor Lake-U Refresh` (Core 5 220U / Core 7 250U) belong
+under 14th Gen — the silicon — or Core Ultra Series 1, which is how Intel sold it? The
+prototype files it under 14th Gen. Also unresolved: Core X-series spans four generations
+and 32→14 nm inside one block, and the Graphics tab taxonomy is a first pass only.
+
+**Not started:** the data migration itself. Nothing in `js/data/` has changed.
+
 ### 2026-08-12 — SESSION CLOSE SUMMARY
 Six pieces of work landed today, all verified, none committed:
 

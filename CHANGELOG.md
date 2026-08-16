@@ -6,6 +6,121 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **103 Intel CPU models imported from ARK exports** (2026-08-14) — the largest Intel
+  data addition since the original build. Intel went from 218 to **275 models** and
+  from 16 to **31 populated SKU cards**:
+
+  | Family | Models | Was |
+  |---|---|---|
+  | Arrow Lake-S | 20 | 3 |
+  | Comet Lake-S | 17 | 4 |
+  | Meteor Lake-U | 11 | **empty** |
+  | Meteor Lake-H | 9 | **empty** |
+  | Panther Lake High Power | 9 | **empty** |
+  | Lunar Lake | 9 | 8 |
+  | Arrow Lake-HX | 7 | 14 |
+  | Panther Lake | 6 | 3 |
+  | Arrow Lake-H | 5 | 8 |
+  | Arrow Lake-U | 4 | 6 |
+  | Arrow Lake-S Refresh | 3 | **new** |
+  | Arrow Lake-HX Refresh | 2 | **new** |
+  | Ice Lake-U | 1 | **new** |
+
+  - **Every one of 1,442 field comparisons verified against the source ARK export.**
+  - Meteor Lake had zero spec data across all three cards — the single largest hole in
+    the Intel dataset — and is now populated for H and U.
+  - New **Arrow Lake Refresh** architecture entry (2026) covering the Core Ultra 200S/HX
+    Plus parts launched in March 2026, with two SKU cards.
+  - New `Ice Lake-U` card on the Comet Lake generation: the i3-1005G1 is 10 nm Ice Lake,
+    not 14 nm Comet Lake, and was filed correctly rather than lumped in.
+
+- `tools/ark-compare.py --split RULES.json` — classifies rows from a multi-family export
+  into dashboard SKU keys (2026-08-14):
+  - ARK's compare list is **cumulative**: each export contains every SKU in the basket,
+    not just the family named in the file. The three uploads held 39 / 89 / 18 SKUs with
+    the second a superset of the first — 107 distinct parts across 13 families.
+  - Rules match on `collection|launch|suffix|name`. ARK groups by marketing collection
+    ("Core Ultra processors (Series 1)") while the dashboard keys on codename+segment
+    ("Meteor Lake-H"), so the suffix does the work: H/HL → -H, U/UL → -U, HX → -HX,
+    KPLUS → Refresh.
+  - De-duplicates repeated SKUs across exports (first occurrence wins).
+
+### Fixed
+- `tools/ark-compare.py` field handling, found by inspecting the rendered tables
+  (2026-08-14):
+  - **Mobile parts have no single base clock.** ARK leaves "Processor Base Frequency"
+    blank and gives per-core-type figures instead, so every mobile row rendered an em
+    dash. Now falls back to the P-core base, matching how Intel markets these.
+  - **GPU name was missing** — mobile exports label the field `GPU Name‡` (with a
+    dagger), which didn't match the mapping. 96 of 103 rows now carry an iGPU name.
+  - **Cache showed `18 MB Intel® Smart Cache`**; trimmed to `18 MB` to match existing rows.
+  - **Memory Types has two formats** — newer parts run variants together with no
+    separator (`...MT/sUp to DDR5...`), older ones use pipes. Both normalised.
+  - Noted: ARK truncates trailing empty cells, so a field row can be shorter than the
+    SKU list. 17 of the newest parts genuinely have no memory data published; those
+    render blank rather than borrowing a neighbour's value.
+
+### Fixed
+- Intel release-status corrections (2026-08-14):
+  - **Panther Lake** and **Clearwater Forest** were flagged `unreleased` with the red
+    diagonal-stripe treatment despite having shipped — Panther Lake at CES on
+    2026-01-05, Clearwater Forest at Computex on 2026-06-02. Flags removed, both dated
+    2026. This was the most visible error in the Intel tab.
+  - **Diamond Rapids** moved from `2025–2026` to **2027**; Intel confirmed the slip at
+    Computex 2026 (Xeon 7 on 18A-P). Still correctly flagged unreleased.
+  - **Nova Lake** moved from 2026 to **2027** — staggered rollout, flagship possibly
+    late 2027. Still unreleased.
+  - Added a `2027` era separator and retired the now-empty `2025 – 2026` one.
+  - Verified: 19 architectures before and after, no SKUs lost, only the four intended
+    entries differ.
+
+- Clearwater Forest spec data replaced with real ARK figures (2026-08-14):
+  - The five existing rows were **entirely fictional** — model names that don't exist
+    (`Xeon 6+ 9900E`, `9880E`, `9860E`, `9840E`, `9820E`), the wrong socket (`LGA4677`
+    vs the actual `FCLGA7529`), invented core counts, and `TBD` for every clock.
+  - Replaced with the four shipping SKUs (6960E+, 6970E+, 6980E+, 6990E+) sourced from
+    an official Intel ARK "Compare Products" export. 12 fields × 4 models verified
+    programmatically against the source: all match.
+  - Two render-only bugs found by screenshot after the data verification passed:
+    memory showed `/ 12ch / 12ch` (converter and renderer both appending channels), and
+    absent fields printed `undefined`. Added a guard and a `dash()` helper.
+
+### Fixed
+- Two regressions from the column work, both caught by Daniel (2026-08-14):
+  - **P/E core columns were appearing on AMD tables.** `render()` is shared by both
+    vendors, so adding the columns unconditionally gave every AMD row two em dashes for
+    a concept that doesn't exist on those parts. Now gated by `hasHybridCores()`, which
+    checks the spec rows rather than the vendor — an Intel family without the fields
+    also hides them. AMD is back to 12 columns, Intel server tables have 14.
+  - **Data-file edits didn't reach the browser.** `intel-data.json` and
+    `amd-cpu-specs.json` were fetched with no cache-buster, so a hard refresh still
+    served the stale copy — the cleared "Unreleased" flags appeared not to have applied.
+    Added a `DATA_VERSION` constant appended to every `js/data/*.json` fetch. Intel
+    specs had been using `Date.now()`, which defeated caching entirely; now consistent.
+
+### Added
+- Intel spec tables gained three columns (2026-08-14), per Daniel's request:
+  - **P-cores / E-cores** split out from the single Cores column, shown only on tables
+    whose data carries them. A real `0` is
+    meaningful (Clearwater Forest is 0 P / 288 E); unknown renders as an em dash.
+    An earlier version inferred "no hybrid data means all P-cores", which reported the
+    288-E-core Xeon 6780E as 288 P-cores — replaced with the honest fallback.
+  - **Sockets** column showing scalability (`1P`, `1P / 2P`), normalised from Intel's
+    bare `2` / ARK's `2S` to the style AMD rows already use. Socket type retained.
+  - **Memory channels** folded into the Memory column: `Up to 8000 MT/s / 12ch`.
+  - Intel server tables are now 14 columns; header and cell counts verified aligned.
+
+- `tools/ark-compare.py` — converts Intel ARK "Compare Products" CSV exports into
+  importer-ready rows (2026-08-14):
+  - ARK has no bulk CSV export, but its compare page (4 SKUs at a time) has an
+    "Export comparison" link producing official structured data with every field the
+    dashboard needs. This transposes it (ARK puts fields in rows, SKUs in columns) and
+    normalises to house style: `450 W` → `450W`, `Gen5` + `96` → `PCIe 5.0 x96`,
+    `8000 MHz` → `Up to 8000 MT/s`.
+  - Supersedes `tools/scrape-ark.py` for anything beyond headline specs — ARK *series*
+    pages carry only 6 columns and omit threads, socket, PCIe and memory entirely.
+
+### Added
 - Keyboard accessibility for the timeline (2026-08-13):
   - **Architecture headers and SKU cards are now keyboard-operable.** They were `<div>`s
     with `onclick`, so browsers never placed them in the Tab order — 8 headers and 46
