@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intel Roadmap (v2 prototype) — Structure Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  /* ── v2 prototype only ────────────────────────────────────────────────
+     Everything here is scoped to this page. Nothing overrides the shared
+     stylesheet, so deleting this file removes the prototype cleanly.       */
+
+  .v2-banner {
+    max-width: 1200px; margin: 0 auto 20px; padding: 12px 18px;
+    border: 1px dashed rgba(251,191,36,0.35); border-radius: 8px;
+    background: rgba(251,191,36,0.06);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+    color: #fbbf24; line-height: 1.6; letter-spacing: 0.3px;
+  }
+  .v2-banner strong { color: #fcd34d; }
+  .v2-banner a { color: #60a5fa; }
+
+  .v2-subtabs { display: flex; justify-content: center; gap: 0; margin-bottom: 18px; }
+  .v2-subtab {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 600;
+    padding: 10px 28px; min-height: 44px; cursor: pointer;
+    border: none; background: none; border-bottom: 3px solid transparent;
+    color: var(--text-muted); letter-spacing: 1px; transition: all 0.25s ease;
+  }
+  .v2-subtab:hover { color: var(--text-secondary); }
+  .v2-subtab.active { color: #60a5fa; border-bottom-color: #60a5fa; }
+  .v2-subtab:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+  .v2-subtab-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.1); align-self: center; margin: 0 4px; }
+
+  /* codename / model counts in the generation header */
+  .v2-count {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+    color: var(--text-secondary); letter-spacing: 0.5px;
+    padding: 3px 10px; border-radius: 4px; background: rgba(255,255,255,0.03);
+  }
+  .v2-count-dim { color: var(--text-muted); opacity: 0.7; }
+
+  .v2-status {
+    text-align: center; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: var(--text-muted); letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+
+  /* empty spec table — the point of the prototype */
+  .v2-empty-row td {
+    text-align: center; padding: 18px 10px !important;
+    color: var(--text-muted); font-style: italic; opacity: 0.6;
+    white-space: normal;
+  }
+  .v2-await { opacity: 0.5; font-style: italic; }
+
+  /* Long codename titles ran under the SPECS toggle; reserve the corner. */
+  .v2-subtabs ~ .timeline .sku-name,
+  #v2Timeline .sku-name { padding-right: 58px; }
+
+  /* Branding-era separator — marks where Intel changed naming schemes. */
+  .v2-era { position: relative; margin: 34px 0 14px; padding-left: 4px; }
+  .v2-era::before {
+    content: ''; position: absolute; left: -38px; top: 8px;
+    width: 12px; height: 12px; border-radius: 2px; transform: rotate(45deg);
+    background: var(--bg-primary); border: 2px solid rgba(255,255,255,0.22); z-index: 2;
+  }
+  .v2-era-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-secondary);
+  }
+  .v2-era-note {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+    color: var(--text-muted); margin-top: 3px; letter-spacing: 0.3px; line-height: 1.5;
+  }
+  .v2-era.hidden { display: none !important; }
+
+  /* Actual silicon behind a card — the thing marketing names obscure. */
+  .v2-silicon {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+    color: var(--text-muted); margin-top: 6px; opacity: 0.85; letter-spacing: 0.3px;
+  }
+  .v2-silicon::before { content: 'silicon: '; opacity: 0.55; }
+
+  /* Brand-line sub-heading inside a Series block (Core Ultra vs plain Core). */
+  .v2-brandline {
+    grid-column: 1 / -1; display: flex; align-items: center; gap: 10px;
+    margin: 10px 0 2px; order: var(--card-order, 0);
+  }
+  .v2-brandline:first-child { margin-top: 2px; }
+  .v2-brandline-name {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--arch-color); opacity: 0.85; white-space: nowrap;
+  }
+  .v2-brandline-rule {
+    flex: 1; height: 1px;
+    background: linear-gradient(to right, var(--arch-color), transparent);
+    opacity: 0.22;
+  }
+  .v2-brandline.hidden { display: none !important; }
+
+  .v2-tab-wip {
+    max-width: 700px; margin: 0 auto 18px; padding: 10px 16px; text-align: center;
+    border: 1px dashed rgba(148,163,184,0.25); border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    color: var(--text-muted); line-height: 1.6;
+  }
+  .v2-tab-wip[hidden] { display: none; }
+
+  .v2-back {
+    display: inline-block; margin-bottom: 16px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+    color: var(--text-muted); text-decoration: none; letter-spacing: 0.5px;
+  }
+  .v2-back:hover { color: var(--text-primary); }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="container">
+
+  <a class="v2-back" href="index.html">&larr; back to the live dashboard</a>
+
+  <div class="v2-banner">
+    <strong>STRUCTURE PROTOTYPE — no spec data.</strong><br>
+    Layout preview of the proposed Intel restructure: three sub-tabs, generation
+    blocks, codename cards. Spec tables render their real column set with an empty
+    body; data arrives later via bulk CSV import. Counts in each header come from
+    the current dataset and are indicative only.
+  </div>
+
+  <header>
+    <h1 class="header-intel" id="v2Title">Intel Xeon</h1>
+    <p id="v2Blurb">Server, workstation and embedded</p>
+  </header>
+
+  <div class="v2-subtabs" role="tablist" aria-label="Intel product line">
+    <button class="v2-subtab active" data-tab="xeon" role="tab">XEON</button>
+    <div class="v2-subtab-divider"></div>
+    <button class="v2-subtab" data-tab="client" role="tab">CLIENT</button>
+    <div class="v2-subtab-divider"></div>
+    <button class="v2-subtab" data-tab="graphics" role="tab">GRAPHICS</button>
+  </div>
+
+  <div class="v2-tab-wip" id="v2TabWip" hidden>
+    Graphics structure is a placeholder — generations and families here are a first
+    pass, not an agreed taxonomy.
+  </div>
+
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="v2Search" placeholder="Search generations, codenames..."
+           aria-label="Search generations and codenames">
+  </div>
+
+  <div class="controls"><div class="filter-bar" id="v2Filters"></div></div>
+
+  <div class="toolbar">
+    <button class="expand-all-btn" id="v2ExpandAll">Expand All</button>
+    <button class="expand-all-btn" id="v2CollapseAll">Collapse All</button>
+  </div>
+
+  <div class="v2-status" id="v2Status" role="status" aria-live="polite"></div>
+
+  <div class="timeline" id="v2Timeline"></div>
+</div>
+
+<script src="js/intel-v2.js?v=20260816-order"></script>
+</body>
+</html>

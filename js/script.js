@@ -2,6 +2,10 @@
 // DATA LOADING (Dynamic JSON Loading)
 // ════════════════════════════════════════
 
+// Bump when any js/data/*.json changes, so browsers refetch instead of serving a
+// stale copy. Mirrors the ?v= on the script tag in index.html.
+const DATA_VERSION = '20260816-order';
+
 // Cache for loaded data to avoid redundant fetches
 const dataCache = {};
 
@@ -37,7 +41,9 @@ async function loadVendorData(vendor) {
   loadingVendor = vendor;
 
   try {
-    const response = await fetch(`js/data/${vendor}-data.json`);
+    // Cache-bust: without this a browser happily serves a stale copy after a data
+    // edit, which looks exactly like "the change didn't apply".
+    const response = await fetch(`js/data/${vendor}-data.json?v=${DATA_VERSION}`);
 
     if (!response.ok) {
       throw new Error(`Failed to load ${vendor} data: ${response.statusText}`);
@@ -292,7 +298,7 @@ async function switchVendor(vendor) {
   // Load AMD CPU specs for detailed tables
   if (vendor === 'amd' && typeof AMD_CPU_SPECS === 'undefined') {
     try {
-      const response = await fetch('js/data/amd-cpu-specs.json');
+      const response = await fetch(`js/data/amd-cpu-specs.json?v=${DATA_VERSION}`);
       if (response.ok) {
         AMD_CPU_SPECS = await response.json();
         console.log('AMD_CPU_SPECS loaded:', Object.keys(AMD_CPU_SPECS).length, 'codenames');
@@ -305,7 +311,7 @@ async function switchVendor(vendor) {
   // Load Intel CPU specs for detailed tables
   if (vendor === 'intel' && typeof INTEL_CPU_SPECS === 'undefined') {
     try {
-      const response = await fetch('js/data/intel-cpu-specs.json?v=' + Date.now());
+      const response = await fetch(`js/data/intel-cpu-specs.json?v=${DATA_VERSION}`);
       if (response.ok) {
         INTEL_CPU_SPECS = await response.json();
         console.log('INTEL_CPU_SPECS loaded:', Object.keys(INTEL_CPU_SPECS).length, 'codenames');
@@ -612,18 +618,20 @@ function render() {
               <div class="cpu-spec-overflow">
                 <table class="cpu-spec-table">
                   <thead><tr>
-                    <th>Name</th><th>Cores</th><th>Threads</th><th>Boost</th><th>Base</th><th>L3</th><th>TDP</th><th>Socket</th>${cpuSpecs[0]._srv
-                      ? '<th>Sockets</th><th>PCIe</th><th>Memory</th>'
+                    <th>Name</th><th>Cores</th>${hasHybridCores(cpuSpecs) ? '<th>P-cores</th><th>E-cores</th>' : ''}<th>Threads</th><th>Boost</th><th>Base</th><th>L3</th><th>TDP</th>${cpuSpecs[0]._srv
+                      ? '<th>Socket</th><th>Sockets</th><th>PCIe</th><th>Memory</th>'
                       : '<th>GPU Model</th><th>GPU CUs</th><th>GPU Freq</th>'}<th>Product ID Tray</th>
                   </tr></thead>
                   <tbody>${cpuSpecs.map(m => `<tr>
                     <td class="cpu-model-name">${m.n}</td>
-                    <td class="cpu-val-highlight">${m.c}</td><td>${m.t}</td>
-                    <td class="cpu-val-highlight">${m.bst}</td><td>${m.bas}</td>
-                    <td>${m.l3}</td><td>${m.tdp}</td><td>${m.sk}</td>${m._srv
-                      ? `<td>${m.skc}</td><td>${m.pcie}</td><td>${m.mem}</td>`
-                      : `<td class="cpu-val-gpu">${m.gm}</td><td>${m.gc}</td><td>${m.gf}</td>`}
-                    <td>${m.tr}</td>
+                    <td class="cpu-val-highlight">${m.c}</td>
+                    ${hasHybridCores(cpuSpecs) ? `<td class="cpu-core-p">${coreCount(m, 'p')}</td><td class="cpu-core-e">${coreCount(m, 'e')}</td>` : ''}
+                    <td>${m.t}</td>
+                    <td class="cpu-val-highlight">${dash(m.bst)}</td><td>${dash(m.bas)}</td>
+                    <td>${dash(m.l3)}</td><td>${dash(m.tdp)}</td>${m._srv
+                      ? `<td>${dash(m.sk)}</td><td class="cpu-val-highlight">${socketCount(m)}</td><td>${dash(m.pcie)}</td><td>${memWithChannels(m)}</td>`
+                      : `<td class="cpu-val-gpu">${dash(m.gm)}</td><td>${dash(m.gc)}</td><td>${dash(m.gf)}</td>`}
+                    <td>${dash(m.tr)}</td>
                   </tr>`).join('')}</tbody>
                 </table>
               </div>
@@ -1187,6 +1195,70 @@ function updateCollapseBtn(group) {
   const hasOpen = group.querySelector('.cpu-spec-wrapper.open');
   btn.classList.toggle('visible', !!hasOpen);
 }
+/**
+ * P-core / E-core count for a model.
+ *
+ * Returns the stored value when the source supplied one -- including a legitimate
+ * "0", which is meaningful (Sierra Forest is 0 P-cores; a Xeon 6900P is 0 E-cores).
+ *
+ * When the record carries NEITHER field, returns an em dash. Do not be tempted to
+ * infer the split from the total core count: an earlier version assumed "no hybrid
+ * data means all P-cores", which reported the 288-E-core Xeon 6780E as 288 P-cores
+ * and every hybrid Core part as all-P. Unknown must look unknown.
+ *
+ * @param {Object} m - CPU model record
+ * @param {'p'|'e'} which - which core type to report
+ * @returns {string} the count, or '—' when the data doesn't say
+ */
+/**
+ * Does this SKU's model list carry P/E core data?
+ *
+ * The hybrid split is an Intel concept -- AMD parts have neither, so showing the
+ * columns there would mean two dashes on every row. Decided per spec table from the
+ * data itself rather than per vendor, so an Intel family without the fields also
+ * hides them instead of rendering an empty pair.
+ *
+ * @param {Array<Object>} models - the spec rows for one SKU
+ */
+function hasHybridCores(models) {
+  return models.some(m => m.pc !== undefined || m.ec !== undefined);
+}
+
+/** Render a missing/empty value as an em dash rather than 'undefined'. */
+function dash(v) {
+  return (v === undefined || v === null || v === '') ? '\u2014' : v;
+}
+
+function coreCount(m, which) {
+  const v = which === 'p' ? m.pc : m.ec;
+  return (v === undefined || v === '') ? '\u2014' : String(v);
+}
+
+/**
+ * Socket scalability, normalised to the "1P / 2P" style AMD rows already use.
+ * Intel's export gives a bare count ('1', '2') or ARK's '2S'.
+ */
+function socketCount(m) {
+  const v = String(m.skc ?? '').trim();
+  if (!v) return '—';
+  if (/[PS]/i.test(v)) return v.replace(/S\b/gi, 'P');   // '2S' -> '2P'
+  const n = parseInt(v, 10);
+  if (!Number.isFinite(n)) return v;
+  return n <= 1 ? '1P' : Array.from({ length: n }, (_, i) => `${i + 1}P`).join(' / ');
+}
+
+/**
+ * Memory speed with channel count appended, e.g. 'DDR5-6400 / 12ch'.
+ *
+ * Guards against double-appending: the ARK converter already folds channels into the
+ * Memory string, so appending `mc` again would render '... / 12ch / 12ch'.
+ */
+function memWithChannels(m) {
+  const mem = m.mem || '—';
+  if (!m.mc || /\/\s*\d+\s*ch/i.test(mem)) return mem;
+  return `${mem} / ${m.mc}ch`;
+}
+
 function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 function saveNotes(id, v) { try { localStorage.setItem(`roadmap-notes-${currentVendor}-${id}`, v); } catch(e) {} }
 function loadNotes(id) { try { return localStorage.getItem(`roadmap-notes-${currentVendor}-${id}`) || ''; } catch(e) { return ''; } }

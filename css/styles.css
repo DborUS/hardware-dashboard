@@ -27,6 +27,11 @@
   .vendor-tab.active-intel { color: #60a5fa; border-bottom-color: #60a5fa; }
   .vendor-tab.active-amd { color: #ef4444; border-bottom-color: #ef4444; }
   .vendor-tab-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.1); align-self: center; margin: 0 4px; }
+  /* Work-in-progress vendor tab (links to a prototype page, not a render target) */
+  .vendor-tab-wip { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-size: 1.05rem; opacity: 0.75; }
+  .vendor-tab-wip:hover { opacity: 1; color: #fbbf24; }
+  .wip-flag { font-size: 0.55rem; font-weight: 700; letter-spacing: 1px; padding: 2px 6px; border-radius: 3px;
+              color: #fbbf24; background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.3); }
 
   header { text-align: center; margin-bottom: 40px; }
   header h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 6px; }
@@ -111,7 +116,12 @@
     pointer-events: none;
     z-index: 0;
   }
-  .arch-header.unreleased-arch > * { position: relative; z-index: 1; }
+  /* Lift children above the ::before hatch overlay. `> *` would also catch
+     .timeline-dot, whose absolute positioning is load-bearing: forcing it to
+     relative made it a flex item, indenting the title by ~26px and pushing the
+     dot out of view under overflow:hidden. Exclude it -- it already sits at
+     z-index 2, above the overlay. */
+  .arch-header.unreleased-arch > *:not(.timeline-dot) { position: relative; z-index: 1; }
   .timeline-dot { position: absolute; left: -38px; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border-radius: 50%; border: 2px solid; background: var(--bg-primary); z-index: 2; transition: all 0.3s ease; }
   .arch-header:hover .timeline-dot { transform: translateY(-50%) scale(1.3); box-shadow: 0 0 12px currentColor; }
   .arch-name { font-family: 'JetBrains Mono', monospace; font-size: 1.15rem; font-weight: 600; letter-spacing: -0.3px; }

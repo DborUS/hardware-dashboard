@@ -17,6 +17,11 @@
     <button class="vendor-tab active-amd" id="tabAmd" onclick="switchVendor('amd')">AMD</button>
     <div class="vendor-tab-divider"></div>
     <button class="vendor-tab" id="tabIntel" onclick="switchVendor('intel')">Intel</button>
+    <div class="vendor-tab-divider"></div>
+    <!-- Structure prototype for the Intel restructure. Separate page so it cannot
+         destabilise render(); delete this tab + intel-v2.html to remove it. -->
+    <a class="vendor-tab vendor-tab-wip" href="intel-v2.html"
+       title="Structure prototype - no spec data">Intel v2 <span class="wip-flag">WIP</span></a>
   </div>
   <header id="pageHeader">
     <h1 class="header-intel">Intel Client + Server Roadmap</h1>
@@ -43,6 +48,6 @@
   <div class="timeline" id="timeline"></div>
 </div>
 
-<script src="js/script.js?v=20260813-a11y"></script>
+<script src="js/script.js?v=20260816-order"></script>
 </body>
 </html>
