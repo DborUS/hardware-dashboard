@@ -23,13 +23,18 @@ and customers who want to find a part and compare specs quickly.
    product IDs must come from a source Daniel provides or an official vendor page. If a
    value is unknown, leave the field out or ask — do not guess a plausible number. A wrong
    spec in front of a customer is the worst possible failure for this project.
-2. **Run the smoke test after every change.** `python3 tools/smoke-test.py` — see
+2. **Datacenter first, always.** Every SKU list, table and summary runs datacenter →
+   client → desktop → mobile, with the highest-performing part first inside a tier
+   (Strix Halo above Strix Point). This dashboard exists for datacenter presales — a
+   consumer part sitting above an EPYC part is a real defect, not a nitpick. Verify with
+   `python3 tools/check-order.py`.
+3. **Run the smoke test after every change.** `python3 tools/smoke-test.py` — see
    [Verifying your work](#verifying-your-work). No exceptions for "small" edits.
-3. **Never commit or push.** Daniel runs all git commands. Make the edits, then give him
+4. **Never commit or push.** Daniel runs all git commands. Make the edits, then give him
    the exact commands. See [Handing off](#handing-off).
-4. **Match the existing style.** This project has a strong, consistent visual identity.
+5. **Match the existing style.** This project has a strong, consistent visual identity.
    New UI must look like it was always there. See `docs/DESIGN-SYSTEM.md`.
-5. **Update `docs/PROJECT-STATE.md`** at the end of any working session, so the next
+6. **Update `docs/PROJECT-STATE.md`** at the end of any working session, so the next
    session can pick up cleanly.
 
 ---
@@ -228,6 +233,7 @@ You cannot see the browser. Run this instead — it loads the real page, clicks 
 every tab, and reports counts plus JS errors:
 
 ```bash
+python3 tools/check-order.py           # datacenter-first SKU ordering
 python3 tools/smoke-test.py            # pass/fail, exit code 0/1
 python3 tools/smoke-test.py --shots    # also writes tools/screenshots/*.png
 ```
@@ -306,6 +312,10 @@ is `git config core.autocrlf true`, but confirm with Daniel before changing his 
 
 **Data**
 - 2-space indent, matching existing files.
+- **Order SKUs datacenter → client → desktop → mobile, flagship first within a tier.**
+  Daniel's audience is datacenter presales; server parts lead every list. Arrays render
+  in file order — there is no sort in `render()`, so file order is the contract.
+  Check with `python3 tools/check-order.py`. See `docs/DATA-SCHEMA.md`.
 - Validate before handing off: `python3 -m json.tool js/data/<file>.json > /dev/null`
 
 ---
@@ -362,6 +372,6 @@ fixed in v0.2.0/v0.3.0. Read `docs/PROJECT-STATE.md` instead.
 | `docs/PROJECT-STATE.md` | Living status + session log. **Read second, update last.** |
 | `docs/WORKFLOWS.md` | Step-by-step recipes for common tasks |
 | `docs/DESIGN-SYSTEM.md` | Colours, type, spacing, component patterns |
-| `docs/DATA-SCHEMA.md` | JSON contracts for every data file |
+| `docs/DATA-SCHEMA.md` | JSON contracts + **SKU ordering rule** for every data file |
 | `docs/MOBILE-TESTING.md` | Existing mobile test notes |
 | `docs/AUDIT-2026-02-14.md` | Historical audit — largely superseded |

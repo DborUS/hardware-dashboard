@@ -246,12 +246,72 @@ parts but `"PCIe 3.0"` for some workstation parts. Worth normalising if you touc
 
 ---
 
+## SKU ordering within an architecture
+
+**Order every SKU list datacenter → client → desktop → mobile, and within a tier put the
+highest-performing part first.** This is a hard rule, not a preference — the dashboard's
+primary audience is datacenter presales, so the parts that matter most must not be
+buried below consumer silicon.
+
+Arrays render in file order. There is no sort in `render()`, deliberately — sorting would
+need a per-SKU rank field that duplicates what `tags` already says, and it would fight the
+hand-tuned ordering inside a tier. **File order is the contract.**
+
+### The rank
+
+| Rank | Tier | `tags` value | Example |
+|---|---|---|---|
+| 0 | Datacenter | `server` | Turin, Granite Rapids SP |
+| 1 | Workstation / HEDT | `desktop` + `pro`, Threadripper / Xeon W | Shimada Peak, Xeon W-2400 |
+| 2 | Desktop | `desktop` | Granite Ridge, Raptor Lake-S |
+| 3 | Mobile | `laptop` / `mobile` | Fire Range, Meteor Lake-H |
+| 4 | Handheld | `handheld` | Z2, Z1 |
+| 5 | Embedded / IoT | `embedded`, `iot` | Atom Embedded, Raptor Lake-E |
+
+A SKU carrying several tags takes its **strongest** tier — `["desktop","laptop","pro"]`
+ranks as workstation, not mobile.
+
+### Within a tier, highest performance first
+
+Rank alone is not enough. Inside a tier, order by relative performance so the flagship
+reads first:
+
+```
+Zen 5 mobile:  Strix Halo  →  Strix Point  →  Kraken Point  →  Gorgon Point
+               (40 CU,          (16 CU,         (cut-down)       (refresh)
+                halo part)       mainstream)
+```
+
+`Strix Halo` is the highest-performing Strix part, so it leads the mobile group even
+though all four share a tag. Same logic puts `Turin` before `Turin Dense`, and
+`Granite Rapids AP` before `Granite Rapids SP`.
+
+Where performance ordering is genuinely ambiguous — two parts aimed at different
+workloads rather than different performance points — fall back to core count, then
+launch date. Do not guess a ranking to satisfy the rule; ask.
+
+### Checking it
+
+```bash
+python3 tools/check-order.py            # all data files, exit 1 on violation
+python3 tools/check-order.py --fix      # print the corrected order (does not write)
+```
+
+Tier ordering is machine-checkable and the script enforces it. **Intra-tier performance
+ordering is not** — it needs domain knowledge the script does not have, so it stays a
+review-time judgement.
+
+---
+
 ## Adding data — checklist
 
 1. Insert in the right chronological position (newest first); add an era separator if it
    starts a new year.
 2. `id` unique and URL-safe.
 3. `tags` and `brand` use exact known values.
+3a. **Position by tier: datacenter → workstation → desktop → mobile → handheld →
+    embedded; highest-performing part first within a tier.** See *SKU ordering* above.
+    Verify with `python3 tools/check-order.py`.
 4. SKU `name` matches the specs-file key character-for-character.
 5. `_srv` set correctly — it picks the column layout.
 6. Units and phrasing match neighbouring rows.

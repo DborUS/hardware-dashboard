@@ -171,6 +171,16 @@ with `-webkit-overflow-scrolling: touch`. `.cpu-val-highlight` for headline numb
 **Legend pill** — fully rounded, coloured dot + label, `.active` and `.inactive` (dimmed
 when other tags are selected).
 
+**Reading order is datacenter-first.** Within an architecture, SKU cards run datacenter →
+workstation → desktop → mobile → handheld → embedded, flagship first inside each tier.
+The eye lands top-left, so that position belongs to the parts this dashboard exists to
+sell. Nothing enforces this at render time — cards emit in file order — so it is a data
+convention, checked by `tools/check-order.py`. Full rule in `docs/DATA-SCHEMA.md`.
+
+The same ordering applies to anything that enumerates parts: spec-table rows, filter
+chips, summary prose. A filter bar listing `Desktop · Mobile · Server` reads wrong;
+`Server · Desktop · Mobile` reads right.
+
 **Grid ordering trick:** SKU cards and their spec tables live in one CSS grid. Cards get
 `--card-order: i*2`, spec wrappers `--spec-order: i*2+1`. When a table opens,
 `toggleCpuSpecs()` recalculates order so the table lands at the end of its visual row.
