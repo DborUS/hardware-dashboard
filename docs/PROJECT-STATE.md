@@ -242,6 +242,62 @@ arrow-key navigation.
 
 Newest first. One short entry per session — what changed, what was verified, what's next.
 
+### 2026-08-16g — Xeon spec data imported (553 models)
+
+The Xeon sub-tab now renders real data. Client and Graphics remain empty by design.
+
+**Pipeline, all re-runnable:**
+
+```
+ARK exports  ->  tools/assign-xeon-codenames.py  ->  Xeon_Combined_With_Codenames.csv
+             ->  tools/import-xeon-specs.py      ->  js/data/intel-xeon-specs.json
+```
+
+604 SKUs in, 553 stored across 29 codenames. 51 excluded by Daniel's decisions:
+18 mobile Xeon W/E, 33 Broadwell-D. Zero unmapped.
+
+**Codenames are derived, never guessed.** Every rule keys off an objectively
+determined ARK field — socket, lithography, model number, launch quarter, vertical
+segment. Socket alone resolves the W/E/D lines; two sockets host two generations each
+(LGA2066 = W-21xx Skylake + W-22xx Cascade Lake; LGA1200 = W-12xx Comet + W-13xx
+Rocket) and split on model number.
+
+**P/E core counts are DERIVED from the product line.** ARK leaves
+`# of Efficiency-cores` blank or `0` on every Xeon — including the 288-core 6990E+.
+Reading it would report Sierra Forest and Clearwater Forest as zero-E-core parts.
+Core type comes from the codename instead: Sierra Forest and Clearwater Forest are E,
+everything else P.
+
+**13-column Xeon table:** Model · P-cores · E-cores · Threads · Base · Boost · L3 ·
+TDP · Sockets · Memory · Max Mem · PCIe · UPI. TDP renders `350W / 420W` where base and
+turbo both exist. 1DPC/2DPC dropped — Daniel's call.
+
+**Verified: 5,503 field comparisons, zero mismatches.** The checker re-parses the
+source CSV independently of the importer. Plus cross-generation plausibility: flagship
+cores 28→28→28→40→60→64→128 (monotonic), DDR4 through Ice Lake and DDR5 from Sapphire
+Rapids, PCIe 3→4→5, socket limits matching known platforms.
+
+**Three bugs the verification caught — none visible by eye:**
+
+1. **Skylake-W reported the slowest memory speed.** ARK gives
+   `DDR4 1600/1866/2133/2400/2666` as a slash list; the regex matched the first number,
+   so all 8 W-21xx parts showed DDR4-1600 instead of DDR4-2666. Wrong by 40%.
+2. **`Xeon 6516P-B` lost its PCIe lanes** — ARK publishes lanes but no revision, and the
+   formatter returned a dash unless both existed.
+3. **Bare `8800 MT/s`** with no DDR generation, because the MHz branch did not match
+   MT/s strings.
+
+ARK formats are inconsistent across ten years of exports — `Scalability` has 9 spellings
+for 8 states, `Cache` had 143 non-standard forms including bare kilobyte integers. Every
+normaliser passes unknown shapes through unchanged and `--audit` reports them; currently
+zero fall through.
+
+**Smoke test now asserts `intel_xeon_models: 553`**, so silent data loss fails the build.
+
+**Four cards render "No spec data yet":** Diamond Rapids and Diamond Rapids HBM
+(unreleased), Sierra Forest AP and Sapphire Rapids HBM (ARK pages not yet exported —
+Xeon 6900E and Xeon Max 9400).
+
 ### 2026-08-16f — v2 promoted to the main Intel tab
 
 The prototype is now the Intel tab. `intel-v2.html` is a redirect stub (sandbox cannot

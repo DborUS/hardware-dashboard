@@ -40,12 +40,13 @@ EXPECT = {
     # Intel uses the generation-first renderer (js/intel-v2.js): generation
     # blocks, not codename blocks, across three sub-tabs. Spec tables render
     # empty until the bulk CSV import lands, so no model-count check here.
-    "intel_xeon_groups": 12,
-    "intel_xeon_cards": 26,
+    "intel_xeon_groups": 11,
+    "intel_xeon_cards": 33,
     "intel_client_groups": 11,
     "intel_client_cards": 47,
     "intel_gfx_groups": 3,
     "intel_gfx_cards": 12,
+    "intel_xeon_models": 553,
 }
 
 
@@ -161,6 +162,12 @@ def main():
                 page.wait_for_timeout(900)
                 results[f"intel_{key}_groups"] = count(".arch-group")
                 results[f"intel_{key}_cards"] = count(".sku-card")
+                if tab == "xeon":
+                    page.click("#expandAllBtn")
+                    page.wait_for_timeout(1200)
+                    results["intel_xeon_models"] = count(".cpu-spec-table tbody tr") - count(".v2-empty-row")
+                    page.click("#collapseAllBtn")
+                    page.wait_for_timeout(500)
                 if args.shots:
                     page.screenshot(path=str(shots_dir / f"04-intel-{tab}.png"))
             # AMD chrome must not leak into the Intel tab

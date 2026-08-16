@@ -33,8 +33,8 @@
 // rather than fixing it.
 
 const V2_COLUMNS = {
-  xeon: ['Model', 'Cores', 'Threads', 'Base', 'Boost', 'L3 Cache', 'TDP',
-         'Socket', '1P / 2P', 'PCIe', 'Memory'],
+  xeon: ['Model', 'P-cores', 'E-cores', 'Threads', 'Base', 'Boost', 'L3 Cache',
+         'TDP', 'Sockets', 'Memory', 'Max Mem', 'PCIe', 'UPI'],
   client: ['Model', 'P-cores', 'E-cores', 'Threads', 'P Base / Boost',
            'E Base / Boost', 'L3 Cache', 'TDP (base/turbo)', 'iGPU',
            'Xe-cores', 'Memory'],
@@ -55,6 +55,35 @@ const V2_COLUMNS = {
  * Column set for one card. Every tab but Graphics uses a single flat list;
  * Graphics resolves by brand line, falling back to the first set defined.
  */
+// Loaded from js/data/intel-*-specs.json by v2LoadSpecs(). Keyed by the card
+// name, which is why V2_DATA family names and spec keys must stay identical.
+let V2_SPECS = {};
+
+// Field order per tab, parallel to V2_COLUMNS. Graphics has no data yet.
+const V2_FIELDS = {
+  xeon: ['n', 'pc', 'ec', 't', 'bas', 'bst', 'l3', 'tdp', 'skc', 'mem', 'cap', 'pcie', 'upi']
+};
+
+/**
+ * Fetch the spec file for a sub-tab. Cached; a missing file is not an error —
+ * Client and Graphics have no data yet and render empty column sets by design.
+ */
+async function v2LoadSpecs(tab) {
+  if (V2_SPECS[tab] !== undefined) return;
+  V2_SPECS[tab] = {};
+  if (!V2_FIELDS[tab]) return;
+  try {
+    const v = (typeof DATA_VERSION !== 'undefined') ? DATA_VERSION : Date.now();
+    const res = await fetch(`js/data/intel-${tab}-specs.json?v=${v}`);
+    if (res.ok) {
+      V2_SPECS[tab] = await res.json();
+      console.log(`V2_SPECS.${tab}:`, Object.keys(V2_SPECS[tab]).length, 'codenames');
+    }
+  } catch (err) {
+    console.warn(`could not load ${tab} specs:`, err);
+  }
+}
+
 function v2Columns(tier) {
   const c = V2_COLUMNS[v2Tab];
   return Array.isArray(c) ? c : (c[tier] || Object.values(c)[0]);
@@ -80,7 +109,7 @@ const V2_DATA = {
         ['Xeon 7',  '#f97316'], ['Xeon 6+', '#fb923c'], ['Xeon 6', '#ef4444'],
         ['Xeon 5',  '#a78bfa'], ['Xeon 4',  '#8b5cf6'], ['Xeon 3', '#7c3aed'],
         ['Xeon 2',  '#6366f1'], ['Xeon 1',  '#4f46e5'], ['Xeon W', '#34d399'],
-        ['Xeon D',  '#14b8a6'], ['Xeon E',  '#22d3ee'], ['Atom',   '#c084fc']
+        ['Xeon E',  '#22d3ee'], ['Xeon D',  '#14b8a6']
       ]},
       { label: 'Tier', key: 'tier', tags: [
         ['P-core', '#ef4444'], ['E-core', '#14b8a6'], ['Platinum', '#e2e8f0'],
@@ -94,67 +123,91 @@ const V2_DATA = {
       ]}
     ],
     gens: [
+      // Ordering: golden rule #2 — datacenter first, then workstation / edge.
+      // Codenames and SKU counts verified against the combined ARK export
+      // (604 SKUs) on 2026-08-16. Mobile Xeon W/E and Broadwell-D are out of
+      // scope per Daniel; the cutoff is drawn at the family boundary, so every
+      // part here is Skylake-era (2017) or newer.
+      { era: 'Xeon Scalable', eraNote: 'Socketed server — 1S through 8S' },
+
       { id: 'xeon7', name: 'Xeon 7', years: '2027', color: '#f97316',
         note: 'Unreleased — Diamond Rapids', unreleased: true, families: [
-        { name: 'Diamond Rapids',     desc: 'Next-gen P-core Xeon, successor to Granite Rapids', tier: 'P-core', seg: '2P', n: 8 },
-        { name: 'Diamond Rapids HBM', desc: 'High-bandwidth memory variant for AI / HPC',        tier: 'P-core', seg: '2P', n: 0 }
+        { name: 'Diamond Rapids',     desc: 'Next-gen P-core Xeon, successor to Granite Rapids', tier: 'P-core', seg: '2P', si: 'Diamond Rapids · Intel 18A', n: 0 },
+        { name: 'Diamond Rapids HBM', desc: 'High-bandwidth memory variant for AI / HPC',        tier: 'P-core', seg: '2P', si: 'Diamond Rapids · Intel 18A', n: 0 }
       ]},
+
       { id: 'xeon6p', name: 'Xeon 6+', years: '2026', color: '#fb923c',
         note: 'Refreshed E-core line on Intel 18A', families: [
-        { name: 'Clearwater Forest', desc: 'Up to 288 E-cores, Intel 18A, FCLGA7529', tier: 'E-core', seg: '2P', n: 4 }
+        { name: 'Clearwater Forest', desc: 'Up to 288 E-cores, FCLGA7529', tier: 'E-core', seg: '2P', si: 'Clearwater Forest · Intel 18A', n: 4 }
       ]},
-      { id: 'xeon6', name: 'Xeon 6', years: '2024 – 2025', color: '#ef4444',
+
+      { id: 'xeon6', name: 'Xeon 6', years: '2024 – 2026', color: '#ef4444',
         note: 'First split into P-core and E-core product lines', families: [
-        { name: 'Granite Rapids AP', desc: 'Xeon 6900P — max core count, LGA 7529',           tier: 'P-core', seg: '2P',  n: 0 },
-        { name: 'Granite Rapids SP', desc: 'Xeon 6700P — mainstream P-core, LGA 4710',        tier: 'P-core', seg: '2P',  n: 7 },
-        { name: 'Granite Rapids D',  desc: 'Xeon 6 SoC for edge and networking',              tier: 'P-core', seg: 'Edge', n: 0 },
-        { name: 'Sierra Forest AP',  desc: 'Xeon 6900E — up to 288 E-cores, LGA 7529',        tier: 'E-core', seg: '2P',  n: 0 },
-        { name: 'Sierra Forest SP',  desc: 'Xeon 6700E — E-core density, LGA 4710',           tier: 'E-core', seg: '2P',  n: 5 }
+        { name: 'Granite Rapids AP', desc: 'Xeon 6900P — max core count, FCLGA7529',        tier: 'P-core', seg: '2P',   si: 'Granite Rapids · Intel 3', n: 8 },
+        { name: 'Granite Rapids SP', desc: 'Xeon 6700P + 63xx entry parts, FCLGA4710 / 1700', tier: 'P-core', seg: '2P',   si: 'Granite Rapids · Intel 3', n: 43 },
+        { name: 'Granite Rapids D',  desc: 'Xeon 6 SoC for edge and networking, BGA',        tier: 'P-core', seg: 'Edge', si: 'Granite Rapids · Intel 3', n: 22 },
+        { name: 'Sierra Forest AP',  desc: 'Xeon 6900E — up to 288 E-cores, FCLGA7529',      tier: 'E-core', seg: '2P',   si: 'Sierra Forest · Intel 3', n: 0 },
+        { name: 'Sierra Forest SP',  desc: 'Xeon 6700E — E-core density, FCLGA4710',         tier: 'E-core', seg: '2P',   si: 'Sierra Forest · Intel 3', n: 7 }
       ]},
-      { id: 'xeon5', name: 'Xeon 5 (5th Gen Scalable)', years: '2023 – 2024', color: '#a78bfa',
+
+      { id: 'xeon5', name: 'Xeon 5 (5th Gen Scalable)', years: '2023', color: '#a78bfa',
         note: 'Emerald Rapids — drop-in upgrade on LGA 4677', families: [
-        { name: 'Emerald Rapids XCC', desc: 'Extreme core count, up to 64C',                  tier: 'Platinum', seg: '2P', n: 0 },
-        { name: 'Emerald Rapids SP',  desc: 'Xeon Platinum / Gold 8500 & 6500 series',        tier: 'Platinum', seg: '2P', n: 6 },
-        { name: 'Emerald Rapids MCC', desc: 'Mid core count, mainstream 2-socket',            tier: 'Gold',     seg: '2P', n: 0 }
+        { name: 'Emerald Rapids SP', desc: 'Xeon Platinum / Gold 8500 & 6500 series', tier: 'Platinum', seg: '2P', si: 'Emerald Rapids · Intel 7', n: 32 }
       ]},
+
       { id: 'xeon4', name: 'Xeon 4 (4th Gen Scalable)', years: '2023', color: '#8b5cf6',
         note: 'Sapphire Rapids — first DDR5 / PCIe 5.0 Xeon', families: [
-        { name: 'Sapphire Rapids SP',  desc: 'Xeon Platinum / Gold / Silver 4th Gen', tier: 'Platinum', seg: '2P',  n: 14 },
-        { name: 'Sapphire Rapids HBM', desc: 'Xeon Max — 64 GB HBM2e on package',     tier: 'Platinum', seg: '2P',  n: 0 }
+        { name: 'Sapphire Rapids SP',  desc: 'Xeon Platinum / Gold / Silver 4th Gen', tier: 'Platinum', seg: '2P', si: 'Sapphire Rapids · Intel 7', n: 51 },
+        { name: 'Sapphire Rapids HBM', desc: 'Xeon Max 94xx — 64 GB HBM2e on package', tier: 'Platinum', seg: '2P', si: 'Sapphire Rapids · Intel 7', n: 4 }
       ]},
+
       { id: 'xeon3', name: 'Xeon 3 (3rd Gen Scalable)', years: '2020 – 2021', color: '#7c3aed',
-        note: 'Two incompatible families share this name — different sockets, different platforms', families: [
-        { name: 'Ice Lake-SP', desc: 'Sunny Cove 10 nm, 1S / 2S, LGA 4189 (Whitley)',        tier: 'Platinum', seg: '2P',  n: 0 },
-        { name: 'Cooper Lake', desc: '14 nm, 4S / 8S only, LGA 4189 (Cedar Island), bfloat16', tier: 'Platinum', seg: '4P+', n: 0 }
+        note: 'Two incompatible families share this name — different platforms', families: [
+        { name: 'Ice Lake-SP', desc: '10 nm, 1S / 2S, LGA 4189 (Whitley)',            tier: 'Platinum', seg: '2P',  si: 'Ice Lake · 10 nm', n: 38 },
+        { name: 'Cooper Lake', desc: '14 nm, 4S / 8S, LGA 4189 (Cedar Island)',       tier: 'Platinum', seg: '4P+', si: 'Cooper Lake · 14 nm', n: 15 }
       ]},
+
       { id: 'xeon2', name: 'Xeon 2 (2nd Gen Scalable)', years: '2019 – 2020', color: '#6366f1',
         note: 'Cascade Lake — 14 nm, LGA 3647, up to 8 sockets', families: [
-        { name: 'Cascade Lake-AP', desc: 'Xeon Platinum 9200 — soldered, up to 56C',          tier: 'Platinum', seg: '2P',  n: 0 },
-        { name: 'Cascade Lake-SP', desc: 'Xeon Platinum / Gold / Silver / Bronze 2nd Gen',   tier: 'Platinum', seg: '2P',  n: 0 },
-        { name: 'Cascade Lake Refresh', desc: 'February 2020 SKU refresh',                    tier: 'Gold',     seg: '2P',  n: 0 }
+        { name: 'Cascade Lake-AP',      desc: 'Xeon Platinum 9200 — soldered, up to 56C',   tier: 'Platinum', seg: '2P', si: 'Cascade Lake · 14 nm', n: 4 },
+        { name: 'Cascade Lake-SP',      desc: 'Xeon Platinum / Gold / Silver / Bronze',     tier: 'Platinum', seg: '2P', si: 'Cascade Lake · 14 nm', n: 53 },
+        { name: 'Cascade Lake Refresh', desc: 'February 2020 SKU refresh',                  tier: 'Gold',     seg: '2P', si: 'Cascade Lake · 14 nm', n: 19 }
       ]},
-      { id: 'xeon1', name: 'Xeon 1 (1st Gen Scalable)', years: '2017 – 2018', color: '#4f46e5',
+
+      { id: 'xeon1', name: 'Xeon 1 (1st Gen Scalable)', years: '2017', color: '#4f46e5',
         note: 'Skylake-SP — the Platinum / Gold / Silver / Bronze naming starts here', families: [
-        { name: 'Skylake-SP', desc: '14 nm, LGA 3647, mesh interconnect, UPI replaces QPI', tier: 'Platinum', seg: '2P', n: 0 }
+        { name: 'Skylake-SP', desc: '14 nm, LGA 3647, mesh interconnect, UPI replaces QPI', tier: 'Platinum', seg: '2P', si: 'Skylake · 14 nm', n: 52 }
       ]},
-      { id: 'xeonw', name: 'Xeon W', years: '2017 – 2024', color: '#34d399',
-        note: 'Single-socket workstation', families: [
-        { name: 'Sapphire Rapids WS (W-3400 / W-3500)', desc: 'Expert workstation, up to 56C',    tier: 'Workstation', seg: '1P', n: 0 },
-        { name: 'Sapphire Rapids WS (W-2400 / W-2500)', desc: 'Mainstream workstation, LGA 4677', tier: 'Workstation', seg: '1P', n: 13 },
-        { name: 'Cascade Lake-W (W-2200 / W-3200)',     desc: '14 nm workstation, LGA 2066 / 3647', tier: 'Workstation', seg: '1P', n: 0 },
-        { name: 'Skylake-W (W-2100 / W-3100)',          desc: 'First Xeon W generation, LGA 2066',  tier: 'Workstation', seg: '1P', n: 0 }
+
+      // ═══ Workstation and edge ════════════════════════════════════════════
+      { era: 'Workstation and edge', eraNote: 'Single-socket workstation, entry server and embedded SoC' },
+
+      { id: 'xeonw', name: 'Xeon W', years: '2017 – 2026', color: '#34d399',
+        note: 'Single-socket workstation — split by socket generation', families: [
+        { name: 'Granite Rapids WS',           desc: 'Xeon 6 workstation, FCLGA4710',   tier: 'Workstation', seg: '1P', si: 'Granite Rapids · Intel 3', n: 11 },
+        { name: 'Sapphire Rapids WS-3400/3500', desc: 'w7 / w9 expert, up to 60C',      tier: 'Workstation', seg: '1P', si: 'Sapphire Rapids · Intel 7', n: 14 },
+        { name: 'Sapphire Rapids WS-2400/2500', desc: 'w3 / w5 mainstream, LGA 4677',   tier: 'Workstation', seg: '1P', si: 'Sapphire Rapids · Intel 7', n: 15 },
+        { name: 'Ice Lake-W (W-33xx)',         desc: '10 nm, LGA 4189',                 tier: 'Workstation', seg: '1P', si: 'Ice Lake · 10 nm', n: 5 },
+        { name: 'Cascade Lake-W (W-32xx)',     desc: '14 nm, LGA 3647',                 tier: 'Workstation', seg: '1P', si: 'Cascade Lake · 14 nm', n: 9 },
+        { name: 'Cascade Lake-W (W-22xx)',     desc: '14 nm, LGA 2066',                 tier: 'Workstation', seg: '1P', si: 'Cascade Lake · 14 nm', n: 8 },
+        { name: 'Skylake-W (W-3175X)',         desc: '28C halo part, LGA 3647',         tier: 'Workstation', seg: '1P', si: 'Skylake · 14 nm', n: 1 },
+        { name: 'Skylake-W (W-21xx)',          desc: 'First Xeon W generation, LGA 2066', tier: 'Workstation', seg: '1P', si: 'Skylake · 14 nm', n: 8 },
+        { name: 'Rocket Lake-W (W-13xx)',      desc: '14 nm, LGA 1200',                 tier: 'Workstation', seg: '1P', si: 'Rocket Lake · 14 nm', n: 7 },
+        { name: 'Comet Lake-W (W-12xx)',       desc: '14 nm, LGA 1200',                 tier: 'Workstation', seg: '1P', si: 'Comet Lake · 14 nm', n: 13 }
       ]},
-      { id: 'xeond', name: 'Xeon D', years: '2022 – 2024', color: '#14b8a6',
-        note: 'Integrated SoC for network and edge', families: [
-        { name: 'Ice Lake-D (D-1700 / D-2700)', desc: 'Dense edge SoC with integrated networking', tier: 'Embedded', seg: 'Edge', n: 6 }
+
+      { id: 'xeone', name: 'Xeon E', years: '2017 – 2023', color: '#22d3ee',
+        note: 'Entry 1-socket server and entry workstation', families: [
+        { name: 'Raptor Lake-E (E-24xx)', desc: 'Intel 7, LGA 1700',  tier: 'Workstation', seg: '1P', si: 'Raptor Lake · Intel 7', n: 8 },
+        { name: 'Rocket Lake-E (E-23xx)', desc: '14 nm, LGA 1200',    tier: 'Workstation', seg: '1P', si: 'Rocket Lake · 14 nm', n: 10 },
+        { name: 'Coffee Lake-E (E-21xx)', desc: '14 nm, LGA 1151',    tier: 'Workstation', seg: '1P', si: 'Coffee Lake · 14 nm', n: 25 }
       ]},
-      { id: 'xeone', name: 'Xeon E', years: '2023 – 2024', color: '#22d3ee',
-        note: 'Entry server and entry workstation', families: [
-        { name: 'Raptor Lake-E (Xeon E-2400 / E-2500)', desc: 'Entry 1-socket server, LGA 1700', tier: 'Workstation', seg: '1P', n: 17 }
-      ]},
-      { id: 'xatom', name: 'Atom (Embedded Server)', years: '2017 – 2024', color: '#c084fc',
-        note: 'Low-power embedded and networking SoC', families: [
-        { name: 'Atom Embedded (C / P / Snow Ridge)', desc: 'Networking and storage SoC', tier: 'Embedded', seg: 'Edge', n: 17 }
+
+      { id: 'xeond', name: 'Xeon D', years: '2018 – 2023', color: '#14b8a6',
+        note: 'Integrated SoC for network and edge — BGA only', families: [
+        { name: 'Ice Lake-D (D-27xx)', desc: 'Dense edge SoC, BGA 2579',        tier: 'Embedded', seg: 'Edge', si: 'Ice Lake · 10 nm', n: 27 },
+        { name: 'Ice Lake-D (D-17xx)', desc: 'Compact edge SoC, BGA 2227',      tier: 'Embedded', seg: 'Edge', si: 'Ice Lake · 10 nm', n: 27 },
+        { name: 'Skylake-D (D-21xx)',  desc: 'Networking and storage, BGA 2518', tier: 'Embedded', seg: 'Edge', si: 'Skylake · 14 nm', n: 13 }
       ]}
     ]
   },
@@ -369,7 +422,7 @@ const v2Slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g
 // Never re-render on a keystroke.
 
 /** Swap sub-tab: resets filters and rebuilds everything below the tab bar. */
-function v2Switch(tab) {
+async function v2Switch(tab) {
   v2Tab = tab;
   v2Expanded.clear();
   v2Search = '';
@@ -380,6 +433,7 @@ function v2Switch(tab) {
     b.classList.toggle('active', b.dataset.tab === tab));
 
   v2BuildFilters();
+  await v2LoadSpecs(tab);
   v2Render();
 }
 
@@ -471,7 +525,11 @@ function v2Gen(g, cfg) {
   // Only the client tab needs this; Xeon and Graphics render one flat grid.
   // Datacenter-first, per the golden rule in CLAUDE.md — within a block the
   // server/HPC line leads, then workstation, then consumer.
-  const order = ['Core Ultra', 'Core', 'Core i', 'Core X', 'Atom / N',
+  // Brand-line display order within a block. Datacenter-leaning tiers lead,
+  // matching golden rule #2. A tier missing here renders no sub-heading.
+  const order = ['P-core', 'E-core', 'Platinum', 'Gold', 'Silver', 'Bronze',
+                 'Workstation', 'Embedded',
+                 'Core Ultra', 'Core', 'Core i', 'Core X', 'Atom / N',
                  'Data Center', 'Arc Pro', 'Arc'];
   const groupBy = cfg.brandGroups
     ? order.filter(t => g.families.some(f => f.tier === t))
@@ -488,7 +546,11 @@ function v2Gen(g, cfg) {
       }).join('')
     : g.families.map((f, i) => v2Card(f, g, i, cfg)).join('');
 
-  const total = g.families.reduce((n, f) => n + f.n, 0);
+  // Prefer the real model count once specs are loaded; fall back to the
+  // indicative `n` for families still awaiting an ARK export.
+  const specs = V2_SPECS[v2Tab] || {};
+  const total = g.families.reduce(
+    (sum, f) => sum + ((specs[f.name] || []).length || f.n), 0);
   // Header shows the brand mix so the split reads without expanding.
   const mix = groupBy.length > 1
     ? groupBy.map(t => `${g.families.filter(f => f.tier === t).length} ${t}`).join(' · ')
@@ -513,7 +575,29 @@ function v2Gen(g, cfg) {
   </div>`;
 }
 
-/** One codename card plus its (empty) spec table. */
+/** Row count label for a spec-table header. */
+function v2Count(name) {
+  const n = ((V2_SPECS[v2Tab] || {})[name] || []).length;
+  return n ? `${n} model${n === 1 ? '' : 's'}` : 'awaiting data';
+}
+
+/**
+ * Table body for one card. Falls back to a placeholder row when the codename
+ * has no data — unreleased parts and families not yet exported from ARK.
+ */
+function v2Rows(name, colspan) {
+  const models = (V2_SPECS[v2Tab] || {})[name];
+  const fields = V2_FIELDS[v2Tab];
+  if (!models || !models.length || !fields) {
+    return `<tr class="v2-empty-row"><td colspan="${colspan}">` +
+           'No spec data yet</td></tr>';
+  }
+  return models.map(m => '<tr>' + fields.map((f, i) =>
+    `<td class="${i === 0 ? 'cpu-model-name' : ''}">${escHtml(m[f] ?? '\u2014')}</td>`
+  ).join('') + '</tr>').join('');
+}
+
+/** One codename card plus its spec table. */
 function v2Card(f, g, i, cfg) {
   const id = `v2t-${g.id}-${v2Slug(f.name)}`;
   const cols = v2Columns(f.tier);
@@ -535,17 +619,11 @@ function v2Card(f, g, i, cfg) {
       <div class="cpu-spec-overflow">
         <div class="cpu-spec-header">
           <span class="cpu-spec-header-title">${escHtml(f.name)}</span>
-          <span class="cpu-spec-header-title v2-await">awaiting bulk import</span>
+          <span class="cpu-spec-header-title v2-await">${v2Count(f.name)}</span>
         </div>
         <table class="cpu-spec-table">
           <thead><tr>${cols.map(c => `<th>${escHtml(c)}</th>`).join('')}</tr></thead>
-          <tbody>
-            <tr class="v2-empty-row">
-              <td colspan="${cols.length}">
-                No spec data — column set shown for layout review only
-              </td>
-            </tr>
-          </tbody>
+          <tbody>${v2Rows(f.name, cols.length)}</tbody>
         </table>
       </div>
     </div>`;
@@ -681,7 +759,7 @@ function v2Activate() {
     b.classList.toggle('active', b.dataset.tab === 'xeon'));
 
   v2BuildFilters();
-  v2Render();
+  v2LoadSpecs(v2Tab).then(v2Render);
 }
 
 /** Hand the shared DOM back to the AMD renderer. */

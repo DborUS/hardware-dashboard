@@ -10,6 +10,7 @@ field names here are real, not aspirational.
 | `amd-gpu-data.json` | array | 49 entries | 42 GPU families + era separators |
 | `amd-cpu-specs.json` | object | 44 keys | SKU name → CPU model array |
 | `intel-cpu-specs.json` | object | 31 keys | 275 models. **Not currently rendered** — old SKU keys |
+| `intel-xeon-specs.json` | object | 29 keys | **553 Xeon models — live on the Xeon sub-tab** |
 
 Loaded at runtime by `loadVendorData()` and cached in `dataCache`. Filenames follow
 `js/data/{vendor}-data.json`, where vendor is `amd`, `intel`, or `amd-gpu`.
@@ -22,6 +23,11 @@ Loaded at runtime by `loadVendorData()` and cached in `dataCache`. Filenames fol
 > until then, editing `intel-cpu-specs.json` has no visible effect.
 >
 > Everything in this document describes the AMD path unless stated otherwise.
+>
+> **`intel-xeon-specs.json` is the exception** — it is live. Keyed by codename, which
+> must match a `V2_DATA.xeon` family `name` exactly. Fields: `n pc ec t bas bst l3 tdp
+> skc mem cap pcie upi`, rendered in the order set by `V2_FIELDS.xeon`. Regenerate with
+> `tools/import-xeon-specs.py`; never hand-edit.
 
 ---
 
