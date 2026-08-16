@@ -5,6 +5,27 @@ re-deriving the codebase, and so Daniel can see what's about to happen.
 
 ---
 
+## Which renderer are you in?
+
+**Read this before any Intel or AMD change.** The two vendors use different renderers
+over the same DOM nodes:
+
+| Vendor | Renderer | Data | Layout |
+|---|---|---|---|
+| AMD | `render()` in `js/script.js` | `js/data/amd-*.json` | codename blocks, flat |
+| Intel | `v2Render()` in `js/intel-v2.js` | **hardcoded `V2_DATA`** | generation blocks → codename cards, 3 sub-tabs |
+
+`switchVendor()` calls `v2Activate()` / `v2Deactivate()` to hand the DOM over. Shared
+toolbar listeners early-return on `v2IsActive()`.
+
+> **Intel has no spec data yet.** `V2_DATA` in `intel-v2.js` is the taxonomy only —
+> tables render their real column set with an empty body. The 275 models in
+> `js/data/intel-*.json` are **not currently rendered**; they still use the old SKU keys
+> and need mapping onto the new structure. Until that lands, editing
+> `intel-cpu-specs.json` changes nothing on screen.
+
+---
+
 ## The standard loop
 
 Every task, regardless of size:
@@ -62,14 +83,14 @@ python3 tools/smoke-test.py
 
 ---
 
-## Workflow 1 — Add a new architecture
+## Workflow 1 — Add a new AMD architecture
 
-Example: a new Zen generation.
+Example: a new Zen generation. **AMD only** — for Intel see Workflow 1b.
 
 **1. Get the data from Daniel.** Do not source specs yourself. You need: architecture
 name, year, process node, product families, and the SKU table if it exists.
 
-**2. Add the architecture entry** to `js/data/amd-data.json` (or `intel-data.json`).
+**2. Add the architecture entry** to `js/data/amd-data.json`.
 Insert in reverse-chronological position — newest first. If it starts a new year, add an
 era separator `{"era": "2026"}` before it.
 
@@ -99,8 +120,9 @@ Constraints that will bite you if ignored:
 - `color` must be visually distinct from neighbours; follow the warm→cool progression
   described in `docs/DESIGN-SYSTEM.md`.
 - `tags` must be values the vendor's filter buttons know about, or the entry becomes
-  unreachable by filter. AMD: `desktop`, `laptop`, `handheld`, `server`. Intel: `desktop`,
-  `mobile`, `server`, `embedded`.
+  unreachable by filter: `desktop`, `laptop`, `handheld`, `server`.
+- **Order the SKU array datacenter → workstation → desktop → mobile**, flagship first
+  within a tier (golden rule #2). Check with `python3 tools/check-order.py`.
 - `brand` must match a `brandTags` entry in `VENDOR_CONFIG` **exactly**, including case
   and spaces (`"Ryzen AI"`, not `"ryzen ai"`), or brand filtering silently drops it.
 - Mark future parts with `"unreleased": true` for the diagonal-stripe treatment.
@@ -120,6 +142,49 @@ python3 tools/smoke-test.py --shots
 
 `amd_cpu_groups` should increase by one. Read the screenshot and confirm the new entry
 sits in the right year with the right accent colour.
+
+---
+
+## Workflow 1b — Add an Intel generation or codename
+
+Intel does **not** read `intel-data.json`. Edit `V2_DATA` in `js/intel-v2.js`.
+
+**1. Pick the sub-tab** — `V2_DATA.xeon`, `.client` or `.graphics`. Each has its own
+generation sequence and its own spec-table column set.
+
+**2. Add to `gens[]`** in the right position. Ordering is datacenter-first across eras,
+newest-first within one:
+
+```js
+{ id: 'xeon7', name: 'Xeon 7', years: '2027', color: '#f97316',
+  note: 'Unreleased — Diamond Rapids', unreleased: true, families: [
+  { name: 'Diamond Rapids', desc: '...', tier: 'P-core', seg: '2P',
+    si: 'Diamond Rapids · Intel 18A', n: 8 }
+]},
+```
+
+| Field | Purpose |
+|---|---|
+| `tier` | Brand line — **must** appear in the Brand filter chips *and* the `order` array in `v2Gen()` |
+| `seg` | Segment chip value |
+| `si` | Actual silicon, e.g. `Raptor Lake · Intel 7`. Rendered as the `silicon:` line, and searchable |
+| `n` | Indicative model count for the header. **Not** spec data |
+
+**3. Era separators** are entries with no `id`:
+
+```js
+{ era: 'Series branding', eraNote: 'No generation number...' },
+```
+
+`applyFilters()` hides one whose generations are all filtered out.
+
+**4. Add matching filter chips.** A `tier` or `seg` value with no chip is unreachable —
+the recurring bug in this project. Also add new `tier` values to the `order` array in
+`v2Gen()`, or the brand sub-heading will not render.
+
+**5. Ordering.** `check-order.py` does **not** cover `V2_DATA` — it reads the JSON files
+only. Intel ordering is review-by-eye: datacenter → workstation → desktop → mobile,
+flagship first (Granite Rapids AP before SP).
 
 ---
 
@@ -155,10 +220,14 @@ Server record — add `_srv: true` and swap the last three fields:
 }
 ```
 
-**`_srv` selects the table layout**, not just a label. With it: Sockets / PCIe / Memory
-columns. Without it: GPU Model / GPU CUs / GPU Freq. Set it wrongly and a desktop chip
-renders server columns — which is exactly the current Intel bug (all 219 Intel records are
-flagged `_srv`, including desktop parts).
+**`_srv` selects the table layout** on the **AMD** tab, not just a label. With it:
+Sockets / PCIe / Memory columns. Without it: GPU Model / GPU CUs / GPU Freq.
+
+Intel no longer uses `_srv`. Its column set is a property of the sub-tab
+(`V2_COLUMNS` in `intel-v2.js`), which is what removed the long-standing bug where all
+219 Intel records were flagged `_srv` and desktop chips rendered server columns. The
+Graphics tab goes further: `V2_COLUMNS.graphics` is keyed by brand line, resolved per
+card by `v2Columns(tier)`.
 
 Keep units and phrasing consistent with neighbouring rows (`"170W"` not `"170 W"`;
 `"Up to 5.7 GHz"` where siblings use that form). These strings are rendered verbatim.
@@ -284,6 +353,10 @@ narrows the desktop view. Ask before adding more than one or two.
 ## Workflow 4 — Add a new filter
 
 This is where the render/filter split matters most. **Both halves or it silently fails.**
+
+**Intel filters live elsewhere.** Add the chip to the `filters` array of the relevant
+`V2_DATA` sub-tab, stamp the value in `v2Gen()` / `v2Card()`, and read it in
+`v2ApplyFilters()`. Same two-halves rule. The steps below are the AMD path.
 
 **1. State** — add near line 137:
 ```js

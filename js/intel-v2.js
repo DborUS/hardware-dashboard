@@ -1,21 +1,25 @@
 // ═══════════════════════════════════════════════════════════════════════════
-//  Intel v2 — STRUCTURE PROTOTYPE
+//  INTEL v2 — generation-first renderer
 //  ---------------------------------------------------------------------------
-//  Layout-only mock of the proposed Intel restructure. Deliberately carries NO
-//  spec data: every table renders its real column set with an empty body, so the
-//  shape can be judged before the bulk CSV import fills it.
+//  Drives the Intel vendor tab. AMD still uses render() in script.js; this file
+//  takes over the same DOM (#timeline, #searchInput, #filterControls, toolbar)
+//  when switchVendor('intel') runs, and hands it back on switchVendor('amd').
 //
-//  Proposed model:
-//     SUB-TAB   (Xeon | Client | Graphics)   <- picks the spec-table column set
+//  Structure:
+//     SUB-TAB   (Xeon | Client | Graphics)   <- also picks the spec-table columns
 //       GENERATION  (Xeon 6, 14th Gen, ...)  <- the timeline block
-//         CODENAME  (Granite Rapids AP, ...) <- today's SKU card
+//         CODENAME  (Granite Rapids AP, ...) <- SKU card
 //           spec table
 //
 //  Tier (Core Ultra / Xeon Gold / ...) is a FILTER CHIP, not a nesting level —
-//  it's already in every model name and four sparse rows per generation reads
+//  it is already in every model name, and four sparse rows per generation reads
 //  worse than one chip.
 //
-//  Nothing here touches js/script.js. Throwaway if the design doesn't land.
+//  Ordering follows golden rule #2 in CLAUDE.md: datacenter -> client -> desktop
+//  -> mobile, flagship first within a tier.
+//
+//  NO SPEC DATA YET. Tables render their real column set with an empty body;
+//  models arrive via the bulk CSV import. See docs/PROJECT-STATE.md.
 // ═══════════════════════════════════════════════════════════════════════════
 
 'use strict';
@@ -354,10 +358,8 @@ const v2Expanded = new Set();       // generation ids currently open
 const v2Active = {};                // { filterKey: Set(tag) } — empty set = no constraint
 let v2Search = '';
 
-const escHtml = s => String(s).replace(/[&<>"']/g,
-  c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-
-const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+// escHtml() comes from script.js, which loads first. slug() is v2-only.
+const v2Slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  RENDER
@@ -371,7 +373,7 @@ function v2Switch(tab) {
   v2Tab = tab;
   v2Expanded.clear();
   v2Search = '';
-  document.getElementById('v2Search').value = '';
+  dom.searchInput.value = '';
   for (const k of Object.keys(v2Active)) delete v2Active[k];
 
   document.querySelectorAll('.v2-subtab').forEach(b =>
@@ -384,7 +386,7 @@ function v2Switch(tab) {
 /** Build the multi-select filter bar for the active sub-tab. */
 function v2BuildFilters() {
   const cfg = V2_DATA[v2Tab];
-  const bar = document.getElementById('v2Filters');
+  const bar = dom.filterControls;
   // Stack when the bar would wrap: a vertical separator stranded at the end of
   // a wrapped line reads as a stray mark. Three groups always wrap at 1200px.
   const chipCount = cfg.filters.reduce((n, g) => n + g.tags.length, 0);
@@ -419,13 +421,10 @@ function v2BuildFilters() {
 /** Build every generation block and family card for the active sub-tab. */
 function v2Render() {
   const cfg = V2_DATA[v2Tab];
-  document.getElementById('v2Title').textContent = cfg.title;
-  document.getElementById('v2Blurb').textContent = cfg.blurb;
+  dom.pageHeader.innerHTML =
+    `<h1 class="header-intel">${escHtml(cfg.title)}</h1><p>${escHtml(cfg.blurb)}</p>`;
 
-  const wip = document.getElementById('v2TabWip');
-  wip.hidden = !cfg.wip;
-
-  document.getElementById('v2Timeline').innerHTML =
+  dom.timeline.innerHTML =
     cfg.gens.map(g => g.era ? v2Era(g) : v2Gen(g, cfg)).join('');
 
   document.querySelectorAll('.arch-header').forEach(h => {
@@ -516,7 +515,7 @@ function v2Gen(g, cfg) {
 
 /** One codename card plus its (empty) spec table. */
 function v2Card(f, g, i, cfg) {
-  const id = `v2t-${g.id}-${slug(f.name)}`;
+  const id = `v2t-${g.id}-${v2Slug(f.name)}`;
   const cols = v2Columns(f.tier);
   const tags = [f.tier, f.seg].filter(Boolean).map(t =>
     `<span class="sku-tag">${escHtml(t)}</span>`).join('');
@@ -649,19 +648,58 @@ function v2ApplyFilters() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-//  INIT
+//  LIFECYCLE
 // ═══════════════════════════════════════════════════════════════════════════
+// switchVendor() in script.js calls v2Activate() when Intel is selected and
+// v2Deactivate() when leaving. Both renderers share one set of DOM nodes, so
+// exactly one must own them at a time.
 
-document.addEventListener('DOMContentLoaded', () => {
+let v2Wired = false;
+
+/** Take over the shared DOM and render the Intel tab. */
+function v2Activate() {
+  document.body.classList.add('intel-v2');
+  document.getElementById('v2Subtabs').classList.add('visible');
+  document.getElementById('v2Status').hidden = false;
+  document.getElementById('v2NoData').hidden = false;
+  // AMD-only chrome that has no meaning here
+  dom.codenameTableWrap.innerHTML = '';
+  dom.techTabs.classList.remove('visible');
+  dom.clearSelectionsBtn.hidden = true;
+
+  if (!v2Wired) {
+    document.querySelectorAll('.v2-subtab').forEach(b =>
+      b.addEventListener('click', () => v2Switch(b.dataset.tab)));
+    v2Wired = true;
+  }
+
+  v2Tab = 'xeon';
+  v2Expanded.clear();
+  v2Search = '';
+  for (const k of Object.keys(v2Active)) delete v2Active[k];
   document.querySelectorAll('.v2-subtab').forEach(b =>
-    b.addEventListener('click', () => v2Switch(b.dataset.tab)));
-
-  const search = document.getElementById('v2Search');
-  search.addEventListener('input', () => { v2Search = search.value; v2ApplyFilters(); });
-
-  document.getElementById('v2ExpandAll').addEventListener('click', () => v2ExpandAll(true));
-  document.getElementById('v2CollapseAll').addEventListener('click', () => v2ExpandAll(false));
+    b.classList.toggle('active', b.dataset.tab === 'xeon'));
 
   v2BuildFilters();
   v2Render();
-});
+}
+
+/** Hand the shared DOM back to the AMD renderer. */
+function v2Deactivate() {
+  document.body.classList.remove('intel-v2');
+  document.getElementById('v2Subtabs').classList.remove('visible');
+  document.getElementById('v2Status').hidden = true;
+  document.getElementById('v2NoData').hidden = true;
+  dom.clearSelectionsBtn.hidden = false;
+}
+
+/** Search box handler — called by the shared input in script.js. */
+function v2SetSearch(value) {
+  v2Search = value;
+  v2ApplyFilters();
+}
+
+/** True when the Intel renderer currently owns the DOM. */
+function v2IsActive() {
+  return document.body.classList.contains('intel-v2');
+}

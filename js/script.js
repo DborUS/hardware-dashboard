@@ -330,6 +330,11 @@ async function switchVendor(vendor) {
     dom.techTabs.classList.remove('visible');
   }
 
+  // Intel uses the generation-first renderer in js/intel-v2.js, which owns the
+  // same DOM nodes. Everything below this point is the AMD path.
+  if (vendor === 'intel') { v2Activate(); return; }
+  v2Deactivate();
+
   // Header
   dom.pageHeader.innerHTML = `<h1 class="${cfg.headerClass}">${cfg.title}</h1><p>Processor Architecture Generations</p>`;
 
@@ -1299,6 +1304,8 @@ const debouncedFilter = debounce(applyFilters, 300);
 dom.searchInput.addEventListener('input', () => {
   // Toggle clear button visibility
   dom.searchClear.classList.toggle('visible', dom.searchInput.value.length > 0);
+  // Intel runs its own filter path; both renderers share this input.
+  if (typeof v2IsActive === 'function' && v2IsActive()) { v2SetSearch(dom.searchInput.value); return; }
   debouncedFilter();
 });
 
@@ -1306,16 +1313,21 @@ dom.searchInput.addEventListener('input', () => {
 dom.searchClear.addEventListener('click', () => {
   dom.searchInput.value = '';
   dom.searchClear.classList.remove('visible');
+  if (typeof v2IsActive === 'function' && v2IsActive()) { v2SetSearch(''); return; }
   applyFilters();
 });
 
 // Expand/Collapse
 dom.expandAllBtn.addEventListener('click', () => {
+  if (typeof v2IsActive === 'function' && v2IsActive()) { v2ExpandAll(true); return; }
   const cfg = VENDOR_CONFIG[currentVendor];
   const data = (currentTechTab === 'gpu' && cfg.gpuData) ? cfg.gpuData : cfg.data;
   data.forEach(a => { if (a.id) expandedGroups.add(a.id); }); render();
 });
-dom.collapseAllBtn.addEventListener('click', () => { expandedGroups.clear(); render(); });
+dom.collapseAllBtn.addEventListener('click', () => {
+  if (typeof v2IsActive === 'function' && v2IsActive()) { v2ExpandAll(false); return; }
+  expandedGroups.clear(); render();
+});
 dom.clearSelectionsBtn.addEventListener('click', clearAllSelections);
 
 // Init - Load AMD data on startup

@@ -37,8 +37,15 @@ EXPECT = {
     "amd_cpu_groups": 7,
     "amd_cpu_skus": 40,
     "amd_gpu_groups": 40,
-    "intel_cpu_groups": 19,
-    "intel_cpu_skus": 40,
+    # Intel uses the generation-first renderer (js/intel-v2.js): generation
+    # blocks, not codename blocks, across three sub-tabs. Spec tables render
+    # empty until the bulk CSV import lands, so no model-count check here.
+    "intel_xeon_groups": 12,
+    "intel_xeon_cards": 26,
+    "intel_client_groups": 11,
+    "intel_client_cards": 47,
+    "intel_gfx_groups": 3,
+    "intel_gfx_cards": 12,
 }
 
 
@@ -144,15 +151,27 @@ def main():
             if args.shots:
                 page.screenshot(path=str(shots_dir / "03-amd-gpu.png"))
 
-            # --- Intel CPU ---
+            # --- Intel: three sub-tabs, generation-first renderer ---
             page.click("#techTabCpu")
             page.wait_for_timeout(800)
             page.click("#tabIntel")
             page.wait_for_timeout(2000)
-            results["intel_cpu_groups"] = count(".arch-group")
-            results["intel_cpu_skus"] = count(".sku-card")
-            if args.shots:
-                page.screenshot(path=str(shots_dir / "04-intel-cpu.png"))
+            for tab, key in (("xeon", "xeon"), ("client", "client"), ("graphics", "gfx")):
+                page.click(f'.v2-subtab[data-tab="{tab}"]')
+                page.wait_for_timeout(900)
+                results[f"intel_{key}_groups"] = count(".arch-group")
+                results[f"intel_{key}_cards"] = count(".sku-card")
+                if args.shots:
+                    page.screenshot(path=str(shots_dir / f"04-intel-{tab}.png"))
+            # AMD chrome must not leak into the Intel tab
+            if count("#v2Subtabs.visible") != 1:
+                failures.append("Intel sub-tabs not visible")
+            page.click("#tabAmd")
+            page.wait_for_timeout(1800)
+            if count("#v2Subtabs.visible") != 0:
+                failures.append("Intel sub-tabs still visible after switching to AMD")
+            if count(".arch-group") < 7:
+                failures.append("AMD did not re-render after returning from Intel")
 
             browser.close()
     finally:

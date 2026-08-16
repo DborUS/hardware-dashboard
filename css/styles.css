@@ -27,11 +27,6 @@
   .vendor-tab.active-intel { color: #60a5fa; border-bottom-color: #60a5fa; }
   .vendor-tab.active-amd { color: #ef4444; border-bottom-color: #ef4444; }
   .vendor-tab-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.1); align-self: center; margin: 0 4px; }
-  /* Work-in-progress vendor tab (links to a prototype page, not a render target) */
-  .vendor-tab-wip { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-size: 1.05rem; opacity: 0.75; }
-  .vendor-tab-wip:hover { opacity: 1; color: #fbbf24; }
-  .wip-flag { font-size: 0.55rem; font-weight: 700; letter-spacing: 1px; padding: 2px 6px; border-radius: 3px;
-              color: #fbbf24; background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.3); }
 
   header { text-align: center; margin-bottom: 40px; }
   header h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 6px; }
@@ -426,3 +421,103 @@
     .arch-name { font-size: 0.9rem; }
     .arch-header { padding: 10px 12px; }
   }
+
+  /* ══════════════════════════════════════════════════════════════════════
+     INTEL v2 — generation-first layout
+     Used by the Intel vendor tab only. AMD keeps the flat codename layout,
+     so every selector here is namespaced under .intel-v2 on <body> or is a
+     .v2-* class that the AMD renderer never emits.
+     ══════════════════════════════════════════════════════════════════════ */
+
+  /* Sub-tab bar: Xeon / Client / Graphics */
+  .v2-subtabs { display: none; justify-content: center; gap: 0; margin-bottom: 18px; }
+  .v2-subtabs.visible { display: flex; }
+  .v2-subtab {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 600;
+    padding: 10px 28px; min-height: 44px; cursor: pointer;
+    border: none; background: none; border-bottom: 3px solid transparent;
+    color: var(--text-muted); letter-spacing: 1px; transition: all 0.25s ease;
+  }
+  .v2-subtab:hover { color: var(--text-secondary); }
+  .v2-subtab.active { color: #60a5fa; border-bottom-color: #60a5fa; }
+  .v2-subtab:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+  .v2-subtab-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.1); align-self: center; margin: 0 4px; }
+
+  /* Codename / model counts in a generation header */
+  .v2-count {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+    color: var(--text-secondary); letter-spacing: 0.5px;
+    padding: 3px 10px; border-radius: 4px; background: rgba(255,255,255,0.03);
+  }
+  .v2-count-dim { color: var(--text-muted); opacity: 0.7; }
+
+  /* Result count under the toolbar */
+  .v2-status {
+    text-align: center; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: var(--text-muted); letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .v2-status[hidden] { display: none; }
+
+  /* Empty spec table — placeholder until the bulk CSV import lands */
+  .v2-empty-row td {
+    text-align: center; padding: 18px 10px !important;
+    color: var(--text-muted); font-style: italic; opacity: 0.6;
+    white-space: normal;
+  }
+  .v2-await { opacity: 0.5; font-style: italic; }
+
+  /* Long codename titles would run under the SPECS toggle */
+  .intel-v2 .sku-name { padding-right: 58px; }
+
+  /* Branding-era separator — marks where a naming scheme changed */
+  .v2-era { position: relative; margin: 34px 0 14px; padding-left: 4px; }
+  .v2-era::before {
+    content: ''; position: absolute; left: -38px; top: 8px;
+    width: 12px; height: 12px; border-radius: 2px; transform: rotate(45deg);
+    background: var(--bg-primary); border: 2px solid rgba(255,255,255,0.22); z-index: 2;
+  }
+  .v2-era-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-secondary);
+  }
+  .v2-era-note {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+    color: var(--text-muted); margin-top: 3px; letter-spacing: 0.3px; line-height: 1.5;
+  }
+  .v2-era.hidden { display: none !important; }
+
+  /* Actual silicon behind a card — the thing marketing names obscure */
+  .v2-silicon {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+    color: var(--text-muted); margin-top: 6px; opacity: 0.85; letter-spacing: 0.3px;
+  }
+  .v2-silicon::before { content: 'silicon: '; opacity: 0.55; }
+
+  /* Brand-line sub-heading inside a block (Core Ultra vs plain Core) */
+  .v2-brandline {
+    grid-column: 1 / -1; display: flex; align-items: center; gap: 10px;
+    margin: 10px 0 2px; order: var(--card-order, 0);
+  }
+  .v2-brandline:first-child { margin-top: 2px; }
+  .v2-brandline-name {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--arch-color); opacity: 0.85; white-space: nowrap;
+  }
+  .v2-brandline-rule {
+    flex: 1; height: 1px;
+    background: linear-gradient(to right, var(--arch-color), transparent);
+    opacity: 0.22;
+  }
+  .v2-brandline.hidden { display: none !important; }
+
+  /* No-data notice on the Intel tab while spec import is pending */
+  .v2-nodata {
+    max-width: 720px; margin: 0 auto 20px; padding: 10px 16px; text-align: center;
+    border: 1px dashed rgba(251,191,36,0.3); border-radius: 8px;
+    background: rgba(251,191,36,0.05);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    color: #fbbf24; line-height: 1.6; letter-spacing: 0.3px;
+  }
+  .v2-nodata[hidden] { display: none; }

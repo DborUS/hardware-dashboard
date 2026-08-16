@@ -185,34 +185,97 @@ accepted rather than rewritten.
 
 ## Suggested next steps
 
-No urgent fixes outstanding — the app is healthy. Ordered by value:
+### 1. Reconnect Intel spec data — the blocker
 
-1. **Accessibility pass** (#1) — the clear quality gap. Keyboard nav for collapsibles,
-   ARIA labels, focus states.
-2. **Intel `_srv` correction** (#3) — needs a data decision first. Note this one *is* a
-   correctness issue (desktop parts showing server columns), unlike the GPU layout
-   question which was reviewed and closed.
-3. **Expand AMD architecture coverage** (#6) — content, needs Daniel's source data.
-4. **Housekeeping** — escape the notes textarea (#4), validate `getLinks()` (#5), remove
-   the dead file (#7).
+The Intel tab renders structure with **empty tables by design**. `intel-cpu-specs.json`
+holds 275 verified models under the *old* codename SKU keys; `V2_DATA` in
+`js/intel-v2.js` uses new generation→codename keys. Nothing bridges them.
 
-**Follow-ups from the repo move (2026-08-12):**
+Daniel is preparing the data separately. When it arrives:
 
-- `README.md` still points at the old repo URL and the `danchuborchik.github.io` live
-  site. Both are stale — update to the `DborUS` repo, and to whatever hosting replaces
-  Pages.
-- **Hosting is unresolved.** Under a private EMU repo, GitHub Pages is likely
-  unavailable or restricted, so the dashboard may have no live URL. It still runs locally
-  via `python -m http.server 8084`. Worth confirming what EMU allows if Daniel shows this
-  to customers.
-- Decide what happens to the old public repo — archiving (Settings → Archive) makes it
-  read-only without losing history.
+1. Add a `specKey` to each family in `V2_DATA` naming its entry in the specs JSON.
+2. Teach `v2Card()` to read `INTEL_CPU_SPECS[specKey]` and emit rows instead of the
+   `.v2-empty-row` placeholder. The column sets already exist in `V2_COLUMNS`.
+3. Mind the Graphics tab — its columns resolve per brand line via `v2Columns(tier)`,
+   so the row builder must too.
+4. Restore a model-count assertion in `tools/smoke-test.py` once data flows.
+
+Mapping notes for the existing 275: several old keys split across new blocks. Known
+cases are `Raptor Lake-U Refresh` (2xx parts → Series 2, 1xx → Series 1) and the Xeon W
+entries, which move out of `Raptor Lake (14th Gen)` into the `Xeon W` block.
+
+### 2. Two ordering violations in AMD data
+
+`python3 tools/check-order.py` fails on:
+
+- **Zen 4** — `Phoenix` (desktop+laptop+pro) sits after `Dragon Range` (laptop).
+  Arguable: tagged desktop but really a mobile-first part. Needs Daniel's call.
+- **Raptor Lake (14th Gen)** — `Xeon E` and `Xeon W-2400/2500` are last, below consumer
+  parts. Clear violation. Likely resolves itself during the Intel data migration, since
+  those move to the Xeon sub-tab.
+
+### 3. Known small fixes
+
+- Escape the notes textarea (`script.js`) — a note containing `</textarea>` breaks markup.
+- Validate `getLinks()` JSON.parse output.
+- `git rm intel-v2.html` — redirect stub, sandbox cannot delete on the mount.
+- `cpu-architecture-roadmap.html` (279 KB) is dead; nothing links to it.
+
+### 4. Accessibility
+
+Arch headers and SKU cards are keyboard-operable with focus-visible styles. Untested
+with a real screen reader, and the new Intel sub-tabs use `role="tablist"` without
+arrow-key navigation.
+
+### 5. Content and hosting
+
+- **AMD coverage is thin** — 8 architectures. Needs Daniel's source data.
+- **No live site reflects current work.** `danchuborchik.github.io` serves a February
+  build; `DborUS/hardware-dashboard` has no Pages site (404). Enabling Pages on the AMD
+  repo is ~2 minutes in Settings, if EMU policy allows it.
+- `README.md` still cites the old repo URL and old live site.
+- Decide what happens to the old public repo — archiving keeps history, read-only.
 
 ---
 
 ## Session log
 
 Newest first. One short entry per session — what changed, what was verified, what's next.
+
+### 2026-08-16f — v2 promoted to the main Intel tab
+
+The prototype is now the Intel tab. `intel-v2.html` is a redirect stub (sandbox cannot
+delete on the mount — **run `git rm intel-v2.html`**).
+
+**Two renderers now share one DOM.** `render()` draws AMD, `v2Render()` draws Intel,
+both over `#timeline` / `#searchInput` / `#filterControls` / toolbar. `switchVendor()`
+calls `v2Activate()` or `v2Deactivate()`; shared listeners early-return on
+`v2IsActive()`. **Any new toolbar control must wire both paths** or it will silently do
+nothing on one tab.
+
+**Changes:**
+
+- `css/styles.css` — v2 styles moved out of the standalone page; `.vendor-tab-wip`
+  removed. New rules namespaced under `.intel-v2` or `.v2-*`.
+- `js/intel-v2.js` — `DOMContentLoaded` replaced with `v2Activate` / `v2Deactivate` /
+  `v2IsActive` / `v2SetSearch`. Uses `dom.*` from `script.js`; `escHtml()` is shared,
+  local `slug()` renamed `v2Slug()` to avoid collision.
+- `index.html` — WIP tab dropped, sub-tab bar + no-data notice + status line added,
+  `intel-v2.js` loads before `script.js`.
+- `js/script.js` — Intel branch in `switchVendor()`, four listeners route by renderer.
+
+**Smoke test rewritten for Intel.** Old `intel_cpu_groups` / `intel_cpu_skus` replaced
+with per-sub-tab counts (xeon 12/26, client 11/47, gfx 3/12 minimums). Model-count
+checks dropped — there is no Intel spec data by design. Two new leak assertions: sub-tabs
+visible on Intel, hidden on AMD, and AMD re-renders after returning.
+
+**Verified:** AMD 8 groups / 46 SKUs / 47 tables / 42 GPU — unchanged. Intel 12/26,
+11/47, 4/12. Round-trip AMD → Intel → AMD → GPU → Intel clean. Zero JS errors.
+Screenshots read for both vendors.
+
+**Next:** map the 275 existing Intel models onto the new SKU keys, then bulk import.
+Also still open: the two `check-order.py` violations (Zen 4 Phoenix, Raptor Lake 14th
+Gen Xeon E / Xeon W).
 
 ### 2026-08-16e — Prototype audited against the ordering rule
 

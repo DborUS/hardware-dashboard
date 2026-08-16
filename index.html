@@ -17,11 +17,6 @@
     <button class="vendor-tab active-amd" id="tabAmd" onclick="switchVendor('amd')">AMD</button>
     <div class="vendor-tab-divider"></div>
     <button class="vendor-tab" id="tabIntel" onclick="switchVendor('intel')">Intel</button>
-    <div class="vendor-tab-divider"></div>
-    <!-- Structure prototype for the Intel restructure. Separate page so it cannot
-         destabilise render(); delete this tab + intel-v2.html to remove it. -->
-    <a class="vendor-tab vendor-tab-wip" href="intel-v2.html"
-       title="Structure prototype - no spec data">Intel v2 <span class="wip-flag">WIP</span></a>
   </div>
   <header id="pageHeader">
     <h1 class="header-intel">Intel Client + Server Roadmap</h1>
@@ -31,6 +26,17 @@
     <button class="tech-tab active" id="techTabCpu" onclick="switchTech('cpu')">CPU</button>
     <div class="tech-tab-divider"></div>
     <button class="tech-tab" id="techTabGpu" onclick="switchTech('gpu')">GPU</button>
+  </div>
+  <!-- Intel only: product-line sub-tabs, shown by v2Activate() -->
+  <div class="v2-subtabs" id="v2Subtabs" role="tablist" aria-label="Intel product line">
+    <button class="v2-subtab active" data-tab="xeon" role="tab">XEON</button>
+    <div class="v2-subtab-divider"></div>
+    <button class="v2-subtab" data-tab="client" role="tab">CLIENT</button>
+    <div class="v2-subtab-divider"></div>
+    <button class="v2-subtab" data-tab="graphics" role="tab">GRAPHICS</button>
+  </div>
+  <div class="v2-nodata" id="v2NoData" hidden>
+    Spec tables are empty pending the bulk CSV import &mdash; column sets shown for layout.
   </div>
   <div class="search-wrap">
     <span class="search-icon">⌕</span>
@@ -45,9 +51,11 @@
   </div>
   <div id="codenameTableWrap"></div>
   <div class="sr-only" id="filterStatus" role="status" aria-live="polite" aria-atomic="true"></div>
+  <div class="v2-status" id="v2Status" role="status" aria-live="polite" hidden></div>
   <div class="timeline" id="timeline"></div>
 </div>
 
+<script src="js/intel-v2.js?v=20260816-order"></script>
 <script src="js/script.js?v=20260816-order"></script>
 </body>
 </html>

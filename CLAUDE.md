@@ -108,7 +108,7 @@ CSV. After a filter change, check the arithmetic (does datacenter+mobile really 
 ### 6. Check whether a "bug" is cosmetic or a correctness problem — say which.
 
 Daniel triages on this distinction. The GPU table-layout issue was cosmetic (all values
-accurate, columns merely generic) and he closed it in one message. Intel `_srv` is a
+accurate, columns merely generic) and he closed it in one message. Intel `_srv` was a
 correctness issue and stayed open. Lead with that classification.
 
 ### 7. Bump the cache-buster after any JS/CSS change.
@@ -133,13 +133,46 @@ Three files do everything:
 |---|---|---|
 | `index.html` | 48 | Static shell — empty containers that JS fills |
 | `css/styles.css` | 404 | All styling, tokens, animations, responsive rules |
-| `js/script.js` | 1233 | All logic — config, state, render, filter, persistence |
+| `js/script.js` | ~1240 | AMD logic — config, state, render, filter, persistence |
+| `js/intel-v2.js` | ~700 | Intel logic — generation-first renderer, own taxonomy |
 
 Data lives in `js/data/*.json` and is fetched at runtime. See `docs/DATA-SCHEMA.md`.
 
 `cpu-architecture-roadmap.html` (279 KB) is a **dead file** — the original single-file
 version, kept as history. Nothing links to it. Don't edit it; don't let its existence
 confuse you.
+
+### Two renderers, one DOM
+
+**AMD and Intel use different renderers.** `render()` in `script.js` draws AMD;
+`v2Render()` in `intel-v2.js` draws Intel. They share the same DOM nodes —
+`#timeline`, `#searchInput`, `#filterControls`, the toolbar — and exactly one owns
+them at a time.
+
+```
+switchVendor('intel')  ->  v2Activate()    adds .intel-v2 to <body>, shows sub-tabs
+switchVendor('amd')    ->  v2Deactivate()  removes it, AMD path resumes
+```
+
+The shared listeners in `script.js` check `v2IsActive()` and early-return:
+
+```js
+if (typeof v2IsActive === 'function' && v2IsActive()) { v2ExpandAll(true); return; }
+```
+
+> **Adding a toolbar control? Wire both paths.** A button that only calls the AMD
+> function will silently do nothing on the Intel tab.
+
+Why two renderers: Intel needs generation → codename nesting with per-tab column sets
+and brand-line sub-headings. AMD's Zen generations map 1:1 to codenames and need none
+of it. Forcing both through one function meant flags everywhere — the P-core/E-core
+columns leaking onto AMD tables was exactly that failure.
+
+**Intel currently has no spec data.** Tables render their real column set with an empty
+body, pending the bulk CSV import. `js/data/intel-*.json` still hold 275 models and are
+not yet wired to the new structure.
+
+---
 
 ### The one mental model that matters
 
@@ -337,9 +370,13 @@ Daniel reviewed it on 2026-08-12 and chose to leave it; a proper fix needs five 
 work with gaming graphics enough to justify sourcing them. See `docs/PROJECT-STATE.md`
 issue #2 for the full rationale.
 
-**Every Intel CPU is flagged `_srv: true`** (219/219), including desktop parts like the
-Core Ultra 9 285K. `_srv` picks the table layout, so desktop chips render server columns
-(Sockets / PCIe / Memory) instead of GPU columns. Confirmed in the rendered page.
+**~~Every Intel CPU is flagged `_srv: true`~~ — RESOLVED 2026-08-16.** The generation-first
+renderer makes column choice a property of the sub-tab (`V2_COLUMNS`), so the flag no
+longer participates on the Intel side. It is still live and correct for AMD.
+
+**Intel spec data is disconnected.** `intel-cpu-specs.json` still holds 275 models under
+the *old* SKU keys; `V2_DATA` uses new ones. Nothing renders in an Intel spec table until
+that mapping is done. Deliberate — Daniel is doing the data prep separately.
 
 **Notes textarea isn't escaped.** `script.js:664` interpolates `${loadNotes(arch.id)}`
 raw; a note containing `</textarea>` breaks the markup. Self-inflicted only, one-line fix.

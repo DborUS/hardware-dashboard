@@ -6,13 +6,22 @@ field names here are real, not aspirational.
 | File | Shape | Size | Contents |
 |---|---|---|---|
 | `amd-data.json` | array | 14 entries | 7 architectures + 7 era separators |
-| `intel-data.json` | array | — | 19 architectures + era separators |
+| `intel-data.json` | array | — | 20 architectures. **Not currently rendered** — see note below |
 | `amd-gpu-data.json` | array | 49 entries | 42 GPU families + era separators |
 | `amd-cpu-specs.json` | object | 44 keys | SKU name → CPU model array |
-| `intel-cpu-specs.json` | object | 25 keys | SKU name → CPU model array (219 models) |
+| `intel-cpu-specs.json` | object | 31 keys | 275 models. **Not currently rendered** — old SKU keys |
 
 Loaded at runtime by `loadVendorData()` and cached in `dataCache`. Filenames follow
 `js/data/{vendor}-data.json`, where vendor is `amd`, `intel`, or `amd-gpu`.
+
+> **Intel moved to a hardcoded taxonomy (2026-08-16).** The Intel tab is drawn by
+> `v2Render()` in `js/intel-v2.js` from the `V2_DATA` object, not from these JSON files.
+> The two Intel files above are still valid and still fetched, but nothing displays them.
+> They hold 275 verified models keyed by the *old* codename SKU keys; the new structure
+> uses generation → codename keys. **Reconnecting them is the next piece of work** —
+> until then, editing `intel-cpu-specs.json` has no visible effect.
+>
+> Everything in this document describes the AMD path unless stated otherwise.
 
 ---
 
@@ -160,10 +169,11 @@ _srv: true  → … Socket │ Sockets │ PCIe │ Memory │ Product ID
 _srv absent → … Socket │ GPU Model │ GPU CUs │ GPU Freq │ Product ID
 ```
 
-> **Known bug:** all 219 records in `intel-cpu-specs.json` carry `_srv: true`, including
-> desktop parts like the Core Ultra 9 285K. Desktop chips therefore render server columns.
-> Confirmed in the rendered page. Fixing means removing `_srv` from client parts and
-> supplying `gm`/`gc`/`gf`, or accepting server columns for Intel.
+> **AMD only.** Intel no longer uses `_srv`: its column set is a property of the sub-tab
+> (`V2_COLUMNS` in `intel-v2.js`), which resolved the long-standing bug where all 219
+> Intel records were flagged `_srv` and desktop parts like the Core Ultra 9 285K rendered
+> server columns. When Intel spec data is reconnected, `_srv` can be dropped from those
+> records entirely.
 
 ---
 
