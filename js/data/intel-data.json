@@ -1,12 +1,39 @@
 [
   {
-    "era": "2026"
+    "era": "2027"
+  },
+  {
+    "id": "diamond",
+    "arch": "Diamond Rapids",
+    "color": "#f97316",
+    "year": "2027",
+    "segment": "server",
+    "unreleased": true,
+    "defaultLinks": [],
+    "skus": [
+      {
+        "name": "Diamond Rapids",
+        "desc": "Next-gen Xeon server processors — successor to Granite Rapids",
+        "tags": [
+          "server"
+        ],
+        "brand": "Xeon"
+      },
+      {
+        "name": "Diamond Rapids HBM",
+        "desc": "High-bandwidth memory variant for AI/HPC workloads",
+        "tags": [
+          "server"
+        ],
+        "brand": "Xeon"
+      }
+    ]
   },
   {
     "id": "nova",
     "arch": "Nova Lake",
     "color": "#4ade80",
-    "year": "2026",
+    "year": "2027",
     "segment": "client",
     "unreleased": true,
     "defaultLinks": [
@@ -28,12 +55,14 @@
     ]
   },
   {
+    "era": "2026"
+  },
+  {
     "id": "panther",
     "arch": "Panther Lake",
     "color": "#fbbf24",
     "year": "2026",
     "segment": "client",
-    "unreleased": true,
     "defaultLinks": [
       {
         "label": "Wikipedia",
@@ -60,49 +89,52 @@
     ]
   },
   {
-    "era": "2025 – 2026"
-  },
-  {
-    "id": "diamond",
-    "arch": "Diamond Rapids",
-    "color": "#f97316",
-    "year": "2025–2026",
-    "segment": "server",
-    "unreleased": true,
-    "defaultLinks": [],
-    "skus": [
-      {
-        "name": "Diamond Rapids",
-        "desc": "Next-gen Xeon server processors — successor to Granite Rapids",
-        "tags": [
-          "server"
-        ],
-        "brand": "Xeon"
-      },
-      {
-        "name": "Diamond Rapids HBM",
-        "desc": "High-bandwidth memory variant for AI/HPC workloads",
-        "tags": [
-          "server"
-        ],
-        "brand": "Xeon"
-      }
-    ]
-  },
-  {
     "id": "clearwater",
     "arch": "Clearwater Forest",
     "color": "#34d399",
-    "year": "2025–2026",
+    "year": "2026",
     "segment": "server",
-    "unreleased": true,
     "defaultLinks": [],
     "skus": [
       {
         "name": "Clearwater Forest",
         "desc": "Next-gen Xeon 6+ E-Core — successor to Sierra Forest",
-        "tags": ["server"],
+        "tags": [
+          "server"
+        ],
         "brand": "Xeon 6+"
+      }
+    ]
+  },
+  {
+    "id": "arrowlakerefresh",
+    "arch": "Arrow Lake Refresh",
+    "color": "#f472b6",
+    "year": "2026",
+    "segment": "client",
+    "subtitle": "Intel 20A / TSMC N3B · Core Ultra 200S Plus · Core Ultra 200HX Plus",
+    "defaultLinks": [
+      {
+        "label": "Intel product brief",
+        "url": "https://www.intel.com/content/www/us/en/content-details/874111/intel-core-ultra-200s-plus-series-processors-product-brief.html"
+      }
+    ],
+    "skus": [
+      {
+        "name": "Arrow Lake-S Refresh",
+        "desc": "Core Ultra 200S Plus — desktop, LGA 1851",
+        "tags": [
+          "desktop"
+        ],
+        "brand": "Core Ultra"
+      },
+      {
+        "name": "Arrow Lake-HX Refresh",
+        "desc": "Core Ultra 200HX Plus — mobile workstation",
+        "tags": [
+          "mobile"
+        ],
+        "brand": "Core Ultra"
       }
     ]
   },
@@ -433,7 +465,10 @@
       {
         "name": "Xeon W-2400/2500",
         "desc": "Raptor Lake-based workstation processors",
-        "tags": ["desktop", "server"],
+        "tags": [
+          "desktop",
+          "server"
+        ],
         "brand": "Xeon"
       }
     ]
@@ -449,7 +484,10 @@
       {
         "name": "Xeon D Embedded",
         "desc": "Edge & embedded Xeon processors for networking and storage",
-        "tags": ["embedded", "server"],
+        "tags": [
+          "embedded",
+          "server"
+        ],
         "brand": "Xeon D"
       }
     ]
@@ -539,13 +577,18 @@
       {
         "name": "Alder Lake-S",
         "desc": "Desktop processors — first hybrid architecture (P-core + E-core)",
-        "tags": ["desktop"],
+        "tags": [
+          "desktop"
+        ],
         "brand": "Core"
       },
       {
         "name": "Alder Lake-N",
         "desc": "Low-power E-core only processors for mobile & embedded",
-        "tags": ["mobile", "embedded"],
+        "tags": [
+          "mobile",
+          "embedded"
+        ],
         "brand": "Core"
       }
     ]
@@ -561,7 +604,9 @@
       {
         "name": "Twin Lake",
         "desc": "Low-power mobile processors (Core 3 N-series)",
-        "tags": ["mobile"],
+        "tags": [
+          "mobile"
+        ],
         "brand": "Core"
       }
     ]
@@ -585,7 +630,9 @@
       {
         "name": "Rocket Lake-S",
         "desc": "Desktop processors — Cypress Cove cores, PCIe 4.0",
-        "tags": ["desktop"],
+        "tags": [
+          "desktop"
+        ],
         "brand": "Core"
       }
     ]
@@ -609,7 +656,17 @@
       {
         "name": "Comet Lake-S",
         "desc": "Desktop processors — 14nm, up to 10 cores",
-        "tags": ["desktop"],
+        "tags": [
+          "desktop"
+        ],
+        "brand": "Core"
+      },
+      {
+        "name": "Ice Lake-U",
+        "desc": "Core i3 10th gen — 10 nm mobile",
+        "tags": [
+          "mobile"
+        ],
         "brand": "Core"
       }
     ]
@@ -630,7 +687,9 @@
       {
         "name": "Atom Embedded",
         "desc": "Low-power embedded processors for IoT, networking, and edge",
-        "tags": ["embedded"],
+        "tags": [
+          "embedded"
+        ],
         "brand": "Atom"
       }
     ]

@@ -47,9 +47,11 @@ TARGETS = {
 # schema field -> human label, used for the inspect-mode guesses
 CPU_FIELDS = {
     "n": "model name", "c": "cores", "t": "threads",
+    "pc": "P-cores", "ec": "E-cores",
     "bst": "boost clock", "bas": "base clock", "l3": "L3 cache",
     "tdp": "TDP", "sk": "socket", "tr": "tray product ID",
     "skc": "socket count (server)", "pcie": "PCIe (server)", "mem": "memory (server)",
+    "mc": "memory channels (server)",
     "gm": "iGPU model (client)", "gc": "iGPU CUs (client)", "gf": "iGPU freq (client)",
 }
 GPU_FIELDS = {
@@ -62,7 +64,11 @@ GPU_FIELDS = {
 # substrings -> schema field, for inspect-mode guessing only
 GUESS = [
     (("model", "name", "processor", "product name"), "n"),
-    (("# of cpu cores", "cores", "core count"), "c"),
+    # P/E must be tested BEFORE the generic "cores" rule, or they'd match it first
+    (("# of performance-cores", "performance-core", "p-core", "pcores"), "pc"),
+    (("# of efficient-cores", "efficient-core", "e-core", "ecores"), "ec"),
+    (("memory channels", "# of memory channels", "memchannels"), "mc"),
+    (("# of cpu cores", "total cores", "cores", "core count"), "c"),
     (("# of threads", "threads", "thread count"), "t"),
     (("max. boost", "boost", "turbo", "max frequency"), "bst"),
     (("base clock", "base frequency", "base freq"), "bas"),
