@@ -3,12 +3,17 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-08-26 (AMD restructure)
-**Current version:** 0.3.0 + unreleased work
-**Health:** Good — all tabs render, zero JS errors, smoke test passes
-**Committed:** no — 2026-08-26's work (notes removal, smoke-test filter coverage, doc
-fixes) is uncommitted. Everything through `3209a9d` is committed and pushed to
-`DborUS/hardware-dashboard`.
+**Last updated:** 2026-08-27 (session close — UI overhaul)
+**Current version:** 0.4.0 — both vendors product-first, sidebar filters, compact header
+**Health:** Good — all six sub-tabs render, zero JS errors, smoke test PASS
+**Committed:** through `4002201`. Confirm with Daniel that anything after the
+marker-centring commit has landed before building on top.
+
+> **A stale `.git/index.lock` blocked Daniel's commit this session.** It came from
+> git commands I ran in the sandbox, which `CLAUDE.md` forbids for exactly this
+> reason. If a commit fails with *"Unable to create index.lock: File exists"*, the
+> fix is `Remove-Item .git\index.lock` after confirming no git is running. **Don't
+> run git from the sandbox at all** — read the repo with `ls` / `cat` instead.
 
 ---
 
@@ -37,19 +42,31 @@ wrong — he's usually right, so re-check rather than defend.
 
 ## Verified baseline
 
-Measured 2026-08-26 by `tools/smoke-test.py` (re-verified from a fresh sandbox):
+Measured 2026-08-27 by `tools/smoke-test.py`. **Model counts are the load-bearing
+assertions** — they are what catches a restructure silently dropping data.
 
 | Check | Value |
 |---|---|
 | AMD EPYC series / cards / models | 6 · 12 · **162** |
 | AMD Ryzen series / cards / models | 19 · 34 · **478** |
 | AMD GPU series / cards / models | 42 · 42 · **258** |
-| Intel Xeon generations / cards | 11 / 33 |
-| **Intel Xeon models** | **553** |
-| Intel Client generations / cards | 11 / 47 |
-| Intel Graphics generations / cards | 4 / 12 |
-| Filter chips exercised | 65 (9 + 4 + 23 + 18 + 11) |
+| Intel Xeon generations / cards / models | 11 · 33 · **553** |
+| Intel Client generations / cards | 11 / 47 (no spec data by design) |
+| Intel Graphics generations / cards | 4 / 12 (no spec data by design) |
+| Core-slider stops — AMD EPYC / Intel Xeon | 20 / 36 |
+| Filter chips exercised | 92 across six sub-tabs |
+| Known-dead chips (tracked, non-failing) | 12, all Intel |
 | JS errors | none |
+
+**Layout invariants** (`python3 tools/audit-layout.py`):
+
+| Check | Value |
+|---|---|
+| Timeline dot offset from rail | 0.00px, all tabs, 5 widths |
+| Era diamond offset from rail | 0.00px, all tabs, 5 widths |
+| Horizontal overflow | none at 1440 / 1024 / 390 |
+| Clipped text | none |
+| Chrome above the timeline | 167px AMD (was 403px) |
 
 Also verified working: search narrows correctly (`9575F` → 1 group, so SKU-level search
 reaches into spec tables), expand/collapse, vendor and tech tab switching, row selection.
@@ -218,67 +235,102 @@ accepted rather than rewritten.
 
 ## Suggested next steps
 
-### 1. Reconnect Intel spec data — the blocker
+Ordered by value, with the blocking question named.
 
-The Intel tab renders structure with **empty tables by design**. `intel-cpu-specs.json`
-holds 275 verified models under the *old* codename SKU keys; `V2_DATA` in
-`js/intel-v2.js` uses new generation→codename keys. Nothing bridges them.
+### 1. Intel Client + Graphics spec data — the one real blocker
 
-**This plan is superseded — the Xeon import already built the mechanism.** No
-`specKey` field is needed. `v2Rows()` looks specs up by the family `name` directly, so
-a family called `Arrow Lake-S` reads `V2_SPECS.client['Arrow Lake-S']`. What remains:
+Both tabs render their real column sets with empty bodies, by design. Daniel is
+preparing the data separately. `intel-cpu-specs.json` holds 275 models under the
+*old* codename keys; `V2_SPECS` is keyed by the `name` in `V2_DATA`. When the data
+lands, `v2LoadSpecs()` picks it up from `js/data/intel-<tab>-specs.json` with no
+code change, and the core-range slider appears on its own.
 
-1. Produce `js/data/intel-client-specs.json` keyed by `V2_DATA.client` family names
-   (the mapping work below), via `tools/import-specs.py` or a bespoke importer.
-2. Add `V2_FIELDS.client` — the field order parallel to `V2_COLUMNS.client`. Xeon's
-   entry is the worked example; without it `v2LoadSpecs()` returns early and the tab
-   stays empty by design.
-3. Graphics additionally needs its columns resolved per brand line via
-   `v2Columns(tier)`, so its row builder must read the resolved set, not a flat list.
-4. Raise the `intel_xeon_models` style assertion for client once data flows.
+### 2. The 12 dead Intel chips — needs Daniel's call
 
-Mapping notes for the existing 275: several old keys split across new blocks. Known
-cases are `Raptor Lake-U Refresh` (2xx parts → Series 2, 1xx → Series 1) and the Xeon W
-entries, which move out of `Raptor Lake (14th Gen)` into the `Xeon W` block.
+Chip label vs block `name` mismatch, e.g. chip `Xeon 5` vs block
+`Xeon 5 (5th Gen Scalable)`. Two fixes: shorten the block names, or make the chips
+match the full names. Both are mechanical; the choice is editorial. The sidebar
+already shows them dimmed with a blank count, so they no longer mislead.
 
-### 2. Two ordering violations in AMD data
+### 3. Housekeeping Daniel must do (sandbox can't delete on the mount)
 
-`python3 tools/check-order.py` fails on:
+```powershell
+Remove-Item js\amd-v2-data.js      # stale build intermediate
+git rm intel-v2.html               # redirect stub
+git rm cpu-architecture-roadmap.html   # 279 KB dead original
+```
 
-- **Zen 4** — `Phoenix` (desktop+laptop+pro) sits after `Dragon Range` (laptop).
-  Arguable: tagged desktop but really a mobile-first part. Needs Daniel's call.
-- **Raptor Lake (14th Gen)** — `Xeon E` and `Xeon W-2400/2500` are last, below consumer
-  parts. Clear violation. Note this lives in `intel-data.json`, which the Intel tab no
-  longer renders, so it is currently invisible to users — but `check-order.py` still
-  fails on it, and it should be fixed or the file retired.
+### 4. Optional polish
 
-### 3. Known small fixes
+- **Sticky header** — never answered. At 167px it is cheap to pin, and navigation
+  would stay reachable deep in a long timeline.
+- **Ryzen Brand filter is lopsided** — 10 of 34 codenames are plain "Ryzen". Unlike
+  the old EPYC Platform filter it *is* data-derived, so it is defensible; a core
+  slider or segment-first grouping would sharpen it.
+- **`check-order.py`'s two violations** — data hygiene only, invisible on the page.
+- **Legacy code removal** — `render()`, `renderGpu()`, `applyFilters()`,
+  `buildFilterBar()`, `buildCodenameTable()` are unreachable. Deleting them would
+  cut ~400 lines from `script.js`, but touches the file both renderers depend on,
+  so it deserves its own session and its own smoke run.
 
-- Escape the notes textarea (`script.js`) — a note containing `</textarea>` breaks markup.
-- Validate `getLinks()` JSON.parse output.
-- `git rm intel-v2.html` — redirect stub, sandbox cannot delete on the mount.
-- `cpu-architecture-roadmap.html` (279 KB) is dead; nothing links to it.
+### 5. Content and hosting (Daniel deprioritised both)
 
-### 4. Accessibility
-
-Arch headers and SKU cards are keyboard-operable with focus-visible styles. Untested
-with a real screen reader, and the new Intel sub-tabs use `role="tablist"` without
-arrow-key navigation.
-
-### 5. Content and hosting
-
-- **AMD coverage is thin** — 8 architectures. Needs Daniel's source data.
-- **No live site reflects current work.** `danchuborchik.github.io` serves a February
-  build; `DborUS/hardware-dashboard` has no Pages site (404). Enabling Pages on the AMD
-  repo is ~2 minutes in Settings, if EMU policy allows it.
-- `README.md` still cites the old repo URL and old live site.
-- Decide what happens to the old public repo — archiving keeps history, read-only.
-
----
+AMD CPU coverage is thinner than Intel's; no live site reflects current work.
 
 ## Session log
 
 Newest first. One short entry per session — what changed, what was verified, what's next.
+
+### 2026-08-27 — SESSION CLOSE SUMMARY
+
+A large UI session. Seven pieces of work landed, each verified before the next.
+
+1. **AMD restructured product-first** — EPYC / Ryzen / GPU sub-tabs, mirroring
+   Intel. 640 CPU + 258 GPU models preserved exactly.
+2. **Radeon launch years corrected** — 15 of 19 consumer families were wrong
+   (HD 5000 said 2019, actual 2009).
+3. **Filters moved to a left sidebar** with live per-option counts. Ryzen's bar
+   was 278px tall; the rail costs zero vertical space.
+4. **EPYC "Platform" filter replaced** — first with core bands, then a range
+   slider on Daniel's preference.
+5. **Core-range slider** on every tab with core data, snapping to real values.
+6. **Header compacted** — 403px → 167px via a sliding vendor pill + product row.
+7. **Era dividers added to AMD**, then a full layout audit that fixed five more
+   alignment issues.
+
+**Net effect on the thing Daniel actually complained about:** chrome above the
+timeline went **403px → 167px**, and the Ryzen filter bar went **278px → 0**
+vertical. Six EPYC series now sit above the fold where two did.
+
+**What cost the most time, so the next session can skip it:**
+
+- **Trusting arithmetic over measurement.** Both marker-centring bugs and the
+  `::before` box-model mistake were only settled by reading `getComputedStyle`
+  back. See CLAUDE.md §4b.
+- **Trusting counts over screenshots.** Four separate defects passed every count
+  assertion. See CLAUDE.md §5b.
+- **Editing a generated file.** `js/amd-v2.js` is built by `tools/gen-amd-v2.py`;
+  edits to it vanish on the next run. Edit the generator or the renderer half.
+- **Ordering bugs in async activate paths.** `v2Activate()` built filters before
+  awaiting the spec load, so Intel's slider rendered empty while `v2Switch()`
+  worked. If a control is empty on first paint but fine after a tab switch, look
+  at activate-vs-switch ordering first.
+- **A stale `.git/index.lock`** from sandbox git commands blocked Daniel's commit.
+  Don't run git from the sandbox.
+
+**Three wrong turns worth remembering:**
+
+- Ryzen era dividers were first labelled by *tier*, which put Threadripper 7000
+  under "mainstream Ryzen" — Threadripper and Ryzen interleave chronologically.
+  Re-labelled by naming scheme.
+- The EPYC socket fallback guessed `SP5`, mislabelling three SP3 families. Now
+  read from data, and it raises rather than guesses.
+- The first era note claimed "12-channel DDR5, LGA 6096" from general knowledge.
+  Cut back to what `mem` / `pcie` actually show.
+
+**Verified at close:** smoke test PASS, zero JS errors, 162 / 478 / 258 / 553
+models, 0.00px marker alignment across 6 sub-tabs × 5 widths, no overflow or
+clipped text at three viewports.
 
 ### 2026-08-27f — Diamond centring fixed + layout audit
 

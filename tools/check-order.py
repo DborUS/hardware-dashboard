@@ -3,8 +3,27 @@
 Check that SKUs within each architecture run datacenter -> client -> desktop -> mobile.
 
 The dashboard's audience is datacenter presales, so server parts must lead every SKU
-list and consumer silicon must not sit above them. Arrays render in file order --
-there is no sort in render() -- so file order IS the contract, and this enforces it.
+list and consumer silicon must not sit above them.
+
+*** SCOPE CHANGED 2026-08-27 -- READ THIS BEFORE ACTING ON A FAILURE. ***
+
+Both vendors are now product-first (js/amd-v2.js, js/intel-v2.js) and neither
+reads SKU order out of these JSON files any more:
+
+  * js/data/intel-data.json  -- rendered by NOTHING. Legacy.
+  * js/data/amd-data.json    -- still read by tools/gen-amd-v2.py, but only for
+                                arch / year / subtitle lookups keyed by name.
+                                Block and card order come from EPYC_SERIES and
+                                RYZEN_SERIES in the generator.
+
+So a failure here is a DATA-HYGIENE warning, not a user-visible defect. The two
+long-standing violations (Zen 4 Phoenix, Raptor Lake 14th Gen Xeon E / W-2400)
+are invisible on the rendered page. Fix them for tidiness, or leave them; do not
+report them to Daniel as rendering bugs.
+
+**What actually governs the rendered order now** is the ordering of EPYC_SERIES /
+RYZEN_SERIES / gpu_blocks in tools/gen-amd-v2.py and of the `gens` arrays in
+js/intel-v2.js. Those are hand-ordered and are NOT checked by this script.
 
 What it CANNOT check: ordering *within* a tier. "Strix Halo before Strix Point" needs
 to know Halo is the bigger part; that stays a review-time judgement. See the

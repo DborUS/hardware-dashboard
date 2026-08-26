@@ -82,13 +82,14 @@ KNOWN_DEAD_CHIPS = {
     "intel-client:Series 3", "intel-client:Series 2", "intel-client:Series 1",
     "intel-client:Core X", "intel-client:Atom / N",
 
-    # Different cause: these tags exist in VENDOR_CONFIG / V2_DATA filters but
-    # no SKU carries them, so the chip is real and simply matches nothing.
-    #   Athlon -- no Athlon SKU remains in amd-data.json (brands: Epyc, Ryzen,
-    #             Ryzen AI, Threadripper). Stale chip.
+    # Different cause: these tags exist in the V2_DATA filter list but no family
+    # carries them, so the chip is real and simply matches nothing.
     #   Silver / Bronze -- 32 Silver and 6 Bronze models ARE imported, but every
     #             V2_DATA.xeon family is tiered Platinum/Gold, so the tier is
     #             unreachable. Resolves when tiering is finished.
+    # (The former amd-cpu:Athlon entry is gone -- it disappeared with the legacy
+    #  AMD filter bar when AMD moved to the product-first renderer. AMD now has
+    #  zero dead chips.)
     "intel-xeon:Silver", "intel-xeon:Bronze",
 }
 
