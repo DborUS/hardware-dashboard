@@ -4,7 +4,7 @@
 
 // Bump when any js/data/*.json changes, so browsers refetch instead of serving a
 // stale copy. Mirrors the ?v= on the script tag in index.html.
-const DATA_VERSION = '20260816-xeon';
+const DATA_VERSION = '20260827-header';
 
 // Cache for loaded data to avoid redundant fetches
 const dataCache = {};
@@ -276,9 +276,14 @@ async function switchVendor(vendor) {
   activeGpuSegments.clear();
   dom.searchInput.value = '';
 
-  // Tab styling
+  // Tab styling. `data-active` on the pill drives the sliding thumb; the
+  // button classes still carry the active state for the smoke test and a11y.
   dom.tabIntel.className = 'vendor-tab' + (vendor === 'intel' ? ' active-intel' : '');
   dom.tabAmd.className = 'vendor-tab' + (vendor === 'amd' ? ' active-amd' : '');
+  dom.tabIntel.setAttribute('aria-selected', vendor === 'intel' ? 'true' : 'false');
+  dom.tabAmd.setAttribute('aria-selected', vendor === 'amd' ? 'true' : 'false');
+  const pill = document.getElementById('vendorPill');
+  if (pill) pill.dataset.active = vendor;
 
   const cfg = VENDOR_CONFIG[vendor];
 
@@ -330,17 +335,13 @@ async function switchVendor(vendor) {
     dom.techTabs.classList.remove('visible');
   }
 
-  // Intel uses the generation-first renderer in js/intel-v2.js, which owns the
-  // same DOM nodes. Everything below this point is the AMD path.
-  if (vendor === 'intel') { v2Activate(); return; }
+  // Both vendors now use a product-first renderer that owns these same DOM
+  // nodes: Intel via js/intel-v2.js, AMD via js/amd-v2.js. Exactly one is
+  // active at a time. The legacy render() path below is retained but unused
+  // for normal navigation -- see docs/PROJECT-STATE.md.
+  if (vendor === 'intel') { a2Deactivate(); v2Activate(); return; }
   v2Deactivate();
-
-  // Header
-  dom.pageHeader.innerHTML = `<h1 class="${cfg.headerClass}">${cfg.title}</h1><p>Processor Architecture Generations</p>`;
-
-  buildUnifiedFilters();
-  buildCodenameTable();
-  render();
+  a2Activate(AMD_CPU_SPECS, cfg.gpuData);
 }
 
 function switchTech(tab) {
@@ -665,11 +666,7 @@ function render() {
             <button class="add-link-save" onclick="saveNewLink('${arch.id}')">Add</button>
             <button class="add-link-cancel" onclick="hideAddLinkForm('${arch.id}')">Cancel</button>
           </div>
-        </div>
-        <div class="notes-area">
-          <div class="notes-label">Notes</div>
-          <textarea placeholder="Add notes for ${arch.arch}..." oninput="saveNotes('${arch.id}', this.value)">${loadNotes(arch.id)}</textarea>
-        </div>
+        </div>
       </div>`;
     timeline.appendChild(group);
   });
@@ -825,11 +822,7 @@ function renderGpu(timeline, data) {
             <button class="add-link-save" onclick="saveNewLink('${arch.id}')">Add</button>
             <button class="add-link-cancel" onclick="hideAddLinkForm('${arch.id}')">Cancel</button>
           </div>
-        </div>
-        <div class="notes-area">
-          <div class="notes-label">Notes</div>
-          <textarea placeholder="Add notes for ${arch.arch}..." oninput="saveNotes('${arch.id}', this.value)">${loadNotes(arch.id)}</textarea>
-        </div>
+        </div>
       </div>`;
     timeline.appendChild(group);
   });
@@ -1265,8 +1258,6 @@ function memWithChannels(m) {
 }
 
 function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
-function saveNotes(id, v) { try { localStorage.setItem(`roadmap-notes-${currentVendor}-${id}`, v); } catch(e) {} }
-function loadNotes(id) { try { return localStorage.getItem(`roadmap-notes-${currentVendor}-${id}`) || ''; } catch(e) { return ''; } }
 function getLinks(arch) {
   try { const s = localStorage.getItem(`roadmap-links-${currentVendor}-${arch.id}`); if (s !== null) return JSON.parse(s); } catch(e) {}
   return arch.defaultLinks || [];
@@ -1294,8 +1285,272 @@ function removeLink(id, idx) {
   expandedGroups.add(id); render();
 }
 
+// ═══════════════════════════════════════════════════════════════════════════
+//  CORE-RANGE SLIDER  —  shared by both renderers
+// ═══════════════════════════════════════════════════════════════════════════
+// A dual-knob range control plus typed min/max inputs, used on every tab that
+// has core-count data: AMD EPYC, AMD Ryzen, Intel Xeon. NOT the GPU tabs.
+//
+// Two decisions worth knowing:
+//
+// 1. THE TRACK SNAPS TO REAL VALUES, it is not linear. EPYC ships 20 distinct
+//    core counts between 8 and 256, and 12 of them are at or below 32 -- on a
+//    linear axis they would pile into the first quarter while a third of the
+//    track sat empty between 192 and 256. Each real value gets equal width
+//    instead, so every stop is reachable.
+//
+// 2. STOPS ARE DERIVED FROM THE LOADED DATA, never hardcoded. A tab with fewer
+//    than two distinct values renders no slider at all, which is why Intel
+//    Client shows none today and will grow one automatically when its spec
+//    import lands. (Golden rule #1: read it, don't type it.)
+//
+// A family matches when ANY of its models falls in range -- Turin ships 8C
+// through 128C, so it survives most ranges. Same "a codename spans a range"
+// logic as the product-series nesting.
+
+/**
+ * Total cores for one model record.
+ *
+ * AMD stores a single `c`. Intel Xeon stores no total at all -- only `pc` and
+ * `ec` -- so it is summed. Reading `c` alone would report every one of the 553
+ * Xeon models as having no core count.
+ *
+ * @returns {number|null} total cores, or null when the record doesn't say
+ */
+function coreTotal(m) {
+  if (String(m.c ?? '').match(/^\d+$/)) return parseInt(m.c, 10);
+  const p = String(m.pc ?? '').match(/^\d+$/) ? parseInt(m.pc, 10) : 0;
+  const e = String(m.ec ?? '').match(/^\d+$/) ? parseInt(m.ec, 10) : 0;
+  return (p + e) > 0 ? p + e : null;
+}
+
+/** Sorted distinct core counts across a list of model records. */
+function coreStops(models) {
+  const s = new Set();
+  models.forEach(m => { const t = coreTotal(m); if (t !== null) s.add(t); });
+  return [...s].sort((a, b) => a - b);
+}
+
+/**
+ * Fresh slider state for a set of stops. `lo`/`hi` are INDICES into `stops`,
+ * so the control is always positioned on a real value.
+ */
+function coreRangeInit(stops) {
+  return { stops, lo: 0, hi: Math.max(0, stops.length - 1) };
+}
+
+/** True when the range is wide open, i.e. imposing no constraint. */
+function coreRangeIsAll(st) {
+  return !st || !st.stops.length || (st.lo === 0 && st.hi === st.stops.length - 1);
+}
+
+/** Does a family's [min,max] core span intersect the selected range? */
+function coreRangeMatch(st, cmin, cmax) {
+  if (coreRangeIsAll(st)) return true;
+  if (cmin === null || cmax === null) return false;   // no data => no match
+  return cmax >= st.stops[st.lo] && cmin <= st.stops[st.hi];
+}
+
+/** Markup for the control. `id` namespaces the element ids per renderer. */
+function coreRangeHtml(id, st) {
+  if (!st || st.stops.length < 2) return '';
+  const lo = st.stops[st.lo], hi = st.stops[st.hi];
+  const ticks = st.stops.map((v, i) =>
+    `<div class="crt" style="left:${i / (st.stops.length - 1) * 100}%"></div>`).join('');
+  return `
+    <div class="fgroup core-range" id="${id}">
+      <span class="fgroup-label">Core count</span>
+      <div class="cr-nums">
+        <div class="cr-numwrap">
+          <input class="cr-num" id="${id}-min" inputmode="numeric" value="${lo}"
+                 aria-label="Minimum core count">
+          <div class="cr-nlab">min</div>
+        </div>
+        <span class="cr-dash">–</span>
+        <div class="cr-numwrap">
+          <input class="cr-num" id="${id}-max" inputmode="numeric" value="${hi}"
+                 aria-label="Maximum core count">
+          <div class="cr-nlab">max</div>
+        </div>
+      </div>
+      <div class="cr-track" id="${id}-track">
+        <div class="cr-ticks">${ticks}</div>
+        <div class="cr-fill" id="${id}-fill"></div>
+        <div class="cr-knob" id="${id}-klo" data-end="lo" role="slider" tabindex="0"
+             aria-label="Minimum cores" aria-valuemin="${st.stops[0]}"
+             aria-valuemax="${st.stops[st.stops.length - 1]}" aria-valuenow="${lo}"></div>
+        <div class="cr-knob" id="${id}-khi" data-end="hi" role="slider" tabindex="0"
+             aria-label="Maximum cores" aria-valuemin="${st.stops[0]}"
+             aria-valuemax="${st.stops[st.stops.length - 1]}" aria-valuenow="${hi}"></div>
+      </div>
+      <div class="cr-ends"><span>${st.stops[0]}</span><span>${st.stops[st.stops.length - 1]}</span></div>
+      <div class="cr-presets" id="${id}-presets"></div>
+    </div>`;
+}
+
+/** Repaint knobs, fill, inputs and preset states from `st`. */
+function coreRangePaint(id, st) {
+  const root = document.getElementById(id);
+  if (!root || !st || st.stops.length < 2) return;
+  const last = st.stops.length - 1;
+  const pl = st.lo / last * 100, ph = st.hi / last * 100;
+  const fill = document.getElementById(id + '-fill');
+  const klo = document.getElementById(id + '-klo');
+  const khi = document.getElementById(id + '-khi');
+  if (fill) { fill.style.left = pl + '%'; fill.style.right = (100 - ph) + '%'; }
+  if (klo) { klo.style.left = pl + '%'; klo.setAttribute('aria-valuenow', st.stops[st.lo]); }
+  if (khi) { khi.style.left = ph + '%'; khi.setAttribute('aria-valuenow', st.stops[st.hi]); }
+  const mn = document.getElementById(id + '-min');
+  const mx = document.getElementById(id + '-max');
+  // Don't fight the user mid-type.
+  if (mn && document.activeElement !== mn) mn.value = st.stops[st.lo];
+  if (mx && document.activeElement !== mx) mx.value = st.stops[st.hi];
+  root.classList.toggle('cr-active', !coreRangeIsAll(st));
+  root.querySelectorAll('.cr-pre').forEach(b => {
+    const [a, z] = b.dataset.range.split(':').map(Number);
+    b.classList.toggle('on', st.stops[st.lo] === a && st.stops[st.hi] === z);
+  });
+}
+
+/**
+ * Wire drag, keyboard, typed inputs and presets. `onChange` runs after any
+ * change and should call the renderer's applyFilters.
+ */
+function coreRangeWire(id, st, onChange) {
+  const root = document.getElementById(id);
+  if (!root || !st || st.stops.length < 2) return;
+  const last = st.stops.length - 1;
+  const track = document.getElementById(id + '-track');
+
+  const nearest = clientX => {
+    const r = track.getBoundingClientRect();
+    const pct = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+    return Math.round(pct * last);
+  };
+  const setEnd = (end, idx) => {
+    idx = Math.min(last, Math.max(0, idx));
+    if (end === 'lo') st.lo = Math.min(idx, st.hi);
+    else st.hi = Math.max(idx, st.lo);
+    coreRangePaint(id, st);
+    onChange();
+  };
+
+  let drag = null;
+  const move = e => {
+    if (!drag) return;
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    setEnd(drag, nearest(x));
+  };
+  const up = () => {
+    drag = null;
+    document.removeEventListener('mousemove', move);
+    document.removeEventListener('touchmove', move);
+  };
+  ['klo', 'khi'].forEach(k => {
+    const el = document.getElementById(id + '-' + k);
+    const start = e => {
+      drag = el.dataset.end;
+      document.addEventListener('mousemove', move);
+      document.addEventListener('touchmove', move, { passive: true });
+      document.addEventListener('mouseup', up, { once: true });
+      document.addEventListener('touchend', up, { once: true });
+      e.preventDefault();
+    };
+    el.addEventListener('mousedown', start);
+    el.addEventListener('touchstart', start, { passive: false });
+    el.addEventListener('keydown', e => {
+      const d = e.key === 'ArrowLeft' || e.key === 'ArrowDown' ? -1
+              : e.key === 'ArrowRight' || e.key === 'ArrowUp' ? 1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      setEnd(el.dataset.end, (el.dataset.end === 'lo' ? st.lo : st.hi) + d);
+    });
+  });
+
+  // Click anywhere on the track moves the nearer knob.
+  track.addEventListener('mousedown', e => {
+    if (e.target.classList.contains('cr-knob')) return;
+    const idx = nearest(e.clientX);
+    setEnd(Math.abs(idx - st.lo) <= Math.abs(idx - st.hi) ? 'lo' : 'hi', idx);
+  });
+
+  // Typed values snap to the closest real stop, so a request like "at least
+  // 96 cores" lands on 96 rather than an interpolated position.
+  const snap = v => {
+    let best = 0;
+    st.stops.forEach((s, i) => {
+      if (Math.abs(s - v) < Math.abs(st.stops[best] - v)) best = i;
+    });
+    return best;
+  };
+  const commit = (el, end) => {
+    const v = parseInt(el.value, 10);
+    if (!Number.isFinite(v)) { coreRangePaint(id, st); return; }
+    setEnd(end, snap(v));
+  };
+  ['min', 'max'].forEach(which => {
+    const el = document.getElementById(id + '-' + which);
+    const end = which === 'min' ? 'lo' : 'hi';
+    el.addEventListener('change', () => commit(el, end));
+    el.addEventListener('blur', () => commit(el, end));
+    el.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); el.blur(); } });
+  });
+
+  // Presets snap to conventional core boundaries rather than positions on the
+  // track. Taking stops at fixed fractions produced labels like "36-112",
+  // which are real values but not numbers anyone asks for. These cuts are the
+  // familiar ones (32C entry ceiling, 64C mainstream flagship, 128C dense),
+  // filtered to those the current tab actually spans.
+  const CUTS = [32, 64, 128];
+  const lo0 = st.stops[0], hi0 = st.stops[last];
+  const cuts = CUTS.filter(c => c > lo0 && c < hi0);
+  const presets = [];
+  if (cuts.length) {
+    presets.push([`≤ ${cuts[0]}`, lo0, cuts[0]]);
+    for (let i = 0; i < cuts.length - 1; i++) {
+      presets.push([`${cuts[i]}–${cuts[i + 1]}`, cuts[i], cuts[i + 1]]);
+    }
+    presets.push([`${cuts[cuts.length - 1]}+`, cuts[cuts.length - 1], hi0]);
+  }
+  presets.push(['All', lo0, hi0]);
+  document.getElementById(id + '-presets').innerHTML = presets.map(([lab, a, z]) =>
+    `<button class="cr-pre" data-range="${a}:${z}">${escHtml(lab)}</button>`).join('');
+  root.querySelectorAll('.cr-pre').forEach(b =>
+    b.addEventListener('click', () => {
+      const [a, z] = b.dataset.range.split(':').map(Number);
+      st.lo = snap(a); st.hi = snap(z);
+      coreRangePaint(id, st);
+      onChange();
+    }));
+
+  coreRangePaint(id, st);
+}
+
+/**
+ * Product title without the vendor word.
+ *
+ * The data carries the full name ("AMD EPYC", "Intel Xeon") because it is
+ * meaningful on its own, but the header renders beside a pill that already
+ * says AMD or Intel -- repeating it wasted the widest line on the page.
+ */
+function stripVendor(t) {
+  return String(t || '').replace(/^(AMD|Intel)\s+/, '');
+}
+
 // Init DOM cache and event listeners
 initDomCache();
+
+// Narrow screens collapse the filter sidebar behind a disclosure button.
+// Above 900px the button is display:none and this listener never fires.
+(function wireSidebarToggle() {
+  const btn = document.getElementById('sidebarToggle');
+  const side = document.getElementById('sidebar');
+  if (!btn || !side) return;
+  btn.addEventListener('click', () => {
+    const open = side.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
 setupRowSelectionHandlers();
 setupKeyboardHandlers();
 
@@ -1306,6 +1561,7 @@ dom.searchInput.addEventListener('input', () => {
   dom.searchClear.classList.toggle('visible', dom.searchInput.value.length > 0);
   // Intel runs its own filter path; both renderers share this input.
   if (typeof v2IsActive === 'function' && v2IsActive()) { v2SetSearch(dom.searchInput.value); return; }
+  if (typeof a2IsActive === 'function' && a2IsActive()) { a2SetSearch(dom.searchInput.value); return; }
   debouncedFilter();
 });
 
@@ -1314,18 +1570,21 @@ dom.searchClear.addEventListener('click', () => {
   dom.searchInput.value = '';
   dom.searchClear.classList.remove('visible');
   if (typeof v2IsActive === 'function' && v2IsActive()) { v2SetSearch(''); return; }
+  if (typeof a2IsActive === 'function' && a2IsActive()) { a2SetSearch(''); return; }
   applyFilters();
 });
 
 // Expand/Collapse
 dom.expandAllBtn.addEventListener('click', () => {
   if (typeof v2IsActive === 'function' && v2IsActive()) { v2ExpandAll(true); return; }
+  if (typeof a2IsActive === 'function' && a2IsActive()) { a2ExpandAll(true); return; }
   const cfg = VENDOR_CONFIG[currentVendor];
   const data = (currentTechTab === 'gpu' && cfg.gpuData) ? cfg.gpuData : cfg.data;
   data.forEach(a => { if (a.id) expandedGroups.add(a.id); }); render();
 });
 dom.collapseAllBtn.addEventListener('click', () => {
   if (typeof v2IsActive === 'function' && v2IsActive()) { v2ExpandAll(false); return; }
+  if (typeof a2IsActive === 'function' && a2IsActive()) { a2ExpandAll(false); return; }
   expandedGroups.clear(); render();
 });
 dom.clearSelectionsBtn.addEventListener('click', clearAllSelections);

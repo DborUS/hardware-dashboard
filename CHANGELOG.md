@@ -5,6 +5,72 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed
+- **AMD restructured product-first** (2026-08-26) — the AMD tab now has **EPYC /
+  Ryzen / GPU** sub-tabs, mirroring Intel, and is organised by **product name rather
+  than Zen generation**. A customer asks for an EPYC 9005 or a Ryzen AI 400, not for
+  "a Zen 5 part"; the Zen generation still appears on every card.
+
+  | Sub-tab | Blocks | Cards | Models |
+  |---|---|---|---|
+  | EPYC | 6 series (9006 → 7001) | 12 | 162 |
+  | Ryzen | 19 series (AI 400 → 1000, Threadripper, Z-series) | 34 | 478 |
+  | GPU | 42 (Instinct → Radeon PRO → Radeon) | 42 | 258 |
+
+  **640 CPU + 258 GPU models render — identical to the previous structure.** Nothing
+  was dropped; the generator asserts that every codename in `amd-cpu-specs.json` is
+  placed and that no block references a missing key.
+
+  Product-series-first is load-bearing rather than cosmetic: several codenames span
+  two series — Phoenix ships as both Ryzen 7000 and 8000, Dragon Range likewise — so
+  series → codename lets a codename appear under each series that sells it.
+
+  New `js/amd-v2.js` is **generated** by `tools/gen-amd-v2.py` from `js/data/*.json`,
+  so codenames, model counts, sockets and GPU segments are read from the data rather
+  than hand-typed. `render()` / `renderGpu()` in `js/script.js` are retained but no
+  longer reached by normal navigation.
+
+### Fixed
+- **Radeon launch years** (2026-08-26) — 15 of 19 consumer families carried wrong
+  years: HD 5000 said 2019 (actual **2009**), HD 7000 said 2023 (**2012**), R9 200
+  said 2020 (**2013**), RX Vega said 2019 (**2017**). Corrected from AMD/Wikipedia
+  launch dates. `amd-gpu-data.json` is CRLF with `\uXXXX` escapes and the writer had
+  to match both, so the diff is exactly 16 lines changed with no reformatting.
+- **EPYC socket mislabelling** (2026-08-26) — the generator initially defaulted to
+  `SP5` when a subtitle named no socket, silently marking Milan / Rome / Naples (all
+  **SP3**) wrong and leaving the SP3 filter chip dead. Sockets are now read from the
+  `sk` field, and the generator raises rather than guessing.
+
+### Removed
+- **Per-architecture Notes boxes** (2026-08-26) — removed at Daniel's request; no longer
+  used. Deleted the `.notes-area` block from both `render()` and `renderGpu()`, the
+  `saveNotes()` / `loadNotes()` helpers, and all `.notes-*` CSS including the 640px
+  rules. **Links sections are unchanged.** This also resolved the long-standing
+  unescaped-textarea issue (`${loadNotes(...)}` was interpolated raw, so a note
+  containing `</textarea>` broke the markup) by removing the interpolation entirely.
+  Any `roadmap-notes-*` keys still in a browser's localStorage are now inert.
+
+### Added
+- **Filter-chip coverage in `tools/smoke-test.py`** (2026-08-26) — the suite counted
+  rendered elements but never clicked a filter, so a chip matching no content shipped
+  unnoticed: the page renders correctly and only goes blank once a user clicks it.
+  Every chip on every tab is now clicked and restored — 65 per run — and a chip that
+  hides everything fails the build.
+
+  It found three dead chips on its first run that inspection had missed (`Athlon`,
+  `Silver`, `Bronze`), in addition to the ten tag/name mismatches already identified.
+  All 13 are allowlisted in `KNOWN_DEAD_CHIPS` and printed on every run rather than
+  silently skipped, so the suite stays green while the Intel framework is in flux while
+  still failing on anything new. See `docs/PROJECT-STATE.md` known issue #6.
+
+### Fixed
+- **Documentation drift** (2026-08-26) — `docs/DATA-SCHEMA.md` header counts were stale
+  (14 entries / 7 architectures / 44 spec keys → **16 / 8 / 46**). The `specKey` plan in
+  `docs/PROJECT-STATE.md` was superseded by the Xeon import — `v2Rows()` already looks
+  specs up by family name, so the remaining work is a client specs file plus a
+  `V2_FIELDS.client` entry, not a new field. Notes references cleaned out of
+  `README.md`, `CLAUDE.md` and `docs/DESIGN-SYSTEM.md`.
+
 ### Added
 - **103 Intel CPU models imported from ARK exports** (2026-08-14) — the largest Intel
   data addition since the original build. Intel went from 218 to **275 models** and

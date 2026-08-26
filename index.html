@@ -13,49 +13,84 @@
 <body>
 <div class="bg-grid"></div>
 <div class="container">
-  <div class="vendor-tabs">
-    <button class="vendor-tab active-amd" id="tabAmd" onclick="switchVendor('amd')">AMD</button>
-    <div class="vendor-tab-divider"></div>
-    <button class="vendor-tab" id="tabIntel" onclick="switchVendor('intel')">Intel</button>
+  <!-- Row 1: vendor pill + inline product title. The pill's coloured
+       thumb slides between AMD and Intel; #pageHeader is written by whichever
+       renderer is active and now sits on the same line. -->
+  <div class="topbar">
+    <div class="vendor-pill" id="vendorPill" data-active="amd" role="tablist"
+         aria-label="Vendor">
+      <span class="vendor-pill-thumb" aria-hidden="true"></span>
+      <button class="vendor-tab active-amd" id="tabAmd" role="tab"
+              aria-selected="true" onclick="switchVendor('amd')">AMD</button>
+      <button class="vendor-tab" id="tabIntel" role="tab"
+              aria-selected="false" onclick="switchVendor('intel')">Intel</button>
+    </div>
+    <header id="pageHeader">
+      <h1 class="header-amd">EPYC</h1>
+      <p>Data center processors</p>
+    </header>
+    <div class="v2-status" id="v2Status" role="status" aria-live="polite" hidden></div>
+    <div class="v2-status" id="a2Status" role="status" aria-live="polite" hidden></div>
   </div>
-  <header id="pageHeader">
-    <h1 class="header-intel">Intel Client + Server Roadmap</h1>
-    <p>Processor Architecture Generations</p>
-  </header>
-  <div class="tech-tabs" id="techTabs">
-    <button class="tech-tab active" id="techTabCpu" onclick="switchTech('cpu')">CPU</button>
-    <div class="tech-tab-divider"></div>
-    <button class="tech-tab" id="techTabGpu" onclick="switchTech('gpu')">GPU</button>
-  </div>
-  <!-- Intel only: product-line sub-tabs, shown by v2Activate() -->
-  <div class="v2-subtabs" id="v2Subtabs" role="tablist" aria-label="Intel product line">
-    <button class="v2-subtab active" data-tab="xeon" role="tab">XEON</button>
-    <div class="v2-subtab-divider"></div>
-    <button class="v2-subtab" data-tab="client" role="tab">CLIENT</button>
-    <div class="v2-subtab-divider"></div>
-    <button class="v2-subtab" data-tab="graphics" role="tab">GRAPHICS</button>
+
+  <!-- Row 2: product line, search and the expand/collapse controls together. -->
+  <div class="navrow">
+    <!-- AMD only: product-line sub-tabs, shown by a2Activate() -->
+    <div class="v2-subtabs a2-subtabs" id="a2Subtabs" role="tablist" aria-label="AMD product line">
+      <button class="v2-subtab a2-subtab active" data-tab="epyc" role="tab">EPYC</button>
+      <button class="v2-subtab a2-subtab" data-tab="ryzen" role="tab">RYZEN</button>
+      <button class="v2-subtab a2-subtab" data-tab="gpu" role="tab">GPU</button>
+    </div>
+    <!-- Intel only: product-line sub-tabs, shown by v2Activate() -->
+    <div class="v2-subtabs" id="v2Subtabs" role="tablist" aria-label="Intel product line">
+      <button class="v2-subtab active" data-tab="xeon" role="tab">XEON</button>
+      <button class="v2-subtab" data-tab="client" role="tab">CLIENT</button>
+      <button class="v2-subtab" data-tab="graphics" role="tab">GRAPHICS</button>
+    </div>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="searchInput" placeholder="Search architectures, SKUs, brands..." aria-label="Search architectures, SKUs, brands and specifications">
+      <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
+    </div>
+    <div class="toolbar">
+      <button class="expand-all-btn" id="expandAllBtn">Expand All</button>
+      <button class="expand-all-btn" id="collapseAllBtn">Collapse All</button>
+      <button class="expand-all-btn" id="clearSelectionsBtn">Clear Selections</button>
+    </div>
   </div>
   <div class="v2-nodata" id="v2NoData" hidden>
     Xeon has full spec data. Client and Graphics tables are empty pending import.
   </div>
-  <div class="search-wrap">
-    <span class="search-icon">⌕</span>
-    <input type="text" id="searchInput" placeholder="Search architectures, SKUs, brands..." aria-label="Search architectures, SKUs, brands and specifications">
-    <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
+  <!-- Legacy CPU/GPU tech tabs. Both vendors are product-first now, so nothing
+       shows these; kept only because script.js still holds a reference. -->
+  <div class="tech-tabs" id="techTabs" hidden>
+    <button class="tech-tab active" id="techTabCpu" onclick="switchTech('cpu')">CPU</button>
+    <div class="tech-tab-divider"></div>
+    <button class="tech-tab" id="techTabGpu" onclick="switchTech('gpu')">GPU</button>
   </div>
-  <div class="controls" id="filterControls"></div>
-  <div class="toolbar">
-    <button class="expand-all-btn" id="expandAllBtn">Expand All</button>
-    <button class="expand-all-btn" id="collapseAllBtn">Collapse All</button>
-    <button class="expand-all-btn" id="clearSelectionsBtn">Clear Selections</button>
+  <!-- Two-column layout: filter sidebar + timeline. Both renderers still
+       write into #filterControls; only its position changed. Collapses to a
+       single column under 900px, where the sidebar becomes a disclosure. -->
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="Filters">
+      <button class="sidebar-toggle" id="sidebarToggle" aria-expanded="false"
+              aria-controls="filterControls">
+        <span class="sidebar-toggle-label">Filters</span>
+        <span class="sidebar-toggle-count" id="sidebarCount" hidden></span>
+        <span class="sidebar-toggle-caret">▾</span>
+      </button>
+      <div class="controls" id="filterControls"></div>
+    </aside>
+    <main class="content">
+      <div id="codenameTableWrap"></div>
+      <div class="sr-only" id="filterStatus" role="status" aria-live="polite" aria-atomic="true"></div>
+      <div class="timeline" id="timeline"></div>
+    </main>
   </div>
-  <div id="codenameTableWrap"></div>
-  <div class="sr-only" id="filterStatus" role="status" aria-live="polite" aria-atomic="true"></div>
-  <div class="v2-status" id="v2Status" role="status" aria-live="polite" hidden></div>
-  <div class="timeline" id="timeline"></div>
 </div>
 
-<script src="js/intel-v2.js?v=20260816-xeon"></script>
-<script src="js/script.js?v=20260816-xeon"></script>
+<script src="js/intel-v2.js?v=20260827-header"></script>
+<script src="js/amd-v2.js?v=20260827-header"></script>
+<script src="js/script.js?v=20260827-header"></script>
 </body>
 </html>

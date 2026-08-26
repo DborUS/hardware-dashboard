@@ -170,11 +170,10 @@
   .arch-group .arch-name { color: var(--arch-color); }
   .arch-group .sku-card::before { background: var(--arch-color); }
 
-  /* Links & Notes */
+  /* Links */
   .links-area { margin-top: 12px; width: 100%; }
   .links-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-  .links-label, .notes-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
-  .notes-label { margin-bottom: 6px; }
+  .links-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
   .add-link-btn { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; padding: 3px 10px; border: 1px dashed rgba(255,255,255,0.15); border-radius: 4px; background: transparent; color: var(--text-muted); cursor: pointer; transition: all 0.2s ease; }
   .add-link-btn:hover { border-color: rgba(255,255,255,0.3); color: var(--text-secondary); }
   .links-list { display: flex; flex-direction: column; gap: 6px; }
@@ -198,10 +197,6 @@
   .add-link-save:hover { background: rgba(74,222,128,0.2); }
   .add-link-cancel { background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); }
   .add-link-cancel:hover { border-color: rgba(255,255,255,0.15); color: var(--text-secondary); }
-  .notes-area { margin-top: 8px; width: 100%; }
-  .notes-area textarea { width: 100%; min-height: 60px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: 6px; color: var(--text-secondary); font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 10px 12px; resize: vertical; outline: none; }
-  .notes-area textarea:focus { border-color: rgba(255,255,255,0.2); }
-  .notes-area textarea::placeholder { color: var(--text-muted); }
 
   /* Arch subtitle */
   .arch-subtitle {
@@ -407,8 +402,6 @@
     .search-wrap { margin-bottom: 16px; }
     .search-wrap input { padding: 10px 14px 10px 38px; font-size: 0.75rem; }
     .links-area { margin-top: 10px; }
-    .notes-area { margin-top: 6px; }
-    .notes-area textarea { font-size: 0.75rem; padding: 8px 10px; min-height: 50px; }
   }
 
   /* Small mobile breakpoint */
@@ -521,3 +514,292 @@
     color: #fbbf24; line-height: 1.6; letter-spacing: 0.3px;
   }
   .v2-nodata[hidden] { display: none; }
+
+  /* AMD v2 sub-tabs — same geometry as the Intel bar, AMD red accent. */
+  .a2-subtabs { display: none; }
+  .a2-subtabs.visible { display: flex; }
+  body.amd-v2 .a2-subtab.active { color: #ef4444; border-bottom-color: #ef4444; }
+  body.amd-v2 .v2-era-label { color: #f97316; }
+
+  /* ══════════════════════════════════════════════════════════════════════
+     FILTER SIDEBAR
+     ──────────────────────────────────────────────────────────────────────
+     Filters live beside the timeline rather than above it. The old stacked
+     chip bar cost 278px of vertical space on the Ryzen tab -- two thirds of
+     a 1000px viewport before any content. Moving it sideways costs zero
+     vertical space and lets every option stay visible with a live count.
+     ══════════════════════════════════════════════════════════════════════ */
+
+  .layout { display: grid; grid-template-columns: 208px 1fr; gap: 32px; align-items: start; }
+  .content { min-width: 0; }   /* let the timeline's tables scroll, not blow out the grid */
+
+  .sidebar { position: sticky; top: 20px; }
+  .sidebar-toggle { display: none; }
+
+  /* One filter dimension: a label plus its options */
+  .fgroup {
+    display: block; margin-bottom: 18px; padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .fgroup:last-of-type { border-bottom: 0; margin-bottom: 10px; }
+  .fgroup-label {
+    display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.58rem;
+    font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-muted); margin: 0 0 8px 2px;
+  }
+
+  /* One option row. Full-width hit target -- easier than a small pill. */
+  .fchip {
+    display: flex; align-items: center; gap: 8px; width: 100%;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.2px; text-align: left;
+    padding: 6px 8px; min-height: 30px; border-radius: 5px;
+    border: 1px solid transparent; background: transparent;
+    color: var(--text-secondary); cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .fchip:hover { background: rgba(255,255,255,0.05); color: var(--text-primary); }
+  .fchip:focus-visible { outline: 2px solid var(--tag-color, #60a5fa); outline-offset: 1px; }
+  .fchip.active {
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--tag-color) 14%, transparent);
+    border-color: color-mix(in srgb, var(--tag-color) 35%, transparent);
+  }
+  /* Options ruled out by the OTHER groups' selections. Still clickable --
+     dimming communicates "this yields nothing right now" without trapping
+     the user in a dead end. */
+  .fchip.inactive { opacity: 0.45; }
+  .fchip.inactive:hover { opacity: 0.8; }
+  .fchip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+  /* Live count of matching blocks for this option */
+  .fchip-n {
+    margin-left: auto; font-size: 0.6rem; color: var(--text-muted);
+    font-variant-numeric: tabular-nums; padding-left: 6px;
+  }
+  .fchip.active .fchip-n { color: var(--text-secondary); }
+
+  /* Long option lists (19 Ryzen series) scroll instead of growing forever */
+  .fgroup-scroll { max-height: 232px; overflow-y: auto; margin-right: -4px; padding-right: 4px; }
+  .fgroup-scroll::-webkit-scrollbar { width: 5px; }
+  .fgroup-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+  .fgroup-scroll::-webkit-scrollbar-track { background: transparent; }
+
+  .fclear {
+    width: 100%; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.5px; padding: 8px 10px; min-height: 34px; border-radius: 5px;
+    border: 1px dashed rgba(255,255,255,0.18); background: transparent;
+    color: var(--text-muted); cursor: pointer; transition: all 0.2s ease;
+  }
+  .fclear:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.35); }
+  .fclear[hidden] { display: none; }
+
+  /* The old horizontal-bar modifiers no longer apply in a vertical rail. */
+  .filter-bar { display: block; width: 100%; }
+  .filter-bar.stacked { display: block; }
+  .fgroup-sep { display: none; }
+
+  /* ── Narrow: one column, sidebar becomes a disclosure ───────────────── */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 0; }
+    .sidebar { position: static; margin-bottom: 16px; }
+    .sidebar-toggle {
+      display: flex; align-items: center; gap: 10px; width: 100%;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      padding: 10px 14px; min-height: 44px; border-radius: 8px;
+      border: 1px solid var(--border-subtle); background: var(--bg-card);
+      color: var(--text-secondary); cursor: pointer;
+    }
+    .sidebar-toggle-count {
+      background: rgba(96,165,250,0.18); color: #93c5fd;
+      border-radius: 10px; padding: 1px 7px; font-size: 0.6rem;
+    }
+    .sidebar-toggle-count[hidden] { display: none; }
+    .sidebar-toggle-caret { margin-left: auto; font-size: 0.6rem; color: var(--text-muted); }
+    .sidebar-toggle[aria-expanded="true"] .sidebar-toggle-caret { transform: rotate(180deg); }
+    /* Collapsed by default on small screens so content leads. Targets the
+       sidebar's child rather than .controls alone, so it holds even if a
+       renderer reassigns className on the filter container. */
+    .sidebar > .controls { display: none; padding-top: 12px; }
+    .sidebar.open > .controls { display: block; }
+    .fgroup-scroll { max-height: 180px; }
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════
+     CORE-RANGE SLIDER
+     ──────────────────────────────────────────────────────────────────────
+     Dual-knob range + typed min/max, on every tab with core data. The track
+     is NOT linear -- it snaps to the real core counts in the data, because
+     EPYC crowds 12 of its 20 values at or below 32C and a linear axis would
+     pile them into the first quarter of the track.
+     ══════════════════════════════════════════════════════════════════════ */
+
+  /* Core count is the first group in the rail, so it needs the divider a
+     last-child rule would otherwise strip, and no extra top padding. */
+  .core-range { padding-top: 0; }
+  .core-range:last-of-type { border-bottom: 1px solid rgba(255,255,255,0.05);
+                             margin-bottom: 18px; padding-bottom: 16px; }
+
+  .cr-nums { display: flex; align-items: flex-start; gap: 7px; }
+  .cr-numwrap { flex: 1; min-width: 0; }
+  .cr-num {
+    width: 100%; background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 6px; padding: 7px 6px; color: var(--text-primary);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+    text-align: center; outline: none; transition: border-color 0.2s ease;
+  }
+  .cr-num:focus { border-color: var(--cr-ac, #60a5fa); }
+  .cr-nlab {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.5rem; color: var(--text-muted);
+    text-align: center; letter-spacing: 1px; text-transform: uppercase; margin-top: 3px;
+  }
+  .cr-dash { color: var(--text-muted); font-family: 'JetBrains Mono', monospace;
+             font-size: 0.7rem; padding-top: 7px; }
+
+  .cr-track {
+    position: relative; height: 3px; background: rgba(255,255,255,0.10);
+    border-radius: 2px; margin: 16px 7px 9px; cursor: pointer;
+  }
+  .cr-ticks { position: absolute; inset: 0; pointer-events: none; }
+  .crt {
+    position: absolute; top: 50%; width: 2px; height: 2px; border-radius: 50%;
+    background: rgba(255,255,255,0.3); transform: translate(-50%,-50%);
+  }
+  .cr-fill { position: absolute; height: 100%; background: var(--cr-ac, #60a5fa); border-radius: 2px; }
+  .cr-knob {
+    position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%;
+    background: var(--bg-primary); border: 2px solid var(--cr-ac, #60a5fa);
+    transform: translate(-50%,-50%); cursor: grab;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.55); touch-action: none;
+  }
+  .cr-knob:active { cursor: grabbing; }
+  .cr-knob:focus-visible { outline: 2px solid var(--cr-ac, #60a5fa); outline-offset: 3px; }
+
+  .cr-ends {
+    display: flex; justify-content: space-between; padding: 0 3px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.54rem; color: var(--text-muted);
+  }
+
+  .cr-presets { display: flex; gap: 4px; margin-top: 11px; }
+  .cr-pre {
+    flex: 1; min-width: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.55rem;
+    padding: 5px 2px; border-radius: 4px; border: 1px solid var(--border-subtle);
+    background: transparent; color: var(--text-muted); cursor: pointer;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .cr-pre:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.22); }
+  .cr-pre.on {
+    border-color: var(--cr-ac, #60a5fa); color: var(--text-primary);
+    background: color-mix(in srgb, var(--cr-ac, #60a5fa) 12%, transparent);
+  }
+
+  /* Accent follows the vendor, matching the sub-tab colour. */
+  body.amd-v2   .core-range { --cr-ac: #f97316; }
+  body.intel-v2 .core-range { --cr-ac: #60a5fa; }
+
+  /* ══════════════════════════════════════════════════════════════════════
+     COMPACT HEADER  —  sliding vendor pill + inline title, product row below
+     ──────────────────────────────────────────────────────────────────────
+     Replaces four stacked centred blocks that cost 403px before any content.
+     Row 1 is vendor + title; row 2 is product line + search + controls.
+     ══════════════════════════════════════════════════════════════════════ */
+
+  .topbar {
+    display: flex; align-items: center; gap: 18px;
+    padding: 4px 0 14px; flex-wrap: wrap;
+  }
+
+  /* Sliding pill. The thumb is a single element translated between halves,
+     so the movement reads as one control rather than two buttons lighting up. */
+  .vendor-pill {
+    position: relative; display: inline-flex; flex-shrink: 0;
+    background: #141b2d; border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 999px; padding: 3px;
+  }
+  .vendor-pill-thumb {
+    position: absolute; top: 3px; bottom: 3px; left: 3px;
+    width: calc(50% - 3px); border-radius: 999px; background: var(--amd-accent, #ef4444);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s ease;
+  }
+  .vendor-pill[data-active="intel"] .vendor-pill-thumb {
+    transform: translateX(100%); background: #60a5fa;
+  }
+  .vendor-pill .vendor-tab {
+    position: relative; z-index: 1;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 1px; padding: 7px 20px; min-height: 36px; min-width: 74px;
+    border: none; background: none; border-bottom: none; cursor: pointer;
+    color: var(--text-muted); transition: color 0.2s ease;
+  }
+  .vendor-pill .vendor-tab:hover { color: var(--text-secondary); }
+  /* The active button sits on the coloured thumb, so it goes white rather
+     than taking the vendor colour it used to carry. */
+  .vendor-pill .vendor-tab.active-amd,
+  .vendor-pill .vendor-tab.active-intel { color: #fff; border-bottom-color: transparent; }
+  .vendor-pill .vendor-tab:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 999px; }
+
+  /* Title, now inline. The vendor name is dropped from it -- the pill
+
+     immediately to its left already says AMD or Intel. */
+  .topbar header { text-align: left; margin: 0; display: flex; align-items: baseline; gap: 12px; }
+  .topbar header h1 { font-size: 1.15rem; margin: 0; letter-spacing: 0.5px; }
+  .topbar header p {
+    font-size: 0.62rem; letter-spacing: 1.6px; color: var(--text-muted); margin: 0;
+    /* Descriptors run long ("...— ordered by EPYC series"); the trailing half
+       repeats what the sub-tab and block headers already say. Clamp rather
+       than let it push the count off the row. */
+    max-width: 34ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .topbar .v2-status { margin: 0 0 0 auto; }
+
+  /* Row 2 — product line, search, controls */
+  .navrow {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding-bottom: 16px; margin-bottom: 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  /* min-width:0 lets the field shrink inside the flex row instead of
+     overflowing its wrapper and clipping the placeholder. */
+  .navrow .search-wrap { margin: 0; flex: 1 1 260px; max-width: 420px; min-width: 0; }
+  .navrow .toolbar { margin: 0; gap: 6px; }
+
+  /* Product sub-tabs become a segmented control rather than an underlined bar. */
+  .v2-subtabs {
+    display: none; gap: 2px; margin: 0; flex-shrink: 0;
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 8px; padding: 3px;
+  }
+  .v2-subtabs.visible { display: inline-flex; }
+  .v2-subtab {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.8px; padding: 6px 14px; min-height: 32px;
+    border: none; background: none; border-bottom: none; border-radius: 5px;
+    color: var(--text-muted); cursor: pointer; transition: all 0.2s ease;
+  }
+  .v2-subtab:hover { color: var(--text-secondary); background: rgba(255,255,255,0.04); }
+  .v2-subtab.active { border-bottom-color: transparent; }
+  body.intel-v2 .v2-subtab.active {
+    color: #93c5fd; background: color-mix(in srgb, #60a5fa 18%, transparent);
+    border-bottom-color: transparent;
+  }
+  body.amd-v2 .a2-subtab.active {
+    color: #fca5a5; background: color-mix(in srgb, #ef4444 18%, transparent);
+    border-bottom-color: transparent;
+  }
+  .v2-subtab-divider { display: none; }
+
+  .v2-nodata { margin: 10px 0 0; }
+
+  @media (max-width: 900px) {
+    .topbar { gap: 12px; padding-bottom: 10px; }
+    .topbar header { gap: 8px; }
+    .topbar header h1 { font-size: 1rem; }
+    .topbar .v2-status { margin-left: 0; width: 100%; text-align: left; }
+    .navrow { gap: 8px; padding-bottom: 12px; }
+    .navrow .search-wrap { flex: 1 1 100%; max-width: 100%; order: 3; }
+    .navrow .toolbar { order: 2; margin-left: auto; }
+  }
+  @media (max-width: 640px) {
+    .topbar header p { display: none; }   /* descriptor is the first thing to go */
+    .navrow .toolbar { width: 100%; margin-left: 0; }
+  }

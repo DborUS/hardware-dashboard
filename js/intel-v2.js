@@ -103,7 +103,7 @@ const V2_DATA = {
   // ─────────────────────────────────────────────────────────────────────────
   xeon: {
     title: 'Intel Xeon',
-    blurb: 'Server, workstation and embedded — ordered by Xeon generation',
+    blurb: 'Server · workstation · embedded',
     filters: [
       { label: 'Generation', key: 'gen', tags: [
         ['Xeon 7',  '#f97316'], ['Xeon 6+', '#fb923c'], ['Xeon 6', '#ef4444'],
@@ -220,7 +220,7 @@ const V2_DATA = {
   // top of the same timeline, labelled with the equivalence to make that explicit.
   client: {
     title: 'Intel Client',
-    blurb: 'Desktop and mobile — split by branding era',
+    blurb: 'Desktop · mobile',
     brandGroups: true,        // show Core Ultra / Core sub-headings inside a block
     filters: [
       { label: 'Series / Gen', key: 'gen', tags: [
@@ -345,7 +345,7 @@ const V2_DATA = {
   // ─────────────────────────────────────────────────────────────────────────
   graphics: {
     title: 'Intel Graphics',
-    blurb: 'Discrete, workstation and data-center GPU — ordered by architecture',
+    blurb: 'Discrete · workstation · data center',
     brandGroups: true,
     filters: [
       { label: 'Architecture', key: 'gen', tags: [
@@ -410,6 +410,7 @@ let v2Tab = 'xeon';
 const v2Expanded = new Set();       // generation ids currently open
 const v2Active = {};                // { filterKey: Set(tag) } — empty set = no constraint
 let v2Search = '';
+let v2Core = null;   // core-range state for the active sub-tab
 
 // escHtml() comes from script.js, which loads first. slug() is v2-only.
 const v2Slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -432,8 +433,9 @@ async function v2Switch(tab) {
   document.querySelectorAll('.v2-subtab').forEach(b =>
     b.classList.toggle('active', b.dataset.tab === tab));
 
+  await v2LoadSpecs(tab);   // stops come from the specs, so load first
+  v2BuildCoreRange();
   v2BuildFilters();
-  await v2LoadSpecs(tab);
   v2Render();
 }
 
@@ -441,24 +443,30 @@ async function v2Switch(tab) {
 function v2BuildFilters() {
   const cfg = V2_DATA[v2Tab];
   const bar = dom.filterControls;
-  // Stack when the bar would wrap: a vertical separator stranded at the end of
-  // a wrapped line reads as a stray mark. Three groups always wrap at 1200px.
-  const chipCount = cfg.filters.reduce((n, g) => n + g.tags.length, 0);
-  const many = chipCount > 8 || cfg.filters.length > 2;
 
-  bar.className = 'filter-bar' + (many ? ' stacked' : '');
-  bar.innerHTML = cfg.filters.map((g, i) => {
+  // Vertical rail, matching the AMD tab. Each option carries a live count
+  // filled in by v2ApplyFilters(); groups over 10 options scroll.
+  // Keep `controls` -- the responsive collapse rules target it. Assigning
+  // className alone would drop it and break the narrow-screen disclosure.
+  bar.className = 'controls filter-bar';
+  // Core count leads: it is the filter most used in practice, so it gets
+  // the top of the rail ahead of the generation/series chips.
+  bar.innerHTML = coreRangeHtml('v2core', v2Core) + cfg.filters.map(g => {
     v2Active[g.key] = v2Active[g.key] || new Set();
     const chips = g.tags.map(([tag, color]) => `
       <button class="fchip" data-key="${g.key}" data-tag="${escHtml(tag)}"
               style="--tag-color:${color}" aria-pressed="false">
-        <span class="fchip-dot" style="background:${color}"></span>${escHtml(tag)}
+        <span class="fchip-dot" style="background:${color}"></span>
+        <span class="fchip-label">${escHtml(tag)}</span>
+        <span class="fchip-n" aria-hidden="true"></span>
       </button>`).join('');
-    return `${i > 0 && !many ? '<div class="fgroup-sep"></div>' : ''}
-      <div class="fgroup">
-        <span class="fgroup-label">${escHtml(g.label)}</span>${chips}
+    const scroll = g.tags.length > 10;
+    return `<div class="fgroup">
+        <span class="fgroup-label">${escHtml(g.label)}</span>
+        <div class="${scroll ? 'fgroup-scroll' : ''}">${chips}</div>
       </div>`;
-  }).join('') + `<button class="fclear" id="v2Clear" hidden>Clear filters</button>`;
+  }).join('')
+    + `<button class="fclear" id="v2Clear" hidden>Clear filters</button>`;
 
   bar.querySelectorAll('.fchip').forEach(chip =>
     chip.addEventListener('click', () => {
@@ -466,17 +474,46 @@ function v2BuildFilters() {
       set.has(chip.dataset.tag) ? set.delete(chip.dataset.tag) : set.add(chip.dataset.tag);
       v2ApplyFilters();
     }));
+  coreRangeWire('v2core', v2Core, v2ApplyFilters);
+
   document.getElementById('v2Clear').addEventListener('click', () => {
     for (const k of Object.keys(v2Active)) v2Active[k].clear();
+    if (v2Core) { v2Core.lo = 0; v2Core.hi = v2Core.stops.length - 1; }
+    coreRangePaint('v2core', v2Core);
     v2ApplyFilters();
   });
+}
+
+/**
+ * Core-range stops for the active Intel sub-tab, derived from loaded specs.
+ *
+ * Xeon stores no total-core field -- only pc/ec -- so coreTotal() sums them.
+ * Client and Graphics have no spec data yet and therefore get no slider; it
+ * appears on its own once their import lands.
+ */
+function v2BuildCoreRange() {
+  const specs = V2_SPECS[v2Tab] || {};
+  const models = [];
+  Object.values(specs).forEach(list => models.push(...list));
+  const stops = coreStops(models);
+  v2Core = stops.length >= 2 ? coreRangeInit(stops) : null;
+}
+
+/** Does this card's core span intersect the selected range? */
+function v2CoreOk(card) {
+  if (coreRangeIsAll(v2Core)) return true;
+  const lo = parseInt(card.dataset.cmin, 10);
+  const hi = parseInt(card.dataset.cmax, 10);
+  return coreRangeMatch(v2Core, Number.isFinite(lo) ? lo : null,
+                                Number.isFinite(hi) ? hi : null);
 }
 
 /** Build every generation block and family card for the active sub-tab. */
 function v2Render() {
   const cfg = V2_DATA[v2Tab];
   dom.pageHeader.innerHTML =
-    `<h1 class="header-intel">${escHtml(cfg.title)}</h1><p>${escHtml(cfg.blurb)}</p>`;
+    `<h1 class="header-intel">${escHtml(stripVendor(cfg.title))}</h1>` +
+    `<p>${escHtml(cfg.blurb)}</p>`;
 
   dom.timeline.innerHTML =
     cfg.gens.map(g => g.era ? v2Era(g) : v2Gen(g, cfg)).join('');
@@ -608,6 +645,7 @@ function v2Card(f, g, i, cfg) {
     <div class="sku-card has-specs" style="--card-order:${i * 4}"
          data-target="${id}" data-tier="${escHtml(f.tier)}" data-seg="${escHtml(f.seg)}"
          data-search="${escHtml((f.name + ' ' + f.desc + ' ' + (f.si || '')).toLowerCase())}"
+         data-cmin="${v2Span(f.name)[0] ?? ''}" data-cmax="${v2Span(f.name)[1] ?? ''}"
          role="button" tabindex="0" aria-expanded="false">
       <div class="sku-spec-toggle">specs ▾</div>
       <div class="sku-name">${escHtml(f.name)}</div>
@@ -660,19 +698,64 @@ function v2ExpandAll(open) {
 //  FILTER — reads only the data attributes stamped during render
 // ═══════════════════════════════════════════════════════════════════════════
 
+/**
+ * How many generation blocks would match if `tag` were the only selection in
+ * its group? Counted against the other groups' current selections, so the
+ * numbers reflect what is actually reachable from here.
+ */
+/** (min,max) total cores for one Intel family, from its loaded spec rows. */
+function v2Span(name) {
+  const models = (V2_SPECS[v2Tab] || {})[name] || [];
+  const t = coreStops(models);
+  return t.length ? [t[0], t[t.length - 1]] : [null, null];
+}
+
+function v2CountFor(key, tag) {
+  const gens  = key === 'gen'  ? new Set([tag]) : (v2Active.gen  || new Set());
+  const tiers = key === 'tier' ? new Set([tag]) : (v2Active.tier || new Set());
+  const segs  = key === 'seg'  ? new Set([tag]) : (v2Active.seg  || new Set());
+  const q = v2Search.trim().toLowerCase();
+  let n = 0;
+  document.querySelectorAll('.arch-group').forEach(group => {
+    if (gens.size && !gens.has(group.dataset.gen)) return;
+    const hit = [...group.querySelectorAll('.sku-card')].some(card =>
+      v2CoreOk(card) &&
+      (!tiers.size || tiers.has(card.dataset.tier)) &&
+      (!segs.size  || segs.has(card.dataset.seg))  &&
+      (!q || card.dataset.search.includes(q) || group.dataset.search.includes(q)));
+    if (hit) n++;
+  });
+  return n;
+}
+
 function v2ApplyFilters() {
   const sel = k => v2Active[k] || new Set();
   const gens = sel('gen'), tiers = sel('tier'), segs = sel('seg');
   const q = v2Search.trim().toLowerCase();
-  const any = gens.size || tiers.size || segs.size;
+  const any = gens.size || tiers.size || segs.size || !coreRangeIsAll(v2Core);
 
   document.querySelectorAll('.fchip').forEach(c => {
     const on = sel(c.dataset.key).has(c.dataset.tag);
+    const n = v2CountFor(c.dataset.key, c.dataset.tag);
     c.classList.toggle('active', on);
-    c.classList.toggle('inactive', any && !on);
+    // Dim options that would yield nothing given the other groups. Selected
+    // options never dim. NOTE this also makes the 12 known-dead Intel chips
+    // visibly dim with a 0 count, which is an improvement on silence.
+    c.classList.toggle('inactive', !on && n === 0);
     c.setAttribute('aria-pressed', String(on));
+    const slot = c.querySelector('.fchip-n');
+    if (slot) slot.textContent = n || '';
+    const label = (c.querySelector('.fchip-label') || {}).textContent || c.dataset.tag;
+    c.setAttribute('aria-label', `${label}, ${n} generations`);
   });
   document.getElementById('v2Clear').hidden = !any;
+
+  const badge = document.getElementById('sidebarCount');
+  if (badge) {
+    const total = gens.size + tiers.size + segs.size + (coreRangeIsAll(v2Core) ? 0 : 1);
+    badge.textContent = total;
+    badge.hidden = total === 0;
+  }
 
   let shownGens = 0, shownCards = 0;
 
@@ -682,6 +765,7 @@ function v2ApplyFilters() {
 
     group.querySelectorAll('.sku-card').forEach(card => {
       const ok = genOk
+        && v2CoreOk(card)
         && (!tiers.size || tiers.has(card.dataset.tier))
         && (!segs.size  || segs.has(card.dataset.seg))
         && (!q || card.dataset.search.includes(q) || group.dataset.search.includes(q));
@@ -758,8 +842,13 @@ function v2Activate() {
   document.querySelectorAll('.v2-subtab').forEach(b =>
     b.classList.toggle('active', b.dataset.tab === 'xeon'));
 
-  v2BuildFilters();
-  v2LoadSpecs(v2Tab).then(v2Render);
+  // Specs must load BEFORE the filters are built: the core-range stops are
+  // derived from the loaded models, so building first yields an empty slider.
+  v2LoadSpecs(v2Tab).then(() => {
+    v2BuildCoreRange();
+    v2BuildFilters();
+    v2Render();
+  });
 }
 
 /** Hand the shared DOM back to the AMD renderer. */

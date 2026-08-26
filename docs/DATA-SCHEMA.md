@@ -5,10 +5,10 @@ field names here are real, not aspirational.
 
 | File | Shape | Size | Contents |
 |---|---|---|---|
-| `amd-data.json` | array | 14 entries | 7 architectures + 7 era separators |
+| `amd-data.json` | array | 16 entries | 8 architectures + 8 era separators |
 | `intel-data.json` | array | — | 20 architectures. **Not currently rendered** — see note below |
 | `amd-gpu-data.json` | array | 49 entries | 42 GPU families + era separators |
-| `amd-cpu-specs.json` | object | 44 keys | SKU name → CPU model array |
+| `amd-cpu-specs.json` | object | 46 keys | SKU name → CPU model array |
 | `intel-cpu-specs.json` | object | 31 keys | 275 models. **Not currently rendered** — old SKU keys |
 | `intel-xeon-specs.json` | object | 29 keys | **553 Xeon models — live on the Xeon sub-tab** |
 
@@ -62,7 +62,7 @@ it is filtered out. Note the en-dash `–` with spaces, not a hyphen.
 
 | Field | Req | Notes |
 |---|---|---|
-| `id` | yes | Unique, URL-safe. Used in DOM ids, localStorage keys, codename-table jumps. **Changing it orphans a user's saved notes/links.** |
+| `id` | yes | Unique, URL-safe. Used in DOM ids, localStorage keys, codename-table jumps. **Changing it orphans a user's saved links.** |
 | `arch` | yes | Display name |
 | `color` | yes | Hex accent — see `docs/DESIGN-SYSTEM.md` for the progression |
 | `year` | yes | String, not number. Shown in the year pill |

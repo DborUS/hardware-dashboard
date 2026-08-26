@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#0a0e1a;--bg-card:#1a2236;--border-subtle:rgba(255,255,255,0.06);
+--text-primary:#e8ecf4;--text-secondary:#8892a8;--text-muted:#5a6478;--ac:#f97316}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg-primary);color:var(--text-primary);padding:24px 0 34px}
+.row{display:flex;justify-content:center;gap:56px;align-items:flex-start}
+.col{width:232px}
+.rail{width:208px}
+.fgroup{margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.fgroup:last-child{border-bottom:0}
+.fgroup-label{display:block;font-family:'JetBrains Mono',monospace;font-size:0.58rem;font-weight:600;
+letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin:0 0 10px 2px}
+.fchip{display:flex;align-items:center;gap:8px;width:100%;font-family:'JetBrains Mono',monospace;
+font-size:0.7rem;padding:6px 8px;min-height:30px;border-radius:5px;border:1px solid transparent;
+background:transparent;color:var(--text-secondary);text-align:left}
+.fchip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.fchip-n{margin-left:auto;font-size:0.6rem;color:var(--text-muted)}
+.cap{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#cbd5e1;
+margin:0 0 6px;letter-spacing:1px;text-transform:uppercase}
+.hint{font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748b;
+margin:0 0 18px;line-height:1.55;min-height:44px}
+.sl-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+.sl-val{font-family:'JetBrains Mono',monospace;font-size:0.76rem;color:var(--text-primary);font-weight:600}
+.sl-val .u{color:var(--text-muted);font-weight:400;font-size:0.64rem}
+.sl-n{font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--text-muted)}
+.track{position:relative;height:3px;background:rgba(255,255,255,0.10);border-radius:2px;margin:18px 7px 9px}
+.fill{position:absolute;height:100%;background:var(--ac);border-radius:2px}
+.knob{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:#0a0e1a;
+border:2px solid var(--ac);transform:translate(-50%,-50%);box-shadow:0 2px 6px rgba(0,0,0,.55)}
+.knob.big{width:15px;height:15px}
+.ends{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;
+font-size:0.54rem;color:var(--text-muted);padding:0 3px}
+.ticks{position:absolute;inset:0;pointer-events:none}
+.tick{position:absolute;top:50%;width:2px;height:2px;border-radius:50%;
+background:rgba(255,255,255,0.3);transform:translate(-50%,-50%)}
+.hist{position:absolute;left:0;right:0;bottom:9px;height:24px;display:flex;align-items:flex-end;gap:1px}
+.bar{flex:1;background:rgba(255,255,255,0.09);border-radius:1px 1px 0 0;min-height:2px}
+.bar.on{background:color-mix(in srgb,var(--ac) 60%,transparent)}
+.reset{width:100%;font-family:'JetBrains Mono',monospace;font-size:0.6rem;padding:5px;
+border-radius:4px;border:1px dashed rgba(255,255,255,0.16);background:transparent;
+color:var(--text-muted);margin-top:11px}
+.nums{display:flex;align-items:flex-start;gap:7px}
+.num{width:100%;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:6px;
+padding:7px 8px;color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+text-align:center;outline:none}
+.num.foc{border-color:var(--ac)}
+.dash{color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:0.7rem;padding-top:7px}
+.nlab{font-family:'JetBrains Mono',monospace;font-size:0.5rem;color:var(--text-muted);
+text-align:center;letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+.presets{display:flex;gap:4px;margin-top:11px}
+.pre{flex:1;font-family:'JetBrains Mono',monospace;font-size:0.55rem;padding:4px 2px;border-radius:4px;
+border:1px solid var(--border-subtle);background:transparent;color:var(--text-muted)}
+.pre.on{border-color:var(--ac);color:var(--text-primary);background:color-mix(in srgb,var(--ac) 12%,transparent)}
+</style></head><body>
+<div class="row">
+
+  <!-- 1 -->
+  <div class="col">
+    <div class="cap">1 · Dual-knob range</div>
+    <div class="hint">Snaps to the 20 real core counts, so every stop is
+      reachable and evenly spaced. Drag either end.</div>
+    <div class="rail">
+      <div class="fgroup"><span class="fgroup-label">Series</span>
+        <div class="fchip"><span class="fchip-dot" style="background:#ec4899"></span>EPYC 9006 Series<span class="fchip-n">1</span></div>
+        <div class="fchip"><span class="fchip-dot" style="background:#ef4444"></span>EPYC 9005 Series<span class="fchip-n">1</span></div>
+      </div>
+      <div class="fgroup">
+        <span class="fgroup-label">Core count</span>
+        <div class="sl-head"><span class="sl-val">32 <span class="u">–</span> 128 <span class="u">cores</span></span>
+          <span class="sl-n">12 / 12</span></div>
+        <div class="track"><div class="ticks" id="t1"></div>
+          <div class="fill" style="left:26.3%;right:26.3%"></div>
+          <div class="knob" style="left:26.3%"></div><div class="knob" style="left:73.7%"></div></div>
+        <div class="ends"><span>8</span><span>256</span></div>
+        <button class="reset">Reset range</button>
+      </div>
+      <div class="fgroup"><span class="fgroup-label">Socket</span>
+        <div class="fchip"><span class="fchip-dot" style="background:#f97316"></span>SP7<span class="fchip-n">1</span></div>
+        <div class="fchip"><span class="fchip-dot" style="background:#ef4444"></span>SP5<span class="fchip-n">2</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="col">
+    <div class="cap">2 · Range + typed inputs</div>
+    <div class="hint">Drag, or type an exact number when a customer asks
+      for "at least 96 cores". Presets cover the common asks.</div>
+    <div class="rail">
+      <div class="fgroup">
+        <span class="fgroup-label">Core count</span>
+        <div class="nums">
+          <div style="flex:1"><input class="num" value="32"><div class="nlab">min</div></div>
+          <span class="dash">–</span>
+          <div style="flex:1"><input class="num foc" value="128"><div class="nlab">max</div></div>
+        </div>
+        <div class="track" style="margin-top:15px"><div class="ticks" id="t2"></div>
+          <div class="fill" style="left:26.3%;right:26.3%"></div>
+          <div class="knob" style="left:26.3%"></div><div class="knob" style="left:73.7%"></div></div>
+        <div class="ends"><span>8</span><span>256</span></div>
+        <div class="presets">
+          <button class="pre">≤32</button><button class="pre on">32–128</button>
+          <button class="pre">128+</button><button class="pre">All</button>
+        </div>
+      </div>
+      <div class="fgroup" style="border:0"><span class="fgroup-label">Socket</span>
+        <div class="fchip"><span class="fchip-dot" style="background:#f97316"></span>SP7<span class="fchip-n">1</span></div>
+        <div class="fchip"><span class="fchip-dot" style="background:#ef4444"></span>SP5<span class="fchip-n">2</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="col">
+    <div class="cap">3 · Range over distribution</div>
+    <div class="hint">Bars show how many models sit at each core count —
+      you can see where the lineup actually is before dragging.</div>
+    <div class="rail">
+      <div class="fgroup">
+        <span class="fgroup-label">Core count</span>
+        <div class="sl-head"><span class="sl-val">32 <span class="u">–</span> 128 <span class="u">cores</span></span>
+          <span class="sl-n">94 models</span></div>
+        <div style="position:relative;height:42px;margin:8px 7px 0">
+          <div class="hist" id="h3"></div>
+          <div class="track" style="margin:0;position:absolute;bottom:0;left:0;right:0">
+            <div class="fill" style="left:26.3%;right:26.3%"></div>
+            <div class="knob big" style="left:26.3%"></div><div class="knob big" style="left:73.7%"></div></div>
+        </div>
+        <div class="ends" style="margin-top:7px"><span>8</span><span>256</span></div>
+        <button class="reset">Reset range</button>
+      </div>
+      <div class="fgroup" style="border:0"><span class="fgroup-label">Socket</span>
+        <div class="fchip"><span class="fchip-dot" style="background:#f97316"></span>SP7<span class="fchip-n">1</span></div>
+        <div class="fchip"><span class="fchip-dot" style="background:#ef4444"></span>SP5<span class="fchip-n">2</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// The 20 real EPYC core counts and the model count at each,
+// read from js/data/amd-cpu-specs.json (162 models total).
+const STOPS=[8,12,16,24,28,32,36,48,56,64,72,84,96,112,128,144,160,168,192,256];
+const N=[13,1,26,21,1,29,1,15,2,24,1,1,12,1,8,1,1,1,2,1];
+STOPS.forEach((v,i)=>{
+  const pct=i/(STOPS.length-1)*100;
+  ['t1','t2'].forEach(id=>{
+    const d=document.createElement('div');d.className='tick';d.style.left=pct+'%';
+    document.getElementById(id).appendChild(d);});
+});
+const mx=Math.max(...N),h3=document.getElementById('h3');
+N.forEach((n,i)=>{const b=document.createElement('div');
+  b.className='bar'+(STOPS[i]>=32&&STOPS[i]<=128?' on':'');
+  b.style.height=Math.max(2,n/mx*24)+'px';h3.appendChild(b);});
+</script>
+</body></html>

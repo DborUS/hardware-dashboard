@@ -5,6 +5,9 @@ Smoke test for Hardware Portal.
 Loads the dashboard in a headless browser, exercises every tab and control,
 and reports counts + JavaScript errors. Optionally writes screenshots.
 
+Also clicks every filter chip on every tab: a chip that matches no rendered
+block empties the page when clicked, and no count-based check can see it.
+
 This is the primary "did I break anything?" check. Run it after ANY change
 to js/script.js, css/styles.css, index.html, or js/data/*.json.
 
@@ -34,9 +37,19 @@ REPO = Path(__file__).resolve().parent.parent
 # Expected minimums. These are lower bounds, not exact values -- adding data
 # should never fail the test, but losing data or breaking a render will.
 EXPECT = {
-    "amd_cpu_groups": 7,
-    "amd_cpu_skus": 40,
+    # AMD is now product-first (js/amd-v2.js): EPYC / Ryzen / GPU sub-tabs,
+    # product-series blocks holding codename cards. Model counts are the real
+    # guard -- they must be conserved across any future restructure.
+    "amd_epyc_groups": 6,
+    "amd_epyc_cards": 12,
+    "amd_epyc_models": 162,
+    "amd_ryzen_groups": 19,
+    "amd_ryzen_cards": 34,
+    "amd_ryzen_models": 478,
     "amd_gpu_groups": 40,
+    "amd_gpu_models": 258,
+    "amd_core_stops": 20,
+    "intel_core_stops": 36,
     # Intel uses the generation-first renderer (js/intel-v2.js): generation
     # blocks, not codename blocks, across three sub-tabs. Spec tables render
     # empty until the bulk CSV import lands, so no model-count check here.
@@ -47,6 +60,36 @@ EXPECT = {
     "intel_gfx_groups": 3,
     "intel_gfx_cards": 12,
     "intel_xeon_models": 553,
+}
+
+# Filter chips that are known to match no content, as "<tab>:<chip>".
+#
+# A chip whose tag matches no rendered block is unreachable-by-filter: clicking
+# it empties the page. That is the inverse of the recurring bug class in
+# CLAUDE.md (data values with no UI chip) and it is invisible to a count-based
+# check, which is how these ten survived.
+#
+# Cause: v2ApplyFilters() compares a chip's tag against `data-gen`, which
+# v2Gen() stamps with the block's DISPLAY NAME. They match only when the two
+# strings are identical -- "Xeon 6" does, "Xeon 5" vs "Xeon 5 (5th Gen
+# Scalable)" does not.
+#
+# These are tracked, not accepted. Empty this set when the tags are reconciled;
+# the check below then enforces that no chip is ever dead again.
+KNOWN_DEAD_CHIPS = {
+    "intel-xeon:Xeon 5", "intel-xeon:Xeon 4", "intel-xeon:Xeon 3",
+    "intel-xeon:Xeon 2", "intel-xeon:Xeon 1",
+    "intel-client:Series 3", "intel-client:Series 2", "intel-client:Series 1",
+    "intel-client:Core X", "intel-client:Atom / N",
+
+    # Different cause: these tags exist in VENDOR_CONFIG / V2_DATA filters but
+    # no SKU carries them, so the chip is real and simply matches nothing.
+    #   Athlon -- no Athlon SKU remains in amd-data.json (brands: Epyc, Ryzen,
+    #             Ryzen AI, Threadripper). Stale chip.
+    #   Silver / Bronze -- 32 Silver and 6 Bronze models ARE imported, but every
+    #             V2_DATA.xeon family is tiered Platinum/Gold, so the tier is
+    #             unreachable. Resolves when tiering is finished.
+    "intel-xeon:Silver", "intel-xeon:Bronze",
 }
 
 
@@ -85,6 +128,7 @@ def main():
     failures = []
     js_errors = []
     results = {}
+    known_dead_seen = []
 
     # Chromium flags required in restricted/container environments.
     ARGS = ["--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage"]
@@ -112,56 +156,118 @@ def main():
                     sel, "e => e.filter(x => !x.classList.contains('hidden')).length"
                 )
 
+            def check_chips(label):
+                """Click every filter chip; a chip that hides everything is a bug.
+
+                Counts alone cannot catch this -- the page renders correctly and
+                only goes blank once a user clicks. Chips are toggled off again
+                so the tab is left as found.
+                """
+                chips = page.query_selector_all(".fchip")
+                dead, checked = [], 0
+                for chip in chips:
+                    tag = chip.get_attribute("data-tag")
+                    if not tag:
+                        continue
+                    chip.click()
+                    page.wait_for_timeout(18)
+                    checked += 1
+                    if visible(".arch-group") == 0:
+                        dead.append(tag)
+                    chip.click()          # restore
+                    page.wait_for_timeout(10)
+                results[f"chips_{label}"] = checked
+                for tag in dead:
+                    key = f"{label}:{tag}"
+                    if key not in KNOWN_DEAD_CHIPS:
+                        failures.append(
+                            f"filter chip '{tag}' on {label} selects nothing "
+                            f"(matches no rendered block)"
+                        )
+                    else:
+                        known_dead_seen.append(key)
+
             page.goto(base, wait_until="networkidle")
-            page.wait_for_timeout(1500)
+            page.wait_for_timeout(900)
 
-            # --- AMD CPU (default view) ---
-            results["amd_cpu_groups"] = count(".arch-group")
-            results["amd_cpu_skus"] = count(".sku-card")
-            if args.shots:
-                page.screenshot(path=str(shots_dir / "01-amd-cpu.png"))
+            # --- AMD: three sub-tabs, product-first renderer ---
+            if count("#a2Subtabs.visible") != 1:
+                failures.append("AMD sub-tabs not visible on load")
+            for tab in ("epyc", "ryzen", "gpu"):
+                page.click(f'.a2-subtab[data-tab="{tab}"]')
+                page.wait_for_timeout(700)
+                results[f"amd_{tab}_groups"] = count(".arch-group")
+                results[f"amd_{tab}_cards"] = count(".sku-card")
+                page.click("#expandAllBtn")
+                page.wait_for_timeout(700)
+                results[f"amd_{tab}_models"] = (
+                    count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
+                if args.shots:
+                    page.screenshot(path=str(shots_dir / f"01-amd-{tab}.png"))
+                page.click("#collapseAllBtn")
+                page.wait_for_timeout(500)
+                check_chips(f"amd-{tab}")
 
-            # --- Search narrows results ---
+            # --- Core-range slider ---
+            # Regression guard: the slider derives its stops from the loaded
+            # spec data, so an ordering slip (build filters before loading
+            # specs) silently yields an empty control. That exact bug shipped
+            # on the Intel tab and was invisible to every count check.
+            page.click('.a2-subtab[data-tab="epyc"]')
+            page.wait_for_timeout(550)
+            stops = count("#a2core .crt")
+            results["amd_core_stops"] = stops
+            if stops < 2:
+                failures.append(f"EPYC core slider has {stops} stops, expected the "
+                                f"20 distinct core counts")
+            # Typing a min must snap to a real stop and actually filter.
+            page.fill("#a2core-min", "96")
+            page.press("#a2core-min", "Enter")
+            page.wait_for_timeout(400)
+            snapped = page.input_value("#a2core-min")
+            narrowed = visible(".sku-card")
+            if snapped != "96":
+                failures.append(f"typed min 96 snapped to {snapped}")
+            if not (0 < narrowed < results["amd_epyc_cards"]):
+                failures.append(f"core min=96 should narrow 12 cards, got {narrowed}")
+            results["amd_core_min96_cards"] = narrowed
+            page.click("#a2core .cr-pre:last-child")   # All
+            page.wait_for_timeout(350)
+            if visible(".sku-card") != results["amd_epyc_cards"]:
+                failures.append("core-range 'All' preset did not restore every card")
+            # GPU has no core data and must therefore render no slider.
+            page.click('.a2-subtab[data-tab="gpu"]')
+            page.wait_for_timeout(500)
+            if count("#a2core") != 0:
+                failures.append("GPU tab should have no core slider")
+            page.click('.a2-subtab[data-tab="epyc"]')
+            page.wait_for_timeout(500)
+
+            # --- Search reaches into the spec tables ---
+            page.click('.a2-subtab[data-tab="epyc"]')
+            page.wait_for_timeout(700)
+            all_series = count(".arch-group")
             page.fill("#searchInput", "9575F")
             page.wait_for_timeout(700)
             narrowed = visible(".arch-group")
-            if narrowed >= results["amd_cpu_groups"] or narrowed == 0:
+            if narrowed >= all_series or narrowed == 0:
                 failures.append(
                     f"search '9575F' should narrow results; got {narrowed} "
-                    f"visible of {results['amd_cpu_groups']}"
+                    f"visible of {all_series}"
                 )
             results["search_visible"] = narrowed
             page.fill("#searchInput", "")
             page.wait_for_timeout(600)
 
-            # --- Expand All renders spec tables ---
-            page.click("#expandAllBtn")
-            page.wait_for_timeout(1500)
-            results["spec_tables"] = count("table")
-            if results["spec_tables"] < 5:
-                failures.append(f"expected spec tables after Expand All, got {results['spec_tables']}")
-            if args.shots:
-                page.screenshot(path=str(shots_dir / "02-amd-expanded.png"))
-            page.click("#collapseAllBtn")
-            page.wait_for_timeout(600)
-
-            # --- AMD GPU ---
-            page.click("#techTabGpu")
-            page.wait_for_timeout(1800)
-            results["amd_gpu_groups"] = count(".arch-group")
-            if args.shots:
-                page.screenshot(path=str(shots_dir / "03-amd-gpu.png"))
-
             # --- Intel: three sub-tabs, generation-first renderer ---
-            page.click("#techTabCpu")
-            page.wait_for_timeout(800)
             page.click("#tabIntel")
-            page.wait_for_timeout(2000)
+            page.wait_for_timeout(1200)
             for tab, key in (("xeon", "xeon"), ("client", "client"), ("graphics", "gfx")):
                 page.click(f'.v2-subtab[data-tab="{tab}"]')
                 page.wait_for_timeout(900)
                 results[f"intel_{key}_groups"] = count(".arch-group")
                 results[f"intel_{key}_cards"] = count(".sku-card")
+                check_chips(f"intel-{tab}")
                 if tab == "xeon":
                     page.click("#expandAllBtn")
                     page.wait_for_timeout(1200)
@@ -174,10 +280,24 @@ def main():
             if count("#v2Subtabs.visible") != 1:
                 failures.append("Intel sub-tabs not visible")
             page.click("#tabAmd")
-            page.wait_for_timeout(1800)
+            page.wait_for_timeout(1100)
+            # Intel Xeon stores no total-core field -- only pc/ec -- so its
+            # stops depend on coreTotal() summing them. Assert they exist.
+            page.click("#tabIntel")
+            page.wait_for_timeout(1300)
+            xstops = count("#v2core .crt")
+            results["intel_core_stops"] = xstops
+            if xstops < 2:
+                failures.append(f"Intel Xeon core slider has {xstops} stops; "
+                                f"P+E summing may have regressed")
+            page.click("#tabAmd")
+            page.wait_for_timeout(1200)
+
             if count("#v2Subtabs.visible") != 0:
                 failures.append("Intel sub-tabs still visible after switching to AMD")
-            if count(".arch-group") < 7:
+            if count("#a2Subtabs.visible") != 1:
+                failures.append("AMD sub-tabs not restored after returning from Intel")
+            if count(".arch-group") < 6:
                 failures.append("AMD did not re-render after returning from Intel")
 
             browser.close()
@@ -196,6 +316,12 @@ def main():
     for k, v in results.items():
         print(f"  {k:<22} {v}")
     print("-" * 58)
+
+    if known_dead_seen:
+        print(f"  KNOWN-DEAD CHIPS ({len(known_dead_seen)}) -- tracked, not failing:")
+        for k in known_dead_seen:
+            print(f"    {k}")
+        print("-" * 58)
 
     if js_errors:
         print(f"  JS ERRORS ({len(js_errors)}):")

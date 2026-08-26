@@ -3,12 +3,12 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-08-12 (session closed)
+**Last updated:** 2026-08-26 (AMD restructure)
 **Current version:** 0.3.0 + unreleased work
 **Health:** Good — all tabs render, zero JS errors, smoke test passes
-**Committed:** yes — 2026-08-12's work landed as `104c4bd` (day's work) and `e45f93a`
-(ignore bytecode), plus a `.gitignore` commit. Remote moved to `DborUS/hardware-dashboard`.
-Confirm with Daniel that the push to the new remote succeeded before building on top.
+**Committed:** no — 2026-08-26's work (notes removal, smoke-test filter coverage, doc
+fixes) is uncommitted. Everything through `3209a9d` is committed and pushed to
+`DborUS/hardware-dashboard`.
 
 ---
 
@@ -37,16 +37,18 @@ wrong — he's usually right, so re-check rather than defend.
 
 ## Verified baseline
 
-Measured 2026-08-12 by `tools/smoke-test.py` against a clean tree:
+Measured 2026-08-26 by `tools/smoke-test.py` (re-verified from a fresh sandbox):
 
 | Check | Value |
 |---|---|
-| AMD CPU architectures | 8 |
-| AMD CPU SKU cards | 46 |
-| AMD GPU families | 42 (consumer 22 · workstation 9 · datacenter 7 · mobile 4) |
-| Intel CPU architectures | 19 |
-| Intel CPU SKU cards | 44 |
-| Spec tables after Expand All | 47 |
+| AMD EPYC series / cards / models | 6 · 12 · **162** |
+| AMD Ryzen series / cards / models | 19 · 34 · **478** |
+| AMD GPU series / cards / models | 42 · 42 · **258** |
+| Intel Xeon generations / cards | 11 / 33 |
+| **Intel Xeon models** | **553** |
+| Intel Client generations / cards | 11 / 47 |
+| Intel Graphics generations / cards | 4 / 12 |
+| Filter chips exercised | 65 (9 + 4 + 23 + 18 + 11) |
 | JS errors | none |
 
 Also verified working: search narrows correctly (`9575F` → 1 group, so SKU-level search
@@ -132,18 +134,49 @@ rendered page.
 
 *Scope: medium — needs GPU data for client parts, or a decision to accept it.*
 
-### 4. Notes textarea not escaped
-`script.js:664` interpolates `${loadNotes(arch.id)}` raw. A note containing `</textarea>`
-breaks the markup. Self-inflicted only. One-line fix with `escHtml()`.
+### 4. ~~Notes textarea not escaped~~ — RESOLVED 2026-08-26
+Removed entirely. Daniel asked for the per-architecture notes boxes to go, which
+deleted the unescaped interpolation along with them. Links sections are unchanged.
 
 ### 5. `getLinks()` doesn't validate parsed JSON
 `script.js:1174` returns `JSON.parse` output unchecked. Low severity, self-inflicted only.
 
-### 6. Content gap — AMD CPU coverage
+### 6. Filter chips that match no content — 13 tracked
+Found 2026-08-26 by the new chip coverage in `tools/smoke-test.py`, and confirmed in a
+real browser: clicking one of these empties the page (`0 GENERATIONS · 0 CODENAMES`).
+
+**Two distinct causes.**
+
+**(a) Tag/name mismatch — 10 chips.** `v2ApplyFilters()` compares a chip's tag against
+`data-gen`, which `v2Gen()` stamps with the block's **display name**. They match only
+when the strings are identical: `Xeon 6` works, `Xeon 5` vs `Xeon 5 (5th Gen Scalable)`
+does not.
+
+| Tab | Dead chips |
+|---|---|
+| Xeon | `Xeon 5` `Xeon 4` `Xeon 3` `Xeon 2` `Xeon 1` |
+| Client | `Series 3` `Series 2` `Series 1` `Core X` `Atom / N` |
+
+Xeon 5 is not a data gap — Emerald Rapids has 32 models loaded and renders fine
+unfiltered. Three fixes were sketched: add a `genTag` per block (most surgical, ~11
+lines), match on `g.id`, or rename the chips to the full block names. **Daniel's call —
+he is building the Intel framework first and will revisit.**
+
+**(b) Tag exists, no SKU carries it — 3 chips.** `Athlon` (no Athlon SKU remains in
+`amd-data.json`; brands are Epyc, Ryzen, Ryzen AI, Threadripper) and `Silver` / `Bronze`
+on Xeon — 32 Silver and 6 Bronze models *are* imported, but every `V2_DATA.xeon` family
+is tiered Platinum/Gold, so the tier is unreachable. Expected to resolve as tiering is
+finished.
+
+All 13 are listed in `KNOWN_DEAD_CHIPS` in `tools/smoke-test.py`, printed on every run
+so they cannot be forgotten. **Anything new that breaks fails the build.** Empty that
+set once the tags are reconciled.
+
+### 7. Content gap — AMD CPU coverage
 8 AMD architectures vs 19 Intel (Zen 6 added 2026-08-12). Still thinner than Intel, though
 AMD now has 46 SKU cards vs Intel's 44.
 
-### 7. Dead file
+### 8. Dead file
 `cpu-architecture-roadmap.html` (279 KB) — the original single-file version. Nothing links
 to it. Delete or move to `archive/` when convenient.
 
@@ -191,14 +224,18 @@ The Intel tab renders structure with **empty tables by design**. `intel-cpu-spec
 holds 275 verified models under the *old* codename SKU keys; `V2_DATA` in
 `js/intel-v2.js` uses new generation→codename keys. Nothing bridges them.
 
-Daniel is preparing the data separately. When it arrives:
+**This plan is superseded — the Xeon import already built the mechanism.** No
+`specKey` field is needed. `v2Rows()` looks specs up by the family `name` directly, so
+a family called `Arrow Lake-S` reads `V2_SPECS.client['Arrow Lake-S']`. What remains:
 
-1. Add a `specKey` to each family in `V2_DATA` naming its entry in the specs JSON.
-2. Teach `v2Card()` to read `INTEL_CPU_SPECS[specKey]` and emit rows instead of the
-   `.v2-empty-row` placeholder. The column sets already exist in `V2_COLUMNS`.
-3. Mind the Graphics tab — its columns resolve per brand line via `v2Columns(tier)`,
-   so the row builder must too.
-4. Restore a model-count assertion in `tools/smoke-test.py` once data flows.
+1. Produce `js/data/intel-client-specs.json` keyed by `V2_DATA.client` family names
+   (the mapping work below), via `tools/import-specs.py` or a bespoke importer.
+2. Add `V2_FIELDS.client` — the field order parallel to `V2_COLUMNS.client`. Xeon's
+   entry is the worked example; without it `v2LoadSpecs()` returns early and the tab
+   stays empty by design.
+3. Graphics additionally needs its columns resolved per brand line via
+   `v2Columns(tier)`, so its row builder must read the resolved set, not a flat list.
+4. Raise the `intel_xeon_models` style assertion for client once data flows.
 
 Mapping notes for the existing 275: several old keys split across new blocks. Known
 cases are `Raptor Lake-U Refresh` (2xx parts → Series 2, 1xx → Series 1) and the Xeon W
@@ -211,8 +248,9 @@ entries, which move out of `Raptor Lake (14th Gen)` into the `Xeon W` block.
 - **Zen 4** — `Phoenix` (desktop+laptop+pro) sits after `Dragon Range` (laptop).
   Arguable: tagged desktop but really a mobile-first part. Needs Daniel's call.
 - **Raptor Lake (14th Gen)** — `Xeon E` and `Xeon W-2400/2500` are last, below consumer
-  parts. Clear violation. Likely resolves itself during the Intel data migration, since
-  those move to the Xeon sub-tab.
+  parts. Clear violation. Note this lives in `intel-data.json`, which the Intel tab no
+  longer renders, so it is currently invisible to users — but `check-order.py` still
+  fails on it, and it should be fixed or the file retired.
 
 ### 3. Known small fixes
 
@@ -241,6 +279,296 @@ arrow-key navigation.
 ## Session log
 
 Newest first. One short entry per session — what changed, what was verified, what's next.
+
+### 2026-08-27d — Header compacted: sliding vendor pill + product row
+
+Daniel: the layout and hierarchy are right, but the header eats the top of the
+page. Measured before touching anything — **403px of chrome on a 1000px
+viewport**, 40% of the screen:
+
+| Element | Height |
+|---|---|
+| AMD / Intel tabs | 51px |
+| "AMD EPYC" + subtitle | 55px |
+| EPYC / RYZEN / GPU | 44px |
+| search + toolbar + status | 93px |
+| margins between four centred blocks | ~160px |
+
+The margins cost more than any single element, and the title was the weakest
+earner — "AMD EPYC" restated the two selectors directly above it.
+
+Four options were mocked (`tools/mockups/header.html`). Daniel chose **C's
+sliding pill with B's product row**.
+
+**Result: 403px → 167px.** Six EPYC series now sit above the fold where two did.
+Intel 246px (it carries the no-data notice). 1024px → 201px, 390px → 349px.
+
+**Row 1** is the vendor pill plus the inline title. The pill's coloured thumb is a
+single element translated between halves, so switching reads as one control
+moving rather than two buttons lighting up; the thumb also recolours red→blue.
+**Row 2** is the product line as a segmented control, search, and the
+expand/collapse toolbar together.
+
+**`stripVendor()` drops the vendor word from the title.** The data still carries
+"AMD EPYC" / "Intel Xeon" because it is meaningful standalone, but the header now
+renders beside a pill that already says which vendor — so the widest line on the
+page was pure repetition. Titles read "EPYC", "Ryzen", "Graphics", "Xeon".
+
+**Blurbs shortened at source.** They were written for a centred full-width line;
+"Data center processors — ordered by EPYC series" duplicated the sub-tab and the
+block headers. Now "Data center processors", "Desktop · mobile · workstation ·
+handheld", and so on, with a `max-width: 34ch` ellipsis clamp as a backstop.
+
+**Every id the renderers and smoke test depend on was preserved** —
+tabAmd, tabIntel, pageHeader, a2Subtabs, v2Subtabs, searchInput, searchClear,
+expandAllBtn, collapseAllBtn, clearSelectionsBtn, a2Status, v2Status, techTabs.
+Verified by grepping all fourteen after the rewrite. The legacy `techTabs` div is
+now `hidden` but still present, because `initDomCache()` holds a reference.
+
+**Caught in review:** the search field clipped its placeholder — a flex child
+without `min-width: 0` refuses to shrink below its content width. Fixed.
+
+**Verified:** smoke test PASS, zero JS errors, all model counts unchanged
+(162 / 478 / 258 / 553). Pill state and thumb transform read back from the DOM on
+both vendors. Screenshots read at 1440 / 1024 / 390px.
+
+### 2026-08-27c — Core-count bands replaced with a range slider
+
+Daniel preferred a manual min/max control over fixed buckets. Three variants
+were mocked (`tools/mockups/core-slider.html`); he chose slider **plus** typed
+inputs, applied everywhere with core data — EPYC, Ryzen, Intel Xeon — but not GPU.
+
+**The track snaps to real core counts, it is not linear.** EPYC ships 20 distinct
+values between 8 and 256 and **12 of them are at or below 32C**. On a linear axis
+those pile into the first quarter while a third of the track sits empty between
+192C and 256C. Each real value now gets equal width, so every stop is reachable.
+Tick dots mark the stops.
+
+**Stops are derived from loaded data, never hardcoded.** A tab with fewer than two
+distinct values renders no slider at all — which is why the GPU tabs have none and
+Intel Client will grow one automatically when its spec import lands.
+
+| Tab | Stops | Range |
+|---|---|---|
+| AMD EPYC | 20 | 8 – 256 |
+| AMD Ryzen | 11 | 2 – 96 |
+| Intel Xeon | 36 | 2 – 288 |
+| GPU / Intel Client | none | no core data |
+
+**Intel needed a real fix, not a copy.** Xeon stores **no total-core field** —
+only `pc` and `ec`. Reading `c` reports all 553 models as having no core count,
+so `coreTotal()` sums P+E. Verified against the data: Xeon 6990E+ reads 288.
+
+**Two bugs caught in verification, neither visible in counts:**
+
+1. **Intel's slider was empty.** `v2Activate()` built the filters *before*
+   awaiting `v2LoadSpecs()`, so the stops were computed from nothing. Only
+   `v2Switch()` had the right order. Fixed, and the smoke test now asserts
+   `intel_core_stops: 36` so it cannot regress silently.
+2. **Presets read "≤36 / 36–112 / 112+"** — real values, but not numbers anyone
+   asks for, because they were sampled at fixed fractions of the track. Now
+   snapped to conventional boundaries (32 / 64 / 128), filtered to those the tab
+   actually spans — Ryzen correctly drops the 128 cut since it tops out at 96C.
+
+**Verified against ground truth recomputed from JSON**, not read off the page:
+EPYC min=96 → 7 codenames; Intel min=128 → exactly Clearwater Forest, Granite
+Rapids AP, Sierra Forest SP (3, matching the JSON). Typed values snap to the
+nearest real stop. Smoke test PASS, zero JS errors, all model counts unchanged
+(162 / 478 / 258 / 553).
+
+**Smoke test now covers the slider** — stop count, typed-input snapping, that a
+min actually narrows, that the All preset restores, and that GPU has no slider.
+Untested UI is how the 12 dead chips survived; this closes that gap for the
+newest control.
+
+**Core count is the FIRST group in the rail** (Daniel, 2026-08-27): it is the
+filter most used in practice, so it leads ahead of the generation/series chips.
+Order is now Core count → Series → Socket on EPYC, Core count → Series → Brand →
+Segment on Ryzen, Core count → Generation → Tier → Segment on Xeon. GPU is
+unaffected — no core data, no slider. Verified group order read back from the
+rendered DOM on all four tabs.
+
+### 2026-08-27b — EPYC "Platform" filter replaced with core-count bands
+
+Daniel asked what Platform represented and whether it earned its place. It did not.
+
+**What it was:** a hand-typed set literal in the generator — `DENSE = {Turin
+Dense, Bergamo}`, `EDGE = {Siena}`, everything else "Performance". Two problems:
+**9 of 12 codenames fell into one bucket**, so clicking it eliminated three cards
+out of twelve; and it was **invented rather than derived**, the exact pattern
+golden rule #1 warns about. It happened to be correct, but nothing enforced that
+and a new dense SKU would have silently landed in "Performance".
+
+**What replaced it:** core-count bands read from the `c` field of all 162 EPYC
+models — the thing datacenter presales actually screens on.
+
+| Band | Codenames | Models |
+|---|---|---|
+| 129C+ | 2 | 6 |
+| 65–128C | 7 | 23 |
+| 33–64C | 8 | 42 |
+| ≤ 32C | 9 | 91 |
+
+Bands sum to exactly 162. Boundaries sit between real AMD tiers rather than on
+round numbers: 32C is the entry/edge ceiling (Naples, Siena), 64C the classic
+mainstream flagship (Rome, Milan), 128C the dense ceiling before Venice and
+Turin Dense go past it.
+
+**A codename spans a range, so `tier` is now a LIST.** Turin ships 8C–128C and
+belongs to three bands at once. `a2Tiers()` normalises single-string (Ryzen, GPU)
+and array (EPYC) forms, cards stamp `data-tier` pipe-joined, and the filter does
+an intersection test instead of equality. This is the same shape as the
+multi-series insight behind the whole product-first restructure.
+
+**Verified against ground truth recomputed from the JSON**, not from the page:
+all four bands match on codename count exactly (2/7/8/9), OR-combining works
+(129C+ plus ≤32C = 11 cards = 2 + 9), smoke test PASS, zero JS errors, zero dead
+AMD chips.
+
+### 2026-08-27 — Filters moved to a left sidebar (both vendors)
+
+Daniel: the filter bar is big, cluttered, and the per-series buttons duplicate
+how the page is already laid out.
+
+**Measured before changing anything:** the Ryzen filter bar was **278px tall**,
+pushing the timeline start to **681px** — two thirds of a 1000px viewport before
+any content. EPYC 140px, Intel Xeon similar.
+
+Four options were mocked at 1440px with the real design tokens and real data
+(`tools/mockups/filters.html`); Daniel chose the sidebar, applied to both vendors.
+
+**Result — vertical space reclaimed:**
+
+| Tab | Timeline started | Now |
+|---|---|---|
+| AMD EPYC | 543px | **403px** |
+| AMD Ryzen | 681px | **403px** |
+| AMD GPU | 463px | **423px** |
+
+Ryzen's bar no longer grows with the number of series at all — the rail is a
+fixed 208px column and long groups (19 Ryzen series) scroll at 232px.
+
+**Live counts are the real win.** Every option shows how many blocks it would
+yield, counted against the *other* groups' current selections — so with
+Brand=Ryzen AI selected, the Segment counts show what's reachable within that
+brand. Verified: **18 spot-checked options across three tabs, zero mismatches**
+between the displayed count and the actual filtered result.
+
+**Options that would yield nothing are dimmed with no number.** This makes the
+12 known-dead Intel chips *visibly* dead rather than silently dead — they now
+read as greyed with a blank count instead of looking clickable. The underlying
+tag/name mismatch is still unfixed and still tracked.
+
+**One bug caught in verification.** Both renderers did `bar.className =
+'filter-bar'`, which wiped the `controls` class the responsive rules key off, so
+the sidebar would not collapse at 390px. Fixed in both, and the CSS now targets
+`.sidebar > .controls` so it holds even if a renderer reassigns className again.
+
+**Responsive:** two columns above 900px; below that the rail becomes a collapsed
+"Filters" disclosure with a count badge, so content leads on a phone. Verified at
+1440 / 1024 / 390px.
+
+**Verified:** smoke test PASS, zero JS errors, all six sub-tabs walked,
+screenshots read at three widths.
+
+### 2026-08-26b — AMD restructured product-first (EPYC / Ryzen / GPU)
+
+Daniel: give AMD the same sub-tab scheme as Intel, and organise by product name
+rather than Zen generation.
+
+**New `js/amd-v2.js`** — three sub-tabs, product-series blocks holding codename
+cards, mirroring `js/intel-v2.js` exactly (same DOM contract, same render-once-
+then-filter model, same card/brandline/era machinery).
+
+| Sub-tab | Blocks | Cards | Models |
+|---|---|---|---|
+| EPYC | 6 series (9006 → 7001) | 12 | 162 |
+| Ryzen | 19 series (AI 400 → 1000, Threadripper, Z-series) | 34 | 478 |
+| GPU | 42 (Instinct → Radeon PRO → Radeon) | 42 | 258 |
+
+**640 CPU + 258 GPU models render — identical to the old structure.** Nothing was
+dropped; every codename in `amd-cpu-specs.json` is placed, and no block
+references a missing spec key. The generator asserts both.
+
+**Product-series-first is load-bearing, not cosmetic.** Several codenames span
+two series — Phoenix is both Ryzen 7000 and 8000, Dragon Range likewise. Nesting
+series → codename lets a codename appear under each series that sells it.
+Codename-first could not express this.
+
+**`js/amd-v2.js` is GENERATED by `tools/gen-amd-v2.py`.** Codenames, model
+counts, sockets and GPU segments are read from `js/data/*.json`, so the taxonomy
+cannot drift from the data. Series names come from AMD's published branding.
+
+**Radeon launch years were wrong and are fixed.** 15 of 19 consumer families
+carried invented-looking years — HD 5000 said 2019 (actual 2009), HD 7000 said
+2023 (actual 2012), R9 200 said 2020 (actual 2013). Corrected from AMD/Wikipedia
+launch dates. The diff is exactly 16 lines changed, no reformatting: the file is
+**CRLF with `\uXXXX` escapes** and the writer had to match that, or all 42
+families would have rewritten.
+
+**A socket bug the chip check caught.** The generator originally fell back to
+`SP5` when a subtitle named no socket, silently mislabelling Milan / Rome /
+Naples (all SP3) and leaving the SP3 chip dead. Now read from `sk` in the spec
+data, and the generator raises rather than guessing.
+
+**A layout flaw the screenshots caught.** Every GPU block held one card whose
+name simply restated the block header ("Instinct MI350 Series" → "MI300 Series
+(CDNA 4)"). Cards now show the actual products — "MI355X · MI350X" — with a
+separate `key` field carrying the join into the data. Counts never saw this;
+reading the PNGs did.
+
+**Smoke test updated.** AMD's CPU/GPU tech tabs are gone, so the old
+`#techTabGpu` clicks hung the suite. Now walks all three AMD sub-tabs with
+per-tab model-count assertions, which is the real guard against a future
+restructure silently dropping data.
+
+**Verified:** PASS, zero JS errors. 49 AMD chips exercised, **zero dead**. AMD →
+Intel → AMD round trip clean, both sub-tab bars showing/hiding correctly.
+Screenshots read on all three tabs.
+
+**Open:** the Ryzen Series filter has 19 chips and wraps to four rows — it works
+but is heavy; worth revisiting if it annoys in use. The 12 Intel dead chips are
+unchanged.
+
+### 2026-08-26 — Notes removed · filter-chip coverage · doc corrections
+
+**Notes boxes deleted.** Daniel: no longer needed. Removed the `.notes-area` block from
+both `render()` and `renderGpu()`, the `saveNotes()` / `loadNotes()` helpers, and all
+`.notes-*` CSS including the 640px rules. Links sections untouched. This also closed
+known issue #4 (the unescaped `${loadNotes(...)}` interpolation) by construction.
+Existing `roadmap-notes-*` localStorage keys are now inert.
+
+**`tools/smoke-test.py` now clicks every filter chip.** The suite counted rendered
+elements but never exercised a filter, which is why ten dead chips shipped unnoticed —
+the page renders correctly and only goes blank once a user clicks. 65 chips are now
+exercised per run.
+
+**It immediately found three more than I had spotted by inspection:** `Athlon`,
+`Silver`, `Bronze`. Different cause from the other ten — see known issue #6. That is the
+check earning its keep on the first run.
+
+Known-dead chips are allowlisted in `KNOWN_DEAD_CHIPS` and printed every run rather than
+silently skipped, so the suite stays green while the Intel framework is in flux but any
+*new* breakage fails the build.
+
+**Doc corrections:** `DATA-SCHEMA.md` header counts were stale (14 entries / 7 archs /
+44 keys → 16 / 8 / 46). The `specKey` plan in Suggested next steps was superseded by the
+Xeon import and has been rewritten. The Zen 6 process-node open item was already
+resolved — `CHANGELOG.md` confirms Daniel supplied 2 nm; it was not inferred.
+
+**Verified:** smoke test PASS from a fresh sandbox — AMD 8 groups / 46 SKUs / 47 tables
+/ 42 GPU, Intel Xeon 11/33/**553 models**, Client 11/47, Graphics 4/12, zero JS errors.
+Screenshots read at 1440px to confirm the notes boxes are gone and the links area still
+sits correctly at the bottom of an expanded architecture.
+
+**Environment note:** Playwright setup per `WORKFLOWS.md` Workflow 0 works, with one
+addition — `libXdamage1` is missing from this image and needs the documented
+`apt-get download` fallback. Background processes do not survive between sandbox calls,
+so the smoke test must finish inside a single command.
+
+**Next:** Daniel to decide on the 10 tag/name-mismatch chips (recommend a `genTag`
+field per block). The two `check-order.py` violations are still open and still need his
+call on Zen 4 Phoenix.
 
 ### 2026-08-16g — Xeon spec data imported (553 models)
 

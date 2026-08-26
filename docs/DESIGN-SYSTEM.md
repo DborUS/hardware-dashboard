@@ -155,7 +155,7 @@ audit flagged it and it's still true.
 ## Component patterns
 
 **Architecture group** — left border in `--arch-color`, timeline dot, name + year pill +
-segment badges, expand chevron. Body reveals SKU grid, links area, notes area.
+segment badges, expand chevron. Body reveals SKU grid and links area.
 
 **SKU card** — name (+ spec count), description, tag row, specs toggle. `.has-specs` makes
 it clickable; `.selected` when its table is open; `.unreleased-sku` for future parts.

@@ -32,7 +32,7 @@ Newest entry: **Zen 6 / EPYC 9006 "Venice"** — 31 models across SP7 and SP8.
   table rows; `LGA1851`, `DDR5-6400` and `OAM` work the same way.
 - **Expandable spec tables** — cores, threads, clocks, cache, TDP, socket and
   platform details. Click any row to mark it; shift-click to compare several.
-- **Per-architecture notes and links** — saved to `localStorage`, so they persist
+- **Per-architecture links** — saved to `localStorage`, so they persist
   between visits on that browser.
 - **Responsive** — three breakpoints; spec tables scroll horizontally on mobile.
 
