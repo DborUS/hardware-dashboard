@@ -39,7 +39,7 @@
   .search-wrap input:focus { border-color: rgba(255,255,255,0.2); }
   .search-wrap input::placeholder { color: var(--text-muted); }
   .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem; }
-  .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.1rem; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, color 0.2s ease; background: none; border: 0; padding: 0; line-height: 1; font-family: inherit; }
+  .search-clear { position: absolute; right: 10px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.1rem; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, color 0.2s ease; background: none; border: 0; padding: 0; line-height: 1; font-family: inherit; }
   .search-clear.visible { opacity: 1; pointer-events: auto; }
   .search-clear:hover { color: var(--text-primary); }
 
@@ -93,10 +93,16 @@
   .era-separator .era-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
   .era-separator .era-line { flex: 1; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.08), transparent); }
 
-  .timeline { position: relative; padding-left: 48px; }
-  .timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.08) 5%, rgba(255,255,255,0.08) 95%, transparent); }
+  /* Rail geometry lives in variables so every marker derives its own offset.
+     Hand-computed left values drifted apart across four breakpoints and left
+     the era diamonds visibly off the line. --rail-c is the rail's centre
+     measured from the timeline's padding box. */
+  .timeline { position: relative; padding-left: 48px;
+              --rail-pad: 48px; --rail-x: 18px; --rail-w: 2px;
+              --rail-c: calc(var(--rail-x) + var(--rail-w) / 2); }
+  .timeline::before { content: ''; position: absolute; left: var(--rail-x); top: 0; bottom: 0; width: var(--rail-w); background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.08) 5%, rgba(255,255,255,0.08) 95%, transparent); }
 
-  .arch-group { position: relative; margin-bottom: 8px; transition: opacity 0.4s ease, transform 0.4s ease; animation: slideUp 0.5s ease both; }
+  .arch-group { position: relative; margin-bottom: 18px; transition: opacity 0.4s ease, transform 0.4s ease; animation: slideUp 0.5s ease both; }
   @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
   .arch-header { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; padding: 16px 20px; cursor: pointer; border-radius: 10px; transition: background 0.2s ease; user-select: none; position: relative; overflow: hidden; }
@@ -117,7 +123,11 @@
      dot out of view under overflow:hidden. Exclude it -- it already sits at
      z-index 2, above the overlay. */
   .arch-header.unreleased-arch > *:not(.timeline-dot) { position: relative; z-index: 1; }
-  .timeline-dot { position: absolute; left: -38px; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border-radius: 50%; border: 2px solid; background: var(--bg-primary); z-index: 2; transition: all 0.3s ease; }
+  /* Marker centring: left = rail centre - padding - half the marker. */
+  .timeline-dot { position: absolute;
+    --dot-size: 12px;
+    left: calc(var(--rail-c) - var(--rail-pad) - var(--dot-size) / 2);
+    transform: translateY(-50%); width: var(--dot-size); height: var(--dot-size); border-radius: 50%; border: 2px solid; background: var(--bg-primary); z-index: 2; transition: all 0.3s ease; }
   .arch-header:hover .timeline-dot { transform: translateY(-50%) scale(1.3); box-shadow: 0 0 12px currentColor; }
   .arch-name { font-family: 'JetBrains Mono', monospace; font-size: 1.15rem; font-weight: 600; letter-spacing: -0.3px; }
   .arch-year { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted); background: rgba(255,255,255,0.04); padding: 3px 10px; border-radius: 4px; }
@@ -359,9 +369,9 @@
     .container { padding: 20px 12px 60px; }
     header h1 { font-size: 1.2rem; }
     header p { font-size: 0.75rem; letter-spacing: 1.5px; }
-    .timeline { padding-left: 30px; }
-    .timeline::before { left: 10px; width: 1.5px; }
-    .timeline-dot { left: -26px; width: 10px; height: 10px; }
+    .timeline { padding-left: 30px; --rail-pad: 30px; --rail-x: 10px; --rail-w: 1.5px; }
+    .timeline-dot { --dot-size: 10px; }
+    .v2-era::before { --dia-size: 12px; }
     .skus-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; max-width: 100%; width: 100%; }
     .arch-name { font-size: 0.95rem; }
     .arch-year { font-size: 0.7rem; padding: 2px 8px; }
@@ -409,8 +419,7 @@
     .container { padding: 16px 10px 50px; }
     header h1 { font-size: 1.1rem; }
     .vendor-tab { font-size: 0.9rem; padding: 10px 20px; }
-    .timeline { padding-left: 24px; }
-    .timeline-dot { left: -20px; }
+    .timeline { padding-left: 24px; --rail-pad: 24px; }
     .arch-name { font-size: 0.9rem; }
     .arch-header { padding: 10px 12px; }
   }
@@ -464,10 +473,22 @@
   .intel-v2 .sku-name { padding-right: 58px; }
 
   /* Branding-era separator — marks where a naming scheme changed */
-  .v2-era { position: relative; margin: 34px 0 14px; padding-left: 4px; }
+  /* Era text aligns with the block titles it heads: .arch-header pads 20px,
+     so the era does too. --era-pad stays 4px purely as the diamond's own
+     reference and is no longer used for text indent. */
+  .v2-era { position: relative; margin: 30px 0 14px;
+            --era-pad: 4px; padding-left: 20px; }
   .v2-era::before {
-    content: ''; position: absolute; left: -38px; top: 8px;
-    width: 12px; height: 12px; border-radius: 2px; transform: rotate(45deg);
+    /* Same formula as .timeline-dot. An absolutely-positioned ::before is
+       offset from its parent's PADDING box, and .v2-era is not itself
+       inset from the timeline -- so there is no --era-pad term here.
+       Measured, not assumed: subtracting it put the diamond 4px left.
+       Changing .v2-era's padding therefore does NOT move this. */
+    content: ''; position: absolute; top: 8px;
+    --dia-size: 14px;
+    left: calc(var(--rail-c) - var(--rail-pad) - var(--dia-size) / 2);
+    box-sizing: border-box; width: var(--dia-size); height: var(--dia-size);
+    border-radius: 2px; transform: rotate(45deg);
     background: var(--bg-primary); border: 2px solid rgba(255,255,255,0.22); z-index: 2;
   }
   .v2-era-label {
@@ -545,7 +566,11 @@
   .fgroup-label {
     display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.58rem;
     font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--text-muted); margin: 0 0 8px 2px;
+    color: var(--text-muted);
+    /* 8px matches .fchip's padding-left so the label's text starts on the
+       same vertical as the option text beneath it. The old 2px left it
+       hanging 6px out of alignment. */
+    margin: 0 0 8px; padding-left: 8px;
   }
 
   /* One option row. Full-width hit target -- easier than a small pill. */
@@ -667,10 +692,16 @@
   }
   .cr-fill { position: absolute; height: 100%; background: var(--cr-ac, #60a5fa); border-radius: 2px; }
   .cr-knob {
+    /* The visual knob stays 14px; ::after widens the grabbable area to 34px
+       without changing how it looks. */
     position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%;
     background: var(--bg-primary); border: 2px solid var(--cr-ac, #60a5fa);
     transform: translate(-50%,-50%); cursor: grab;
     box-shadow: 0 2px 6px rgba(0,0,0,0.55); touch-action: none;
+  }
+  .cr-knob::after {
+    content: ''; position: absolute; left: 50%; top: 50%;
+    width: 34px; height: 34px; transform: translate(-50%, -50%);
   }
   .cr-knob:active { cursor: grabbing; }
   .cr-knob:focus-visible { outline: 2px solid var(--cr-ac, #60a5fa); outline-offset: 3px; }
@@ -683,7 +714,8 @@
   .cr-presets { display: flex; gap: 4px; margin-top: 11px; }
   .cr-pre {
     flex: 1; min-width: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.55rem;
-    padding: 5px 2px; border-radius: 4px; border: 1px solid var(--border-subtle);
+    /* was 22px tall -- below a comfortable target. */
+    padding: 8px 2px; min-height: 30px; border-radius: 4px; border: 1px solid var(--border-subtle);
     background: transparent; color: var(--text-muted); cursor: pointer;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
@@ -745,10 +777,12 @@
   .topbar header h1 { font-size: 1.15rem; margin: 0; letter-spacing: 0.5px; }
   .topbar header p {
     font-size: 0.62rem; letter-spacing: 1.6px; color: var(--text-muted); margin: 0;
-    /* Descriptors run long ("...— ordered by EPYC series"); the trailing half
-       repeats what the sub-tab and block headers already say. Clamp rather
-       than let it push the count off the row. */
-    max-width: 34ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    /* Clamp so a long descriptor can't push the count off the row, but the
+       current three all fit at 46ch -- Intel's "Server · workstation ·
+       embedded" was being ellipsised at 34ch. min-width:0 lets it shrink
+       inside the flex row instead of overflowing. */
+    max-width: 46ch; min-width: 0; overflow: hidden;
+    text-overflow: ellipsis; white-space: nowrap;
   }
   .topbar .v2-status { margin: 0 0 0 auto; }
 

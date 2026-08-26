@@ -280,6 +280,93 @@ arrow-key navigation.
 
 Newest first. One short entry per session — what changed, what was verified, what's next.
 
+### 2026-08-27f — Diamond centring fixed + layout audit
+
+Daniel spotted the era diamonds sitting left of the timeline rail. Measuring
+found **two** markers off, not one:
+
+| Marker | Offset from rail | Cause |
+|---|---|---|
+| `.timeline-dot` | −3px | `left: -38px` hand-computed, never re-checked |
+| `.v2-era::before` | −1px, then −4px | a `::before` does **not** inherit `box-sizing: border-box`, so `width:12px` + 2px borders = 16px actual |
+
+**Root cause was hand-computed offsets.** Four breakpoints each restated
+`left:` as a literal, and they had drifted apart. Replaced with variables on
+`.timeline` — `--rail-pad`, `--rail-x`, `--rail-w`, `--rail-c` — so every
+marker derives `left: calc(var(--rail-c) - var(--rail-pad) - size/2)` and a
+breakpoint only restates the rail, never a marker position.
+
+**One wrong assumption caught by measuring.** I first subtracted `.v2-era`'s
+`padding-left` from the diamond's offset, reasoning the `::before` was placed
+against the padding box. It is placed against the **border** box, so that term
+put it 4px left. Fixed only after reading `getComputedStyle(el,'::before').left`
+back — the arithmetic looked right on paper both times.
+
+**Verified 0.00px offset** for every dot and diamond across 6 sub-tabs × 5
+widths (1440 / 1024 / 640 / 390 / 360).
+
+**Layout audit** — new `tools/audit-layout.py` measures shared left edges,
+vertical rhythm, overflow, text clipping and touch-target sizes on every tab and
+width. Five real issues found and fixed:
+
+1. **Sidebar group labels sat 6px out** — `margin-left: 2px` against the chips'
+   `padding-left: 8px`. Now both 8px, so "SERIES" starts on the same vertical as
+   the options beneath it.
+2. **Block rhythm read as 79 / 8px** — era margin vs sibling margin, nearly a
+   10:1 ratio. Now 75 / 18, a legible 4:1.
+3. **Era text was indented 4px, block titles 20px**, so headings hung 16px left
+   of what they head. Era now pads 20px to match `.arch-header`. The diamond did
+   not move — it keys off the border box.
+4. **Intel's descriptor was being ellipsised** — "Server · workstation ·
+   embedded" needs 236px, the 34ch clamp allowed 187px. Raised to 46ch, which
+   fits all three current descriptors with room to spare.
+5. **Small touch targets** — preset buttons 22px, search-clear 18px. Now 30px and
+   26px; the slider knobs keep their 14px look but gained a 34px invisible grab
+   area via `::after`.
+
+**Verified:** zero overflow and zero clipped text at 1440 / 1024 / 390 on both
+vendors. Smoke test PASS, zero JS errors, model counts unchanged.
+
+### 2026-08-27e — Era dividers added to AMD EPYC and Ryzen
+
+Daniel spotted that Intel's tabs carry a diamond + label divider and AMD's CPU
+tabs do not. The GPU tab already had three (Instinct / Radeon PRO / Radeon);
+EPYC and Ryzen had none, so they read as one long undivided list. The mechanism
+and CSS already existed — only the entries were missing.
+
+**EPYC: socket platform.** SP7/SP8 · SP5/SP6 · SP3. Sockets read from the `sk`
+field, and each note states only what the spec data shows:
+
+| Divider | Note (all verified from `mem` / `pcie`) |
+|---|---|
+| SP7 / SP8 platform | Zen 6 — up to 8000 MT/s, PCIe 6.0 |
+| SP5 / SP6 platform | Zen 4 and Zen 5 — up to 6400 MT/s, PCIe 5.0 |
+| SP3 platform | Zen through Zen 3 — up to 3200 MT/s, PCIe 3.0 / 4.0 |
+
+A first draft said "12-channel DDR5, LGA 6096" from general knowledge; that is
+golden rule #1 territory and was cut back to the data before shipping.
+
+**Ryzen: naming scheme, NOT tier — and that distinction was a real bug.** The
+first attempt used tier labels (Workstation · Threadripper, then Desktop and
+mobile). The screenshot showed **Threadripper 7000 sitting under "mainstream
+Ryzen"**, because Threadripper and mainstream Ryzen *interleave chronologically*
+— TR9000, R9000, TR7000, R8000. Tier dividers cannot work without reordering the
+tab, which was not asked for. Replaced with the boundaries the block order
+genuinely follows: `Ryzen AI branding` → `Numbered series` → `Outside the
+numbering`. Verified by reading the rendered sequence back and checking every
+block belongs under its heading.
+
+**Counts caught nothing here** — the dividers rendered, the counts were right,
+and the grouping was still wrong. Same lesson as the sub-heading order bug on
+2026-08-16b: read the screenshot.
+
+**Dividers hide when everything under them is filtered out** — with core ≥ 128
+the SP3 divider disappears, since no SP3 part reaches 128 cores. That behaviour
+came free from the existing `v2Era` machinery.
+
+**Verified:** EPYC 3 eras, Ryzen 3, GPU 3 unchanged, Intel 7 unchanged. Smoke
+test PASS, zero JS errors, model counts unchanged (162 / 478 / 258 / 553).
+
 ### 2026-08-27d — Header compacted: sliding vendor pill + product row
 
 Daniel: the layout and hierarchy are right, but the header eats the top of the

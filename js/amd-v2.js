@@ -64,11 +64,13 @@ const A2_DATA = {
       ]}
     ],
     gens: [
+      { era: "SP7 / SP8 platform", eraNote: "Zen 6 — up to 8000 MT/s, PCIe 6.0" },
       { id: 'epyc9006', name: "EPYC 9006 Series", years: '2026', color: '#ec4899',
         note: "Venice · Zen 6 · SP7 / SP8", families: [
         { name: "Venice SP7", desc: "Zen 6 — 9 models", seg: 'SP7', si: "Zen 6", n: 9, cmin: 64, cmax: 256 },
         { name: "Venice SP8", desc: "Zen 6 — 22 models", seg: 'SP8', si: "Zen 6", n: 22, cmin: 8, cmax: 128 },
       ]},
+      { era: "SP5 / SP6 platform", eraNote: "Zen 4 and Zen 5 — up to 6400 MT/s, PCIe 5.0" },
       { id: 'epyc9005', name: "EPYC 9005 Series", years: '2024', color: '#ef4444',
         note: "Turin · Zen 5 / Zen 5c · SP5", families: [
         { name: "Turin", desc: "Zen 5 — 22 models", seg: 'SP5', si: "Zen 5", n: 22, cmin: 8, cmax: 128 },
@@ -81,6 +83,7 @@ const A2_DATA = {
         { name: "Bergamo", desc: "Zen 4 — 3 models", seg: 'SP5', si: "Zen 4", n: 3, cmin: 112, cmax: 128 },
         { name: "Siena", desc: "Zen 4 — 12 models", seg: 'SP6', si: "Zen 4", n: 12, cmin: 8, cmax: 64 },
       ]},
+      { era: "SP3 platform", eraNote: "Zen through Zen 3 — up to 3200 MT/s, PCIe 3.0 / 4.0" },
       { id: 'epyc7003', name: "EPYC 7003 Series", years: '2021 – 2022', color: '#84cc16',
         note: "Milan · Zen 3 · SP3", families: [
         { name: "Milan", desc: "Zen 3 — 25 models", seg: 'SP3', si: "Zen 3", n: 25, cmin: 8, cmax: 64 },
@@ -136,6 +139,7 @@ const A2_DATA = {
       ]}
     ],
     gens: [
+      { era: "Ryzen AI branding", eraNote: "Copilot+ era — the \"AI\" name replaces a plain series number" },
       { id: 'rai400', name: "Ryzen AI 400 Series", years: '2026', color: '#ec4899',
         note: "Gorgon Point · Zen 5 + XDNA 2 · Copilot+", families: [
         { name: "Gorgon Point", desc: "Zen 5 — 13 models", tier: 'Ryzen AI', seg: 'Mobile', si: "Zen 5", n: 13, cmin: 4, cmax: 12 },
@@ -146,6 +150,7 @@ const A2_DATA = {
         { name: "Strix Point", desc: "Zen 5 — 6 models", tier: 'Ryzen AI', seg: 'Mobile', si: "Zen 5", n: 6, cmin: 8, cmax: 12 },
         { name: "Kraken Point", desc: "Zen 5 — 5 models", tier: 'Ryzen AI', seg: 'Mobile', si: "Zen 5", n: 5, cmin: 4, cmax: 8 },
       ]},
+      { era: "Numbered series", eraNote: "Ryzen 1000 through 9000 and the matching Threadripper lines" },
       { id: 'tr9000', name: "Ryzen Threadripper 9000 Series", years: '2025', color: '#f59e0b',
         note: "Shimada Peak · Zen 5 · sTR5", families: [
         { name: "Shimada Peak", desc: "Zen 5 — 9 models", tier: 'Threadripper', seg: 'Workstation', si: "Zen 5", n: 9, cmin: 12, cmax: 96 },
@@ -217,6 +222,7 @@ const A2_DATA = {
         note: "Summit Ridge · Zen · AM4 · the first Ryzen", families: [
         { name: "Summit Ridge", desc: "Zen — 16 models", tier: 'Ryzen', seg: 'Desktop', si: "Zen", n: 16, cmin: 4, cmax: 8 },
       ]},
+      { era: "Outside the numbering", eraNote: "Z-series handhelds and the 200 / 100 entry refresh" },
       { id: 'rzseries', name: "Ryzen Z-Series (Handheld)", years: '2023 – 2025', color: '#22d3ee',
         note: "Z1 · Z2 · handheld gaming APUs", families: [
         { name: "Z2", desc: "Zen 5 — 5 models", tier: 'Z-Series', seg: 'Handheld', si: "Zen 5", n: 5, cmin: 4, cmax: 8 },

@@ -32,6 +32,18 @@ for e in amd:
 # EPYC 9006 Venice / 9005 Turin / 9004 Genoa / 8004 Siena / 7003 Milan /
 # 7002 Rome / 7001 Naples -- taken from AMD's product branding, and each is
 # corroborated by the arch subtitle already in amd-data.json.
+# Era dividers keyed to the FIRST series that opens each socket platform.
+# Sockets read from the data (`sk`), not assumed -- see socket_of().
+EPYC_ERAS = {
+    # Notes below state only what the spec data shows (mem / pcie fields).
+    'epyc9006': ('SP7 / SP8 platform',
+                 'Zen 6 — up to 8000 MT/s, PCIe 6.0'),
+    'epyc9005': ('SP5 / SP6 platform',
+                 'Zen 4 and Zen 5 — up to 6400 MT/s, PCIe 5.0'),
+    'epyc7003': ('SP3 platform',
+                 'Zen through Zen 3 — up to 3200 MT/s, PCIe 3.0 / 4.0'),
+}
+
 EPYC_SERIES = [
     ('epyc9006', 'EPYC 9006 Series', '2026', '#ec4899', 'Venice · Zen 6 · SP7 / SP8',
      ['Venice SP7', 'Venice SP8']),
@@ -53,6 +65,25 @@ EPYC_SERIES = [
 # Ryzen 7000 AND 8000; Dragon Range is 7000 and 8000). Product-series-first
 # is therefore the correct nesting -- a codename can appear under two blocks,
 # which is exactly how AMD sells them.
+# Era dividers keyed to the first series in each tier band. The list is already
+# ordered datacenter-leaning -> mainstream -> entry per golden rule #2; these
+# just name the boundaries rather than introducing a new ordering.
+# NOTE: these are NOT tier labels. Threadripper and mainstream Ryzen interleave
+# chronologically (TR9000, R9000, TR7000, R8000...), so a "Workstation" divider
+# would sit above blocks that are not workstation parts -- caught in review when
+# Threadripper 7000 landed under a "mainstream Ryzen" heading.
+#
+# The honest boundaries are the naming schemes AMD actually used, which the
+# block order already follows:
+RYZEN_ERAS = {
+    'rai400':   ('Ryzen AI branding',
+                 'Copilot+ era — the "AI" name replaces a plain series number'),
+    'tr9000':   ('Numbered series',
+                 'Ryzen 1000 through 9000 and the matching Threadripper lines'),
+    'rzseries': ('Outside the numbering',
+                 'Z-series handhelds and the 200 / 100 entry refresh'),
+}
+
 RYZEN_SERIES = [
     # id, label, years, colour, note, [(codename, tier, seg)]
     ('rai400', 'Ryzen AI 400 Series', '2026', '#ec4899',
@@ -309,6 +340,9 @@ def socket_of(cd):
 
 
 for sid, label, yr, col, note, cds in EPYC_SERIES:
+    if sid in EPYC_ERAS:
+        era, eranote = EPYC_ERAS[sid]
+        w("      { era: %s, eraNote: %s },\n" % (js(era), js(eranote)))
     w("      { id: '%s', name: %s, years: '%s', color: '%s',\n" % (sid, js(label), yr, col))
     w("        note: %s, families: [\n" % js(note))
     for cd in cds:
@@ -350,6 +384,9 @@ w("""      ]},
     gens: [
 """)
 for rid, label, yr, col, note, cds in RYZEN_SERIES:
+    if rid in RYZEN_ERAS:
+        era, eranote = RYZEN_ERAS[rid]
+        w("      { era: %s, eraNote: %s },\n" % (js(era), js(eranote)))
     w("      { id: '%s', name: %s, years: '%s', color: '%s',\n" % (rid, js(label), yr, col))
     w("        note: %s, families: [\n" % js(note))
     for cd, tier, seg in cds:
