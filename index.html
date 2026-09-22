@@ -8,14 +8,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20260921-header-1">
+  <link rel="stylesheet" href="css/styles.css?v=20260921-brand-2">
 </head>
 <body>
 <div class="bg-grid"></div>
 <div class="container">
-  <!-- Row 1: vendor pill + inline product title. The pill's coloured
-       thumb slides between AMD and Intel; #pageHeader is written by whichever
-       renderer is active and now sits on the same line. -->
+  <!-- Row 1: vendor pill + ChipIndex identity. #pageHeader remains available
+       to assistive technology and is updated by whichever renderer is active. -->
   <div class="topbar">
     <div class="vendor-pill" id="vendorPill" data-active="amd" role="tablist"
          aria-label="Vendor">
@@ -27,7 +26,18 @@
       <button class="vendor-tab" id="tabNvidia" role="tab"
               aria-selected="false" onclick="switchVendor('nvidia')">NVIDIA</button>
     </div>
-    <header id="pageHeader">
+    <div class="brand-lockup" aria-label="ChipIndex by Dan Bor, public beta 0.0.0">
+      <div class="brand-lockup-title" aria-hidden="true">
+        <span class="brand-lockup-name">ChipIndex</span>
+        <span class="brand-lockup-by">by Dan Bor</span>
+      </div>
+      <div class="brand-lockup-rule" aria-hidden="true">
+        <span class="brand-lockup-rule-start"></span>
+        <span class="brand-lockup-rule-end"></span>
+      </div>
+      <span class="brand-lockup-version" aria-hidden="true">Public beta 0.0.0</span>
+    </div>
+    <header id="pageHeader" class="sr-only">
       <h1 class="header-amd">EPYC</h1>
       <p>Data center processors</p>
     </header>

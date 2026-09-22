@@ -3,18 +3,43 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-09-21 (repository publication and documentation cleanup)
+**Last updated:** 2026-09-21 (ChipIndex header identity)
 **Current version:** 0.6.0 — NVIDIA data center, GeForce, and CPU coverage
 **Health:** Good — generators, ordering, full browser smoke test, screenshots, and layout
 audit pass with no JavaScript errors
-**Committed:** application implementation through `cfe7c43`. Documentation cleanup
-after that commit must be committed before the next implementation session.
+**Committed:** repository publication and documentation cleanup through `eb35ea3`.
+The ChipIndex header identity described below is not yet committed.
 
 > **A stale `.git/index.lock` blocked Daniel's commit this session.** It came from
 > git commands I ran in the sandbox, which `CLAUDE.md` forbids for exactly this
 > reason. If a commit fails with *"Unable to create index.lock: File exists"*, the
 > fix is `Remove-Item .git\index.lock` after confirming no git is running. **Don't
 > run git from the sandbox at all** — read the repo with `ls` / `cat` instead.
+
+---
+
+## 2026-09-21 — ChipIndex header identity
+
+Replaced the visible per-tab product title in the top header with the approved
+`ChipIndex by Dan Bor` wordmark. The lockup uses a white italic display name, smaller
+monospace attribution, magenta/cyan signal line, and `PUBLIC BETA 0.0.0` below it.
+The product-line title remains in `#pageHeader` for assistive technology while the
+segmented control immediately below continues to identify the visible product line.
+
+The wordmark is CSS/HTML rather than a raster image, so it stays sharp and reflows at
+the existing 900px and 640px breakpoints. It scales down on medium screens; at phone
+width it moves above the vendor selector, while on desktop it occupies the former
+product-title position. The Intel theme
+uses its dark navy text token for contrast on the pale background while preserving the
+same magenta/cyan signal line.
+
+Verified with the full browser smoke test across all nine AMD/Intel/NVIDIA tabs:
+baseline counts preserved, no JavaScript errors. Layout audit at 1440 / 1024 / 390
+reported no horizontal overflow. Its clipped-text list now includes the intentionally
+screen-reader-only dynamic product descriptions; screenshots confirm the visible logo
+and page chrome are not clipped.
+
+Files changed: `index.html`, `css/styles.css`, `docs/PROJECT-STATE.md`.
 
 ---
 
