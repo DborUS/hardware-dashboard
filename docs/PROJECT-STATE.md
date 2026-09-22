@@ -3,12 +3,12 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-09-21 (NVIDIA implementation)
+**Last updated:** 2026-09-21 (repository publication and documentation cleanup)
 **Current version:** 0.6.0 — NVIDIA data center, GeForce, and CPU coverage
 **Health:** Good — generators, ordering, full browser smoke test, screenshots, and layout
 audit pass with no JavaScript errors
-**Committed:** through `4002201`. Confirm with Daniel that anything after the
-marker-centring commit has landed before building on top.
+**Committed:** application implementation through `cfe7c43`. Documentation cleanup
+after that commit must be committed before the next implementation session.
 
 > **A stale `.git/index.lock` blocked Daniel's commit this session.** It came from
 > git commands I ran in the sandbox, which `CLAUDE.md` forbids for exactly this
@@ -51,7 +51,7 @@ restructure silently dropping data.
 |---|---|
 | AMD EPYC series / cards / models | 20 · 27 · **350** |
 | AMD Ryzen series / cards / models | 32 · 79 · **736** |
-| AMD GPU series / cards / models | 43 · 43 · **303** |
+| AMD GPU series / cards / models | 45 · 45 · **303** |
 | Intel Xeon generations / cards / models | 11 · 33 · **553** |
 | Intel Client generations / cards / models | 11 · 49 · **340** |
 | Intel Graphics generations / cards / models | 4 · 8 · **35** |
@@ -232,16 +232,10 @@ Daniel runs all git commands. It can also leave a `.git/index.lock` behind that 
 sandbox cannot delete — if a git command from the sandbox fails, tell Daniel so he can
 `Remove-Item .git\index.lock`. Better: never run git from the sandbox.
 
-**Repo moved 2026-08-12.** Origin is now Daniel's AMD EMU account:
-`https://github.com/DborUS/hardware-dashboard.git` (private). The old personal repo
-`DanchuBorchik/hardware-dashboard` still holds the pre-2026-08-12 history and is the
-rollback safety net — don't delete it. Local `user.email` is set to `Daniel.Bor@amd.com`
-for this repo; the 29 pre-existing commits still carry the old personal Gmail, which was
-accepted rather than rewritten.
-
-**Credential gotcha:** pushing may fail with 403 if Windows hands over a cached
-`DanchuBorchik` credential. Fix is Credential Manager → Windows Credentials →
-`git:https://github.com` → Remove, then push and sign in as `DborUS`.
+**Canonical repository:** `https://github.com/DborUS/hardware-dashboard.git`.
+Repository visibility may change, but this is the only origin that should receive new
+work. GitHub Pages publishes at `https://dborus.github.io/hardware-dashboard/` whenever
+the repository visibility and account plan permit Pages deployment.
 
 ---
 
@@ -305,6 +299,21 @@ AMD CPU coverage is thinner than Intel's; no live site reflects current work.
 ## Session log
 
 Newest first. One short entry per session — what changed, what was verified, what's next.
+
+### 2026-09-21g — Repository prepared for coworker sharing
+
+Rewrote the README to describe the current nine-tab AMD, Intel, and NVIDIA dashboard,
+corrected repository and Pages URLs, documented the authoritative runtime inputs versus
+the broader research workbench, repaired the malformed mixed-encoding `.gitignore`, and
+added file-specific line-ending rules that preserve the AMD generator's intentional
+CRLF outputs. Removed obsolete personal-account and credential history from this living
+document. No application code or runtime data was intentionally changed.
+
+Verification: all Markdown links resolve; all `index.html` assets exist; no credential
+patterns were found; `build-amd-data.py --check` passes; `check-order.py` passes; the
+full nine-tab browser smoke test passes with zero JavaScript errors; and the layout audit
+reports no horizontal overflow or clipped text. The smoke test confirms 45 AMD GPU
+groups / 303 models, correcting the stale 43-group documentation count.
 
 ### 2026-09-21f — Product titles anchored beside vendor selector
 
@@ -1223,9 +1232,11 @@ unchanged. Zero JS errors. Main smoke test at baseline.
 **Still open:** whether Cascade Lake-AP (Platinum 9200) deserves its own Xeon 2 block;
 Core X-series spans four generations in one block; Graphics taxonomy is a first pass.
 
-**Hosting note:** `danchuborchik.github.io` still serves a **February** build
-(`v=20260215-2125`). The AMD repo `DborUS/hardware-dashboard` has no Pages site — 404.
-No live URL reflects current work, and nothing since 2026-08-13 is committed.
+**Historical hosting note:** this was true on 2026-08-14 but is now superseded. The
+canonical repository is `DborUS/hardware-dashboard`, and its Pages URL is
+`https://dborus.github.io/hardware-dashboard/`. GitHub Free requires the repository to
+be public for Pages to remain published; GitHub Pro or higher can publish a public Pages
+site from a private repository.
 
 ### 2026-08-14 — Intel restructure prototype (`intel-v2.html`)
 

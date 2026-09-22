@@ -21,6 +21,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   build: EPYC 350, Ryzen 736, and GPU 303 models.
 
 ### Changed
+- **Repository presentation and hygiene** (2026-09-21) — rewrote the README around the
+  current nine-tab AMD, Intel, and NVIDIA dashboard; corrected the canonical repository
+  and Pages URLs; documented the distinction between authoritative runtime inputs and
+  the broader research workbench; repaired the malformed `.gitignore`; and added a
+  `.gitattributes` policy so Windows line endings do not create repository-wide diffs.
 - **NVIDIA press-deck theme** (2026-09-21) — replaced the temporary neutral
   NVIDIA palette with the supplied deck's black, charcoal, white, cool-gray, and
   NVIDIA-green visual system. Categorical filters use the deck's restrained chart

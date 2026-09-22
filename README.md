@@ -1,162 +1,167 @@
-# Hardware Portal
+# Hardware Dashboard
 
-An interactive dashboard for navigating the modern silicon landscape: AMD and Intel CPU
-architectures and the full AMD GPU line, placed on a timeline with expandable
-specification tables.
+A static, interactive reference for exploring AMD, Intel, and NVIDIA processors and
+graphics products. It combines product timelines, searchable specification tables,
+filters, and cross-vendor comparison in one browser-based dashboard.
 
-Built as a working reference for technical conversations — find a part, compare specs,
-and see where it sits generationally.
+**Live dashboard:** <https://dborus.github.io/hardware-dashboard/>
 
 ## Coverage
 
-| Tab | Product groups | Models |
-|---|---|---|
+| Vendor and tab | Product groups | Models |
+|---|---:|---:|
 | AMD EPYC | 20 series | 350 |
 | AMD Ryzen | 32 series | 736 |
-| AMD GPU | 43 series | 303 |
+| AMD GPU | 45 series | 303 |
 | Intel Xeon | 11 generations | 553 |
 | Intel Client | 11 generations | 340 |
 | Intel Graphics | 4 generations | 35 |
 | NVIDIA Data Center | 9 launch-year groups | 20 |
 | NVIDIA GeForce | 5 series | 47 |
-| NVIDIA CPU + Superchips | 2 launch-year groups | 4 |
+| NVIDIA CPU and Superchips | 2 launch-year groups | 4 |
 
-The GPU side spans AMD and NVIDIA: Instinct/CDNA, Radeon and Radeon PRO, NVIDIA
-data-center accelerators, and GeForce desktop products from 2017 onward.
+NVIDIA coverage begins in 2017. AMD and Intel coverage includes the modern product
+families represented in their official specification exports.
 
-Newest entry: **Zen 6 / EPYC 9006 "Venice"** — 31 models across SP7 and SP8.
+## What it does
 
-## Features
+- Groups products by vendor, product line, generation, and codename.
+- Searches model names and specification fields with relevance-ranked results.
+- Filters by product segment, brand, and core count where applicable.
+- Expands each family into detailed, horizontally scrollable specification tables.
+- Compares as many as four CPU or GPU models across vendors.
+- Preserves filters and navigation state in shareable URLs.
+- Shows data provenance and confidence information inside the dashboard.
+- Runs as a responsive, zero-dependency static site.
 
-- **Timeline view** — architectures grouped by year, newest first, each with its own
-  accent colour and a client/server badge derived from its SKUs.
-- **Multi-select filtering** — one filter bar per tab. Tags within a group are OR'd,
-  groups are AND'd. CPU tabs filter by Segment and Brand; the GPU tab by Segment
-  (Datacenter / Workstation / Consumer / Mobile).
-- **Relevance-ranked search** — exact SKUs outrank suffix variants and specification
-  matches. Closed cards explain which SKU and field matched; opening one highlights
-  only the relevant rows.
-- **Expandable spec tables** — cores, threads, clocks, cache, TDP, socket and
-  platform details, with a visible vendor → product line → generation → codename path.
-- **Cross-vendor comparison** — select up to four CPU or GPU rows, carry them between
-  tabs, and compare their available fields side by side with differences highlighted.
-- **Source visibility** — every expanded table identifies its vendor dataset, and the
-  Data Sources panel explains provenance and confidence.
-- **Shareable views** — the URL remembers vendor, product line, search, filters, and
-  core range, so a precise dashboard view can be bookmarked or sent to someone else.
-- **Per-architecture links** — saved to `localStorage`, so they persist
-  between visits on that browser.
-- **Responsive** — three breakpoints; spec tables scroll horizontally on mobile.
+## Run locally
 
-## Running it
+The dashboard loads JSON at runtime, so serve it over HTTP rather than opening
+`index.html` directly:
 
-The dashboard fetches its data at runtime, so **opening `index.html` directly will not
-work** — browsers block `fetch` over `file://` and you'll get a blank page. Serve it:
-
-```bash
-cd hardware-dashboard
+```powershell
+Set-Location "C:\path\to\hardware-dashboard"
 python -m http.server 8084
 ```
 
-Then open <http://localhost:8084>.
+Then open <http://localhost:8084/>. After changing JavaScript, CSS, or data, use
+**Ctrl+Shift+R** to bypass the browser cache.
 
-After changing data or code, hard-refresh with **Ctrl+Shift+R**. The `?v=` string on the
-`script.js` tag in `index.html` is bumped on each change and doubles as a diagnostic — if
-view-source shows an old version, you're serving a different directory than you edited.
+## Repository structure
 
-**Hosting:** currently local-only. The repository is private, so GitHub Pages is not in
-use; a hosting decision is still open.
-
-## Project structure
-
-```
+```text
 hardware-dashboard/
-├── index.html                      # Static shell — JS fills the containers
-├── css/styles.css                  # All styling, tokens, animations
+├── index.html                 Static application shell
+├── css/
+│   └── styles.css             Shared and vendor-scoped presentation
 ├── js/
-│   ├── script.js                   # All logic — config, render, filter, persistence
-│   └── data/                       # Fetched at runtime, cached per vendor
-│       ├── amd-data.json           # AMD CPU architectures + SKUs
-│       ├── intel-data.json         # Intel CPU architectures + SKUs
-│       ├── amd-gpu-data.json       # AMD GPU families + models
-│       ├── amd-cpu-specs.json      # AMD CPU models, keyed by SKU name
-│       └── intel-cpu-specs.json    # Intel CPU models, keyed by SKU name
-├── tools/
-│   ├── smoke-test.py               # Headless regression test
-│   └── import-specs.py             # Vendor CSV → JSON importer
-├── docs/                           # See below
-├── CLAUDE.md                       # Conventions + gotchas — read first
-├── CHANGELOG.md
-└── README.md
+│   ├── script.js              Bootstrap, shared state, search, comparison
+│   ├── amd-v2.js              Generated AMD taxonomy plus renderer
+│   ├── intel-v2.js            Intel renderer
+│   ├── nvidia-v2.js           NVIDIA renderer
+│   └── data/                  Runtime JSON loaded by the dashboard
+├── docs/
+│   ├── specs/                 Master data, audits, provenance, source exports
+│   ├── DATA-SCHEMA.md         Runtime data contracts
+│   ├── DESIGN-SYSTEM.md       Visual tokens and component conventions
+│   ├── PROJECT-STATE.md       Current status and engineering history
+│   └── WORKFLOWS.md           Maintenance and import procedures
+├── tools/                     Importers, generators, audits, and browser tests
+├── CLAUDE.md                  Repository-specific engineering instructions
+└── CHANGELOG.md               Release history
 ```
 
-## Documentation
+## Data provenance
 
-| File | Purpose |
-|---|---|
-| [`CLAUDE.md`](CLAUDE.md) | Architecture, conventions, known issues. **Start here.** |
-| [`docs/PROJECT-STATE.md`](docs/PROJECT-STATE.md) | Living status + session log |
-| [`docs/WORKFLOWS.md`](docs/WORKFLOWS.md) | Step-by-step recipes for common tasks |
-| [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md) | Colours, type, spacing, components |
-| [`docs/DATA-SCHEMA.md`](docs/DATA-SCHEMA.md) | JSON contracts for every data file |
-| [`docs/MOBILE-TESTING.md`](docs/MOBILE-TESTING.md) | Mobile test notes |
-| [`docs/AUDIT-2026-02-14.md`](docs/AUDIT-2026-02-14.md) | Historical audit — superseded |
+Specifications are never filled from guesswork. Unknown values remain blank.
 
-## Adding data
+- **AMD:** compiled from AMD Product Specifications CSV exports. The maintained
+  runtime source is `docs/specs/amd-master.csv`, supplemented only by presentation
+  metadata in `js/data/amd-presentation.json`.
+- **Intel:** imported from Intel ARK exports with separate Xeon, Client, and Graphics
+  importers.
+- **NVIDIA:** compiled from audited official product pages, comparison tables,
+  architecture guides, and datasheets. The audit records source disagreements rather
+  than silently choosing an inferred value.
 
-New silicon usually arrives as a CSV from a vendor specifications page. Use the importer
-rather than hand-editing JSON — it catches the failure modes that are otherwise silent
-(a SKU key that matches nothing, a brand with no filter chip, unit phrasing that drifts):
+`docs/specs/hardware-specs-master.csv` is a broader research workbench. It contains
+confidence and source-quality fields and may include secondary-source or provisional
+records. It is not a runtime input and should not be treated as the dashboard's
+authoritative dataset.
+
+See [the data schema](docs/DATA-SCHEMA.md) and
+[specification notes](docs/specs/SPEC.md) for the complete contracts.
+
+## Updating generated data
+
+AMD's generated files are rebuilt in this order:
 
 ```bash
-python3 tools/import-specs.py inspect specs.csv --target amd-cpu
-python3 tools/import-specs.py import specs.csv --target amd-cpu \
-    --sku "Venice SP7" --map map.json --server        # dry run
-python3 tools/import-specs.py import ... --write      # apply
+python3 tools/build-amd-data.py
+python3 tools/derive-blocks.py
+python3 tools/gen-amd-v2.py
 ```
 
-Full walkthrough in [`docs/WORKFLOWS.md`](docs/WORKFLOWS.md) (Workflow 2b).
+NVIDIA's runtime data is rebuilt with:
 
-**Never invent a specification.** Every value must come from an official vendor source.
-Omit an unknown field rather than guessing — a wrong spec in front of a customer is the
-worst failure this project can have.
+```bash
+python3 tools/build-nvidia-data.py
+```
 
-## Verifying changes
+`tools/audit-nvidia-specs.py` is the optional secondary-source corroboration workflow.
+It requires pandas and an external DBGPU CSV supplied through `--dbgpu`; the committed
+`nvidia-audit.csv` and `nvidia-gaps.csv` retain its reviewed results.
+
+Intel has a dedicated importer for each product tab:
+
+```bash
+python3 tools/import-xeon-specs.py
+python3 tools/import-client-specs.py -o js/data/intel-client-specs.json
+python3 tools/import-graphics-specs.py -o js/data/intel-graphics-specs.json
+```
+
+Do not hand-edit generated runtime files. The ownership and ordering rules are described
+in [CLAUDE.md](CLAUDE.md) and [the workflows guide](docs/WORKFLOWS.md).
+
+## Verification
+
+Install Playwright once, then run the ordering, data, browser, and layout checks:
 
 ```bash
 pip install playwright
 python3 -m playwright install chromium-headless-shell
-python3 tools/smoke-test.py --shots
+python3 tools/check-order.py
+python3 tools/build-amd-data.py --check
+python3 tools/smoke-test.py
+python3 tools/audit-layout.py
 ```
 
-Loads the real page, exercises every tab, reports element counts and JavaScript errors,
-and exits non-zero on failure. With `--shots` it also writes screenshots to
-`tools/screenshots/` — read them, since passing counts don't prove the layout is right.
+The smoke test exercises all nine product tabs and guards these minimum model counts:
 
-The guarded model floors are AMD EPYC **350**, Ryzen **736**, AMD GPU **303**,
-Intel Xeon **553**, Intel Client **340**, and Intel Graphics **35**.
+- AMD: EPYC 350, Ryzen 736, GPU 303
+- Intel: Xeon 553, Client 340, Graphics 35
+- NVIDIA: Data Center 20, GeForce 47, CPU and Superchips 4
 
-## Technical notes
+Use `python3 tools/smoke-test.py --shots` after visual changes and inspect the generated
+screenshots; passing counts alone do not prove that the layout is correct.
 
-Vanilla HTML/CSS/JavaScript — no framework, no build step, no dependencies. Open it
-through a web server and it runs.
+## Documentation
 
-The core convention is **render once, then filter with CSS classes**: `render()` builds
-the entire DOM and stamps filter metadata as data attributes; `applyFilters()` only
-toggles a `.hidden` class. This keeps filtering under ~5 ms and is load-bearing — a
-feature that re-renders on every keystroke would undo it.
+| Document | Purpose |
+|---|---|
+| [CLAUDE.md](CLAUDE.md) | Architecture, conventions, and repository-specific safeguards |
+| [Project state](docs/PROJECT-STATE.md) | Current baseline, open issues, and session history |
+| [Workflows](docs/WORKFLOWS.md) | Repeatable import, generation, and verification procedures |
+| [Design system](docs/DESIGN-SYSTEM.md) | Colours, typography, spacing, and components |
+| [Data schema](docs/DATA-SCHEMA.md) | JSON contracts and SKU ordering rules |
+| [Specification notes](docs/specs/SPEC.md) | Master datasets, confidence, and provenance |
 
-Data is lazy-loaded per vendor and cached. Search is debounced at 300 ms.
+## Technology
 
-Targets modern browsers with ES6 support (Chrome/Edge 90+, Firefox 88+, Safari 14+).
+Vanilla HTML, CSS, and JavaScript. There is no framework, package manager, runtime
+dependency, or production build step. GitHub Pages serves the files directly.
 
-## Data sources
+## Repository and site
 
-AMD data is compiled from AMD's official Product Specifications CSV exports. Intel data
-is imported from Intel ARK specification exports. NVIDIA data is compiled from audited
-official product pages, comparison tables, architecture guides, and datasheets. Unknown
-values are left blank rather than inferred.
-
-## Repository
-
-**GitHub:** https://github.com/DborUS/hardware-dashboard (private)
+- Repository: <https://github.com/DborUS/hardware-dashboard>
+- Dashboard: <https://dborus.github.io/hardware-dashboard/>

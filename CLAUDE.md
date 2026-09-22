@@ -6,14 +6,14 @@ Instructions for Claude when working on this repo. Read this first, every sessio
 
 ## What this is
 
-A static, zero-dependency dashboard visualising AMD and Intel CPU/GPU architectures on a
-timeline. No build step, no framework, no package manager. Open `index.html` through a
-local web server and it runs.
+A static, zero-dependency dashboard visualising AMD, Intel, and NVIDIA CPU/GPU products
+on a timeline. No build step, no framework, no package manager. Open `index.html`
+through a local web server and it runs.
 
 **Owner:** Daniel Bor (AMD FAE / Solutions Architect). Audience is technical — engineers
 and customers who want to find a part and compare specs quickly.
 
-**Live:** https://danchuborchik.github.io/hardware-dashboard/
+**Live:** https://dborus.github.io/hardware-dashboard/
 
 ---
 

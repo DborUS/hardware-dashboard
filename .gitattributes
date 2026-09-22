@@ -1,0 +1,21 @@
+# Match the repository's generator contracts and prevent accidental line-ending churn.
+*.csv  text eol=crlf
+*.html text eol=lf
+*.js   text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+*.py   text eol=lf
+
+# These files are intentionally generated or maintained with CRLF.
+js/data/amd-gpu-data.json text eol=crlf
+docs/MOBILE-TESTING.md     text eol=crlf
+tools/build-amd-data.py    text eol=crlf
+
+# Binary assets must never be line-ending normalized.
+*.gif  binary
+*.ico  binary
+*.jpg  binary
+*.jpeg binary
+*.pdf  binary
+*.png  binary
+*.webp binary
