@@ -9,14 +9,20 @@ and see where it sits generationally.
 
 ## Coverage
 
-| Tab | Architectures | Models |
+| Tab | Product groups | Models |
 |---|---|---|
-| AMD CPU | 8 (Zen → Zen 6) | 640 |
-| Intel CPU | 19 (Comet Lake → Nova Lake, plus Xeon/Atom embedded) | 219 |
-| AMD GPU | 42 families | 258 |
+| AMD EPYC | 20 series | 350 |
+| AMD Ryzen | 32 series | 736 |
+| AMD GPU | 43 series | 303 |
+| Intel Xeon | 11 generations | 553 |
+| Intel Client | 11 generations | 340 |
+| Intel Graphics | 4 generations | 35 |
+| NVIDIA Data Center | 9 launch-year groups | 20 |
+| NVIDIA GeForce | 5 series | 47 |
+| NVIDIA CPU + Superchips | 2 launch-year groups | 4 |
 
-The GPU side is **not just Instinct** — it covers 22 consumer families (Radeon RX),
-13 workstation (Radeon PRO), and 7 datacenter (Instinct/CDNA).
+The GPU side spans AMD and NVIDIA: Instinct/CDNA, Radeon and Radeon PRO, NVIDIA
+data-center accelerators, and GeForce desktop products from 2017 onward.
 
 Newest entry: **Zen 6 / EPYC 9006 "Venice"** — 31 models across SP7 and SP8.
 
@@ -27,11 +33,17 @@ Newest entry: **Zen 6 / EPYC 9006 "Venice"** — 31 models across SP7 and SP8.
 - **Multi-select filtering** — one filter bar per tab. Tags within a group are OR'd,
   groups are AND'd. CPU tabs filter by Segment and Brand; the GPU tab by Segment
   (Datacenter / Workstation / Consumer / Mobile).
-- **Search across specs, not just names** — socket, TDP, PCIe, memory and tray product
-  ID are all indexed. Searching `sp5` finds every SP5 part and highlights the matching
-  table rows; `LGA1851`, `DDR5-6400` and `OAM` work the same way.
+- **Relevance-ranked search** — exact SKUs outrank suffix variants and specification
+  matches. Closed cards explain which SKU and field matched; opening one highlights
+  only the relevant rows.
 - **Expandable spec tables** — cores, threads, clocks, cache, TDP, socket and
-  platform details. Click any row to mark it; shift-click to compare several.
+  platform details, with a visible vendor → product line → generation → codename path.
+- **Cross-vendor comparison** — select up to four CPU or GPU rows, carry them between
+  tabs, and compare their available fields side by side with differences highlighted.
+- **Source visibility** — every expanded table identifies its vendor dataset, and the
+  Data Sources panel explains provenance and confidence.
+- **Shareable views** — the URL remembers vendor, product line, search, filters, and
+  core range, so a precise dashboard view can be bookmarked or sent to someone else.
 - **Per-architecture links** — saved to `localStorage`, so they persist
   between visits on that browser.
 - **Responsive** — three breakpoints; spec tables scroll horizontally on mobile.
@@ -78,9 +90,6 @@ hardware-dashboard/
 └── README.md
 ```
 
-`cpu-architecture-roadmap.html` is a dead file — the original single-page version, kept
-as history. Nothing links to it.
-
 ## Documentation
 
 | File | Purpose |
@@ -124,8 +133,8 @@ Loads the real page, exercises every tab, reports element counts and JavaScript 
 and exits non-zero on failure. With `--shots` it also writes screenshots to
 `tools/screenshots/` — read them, since passing counts don't prove the layout is right.
 
-Expected baseline: `amd_cpu_groups 8 · amd_cpu_skus 46 · amd_gpu_groups 42 ·
-intel_cpu_groups 19 · intel_cpu_skus 44 · spec_tables 47 · JS errors none`.
+The guarded model floors are AMD EPYC **350**, Ryzen **736**, AMD GPU **303**,
+Intel Xeon **553**, Intel Client **340**, and Intel Graphics **35**.
 
 ## Technical notes
 
@@ -143,8 +152,10 @@ Targets modern browsers with ES6 support (Chrome/Edge 90+, Firefox 88+, Safari 1
 
 ## Data sources
 
-Compiled from official vendor specification pages and documentation, public processor
-specifications, and industry announcements.
+AMD data is compiled from AMD's official Product Specifications CSV exports. Intel data
+is imported from Intel ARK specification exports. NVIDIA data is compiled from audited
+official product pages, comparison tables, architecture guides, and datasheets. Unknown
+values are left blank rather than inferred.
 
 ## Repository
 

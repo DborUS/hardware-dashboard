@@ -1,0 +1,983 @@
+{
+  "_comment": "EDITORIAL layer for the AMD dashboard. Hand-curated presentation data that is NOT a hardware spec and does NOT come from AMD's product CSVs. The spec master (docs/specs/amd-master.csv) owns every factual field; this file owns how it is displayed. Edit this by hand, then re-run tools/build-amd-data.py.",
+  "gpu_families": {
+    "mi350": {
+      "color": "#ef4444",
+      "year": "2025",
+      "segment": "datacenter",
+      "subtitle": "TSMC 3 nm · CDNA 4 · HBM3E · Up to 288 GB",
+      "arch": "MI300 Series (CDNA 4)",
+      "gpuSpecs_family": "CDNA 4",
+      "gpuSpecs_desc": "Latest-generation AMD Instinct accelerators built on CDNA 4 architecture with HBM3E memory, targeting large-scale AI training and inference workloads.",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/AMD_Instinct"
+        }
+      ]
+    },
+    "rx9000": {
+      "color": "#ef4444",
+      "year": "2025",
+      "segment": "consumer",
+      "subtitle": "3 nm · RDNA 4 · GDDR6 · Up to 16 GB",
+      "arch": "RX 9000 Series",
+      "gpuSpecs_family": "RDNA 4",
+      "gpuSpecs_desc": "Latest generation consumer GPUs with AI accelerators and AV1 encode support."
+    },
+    "aiwr9000": {
+      "color": "#ef4444",
+      "year": "2025",
+      "segment": "workstation",
+      "subtitle": "3 nm · RDNA 4 · GDDR6 · Up to 32 GB",
+      "arch": "AI PRO R9000 Series",
+      "gpuSpecs_family": "RDNA 4",
+      "gpuSpecs_desc": "Latest generation consumer GPUs with AI accelerators and AV1 encode support."
+    },
+    "wv": {
+      "color": "#ef4444",
+      "year": "2024",
+      "segment": "workstation",
+      "subtitle": "TSMC 5nm | 6nm FinFET · RDNA · GDDR6 · Up to 32 GB",
+      "arch": "PRO V Series",
+      "gpuSpecs_family": "RDNA",
+      "gpuSpecs_desc": "Professional graphics accelerators."
+    },
+    "radeonhd8000m": {
+      "color": "#f97316",
+      "year": "2013",
+      "segment": "consumer",
+      "subtitle": "GCN 1st / 2nd Gen · Mobile graphics · Up to 4 GB",
+      "arch": "HD 8000M Series",
+      "gpuSpecs_family": "GCN 1st / 2nd Gen",
+      "gpuSpecs_desc": "GCN-era Radeon HD mobile graphics."
+    },
+    "mi300": {
+      "color": "#f97316",
+      "year": "2023–2024",
+      "segment": "datacenter",
+      "subtitle": "TSMC 6 & 5 nm · CDNA 3 · HBM3 / HBM3E · Up to 256 GB",
+      "arch": "MI300 Series (CDNA 3)",
+      "gpuSpecs_family": "CDNA 3",
+      "gpuSpecs_desc": "Third-generation CDNA accelerators featuring chiplet design, HBM3 memory, and the MI300A APU combining CPU + GPU on a single package.",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/AMD_Instinct"
+        }
+      ]
+    },
+    "ww7000": {
+      "color": "#f97316",
+      "year": "2023",
+      "segment": "workstation",
+      "subtitle": "TSMC 5nm GCD 6nm MCD · RDNA 3 · GDDR6 · Up to 48 GB",
+      "arch": "PRO W7000 Series",
+      "gpuSpecs_family": "RDNA 3",
+      "gpuSpecs_desc": "Third-generation RDNA architecture with chiplet design and AI accelerators."
+    },
+    "radeonhd7000": {
+      "color": "#f59e0b",
+      "year": "2012",
+      "segment": "consumer",
+      "subtitle": "GCN 1st / 2nd Gen · Desktop graphics · Up to 3 GB",
+      "arch": "HD 7000 Series",
+      "gpuSpecs_family": "GCN 1st / 2nd Gen",
+      "gpuSpecs_desc": "Early Graphics Core Next desktop graphics."
+    },
+    "rx7000": {
+      "color": "#f59e0b",
+      "year": "2022",
+      "segment": "consumer",
+      "subtitle": "5/6 nm · RDNA 3 · GDDR6 · Up to 24 GB",
+      "arch": "RX 7000 Series",
+      "gpuSpecs_family": "RDNA 3",
+      "gpuSpecs_desc": "Third-generation RDNA architecture with chiplet design and AI accelerators."
+    },
+    "rx6000": {
+      "color": "#eab308",
+      "year": "2020",
+      "segment": "consumer",
+      "subtitle": "7 nm · RDNA 2 · GDDR6 · Up to 16 GB",
+      "arch": "RX 6000 Series",
+      "gpuSpecs_family": "RDNA 2",
+      "gpuSpecs_desc": "Second-generation RDNA with hardware ray tracing and Infinity Cache."
+    },
+    "mi200": {
+      "color": "#f59e0b",
+      "year": "2021–2022",
+      "segment": "datacenter",
+      "subtitle": "TSMC 6 nm · CDNA 2 · HBM2E · Up to 128 GB",
+      "arch": "MI200 Series (CDNA 2)",
+      "gpuSpecs_family": "CDNA 2",
+      "gpuSpecs_desc": "Second-generation CDNA accelerators with multi-die design, Infinity Fabric, and HBM2E memory. The MI250X powered the Frontier exascale supercomputer.",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/AMD_Instinct"
+        }
+      ]
+    },
+    "ww6000": {
+      "color": "#eab308",
+      "year": "2021",
+      "segment": "workstation",
+      "subtitle": "TSMC 7nm FinFET · RDNA 2 · GDDR6 · Up to 32 GB",
+      "arch": "PRO W6000 Series",
+      "gpuSpecs_family": "RDNA 2",
+      "gpuSpecs_desc": "Second-generation RDNA with hardware ray tracing and Infinity Cache."
+    },
+    "ww6000mobile": {
+      "color": "#84cc16",
+      "year": "2021",
+      "segment": "workstation",
+      "subtitle": "TSMC 7nm FinFET · RDNA 2 · GDDR6 · Up to 8 GB",
+      "arch": "PRO W6000 Mobile Series",
+      "gpuSpecs_family": "RDNA 2",
+      "gpuSpecs_desc": "Second-generation RDNA with hardware ray tracing and Infinity Cache."
+    },
+    "radeonhd6000": {
+      "color": "#84cc16",
+      "year": "2010 – 2011",
+      "segment": "consumer",
+      "subtitle": "TeraScale 2 / 3 · Desktop graphics · Up to 2 GB",
+      "arch": "HD 6000 Series",
+      "gpuSpecs_family": "TeraScale 2 / 3",
+      "gpuSpecs_desc": "Pre-GCN Radeon HD desktop graphics."
+    },
+    "wvii": {
+      "color": "#3b82f6",
+      "year": "2020",
+      "segment": "workstation",
+      "subtitle": "TSMC 7nm FinFET · Vega 20 · HBM2 · Up to 16 GB",
+      "arch": "PRO VII Series",
+      "gpuSpecs_family": "Vega 20 (GCN 5th Gen)",
+      "gpuSpecs_desc": "Professional graphics accelerators."
+    },
+    "mi100": {
+      "color": "#84cc16",
+      "year": "2020",
+      "segment": "datacenter",
+      "subtitle": "TSMC 7 nm · CDNA 1 · HBM2 · 32 GB",
+      "arch": "MI100 (CDNA)",
+      "gpuSpecs_family": "CDNA",
+      "gpuSpecs_desc": "First-generation CDNA accelerators optimized for HPC and AI workloads, featuring HBM2 memory and PCIe 4.0 interface.",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/AMD_Instinct"
+        }
+      ]
+    },
+    "rx400": {
+      "color": "#22c55e",
+      "year": "2016",
+      "segment": "consumer",
+      "subtitle": "Polaris · GCN 4th Gen · GDDR5 · Up to 8 GB",
+      "arch": "RX 400 Series",
+      "gpuSpecs_family": "Polaris (GCN 4th Gen)",
+      "gpuSpecs_desc": "First-generation Polaris consumer graphics."
+    },
+    "radeonr9fury": {
+      "color": "#22c55e",
+      "year": "2015",
+      "segment": "consumer",
+      "subtitle": "Fiji · GCN 3rd Gen · HBM · Up to 4 GB",
+      "arch": "R9 Fury Series",
+      "gpuSpecs_family": "Fiji (GCN 3rd Gen)",
+      "gpuSpecs_desc": "Fiji-based enthusiast graphics with first-generation HBM."
+    },
+    "radeonr9300": {
+      "color": "#14b8a6",
+      "year": "2015",
+      "segment": "consumer",
+      "subtitle": "GCN 1st–3rd Gen · GDDR5 · Up to 8 GB",
+      "arch": "R9 300 Series",
+      "gpuSpecs_family": "GCN 1st–3rd Gen",
+      "gpuSpecs_desc": "A mixed GCN family spanning desktop and mobile products."
+    },
+    "radeonr9200": {
+      "color": "#14b8a6",
+      "year": "2013 – 2014",
+      "segment": "consumer",
+      "subtitle": "GCN 1st–3rd Gen · Desktop and mobile graphics · Up to 8 GB",
+      "arch": "R9 200 Series",
+      "gpuSpecs_family": "GCN 1st–3rd Gen",
+      "gpuSpecs_desc": "A mixed GCN family spanning several chip generations."
+    },
+    "radeonr7300": {
+      "color": "#06b6d4",
+      "year": "2015",
+      "segment": "consumer",
+      "subtitle": "GCN · Desktop and mobile graphics · Up to 4 GB",
+      "arch": "R7 300 Series",
+      "gpuSpecs_family": "GCN",
+      "gpuSpecs_desc": "Mainstream GCN graphics for desktop and mobile systems."
+    },
+    "radeonr7200": {
+      "color": "#06b6d4",
+      "year": "2013 – 2014",
+      "segment": "consumer",
+      "subtitle": "GCN · Desktop and mobile graphics · Up to 4 GB",
+      "arch": "R7 200 Series",
+      "gpuSpecs_family": "GCN",
+      "gpuSpecs_desc": "Mainstream GCN graphics for desktop and mobile systems."
+    },
+    "radeonr5300": {
+      "color": "#0ea5e9",
+      "year": "2015",
+      "segment": "consumer",
+      "subtitle": "GCN · Mobile graphics · DDR3 · Up to 4 GB",
+      "arch": "R5 300 Series",
+      "gpuSpecs_family": "GCN",
+      "gpuSpecs_desc": "Entry-level GCN mobile graphics."
+    },
+    "radeonr5200": {
+      "color": "#0ea5e9",
+      "year": "2014",
+      "segment": "consumer",
+      "subtitle": "GCN / TeraScale 2 · Entry graphics · Up to 4 GB",
+      "arch": "R5 200 Series",
+      "gpuSpecs_family": "GCN / TeraScale 2",
+      "gpuSpecs_desc": "Entry products spanning GCN and earlier TeraScale designs."
+    },
+    "radeon500": {
+      "color": "#3b82f6",
+      "year": "2017",
+      "segment": "consumer",
+      "subtitle": "Polaris / GCN · OEM and mobile graphics · Up to 4 GB",
+      "arch": "500 Series",
+      "gpuSpecs_family": "Polaris / GCN",
+      "gpuSpecs_desc": "OEM and mobile Radeon graphics from the Polaris era."
+    },
+    "rxvega": {
+      "color": "#6366f1",
+      "year": "2017",
+      "segment": "consumer",
+      "subtitle": "Vega · GCN 5th Gen · HBM2 · Up to 8 GB",
+      "arch": "RX Vega Series",
+      "gpuSpecs_family": "Vega (GCN 5th Gen)",
+      "gpuSpecs_desc": "Vega-based enthusiast consumer graphics."
+    },
+    "rx5000": {
+      "color": "#6366f1",
+      "year": "2019",
+      "segment": "consumer",
+      "subtitle": "7 nm · RDNA · GDDR6 · Up to 8 GB",
+      "arch": "RX 5000 Series",
+      "gpuSpecs_family": "RDNA",
+      "gpuSpecs_desc": "Professional graphics accelerators."
+    },
+    "ww5000": {
+      "color": "#8b5cf6",
+      "year": "2019",
+      "segment": "workstation",
+      "subtitle": "TSMC 7nm FinFET · RDNA · GDDR6 · Up to 8 GB",
+      "arch": "PRO W5000 Series",
+      "gpuSpecs_family": "RDNA",
+      "gpuSpecs_desc": "Professional graphics accelerators."
+    },
+    "ww5000mobile": {
+      "color": "#8b5cf6",
+      "year": "2019",
+      "segment": "workstation",
+      "subtitle": "TSMC 7nm FinFET · RDNA · GDDR6 · Up to 4 GB",
+      "arch": "PRO W5000 Mobile Series",
+      "gpuSpecs_family": "RDNA",
+      "gpuSpecs_desc": "Professional graphics accelerators."
+    },
+    "radeonhd5000": {
+      "color": "#a855f7",
+      "year": "2009",
+      "segment": "consumer",
+      "subtitle": "TeraScale 2 · Desktop graphics · Up to 2 GB",
+      "arch": "HD 5000 Series",
+      "gpuSpecs_family": "TeraScale 2",
+      "gpuSpecs_desc": "Pre-GCN Radeon HD desktop graphics."
+    },
+    "radeon600": {
+      "color": "#a855f7",
+      "year": "2019",
+      "segment": "consumer",
+      "subtitle": "Polaris / GCN · OEM and mobile graphics · Up to 4 GB",
+      "arch": "600 Series",
+      "gpuSpecs_family": "Polaris / GCN",
+      "gpuSpecs_desc": "OEM and mobile Radeon graphics from the Polaris era."
+    },
+    "wwxx200": {
+      "color": "#ef4444",
+      "year": "2018",
+      "segment": "workstation",
+      "subtitle": "Vega / Polaris · HBM2 / GDDR5 · Up to 8 GB",
+      "arch": "PRO WX x200 Series",
+      "gpuSpecs_family": "Vega / Polaris",
+      "gpuSpecs_desc": "Professional graphics accelerators."
+    },
+    "mi50": {
+      "color": "#14b8a6",
+      "year": "2018–2020",
+      "segment": "datacenter",
+      "subtitle": "TSMC 7 nm · Vega · HBM2 · Up to 32 GB",
+      "arch": "MI50/MI60 (Vega 7nm)",
+      "gpuSpecs_family": "Vega 7nm",
+      "gpuSpecs_desc": "Second-generation Instinct accelerators featuring 7nm process technology and HBM2 memory for HPC workloads.",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/AMD_Instinct"
+        }
+      ]
+    },
+    "rx500x": {
+      "color": "#c084fc",
+      "year": "2018",
+      "segment": "consumer",
+      "subtitle": "Polaris · GCN 4th Gen · GDDR5 · Up to 8 GB",
+      "arch": "RX 500X Series",
+      "gpuSpecs_family": "Polaris (GCN 4th Gen)",
+      "gpuSpecs_desc": "Polaris consumer graphics refresh."
+    },
+    "rx500": {
+      "color": "#c084fc",
+      "year": "2017",
+      "segment": "consumer",
+      "subtitle": "Polaris · GCN 4th Gen · GDDR5 · Up to 8 GB",
+      "arch": "RX 500 Series",
+      "gpuSpecs_family": "Polaris (GCN 4th Gen)",
+      "gpuSpecs_desc": "Polaris consumer graphics refresh."
+    },
+    "radeon500x": {
+      "color": "#ef4444",
+      "year": "2018",
+      "segment": "consumer",
+      "subtitle": "Polaris / GCN · OEM and mobile graphics · Up to 4 GB",
+      "arch": "500X Series",
+      "gpuSpecs_family": "Polaris / GCN",
+      "gpuSpecs_desc": "OEM and mobile Radeon graphics from the Polaris era."
+    },
+    "w": {
+      "color": "#f59e0b",
+      "year": "2017",
+      "segment": "workstation",
+      "subtitle": "Vega / Polaris · Professional graphics · Up to 32 GB",
+      "arch": "PRO Series",
+      "gpuSpecs_family": "Vega / Polaris",
+      "gpuSpecs_desc": "Professional graphics accelerators."
+    },
+    "wwxx100": {
+      "color": "#f97316",
+      "year": "2017",
+      "segment": "workstation",
+      "subtitle": "Vega / Polaris · Professional graphics · Up to 16 GB",
+      "arch": "PRO WX x100 Series",
+      "gpuSpecs_family": "Vega / Polaris",
+      "gpuSpecs_desc": "Professional graphics accelerators."
+    },
+    "mi25": {
+      "color": "#818cf8",
+      "year": "2017",
+      "segment": "datacenter",
+      "subtitle": "GF 14 nm · Vega · HBM2 · 16 GB",
+      "arch": "MI25 (Vega 14nm)",
+      "gpuSpecs_family": "Vega 14nm",
+      "gpuSpecs_desc": "First-generation Vega-based Instinct accelerators for deep learning and HPC applications.",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/AMD_Instinct"
+        }
+      ]
+    },
+    "wwxx100mobile": {
+      "color": "#f59e0b",
+      "year": "2017",
+      "segment": "workstation",
+      "subtitle": "Polaris · Mobile professional graphics · Up to 8 GB",
+      "arch": "PRO WX X100 Mobile Series",
+      "gpuSpecs_family": "Polaris",
+      "gpuSpecs_desc": "Professional graphics accelerators."
+    },
+    "wwxx200mobile": {
+      "color": "#f97316",
+      "year": "2017",
+      "segment": "workstation",
+      "subtitle": "Polaris · Mobile professional graphics · Up to 4 GB",
+      "arch": "PRO WX X200 Mobile Series",
+      "gpuSpecs_family": "Polaris",
+      "gpuSpecs_desc": "Professional graphics accelerators."
+    },
+    "mi8": {
+      "color": "#c084fc",
+      "year": "2016",
+      "segment": "datacenter",
+      "subtitle": "GF 28 nm / 14 nm · Fiji / Polaris · HBM / GDDR5",
+      "arch": "MI8/MI6 (Fiji/Polaris)",
+      "gpuSpecs_family": "Fiji/Polaris",
+      "gpuSpecs_desc": "First AMD Instinct accelerators based on Fiji and Polaris architectures for machine learning inference.",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/AMD_Instinct"
+        }
+      ]
+    },
+    "mi400": {
+      "arch": "Instinct MI400 Series (CDNA 5)",
+      "color": "#ef4444",
+      "year": "2026",
+      "segment": "datacenter",
+      "subtitle": "CDNA 5 · HBM4 · next-generation Instinct",
+      "gpuSpecs_family": "Instinct MI400 Series",
+      "gpuSpecs_desc": "CDNA 5 datacenter accelerators",
+      "defaultLinks": [
+        {
+          "label": "AMD Instinct",
+          "url": "https://www.amd.com/en/products/accelerators/instinct.html"
+        }
+      ]
+    },
+    "firepro": {
+      "arch": "FirePro W Series (GCN)",
+      "color": "#64748b",
+      "year": "2012",
+      "segment": "workstation",
+      "subtitle": "Graphics Core Next · legacy professional workstation graphics",
+      "gpuSpecs_family": "FirePro W Series",
+      "gpuSpecs_desc": "Legacy GCN professional workstation graphics"
+    },
+    "firepros": {
+      "arch": "FirePro S Series (GCN)",
+      "color": "#64748b",
+      "year": "2012",
+      "segment": "datacenter",
+      "subtitle": "Graphics Core Next · legacy server / compute graphics",
+      "gpuSpecs_family": "FirePro S Series",
+      "gpuSpecs_desc": "Legacy GCN server and compute graphics"
+    }
+  },
+  "gpu_eras": [
+    "2025",
+    "2023 – 2024",
+    "2021 – 2022",
+    "2020",
+    "2018 – 2020",
+    "2017",
+    "2016"
+  ],
+  "cpu_eras": [
+    "2026",
+    "2024",
+    "2022 – 2023",
+    "2022",
+    "2020 – 2022",
+    "2019 – 2021",
+    "2018 – 2019",
+    "2017 – 2018"
+  ],
+  "cpu_architectures": {
+    "zen6": {
+      "arch": "Zen 6",
+      "color": "#ec4899",
+      "year": "2026",
+      "segment": "server",
+      "subtitle": "TSMC 2 nm · EPYC 9006 (Venice) · SP7 / SP8",
+      "defaultLinks": [
+        {
+          "label": "AMD EPYC Server Processors",
+          "url": "https://www.amd.com/en/products/processors/server-processors.html"
+        }
+      ],
+      "skus": [
+        {
+          "name": "Venice SP7",
+          "desc": "EPYC 9006 series — SP7 high-core-count server processors",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        },
+        {
+          "name": "Venice SP8",
+          "desc": "EPYC 9006 series — SP8 mainstream server processors",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        }
+      ]
+    },
+    "zen5": {
+      "arch": "Zen 5",
+      "color": "#ef4444",
+      "year": "2024",
+      "segment": "client",
+      "subtitle": "TSMC 4 nm / 3 nm · Ryzen 9000 · Ryzen AI 300/400 · AI Max 300 · EPYC 9005",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Zen_5"
+        }
+      ],
+      "skus": [
+        {
+          "name": "Turin",
+          "desc": "EPYC 9005 series — server processors",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        },
+        {
+          "name": "Turin Dense",
+          "desc": "EPYC server — Zen 5c high-density cores",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        },
+        {
+          "name": "Shimada Peak",
+          "desc": "Ryzen Threadripper 9000 series — HEDT desktop & Threadripper PRO 9000 WX workstation",
+          "tags": [
+            "desktop",
+            "pro"
+          ],
+          "brand": "Threadripper"
+        },
+        {
+          "name": "Granite Ridge",
+          "desc": "Ryzen 9000 series — desktop processors",
+          "tags": [
+            "desktop",
+            "pro"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Fire Range",
+          "desc": "Ryzen 9000 HX series — high-performance mobile processors",
+          "tags": [
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Strix Halo",
+          "desc": "Ryzen AI Max 300 series — high-performance laptop APU with integrated RDNA 3.5 GPU & up to 128 GB unified memory",
+          "tags": [
+            "laptop",
+            "pro"
+          ],
+          "brand": "Ryzen AI"
+        },
+        {
+          "name": "Strix Point",
+          "desc": "Ryzen AI 300 series — laptop APUs with XDNA 2 NPU",
+          "tags": [
+            "laptop",
+            "pro"
+          ],
+          "brand": "Ryzen AI"
+        },
+        {
+          "name": "Kraken Point",
+          "desc": "Ryzen AI 300 series — mid-range laptop APUs (AI 7 350 / AI 5 340) with Zen 5/5c cores, RDNA 3.5 GPU & XDNA 2 NPU",
+          "tags": [
+            "laptop"
+          ],
+          "brand": "Ryzen AI"
+        },
+        {
+          "name": "Gorgon Point",
+          "desc": "Ryzen AI 400 series — next-gen laptop APUs with XDNA 2 NPU (Strix Point refresh)",
+          "tags": [
+            "laptop",
+            "pro"
+          ],
+          "brand": "Ryzen AI"
+        },
+        {
+          "name": "Z2",
+          "desc": "Ryzen Z2 series — handheld gaming processors (inc. AI Z2 Extreme)",
+          "tags": [
+            "handheld"
+          ],
+          "brand": "Ryzen"
+        }
+      ]
+    },
+    "zen4": {
+      "arch": "Zen 4",
+      "color": "#f97316",
+      "year": "2022–2023",
+      "segment": "client",
+      "subtitle": "TSMC 5 nm · Ryzen 7000/8000 · Threadripper 7000 · EPYC 9004",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Zen_4"
+        }
+      ],
+      "skus": [
+        {
+          "name": "Genoa",
+          "desc": "EPYC 9004 series — server processors",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        },
+        {
+          "name": "Genoa-X",
+          "desc": "EPYC 9004X series — 3D V-Cache server processors",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        },
+        {
+          "name": "Bergamo",
+          "desc": "EPYC 9704 series — Zen 4c cloud-native server",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        },
+        {
+          "name": "Siena",
+          "desc": "EPYC 8004 series — Zen 4c edge/telco server",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        },
+        {
+          "name": "Storm Peak",
+          "desc": "Ryzen Threadripper 7000 series — HEDT desktop & Threadripper PRO 7000 WX workstation",
+          "tags": [
+            "desktop",
+            "pro"
+          ],
+          "brand": "Threadripper"
+        },
+        {
+          "name": "Raphael",
+          "desc": "Ryzen 7000 series — desktop processors",
+          "tags": [
+            "desktop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Dragon Range",
+          "desc": "Ryzen 7045 series — high-performance laptop",
+          "tags": [
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Phoenix",
+          "desc": "Ryzen 8000 APU (desktop) & Ryzen 7040 series (laptop)",
+          "tags": [
+            "desktop",
+            "laptop",
+            "pro"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Hawk Point",
+          "desc": "Ryzen 8040/8045 series — refreshed Phoenix (laptop)",
+          "tags": [
+            "laptop",
+            "pro"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Hawk Point Refresh",
+          "desc": "Ryzen 200 series — refreshed Hawk Point with simplified branding (laptop)",
+          "tags": [
+            "laptop",
+            "pro"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Z1",
+          "desc": "Ryzen Z1 series — handheld gaming processors (Phoenix silicon)",
+          "tags": [
+            "handheld"
+          ],
+          "brand": "Ryzen"
+        }
+      ]
+    },
+    "zen3plus": {
+      "arch": "Zen 3+",
+      "color": "#f59e0b",
+      "year": "2022",
+      "segment": "client",
+      "subtitle": "TSMC 6 nm · Ryzen 6000 (Rembrandt) · RDNA 2 iGPU",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Zen_3"
+        }
+      ],
+      "skus": [
+        {
+          "name": "Rembrandt",
+          "desc": "Ryzen 6000 series — laptop APUs with RDNA 2 graphics",
+          "tags": [
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Rembrandt-R",
+          "desc": "Ryzen 7035 series — refreshed Rembrandt (laptop)",
+          "tags": [
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        }
+      ]
+    },
+    "zen3": {
+      "arch": "Zen 3",
+      "color": "#84cc16",
+      "year": "2020–2022",
+      "segment": "client",
+      "subtitle": "TSMC 7 nm · Ryzen 5000 · Threadripper 5000 · EPYC 7003",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Zen_3"
+        }
+      ],
+      "skus": [
+        {
+          "name": "Milan",
+          "desc": "EPYC 7003 series — server processors",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        },
+        {
+          "name": "Milan-X",
+          "desc": "EPYC 7003X series — 3D V-Cache server processors",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        },
+        {
+          "name": "Chagall",
+          "desc": "Ryzen Threadripper 5000 series — HEDT desktop & Threadripper PRO 5000 WX workstation",
+          "tags": [
+            "desktop",
+            "pro"
+          ],
+          "brand": "Threadripper"
+        },
+        {
+          "name": "Vermeer",
+          "desc": "Ryzen 5000 series — desktop processors",
+          "tags": [
+            "desktop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Cezanne",
+          "desc": "Ryzen 5000 series — APUs (desktop & laptop)",
+          "tags": [
+            "desktop",
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Barceló",
+          "desc": "Ryzen 5000 series — laptop refresh",
+          "tags": [
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Barceló-R",
+          "desc": "Ryzen 7030 series — laptop",
+          "tags": [
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        }
+      ]
+    },
+    "zen2": {
+      "arch": "Zen 2",
+      "color": "#14b8a6",
+      "year": "2019–2021",
+      "segment": "client",
+      "subtitle": "TSMC 7 nm · Ryzen 3000 / 4000 · Threadripper 3000 · EPYC 7002",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Zen_2"
+        }
+      ],
+      "skus": [
+        {
+          "name": "Rome",
+          "desc": "EPYC 7002 series — server processors",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        },
+        {
+          "name": "Castle Peak",
+          "desc": "Ryzen Threadripper 3000 series — HEDT desktop & Threadripper PRO 3000 WX workstation",
+          "tags": [
+            "desktop",
+            "pro"
+          ],
+          "brand": "Threadripper"
+        },
+        {
+          "name": "Matisse",
+          "desc": "Ryzen 3000 series — desktop processors",
+          "tags": [
+            "desktop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Renoir",
+          "desc": "Ryzen 4000 APU series with RX Vega (desktop & laptop)",
+          "tags": [
+            "desktop",
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Lucienne",
+          "desc": "Ryzen 5000 APU series — laptop",
+          "tags": [
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Mendocino",
+          "desc": "Ryzen 7020 / Athlon 7020 APU series — budget laptop",
+          "tags": [
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        }
+      ]
+    },
+    "zenplus": {
+      "arch": "Zen+",
+      "color": "#818cf8",
+      "year": "2018–2019",
+      "segment": "client",
+      "subtitle": "GF 12 nm · Ryzen 2000 / 3000 APU · Threadripper 2000",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Zen%2B"
+        }
+      ],
+      "skus": [
+        {
+          "name": "Colfax",
+          "desc": "Ryzen Threadripper 2000 series — HEDT desktop",
+          "tags": [
+            "desktop"
+          ],
+          "brand": "Threadripper"
+        },
+        {
+          "name": "Pinnacle Ridge",
+          "desc": "Ryzen 2000 series — desktop processors",
+          "tags": [
+            "desktop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Picasso",
+          "desc": "Ryzen 3000 / Athlon APU series with RX Vega (desktop & laptop)",
+          "tags": [
+            "desktop",
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        }
+      ]
+    },
+    "zen1": {
+      "arch": "Zen",
+      "color": "#c084fc",
+      "year": "2017–2018",
+      "segment": "client",
+      "subtitle": "GF 14 nm · Ryzen 1000 / 2000 APU · Threadripper 1000 · EPYC 7001",
+      "defaultLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Zen_(first_generation)"
+        }
+      ],
+      "skus": [
+        {
+          "name": "Naples",
+          "desc": "EPYC 7001 series — server processors",
+          "tags": [
+            "server"
+          ],
+          "brand": "Epyc"
+        },
+        {
+          "name": "Whitehaven",
+          "desc": "Ryzen Threadripper 1000 series — HEDT desktop",
+          "tags": [
+            "desktop"
+          ],
+          "brand": "Threadripper"
+        },
+        {
+          "name": "Summit Ridge",
+          "desc": "Ryzen 1000 series — desktop processors",
+          "tags": [
+            "desktop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Raven Ridge",
+          "desc": "Ryzen 2000 / Athlon APU series with RX Vega (desktop & laptop)",
+          "tags": [
+            "desktop",
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        },
+        {
+          "name": "Dalí",
+          "desc": "Ryzen 3000 / Athlon APU series — budget laptop",
+          "tags": [
+            "laptop"
+          ],
+          "brand": "Ryzen"
+        }
+      ]
+    }
+  }
+}

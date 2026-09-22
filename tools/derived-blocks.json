@@ -1,0 +1,587 @@
+[
+  {
+    "id": "epyc4005series",
+    "label": "EPYC 4005 Series",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "2025",
+    "models": 6,
+    "codenames": [
+      "Grado"
+    ],
+    "tier_of": {
+      "Grado": "EPYC"
+    },
+    "seg_of": {
+      "Grado": "datacenter"
+    }
+  },
+  {
+    "id": "epyc8005series",
+    "label": "EPYC 8005 Series",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "2026",
+    "models": 7,
+    "codenames": [
+      "Sorano"
+    ],
+    "tier_of": {
+      "Sorano": "EPYC"
+    },
+    "seg_of": {
+      "Sorano": "datacenter"
+    }
+  },
+  {
+    "id": "epyc4004series",
+    "label": "EPYC 4004 Series",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "",
+    "models": 8,
+    "codenames": [
+      "Raphael"
+    ],
+    "tier_of": {
+      "Raphael": "EPYC"
+    },
+    "seg_of": {
+      "Raphael": "datacenter"
+    }
+  },
+  {
+    "id": "opteronx2100seriesapu",
+    "label": "Opteron X2100 Series APU",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "",
+    "models": 2,
+    "codenames": [
+      "Kyoto"
+    ],
+    "tier_of": {
+      "Kyoto": "EPYC"
+    },
+    "seg_of": {
+      "Kyoto": "datacenter"
+    }
+  },
+  {
+    "id": "opteronx1100series",
+    "label": "Opteron X1100 Series",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "",
+    "models": 1,
+    "codenames": [
+      "Kyoto"
+    ],
+    "tier_of": {
+      "Kyoto": "EPYC"
+    },
+    "seg_of": {
+      "Kyoto": "datacenter"
+    }
+  },
+  {
+    "id": "opteron6300series",
+    "label": "Opteron 6300 Series",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "",
+    "models": 12,
+    "codenames": [
+      "Abu Dhabi",
+      "Warsaw"
+    ],
+    "tier_of": {
+      "Abu Dhabi": "EPYC",
+      "Warsaw": "EPYC"
+    },
+    "seg_of": {
+      "Abu Dhabi": "datacenter",
+      "Warsaw": "datacenter"
+    }
+  },
+  {
+    "id": "opteron4300series",
+    "label": "Opteron 4300 Series",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "",
+    "models": 7,
+    "codenames": [
+      "Seoul"
+    ],
+    "tier_of": {
+      "Seoul": "EPYC"
+    },
+    "seg_of": {
+      "Seoul": "datacenter"
+    }
+  },
+  {
+    "id": "opteron3300series",
+    "label": "Opteron 3300 Series",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "",
+    "models": 4,
+    "codenames": [
+      "Delhi"
+    ],
+    "tier_of": {
+      "Delhi": "EPYC"
+    },
+    "seg_of": {
+      "Delhi": "datacenter"
+    }
+  },
+  {
+    "id": "opteron6200series",
+    "label": "Opteron 6200 Series",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "",
+    "models": 12,
+    "codenames": [
+      "Interlagos"
+    ],
+    "tier_of": {
+      "Interlagos": "EPYC"
+    },
+    "seg_of": {
+      "Interlagos": "datacenter"
+    }
+  },
+  {
+    "id": "opteron4200series",
+    "label": "Opteron 4200 Series",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "",
+    "models": 11,
+    "codenames": [
+      "Valencia"
+    ],
+    "tier_of": {
+      "Valencia": "EPYC"
+    },
+    "seg_of": {
+      "Valencia": "datacenter"
+    }
+  },
+  {
+    "id": "opteron3200series",
+    "label": "Opteron 3200 Series",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "",
+    "models": 3,
+    "codenames": [
+      "Zurich"
+    ],
+    "tier_of": {
+      "Zurich": "EPYC"
+    },
+    "seg_of": {
+      "Zurich": "datacenter"
+    }
+  },
+  {
+    "id": "opteron6100series",
+    "label": "Opteron 6100 Series",
+    "family": "EPYC",
+    "subtab": "epyc",
+    "segment": "datacenter",
+    "years": "",
+    "models": 5,
+    "codenames": [
+      "Magny-Cours"
+    ],
+    "tier_of": {
+      "Magny-Cours": "EPYC"
+    },
+    "seg_of": {
+      "Magny-Cours": "datacenter"
+    }
+  },
+  {
+    "id": "aseries",
+    "label": "A-Series",
+    "family": "A-Series",
+    "subtab": "ryzen",
+    "segment": "desktop",
+    "years": "2016 – 2017",
+    "models": 76,
+    "codenames": [
+      "Kaveri",
+      "Richland",
+      "Bristol Ridge",
+      "Stoney Ridge",
+      "Carrizo",
+      "Kabini",
+      "Beema",
+      "Godavari",
+      "Mullins"
+    ],
+    "tier_of": {
+      "Bristol Ridge": "A-Series",
+      "Kaveri": "A-Series",
+      "Richland": "A-Series",
+      "Carrizo": "A-Series",
+      "Stoney Ridge": "A-Series",
+      "Godavari": "A-Series",
+      "Beema": "A-Series",
+      "Kabini": "A-Series",
+      "Mullins": "A-Series"
+    },
+    "seg_of": {
+      "Bristol Ridge": "desktop",
+      "Kaveri": "desktop",
+      "Richland": "desktop",
+      "Carrizo": "mobile",
+      "Stoney Ridge": "mobile",
+      "Godavari": "desktop",
+      "Beema": "mobile",
+      "Kabini": "mobile",
+      "Mullins": "mobile"
+    }
+  },
+  {
+    "id": "proaseries",
+    "label": "PRO A-Series",
+    "family": "PRO A-Series",
+    "subtab": "ryzen",
+    "segment": "desktop",
+    "years": "2016 – 2020",
+    "models": 47,
+    "codenames": [
+      "Bristol Ridge",
+      "Carrizo",
+      "Kaveri",
+      "Godavari",
+      "Stoney Ridge",
+      "Richland",
+      "Kabini"
+    ],
+    "tier_of": {
+      "Bristol Ridge": "PRO A-Series",
+      "Carrizo": "PRO A-Series",
+      "Godavari": "PRO A-Series",
+      "Kaveri": "PRO A-Series",
+      "Stoney Ridge": "PRO A-Series",
+      "Richland": "PRO A-Series",
+      "Kabini": "PRO A-Series"
+    },
+    "seg_of": {
+      "Bristol Ridge": "mobile",
+      "Carrizo": "mobile",
+      "Godavari": "desktop",
+      "Kaveri": "desktop",
+      "Stoney Ridge": "mobile",
+      "Richland": "mobile",
+      "Kabini": "mobile"
+    }
+  },
+  {
+    "id": "athlon",
+    "label": "Athlon",
+    "family": "Athlon",
+    "subtab": "ryzen",
+    "segment": "desktop",
+    "years": "2017",
+    "models": 22,
+    "codenames": [
+      "Athlon Legacy",
+      "Kabini"
+    ],
+    "tier_of": {
+      "Kabini": "Athlon",
+      "Athlon Legacy": "Athlon"
+    },
+    "seg_of": {
+      "Kabini": "desktop",
+      "Athlon Legacy": "desktop"
+    }
+  },
+  {
+    "id": "ryzenpro",
+    "label": "Ryzen PRO",
+    "family": "Ryzen PRO",
+    "subtab": "ryzen",
+    "segment": "desktop",
+    "years": "2023 – 2026",
+    "models": 12,
+    "codenames": [
+      "Gorgon Point AM5",
+      "Gorgon Halo",
+      "Raphael"
+    ],
+    "tier_of": {
+      "Gorgon Halo": "Ryzen PRO",
+      "Gorgon Point AM5": "Ryzen PRO",
+      "Raphael": "Ryzen PRO"
+    },
+    "seg_of": {
+      "Gorgon Halo": "mobile",
+      "Gorgon Point AM5": "desktop",
+      "Raphael": "desktop"
+    }
+  },
+  {
+    "id": "ryzen",
+    "label": "Ryzen",
+    "family": "Ryzen",
+    "subtab": "ryzen",
+    "segment": "desktop",
+    "years": "",
+    "models": 7,
+    "codenames": [
+      "Gorgon Point AM5",
+      "Barcelo-R"
+    ],
+    "tier_of": {
+      "Gorgon Point AM5": "Ryzen",
+      "Barcelo-R": "Ryzen"
+    },
+    "seg_of": {
+      "Gorgon Point AM5": "desktop",
+      "Barcelo-R": "mobile"
+    }
+  },
+  {
+    "id": "fxseries",
+    "label": "FX-Series",
+    "family": "FX-Series",
+    "subtab": "ryzen",
+    "segment": "desktop",
+    "years": "",
+    "models": 30,
+    "codenames": [
+      "Vishera",
+      "FX Legacy",
+      "Bristol Ridge",
+      "Carrizo",
+      "Kaveri"
+    ],
+    "tier_of": {
+      "Vishera": "FX-Series",
+      "FX Legacy": "FX-Series",
+      "Bristol Ridge": "FX-Series",
+      "Carrizo": "FX-Series",
+      "Kaveri": "FX-Series"
+    },
+    "seg_of": {
+      "Vishera": "desktop",
+      "FX Legacy": "desktop",
+      "Bristol Ridge": "mobile",
+      "Carrizo": "mobile",
+      "Kaveri": "mobile"
+    }
+  },
+  {
+    "id": "sempron",
+    "label": "Sempron",
+    "family": "Sempron",
+    "subtab": "ryzen",
+    "segment": "desktop",
+    "years": "",
+    "models": 2,
+    "codenames": [
+      "Sempron"
+    ],
+    "tier_of": {
+      "Sempron": "Sempron"
+    },
+    "seg_of": {
+      "Sempron": "desktop"
+    }
+  },
+  {
+    "id": "phenom",
+    "label": "Phenom",
+    "family": "Phenom",
+    "subtab": "ryzen",
+    "segment": "desktop",
+    "years": "",
+    "models": 27,
+    "codenames": [
+      "Phenom"
+    ],
+    "tier_of": {
+      "Phenom": "Phenom"
+    },
+    "seg_of": {
+      "Phenom": "desktop"
+    }
+  },
+  {
+    "id": "amd",
+    "label": "AMD",
+    "family": "AMD",
+    "subtab": "ryzen",
+    "segment": "mobile",
+    "years": "2020",
+    "models": 1,
+    "codenames": [
+      "Pollock"
+    ],
+    "tier_of": {
+      "Pollock": "AMD"
+    },
+    "seg_of": {
+      "Pollock": "mobile"
+    }
+  },
+  {
+    "id": "eseries",
+    "label": "E-Series",
+    "family": "E-Series",
+    "subtab": "ryzen",
+    "segment": "mobile",
+    "years": "",
+    "models": 11,
+    "codenames": [
+      "Kabini",
+      "Beema",
+      "Carrizo",
+      "Stoney Ridge",
+      "Mullins"
+    ],
+    "tier_of": {
+      "Stoney Ridge": "E-Series",
+      "Beema": "E-Series",
+      "Kabini": "E-Series",
+      "Carrizo": "E-Series",
+      "Mullins": "E-Series"
+    },
+    "seg_of": {
+      "Stoney Ridge": "mobile",
+      "Beema": "mobile",
+      "Kabini": "mobile",
+      "Carrizo": "mobile",
+      "Mullins": "mobile"
+    }
+  },
+  {
+    "id": "ryzenembedded",
+    "label": "Ryzen Embedded",
+    "family": "Ryzen Embedded",
+    "subtab": "ryzen",
+    "segment": "embedded",
+    "years": "",
+    "models": 16,
+    "codenames": [
+      "Granite Ridge",
+      "Great Horned Owl",
+      "Raphael"
+    ],
+    "tier_of": {
+      "Granite Ridge": "Ryzen Embedded",
+      "Raphael": "Ryzen Embedded",
+      "Great Horned Owl": "Ryzen Embedded"
+    },
+    "seg_of": {
+      "Granite Ridge": "embedded",
+      "Raphael": "embedded",
+      "Great Horned Owl": "embedded"
+    }
+  },
+  {
+    "id": "epycembedded4005series",
+    "label": "EPYC Embedded 4005 Series",
+    "family": "EPYC Embedded",
+    "subtab": "epyc",
+    "segment": "embedded",
+    "years": "",
+    "models": 6,
+    "codenames": [
+      "Grado"
+    ],
+    "tier_of": {
+      "Grado": "EPYC Embedded"
+    },
+    "seg_of": {
+      "Grado": "embedded"
+    }
+  },
+  {
+    "id": "epycembedded3000series",
+    "label": "EPYC Embedded 3000 Series",
+    "family": "EPYC Embedded",
+    "subtab": "epyc",
+    "segment": "embedded",
+    "years": "",
+    "models": 7,
+    "codenames": [
+      "Snowy Owl"
+    ],
+    "tier_of": {
+      "Snowy Owl": "EPYC Embedded"
+    },
+    "seg_of": {
+      "Snowy Owl": "embedded"
+    }
+  },
+  {
+    "id": "embeddedrseries",
+    "label": "Embedded R-Series",
+    "family": "Embedded R-Series",
+    "subtab": "ryzen",
+    "segment": "embedded",
+    "years": "",
+    "models": 11,
+    "codenames": [
+      "Merlin Falcon",
+      "Bald Eagle"
+    ],
+    "tier_of": {
+      "Merlin Falcon": "Embedded R-Series",
+      "Bald Eagle": "Embedded R-Series"
+    },
+    "seg_of": {
+      "Merlin Falcon": "embedded",
+      "Bald Eagle": "embedded"
+    }
+  },
+  {
+    "id": "embeddedgseries",
+    "label": "Embedded G-Series",
+    "family": "Embedded G-Series",
+    "subtab": "ryzen",
+    "segment": "embedded",
+    "years": "",
+    "models": 29,
+    "codenames": [
+      "G-Series (Jaguar)",
+      "Steppe Eagle",
+      "Kabini",
+      "Puma"
+    ],
+    "tier_of": {
+      "G-Series (Jaguar)": "Embedded G-Series",
+      "Steppe Eagle": "Embedded G-Series",
+      "Puma": "Embedded G-Series",
+      "Kabini": "Embedded G-Series"
+    },
+    "seg_of": {
+      "G-Series (Jaguar)": "embedded",
+      "Steppe Eagle": "embedded",
+      "Puma": "embedded",
+      "Kabini": "embedded"
+    }
+  }
+]

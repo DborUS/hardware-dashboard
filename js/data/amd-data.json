@@ -197,6 +197,16 @@
         "brand": "Threadripper"
       },
       {
+        "name": "Phoenix",
+        "desc": "Ryzen 8000 APU (desktop) & Ryzen 7040 series (laptop)",
+        "tags": [
+          "desktop",
+          "laptop",
+          "pro"
+        ],
+        "brand": "Ryzen"
+      },
+      {
         "name": "Raphael",
         "desc": "Ryzen 7000 series — desktop processors",
         "tags": [
@@ -209,16 +219,6 @@
         "desc": "Ryzen 7045 series — high-performance laptop",
         "tags": [
           "laptop"
-        ],
-        "brand": "Ryzen"
-      },
-      {
-        "name": "Phoenix",
-        "desc": "Ryzen 8000 APU (desktop) & Ryzen 7040 series (laptop)",
-        "tags": [
-          "desktop",
-          "laptop",
-          "pro"
         ],
         "brand": "Ryzen"
       },

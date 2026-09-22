@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20260921-header-1">
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -24,6 +24,8 @@
               aria-selected="true" onclick="switchVendor('amd')">AMD</button>
       <button class="vendor-tab" id="tabIntel" role="tab"
               aria-selected="false" onclick="switchVendor('intel')">Intel</button>
+      <button class="vendor-tab" id="tabNvidia" role="tab"
+              aria-selected="false" onclick="switchVendor('nvidia')">NVIDIA</button>
     </div>
     <header id="pageHeader">
       <h1 class="header-amd">EPYC</h1>
@@ -31,6 +33,7 @@
     </header>
     <div class="v2-status" id="v2Status" role="status" aria-live="polite" hidden></div>
     <div class="v2-status" id="a2Status" role="status" aria-live="polite" hidden></div>
+    <div class="v2-status" id="n2Status" role="status" aria-live="polite" hidden></div>
   </div>
 
   <!-- Row 2: product line, search and the expand/collapse controls together. -->
@@ -47,19 +50,23 @@
       <button class="v2-subtab" data-tab="client" role="tab">CLIENT</button>
       <button class="v2-subtab" data-tab="graphics" role="tab">GRAPHICS</button>
     </div>
+    <!-- NVIDIA: data-center-first product lines. -->
+    <div class="v2-subtabs n2-subtabs" id="n2Subtabs" role="tablist" aria-label="NVIDIA product line">
+      <button class="v2-subtab n2-subtab active" data-tab="datacenter" role="tab">DATA CENTER</button>
+      <button class="v2-subtab n2-subtab" data-tab="geforce" role="tab">GEFORCE</button>
+      <button class="v2-subtab n2-subtab" data-tab="cpu" role="tab">CPU</button>
+    </div>
     <div class="search-wrap">
       <span class="search-icon">⌕</span>
       <input type="text" id="searchInput" placeholder="Search architectures, SKUs, brands..." aria-label="Search architectures, SKUs, brands and specifications">
       <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
     </div>
     <div class="toolbar">
+      <button class="expand-all-btn" id="dataSourcesBtn">Data Sources</button>
       <button class="expand-all-btn" id="expandAllBtn">Expand All</button>
       <button class="expand-all-btn" id="collapseAllBtn">Collapse All</button>
       <button class="expand-all-btn" id="clearSelectionsBtn">Clear Selections</button>
     </div>
-  </div>
-  <div class="v2-nodata" id="v2NoData" hidden>
-    Xeon has full spec data. Client and Graphics tables are empty pending import.
   </div>
   <!-- Legacy CPU/GPU tech tabs. Both vendors are product-first now, so nothing
        shows these; kept only because script.js still holds a reference. -->
@@ -89,8 +96,43 @@
   </div>
 </div>
 
-<script src="js/intel-v2.js?v=20260827-header"></script>
-<script src="js/amd-v2.js?v=20260827-header"></script>
-<script src="js/script.js?v=20260827-header"></script>
+<!-- Persistent selections survive vendor and product-line changes. -->
+<div class="compare-tray" id="compareTray" hidden aria-live="polite">
+  <div class="compare-tray-copy">
+    <strong id="compareCount">0 products selected</strong>
+    <span id="compareNames"></span>
+  </div>
+  <button class="compare-tray-btn" id="compareOpenBtn" disabled>Compare</button>
+  <button class="compare-tray-clear" id="compareClearBtn">Clear</button>
+</div>
+
+<dialog class="dashboard-dialog compare-dialog" id="compareDialog" aria-labelledby="compareTitle">
+  <div class="dialog-head">
+    <div>
+      <div class="dialog-kicker">PRODUCT COMPARISON</div>
+      <h2 id="compareTitle">Selected products</h2>
+    </div>
+    <button class="dialog-close" data-close-dialog="compareDialog" aria-label="Close comparison">✕</button>
+  </div>
+  <div class="compare-scroll" id="compareContent"></div>
+</dialog>
+
+<dialog class="dashboard-dialog source-dialog" id="sourceDialog" aria-labelledby="sourceTitle">
+  <div class="dialog-head">
+    <div>
+      <div class="dialog-kicker">DATA PROVENANCE</div>
+      <h2 id="sourceTitle">Sources</h2>
+    </div>
+    <button class="dialog-close" data-close-dialog="sourceDialog" aria-label="Close sources">✕</button>
+  </div>
+  <div id="sourceContent"></div>
+</dialog>
+
+<div class="dashboard-toast" id="dashboardToast" role="status" aria-live="polite" hidden></div>
+
+  <script src="js/intel-v2.js?v=20260921-header-1"></script>
+<script src="js/amd-v2.js?v=20260921-header-1"></script>
+<script src="js/nvidia-v2.js?v=20260921-header-1"></script>
+<script src="js/script.js?v=20260921-header-1"></script>
 </body>
 </html>

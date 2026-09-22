@@ -1,0 +1,21 @@
+Name,Series,Architecture,Launch Year,CUDA Cores,Memory Size,Memory Type,Memory Bandwidth,FP32,PCIe Generation,PCIe Lanes,Form Factor,Board Power,CUDA Capability,Source URL,Source Tier,Notes
+Tesla V100 PCIe 32GB,V-Series,Volta,2017,5120,32 GB,HBM2,900 GB/s,14 TFLOPS,3.0,16,PCIe,250 W,7.0,https://www.nvidia.com/en-sg/data-center/v100/,1,PCIe variant.
+Tesla V100 SXM2 32GB,V-Series,Volta,2017,5120,32 GB,HBM2,900 GB/s,15.7 TFLOPS,3.0,,SXM2,300 W,7.0,https://www.nvidia.com/en-sg/data-center/v100/,1,NVLink variant.
+Tesla V100S PCIe 32GB,V-Series,Volta,2019,5120,32 GB,HBM2,1134 GB/s,16.4 TFLOPS,3.0,16,PCIe,250 W,7.0,https://www.nvidia.com/en-sg/data-center/v100/,1,Higher-clocked PCIe variant.
+T4,T-Series,Turing,2018,2560,16 GB,GDDR6,300 GB/s,8.1 TFLOPS,3.0,16,Low-profile PCIe,70 W,7.5,https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf,1,Passive low-profile accelerator.
+A2,A-Series,Ampere,2021,,16 GB,GDDR6,200 GB/s,4.5 TFLOPS,4.0,8,Low-profile PCIe,40-60 W,8.6,https://www.nvidia.com/en-us/data-center/products/a2/,1,Configurable TDP.
+A10,A-Series,Ampere,2021,,24 GB,GDDR6,600 GB/s,31.2 TFLOPS,4.0,16,Single-slot FHFL PCIe,150 W,8.6,https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a10/pdf/a10-datasheet.pdf,1,"Graphics, video, inference and vGPU."
+A16,A-Series,Ampere,2021,,64 GB,GDDR6,4x 200 GB/s,,4.0,16,Dual-slot FHFL PCIe,250 W,8.6,https://www.nvidia.com/en-au/data-center/products/a16-gpu/,1,Four GPUs per board; 16 GB per GPU.
+A30,A-Series,Ampere,2021,,24 GB,HBM2,933 GB/s,10.3 TFLOPS,4.0,16,Dual-slot FHFL PCIe,165 W,8.0,https://www.nvidia.com/en-us/data-center/products/a30-gpu/,1,MIG and NVLink supported.
+A40,A-Series,Ampere,2020,10752,48 GB,GDDR6 ECC,696 GB/s,37.4 TFLOPS,4.0,16,Dual-slot FHFL PCIe,300 W,8.6,https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a40/proviz-print-nvidia-a40-datasheet-us-nvidia-1469711-r8-web.pdf,1,Visualization and compute accelerator.
+A100 80GB PCIe,A-Series,Ampere,2021,,80 GB,HBM2e,1935 GB/s,19.5 TFLOPS,4.0,16,PCIe,300 W,8.0,https://www.nvidia.com/en-us/data-center/a100/,1,Dual-slot air-cooled or single-slot liquid-cooled.
+A100 80GB SXM,A-Series,Ampere,2021,,80 GB,HBM2e,2039 GB/s,19.5 TFLOPS,4.0,,SXM4,400 W,8.0,https://www.nvidia.com/en-us/data-center/a100/,1,HGX/DGX SXM variant.
+L4,L-Series,Ada Lovelace,2023,7424,24 GB,GDDR6,300 GB/s,30.3 TFLOPS,4.0,16,Low-profile PCIe,72 W,8.9,https://images.nvidia.com/aem-dam/Solutions/geforce/ada/nvidia-ada-gpu-architecture.pdf,1,Single-slot universal inference and video accelerator.
+L40S,L-Series,Ada Lovelace,2023,18176,48 GB,GDDR6 ECC,864 GB/s,91.6 TFLOPS,4.0,16,Dual-slot PCIe,350 W,8.9,https://www.nvidia.com/en-us/data-center/l40s/,1,Passive universal data-center GPU.
+H100 SXM,H-Series,Hopper,2022,,80 GB,HBM3,3.35 TB/s,67 TFLOPS,5.0,,SXM5,700 W,9.0,https://www.nvidia.com/en-us/data-center/h100/,1,Maximum configurable TDP.
+H100 NVL,H-Series,Hopper,2023,,94 GB,HBM3,3.9 TB/s,60 TFLOPS,5.0,16,Dual-slot PCIe,350-400 W,9.0,https://www.nvidia.com/en-us/data-center/h100/,1,NVLink-bridged PCIe variant.
+H200 SXM,H-Series,Hopper,2024,,141 GB,HBM3e,4.8 TB/s,67 TFLOPS,5.0,,SXM5,700 W,9.0,https://www.nvidia.com/en-us/data-center/h200/,1,Maximum configurable TDP.
+H200 NVL,H-Series,Hopper,2024,,141 GB,HBM3e,4.8 TB/s,60 TFLOPS,5.0,16,Dual-slot PCIe,600 W,9.0,https://www.nvidia.com/en-us/data-center/h200/,1,Maximum configurable TDP.
+B200 SXM,B-Series,Blackwell,2024,,180 GB,HBM3e,8 TB/s,,,,SXM,1000 W,10.0,https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory-h100-h200-b200/latest/components.html,1,Per-GPU HGX B200 specification; power configurable up to 1 kW.
+B300 SXM,B-Series,Blackwell Ultra,2025,,288 GB,HBM3e,8 TB/s,,,,SXM,,10.3,https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory/latest/components.html,1,Per-GPU HGX B300 memory specification.
+RTX PRO 6000 Blackwell Server Edition,RTX PRO Server,Blackwell,2025,24064,96 GB,GDDR7 ECC,1792 GB/s,,5.0,16,Dual-slot PCIe,600 W,12.0,https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/NVIDIA-RTX-Blackwell-PRO-GPU-Architecture-v1.0.pdf,1,Server-edition multi-workload GPU.

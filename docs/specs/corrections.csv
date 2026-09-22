@@ -1,0 +1,56 @@
+model,field,correct_value,source_url,verdict
+AMD Ryzen 7 7445HS,cores,6,https://www.amd.com/en/products/processors/laptop/ryzen/7000-series/amd-ryzen-7-7445hs.html,new_wrong
+AMD Ryzen 7 7445HS,threads,12,https://www.amd.com/en/products/processors/laptop/ryzen/7000-series/amd-ryzen-7-7445hs.html,new_wrong
+Xeon Gold 5411N,cores,24,https://ark.intel.com/content/www/us/en/ark/products/232393/intel-xeon-gold-5411n-processor-45m-cache-1-90-ghz.html,new_wrong
+Xeon Gold 5411N,threads,48,https://ark.intel.com/content/www/us/en/ark/products/232393/intel-xeon-gold-5411n-processor-45m-cache-1-90-ghz.html,new_wrong
+Xeon Bronze 3508U,threads,8,https://www.intel.com/content/www/us/en/products/sku/236639/intel-xeon-bronze-3508u-processor-22-5m-cache-2-10-ghz/specifications.html,new_wrong
+Xeon 6315P,threads,4,https://www.intel.com/content/www/us/en/products/sku/241603/intel-xeon-6315p-processor-12m-cache-2-80-ghz/specifications.html,new_wrong
+Ryzen 3 8300G,l3,8 MB,https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-3-8300g.html,new_wrong
+Ryzen 3 PRO 8300G,l3,8 MB,https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-3-pro-8300g.html,new_wrong
+Ryzen 5 7235HS,l3,8 MB,https://www.amd.com/en/products/processors/laptop/ryzen/7000-series/amd-ryzen-5-7235hs.html,new_wrong
+Ryzen 5 5600U,l3,16 MB,https://www.notebookcheck.net/AMD-Ryzen-5-5600U-Processor-Benchmarks-and-Specs.510992.0.html,new_wrong
+Athlon Gold 7220C,l3,2 MB,https://www.cpu-monkey.com/en/cpu-amd_athlon_gold_7220c,new_wrong
+Ryzen 5 3500C,l3,4 MB,https://www.cpu-monkey.com/en/cpu-amd_ryzen_5_3500c,new_wrong
+Ryzen 7 3700C,l3,4 MB,https://www.cpu-monkey.com/en/cpu-amd_ryzen_7_3700c,new_wrong
+EPYC 9755,l3,512 MB,https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9755.html,new_wrong
+EPYC 7642,l3,256 MB,https://www.amd.com/en/support/downloads/drivers.html/processors/epyc/epyc-7002-series/amd-epyc-7642.html,new_wrong
+Xeon Gold 6212U,l3,35.75 MB,https://www.intel.com/content/www/us/en/products/sku/192453/intel-xeon-gold-6212u-processor-35-75m-cache-2-40-ghz/specifications.html,new_wrong
+Xeon Platinum 8380,l3,60 MB,https://www.intel.com/content/www/us/en/products/sku/212287/intel-xeon-platinum-8380-processor-60m-cache-2-30-ghz/specifications.html,new_wrong
+Xeon Silver 4316,l3,30 MB,https://ark.intel.com/content/www/us/en/ark/products/215270/intel-xeon-silver-4316-processor-30m-cache-2-30-ghz.html,new_wrong
+Xeon Gold 5320T,l3,30 MB,https://ark.intel.com/content/www/us/en/ark/products/215284/intel-xeon-gold-5320t-processor-30m-cache-2-30-ghz.html,new_wrong
+Ryzen 5 7500X3D,tdp,65W,https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7500x3d.html,new_wrong
+Ryzen 5 7600X3D,tdp,65W,https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600x3d.html,new_wrong
+Ryzen 7 PRO 2700X,tdp,95W,https://www.amd.com/en/products/cpu/amd-ryzen-7-pro-2700x,new_wrong
+EPYC 9755,tdp,500W,https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9755.html,new_wrong
+EPYC 7371,tdp,200W,https://www.amd.com/en/support/downloads/drivers.html/processors/epyc/epyc-7001-series/amd-epyc-7371.html,new_wrong
+EPYC 9734,tdp,340W,https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9734.html,new_wrong
+Xeon Gold 6148F,tdp,160W,https://www.intel.com/content/www/us/en/products/sku/123690/intel-xeon-gold-6148f-processor-27-5m-cache-2-40-ghz/specifications.html,new_wrong
+Xeon Gold 5218N,tdp,110W,https://www.intel.com/content/www/us/en/products/sku/193397/intel-xeon-gold-5218n-processor-22m-cache-2-30-ghz/specifications.html,new_wrong
+Xeon Gold 6426Y,tdp,185W,https://www.intel.com/content/www/us/en/products/sku/232377/intel-xeon-gold-6426y-processor-37-5m-cache-2-50-ghz/specifications.html,new_wrong
+Xeon Gold 5416S,tdp,150W,https://www.intel.com/content/www/us/en/products/sku/232396/intel-xeon-gold-5416s-processor-30m-cache-2-00-ghz/specifications.html,new_wrong
+Xeon 6747P,tdp,330W,https://www.intel.com/content/www/us/en/products/sku/241825/intel-xeon-6747p-processor-288m-cache-2-70-ghz/specifications.html,new_wrong
+Xeon 6527P,tdp,255W,https://www.intel.com/content/www/us/en/products/sku/242642/intel-xeon-6527p-processor-144m-cache-3-00-ghz/specifications.html,new_wrong
+Xeon 6776P-B,tdp,325W,https://www.intel.com/content/www/us/en/products/sku/245154/intel-xeon-6776pb-processor-288m-cache-2-30-ghz/specifications.html,new_wrong
+Xeon 6768P-B,tdp,325W,https://www.intel.com/content/www/us/en/products/sku/245739/intel-xeon-6768pb-processor-256m-cache-2-20-ghz/specifications.html,new_wrong
+Xeon 6543P-B,tdp,160W,https://www.intel.com/content/www/us/en/products/sku/242903/intel-xeon-6543pb-processor-128m-cache-2-00-ghz/specifications.html,new_wrong
+Xeon 6523P-B,tdp,175W,https://www.intel.com/content/www/us/en/products/sku/242901/intel-xeon-6523pb-processor-96m-cache-2-50-ghz/specifications.html,new_wrong
+Xeon 6513P-B,tdp,130W,https://www.intel.com/content/www/us/en/products/sku/242909/intel-xeon-6513pb-processor-80m-cache-2-00-ghz/specifications.html,new_wrong
+Ryzen 7 PRO 2700X,boost,4.1 GHz,https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen-pro/ryzen-pro-2000-series/amd-ryzen-7-pro-2700x.html,new_wrong
+Ryzen 7 PRO 2700X,base,3.6 GHz,https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen-pro/ryzen-pro-2000-series/amd-ryzen-7-pro-2700x.html,new_wrong
+Ryzen 5 2500X,boost,4.0 GHz,https://www.amd.com/en/products/cpu/amd-ryzen-5-2500x,new_wrong
+Xeon Gold 6426Y,boost,4.10 GHz,https://www.intel.com/content/www/us/en/products/sku/232377/intel-xeon-gold-6426y-processor-37-5m-cache-2-50-ghz/specifications.html,new_wrong
+Xeon Gold 5416S,boost,4.00 GHz,https://www.intel.com/content/www/us/en/products/sku/232396/intel-xeon-gold-5416s-processor-30m-cache-2-00-ghz/specifications.html,new_wrong
+Ryzen 9 7945HX3D,base,2.3 GHz,https://www.notebookcheck.net/AMD-Ryzen-9-7945HX3D-Processor-Benchmarks-and-Specs.738915.0.html,new_wrong
+Ryzen 5 8640HS,base,3.5 GHz,https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-5-8640hs.html,new_wrong
+Ryzen 5 PRO 8640HS,base,3.5 GHz,https://www.amd.com/en/products/processors/laptop/ryzen-pro/8000-series/amd-ryzen-5-pro-8640hs.html,new_wrong
+Ryzen 5 PRO 8600GE,base,3.9 GHz,https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-5-pro-8600ge.html,new_wrong
+Ryzen 5 PRO 8605GE,base,3.9 GHz,https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-5-pro-8605ge.html,new_wrong
+Ryzen 5 PRO 220,base,3.2 GHz,https://www.amd.com/en/products/processors/laptop/ryzen-pro/200-series/amd-ryzen-5-pro-220.html,new_wrong
+Ryzen 3 210,base,3.0 GHz,https://www.amd.com/en/products/processors/laptop/ryzen/200-series/amd-ryzen-3-210.html,new_wrong
+Ryzen Z1,base,3.2 GHz,https://www.amd.com/en/products/processors/handhelds/ryzen-z-series/z1-series/z1.html,new_wrong
+Athlon 320GE,base,3.5 GHz,https://www.cpu-world.com/CPUs/Zen/AMD-Athlon%20320GE.html,new_wrong
+EPYC 7282,base,2.8 GHz,https://www.amd.com/content/dam/amd/en/documents/products/epyc/amd-epyc-7002-series-datasheet.pdf,new_wrong
+EPYC 7302,base,3.0 GHz,https://www.amd.com/en/products/cpu/amd-epyc-7302,new_wrong
+EPYC 7272,base,2.9 GHz,https://www.amd.com/en/support/downloads/drivers.html/processors/epyc/epyc-7002-series/amd-epyc-7272.html,new_wrong
+EPYC 7252,base,3.1 GHz,https://www.amd.com/en/support/downloads/drivers.html/processors/epyc/epyc-7002-series/amd-epyc-7252.html,new_wrong
+Ryzen 7 4800HS,tdp,45W,https://www.amd.com/en/products/specifications/processors.html,withdrawn_dashboard_was_right

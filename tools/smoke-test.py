@@ -40,58 +40,60 @@ EXPECT = {
     # AMD is now product-first (js/amd-v2.js): EPYC / Ryzen / GPU sub-tabs,
     # product-series blocks holding codename cards. Model counts are the real
     # guard -- they must be conserved across any future restructure.
-    "amd_epyc_groups": 6,
-    "amd_epyc_cards": 12,
-    "amd_epyc_models": 162,
-    "amd_ryzen_groups": 19,
-    "amd_ryzen_cards": 34,
-    "amd_ryzen_models": 478,
-    "amd_gpu_groups": 40,
-    "amd_gpu_models": 258,
+    "amd_epyc_groups": 20,
+    "amd_epyc_cards": 27,
+    "amd_epyc_models": 350,
+    "amd_ryzen_groups": 32,
+    "amd_ryzen_cards": 79,
+    "amd_ryzen_models": 736,
+    "amd_gpu_groups": 43,
+    "amd_gpu_cards": 43,
+    "amd_gpu_models": 303,
     "amd_core_stops": 20,
     "intel_core_stops": 36,
     # Intel uses the generation-first renderer (js/intel-v2.js): generation
-    # blocks, not codename blocks, across three sub-tabs. Spec tables render
-    # empty until the bulk CSV import lands, so no model-count check here.
+    # blocks, not codename blocks, across three sub-tabs. All three now carry
+    # spec data (Client and Graphics imported 2026-09-10), so all three are
+    # guarded by a model count -- the assertion that catches a restructure
+    # silently dropping rows.
     "intel_xeon_groups": 11,
     "intel_xeon_cards": 33,
-    "intel_client_groups": 11,
-    "intel_client_cards": 47,
-    "intel_gfx_groups": 3,
-    "intel_gfx_cards": 12,
     "intel_xeon_models": 553,
+    "intel_client_groups": 11,
+    "intel_client_cards": 49,
+    "intel_client_models": 340,
+    "intel_gfx_groups": 4,
+    "intel_gfx_cards": 8,
+    "intel_gfx_models": 35,
+    # NVIDIA is generated from the fully audited 2017+ CSV set.
+    "nvidia_datacenter_groups": 8,
+    "nvidia_datacenter_models": 20,
+    "nvidia_geforce_groups": 5,
+    "nvidia_geforce_models": 47,
+    "nvidia_cpu_groups": 2,
+    "nvidia_cpu_models": 4,
 }
 
 # Filter chips that are known to match no content, as "<tab>:<chip>".
 #
-# A chip whose tag matches no rendered block is unreachable-by-filter: clicking
-# it empties the page. That is the inverse of the recurring bug class in
-# CLAUDE.md (data values with no UI chip) and it is invisible to a count-based
-# check, which is how these ten survived.
+# EMPTY AS OF 2026-09-10 -- and it must stay that way. A chip whose tag matches
+# no rendered block is unreachable-by-filter: clicking it empties the page.
+# That is the inverse of the recurring bug class in CLAUDE.md (data values with
+# no UI chip) and it is invisible to a count-based check, which is how twelve of
+# these survived for weeks.
 #
-# Cause: v2ApplyFilters() compares a chip's tag against `data-gen`, which
-# v2Gen() stamps with the block's DISPLAY NAME. They match only when the two
-# strings are identical -- "Xeon 6" does, "Xeon 5" vs "Xeon 5 (5th Gen
-# Scalable)" does not.
+# The twelve were resolved two ways:
+#   - Ten were label-vs-name mismatches. v2ApplyFilters() compares a chip's tag
+#     against `data-gen`, which carried the block's DISPLAY name, so "Xeon 5"
+#     never matched "Xeon 5 (5th Gen Scalable)". Blocks now carry an explicit
+#     `genTag` and data-gen prefers it.
+#   - Silver / Bronze were real data that the UI could not reach: 38 such Xeons
+#     are imported, but every family is tagged Platinum or Gold. Cards now
+#     publish `data-tiers`, the set of tiers their MODELS span, and the filter
+#     matches against that set.
 #
-# These are tracked, not accepted. Empty this set when the tags are reconciled;
-# the check below then enforces that no chip is ever dead again.
-KNOWN_DEAD_CHIPS = {
-    "intel-xeon:Xeon 5", "intel-xeon:Xeon 4", "intel-xeon:Xeon 3",
-    "intel-xeon:Xeon 2", "intel-xeon:Xeon 1",
-    "intel-client:Series 3", "intel-client:Series 2", "intel-client:Series 1",
-    "intel-client:Core X", "intel-client:Atom / N",
-
-    # Different cause: these tags exist in the V2_DATA filter list but no family
-    # carries them, so the chip is real and simply matches nothing.
-    #   Silver / Bronze -- 32 Silver and 6 Bronze models ARE imported, but every
-    #             V2_DATA.xeon family is tiered Platinum/Gold, so the tier is
-    #             unreachable. Resolves when tiering is finished.
-    # (The former amd-cpu:Athlon entry is gone -- it disappeared with the legacy
-    #  AMD filter bar when AMD moved to the product-first renderer. AMD now has
-    #  zero dead chips.)
-    "intel-xeon:Silver", "intel-xeon:Bronze",
-}
+# Any entry appearing here again is a regression, not a backlog item.
+KNOWN_DEAD_CHIPS = set()
 
 
 def serve(port, directory):
@@ -138,6 +140,22 @@ def main():
         with sync_playwright() as p:
             browser = p.chromium.launch(args=ARGS, chromium_sandbox=False)
             page = browser.new_page(viewport={"width": 1440, "height": 1000})
+            if os.environ.get("SMOKE_TRACE"):
+                # SMOKE_TRACE=1 prints every driven action with a timestamp and
+                # caps waits at 9s. The default 30s timeout turns any missing
+                # selector into a five-minute stall with no output, which is
+                # indistinguishable from a slow run.
+                page.set_default_timeout(9000)
+                import time as _t
+                _t0 = _t.time()
+                for _m in ("click", "fill"):
+                    def _mk(name, fn):
+                        def w(*a, **kw):
+                            print(f"[{_t.time() - _t0:6.1f}s] {name} {a[:1]}",
+                                  flush=True)
+                            return fn(*a, **kw)
+                        return w
+                    setattr(page, _m, _mk(_m, getattr(page, _m)))
 
             def on_console(m):
                 if m.type == "error":
@@ -147,7 +165,8 @@ def main():
                     js_errors.append(f"[console] {m.text}")
 
             page.on("console", on_console)
-            page.on("pageerror", lambda e: js_errors.append(f"[pageerror] {e}"))
+            page.on("pageerror", lambda e: js_errors.append(
+                f"[pageerror] {getattr(e, 'stack', None) or e}"))
 
             def count(sel):
                 return page.eval_on_selector_all(sel, "e => e.length")
@@ -260,6 +279,23 @@ def main():
             page.fill("#searchInput", "")
             page.wait_for_timeout(600)
 
+            # Exact SKU search stays collapsed, explains the match, and only
+            # highlights the exact row after the user opens it.
+            page.fill("#searchInput", "9575F")
+            page.wait_for_timeout(500)
+            if count(".arch-group.expanded") or count(".cpu-spec-wrapper.open"):
+                failures.append("AMD exact search auto-opened a result")
+            if count(".search-summary:not([hidden])") != 1:
+                failures.append("AMD exact search should show one match summary")
+            page.click(".arch-group:not(.hidden) .arch-header")
+            page.click(".sku-card:not(.hidden)")
+            page.wait_for_timeout(150)
+            if count("tr.search-match") != 1:
+                failures.append("AMD 9575F search should highlight exactly one row")
+            page.fill("#searchInput", "")
+            page.click("#collapseAllBtn")
+            page.wait_for_timeout(350)
+
             # --- Intel: three sub-tabs, generation-first renderer ---
             page.click("#tabIntel")
             page.wait_for_timeout(1200)
@@ -269,33 +305,124 @@ def main():
                 results[f"intel_{key}_groups"] = count(".arch-group")
                 results[f"intel_{key}_cards"] = count(".sku-card")
                 check_chips(f"intel-{tab}")
-                if tab == "xeon":
-                    page.click("#expandAllBtn")
-                    page.wait_for_timeout(1200)
-                    results["intel_xeon_models"] = count(".cpu-spec-table tbody tr") - count(".v2-empty-row")
-                    page.click("#collapseAllBtn")
-                    page.wait_for_timeout(500)
+                # Every Intel sub-tab now carries spec data, so every one gets
+                # a model count. Expanding is required -- the rows only exist
+                # in the DOM once the cards are open.
+                page.click("#expandAllBtn")
+                page.wait_for_timeout(1200)
+                results[f"intel_{key}_models"] = (
+                    count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
+                page.click("#collapseAllBtn")
+                page.wait_for_timeout(500)
                 if args.shots:
                     page.screenshot(path=str(shots_dir / f"04-intel-{tab}.png"))
-            # AMD chrome must not leak into the Intel tab
-            if count("#v2Subtabs.visible") != 1:
-                failures.append("Intel sub-tabs not visible")
+
+            # Intel now follows the same exact-match and collapsed-result rules.
+            page.click('.v2-subtab[data-tab="client"]')
+            page.wait_for_timeout(850)
+            page.fill("#searchInput", "14900K")
+            page.wait_for_timeout(500)
+            if count(".arch-group.expanded") or count(".cpu-spec-wrapper.open"):
+                failures.append("Intel exact search auto-opened a result")
+            if count(".search-summary:not([hidden])") != 1:
+                failures.append("Intel 14900K search should prefer one exact SKU")
+            summary = page.locator(".search-summary:not([hidden])").text_content()
+            if "Exact SKU" not in summary or "14900K" not in summary:
+                failures.append(f"Intel exact-match explanation is wrong: {summary}")
+            page.click(".arch-group:not(.hidden) .arch-header")
+            page.click(".sku-card:not(.hidden)")
+            page.wait_for_timeout(150)
+            if count("tr.search-match") != 1:
+                failures.append("Intel 14900K search should highlight exactly one row")
+
+            # Search, vendor and product line must survive a copied/reloaded URL.
+            page.wait_for_timeout(150)
+            if "vendor=intel" not in page.url or "tab=client" not in page.url or "q=14900K" not in page.url:
+                failures.append(f"shareable URL missing dashboard state: {page.url}")
+            page.reload(wait_until="networkidle")
+            page.wait_for_timeout(1000)
+            if page.input_value("#searchInput") != "14900K" or count("#v2Subtabs.visible") != 1:
+                failures.append("shared Intel search URL did not restore its state")
+
+            # Select two Intel products, carry them to AMD, add a third product,
+            # and open one cross-vendor comparison.
+            page.click("#searchClear")
+            page.wait_for_timeout(300)
+            page.click("#expandAllBtn")
+            page.click(".sku-card:has(+ .cpu-spec-wrapper tbody tr[data-search])")
+            page.wait_for_timeout(150)
+            page.locator(".cpu-spec-wrapper.open tbody tr[data-search]").nth(0).click()
+            page.locator(".cpu-spec-wrapper.open tbody tr[data-search]").nth(1).click()
+            if count("#compareTray:not([hidden])") != 1 or page.locator("#compareOpenBtn").is_disabled():
+                failures.append("comparison tray did not enable after two selections")
+
+            page.click("#dataSourcesBtn")
+            if "Intel ARK" not in page.locator("#sourceContent").text_content():
+                failures.append("Intel source panel does not identify Intel ARK")
+            page.click('[data-close-dialog="sourceDialog"]')
             page.click("#tabAmd")
             page.wait_for_timeout(1100)
+            if "2 products selected" not in page.locator("#compareCount").text_content():
+                failures.append("comparison selections did not survive vendor switch")
+            page.click("#expandAllBtn")
+            page.click(".sku-card:has(+ .cpu-spec-wrapper tbody tr[data-search])")
+            page.locator(".cpu-spec-wrapper.open tbody tr[data-search]").first.click()
+            page.click("#compareOpenBtn")
+            if count("#compareDialog[open]") != 1 or count("#compareDialog thead th") != 4:
+                failures.append("cross-vendor comparison did not render three products")
+            page.click('[data-close-dialog="compareDialog"]')
+            page.click("#compareClearBtn")
+            # AMD chrome must not leak into the Intel tab
+            page.click("#tabIntel")
+            page.wait_for_timeout(1200)
+            if count("#v2Subtabs.visible") != 1:
+                failures.append("Intel sub-tabs not visible")
             # Intel Xeon stores no total-core field -- only pc/ec -- so its
             # stops depend on coreTotal() summing them. Assert they exist.
-            page.click("#tabIntel")
-            page.wait_for_timeout(1300)
             xstops = count("#v2core .crt")
             results["intel_core_stops"] = xstops
             if xstops < 2:
                 failures.append(f"Intel Xeon core slider has {xstops} stops; "
                                 f"P+E summing may have regressed")
+
+            # --- NVIDIA: audited data-center-first renderer ---
+            page.click("#tabNvidia")
+            page.wait_for_timeout(1000)
+            if count("#n2Subtabs.visible") != 1:
+                failures.append("NVIDIA sub-tabs not visible")
+            for tab in ("datacenter", "geforce", "cpu"):
+                page.click(f'.n2-subtab[data-tab="{tab}"]')
+                page.wait_for_timeout(500)
+                results[f"nvidia_{tab}_groups"] = count(".arch-group")
+                check_chips(f"nvidia-{tab}")
+                page.click("#expandAllBtn")
+                page.wait_for_timeout(350)
+                results[f"nvidia_{tab}_models"] = (
+                    count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
+                if args.shots:
+                    page.locator(".sku-card").first.click()
+                    page.wait_for_timeout(120)
+                    page.screenshot(path=str(shots_dir / f"07-nvidia-{tab}.png"))
+                page.click("#collapseAllBtn")
+
+            page.click('.n2-subtab[data-tab="datacenter"]')
+            page.fill("#searchInput", "B300 SXM")
+            page.wait_for_timeout(350)
+            if count(".search-summary:not([hidden])") != 1:
+                failures.append("NVIDIA exact search should show one B300 match")
+            page.click("#dataSourcesBtn")
+            if "NVIDIA official" not in page.locator("#sourceContent").text_content():
+                failures.append("NVIDIA source panel does not identify official NVIDIA data")
+            page.click('[data-close-dialog="sourceDialog"]')
+            page.click("#searchClear")
+
             page.click("#tabAmd")
             page.wait_for_timeout(1200)
 
             if count("#v2Subtabs.visible") != 0:
                 failures.append("Intel sub-tabs still visible after switching to AMD")
+            if count("#n2Subtabs.visible") != 0:
+                failures.append("NVIDIA sub-tabs still visible after switching to AMD")
             if count("#a2Subtabs.visible") != 1:
                 failures.append("AMD sub-tabs not restored after returning from Intel")
             if count(".arch-group") < 6:

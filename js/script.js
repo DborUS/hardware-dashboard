@@ -4,7 +4,7 @@
 
 // Bump when any js/data/*.json changes, so browsers refetch instead of serving a
 // stale copy. Mirrors the ?v= on the script tag in index.html.
-const DATA_VERSION = '20260827-header';
+const DATA_VERSION = '20260921-header-1';
 
 // Cache for loaded data to avoid redundant fetches
 const dataCache = {};
@@ -19,7 +19,7 @@ let loadingVendor = null;
 
 /**
  * Loads vendor data from JSON files dynamically
- * @param {string} vendor - 'intel', 'amd', or 'amd-gpu'
+ * @param {string} vendor - 'intel', 'amd', 'amd-gpu', or 'nvidia'
  * @returns {Promise<Array>} The loaded data array
  */
 async function loadVendorData(vendor) {
@@ -109,6 +109,11 @@ const VENDOR_CONFIG = {
     filterButtons: ['all', 'desktop', 'mobile', 'server', 'embedded'],
     unifiedFilters: true    // single multi-select filter bar (see buildFilterBar)
   },
+  nvidia: {
+    title: 'NVIDIA Hardware',
+    headerClass: 'header-nvidia',
+    data: null
+  },
   amd: {
     title: 'AMD Zen Architecture Roadmap',
     headerClass: 'header-amd',
@@ -175,6 +180,89 @@ function cpuModelMatches(m, term) {
 }
 
 // ════════════════════════════════════════
+// SHARED SEARCH — Intel and AMD use the same relevance rules
+// ════════════════════════════════════════
+
+/** Punctuation-free form used for SKU searches such as i9-14900K / 14900K. */
+function dashboardSearchCompact(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+}
+
+/** Match normal text first, then a punctuation-free form. */
+function dashboardSearchMatch(haystack, query) {
+  const hay = String(haystack || '').toLowerCase();
+  const q = String(query || '').trim().toLowerCase();
+  if (!q) return true;
+  if (hay.includes(q)) return true;
+  const compact = dashboardSearchCompact(q);
+  return compact.length >= 2 && dashboardSearchCompact(hay).includes(compact);
+}
+
+/** Exact means the model name ends in the requested SKU token, not a suffix sibling. */
+function dashboardExactSku(row, query) {
+  const model = row && row.cells && row.cells[0] ? row.cells[0].textContent : '';
+  const q = dashboardSearchCompact(query);
+  const full = dashboardSearchCompact(model);
+  if (q.length < 3 || !full) return false;
+  return full === q || full.endsWith(q);
+}
+
+/** Build one page-wide context so an exact model match outranks every partial hit. */
+function dashboardSearchContext(query) {
+  const q = String(query || '').trim().toLowerCase();
+  const rows = [...document.querySelectorAll('.cpu-spec-table tbody tr:not(.v2-empty-row)')];
+  const exactRows = q ? new Set(rows.filter(row => dashboardExactSku(row, q))) : new Set();
+  return { q, hasExact: exactRows.size > 0, exactRows };
+}
+
+function dashboardRowMatchReason(row, query, exact) {
+  if (exact) return 'Exact SKU';
+  const table = row.closest('table');
+  const headers = table ? [...table.querySelectorAll('thead th')] : [];
+  const cells = [...row.cells];
+  const index = cells.findIndex(cell => dashboardSearchMatch(cell.textContent, query));
+  if (index < 0) return 'Specification';
+  return index === 0 ? 'Model' : (headers[index]?.textContent.trim() || 'Specification');
+}
+
+/**
+ * Evaluate and paint search state for one codename card.
+ * Returns `matched`, allowing each renderer to combine it with its own filters.
+ */
+function dashboardApplyCardSearch(card, group, context) {
+  const wrapper = document.getElementById(card.dataset.target);
+  const rows = wrapper ? [...wrapper.querySelectorAll('tbody tr[data-search]')] : [];
+  const q = context.q;
+  const meta = card.dataset.metaSearch || card.dataset.search || '';
+  const metaHit = !q || (!context.hasExact &&
+    (dashboardSearchMatch(meta, q) || dashboardSearchMatch(group.dataset.search, q)));
+  const rowHits = !q ? rows : rows.filter(row => context.hasExact
+    ? context.exactRows.has(row)
+    : dashboardSearchMatch(row.dataset.search || row.textContent, q));
+
+  rows.forEach(row => {
+    const hit = !!q && rowHits.includes(row);
+    row.classList.toggle('hidden', !!q && !metaHit && !hit);
+    row.classList.toggle('search-match', hit && !row.classList.contains('row-selected'));
+  });
+
+  const summary = card.querySelector('.search-summary');
+  if (summary) {
+    if (q && rowHits.length) {
+      const first = rowHits[0].cells[0]?.textContent.trim() || 'matching product';
+      const reason = dashboardRowMatchReason(rowHits[0], q, context.hasExact);
+      summary.textContent = `${rowHits.length} matching SKU${rowHits.length === 1 ? '' : 's'} · ${first} · ${reason}`;
+      summary.hidden = false;
+    } else {
+      summary.textContent = '';
+      summary.hidden = true;
+    }
+  }
+
+  return { matched: metaHit || rowHits.length > 0, metaHit, rowHits, wrapper };
+}
+
+// ════════════════════════════════════════
 // GPU SEGMENTS
 // ════════════════════════════════════════
 /**
@@ -216,6 +304,9 @@ let activeSegmentTags = new Set();
 let activeBrandTags = new Set();
 let activeGpuSegments = new Set();   // empty = show all
 let filterBarGroups = [];            // group descriptors for the active unified bar
+let dashboardRestoringState = false;
+let dashboardUrlTimer = null;
+const dashboardSelections = new Map();
 
 // ════════════════════════════════════════
 // CACHED DOM REFERENCES (Performance)
@@ -234,11 +325,23 @@ function initDomCache() {
     techTabs: document.getElementById('techTabs'),
     tabIntel: document.getElementById('tabIntel'),
     tabAmd: document.getElementById('tabAmd'),
+    tabNvidia: document.getElementById('tabNvidia'),
     techTabCpu: document.getElementById('techTabCpu'),
     techTabGpu: document.getElementById('techTabGpu'),
     expandAllBtn: document.getElementById('expandAllBtn'),
     collapseAllBtn: document.getElementById('collapseAllBtn'),
-    clearSelectionsBtn: document.getElementById('clearSelectionsBtn')
+    clearSelectionsBtn: document.getElementById('clearSelectionsBtn'),
+    dataSourcesBtn: document.getElementById('dataSourcesBtn'),
+    compareTray: document.getElementById('compareTray'),
+    compareCount: document.getElementById('compareCount'),
+    compareNames: document.getElementById('compareNames'),
+    compareOpenBtn: document.getElementById('compareOpenBtn'),
+    compareClearBtn: document.getElementById('compareClearBtn'),
+    compareDialog: document.getElementById('compareDialog'),
+    compareContent: document.getElementById('compareContent'),
+    sourceDialog: document.getElementById('sourceDialog'),
+    sourceContent: document.getElementById('sourceContent'),
+    dashboardToast: document.getElementById('dashboardToast')
   };
 }
 
@@ -280,8 +383,10 @@ async function switchVendor(vendor) {
   // button classes still carry the active state for the smoke test and a11y.
   dom.tabIntel.className = 'vendor-tab' + (vendor === 'intel' ? ' active-intel' : '');
   dom.tabAmd.className = 'vendor-tab' + (vendor === 'amd' ? ' active-amd' : '');
+  dom.tabNvidia.className = 'vendor-tab' + (vendor === 'nvidia' ? ' active-nvidia' : '');
   dom.tabIntel.setAttribute('aria-selected', vendor === 'intel' ? 'true' : 'false');
   dom.tabAmd.setAttribute('aria-selected', vendor === 'amd' ? 'true' : 'false');
+  dom.tabNvidia.setAttribute('aria-selected', vendor === 'nvidia' ? 'true' : 'false');
   const pill = document.getElementById('vendorPill');
   if (pill) pill.dataset.active = vendor;
 
@@ -335,13 +440,25 @@ async function switchVendor(vendor) {
     dom.techTabs.classList.remove('visible');
   }
 
-  // Both vendors now use a product-first renderer that owns these same DOM
-  // nodes: Intel via js/intel-v2.js, AMD via js/amd-v2.js. Exactly one is
+  // Every vendor uses a product-first renderer that owns these same DOM
+  // nodes. Exactly one is
   // active at a time. The legacy render() path below is retained but unused
   // for normal navigation -- see docs/PROJECT-STATE.md.
-  if (vendor === 'intel') { a2Deactivate(); v2Activate(); return; }
-  v2Deactivate();
-  a2Activate(AMD_CPU_SPECS, cfg.gpuData);
+  if (vendor === 'intel') {
+    a2Deactivate();
+    n2Deactivate();
+    await v2Activate();
+  } else if (vendor === 'amd') {
+    v2Deactivate();
+    n2Deactivate();
+    a2Activate(AMD_CPU_SPECS, cfg.gpuData);
+  } else {
+    v2Deactivate();
+    a2Deactivate();
+    n2Activate(cfg.data);
+  }
+  dashboardRestoreSelectedRows();
+  dashboardStateChanged();
 }
 
 function switchTech(tab) {
@@ -368,6 +485,83 @@ function switchTech(tab) {
     buildCodenameTable();
   }
   render();
+}
+
+// ════════════════════════════════════════
+// SHAREABLE DASHBOARD STATE
+// ════════════════════════════════════════
+
+function dashboardApplyCoreValues(core, values) {
+  if (!core || !values || values.length !== 2) return;
+  const nearest = value => {
+    let best = 0;
+    core.stops.forEach((stop, index) => {
+      if (Math.abs(stop - value) < Math.abs(core.stops[best] - value)) best = index;
+    });
+    return best;
+  };
+  core.lo = nearest(Number(values[0]));
+  core.hi = nearest(Number(values[1]));
+  if (core.lo > core.hi) [core.lo, core.hi] = [core.hi, core.lo];
+}
+
+function dashboardReadUrlState() {
+  const params = new URLSearchParams(window.location.search);
+  const requestedVendor = params.get('vendor');
+  const vendor = ['amd', 'intel', 'nvidia'].includes(requestedVendor) ? requestedVendor : 'amd';
+  const filters = {};
+  ['gen', 'code', 'tier', 'seg'].forEach(key => {
+    const value = params.get(`f_${key}`);
+    if (value) filters[key] = value.split('|').filter(Boolean);
+  });
+  const core = (params.get('cores') || '').split('-').map(Number);
+  return {
+    vendor,
+    tab: params.get('tab') || undefined,
+    search: params.get('q') || '',
+    filters,
+    core: core.length === 2 && core.every(Number.isFinite) ? core : null
+  };
+}
+
+function dashboardCurrentState() {
+  const renderer = currentVendor === 'intel'
+    ? (typeof v2DashboardState === 'function' ? v2DashboardState() : {})
+    : currentVendor === 'nvidia'
+      ? (typeof n2DashboardState === 'function' ? n2DashboardState() : {})
+      : (typeof a2DashboardState === 'function' ? a2DashboardState() : {});
+  return { vendor: currentVendor, ...renderer };
+}
+
+function dashboardWriteUrl() {
+  if (dashboardRestoringState) return;
+  const state = dashboardCurrentState();
+  const params = new URLSearchParams();
+  params.set('vendor', state.vendor);
+  if (state.tab) params.set('tab', state.tab);
+  if (state.search) params.set('q', state.search);
+  Object.entries(state.filters || {}).forEach(([key, values]) => {
+    if (values.length) params.set(`f_${key}`, values.join('|'));
+  });
+  if (state.core) params.set('cores', `${state.core[0]}-${state.core[1]}`);
+  const next = `${window.location.pathname}?${params.toString()}`;
+  window.history.replaceState(null, '', next);
+}
+
+function dashboardStateChanged() {
+  if (dashboardRestoringState) return;
+  clearTimeout(dashboardUrlTimer);
+  dashboardUrlTimer = setTimeout(dashboardWriteUrl, 80);
+}
+
+async function dashboardApplyUrlState(state) {
+  if (state.vendor === 'intel' && typeof v2ApplyDashboardState === 'function') {
+    await v2ApplyDashboardState(state);
+  } else if (state.vendor === 'nvidia' && typeof n2ApplyDashboardState === 'function') {
+    n2ApplyDashboardState(state);
+  } else if (typeof a2ApplyDashboardState === 'function') {
+    a2ApplyDashboardState(state);
+  }
 }
 
 function buildCodenameTable() {
@@ -603,6 +797,7 @@ function render() {
         ${arch.subtitle ? `<div class="arch-subtitle">${arch.subtitle.replace(/ · /g, '<span class="sub-sep">·</span>')}</div>` : ''}
       </div>
       <div class="arch-body">
+        <div class="arch-body-inner">
         <button class="collapse-specs-btn" id="collapse-specs-${arch.id}" onclick="event.stopPropagation(); collapseAllSpecs('${arch.id}')">▴ Collapse</button>
         <div class="skus-grid">
           ${arch.skus.map((sku, i) => {
@@ -666,7 +861,8 @@ function render() {
             <button class="add-link-save" onclick="saveNewLink('${arch.id}')">Add</button>
             <button class="add-link-cancel" onclick="hideAddLinkForm('${arch.id}')">Cancel</button>
           </div>
-        </div>
+        </div>
+        </div>
       </div>`;
     timeline.appendChild(group);
   });
@@ -732,6 +928,7 @@ function renderGpu(timeline, data) {
         ${arch.subtitle ? `<div class="arch-subtitle">${arch.subtitle.replace(/ · /g, '<span class="sub-sep">·</span>')}</div>` : ''}
       </div>
       <div class="arch-body">
+        <div class="arch-body-inner">
         <div class="gpu-family-desc">${specs.desc}</div>
         <div class="gpu-spec-overflow">
           <table class="gpu-spec-table">
@@ -822,7 +1019,8 @@ function renderGpu(timeline, data) {
             <button class="add-link-save" onclick="saveNewLink('${arch.id}')">Add</button>
             <button class="add-link-cancel" onclick="hideAddLinkForm('${arch.id}')">Cancel</button>
           </div>
-        </div>
+        </div>
+        </div>
       </div>`;
     timeline.appendChild(group);
   });
@@ -1065,47 +1263,199 @@ function syncExpanded(el, isOpen) {
   if (el) el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
-// Handle row selection in CPU spec tables
+// ════════════════════════════════════════
+// CROSS-VENDOR PRODUCT COMPARISON
+// ════════════════════════════════════════
+
+function dashboardActiveProductLine() {
+  if (currentVendor === 'intel' && typeof v2Tab !== 'undefined') return v2Tab;
+  if (currentVendor === 'amd' && typeof a2Tab !== 'undefined') return a2Tab;
+  if (currentVendor === 'nvidia' && typeof n2Tab !== 'undefined') return n2Tab;
+  return currentTechTab;
+}
+
+function dashboardRowRecord(row) {
+  const table = row.closest('table');
+  const wrapper = row.closest('.cpu-spec-wrapper');
+  const card = wrapper ? wrapper.previousElementSibling : null;
+  const group = row.closest('.arch-group');
+  const headers = table ? [...table.querySelectorAll('thead th')].map(h => h.textContent.trim()) : [];
+  const values = [...row.cells].map(cell => cell.textContent.trim());
+  const fields = Object.fromEntries(headers.map((header, index) => [header, values[index] || '—']));
+  const model = values[0] || 'Unknown product';
+  const pathNode = wrapper?.querySelector('.identity-path');
+  const sourceNode = wrapper?.querySelector('.source-line');
+  const generation = group?.querySelector('.arch-name')?.textContent.trim() || '';
+  const codename = card?.querySelector('.sku-name')?.textContent.trim() || '';
+  const productLine = dashboardActiveProductLine();
+  const path = pathNode?.textContent.trim() ||
+    `${currentVendor.toUpperCase()} › ${productLine} › ${generation} › ${codename}`;
+  // A product can legitimately appear under more than one marketing series.
+  // Treat it as one comparison selection rather than allowing duplicates.
+  const key = [currentVendor, productLine, model].join('|').toLowerCase();
+  return {
+    key, vendor: currentVendor.toUpperCase(), productLine, model, path,
+    source: sourceNode?.textContent.replace(/^Source:\s*/, '').trim() || 'Vendor specification dataset',
+    fields
+  };
+}
+
+let dashboardCompareDetails = null;
+
+function dashboardCompareKey(value) {
+  return String(value || '')
+    .replace(/\+/g, ' plus ')
+    .replace(/[®™©]/g, '')
+    .replace(/\b(?:intel|amd|nvidia|processor|cpu|graphics)\b/gi, '')
+    .toLowerCase().replace(/[^a-z0-9]+/g, '');
+}
+
+async function dashboardLoadCompareDetails() {
+  if (dashboardCompareDetails) return dashboardCompareDetails;
+  const version = (typeof DATA_VERSION !== 'undefined') ? DATA_VERSION : Date.now();
+  const response = await fetch(`js/data/compare-details.json?v=${version}`);
+  if (!response.ok) throw new Error(`comparison dataset returned ${response.status}`);
+  dashboardCompareDetails = await response.json();
+  return dashboardCompareDetails;
+}
+
+function dashboardImportedRecord(details, record) {
+  return details?.[record.vendor.toLowerCase()]?.[dashboardCompareKey(record.model)] || null;
+}
+
+function dashboardShowToast(message) {
+  if (!dom.dashboardToast) return;
+  dom.dashboardToast.textContent = message;
+  dom.dashboardToast.hidden = false;
+  clearTimeout(dashboardShowToast.timer);
+  dashboardShowToast.timer = setTimeout(() => { dom.dashboardToast.hidden = true; }, 2600);
+}
+
+function dashboardRefreshCompareTray() {
+  const records = [...dashboardSelections.values()];
+  dom.compareTray.hidden = records.length === 0;
+  dom.compareCount.textContent = `${records.length} product${records.length === 1 ? '' : 's'} selected`;
+  dom.compareNames.textContent = records.map(record => record.model).join(' · ');
+  dom.compareOpenBtn.disabled = records.length < 2;
+}
+
+function dashboardRestoreSelectedRows() {
+  document.querySelectorAll('.cpu-spec-table tbody tr[data-search]').forEach(row => {
+    const record = dashboardRowRecord(row);
+    row.classList.toggle('row-selected', dashboardSelections.has(record.key));
+    if (dashboardSelections.has(record.key)) row.classList.remove('search-match');
+  });
+  dashboardRefreshCompareTray();
+}
+
 function setupRowSelectionHandlers() {
-  // Use event delegation on document for dynamically added tables
-  document.addEventListener('click', (e) => {
-    const row = e.target.closest('.cpu-spec-table tbody tr');
-
-    // If click is outside table AND on safe areas (timeline/container), clear selections
-    if (!row && !e.target.closest('.cpu-spec-table')) {
-      // Only clear if clicking on container or timeline (not buttons/controls)
-      const clickedOnSafeArea = e.target.matches('.container, .timeline, .arch-group, .bg-grid') ||
-                                 e.target.closest('.timeline, .arch-group');
-      if (clickedOnSafeArea) {
-        clearAllSelections();
-      }
-      return;
-    }
-
+  document.addEventListener('click', event => {
+    const row = event.target.closest('.cpu-spec-table tbody tr[data-search]');
     if (!row) return;
-
-    // Toggle selection on click
-    if (e.shiftKey) {
-      // Shift+click: add to selection without deselecting others
-      row.classList.add('row-selected');
-      row.classList.remove('search-match'); // Remove yellow if present
+    const record = dashboardRowRecord(row);
+    if (dashboardSelections.has(record.key)) {
+      dashboardSelections.delete(record.key);
+      row.classList.remove('row-selected');
     } else {
-      // Normal click: toggle this row
-      if (row.classList.contains('row-selected')) {
-        row.classList.remove('row-selected');
-      } else {
-        row.classList.add('row-selected');
-        row.classList.remove('search-match'); // Remove yellow if present
+      if (dashboardSelections.size >= 4) {
+        dashboardShowToast('You can compare up to four products at a time.');
+        return;
       }
+      dashboardSelections.set(record.key, record);
+      row.classList.add('row-selected');
+      row.classList.remove('search-match');
     }
+    dashboardRefreshCompareTray();
   });
 }
 
-// Clear all row selections
 function clearAllSelections() {
-  document.querySelectorAll('.cpu-spec-table tbody tr.row-selected').forEach(row => {
-    row.classList.remove('row-selected');
-  });
+  dashboardSelections.clear();
+  document.querySelectorAll('.cpu-spec-table tbody tr.row-selected').forEach(row =>
+    row.classList.remove('row-selected'));
+  dashboardRefreshCompareTray();
+}
+
+function dashboardPaintComparison(records, details = null) {
+  const comparisonFields = new Map(records.map(record => {
+    const imported = dashboardImportedRecord(details, record);
+    return [record.key, imported?.fields || record.fields];
+  }));
+  const labels = [];
+  records.forEach(record => Object.keys(comparisonFields.get(record.key)).forEach(label => {
+    if (!labels.includes(label) && label.toLowerCase() !== 'model') labels.push(label);
+  }));
+  const head = records.map(record => `<th><strong>${escHtml(record.model)}</strong>` +
+    `<span>${escHtml(record.path)}</span></th>`).join('');
+  const rows = labels.map(label => {
+    const values = records.map(record => comparisonFields.get(record.key)[label] || '—');
+    const real = new Set(values.filter(value => value !== '—'));
+    const different = real.size > 1;
+    return `<tr><th>${escHtml(label)}</th>${values.map(value =>
+      `<td class="${different ? 'compare-different' : ''}">${escHtml(value)}</td>`).join('')}</tr>`;
+  }).join('');
+  const sources = records.map(record => {
+    const imported = dashboardImportedRecord(details, record);
+    const source = imported?.sources?.join(', ') || record.source;
+    return `<li><strong>${escHtml(record.model)}</strong> — ${escHtml(source)}</li>`;
+  }).join('');
+  dom.compareContent.innerHTML = `
+    <table class="compare-table"><thead><tr><th>Specification</th>${head}</tr></thead>
+      <tbody>${rows}</tbody></table>
+    <div class="compare-sources"><strong>Sources</strong><ul>${sources}</ul></div>`;
+}
+
+function dashboardRenderComparison() {
+  const records = [...dashboardSelections.values()];
+  if (records.length < 2) return;
+
+  // Open immediately with the fields already present in the visible tables.
+  // The larger source dataset then upgrades the same comparison in place.
+  dashboardPaintComparison(records, dashboardCompareDetails);
+  dom.compareDialog.showModal();
+
+  if (!dashboardCompareDetails) {
+    dashboardLoadCompareDetails()
+      .then(details => {
+        if (dom.compareDialog.open) dashboardPaintComparison(records, details);
+      })
+      .catch(error => console.warn('could not load full comparison details:', error));
+  }
+}
+
+const DASHBOARD_SOURCE_INFO = {
+  amd: {
+    epyc: ['AMD EPYC', 'AMD official Product Specifications CSV', 'Official vendor data', 'Unknown values are left blank rather than inferred.'],
+    ryzen: ['AMD Ryzen', 'AMD official Product Specifications CSV', 'Official vendor data', 'Product series and codename presentation are layered over the official SKU records.'],
+    gpu: ['AMD GPU', 'AMD official accelerator, professional, desktop, and laptop graphics CSVs', 'Official vendor data', 'GPU fields are joined directly from AMD’s original exports.']
+  },
+  intel: {
+    xeon: ['Intel Xeon', 'Intel ARK specification export', 'Official vendor data', 'Imported and normalized without inventing missing values.'],
+    client: ['Intel Client', 'Intel ARK specification export', 'Official vendor data', 'Product Collection supplies generation identity; codename remains a separate field.'],
+    graphics: ['Intel Graphics', 'Intel ARK specification export', 'Official vendor data', 'Consumer, workstation, and data-center layouts retain their own field sets.']
+  },
+  nvidia: {
+    datacenter: ['NVIDIA Data Center GPUs', 'NVIDIA official product pages, architecture guides, and datasheets', 'Audited official vendor data', 'Every displayed part was reconciled against an independent specification database; official NVIDIA values remain authoritative.'],
+    geforce: ['NVIDIA GeForce', 'NVIDIA official GeForce comparison tables', 'Audited official vendor data', 'Combined NVIDIA memory variants are separated into distinct dashboard rows.'],
+    cpu: ['NVIDIA CPU + Superchips', 'NVIDIA official platform guides and product pages', 'Audited official vendor data', 'Known NVIDIA documentation conflicts are retained in notes and never silently resolved.']
+  }
+};
+
+function dashboardShowSources() {
+  const tab = dashboardActiveProductLine();
+  const info = DASHBOARD_SOURCE_INFO[currentVendor]?.[tab] ||
+    ['Current dataset', 'Vendor specification export', 'Vendor data', 'Unknown values are left blank.'];
+  dom.sourceContent.innerHTML = `
+    <div class="source-card">
+      <div class="source-product">${escHtml(info[0])}</div>
+      <dl>
+        <div><dt>Primary source</dt><dd>${escHtml(info[1])}</dd></div>
+        <div><dt>Confidence</dt><dd><span class="confidence-high">${escHtml(info[2])}</span></dd></div>
+        <div><dt>Handling</dt><dd>${escHtml(info[3])}</dd></div>
+      </dl>
+      <p>The source line is also shown above every expanded specification table.</p>
+    </div>`;
+  dom.sourceDialog.showModal();
 }
 
 // ════════════════════════════════════════
@@ -1534,7 +1884,7 @@ function coreRangeWire(id, st, onChange) {
  * says AMD or Intel -- repeating it wasted the widest line on the page.
  */
 function stripVendor(t) {
-  return String(t || '').replace(/^(AMD|Intel)\s+/, '');
+  return String(t || '').replace(/^(AMD|Intel|NVIDIA)\s+/, '');
 }
 
 // Init DOM cache and event listeners
@@ -1554,6 +1904,16 @@ initDomCache();
 setupRowSelectionHandlers();
 setupKeyboardHandlers();
 
+dom.dataSourcesBtn.addEventListener('click', dashboardShowSources);
+dom.compareOpenBtn.addEventListener('click', dashboardRenderComparison);
+dom.compareClearBtn.addEventListener('click', clearAllSelections);
+document.querySelectorAll('[data-close-dialog]').forEach(button =>
+  button.addEventListener('click', () => document.getElementById(button.dataset.closeDialog)?.close()));
+document.querySelectorAll('.dashboard-dialog').forEach(dialog =>
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  }));
+
 // Search (with debouncing for performance)
 const debouncedFilter = debounce(applyFilters, 300);
 dom.searchInput.addEventListener('input', () => {
@@ -1562,6 +1922,7 @@ dom.searchInput.addEventListener('input', () => {
   // Intel runs its own filter path; both renderers share this input.
   if (typeof v2IsActive === 'function' && v2IsActive()) { v2SetSearch(dom.searchInput.value); return; }
   if (typeof a2IsActive === 'function' && a2IsActive()) { a2SetSearch(dom.searchInput.value); return; }
+  if (typeof n2IsActive === 'function' && n2IsActive()) { n2SetSearch(dom.searchInput.value); return; }
   debouncedFilter();
 });
 
@@ -1571,6 +1932,7 @@ dom.searchClear.addEventListener('click', () => {
   dom.searchClear.classList.remove('visible');
   if (typeof v2IsActive === 'function' && v2IsActive()) { v2SetSearch(''); return; }
   if (typeof a2IsActive === 'function' && a2IsActive()) { a2SetSearch(''); return; }
+  if (typeof n2IsActive === 'function' && n2IsActive()) { n2SetSearch(''); return; }
   applyFilters();
 });
 
@@ -1578,6 +1940,7 @@ dom.searchClear.addEventListener('click', () => {
 dom.expandAllBtn.addEventListener('click', () => {
   if (typeof v2IsActive === 'function' && v2IsActive()) { v2ExpandAll(true); return; }
   if (typeof a2IsActive === 'function' && a2IsActive()) { a2ExpandAll(true); return; }
+  if (typeof n2IsActive === 'function' && n2IsActive()) { n2ExpandAll(true); return; }
   const cfg = VENDOR_CONFIG[currentVendor];
   const data = (currentTechTab === 'gpu' && cfg.gpuData) ? cfg.gpuData : cfg.data;
   data.forEach(a => { if (a.id) expandedGroups.add(a.id); }); render();
@@ -1585,12 +1948,22 @@ dom.expandAllBtn.addEventListener('click', () => {
 dom.collapseAllBtn.addEventListener('click', () => {
   if (typeof v2IsActive === 'function' && v2IsActive()) { v2ExpandAll(false); return; }
   if (typeof a2IsActive === 'function' && a2IsActive()) { a2ExpandAll(false); return; }
+  if (typeof n2IsActive === 'function' && n2IsActive()) { n2ExpandAll(false); return; }
   expandedGroups.clear(); render();
 });
 dom.clearSelectionsBtn.addEventListener('click', clearAllSelections);
 
-// Init - Load AMD data on startup
-switchVendor('amd').catch(error => {
-  console.error('Failed to initialize:', error);
-  dom.timeline.innerHTML = '<div class="error">Failed to load data. Please refresh the page.</div>';
-});
+// Init — restore a shared URL directly into the correct vendor/product line.
+const dashboardInitialState = dashboardReadUrlState();
+dashboardRestoringState = true;
+switchVendor(dashboardInitialState.vendor)
+  .then(() => dashboardApplyUrlState(dashboardInitialState))
+  .then(() => {
+    dashboardRestoringState = false;
+    dashboardWriteUrl();
+  })
+  .catch(error => {
+    dashboardRestoringState = false;
+    console.error('Failed to initialize:', error);
+    dom.timeline.innerHTML = '<div class="error">Failed to load data. Please refresh the page.</div>';
+  });

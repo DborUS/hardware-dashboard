@@ -93,13 +93,13 @@ RYZEN_SERIES = [
      'Strix Point · Strix Halo · Kraken Point · Zen 5 + XDNA 2', [
          ('Strix Halo', 'Ryzen AI Max', 'Mobile'),
          ('Strix Point', 'Ryzen AI', 'Mobile'),
-         ('Kraken Point', 'Ryzen AI', 'Mobile')]),
+         ('Krackan Point', 'Ryzen AI', 'Mobile')]),
     ('tr9000', 'Ryzen Threadripper 9000 Series', '2025', '#f59e0b',
      'Shimada Peak · Zen 5 · sTR5', [
          ('Shimada Peak', 'Threadripper', 'Workstation')]),
     ('r9000', 'Ryzen 9000 Series', '2024 – 2025', '#f97316',
      'Granite Ridge · Fire Range · Zen 5 · AM5 / FL1', [
-         ('Granite Ridge', 'Ryzen', 'Desktop'),
+         ('Granite Ridge AM5', 'Ryzen', 'Desktop'),
          ('Fire Range', 'Ryzen', 'Mobile')]),
     ('tr7000', 'Ryzen Threadripper 7000 Series', '2023', '#fbbf24',
      'Storm Peak · Zen 4 · sTR5', [
@@ -111,20 +111,21 @@ RYZEN_SERIES = [
          ('Dragon Range', 'Ryzen', 'Mobile')]),
     ('r7000', 'Ryzen 7000 Series', '2022 – 2023', '#a3e635',
      'Raphael · Dragon Range · Phoenix · Rembrandt-R · Barceló-R · Zen 4 / Zen 3+', [
-         ('Raphael', 'Ryzen', 'Desktop'),
-         ('Rembrandt-R', 'Ryzen', 'Mobile'),
-         ('Barceló-R', 'Ryzen', 'Mobile')]),
+         ('Raphael AM5', 'Ryzen', 'Desktop'),
+         ('Rembrandt R', 'Ryzen', 'Mobile'),
+         ('Barcelo R', 'Ryzen', 'Mobile'),
+         ('Mendocino', 'Ryzen', 'Mobile')]),
     ('r6000', 'Ryzen 6000 Series', '2022', '#84cc16',
      'Rembrandt · Zen 3+ · RDNA 2 iGPU · FP7', [
          ('Rembrandt', 'Ryzen', 'Mobile')]),
     ('tr5000', 'Ryzen Threadripper 5000 Series', '2022', '#22c55e',
      'Chagall · Zen 3 · sWRX8', [
-         ('Chagall', 'Threadripper', 'Workstation')]),
+         ('Chagall PRO', 'Threadripper', 'Workstation')]),
     ('r5000', 'Ryzen 5000 Series', '2020 – 2022', '#14b8a6',
      'Vermeer · Cezanne · Barceló · Lucienne · Zen 3 · AM4', [
          ('Vermeer', 'Ryzen', 'Desktop'),
          ('Cezanne', 'Ryzen', 'Desktop'),
-         ('Barceló', 'Ryzen', 'Mobile'),
+         ('Barcelo', 'Ryzen', 'Mobile'),
          ('Lucienne', 'Ryzen', 'Mobile')]),
     ('tr3000', 'Ryzen Threadripper 3000 Series', '2019 – 2020', '#06b6d4',
      'Castle Peak · Zen 2 · sTRX4 / sWRX8', [
@@ -136,7 +137,7 @@ RYZEN_SERIES = [
      'Matisse · Picasso · Dalí · Zen 2 / Zen+ · AM4', [
          ('Matisse', 'Ryzen', 'Desktop'),
          ('Picasso', 'Ryzen', 'Desktop'),
-         ('Dalí', 'Ryzen', 'Mobile')]),
+         ('Dali', 'Ryzen', 'Mobile')]),
     ('tr2000', 'Ryzen Threadripper 2000 Series', '2018', '#818cf8',
      'Colfax · Zen+ · TR4', [
          ('Colfax', 'Threadripper', 'Workstation')]),
@@ -155,17 +156,18 @@ RYZEN_SERIES = [
          ('Z2', 'Z-Series', 'Handheld'),
          ('Z1', 'Z-Series', 'Handheld')]),
     ('r200', 'Ryzen 200 / 100 Series', '2024 – 2025', '#94a3b8',
-     'Hawk Point Refresh · Mendocino · entry mobile', [
-         ('Hawk Point Refresh', 'Ryzen', 'Mobile'),
-         ('Mendocino', 'Ryzen', 'Mobile')]),
+     'Hawk Point Refresh · entry mobile', [
+         ('Hawk Point', 'Ryzen', 'Mobile')]),
 ]
 
 # ── GPU: derived straight from amd-gpu-data.json ─────────────────────────
-INSTINCT_ORDER = ['MI300 Series (CDNA 4)', 'MI300 Series (CDNA 3)',
+INSTINCT_ORDER = ['Instinct MI400 Series (CDNA 5)',
+                  'MI300 Series (CDNA 4)', 'MI300 Series (CDNA 3)',
                   'MI200 Series (CDNA 2)', 'MI100 (CDNA)',
                   'MI50/MI60 (Vega 7nm)', 'MI25 (Vega 14nm)',
-                  'MI8/MI6 (Fiji/Polaris)']
+                  'MI8/MI6 (Fiji/Polaris)', 'FirePro S Series (GCN)']
 INSTINCT_LABEL = {
+    'Instinct MI400 Series (CDNA 5)': ('Instinct MI400 Series', 'MI455X · CDNA 5 · HBM4'),
     'MI300 Series (CDNA 4)':   ('Instinct MI350 Series', 'MI355X · MI350X · CDNA 4 · HBM3E'),
     'MI300 Series (CDNA 3)':   ('Instinct MI300 Series', 'MI325X · MI300X · MI300A · CDNA 3'),
     'MI200 Series (CDNA 2)':   ('Instinct MI200 Series', 'MI250X · MI250 · MI210 · CDNA 2'),
@@ -173,6 +175,7 @@ INSTINCT_LABEL = {
     'MI50/MI60 (Vega 7nm)':    ('Instinct MI50 / MI60',  'Vega 7 nm'),
     'MI25 (Vega 14nm)':        ('Instinct MI25',         'Vega 14 nm'),
     'MI8/MI6 (Fiji/Polaris)':  ('Instinct MI8 / MI6',    'Fiji · Polaris'),
+    'FirePro S Series (GCN)':  ('FirePro S Series',      'Legacy GCN server and compute graphics'),
 }
 
 gpu_fams = {e['arch']: e for e in gpu if 'era' not in e}
@@ -203,7 +206,8 @@ for name in INSTINCT_ORDER:
     gpu_blocks.append(dict(
         id='gpu-' + re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-'),
         name=label, years=e['year'], color=e['color'], note=note,
-        families=[(name, 'Instinct', 'Data Center')],
+        families=[(name, 'FirePro' if name.startswith('FirePro') else 'Instinct',
+                   'Data Center')],
         # Card label: the models themselves, not a restatement of the header.
         card=' · '.join(m['name'] for m in e['gpuSpecs']['models'][:4])))
 
@@ -281,6 +285,39 @@ const A2_FIELDS = {
 };
 """)
 
+# ── derived blocks ───────────────────────────────────────────────────────
+# Codenames not covered by the hand-written series lists above are grouped by
+# AMD's own `family` / `series` values, computed by tools/derive-blocks.py from
+# docs/specs/amd-master.csv. Nothing here is typed from knowledge — see
+# CLAUDE.md 7b. Re-run derive-blocks.py after adding parts to the master CSV.
+_derived_path = REPO + 'tools/derived-blocks.json'
+_DERIVED_RYZEN_FAMILY = {}
+if os.path.exists(_derived_path):
+    _derived = json.load(open(_derived_path, encoding='utf-8'))
+    # Derived blocks use the same warm AMD family as curated blocks. Identity
+    # comes from the label, not from cycling through unrelated rainbow hues.
+    _PALETTE = ['#e7654f']
+    for _i, _b in enumerate(_derived):
+        _cds = [c for c in _b['codenames'] if c in specs]
+        if not _cds:
+            continue
+        if _b['subtab'] == 'epyc':
+            _cdl = _cds                      # EPYC blocks take bare codenames
+        else:
+            # Ryzen blocks take (codename, tier, seg) triples. Both are read from
+            # the master CSV via derive-blocks.py, never assumed.
+            _SEGMAP = {'datacenter': 'Workstation', 'workstation': 'Workstation',
+                       'desktop': 'Desktop', 'mobile': 'Mobile',
+                       'handheld': 'Handheld', 'embedded': 'Mobile'}
+            _cdl = [(c, _b['tier_of'].get(c, _b['family']),
+                     _SEGMAP.get(_b['seg_of'].get(c, _b['segment']), 'Desktop'))
+                    for c in _cds]
+            _DERIVED_RYZEN_FAMILY[_b['id']] = _b['family']
+        _entry = (_b['id'], _b['label'], _b['years'] or '', _PALETTE[_i % len(_PALETTE)],
+                  '%s — %d models' % (_b['label'], _b['models']), _cdl)
+        (EPYC_SERIES if _b['subtab'] == 'epyc' else RYZEN_SERIES).append(_entry)
+    print('derived blocks added: %d' % len(_derived))
+
 # ── build A2_DATA ────────────────────────────────────────────────────────
 w('\nconst A2_DATA = {\n')
 
@@ -305,16 +342,66 @@ w("""      ]},
     ],
     gens: [
 """)
-def core_span(cd):
+def models_for(cd, series=None):
+    """Rows for a codename, optionally limited to exact AMD product series."""
+    rows = specs.get(cd, [])
+    if not series:
+        return rows
+    allowed = set(series)
+    return [m for m in rows if m.get('_series') in allowed]
+
+
+def core_span(cd, series=None):
     """(min, max) total cores across a codename's models, read from the data.
 
     A codename spans a RANGE -- Turin ships 8C through 128C -- so the range
     filter tests span-intersection rather than a single value. Returns
     (None, None) when nothing parseable is present; never guessed.
     """
-    counts = [int(m['c']) for m in specs.get(cd, [])
+    counts = [int(m['c']) for m in models_for(cd, series)
               if str(m.get('c', '')).isdigit()]
     return (min(counts), max(counts)) if counts else (None, None)
+
+
+def ryzen_series_for(rid, cd):
+    """Exact source-series rows that belong in one Ryzen dashboard block.
+
+    A codename is not a product-series identity. Phoenix, for example, ships
+    in both Ryzen 7000 and Ryzen 8000. Filtering by this list prevents the full
+    Phoenix bucket from being copied into both blocks.
+    """
+    available = sorted({m.get('_series', '') for m in specs.get(cd, [])
+                        if m.get('_series')})
+
+    if rid in _DERIVED_RYZEN_FAMILY:
+        family = _DERIVED_RYZEN_FAMILY[rid]
+        wanted = sorted({m.get('_series', '') for m in specs.get(cd, [])
+                         if m.get('_family') == family and m.get('_series')})
+    elif rid == 'rai400':
+        wanted = [s for s in available if s.startswith('Ryzen') and
+                  '400 Series' in s and 'Embedded' not in s]
+    elif rid == 'rai300':
+        wanted = [s for s in available if s.startswith('Ryzen AI') and
+                  '300 Series' in s and 'Embedded' not in s]
+    elif rid == 'rzseries':
+        wanted = [s for s in available if s.startswith('Ryzen Z')]
+    elif rid == 'r200':
+        wanted = [s for s in available if re.match(r'^Ryzen(?: PRO)? (?:100|200) Series$', s)]
+    elif rid.startswith('tr') and rid[2:].isdigit():
+        number = rid[2:]
+        wanted = [s for s in available if 'Threadripper' in s and
+                  re.search(r'\b%s\b' % number, s)]
+    elif rid.startswith('r') and rid[1:].isdigit():
+        number = rid[1:]
+        wanted = [s for s in available if
+                  re.match(r'^Ryzen(?: PRO)? %s Series$' % number, s)]
+    else:
+        wanted = []
+
+    if not wanted:
+        raise SystemExit('no source series selected for %s / %s (available: %s)'
+                         % (rid, cd, available))
+    return wanted
 
 
 def socket_of(cd):
@@ -336,6 +423,12 @@ def socket_of(cd):
     for tok in ('SP7', 'SP8', 'SP6', 'SP5', 'SP3'):
         if tok in sub:
             return tok
+    # Embedded parts are soldered SoCs: AMD publishes no socket for any of the
+    # 195 embedded SKUs. That is a fact in the data, not a lookup failure, so
+    # label it explicitly rather than guessing a socket or aborting the build.
+    if all((m.get('_emb') or '') == '1' or not (m.get('sk') or '').strip()
+           for m in specs.get(cd, [])) and specs.get(cd):
+        return 'BGA'
     raise SystemExit('no socket found for %s -- refusing to guess' % cd)
 
 
@@ -366,6 +459,7 @@ w("""
     title: 'AMD Ryzen',
     blurb: 'Desktop · mobile · workstation · handheld',
     brandGroups: true,
+    codenameFilter: true,
     filters: [
       { label: 'Series', key: 'gen', tags: [
 """)
@@ -390,12 +484,14 @@ for rid, label, yr, col, note, cds in RYZEN_SERIES:
     w("      { id: '%s', name: %s, years: '%s', color: '%s',\n" % (rid, js(label), yr, col))
     w("        note: %s, families: [\n" % js(note))
     for cd, tier, seg in cds:
-        n = len(specs.get(cd, []))
+        source_series = ryzen_series_for(rid, cd)
+        n = len(models_for(cd, source_series))
         desc = '%s — %d models' % (arch_of.get(cd, ''), n)
-        cmin, cmax = core_span(cd)
-        w("        { name: %s, desc: %s, tier: '%s', seg: '%s', si: %s, n: %d, "
+        cmin, cmax = core_span(cd, source_series)
+        w("        { name: %s, key: %s, series: %s, desc: %s, tier: '%s', seg: '%s', si: %s, n: %d, "
           "cmin: %s, cmax: %s },\n"
-          % (js(cd), js(desc), tier, seg, js(arch_of.get(cd, '')), n,
+          % (js(cd), js(cd), js(source_series), js(desc), tier, seg,
+             js(arch_of.get(cd, '')), n,
              'null' if cmin is None else cmin, 'null' if cmax is None else cmax))
     w("      ]},\n")
 w("    ]\n  },\n")
@@ -413,7 +509,8 @@ w("""
     brandGroups: true,
     filters: [
       { label: 'Brand', key: 'tier', tags: [
-        ['Instinct', '#ef4444'], ['Radeon PRO', '#818cf8'], ['Radeon', '#10b981']
+        ['Instinct', '#ef4444'], ['FirePro', '#64748b'],
+        ['Radeon PRO', '#818cf8'], ['Radeon', '#10b981']
       ]},
       { label: 'Segment', key: 'seg', tags: [
         ['Data Center', '#ef4444'], ['Workstation', '#818cf8'],
@@ -451,6 +548,24 @@ for b in gpu_blocks:
              js(e['gpuSpecs'].get('family', '')), n))
     w("      ]},\n")
 w("    ]\n  }\n};\n")
+w("""
+
+// AMD corporate deck palette: red and orange for brand energy, gold for
+// hierarchy, cyan for technical contrast, plus readable tints of each.
+const A2_ACCENTS = { epyc: '#ED1C24', ryzen: '#ED1C24', gpu: '#ED1C24' };
+const A2_TONES = ['#ED1C24', '#F26522', '#C1A968', '#00C2DE',
+                  '#FF4B52', '#FF8A4C', '#D8C887', '#58D6E8',
+                  '#C94A50', '#E58B52', '#AE9860', '#44AABD'];
+Object.entries(A2_DATA).forEach(([tab, data]) => {
+  const accent = A2_ACCENTS[tab];
+  data.filters.forEach(group => group.tags.forEach((tag, index) => {
+    tag[1] = group.key === 'gen' ? A2_TONES[index % A2_TONES.length] : accent;
+  }));
+  data.gens.filter(group => group.id).forEach((group, index) => {
+    group.color = A2_TONES[index % A2_TONES.length];
+  });
+});
+""")
 
 # The renderer half lives beside this script and is appended verbatim, so one
 # command produces the complete js/amd-v2.js.
@@ -463,12 +578,14 @@ print('wrote js/amd-v2.js (%d chars)' % len(txt))
 
 tot_epyc = sum(len(specs.get(c, [])) for _, _, _, _, _, cs in EPYC_SERIES for c in cs)
 ry = set()
-for _, _, _, _, _, cds in RYZEN_SERIES:
+ry_models = 0
+for rid, _, _, _, _, cds in RYZEN_SERIES:
     for cd, _, _ in cds:
         ry.add(cd)
+        ry_models += len(models_for(cd, ryzen_series_for(rid, cd)))
 print('EPYC blocks %d, models %d' % (len(EPYC_SERIES), tot_epyc))
 print('Ryzen blocks %d, distinct codenames %d, models %d'
-      % (len(RYZEN_SERIES), len(ry), sum(len(specs.get(c, [])) for c in ry)))
+      % (len(RYZEN_SERIES), len(ry), ry_models))
 print('GPU blocks %d, families %d, models %d'
       % (len(gpu_blocks), len(gpu_fams),
          sum(len(e['gpuSpecs']['models']) for e in gpu_fams.values())))

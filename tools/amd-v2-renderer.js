@@ -18,16 +18,21 @@ const a2Slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g
 /**
  * Spec rows for one card.
  *
- * CPU tabs read amd-cpu-specs.json keyed by codename; the GPU tab reads the
- * models array out of amd-gpu-data.json. Both are already loaded by
- * script.js — this reuses them rather than re-fetching.
+ * CPU tabs read amd-cpu-specs.json keyed by codename; Ryzen cards then limit
+ * that codename to the source product series assigned by the generator. The
+ * GPU tab reads the models array out of amd-gpu-data.json. Both files are
+ * already loaded by script.js — this reuses them rather than re-fetching.
  */
-function a2Models(name) {
+function a2Models(family) {
+  const name = a2Key(family);
   if (a2Tab === 'gpu') {
     const fam = (a2Specs.gpu || []).find(e => e.arch === name);
     return (fam && fam.gpuSpecs && fam.gpuSpecs.models) || [];
   }
-  return (a2Specs.cpu && a2Specs.cpu[name]) || [];
+  const models = (a2Specs.cpu && a2Specs.cpu[name]) || [];
+  if (!family.series || !family.series.length) return models;
+  const allowed = new Set(family.series);
+  return models.filter(m => allowed.has(m._series));
 }
 
 /**
@@ -49,20 +54,38 @@ function a2Tiers(f) {
   return Array.isArray(f.tier) ? f.tier : (f.tier ? [f.tier] : []);
 }
 
-function a2Count(name) {
-  const n = a2Models(name).length;
+function a2Count(family) {
+  const n = a2Models(family).length;
   return n ? `${n} model${n === 1 ? '' : 's'}` : 'awaiting data';
 }
 
-function a2Rows(name, colspan) {
-  const models = a2Models(name);
+function a2Rows(family, colspan) {
+  const models = a2Models(family);
   const fields = A2_FIELDS[a2Tab];
   if (!models.length || !fields) {
     return `<tr class="v2-empty-row"><td colspan="${colspan}">No spec data yet</td></tr>`;
   }
-  return models.map(m => '<tr>' + fields.map((f, i) =>
+  return models.map(m => `<tr data-search="${escHtml(Object.values(m).filter(v => v != null).join(' ').toLowerCase())}">` + fields.map((f, i) =>
     `<td class="${i === 0 ? 'cpu-model-name' : ''}">${escHtml(m[f] ?? '—')}</td>`
   ).join('') + '</tr>').join('');
+}
+
+/** Add one deduplicated codename filter for tabs that opt into it. */
+function a2FilterGroups(cfg) {
+  const groups = [...cfg.filters];
+  if (!cfg.codenameFilter) return groups;
+
+  const seen = new Set();
+  const tags = [];
+  cfg.gens.filter(g => !g.era).forEach(g => g.families.forEach(f => {
+    if (!seen.has(f.name)) {
+      seen.add(f.name);
+      tags.push([f.name, g.color]);
+    }
+  }));
+  tags.sort((a, b) => a[0].localeCompare(b[0]));
+  groups.splice(1, 0, { label: 'Codename', key: 'code', tags });
+  return groups;
 }
 
 /**
@@ -76,6 +99,7 @@ function a2Rows(name, colspan) {
  */
 function a2BuildFilters() {
   const cfg = A2_DATA[a2Tab];
+  const filterGroups = a2FilterGroups(cfg);
   const bar = dom.filterControls;
 
   // Keep `controls` -- the responsive collapse rules target it. Assigning
@@ -83,7 +107,7 @@ function a2BuildFilters() {
   bar.className = 'controls filter-bar';
   // Core count leads: it is the filter most used in practice, so it gets
   // the top of the rail ahead of the generation/series chips.
-  bar.innerHTML = coreRangeHtml('a2core', a2Core) + cfg.filters.map(g => {
+  bar.innerHTML = coreRangeHtml('a2core', a2Core) + filterGroups.map(g => {
     a2Active[g.key] = a2Active[g.key] || new Set();
     const chips = g.tags.map(([tag, color]) => `
       <button class="fchip" data-key="${g.key}" data-tag="${escHtml(tag)}"
@@ -126,7 +150,7 @@ function a2BuildCoreRange() {
   if (a2Tab === 'gpu' || !a2Specs.cpu) { a2Core = null; return; }
   const models = [];
   A2_DATA[a2Tab].gens.forEach(g => (g.families || []).forEach(f =>
-    models.push(...a2Models(a2Key(f)))));
+    models.push(...a2Models(f))));
   const stops = coreStops(models);
   a2Core = stops.length >= 2 ? coreRangeInit(stops) : null;
 }
@@ -142,6 +166,7 @@ function a2BuildCoreRange() {
  */
 function a2CountFor(key, tag) {
   const gens  = key === 'gen'  ? new Set([tag]) : (a2Active.gen  || new Set());
+  const codes = key === 'code' ? new Set([tag]) : (a2Active.code || new Set());
   const tiers = key === 'tier' ? new Set([tag]) : (a2Active.tier || new Set());
   const segs  = key === 'seg'  ? new Set([tag]) : (a2Active.seg  || new Set());
   const q = a2Search.trim().toLowerCase();
@@ -150,6 +175,7 @@ function a2CountFor(key, tag) {
     if (gens.size && !gens.has(group.dataset.gen)) return;
     const hit = [...group.querySelectorAll('.sku-card')].some(card =>
       a2CoreOk(card) &&
+      (!codes.size || codes.has(card.dataset.code)) &&
       (!tiers.size || a2CardTiers(card).some(t => tiers.has(t))) &&
       (!segs.size  || segs.has(card.dataset.seg))  &&
       (!q || card.dataset.search.includes(q) || group.dataset.search.includes(q)
@@ -172,12 +198,13 @@ function a2Era(e) {
 function a2Gen(g, cfg) {
   const tiers = [...new Set(g.families.flatMap(a2Tiers))];
   const segs  = [...new Set(g.families.map(f => f.seg).filter(Boolean))];
+  const codes = [...new Set(g.families.map(f => f.name).filter(Boolean))];
   const hay   = [g.name, g.note, ...g.families.flatMap(
                     f => [f.name, f.key || '', f.desc, f.si || ''])]
                   .join(' ').toLowerCase();
 
   // Brand-line display order. Datacenter-leaning tiers lead, per golden rule #2.
-  const order = ['Instinct', 'Radeon PRO', 'Radeon',
+  const order = ['Instinct', 'FirePro', 'Radeon PRO', 'Radeon',
                  'Performance', 'Density', 'Edge',
                  'Threadripper', 'Ryzen AI Max', 'Ryzen AI', 'Ryzen', 'Z-Series'];
   const groupBy = cfg.brandGroups
@@ -195,7 +222,7 @@ function a2Gen(g, cfg) {
       }).join('')
     : g.families.map((f, i) => a2Card(f, g, i, cfg)).join('');
 
-  const total = g.families.reduce((s, f) => s + (a2Models(a2Key(f)).length || f.n), 0);
+  const total = g.families.reduce((s, f) => s + (a2Models(f).length || f.n), 0);
   const mix = groupBy.length > 1
     ? groupBy.map(t => `${g.families.filter(f => a2Tiers(f).includes(t)).length} ${t}`).join(' · ')
     : `${g.families.length} codename${g.families.length === 1 ? '' : 's'}`;
@@ -203,7 +230,8 @@ function a2Gen(g, cfg) {
   return `
   <div class="arch-group" id="a2-${g.id}" style="--arch-color:${g.color}"
        data-gen="${escHtml(g.name)}" data-tiers="${escHtml(tiers.join('|'))}"
-       data-segs="${escHtml(segs.join('|'))}" data-search="${escHtml(hay)}">
+       data-segs="${escHtml(segs.join('|'))}" data-codes="${escHtml(codes.join('|'))}"
+       data-search="${escHtml(hay)}">
     <div class="arch-header${g.unreleased ? ' unreleased-arch' : ''}" data-gen="${g.id}"
          role="button" tabindex="0" aria-expanded="false">
       <div class="timeline-dot"></div>
@@ -225,28 +253,35 @@ function a2Card(f, g, i, cfg) {
   const cols = A2_COLUMNS[a2Tab];
   const tags = [...a2Tiers(f), f.seg].filter(Boolean).map(t =>
     `<span class="sku-tag">${escHtml(t)}</span>`).join('');
+  const metaSearch = (f.name + ' ' + (f.key || '') + ' ' + f.desc + ' ' + (f.si || '')).toLowerCase();
 
   return `
     <div class="sku-card has-specs" style="--card-order:${i * 4}"
          data-target="${id}" data-tier="${escHtml(a2Tiers(f).join('|'))}" data-seg="${escHtml(f.seg)}"
+         data-code="${escHtml(f.name)}"
          data-cmin="${f.cmin ?? ''}" data-cmax="${f.cmax ?? ''}"
-         data-search="${escHtml((f.name + ' ' + (f.key || '') + ' ' + f.desc + ' ' + (f.si || '')).toLowerCase())}"
+         data-meta-search="${escHtml(metaSearch)}" data-search="${escHtml(metaSearch)}"
          role="button" tabindex="0" aria-expanded="false">
       <div class="sku-spec-toggle">specs ▾</div>
       <div class="sku-name">${escHtml(f.name)}</div>
       <div class="sku-desc">${escHtml(f.desc)}</div>
       ${f.si ? `<div class="v2-silicon">${escHtml(f.si)}</div>` : ''}
+      <div class="search-summary" hidden></div>
       <div class="sku-tags">${tags}</div>
     </div>
     <div class="cpu-spec-wrapper" id="${id}" style="--spec-order:${i * 4 + 1}">
       <div class="cpu-spec-overflow">
         <div class="cpu-spec-header">
-          <span class="cpu-spec-header-title">${escHtml(f.name)}</span>
-          <span class="cpu-spec-header-title v2-await">${a2Count(a2Key(f))}</span>
+          <div>
+            <span class="cpu-spec-header-title">${escHtml(f.name)}</span>
+            <div class="identity-path">AMD › ${escHtml(stripVendor(cfg.title))} › ${escHtml(g.name)} › ${escHtml(f.name)}</div>
+            <div class="source-line">Source: AMD official Product Specifications CSV</div>
+          </div>
+          <span class="cpu-spec-header-title v2-await">${a2Count(f)}</span>
         </div>
         <table class="cpu-spec-table">
           <thead><tr>${cols.map(c => `<th>${escHtml(c)}</th>`).join('')}</tr></thead>
-          <tbody>${a2Rows(a2Key(f), cols.length)}</tbody>
+          <tbody>${a2Rows(f, cols.length)}</tbody>
         </table>
       </div>
     </div>`;
@@ -325,9 +360,9 @@ function a2CardTiers(card) {
 
 function a2ApplyFilters() {
   const sel = k => a2Active[k] || new Set();
-  const gens = sel('gen'), tiers = sel('tier'), segs = sel('seg');
+  const gens = sel('gen'), codes = sel('code'), tiers = sel('tier'), segs = sel('seg');
   const q = a2Search.trim().toLowerCase();
-  const any = gens.size || tiers.size || segs.size || !coreRangeIsAll(a2Core);
+  const any = gens.size || codes.size || tiers.size || segs.size || !coreRangeIsAll(a2Core);
 
   document.querySelectorAll('.fchip').forEach(c => {
     const on = sel(c.dataset.key).has(c.dataset.tag);
@@ -349,26 +384,29 @@ function a2ApplyFilters() {
   // Narrow screens collapse the sidebar; surface the active count on the button.
   const badge = document.getElementById('sidebarCount');
   if (badge) {
-    const total = gens.size + tiers.size + segs.size + (coreRangeIsAll(a2Core) ? 0 : 1);
+    const total = gens.size + codes.size + tiers.size + segs.size +
+                  (coreRangeIsAll(a2Core) ? 0 : 1);
     badge.textContent = total;
     badge.hidden = total === 0;
   }
 
   let shownGens = 0, shownCards = 0;
+  const searchContext = dashboardSearchContext(q);
 
   document.querySelectorAll('.arch-group').forEach(group => {
     const genOk = !gens.size || gens.has(group.dataset.gen);
     let visible = 0;
 
     group.querySelectorAll('.sku-card').forEach(card => {
+      const search = dashboardApplyCardSearch(card, group, searchContext);
       const ok = genOk
         && a2CoreOk(card)
+        && (!codes.size || codes.has(card.dataset.code))
         && (!tiers.size || a2CardTiers(card).some(t => tiers.has(t)))
         && (!segs.size  || segs.has(card.dataset.seg))
-        && (!q || card.dataset.search.includes(q) || group.dataset.search.includes(q)
-             || a2SpecMatch(card.dataset.target, q));
+        && search.matched;
       card.classList.toggle('hidden', !ok);
-      const w = document.getElementById(card.dataset.target);
+      const w = search.wrapper;
       if (!ok && w) { w.classList.remove('open'); card.classList.remove('selected'); }
       if (ok) visible++;
     });
@@ -399,11 +437,11 @@ function a2ApplyFilters() {
     era.classList.toggle('hidden', !live);
   });
 
-  a2Highlight(q);
-
   const st = document.getElementById('a2Status');
   if (st) st.textContent =
     `${shownGens} series · ${shownCards} codename${shownCards === 1 ? '' : 's'}`;
+  if (typeof dashboardRestoreSelectedRows === 'function') dashboardRestoreSelectedRows();
+  if (typeof dashboardStateChanged === 'function') dashboardStateChanged();
 }
 
 /**
@@ -499,4 +537,29 @@ function a2SetSearch(value) {
 /** True when the AMD v2 renderer currently owns the DOM. */
 function a2IsActive() {
   return document.body.classList.contains('amd-v2');
+}
+
+function a2DashboardState() {
+  return {
+    tab: a2Tab,
+    search: a2Search,
+    filters: Object.fromEntries(Object.entries(a2Active).map(([k, v]) => [k, [...v]])),
+    core: a2Core ? [a2Core.stops[a2Core.lo], a2Core.stops[a2Core.hi]] : null
+  };
+}
+
+function a2ApplyDashboardState(state) {
+  if (state.tab && A2_DATA[state.tab] && state.tab !== a2Tab) a2Switch(state.tab);
+  Object.entries(state.filters || {}).forEach(([key, values]) => {
+    if (a2Active[key]) {
+      a2Active[key].clear();
+      values.forEach(value => a2Active[key].add(value));
+    }
+  });
+  if (state.core && a2Core) dashboardApplyCoreValues(a2Core, state.core);
+  a2Search = state.search || '';
+  dom.searchInput.value = a2Search;
+  dom.searchClear.classList.toggle('visible', !!a2Search);
+  coreRangePaint('a2core', a2Core);
+  a2ApplyFilters();
 }

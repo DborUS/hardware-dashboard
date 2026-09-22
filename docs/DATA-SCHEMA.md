@@ -11,9 +11,22 @@ field names here are real, not aspirational.
 | `amd-cpu-specs.json` | object | 46 keys | SKU name → CPU model array |
 | `intel-cpu-specs.json` | object | 31 keys | 275 models. **Not currently rendered** — old SKU keys |
 | `intel-xeon-specs.json` | object | 29 keys | **553 Xeon models — live on the Xeon sub-tab** |
+| `nvidia-data.json` | object | 3 product-line keys | **71 audited models — 20 data center, 47 GeForce, 4 CPU/superchips** |
+| `compare-details.json` | object | 3 vendor keys | Full non-empty source-CSV fields, keyed by normalized product name and loaded only when Compare opens |
 
 Loaded at runtime by `loadVendorData()` and cached in `dataCache`. Filenames follow
-`js/data/{vendor}-data.json`, where vendor is `amd`, `intel`, or `amd-gpu`.
+`js/data/{vendor}-data.json`, where vendor is `amd`, `intel`, `amd-gpu`, or `nvidia`.
+
+`compare-details.json` is the exception: `dashboardRenderComparison()` loads it on
+demand so the normal dashboard stays light. Regenerate it with
+`python3 tools/build-compare-details.py`; never hand-edit it.
+
+`nvidia-data.json` is generated from the three audited CSVs in
+`docs/specs/source-csv-nvidia/`. Regenerate it with
+`python3 tools/build-nvidia-data.py`; never hand-edit it. Its top-level keys are
+`datacenter`, `geforce`, and `cpu`, each containing flat product records. The NVIDIA
+renderer derives launch-year groups, product-line cards, and filter values from those
+records so new series cannot become unreachable through a stale hand-written taxonomy.
 
 > **Intel moved to a hardcoded taxonomy (2026-08-16).** The Intel tab is drawn by
 > `v2Render()` in `js/intel-v2.js` from the `V2_DATA` object, not from these JSON files.

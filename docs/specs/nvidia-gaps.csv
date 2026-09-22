@@ -1,0 +1,74 @@
+model,field,why_missing,what_i_tried
+GeForce RTX 3060 Ti GDDR6X,board power,Independent source variance,board power: NVIDIA=200 W; independent=225 W
+GeForce RTX 2080 Ti,boost clock,Independent source variance,boost clock: NVIDIA=1.64; independent=1545.0
+GeForce RTX 2080 Ti,board power,Independent source variance,board power: NVIDIA=260 W; independent=250 W
+GeForce RTX 2080,boost clock,Independent source variance,boost clock: NVIDIA=1.8; independent=1710.0
+GeForce RTX 2080,board power,Independent source variance,board power: NVIDIA=225 W; independent=215 W
+GeForce RTX 2070,boost clock,Independent source variance,boost clock: NVIDIA=1.71; independent=1620.0
+GeForce RTX 2070,board power,Independent source variance,board power: NVIDIA=185 W; independent=175 W
+Tesla V100 SXM2 32GB,board power,Independent source variance,board power: NVIDIA=300 W; independent=250 W
+T4,memory bandwidth,Independent source variance,memory bandwidth: NVIDIA=300 GB/s; independent=320.0
+A30,memory type,Independent source variance,memory type: NVIDIA=HBM2; independent=HBM2e
+L40S,board power,Independent source variance,board power: NVIDIA=350 W; independent=300 W
+B200 SXM,memory bandwidth,Independent source variance,memory bandwidth: NVIDIA=8 TB/s; independent=8199.999999999998
+B300 SXM,memory bandwidth,Independent source variance,memory bandwidth: NVIDIA=8 TB/s; independent=8199.999999999998
+Grace CPU C1,L3 cache,Conflicting NVIDIA documentation,L3: formal guide=117 MB per CPU; current NVIDIA blog=114 MB
+Grace CPU Superchip,L3 cache,Conflicting NVIDIA documentation,L3: formal guide=117 MB per CPU; current NVIDIA blog=114 MB
+GH200 Grace Hopper Superchip,L3 cache,Conflicting NVIDIA documentation,L3: formal guide=117 MB per CPU; current NVIDIA blog=114 MB
+RTX 4090,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 4080 SUPER,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 4080,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 4070 Ti SUPER,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 4070 Ti,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 4070 SUPER,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 4070 GDDR6,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 4070 GDDR6X,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 4060 Ti 16 GB,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 4060 Ti 8 GB,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 4060,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3090 Ti,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3090,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3080 Ti,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3080 12 GB,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3080 10 GB,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3070 Ti,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3070,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3060 Ti GDDR6,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3060 Ti GDDR6X,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3060 12 GB,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3060 8 GB,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3050 (8 GB),mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 3050 (6 GB),mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 2080 Ti,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 2080 Super,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 2080,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 2070 Super,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 2070,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 2060 Super,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 2060 12 GB,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+RTX 2060 6 GB,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+GTX 1660 Ti,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+GTX 1660 Super,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+GTX 1660,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+GTX 1650 Super,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+GTX 1650 (G5),mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+GTX 1650 (G6),mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+GTX 1630,mem_speed,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/geforce/graphics-cards/compare/
+A2,cores,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/data-center/products/a2/
+A10,cores,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a10/pdf/a10-datasheet.pdf
+A16,cores,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-au/data-center/products/a16-gpu/
+A30,cores,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/data-center/products/a30-gpu/
+A100 80GB PCIe,cores,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/data-center/a100/
+A100 80GB SXM,cores,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/data-center/a100/
+H100 SXM,cores,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/data-center/h100/
+H100 NVL,cores,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/data-center/h100/
+H200 SXM,cores,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/data-center/h200/
+H200 NVL,cores,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/data-center/h200/
+B200 SXM,cores,Official source does not provide a stable value in the selected product specification,https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory-h100-h200-b200/latest/components.html
+B200 SXM,pcie_gen,Official source does not provide a stable value in the selected product specification,https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory-h100-h200-b200/latest/components.html
+B300 SXM,cores,Official source does not provide a stable value in the selected product specification,https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory/latest/components.html
+B300 SXM,tdp,Official source does not provide a stable value in the selected product specification,https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory/latest/components.html
+B300 SXM,pcie_gen,Official source does not provide a stable value in the selected product specification,https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory/latest/components.html
+Grace CPU C1,tdp,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-eu/data-center/grace-cpu-superchip/
+GH200 Grace Hopper Superchip,tdp,Official source does not provide a stable value in the selected product specification,https://docs.nvidia.com/grace-performance-tuning-guide.pdf
+GB10 Grace Blackwell Superchip,pcie_gen,Official source does not provide a stable value in the selected product specification,https://www.nvidia.com/en-us/products/workstations/dgx-spark/

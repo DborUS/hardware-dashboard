@@ -18,8 +18,9 @@
 //  Ordering follows golden rule #2 in CLAUDE.md: datacenter -> client -> desktop
 //  -> mobile, flagship first within a tier.
 //
-//  NO SPEC DATA YET. Tables render their real column set with an empty body;
-//  models arrive via the bulk CSV import. See docs/PROJECT-STATE.md.
+//  All three sub-tabs carry spec data as of 2026-09-10 (Xeon 553, Client 340,
+//  Graphics 35). A card with no models renders 'No spec data yet' -- that is the
+//  unreleased/withdrawn case, not a pending import. See docs/PROJECT-STATE.md.
 // ═══════════════════════════════════════════════════════════════════════════
 
 'use strict';
@@ -42,12 +43,16 @@ const V2_COLUMNS = {
   // Consumer, workstation and data-center parts need genuinely different fields,
   // so the set is keyed by brand line and resolved per card by v2Columns().
   graphics: {
-    'Arc':         ['Model', 'Xe-cores', 'RT Units', 'XMX', 'Clock', 'VRAM', 'Bus',
-                    'Bandwidth', 'TBP', 'PCIe'],
-    'Arc Pro':     ['Model', 'Xe-cores', 'RT Units', 'XMX', 'Clock', 'VRAM', 'ECC',
-                    'Bandwidth', 'TBP', 'Form Factor'],
-    'Data Center': ['Model', 'Xe-cores', 'Xe Vector', 'Xe Matrix', 'Clock', 'Memory',
-                    'Bandwidth', 'TBP', 'Form Factor', 'Xe Link']
+    // 11 columns is the practical ceiling at the 2-up card width. Displays and
+    // Max Resolution were tried and cut: 24/35 and 21/35 filled, and they
+    // pushed PCIe off the right edge. Anything added here must displace
+    // something, not append to it.
+    'Arc':         ['Model', 'Xe-cores', 'RT Units', 'XMX', 'AI (Int8)', 'Clock',
+                    'VRAM', 'Mem Speed', 'Bus', 'Bandwidth', 'TBP', 'PCIe'],
+    'Arc Pro':     ['Model', 'Xe-cores', 'RT Units', 'XMX', 'AI (Int8)', 'Clock',
+                    'VRAM', 'Mem Speed', 'Bandwidth', 'ECC', 'TBP', 'Physical'],
+    'Data Center': ['Model', 'Xe-cores', 'Xe Vector', 'Xe Matrix', 'Bus', 'Clock',
+                    'Memory', 'Bandwidth', 'TBP', 'Form Factor', 'Xe Link']
   }
 };
 
@@ -60,8 +65,21 @@ const V2_COLUMNS = {
 let V2_SPECS = {};
 
 // Field order per tab, parallel to V2_COLUMNS. Graphics has no data yet.
+// A tab with no entry here loads no spec file and renders description-only
+// cards -- that is the mechanism, not an oversight.
 const V2_FIELDS = {
-  xeon: ['n', 'pc', 'ec', 't', 'bas', 'bst', 'l3', 'tdp', 'skc', 'mem', 'cap', 'pcie', 'upi']
+  xeon:   ['n', 'pc', 'ec', 't', 'bas', 'bst', 'l3', 'tdp', 'skc', 'mem', 'cap', 'pcie', 'upi'],
+  client: ['n', 'pc', 'ec', 't', 'pcl', 'ecl', 'l3', 'tdp', 'gpu', 'xe', 'mem'],
+  // Keyed by brand line, mirroring V2_COLUMNS.graphics -- consumer, workstation
+  // and data-center parts do not share a meaningful column set.
+  graphics: {
+    'Arc':         ['n', 'xe', 'rt', 'xmx', 'ai', 'clk', 'vram', 'spd', 'bus',
+                    'bw', 'tbp', 'pcie'],
+    'Arc Pro':     ['n', 'xe', 'rt', 'xmx', 'ai', 'clk', 'vram', 'spd', 'bw',
+                    'ecc', 'tbp', 'phys'],
+    'Data Center': ['n', 'xe', 'vec', 'mat', 'bus', 'clk', 'mem', 'bw', 'tbp',
+                    'ff', 'lnk']
+  }
 };
 
 /**
@@ -92,6 +110,11 @@ function v2Columns(tier) {
 // ═══════════════════════════════════════════════════════════════════════════
 //  TAXONOMY
 // ═══════════════════════════════════════════════════════════════════════════
+// `genTag` on a BLOCK is the tag its generation chip matches. Set it whenever
+// the display name differs from the chip label -- 'Xeon 5 (5th Gen Scalable)'
+// displays in full but answers to the chip 'Xeon 5'. Omit it and the chip must
+// equal the name exactly; ten chips were dead for exactly that reason.
+//
 // `tier` and `seg` on each family drive the filter chips. `n` is the model count
 // carried over from the current data purely so the blocks aren't all identical
 // in size — it is NOT spec data and nothing reads it but the card label.
@@ -150,31 +173,31 @@ const V2_DATA = {
         { name: 'Sierra Forest SP',  desc: 'Xeon 6700E — E-core density, FCLGA4710',         tier: 'E-core', seg: '2P',   si: 'Sierra Forest · Intel 3', n: 7 }
       ]},
 
-      { id: 'xeon5', name: 'Xeon 5 (5th Gen Scalable)', years: '2023', color: '#a78bfa',
+      { id: 'xeon5', name: 'Xeon 5 (5th Gen Scalable)', genTag: 'Xeon 5', years: '2023', color: '#a78bfa',
         note: 'Emerald Rapids — drop-in upgrade on LGA 4677', families: [
         { name: 'Emerald Rapids SP', desc: 'Xeon Platinum / Gold 8500 & 6500 series', tier: 'Platinum', seg: '2P', si: 'Emerald Rapids · Intel 7', n: 32 }
       ]},
 
-      { id: 'xeon4', name: 'Xeon 4 (4th Gen Scalable)', years: '2023', color: '#8b5cf6',
+      { id: 'xeon4', name: 'Xeon 4 (4th Gen Scalable)', genTag: 'Xeon 4', years: '2023', color: '#8b5cf6',
         note: 'Sapphire Rapids — first DDR5 / PCIe 5.0 Xeon', families: [
         { name: 'Sapphire Rapids SP',  desc: 'Xeon Platinum / Gold / Silver 4th Gen', tier: 'Platinum', seg: '2P', si: 'Sapphire Rapids · Intel 7', n: 51 },
         { name: 'Sapphire Rapids HBM', desc: 'Xeon Max 94xx — 64 GB HBM2e on package', tier: 'Platinum', seg: '2P', si: 'Sapphire Rapids · Intel 7', n: 4 }
       ]},
 
-      { id: 'xeon3', name: 'Xeon 3 (3rd Gen Scalable)', years: '2020 – 2021', color: '#7c3aed',
+      { id: 'xeon3', name: 'Xeon 3 (3rd Gen Scalable)', genTag: 'Xeon 3', years: '2020 – 2021', color: '#7c3aed',
         note: 'Two incompatible families share this name — different platforms', families: [
         { name: 'Ice Lake-SP', desc: '10 nm, 1S / 2S, LGA 4189 (Whitley)',            tier: 'Platinum', seg: '2P',  si: 'Ice Lake · 10 nm', n: 38 },
         { name: 'Cooper Lake', desc: '14 nm, 4S / 8S, LGA 4189 (Cedar Island)',       tier: 'Platinum', seg: '4P+', si: 'Cooper Lake · 14 nm', n: 15 }
       ]},
 
-      { id: 'xeon2', name: 'Xeon 2 (2nd Gen Scalable)', years: '2019 – 2020', color: '#6366f1',
+      { id: 'xeon2', name: 'Xeon 2 (2nd Gen Scalable)', genTag: 'Xeon 2', years: '2019 – 2020', color: '#6366f1',
         note: 'Cascade Lake — 14 nm, LGA 3647, up to 8 sockets', families: [
         { name: 'Cascade Lake-AP',      desc: 'Xeon Platinum 9200 — soldered, up to 56C',   tier: 'Platinum', seg: '2P', si: 'Cascade Lake · 14 nm', n: 4 },
         { name: 'Cascade Lake-SP',      desc: 'Xeon Platinum / Gold / Silver / Bronze',     tier: 'Platinum', seg: '2P', si: 'Cascade Lake · 14 nm', n: 53 },
         { name: 'Cascade Lake Refresh', desc: 'February 2020 SKU refresh',                  tier: 'Gold',     seg: '2P', si: 'Cascade Lake · 14 nm', n: 19 }
       ]},
 
-      { id: 'xeon1', name: 'Xeon 1 (1st Gen Scalable)', years: '2017', color: '#4f46e5',
+      { id: 'xeon1', name: 'Xeon 1 (1st Gen Scalable)', genTag: 'Xeon 1', years: '2017', color: '#4f46e5',
         note: 'Skylake-SP — the Platinum / Gold / Silver / Bronze naming starts here', families: [
         { name: 'Skylake-SP', desc: '14 nm, LGA 3647, mesh interconnect, UPI replaces QPI', tier: 'Platinum', seg: '2P', si: 'Skylake · 14 nm', n: 52 }
       ]},
@@ -222,6 +245,7 @@ const V2_DATA = {
     title: 'Intel Client',
     blurb: 'Desktop · mobile',
     brandGroups: true,        // show Core Ultra / Core sub-headings inside a block
+    codenameFilter: true,     // one base-codename chip can span several generations
     filters: [
       { label: 'Series / Gen', key: 'gen', tags: [
         ['Series 3', '#38bdf8'], ['Series 2', '#0ea5e9'], ['Series 1', '#6366f1'],
@@ -250,14 +274,14 @@ const V2_DATA = {
         { name: 'Nova Lake', desc: 'Successor to Panther Lake', tier: 'Core Ultra', seg: 'Desktop', si: 'Nova Lake · TBD', n: 0 }
       ]},
 
-      { id: 's3', name: 'Core / Core Ultra Series 3', years: '2026', color: '#38bdf8',
+      { id: 's3', name: 'Core / Core Ultra Series 3', genTag: 'Series 3', years: '2026', color: '#38bdf8',
         note: 'Model numbers 3xx · Intel 18A', families: [
         { name: 'Panther Lake-H', desc: 'Core Ultra X7 / X9 — high-power mobile',    tier: 'Core Ultra', seg: 'Mobile', si: 'Panther Lake · Intel 18A', n: 9 },
         { name: 'Panther Lake-U', desc: 'Core Ultra 5 / 7 — thin-and-light',         tier: 'Core Ultra', seg: 'Mobile', si: 'Panther Lake · Intel 18A', n: 6 },
         { name: 'Wildcat Lake',   desc: 'Core 3 / 5 / 7 — entry tier, no "Ultra"',   tier: 'Core',       seg: 'Mobile', si: 'Wildcat Lake · Intel 18A', n: 0 }
       ]},
 
-      { id: 's2', name: 'Core / Core Ultra Series 2', years: '2024 – 2025', color: '#0ea5e9',
+      { id: 's2', name: 'Core / Core Ultra Series 2', genTag: 'Series 2', years: '2024 – 2025', color: '#0ea5e9',
         note: 'Model numbers 2xx · desktop makes the jump to Core Ultra here', families: [
         { name: 'Arrow Lake-S',          desc: 'Core Ultra 200S desktop, LGA 1851',   tier: 'Core Ultra', seg: 'Desktop', si: 'Arrow Lake · TSMC N3B', n: 20 },
         { name: 'Arrow Lake-S Refresh',  desc: 'Core Ultra 200S Plus, March 2026',    tier: 'Core Ultra', seg: 'Desktop', si: 'Arrow Lake · TSMC N3B', n: 3 },
@@ -267,15 +291,17 @@ const V2_DATA = {
         { name: 'Arrow Lake-U',          desc: 'Core Ultra 200U low-power mobile',    tier: 'Core Ultra', seg: 'Mobile',  si: 'Meteor Lake derived · Intel 3', n: 4 },
         { name: 'Lunar Lake',            desc: 'Core Ultra 200V — on-package LPDDR5X', tier: 'Core Ultra', seg: 'Mobile', si: 'Lunar Lake · TSMC N3B', n: 9 },
         { name: 'Raptor Lake-H Refresh', desc: 'Core 200H — no "Ultra", 45 W',        tier: 'Core',       seg: 'Mobile',  si: 'Raptor Lake · Intel 7', n: 0 },
-        { name: 'Raptor Lake-U Refresh', desc: 'Core 200U — no "Ultra", 15 W',        tier: 'Core',       seg: 'Mobile',  si: 'Raptor Lake · Intel 7', n: 2 }
+        { name: 'Raptor Lake-U Refresh', desc: 'Core 200U — no "Ultra", 15 W',        tier: 'Core',       seg: 'Mobile',  si: 'Raptor Lake · Intel 7', n: 2 },
+        { name: 'Bartlett Lake-S',       desc: 'Core 200E / TE embedded — P-core only', tier: 'Core',     seg: 'Embedded', si: 'Bartlett Lake · Intel 7', n: 19 }
       ]},
 
-      { id: 's1', name: 'Core / Core Ultra Series 1', years: '2023 – 2024', color: '#6366f1',
+      { id: 's1', name: 'Core / Core Ultra Series 1', genTag: 'Series 1', years: '2023 – 2024', color: '#6366f1',
         note: 'Model numbers 1xx · first parts to drop the "i"', families: [
         { name: 'Meteor Lake-H',  desc: 'Core Ultra 100H — first chiplet client part', tier: 'Core Ultra', seg: 'Mobile',   si: 'Meteor Lake · Intel 4', n: 9 },
         { name: 'Meteor Lake-U',  desc: 'Core Ultra 100U low-power mobile',            tier: 'Core Ultra', seg: 'Mobile',   si: 'Meteor Lake · Intel 4', n: 11 },
         { name: 'Meteor Lake-PS', desc: 'Embedded / edge variant',                     tier: 'Core Ultra', seg: 'Embedded', si: 'Meteor Lake · Intel 4', n: 0 },
 
+        { name: 'Raptor Lake-H Refresh (1xx)', desc: 'Core 100H / HL — no "Ultra"', tier: 'Core', seg: 'Mobile', si: 'Raptor Lake · Intel 7', n: 0 },
         { name: 'Raptor Lake-U Refresh (1xx)', desc: 'Core 3 100U / 5 120U / 7 150U — no "Ultra"', tier: 'Core', seg: 'Mobile', si: 'Raptor Lake · Intel 7', n: 0 }
       ]},
 
@@ -285,7 +311,8 @@ const V2_DATA = {
       { id: 'g14', name: '14th Gen', years: '2023 – 2024', color: '#fb923c',
         note: 'Raptor Lake Refresh — the last "Core i" parts', families: [
         { name: 'Raptor Lake-S Refresh',  desc: 'Core i5 / i7 / i9 desktop, LGA 1700', tier: 'Core i', seg: 'Desktop', si: 'Raptor Lake · Intel 7', n: 23 },
-        { name: 'Raptor Lake-HX Refresh', desc: 'Core i7 / i9 enthusiast mobile',      tier: 'Core i', seg: 'Mobile',  si: 'Raptor Lake · Intel 7', n: 0 }
+        { name: 'Raptor Lake-HX Refresh', desc: 'Core i7 / i9 enthusiast mobile',      tier: 'Core i', seg: 'Mobile',  si: 'Raptor Lake · Intel 7', n: 0 },
+        { name: 'Raptor Lake-E Refresh',  desc: '14th Gen embedded E / TE parts',       tier: 'Core i', seg: 'Embedded', si: 'Raptor Lake · Intel 7', n: 0 }
       ]},
       { id: 'g13', name: '13th Gen', years: '2022 – 2023', color: '#f59e0b',
         note: 'Raptor Lake', families: [
@@ -294,7 +321,8 @@ const V2_DATA = {
         { name: 'Raptor Lake-H',  desc: 'Performance mobile 45 W',        tier: 'Core i', seg: 'Mobile',   si: 'Raptor Lake · Intel 7', n: 0 },
         { name: 'Raptor Lake-P',  desc: 'Thin-and-light 28 W',            tier: 'Core i', seg: 'Mobile',   si: 'Raptor Lake · Intel 7', n: 0 },
         { name: 'Raptor Lake-U',  desc: 'Low-power mobile 15 W',          tier: 'Core i', seg: 'Mobile',   si: 'Raptor Lake · Intel 7', n: 0 },
-        { name: 'Raptor Lake-PX', desc: 'Embedded / IoT variant',         tier: 'Core i', seg: 'Embedded', si: 'Raptor Lake · Intel 7', n: 0 }
+        { name: 'Raptor Lake-PX', desc: 'Embedded / IoT variant',         tier: 'Core i', seg: 'Embedded', si: 'Raptor Lake · Intel 7', n: 0 },
+        { name: 'Raptor Lake-E',  desc: 'Embedded E / TE — 65 W and 35 W', tier: 'Core i', seg: 'Embedded', si: 'Raptor Lake · Intel 7', n: 9 }
       ]},
       { id: 'g12', name: '12th Gen', years: '2021 – 2022', color: '#eab308',
         note: 'Alder Lake — first hybrid P-core / E-core client part', families: [
@@ -324,14 +352,14 @@ const V2_DATA = {
       // ═══ ERA 3 — lines that sit outside both schemes ══════════════════════
       { era: 'Outside the generation scheme', eraNote: 'HEDT and entry lines that never followed the mainstream numbering' },
 
-      { id: 'corex', name: 'Core X-series (HEDT)', years: '2014 – 2019', color: '#f43f5e',
+      { id: 'corex', name: 'Core X-series (HEDT)', genTag: 'Core X', years: '2014 – 2019', color: '#f43f5e',
         note: 'Four generations in one block — no ARK codename field to split them', families: [
         { name: 'Cascade Lake-X', desc: 'Core i9-10900X series, X299',     tier: 'Core X', seg: 'Desktop', si: 'Cascade Lake · 14 nm', n: 0 },
         { name: 'Skylake-X',      desc: 'Core i7 / i9 7000 – 9000X, X299', tier: 'Core X', seg: 'Desktop', si: 'Skylake · 14 nm', n: 0 },
         { name: 'Broadwell-E',    desc: 'Core i7 6800K – 6950X, X99',      tier: 'Core X', seg: 'Desktop', si: 'Broadwell · 14 nm', n: 0 },
         { name: 'Haswell-E',      desc: 'Core i7 5820K – 5960X, X99',      tier: 'Core X', seg: 'Desktop', si: 'Haswell · 22 nm', n: 0 }
       ]},
-      { id: 'atomn', name: 'Atom / N-series', years: '2017 – 2025', color: '#c084fc',
+      { id: 'atomn', name: 'Atom / N-series', genTag: 'Atom / N', years: '2017 – 2025', color: '#c084fc',
         note: 'Entry client and embedded', families: [
         { name: 'Twin Lake',   desc: 'N-series refresh, 2024',     tier: 'Atom / N', seg: 'Embedded', si: 'Alder Lake-N derived', n: 2 },
         { name: 'Jasper Lake', desc: 'Pentium Silver / Celeron N', tier: 'Atom / N', seg: 'Embedded', si: 'Tremont · 10 nm', n: 0 },
@@ -357,7 +385,8 @@ const V2_DATA = {
       ]},
       { label: 'Segment', key: 'seg', tags: [
         ['HPC / AI', '#fbbf24'], ['Media / VDI', '#f472b6'],
-        ['Workstation', '#34d399'], ['Consumer', '#4ade80']
+        ['Workstation', '#34d399'], ['Consumer', '#4ade80'],
+        ['Embedded', '#c084fc']
       ]}
     ],
     gens: [
@@ -370,37 +399,52 @@ const V2_DATA = {
 
       { id: 'xehpc', name: 'Xe-HPC — Ponte Vecchio', years: '2022 – 2024', color: '#fbbf24',
         note: 'Max Series · HBM2e · a separate architecture, not a variant of the gaming line', families: [
-        { name: 'Data Center GPU Max 1550', desc: 'OAM — 128 Xe-cores, 128 GB HBM2e, 600 W', tier: 'Data Center', seg: 'HPC / AI', si: 'Ponte Vecchio · Intel 7 + TSMC', n: 0 },
-        { name: 'Data Center GPU Max 1350', desc: 'OAM — 112 Xe-cores, 96 GB, 450 W (withdrawn)', tier: 'Data Center', seg: 'HPC / AI', si: 'Ponte Vecchio · Intel 7 + TSMC', n: 0 },
-        { name: 'Data Center GPU Max 1100', desc: 'PCIe — 56 Xe-cores, 48 GB HBM2e, 300 W', tier: 'Data Center', seg: 'HPC / AI', si: 'Ponte Vecchio · Intel 7 + TSMC', n: 0 }
+        { name: 'Data Center GPU Max', desc: 'Max 1550 (OAM, 600 W) and Max 1100 (PCIe, 300 W)', tier: 'Data Center', seg: 'HPC / AI', si: 'Ponte Vecchio · Intel 7 + TSMC', n: 2 }
       ]},
 
       { id: 'flex', name: 'Xe-HPG — Flex Series', years: '2022 – 2023', color: '#f59e0b',
         note: 'Arctic Sound-M · media / VDI · the same DG2 silicon as the Arc A-series', families: [
-        { name: 'Data Center Flex 170', desc: 'ATS-M150 — 32 Xe-cores, 16 GB, 150 W', tier: 'Data Center', seg: 'Media / VDI', si: 'ACM-G10 · TSMC N6', n: 0 },
-        { name: 'Data Center Flex 140', desc: 'ATS-M75 — dual GPU, 75 W, AV1',        tier: 'Data Center', seg: 'Media / VDI', si: 'ACM-G11 ×2 · TSMC N6', n: 0 }
+        { name: 'Data Center Flex', desc: 'Flex 170 / 170V (150 W) and Flex 140 (dual GPU, 75 W)', tier: 'Data Center', seg: 'Media / VDI', si: 'ACM-G10 / G11 · TSMC N6', n: 3 }
       ]},
 
-      // ═══ Client and workstation discrete ═════════════════════════════════
+      // ═══ Client and workstation discrete ═════════════════════
       { era: 'Workstation and consumer', eraNote: 'Discrete Arc — newest architecture first' },
 
       { id: 'xe2', name: 'Xe2 — Battlemage', years: '2024 – 2025', color: '#38bdf8',
-        note: 'B-series · TSMC N5 · no B770 — the high end went to Arc Pro B60', families: [
-        { name: 'Arc Pro B60',  desc: '24 GB, PCIe 5.0 — dual-GPU 48 GB variant',  tier: 'Arc Pro', seg: 'Workstation', si: 'BMG-G21 · TSMC N5', n: 0 },
-        { name: 'Arc Pro B50',  desc: '16 GB ECC, 70 W, low-profile',              tier: 'Arc Pro', seg: 'Workstation', si: 'BMG-G21 · TSMC N5', n: 0 },
-        { name: 'Arc B580',     desc: '20 Xe-cores, 12 GB — $249 launch',          tier: 'Arc',     seg: 'Consumer',    si: 'BMG-G21 · TSMC N5', n: 0 },
-        { name: 'Arc B570',     desc: '18 Xe-cores, 10 GB — $219 launch',          tier: 'Arc',     seg: 'Consumer',    si: 'BMG-G21 · TSMC N5', n: 0 }
+        note: 'B-series · TSMC N5 · no B770 — the high end went to the Arc Pro B-series', families: [
+        { name: 'Arc Pro B-series', desc: 'B70 / B65 / B60 / B50 — up to 32 GB, 367 TOPS', tier: 'Arc Pro', seg: 'Workstation', si: 'BMG-G31 / G21 · TSMC N5', n: 4 },
+        { name: 'Arc B-series',     desc: 'B580 12 GB and B570 10 GB — $249 / $219 launch',   tier: 'Arc',     seg: 'Consumer',    si: 'BMG-G21 · TSMC N5', n: 2 }
       ]},
 
       { id: 'xehpg', name: 'Xe-HPG — Alchemist', years: '2022 – 2023', color: '#6366f1',
         note: 'A-series · TSMC N6 · Data Center Flex above is the same silicon', families: [
-        { name: 'Arc Pro A-series',    desc: 'Pro A60 / A50 / A40 / A16 workstation', tier: 'Arc Pro', seg: 'Workstation', si: 'ACM-G10 / G11 · TSMC N6', n: 0 },
-        { name: 'Arc A-series',        desc: 'A770 / A750 / A580 / A380 / A310',      tier: 'Arc',     seg: 'Consumer',    si: 'ACM-G10 / G11 · TSMC N6', n: 0 },
-        { name: 'Arc A-series Mobile', desc: 'A770M / A730M / A550M / A370M',         tier: 'Arc',     seg: 'Consumer',    si: 'ACM-G10 / G11 · TSMC N6', n: 0 }
+        { name: 'Arc Pro A-series',      desc: 'Pro A60 / A60M / A50 / A40 / A30M workstation', tier: 'Arc Pro', seg: 'Workstation', si: 'ACM-G10 / G11 · TSMC N6', n: 5 },
+        { name: 'Arc A-series',          desc: 'A770 16 GB / 8 GB, A750, A580, A380, A310',     tier: 'Arc',     seg: 'Consumer',    si: 'ACM-G10 / G11 · TSMC N6', n: 6 },
+        { name: 'Arc A-series Mobile',   desc: 'A770M → A350M — seven laptop SKUs',            tier: 'Arc',     seg: 'Consumer',    si: 'ACM-G10 / G11 · TSMC N6', n: 7 },
+        { name: 'Arc A-series Embedded', desc: 'A750E → A310E — extended-temperature variants',  tier: 'Arc',     seg: 'Embedded',    si: 'ACM-G10 / G11 · TSMC N6', n: 6 }
       ]}
     ]
   }
 };
+
+// Intel Core Series 3 press-deck palette: royal blue identity, electric cyan,
+// indigo, and pale architectural blues for series distinction.
+const V2_ACCENTS = { xeon: '#0046C8', client: '#0046C8', graphics: '#0046C8' };
+// Darkened members of the press-deck blue family retain their differences on
+// Intel's pale #BBC4E0 canvas. The bright cyan values remain accents rather
+// than body text, where they would lose contrast.
+const V2_TONES = ['#007AA6', '#006EAD', '#2F52C9', '#0046C8',
+                  '#4C6F9F', '#2939D0', '#0873A5', '#5156AE',
+                  '#5575A0', '#315F91', '#2356A8', '#1680AD'];
+Object.entries(V2_DATA).forEach(([tab, data]) => {
+  const accent = V2_ACCENTS[tab];
+  data.filters.forEach(group => group.tags.forEach((tag, index) => {
+    tag[1] = group.key === 'gen' ? V2_TONES[index % V2_TONES.length] : accent;
+  }));
+  data.gens.filter(group => group.id).forEach((group, index) => {
+    group.color = V2_TONES[index % V2_TONES.length];
+  });
+});
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  STATE
@@ -430,7 +474,7 @@ async function v2Switch(tab) {
   dom.searchInput.value = '';
   for (const k of Object.keys(v2Active)) delete v2Active[k];
 
-  document.querySelectorAll('.v2-subtab').forEach(b =>
+  document.querySelectorAll('#v2Subtabs .v2-subtab').forEach(b =>
     b.classList.toggle('active', b.dataset.tab === tab));
 
   await v2LoadSpecs(tab);   // stops come from the specs, so load first
@@ -439,9 +483,33 @@ async function v2Switch(tab) {
   v2Render();
 }
 
+/** Base silicon codename: 'Raptor Lake' from 'Raptor Lake · Intel 7'. */
+function v2FamilyCode(family) {
+  return ((family.si || family.name || '').split('·')[0]).trim();
+}
+
+/** Add the Client codename dimension without hand-maintaining another list. */
+function v2FilterGroups(cfg) {
+  const groups = [...cfg.filters];
+  if (!cfg.codenameFilter) return groups;
+
+  const seen = new Set();
+  const tags = [];
+  cfg.gens.filter(g => !g.era).forEach(g => g.families.forEach(f => {
+    const code = v2FamilyCode(f);
+    if (code && !seen.has(code)) {
+      seen.add(code);
+      tags.push([code, g.color]);
+    }
+  }));
+  groups.splice(1, 0, { label: 'Codename', key: 'code', tags });
+  return groups;
+}
+
 /** Build the multi-select filter bar for the active sub-tab. */
 function v2BuildFilters() {
   const cfg = V2_DATA[v2Tab];
+  const filterGroups = v2FilterGroups(cfg);
   const bar = dom.filterControls;
 
   // Vertical rail, matching the AMD tab. Each option carries a live count
@@ -451,7 +519,7 @@ function v2BuildFilters() {
   bar.className = 'controls filter-bar';
   // Core count leads: it is the filter most used in practice, so it gets
   // the top of the rail ahead of the generation/series chips.
-  bar.innerHTML = coreRangeHtml('v2core', v2Core) + cfg.filters.map(g => {
+  bar.innerHTML = coreRangeHtml('v2core', v2Core) + filterGroups.map(g => {
     v2Active[g.key] = v2Active[g.key] || new Set();
     const chips = g.tags.map(([tag, color]) => `
       <button class="fchip" data-key="${g.key}" data-tag="${escHtml(tag)}"
@@ -488,8 +556,8 @@ function v2BuildFilters() {
  * Core-range stops for the active Intel sub-tab, derived from loaded specs.
  *
  * Xeon stores no total-core field -- only pc/ec -- so coreTotal() sums them.
- * Client and Graphics have no spec data yet and therefore get no slider; it
- * appears on its own once their import lands.
+ * Client does the same. Graphics has no core counts at all (Xe-cores are not
+ * CPU cores) and correctly renders no slider.
  */
 function v2BuildCoreRange() {
   const specs = V2_SPECS[v2Tab] || {};
@@ -553,6 +621,7 @@ function v2Gen(g, cfg) {
   // it survives the filter. This is the half that's easy to forget.
   const tiers = [...new Set(g.families.map(f => f.tier).filter(Boolean))];
   const segs  = [...new Set(g.families.map(f => f.seg).filter(Boolean))];
+  const codes = [...new Set(g.families.map(v2FamilyCode).filter(Boolean))];
   const hay   = [g.name, g.note, ...g.families.flatMap(f => [f.name, f.desc, f.si || ''])]
                   .join(' ').toLowerCase();
 
@@ -595,8 +664,9 @@ function v2Gen(g, cfg) {
 
   return `
   <div class="arch-group" id="v2-${g.id}" style="--arch-color:${g.color}"
-       data-gen="${escHtml(g.name)}" data-tiers="${escHtml(tiers.join('|'))}"
-       data-segs="${escHtml(segs.join('|'))}" data-search="${escHtml(hay)}">
+       data-gen="${escHtml(g.genTag || g.name)}" data-tiers="${escHtml(tiers.join('|'))}"
+       data-segs="${escHtml(segs.join('|'))}" data-codes="${escHtml(codes.join('|'))}"
+       data-search="${escHtml(hay)}">
     <div class="arch-header${g.unreleased ? ' unreleased-arch' : ''}" data-gen="${g.id}"
          role="button" tabindex="0" aria-expanded="false">
       <div class="timeline-dot"></div>
@@ -608,8 +678,30 @@ function v2Gen(g, cfg) {
       <div class="expand-icon">⌄</div>
       <div class="arch-subtitle">${escHtml(g.note)}</div>
     </div>
-    <div class="arch-body"><div class="skus-grid">${cards}</div></div>
+    <div class="arch-body"><div class="arch-body-inner"><div class="skus-grid">${cards}</div></div></div>
   </div>`;
+}
+
+/**
+ * Field order for one card, parallel to v2Columns(). Every tab but Graphics
+ * uses a single flat list; Graphics keys by brand line. These two functions
+ * must resolve identically -- if they disagree, values render under the wrong
+ * column headers, which looks like bad data rather than a bug.
+ */
+function v2Fields(tier) {
+  const f = V2_FIELDS[v2Tab];
+  if (!f) return null;
+  return Array.isArray(f) ? f : (f[tier] || Object.values(f)[0]);
+}
+
+/** Search text for one spec row, including every displayed field. */
+function v2ModelSearch(model) {
+  return Object.values(model || {}).filter(v => v != null).join(' ').toLowerCase();
+}
+
+/** Match both normal text and punctuation-free forms (14900K / i9-14900K). */
+function v2SearchMatch(haystack, query) {
+  return dashboardSearchMatch(haystack, query);
 }
 
 /** Row count label for a spec-table header. */
@@ -622,16 +714,38 @@ function v2Count(name) {
  * Table body for one card. Falls back to a placeholder row when the codename
  * has no data — unreleased parts and families not yet exported from ARK.
  */
-function v2Rows(name, colspan) {
+function v2Rows(name, colspan, tier) {
   const models = (V2_SPECS[v2Tab] || {})[name];
-  const fields = V2_FIELDS[v2Tab];
+  const fields = v2Fields(tier);
   if (!models || !models.length || !fields) {
     return `<tr class="v2-empty-row"><td colspan="${colspan}">` +
            'No spec data yet</td></tr>';
   }
-  return models.map(m => '<tr>' + fields.map((f, i) =>
-    `<td class="${i === 0 ? 'cpu-model-name' : ''}">${escHtml(m[f] ?? '\u2014')}</td>`
-  ).join('') + '</tr>').join('');
+  return models.map(m => `<tr data-search="${escHtml(v2ModelSearch(m))}">` +
+    fields.map((f, i) =>
+      `<td class="${i === 0 ? 'cpu-model-name' : ''}">${escHtml(m[f] ?? '\u2014')}</td>`
+    ).join('') + '</tr>').join('');
+}
+
+/**
+ * Every tier present in a family's loaded models, as a filter-matchable set.
+ *
+ * A family carries ONE editorial `tier` (its headline brand line) but its
+ * models can span several: every Xeon Scalable family is tagged Platinum or
+ * Gold, yet 38 Silver and Bronze parts sit inside them. Filtering on the
+ * family tag alone made those two chips permanently dead.
+ *
+ * Falls back to the family tag when no models are loaded, so a family awaiting
+ * data still answers its own chip.
+ */
+function v2CardTiers(f) {
+  const models = (V2_SPECS[v2Tab] || {})[f.name] || [];
+  const found = new Set(f.tier ? [f.tier] : []);
+  models.forEach(m => {
+    const t = /\b(Platinum|Gold|Silver|Bronze|Max)\b/.exec(m.n || '');
+    if (t) found.add(t[1]);
+  });
+  return [...found];
 }
 
 /** One codename card plus its spec table. */
@@ -640,28 +754,39 @@ function v2Card(f, g, i, cfg) {
   const cols = v2Columns(f.tier);
   const tags = [f.tier, f.seg].filter(Boolean).map(t =>
     `<span class="sku-tag">${escHtml(t)}</span>`).join('');
+  const metaSearch = (f.name + ' ' + f.desc + ' ' + (f.si || '')).toLowerCase();
+  const modelSearch = ((V2_SPECS[v2Tab] || {})[f.name] || [])
+    .map(v2ModelSearch).join(' ');
 
   return `
     <div class="sku-card has-specs" style="--card-order:${i * 4}"
-         data-target="${id}" data-tier="${escHtml(f.tier)}" data-seg="${escHtml(f.seg)}"
-         data-search="${escHtml((f.name + ' ' + f.desc + ' ' + (f.si || '')).toLowerCase())}"
+         data-target="${id}" data-tier="${escHtml(f.tier)}"
+         data-tiers="${escHtml(v2CardTiers(f).join('|'))}" data-seg="${escHtml(f.seg)}"
+         data-code="${escHtml(v2FamilyCode(f))}"
+         data-meta-search="${escHtml(metaSearch)}"
+         data-search="${escHtml(metaSearch + ' ' + modelSearch)}"
          data-cmin="${v2Span(f.name)[0] ?? ''}" data-cmax="${v2Span(f.name)[1] ?? ''}"
          role="button" tabindex="0" aria-expanded="false">
       <div class="sku-spec-toggle">specs ▾</div>
       <div class="sku-name">${escHtml(f.name)}</div>
       <div class="sku-desc">${escHtml(f.desc)}</div>
       ${f.si ? `<div class="v2-silicon">${escHtml(f.si)}</div>` : ''}
+      <div class="search-summary" hidden></div>
       <div class="sku-tags">${tags}</div>
     </div>
     <div class="cpu-spec-wrapper" id="${id}" style="--spec-order:${i * 4 + 1}">
       <div class="cpu-spec-overflow">
         <div class="cpu-spec-header">
-          <span class="cpu-spec-header-title">${escHtml(f.name)}</span>
+          <div>
+            <span class="cpu-spec-header-title">${escHtml(f.name)}</span>
+            <div class="identity-path">Intel › ${escHtml(stripVendor(cfg.title))} › ${escHtml(g.name)} › ${escHtml(f.name)}</div>
+            <div class="source-line">Source: Intel ARK specification export</div>
+          </div>
           <span class="cpu-spec-header-title v2-await">${v2Count(f.name)}</span>
         </div>
         <table class="cpu-spec-table">
           <thead><tr>${cols.map(c => `<th>${escHtml(c)}</th>`).join('')}</tr></thead>
-          <tbody>${v2Rows(f.name, cols.length)}</tbody>
+          <tbody>${v2Rows(f.name, cols.length, f.tier)}</tbody>
         </table>
       </div>
     </div>`;
@@ -710,8 +835,19 @@ function v2Span(name) {
   return t.length ? [t[0], t[t.length - 1]] : [null, null];
 }
 
+/**
+ * Does a card carry `tier`? Reads data-tiers (the set its models span) and
+ * falls back to data-tier so the check is safe on cards without spec data.
+ */
+function v2CardHasTier(card, tiers) {
+  if (!tiers.size) return true;
+  const set = (card.dataset.tiers || card.dataset.tier || '').split('|');
+  return set.some(t => tiers.has(t));
+}
+
 function v2CountFor(key, tag) {
   const gens  = key === 'gen'  ? new Set([tag]) : (v2Active.gen  || new Set());
+  const codes = key === 'code' ? new Set([tag]) : (v2Active.code || new Set());
   const tiers = key === 'tier' ? new Set([tag]) : (v2Active.tier || new Set());
   const segs  = key === 'seg'  ? new Set([tag]) : (v2Active.seg  || new Set());
   const q = v2Search.trim().toLowerCase();
@@ -720,9 +856,11 @@ function v2CountFor(key, tag) {
     if (gens.size && !gens.has(group.dataset.gen)) return;
     const hit = [...group.querySelectorAll('.sku-card')].some(card =>
       v2CoreOk(card) &&
-      (!tiers.size || tiers.has(card.dataset.tier)) &&
+      (!codes.size || codes.has(card.dataset.code)) &&
+      v2CardHasTier(card, tiers) &&
       (!segs.size  || segs.has(card.dataset.seg))  &&
-      (!q || card.dataset.search.includes(q) || group.dataset.search.includes(q)));
+      (!q || v2SearchMatch(card.dataset.search, q) ||
+             v2SearchMatch(group.dataset.search, q)));
     if (hit) n++;
   });
   return n;
@@ -730,9 +868,9 @@ function v2CountFor(key, tag) {
 
 function v2ApplyFilters() {
   const sel = k => v2Active[k] || new Set();
-  const gens = sel('gen'), tiers = sel('tier'), segs = sel('seg');
+  const gens = sel('gen'), codes = sel('code'), tiers = sel('tier'), segs = sel('seg');
   const q = v2Search.trim().toLowerCase();
-  const any = gens.size || tiers.size || segs.size || !coreRangeIsAll(v2Core);
+  const any = gens.size || codes.size || tiers.size || segs.size || !coreRangeIsAll(v2Core);
 
   document.querySelectorAll('.fchip').forEach(c => {
     const on = sel(c.dataset.key).has(c.dataset.tag);
@@ -752,26 +890,31 @@ function v2ApplyFilters() {
 
   const badge = document.getElementById('sidebarCount');
   if (badge) {
-    const total = gens.size + tiers.size + segs.size + (coreRangeIsAll(v2Core) ? 0 : 1);
+    const total = gens.size + codes.size + tiers.size + segs.size +
+                  (coreRangeIsAll(v2Core) ? 0 : 1);
     badge.textContent = total;
     badge.hidden = total === 0;
   }
 
   let shownGens = 0, shownCards = 0;
+  const searchContext = dashboardSearchContext(q);
 
   document.querySelectorAll('.arch-group').forEach(group => {
     const genOk = !gens.size || gens.has(group.dataset.gen);
     let visible = 0;
 
     group.querySelectorAll('.sku-card').forEach(card => {
+      const search = dashboardApplyCardSearch(card, group, searchContext);
+      const w = search.wrapper;
       const ok = genOk
         && v2CoreOk(card)
-        && (!tiers.size || tiers.has(card.dataset.tier))
+        && (!codes.size || codes.has(card.dataset.code))
+        && v2CardHasTier(card, tiers)
         && (!segs.size  || segs.has(card.dataset.seg))
-        && (!q || card.dataset.search.includes(q) || group.dataset.search.includes(q));
+        && search.matched;
       card.classList.toggle('hidden', !ok);
+
       // a hidden card must not leave its spec table dangling
-      const w = document.getElementById(card.dataset.target);
       if (!ok && w) { w.classList.remove('open'); card.classList.remove('selected'); }
       if (ok) visible++;
     });
@@ -807,6 +950,8 @@ function v2ApplyFilters() {
 
   document.getElementById('v2Status').textContent =
     `${shownGens} generation${shownGens === 1 ? '' : 's'} · ${shownCards} codename${shownCards === 1 ? '' : 's'}`;
+  if (typeof dashboardRestoreSelectedRows === 'function') dashboardRestoreSelectedRows();
+  if (typeof dashboardStateChanged === 'function') dashboardStateChanged();
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -819,18 +964,17 @@ function v2ApplyFilters() {
 let v2Wired = false;
 
 /** Take over the shared DOM and render the Intel tab. */
-function v2Activate() {
+async function v2Activate() {
   document.body.classList.add('intel-v2');
   document.getElementById('v2Subtabs').classList.add('visible');
   document.getElementById('v2Status').hidden = false;
-  document.getElementById('v2NoData').hidden = false;
   // AMD-only chrome that has no meaning here
   dom.codenameTableWrap.innerHTML = '';
   dom.techTabs.classList.remove('visible');
   dom.clearSelectionsBtn.hidden = true;
 
   if (!v2Wired) {
-    document.querySelectorAll('.v2-subtab').forEach(b =>
+    document.querySelectorAll('#v2Subtabs .v2-subtab').forEach(b =>
       b.addEventListener('click', () => v2Switch(b.dataset.tab)));
     v2Wired = true;
   }
@@ -839,16 +983,15 @@ function v2Activate() {
   v2Expanded.clear();
   v2Search = '';
   for (const k of Object.keys(v2Active)) delete v2Active[k];
-  document.querySelectorAll('.v2-subtab').forEach(b =>
+  document.querySelectorAll('#v2Subtabs .v2-subtab').forEach(b =>
     b.classList.toggle('active', b.dataset.tab === 'xeon'));
 
   // Specs must load BEFORE the filters are built: the core-range stops are
   // derived from the loaded models, so building first yields an empty slider.
-  v2LoadSpecs(v2Tab).then(() => {
-    v2BuildCoreRange();
-    v2BuildFilters();
-    v2Render();
-  });
+  await v2LoadSpecs(v2Tab);
+  v2BuildCoreRange();
+  v2BuildFilters();
+  v2Render();
 }
 
 /** Hand the shared DOM back to the AMD renderer. */
@@ -856,7 +999,6 @@ function v2Deactivate() {
   document.body.classList.remove('intel-v2');
   document.getElementById('v2Subtabs').classList.remove('visible');
   document.getElementById('v2Status').hidden = true;
-  document.getElementById('v2NoData').hidden = true;
   dom.clearSelectionsBtn.hidden = false;
 }
 
@@ -869,4 +1011,29 @@ function v2SetSearch(value) {
 /** True when the Intel renderer currently owns the DOM. */
 function v2IsActive() {
   return document.body.classList.contains('intel-v2');
+}
+
+function v2DashboardState() {
+  return {
+    tab: v2Tab,
+    search: v2Search,
+    filters: Object.fromEntries(Object.entries(v2Active).map(([k, v]) => [k, [...v]])),
+    core: v2Core ? [v2Core.stops[v2Core.lo], v2Core.stops[v2Core.hi]] : null
+  };
+}
+
+async function v2ApplyDashboardState(state) {
+  if (state.tab && V2_DATA[state.tab] && state.tab !== v2Tab) await v2Switch(state.tab);
+  Object.entries(state.filters || {}).forEach(([key, values]) => {
+    if (v2Active[key]) {
+      v2Active[key].clear();
+      values.forEach(value => v2Active[key].add(value));
+    }
+  });
+  if (state.core && v2Core) dashboardApplyCoreValues(v2Core, state.core);
+  v2Search = state.search || '';
+  dom.searchInput.value = v2Search;
+  dom.searchClear.classList.toggle('visible', !!v2Search);
+  coreRangePaint('v2core', v2Core);
+  v2ApplyFilters();
 }

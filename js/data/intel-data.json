@@ -423,6 +423,23 @@
     ],
     "skus": [
       {
+        "name": "Xeon E",
+        "desc": "Low-end server processors",
+        "tags": [
+          "server"
+        ],
+        "brand": "Xeon"
+      },
+      {
+        "name": "Xeon W-2400/2500",
+        "desc": "Raptor Lake-based workstation processors",
+        "tags": [
+          "desktop",
+          "server"
+        ],
+        "brand": "Xeon"
+      },
+      {
         "name": "Raptor Lake-S Refresh",
         "desc": "Desktop processors — refreshed 14th Gen",
         "tags": [
@@ -439,14 +456,6 @@
         "brand": "Core"
       },
       {
-        "name": "Raptor Lake-E",
-        "desc": "Embedded CPUs",
-        "tags": [
-          "embedded"
-        ],
-        "brand": "Core"
-      },
-      {
         "name": "Raptor Lake-HX (14th)",
         "desc": "Desktop CPUs repurposed for mobile processors",
         "tags": [
@@ -455,21 +464,12 @@
         "brand": "Core"
       },
       {
-        "name": "Xeon E",
-        "desc": "Low-end server processors",
+        "name": "Raptor Lake-E",
+        "desc": "Embedded CPUs",
         "tags": [
-          "server"
+          "embedded"
         ],
-        "brand": "Xeon"
-      },
-      {
-        "name": "Xeon W-2400/2500",
-        "desc": "Raptor Lake-based workstation processors",
-        "tags": [
-          "desktop",
-          "server"
-        ],
-        "brand": "Xeon"
+        "brand": "Core"
       }
     ]
   },

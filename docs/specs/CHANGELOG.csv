@@ -1,0 +1,118 @@
+model,field,old,new,codename_old,codename_new
+Ryzen 9 9950X,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 9 9950X3D,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 9 9900X,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 9 9900X3D,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 9 PRO 9945,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 7 9700F,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 7 9700X,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 7 9800X3D,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 7 9850X3D,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 7 PRO 9745,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 5 9500F,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 5 9600,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 5 9600X,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen 5 PRO 9645,codename,Granite Ridge,Granite Ridge AM5,Granite Ridge,Granite Ridge AM5
+Ryzen AI 7 350,codename,Kraken Point,Krackan Point,Kraken Point,Krackan Point
+Ryzen AI 7 PRO 350,codename,Kraken Point,Krackan Point,Kraken Point,Krackan Point
+Ryzen AI 5 340,codename,Kraken Point,Krackan Point,Kraken Point,Krackan Point
+Ryzen AI 5 PRO 340,codename,Kraken Point,Krackan Point,Kraken Point,Krackan Point
+Ryzen AI 5 330,codename,Kraken Point,Krackan Point,Kraken Point,Krackan Point
+Ryzen 9 7950X,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 9 7950X3D,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 9 7900,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 9 7900X,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 9 7900X3D,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 7 7700,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 7 7700X,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 7 7800X3D,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 5 7400,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 5 7400F,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 5 7500F,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 5 7500X3D,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 5 7600,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 5 7600X,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 5 7600X3D,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 5 PRO 7445,codename,Raphael,Raphael AM5,Raphael,Raphael AM5
+Ryzen 7 7840HS,tdp,35-54W,54W,Phoenix,Phoenix
+Ryzen 9 7940HS,tdp,35-54W,54W,Phoenix,Phoenix
+Ryzen 5 7533HS,tdp,35-54W,54W,Phoenix,Rembrandt R
+Ryzen 5 7533HS,codename,Phoenix,Rembrandt R,Phoenix,Rembrandt R
+Ryzen 5 7640HS,tdp,35-54W,54W,Phoenix,Phoenix
+Ryzen 7 250,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 7 260,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 7 PRO 250,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 9 270,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 5 220,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 5 230,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 5 240,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 5 PRO 215,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 5 PRO 220,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 5 PRO 230,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 3 210,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 3 PRO 210,codename,Hawk Point Refresh,Hawk Point,Hawk Point Refresh,Hawk Point
+Ryzen 7 7435HS,codename,Rembrandt-R,Rembrandt R,Rembrandt-R,Rembrandt R
+Ryzen 7 7735HS,tdp,35-54W,54W,Rembrandt-R,Rembrandt R
+Ryzen 7 7735HS,codename,Rembrandt-R,Rembrandt R,Rembrandt-R,Rembrandt R
+Ryzen 7 7735U,codename,Rembrandt-R,Rembrandt R,Rembrandt-R,Rembrandt R
+Ryzen 7 7736U​,codename,Rembrandt-R,Rembrandt R,Rembrandt-R,Rembrandt R
+Ryzen 7 PRO 7735U,codename,Rembrandt-R,Rembrandt R,Rembrandt-R,Rembrandt R
+Ryzen 5 7535HS,tdp,35-54W,54W,Rembrandt-R,Rembrandt R
+Ryzen 5 7535HS,codename,Rembrandt-R,Rembrandt R,Rembrandt-R,Rembrandt R
+Ryzen 5 7535U,codename,Rembrandt-R,Rembrandt R,Rembrandt-R,Rembrandt R
+Ryzen 5 PRO 7535U,codename,Rembrandt-R,Rembrandt R,Rembrandt-R,Rembrandt R
+Ryzen 3 7335U,codename,Rembrandt-R,Rembrandt R,Rembrandt-R,Rembrandt R
+Ryzen 3 PRO 7335U,codename,Rembrandt-R,Rembrandt R,Rembrandt-R,Rembrandt R
+Ryzen 5 7235HS,codename,Rembrandt-R,Rembrandt R,Rembrandt-R,Rembrandt R
+Ryzen 7 5700,codename,Vermeer,Cezanne,Vermeer,Cezanne
+Ryzen 5 5500,codename,Vermeer,Cezanne,Vermeer,Cezanne
+Ryzen TR PRO 5995WX,codename,Chagall,Chagall PRO,Chagall,Chagall PRO
+Ryzen TR PRO 5975WX,codename,Chagall,Chagall PRO,Chagall,Chagall PRO
+Ryzen TR PRO 5965WX,codename,Chagall,Chagall PRO,Chagall,Chagall PRO
+Ryzen TR PRO 5955WX,codename,Chagall,Chagall PRO,Chagall,Chagall PRO
+Ryzen TR PRO 5945WX,codename,Chagall,Chagall PRO,Chagall,Chagall PRO
+Ryzen 7 5825C,codename,Barceló,Barcelo,Barceló,Barcelo
+Ryzen 7 5825U,codename,Barceló,Barcelo,Barceló,Barcelo
+Ryzen 7 PRO 5875U,codename,Barceló,Barcelo,Barceló,Barcelo
+Ryzen 5 5625C,codename,Barceló,Barcelo,Barceló,Barcelo
+Ryzen 5 5625U,codename,Barceló,Barcelo,Barceló,Barcelo
+Ryzen 5 PRO 5675U,codename,Barceló,Barcelo,Barceló,Barcelo
+Ryzen 3 5425C,codename,Barceló,Barcelo,Barceló,Barcelo
+Ryzen 3 5425U,codename,Barceló,Barcelo,Barceló,Barcelo
+Ryzen 3 PRO 5475U,codename,Barceló,Barcelo,Barceló,Barcelo
+Ryzen 3 5125C,codename,Barceló,Barcelo,Barceló,Barcelo
+Ryzen 7 7730U,codename,Barceló-R,Barcelo R,Barceló-R,Barcelo R
+Ryzen 7 PRO 7730U,codename,Barceló-R,Barcelo R,Barceló-R,Barcelo R
+Ryzen 5 7430U,codename,Barceló-R,Barcelo R,Barceló-R,Barcelo R
+Ryzen 5 7530U,codename,Barceló-R,Barcelo R,Barceló-R,Barcelo R
+Ryzen 5 PRO 7530U,codename,Barceló-R,Barcelo R,Barceló-R,Barcelo R
+Ryzen 3 7330U,codename,Barceló-R,Barcelo R,Barceló-R,Barcelo R
+Ryzen 3 PRO 7330U,codename,Barceló-R,Barcelo R,Barceló-R,Barcelo R
+Ryzen 9 4900H,tdp,35-54W,54W,Renoir,Renoir
+Ryzen 7 160,codename,Mendocino,Rembrandt,Mendocino,Rembrandt
+Ryzen 7 170,codename,Mendocino,Rembrandt,Mendocino,Rembrandt
+Ryzen 5 130,codename,Mendocino,Rembrandt,Mendocino,Rembrandt
+Ryzen 5 150,codename,Mendocino,Rembrandt,Mendocino,Rembrandt
+Ryzen 3 110,codename,Mendocino,Rembrandt,Mendocino,Rembrandt
+Athlon PRO 3045B,codename,Picasso,Dali,Picasso,Dali
+Athlon PRO 3145B,codename,Picasso,Dali,Picasso,Dali
+Ryzen 5 1600,codename,Summit Ridge,Pinnacle Ridge,Summit Ridge,Pinnacle Ridge
+Ryzen 5 1600 (AF),codename,Summit Ridge,Pinnacle Ridge,Summit Ridge,Pinnacle Ridge
+Ryzen TR 1950X,codename,Whitehaven,Threadripper,Whitehaven,Threadripper
+Ryzen TR 1920X,codename,Whitehaven,Threadripper,Whitehaven,Threadripper
+Ryzen TR 1900X,codename,Whitehaven,Summit Ridge,Whitehaven,Summit Ridge
+Athlon 200GE,codename,Raven Ridge,Picasso,Raven Ridge,Picasso
+Athlon 220GE,codename,Raven Ridge,Picasso,Raven Ridge,Picasso
+Athlon 300GE,codename,Raven Ridge,Dali,Raven Ridge,Dali
+Athlon 300U,codename,Raven Ridge,Picasso,Raven Ridge,Picasso
+Athlon PRO 300GE,codename,Raven Ridge,Picasso,Raven Ridge,Picasso
+Athlon PRO 300U Mobile Processor with Radeon Vega 3 Graphics,codename,Raven Ridge,Picasso,Raven Ridge,Picasso
+AMD 3015e,codename,Dalí,Pollock,Dalí,Pollock
+AMD 3020e,codename,Dalí,Dali,Dalí,Dali
+Athlon  Silver 3050C,codename,Dalí,Dali,Dalí,Dali
+Athlon Gold 3150C,codename,Dalí,Dali,Dalí,Dali
+Athlon Gold 3150U,codename,Dalí,Dali,Dalí,Dali
+Athlon Silver 3050U,codename,Dalí,Dali,Dalí,Dali
+Athlon Silver 3050e,codename,Dalí,Dali,Dalí,Dali
+Ryzen 3 3250C,codename,Dalí,Picasso,Dalí,Picasso
+Ryzen 3 3250U,codename,Dalí,Dali,Dalí,Dali

@@ -3,9 +3,10 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-08-27 (session close — UI overhaul)
-**Current version:** 0.4.0 — both vendors product-first, sidebar filters, compact header
-**Health:** Good — all six sub-tabs render, zero JS errors, smoke test PASS
+**Last updated:** 2026-09-21 (NVIDIA implementation)
+**Current version:** 0.6.0 — NVIDIA data center, GeForce, and CPU coverage
+**Health:** Good — generators, ordering, full browser smoke test, screenshots, and layout
+audit pass with no JavaScript errors
 **Committed:** through `4002201`. Confirm with Daniel that anything after the
 marker-centring commit has landed before building on top.
 
@@ -42,21 +43,31 @@ wrong — he's usually right, so re-check rather than defend.
 
 ## Verified baseline
 
-Measured 2026-08-27 by `tools/smoke-test.py`. **Model counts are the load-bearing
-assertions** — they are what catches a restructure silently dropping data.
+Intel measured 2026-09-10; AMD rebuilt from official CSV exports 2026-09-21.
+**Model counts are the load-bearing assertions** — they are what catches a
+restructure silently dropping data.
 
 | Check | Value |
 |---|---|
-| AMD EPYC series / cards / models | 6 · 12 · **162** |
-| AMD Ryzen series / cards / models | 19 · 34 · **478** |
-| AMD GPU series / cards / models | 42 · 42 · **258** |
+| AMD EPYC series / cards / models | 20 · 27 · **350** |
+| AMD Ryzen series / cards / models | 32 · 79 · **736** |
+| AMD GPU series / cards / models | 43 · 43 · **303** |
 | Intel Xeon generations / cards / models | 11 · 33 · **553** |
-| Intel Client generations / cards | 11 / 47 (no spec data by design) |
-| Intel Graphics generations / cards | 4 / 12 (no spec data by design) |
+| Intel Client generations / cards / models | 11 · 49 · **340** |
+| Intel Graphics generations / cards / models | 4 · 8 · **35** |
+| NVIDIA Data Center groups / models | 9 · **20** |
+| NVIDIA GeForce series / models | 5 · **47** |
+| NVIDIA CPU groups / models | 2 · **4** |
 | Core-slider stops — AMD EPYC / Intel Xeon | 20 / 36 |
-| Filter chips exercised | 92 across six sub-tabs |
-| Known-dead chips (tracked, non-failing) | 12, all Intel |
+| Filter chips exercised | 52 Intel (23 · 18 · 11) + 40 AMD |
+| Dead chips | **0** — `KNOWN_DEAD_CHIPS` is empty and enforced |
 | JS errors | none |
+
+> **Note on the smoke test in a sandbox.** The full suite drives ~92 chips and
+> can exceed the 45s bash cap; run it detached with `setsid … nohup … &` and poll
+> the log. `SMOKE_TRACE=1` prints every driven action with a timestamp and caps
+> waits at 9s — without it, a missing selector stalls for 30s per call with no
+> output and looks identical to a slow run.
 
 **Layout invariants** (`python3 tools/audit-layout.py`):
 
@@ -68,8 +79,9 @@ assertions** — they are what catches a restructure silently dropping data.
 | Clipped text | none |
 | Chrome above the timeline | 167px AMD (was 403px) |
 
-Also verified working: search narrows correctly (`9575F` → 1 group, so SKU-level search
-reaches into spec tables), expand/collapse, vendor and tech tab switching, row selection.
+Also covered by the browser suite: exact-SKU precedence, collapsed search results with
+match explanations, URL restoration, source panels, persistent selections, and a
+three-product cross-vendor comparison.
 
 **Filter bar counts** (all multi-select, verified 2026-08-12):
 
@@ -193,9 +205,9 @@ set once the tags are reconciled.
 8 AMD architectures vs 19 Intel (Zen 6 added 2026-08-12). Still thinner than Intel, though
 AMD now has 46 SKU cards vs Intel's 44.
 
-### 8. Dead file
-`cpu-architecture-roadmap.html` (279 KB) — the original single-file version. Nothing links
-to it. Delete or move to `archive/` when convenient.
+### 8. Dead file — RESOLVED 2026-09-10
+`cpu-architecture-roadmap.html` (279 KB) deleted, along with `js/amd-v2-data.js`
+and `intel-v2.html`. Nothing linked to any of them.
 
 ---
 
@@ -237,33 +249,46 @@ accepted rather than rewritten.
 
 Ordered by value, with the blocking question named.
 
-### 1. Intel Client + Graphics spec data — the one real blocker
+### 1. ~~Intel Client + Graphics spec data~~ — DONE 2026-09-10
 
-Both tabs render their real column sets with empty bodies, by design. Daniel is
-preparing the data separately. `intel-cpu-specs.json` holds 275 models under the
-*old* codename keys; `V2_SPECS` is keyed by the `name` in `V2_DATA`. When the data
-lands, `v2LoadSpecs()` picks it up from `js/data/intel-<tab>-specs.json` with no
-code change, and the core-range slider appears on its own.
+Both tabs now carry real data. The framework needed no changes to accept it:
+`v2LoadSpecs()` picked the files up as designed.
 
-### 2. The 12 dead Intel chips — needs Daniel's call
+- **Client: 340 models, 24 codenames** — `tools/import-client-specs.py`
+- **Graphics: 35 models, 13 families** — `tools/import-graphics-specs.py`
 
-Chip label vs block `name` mismatch, e.g. chip `Xeon 5` vs block
-`Xeon 5 (5th Gen Scalable)`. Two fixes: shorten the block names, or make the chips
-match the full names. Both are mechanical; the choice is editorial. The sidebar
-already shows them dimmed with a blank count, so they no longer mislead.
+Every model lands on a timeline block (340/340 and 35/35); there are no orphans.
 
-### 3. Housekeeping Daniel must do (sandbox can't delete on the mount)
+### 2. ~~The 12 dead Intel chips~~ — FIXED 2026-09-10
 
-```powershell
-Remove-Item js\amd-v2-data.js      # stale build intermediate
-git rm intel-v2.html               # redirect stub
-git rm cpu-architecture-roadmap.html   # 279 KB dead original
-```
+**Zero dead chips across all 52.** Two distinct causes, two fixes:
+
+- **Ten label-vs-name mismatches.** Blocks now carry an explicit `genTag`
+  ('Xeon 5') alongside the display name ('Xeon 5 (5th Gen Scalable)'), and
+  `data-gen` prefers it. Daniel chose this over renaming the chips so the
+  descriptive headings survive.
+- **Silver / Bronze were real data the UI could not reach.** 38 such Xeons are
+  imported, but tier is one value per family and every family is tagged
+  Platinum or Gold. Cards now publish `data-tiers` — the set of tiers their
+  *models* span, derived at render time — and the filter matches against that
+  set via `v2CardHasTier()`.
+
+`KNOWN_DEAD_CHIPS` is now empty and the smoke test enforces it: any chip that
+selects nothing is a build failure, not a backlog item.
+
+### 3. Housekeeping — DONE 2026-09-10
+All three dead files deleted (`js/amd-v2-data.js`, `intel-v2.html`,
+`cpu-architecture-roadmap.html`). The sandbox *can* delete on the mount once
+permission is granted — the earlier "Operation not permitted" was a
+default-off setting, not a hard limit.
 
 ### 4. Optional polish
 
-- **Sticky header** — never answered. At 167px it is cheap to pin, and navigation
-  would stay reachable deep in a long timeline.
+- ~~**Sticky header**~~ — **DECIDED 2026-09-10: leave it scrolling. Do not
+  re-raise.** Pinning 167px would cost roughly a fifth of a laptop viewport
+  permanently, and Daniel would rather spend that on content. The sidebar
+  filters are sticky and that is enough — they are what you reach for mid-scroll.
+  A condensed 56px variant was offered and also declined.
 - **Ryzen Brand filter is lopsided** — 10 of 34 codenames are plain "Ryzen". Unlike
   the old EPYC Platform filter it *is* data-derived, so it is defensible; a core
   slider or segment-first grouping would sharpen it.
@@ -280,6 +305,199 @@ AMD CPU coverage is thinner than Intel's; no live site reflects current work.
 ## Session log
 
 Newest first. One short entry per session — what changed, what was verified, what's next.
+
+### 2026-09-21f — Product titles anchored beside vendor selector
+
+Changed the compact topbar from a wrapping flex row to a three-column grid: vendor,
+product title, and status. Below 900px the vendor and title stay together while the
+status count moves to its own row; descriptors hide before they can displace the title.
+The vendor pill and title typography scale down together on mobile.
+
+Verification: all nine AMD, Intel, and NVIDIA product tabs keep the title on the same
+row as the vendor selector at both 656px and 390px. The responsive layout audit reports
+no overflow or clipped text, and the full browser smoke suite passes with zero
+JavaScript errors.
+
+### 2026-09-21e — Generation collapse animation streamlined
+
+Replaced the shared generation disclosure's `max-height: 15000px` animation with a
+natural-height grid transition. The old ceiling made closing look delayed because the
+browser animated thousands of invisible pixels before reaching the visible content.
+AMD, Intel, and NVIDIA now open and close as one 180ms movement, including the caret.
+
+Verification: measured the first Intel Xeon group at 148px open and sampled its close
+at 148px / 67px / 0px / 0px at 0 / 50 / 110 / 210ms. The declared duration is 180ms,
+with no residual spacing. JavaScript syntax, the full cross-vendor browser smoke suite,
+and the desktop/mobile layout audit all pass with zero JavaScript errors or overflow.
+
+### 2026-09-21d — NVIDIA press-deck palette applied
+
+Audited all 25 pages of `NDR_July2026_.pdf` as visual reference and replaced the
+temporary NVIDIA styling with its consistent presentation system: near-black canvas,
+charcoal surfaces, white headings, cool-gray supporting text, and NVIDIA green as the
+primary interaction color. The deck's teal, blue, purple, orange, gray, and warm-gold
+chart accents are reserved for categorical filter and architecture distinction. The
+theme remains scoped to `body.nvidia-v2`, leaving AMD and Intel unchanged.
+
+Verification: JavaScript syntax and data ordering checks pass; the full browser smoke
+suite passes every AMD, Intel, and NVIDIA tab with zero JavaScript errors; all three
+NVIDIA screenshots were inspected; the layout audit reports no overflow or clipped text.
+
+### 2026-09-21c — NVIDIA implemented from the audited CSV catalog
+
+Added NVIDIA as a third first-class vendor with Data Center, GeForce, and CPU sub-tabs.
+The runtime dataset is generated by `tools/build-nvidia-data.py` from the three audited
+source CSVs: 20 data-center GPUs, 47 GeForce variants, and 4 CPU/superchips. The renderer
+derives groups and filter chips from the loaded records, keeps data center first, and
+supports exact-SKU search, shareable state, source disclosure, row selection, and the
+existing cross-vendor comparison dialog. `compare-details.json` now includes all 71
+NVIDIA products and their complete non-empty source fields.
+
+The NVIDIA palette is isolated in `body.nvidia-v2` variables plus `N2_TONES`.
+
+Verification: data generator row-count and provenance guards pass; `check-order.py`
+passes; the full browser smoke test passes all AMD, Intel, and NVIDIA tabs with zero
+dead chips and zero JavaScript errors; NVIDIA screenshots were inspected; the repaired
+layout audit reports no overflow, with the NVIDIA desktop view included.
+
+### 2026-09-10b — Intel Graphics regrouped and given real spec depth
+
+Daniel: "the Intel GPU section feels poorly organized, not a lot of specs per
+table." Both halves of that were true and measurable.
+
+**Nine of thirteen cards held a single model** — a full table header rendered
+above one row, the least useful shape a spec table can take. Regrouped by
+**architecture + brand line + segment** into eight families, every one with 2+
+models: Data Center GPU Max 2 · Data Center Flex 3 · Arc Pro B-series 4 ·
+Arc B-series 2 · Arc Pro A-series 5 · Arc A-series 6 · Mobile 7 · Embedded 6.
+`family_of()` no longer mirrors the timeline's uneven granularity; the timeline
+follows the data instead.
+
+**Only 10 of ~30 populated ARK fields were used.** Added AI (Int8) TOPS — 30/35
+filled and the number that actually comes up in AI conversations — plus memory
+speed, bus width on the Max parts, and a physical column (slots / PSU / power
+connectors) on Arc Pro. Consumer tables went 10 → 12 columns.
+
+Three things worth keeping:
+- **`Arc A-series Embedded` is a new segment**, and adding it without a matching
+  filter chip would have been the exact recurring bug class in CLAUDE.md. The
+  chip was added in the same change; verified 0 dead chips across 52.
+- **ARK publishes a bare `Memory` field on newer Battlemage Pro parts** instead
+  of `Memory Size` + `Memory Type`. Without that fallback the B70 and B65 render
+  a blank VRAM cell while ARK plainly lists 32 GB GDDR6. Another fallback-chain
+  case; assume every ARK field has at least two spellings.
+- **Displays and Max Resolution were added, measured, and removed.** At 14
+  columns they pushed PCIe off the right edge, and they are only 24/35 and 21/35
+  filled. **11–12 columns is the practical ceiling at the 2-up card width** —
+  anything new must displace something, not append to it. Graphics tables now
+  overflow ~900px into an 822px column, in line with Xeon's 13-column tables
+  which overflow to ~980px on 29 of 33 cards; horizontal scroll with styled
+  scrollbars is the established pattern, not a defect.
+
+Cache-buster bumped on **both** mechanisms this time (`20260910-gfx-regroup`).
+
+**Verified:** 35/35 models place, **0 empty Graphics cards**, 0 dead chips,
+0 JS errors, Xeon 553 and Client 340 unchanged. Screenshots read, not just counts.
+
+**Files changed:** `tools/import-graphics-specs.py`, `js/intel-v2.js`,
+`js/data/intel-graphics-specs.json`, `js/script.js`, `index.html`,
+`tools/smoke-test.py`.
+
+### 2026-09-10 — Intel Client + Graphics imported; all dead chips fixed
+
+Cleared four of the five open items. The Intel framework accepted its data with
+no structural change, which is the outcome the framework-first build was for.
+
+**Client — 340 models, 24 codenames.** `tools/import-client-specs.py` joins the
+raw ARK exports (which carry the per-core-type clocks the column set needs) to
+`intel-master.csv` (which carries the researched codenames). Notes:
+
+- Daniel supplied a second batch of client exports that **overlap** the first
+  rather than replacing it: 84 products in both, 54 only in the new, 202 only in
+  the old, union 340. Both batches are official ARK, so all seven files are in
+  ARK_FILES and a (codename, name) dedupe keeps the first copy seen.
+- The join needs normalising on both sides — the master writes
+  `Core i9 processor 14900K`, ARK writes `i9-14900K`. Matching raw strings
+  dropped 334 of 589 rows. `sku()` strips vendor words and separators.
+- **`embedded` is in scope for the Client tab.** Excluding it lost 138 rows of
+  client silicon (Raptor Lake-U/H/P, Bartlett Lake-S) that the Embedded filter
+  chip openly advertises.
+- 12th Gen is in the new exports but not in `intel-master.csv`, so it has no
+  researched codename. Alder Lake is the one generation where the die variant is
+  fully determined by the model suffix, so `alder_codename()` derives it. Safe
+  here and nowhere else.
+- Two families were missing from the timeline and were added: **Raptor Lake-E**
+  (13th Gen, embedded E/TE) and **Bartlett Lake-S** (Series 2, P-core-only
+  embedded rebrand).
+- **Xe-cores and Execution Units are not the same unit.** ARK reports Xe-cores
+  on Meteor Lake onward and raw EUs on everything older, so a plain fallback put
+  UHD 770's `32` beside Arrow Lake's `4`. `xe_cores()` converts at the fixed 8
+  EU per Xe-core ratio.
+- Pre-2020 parts (Cherry Trail, SoFIA, Coffee Lake-H, Skylake-W W-3175X, 15
+  models) are **deliberately excluded** — Daniel's call, matching the Xeon tab's
+  Skylake-SP cutoff. They stay in the CSV; they just do not render.
+
+**Graphics — 35 models, 13 families.** `tools/import-graphics-specs.py`. No
+codename join needed: ARK publishes `Microarchitecture` directly. The mapping has
+to follow the timeline's uneven granularity — Max, Flex and Battlemage get one
+family per model, Alchemist collapses 19 A-series parts into three. Added blocks
+for **Arc Pro B65 and B70**, which postdate the original scaffolding.
+`V2_FIELDS.graphics` is keyed by brand line, mirroring `V2_COLUMNS.graphics`, so
+`v2Rows()` now resolves fields through `v2Fields(tier)` exactly as `v2Columns()`
+does — if those two ever disagree, values render under the wrong headers and it
+looks like bad data rather than a bug.
+
+**All 12 dead filter chips fixed — the set is now empty and enforced.** See
+Suggested next steps §2 for the two causes and the two fixes (`genTag` on blocks;
+`data-tiers` + `v2CardHasTier()` on cards).
+
+**Housekeeping.** Deleted `js/amd-v2-data.js`, `intel-v2.html` and
+`cpu-architecture-roadmap.html` and cleaned up the six doc references to them.
+The long-standing note that the sandbox cannot delete on the mount was wrong —
+it is a permission toggle, not a hard limit.
+
+**Ryzen 7 4800HS TDP — closed, dashboard was right.** AMD's official CSV lists
+45W nominal with a configurable 35–54W range. The agent research reported 35W,
+the *bottom of the cTDP band*, and mistook it for the nominal figure; it was never
+swapped with the non-HS part. `adjudication.md` and `corrections.csv` updated.
+
+**Sticky header — decided: leave it scrolling, do not re-raise.** 167px pinned
+would cost about a fifth of a laptop viewport; a condensed 56px variant was also
+declined. The sidebar filters are sticky and that is what gets reached for
+mid-scroll.
+
+**Verified.** AMD build chain re-run and idempotent (`build-amd-data.py --check`
+reports no drift). `node --check` clean on both renderers, all JSON parses.
+Rendered counts after a full rebuild: Xeon 553, Client 340, Graphics 35, 0 dead
+chips across 52.
+
+**Post-import fixes, same day.** Reloading the page revealed three things the
+counts could not see — a reminder that a passing count check is not a rendered
+page:
+
+- The **"Client and Graphics tables are empty pending import"** banner was still
+  in `index.html`, hard-coded and now false. Removed, along with the two
+  `v2NoData` toggles in `v2Activate()` / `v2Deactivate()`.
+- **Data Center GPU Max 1350** rendered an "awaiting data" card. It is withdrawn
+  and absent from ARK, so the block was removed rather than left permanently
+  empty. Graphics is 13 cards, not 14.
+- **The asset cache-buster in `index.html` was never bumped**, so browsers kept
+  serving the *old* `intel-v2.js`. This is the one that actually made the page
+  look wrong on Daniel's reload. `DATA_VERSION` in `script.js` and the three
+  `?v=` query strings on the `<script>` tags are now all `20260910-intel-specs`.
+  **Bump both — the JSON fetches and the script tags use different mechanisms.**
+
+Remaining "No spec data yet" cards are legitimate: Xeon 4 (Diamond Rapids,
+Diamond Rapids HBM, Sierra Forest AP, Sapphire Rapids HBM — all unannounced) and
+Client 25 (11th Gen and older blocks, unreleased Nova Lake, and "Refresh"
+variants ARK folds into their base SKUs). Note the master CSV's `Tiger Lake-H`
+and `Comet Lake-H` rows are mobile **Xeon W** parts and belong to the Xeon tab,
+not to the identically-named Client blocks.
+
+**Files changed:** `index.html`, `js/script.js`, `js/intel-v2.js`,
+`tools/import-client-specs.py` (new),
+`tools/import-graphics-specs.py` (new), `js/data/intel-client-specs.json` (new),
+`js/data/intel-graphics-specs.json` (new), `tools/smoke-test.py`, plus docs.
 
 ### 2026-08-27 — SESSION CLOSE SUMMARY
 
@@ -767,8 +985,8 @@ Xeon 6900E and Xeon Max 9400).
 
 ### 2026-08-16f — v2 promoted to the main Intel tab
 
-The prototype is now the Intel tab. `intel-v2.html` is a redirect stub (sandbox cannot
-delete on the mount — **run `git rm intel-v2.html`**).
+The prototype is now the Intel tab. `intel-v2.html` was a redirect stub; deleted
+2026-09-10.
 
 **Two renderers now share one DOM.** `render()` draws AMD, `v2Render()` draws Intel,
 both over `#timeline` / `#searchInput` / `#filterControls` / toolbar. `switchVendor()`

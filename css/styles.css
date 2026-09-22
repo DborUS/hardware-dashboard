@@ -26,12 +26,14 @@
   .vendor-tab:hover { color: var(--text-secondary); }
   .vendor-tab.active-intel { color: #60a5fa; border-bottom-color: #60a5fa; }
   .vendor-tab.active-amd { color: #ef4444; border-bottom-color: #ef4444; }
+  .vendor-tab.active-nvidia { color: #76b900; border-bottom-color: #76b900; }
   .vendor-tab-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.1); align-self: center; margin: 0 4px; }
 
   header { text-align: center; margin-bottom: 40px; }
   header h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 6px; }
   .header-intel { background: linear-gradient(135deg, #60a5fa, #c084fc, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .header-amd { background: linear-gradient(135deg, #ef4444, #f97316, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .header-nvidia { color: #76b900; }
   header p { color: var(--text-secondary); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
 
   .search-wrap { max-width: 400px; margin: 0 auto 20px; position: relative; }
@@ -136,11 +138,21 @@
   .arch-segment-badge.server-badge { color: #fbbf24; background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.2); }
   .arch-segment-badge.workstation-badge { color: #34d399; background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.2); }
   .unreleased-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px; color: #ef4444; margin-left: 8px; font-style: italic; opacity: 0.8; }
-  .expand-icon { margin-left: auto; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: transform 0.3s ease; font-size: 1.2rem; }
+  .expand-icon { margin-left: auto; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: transform 0.18s ease; font-size: 1.2rem; }
   .arch-group.expanded .expand-icon { transform: rotate(180deg); }
 
-  .arch-body { max-height: 0; overflow: hidden; transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease; padding: 0 20px; }
-  .arch-group.expanded .arch-body { max-height: 15000px; padding: 0 20px 20px; }
+  /* Animate the content's natural height. The previous 15,000px max-height made
+     closing appear delayed because most of the transition happened off-screen. */
+  .arch-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: grid-template-rows 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .arch-body-inner { min-height: 0; overflow: hidden; }
+  .arch-body-inner > :last-child { margin-bottom: 20px; }
+  .arch-group.expanded .arch-body { grid-template-rows: 1fr; }
   .skus-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin-top: 8px; }
 
   .sku-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 14px 16px; transition: all 0.25s ease; cursor: default; position: relative; overflow: hidden; }
@@ -378,7 +390,7 @@
     .arch-segment-badge { display: none; }
     .arch-header { padding: 12px 14px; gap: 10px; }
     .arch-body { padding: 0 14px; }
-    .arch-group.expanded .arch-body { padding: 0 14px 16px; }
+    .arch-body-inner > :last-child { margin-bottom: 16px; }
     .add-link-form { flex-wrap: wrap; }
     .vendor-tab { font-size: 1rem; padding: 10px 24px; min-height: 44px; }
     .vendor-tabs { margin-bottom: 10px; }
@@ -713,7 +725,7 @@
 
   .cr-presets { display: flex; gap: 4px; margin-top: 11px; }
   .cr-pre {
-    flex: 1; min-width: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.55rem;
+    flex: 1; min-width: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
     /* was 22px tall -- below a comfortable target. */
     padding: 8px 2px; min-height: 30px; border-radius: 4px; border: 1px solid var(--border-subtle);
     background: transparent; color: var(--text-muted); cursor: pointer;
@@ -737,29 +749,35 @@
      ══════════════════════════════════════════════════════════════════════ */
 
   .topbar {
-    display: flex; align-items: center; gap: 18px;
-    padding: 4px 0 14px; flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
+    align-items: center; gap: 18px;
+    padding: 4px 0 14px;
   }
 
-  /* Sliding pill. The thumb is a single element translated between halves,
-     so the movement reads as one control rather than two buttons lighting up. */
+  /* Sliding pill. Three equal tracks keep the thumb aligned even though the
+     vendor labels have different lengths. */
   .vendor-pill {
     position: relative; display: inline-flex; flex-shrink: 0;
+    width: clamp(190px, 54vw, 286px);
     background: #141b2d; border: 1px solid rgba(255,255,255,0.09);
     border-radius: 999px; padding: 3px;
   }
   .vendor-pill-thumb {
     position: absolute; top: 3px; bottom: 3px; left: 3px;
-    width: calc(50% - 3px); border-radius: 999px; background: var(--amd-accent, #ef4444);
+    width: calc((100% - 6px) / 3); border-radius: 999px; background: var(--amd-accent, #ef4444);
     transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s ease;
   }
   .vendor-pill[data-active="intel"] .vendor-pill-thumb {
     transform: translateX(100%); background: #60a5fa;
   }
+  .vendor-pill[data-active="nvidia"] .vendor-pill-thumb {
+    transform: translateX(200%); background: var(--nvidia-accent, #76b900);
+  }
   .vendor-pill .vendor-tab {
     position: relative; z-index: 1;
     font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700;
-    letter-spacing: 1px; padding: 7px 20px; min-height: 36px; min-width: 74px;
+    letter-spacing: 1px; padding: 7px 12px; min-height: 36px; min-width: 0; flex: 1;
     border: none; background: none; border-bottom: none; cursor: pointer;
     color: var(--text-muted); transition: color 0.2s ease;
   }
@@ -767,14 +785,15 @@
   /* The active button sits on the coloured thumb, so it goes white rather
      than taking the vendor colour it used to carry. */
   .vendor-pill .vendor-tab.active-amd,
-  .vendor-pill .vendor-tab.active-intel { color: #fff; border-bottom-color: transparent; }
+  .vendor-pill .vendor-tab.active-intel,
+  .vendor-pill .vendor-tab.active-nvidia { color: #fff; border-bottom-color: transparent; }
   .vendor-pill .vendor-tab:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 999px; }
 
   /* Title, now inline. The vendor name is dropped from it -- the pill
 
      immediately to its left already says AMD or Intel. */
-  .topbar header { text-align: left; margin: 0; display: flex; align-items: baseline; gap: 12px; }
-  .topbar header h1 { font-size: 1.15rem; margin: 0; letter-spacing: 0.5px; }
+  .topbar header { text-align: left; margin: 0; min-width: 0; display: flex; align-items: baseline; gap: 12px; }
+  .topbar header h1 { font-size: 1.15rem; margin: 0; letter-spacing: 0.5px; white-space: nowrap; }
   .topbar header p {
     font-size: 0.62rem; letter-spacing: 1.6px; color: var(--text-muted); margin: 0;
     /* Clamp so a long descriptor can't push the count off the row, but the
@@ -825,15 +844,384 @@
   .v2-nodata { margin: 10px 0 0; }
 
   @media (max-width: 900px) {
-    .topbar { gap: 12px; padding-bottom: 10px; }
+    .topbar { grid-template-columns: max-content minmax(0, 1fr); gap: 12px; padding-bottom: 10px; }
     .topbar header { gap: 8px; }
     .topbar header h1 { font-size: 1rem; }
-    .topbar .v2-status { margin-left: 0; width: 100%; text-align: left; }
+    .topbar header p { display: none; }
+    .topbar .v2-status { grid-column: 1 / -1; margin-left: 0; width: 100%; text-align: left; }
     .navrow { gap: 8px; padding-bottom: 12px; }
     .navrow .search-wrap { flex: 1 1 100%; max-width: 100%; order: 3; }
     .navrow .toolbar { order: 2; margin-left: auto; }
   }
   @media (max-width: 640px) {
-    .topbar header p { display: none; }   /* descriptor is the first thing to go */
+    .topbar { gap: 8px; }
+    .topbar header h1 { font-size: clamp(0.88rem, 3.5vw, 1rem); }
+    .vendor-pill .vendor-tab { padding-inline: 6px; letter-spacing: 0.5px; }
     .navrow .toolbar { width: 100%; margin-left: 0; }
+  }
+  body.nvidia-v2 .n2-subtab.active {
+    color: var(--vendor-accent-text); background: var(--vendor-accent-soft);
+    border-bottom-color: transparent;
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════
+     DISCOVERY DETAILS — search explanation, identity, sources, comparison
+     ══════════════════════════════════════════════════════════════════════ */
+
+  .search-summary {
+    margin-top: 9px; padding: 6px 8px; border-radius: 5px;
+    border: 1px solid rgba(251,191,36,0.28); background: rgba(251,191,36,0.08);
+    color: #fcd34d; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.59rem; line-height: 1.45; letter-spacing: 0.15px;
+  }
+  .search-summary[hidden] { display: none; }
+
+  .cpu-spec-header > div:first-child { min-width: 0; }
+  .identity-path, .source-line {
+    margin-top: 4px; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.57rem; line-height: 1.45; color: var(--text-muted);
+    white-space: normal;
+  }
+  .identity-path { color: var(--text-secondary); }
+  .source-line { opacity: 0.78; }
+
+  .compare-tray {
+    position: fixed; z-index: 80; left: 50%; bottom: 18px;
+    width: min(860px, calc(100vw - 32px)); transform: translateX(-50%);
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    border: 1px solid rgba(255,255,255,0.16); border-radius: 10px;
+    background: rgba(15,20,34,0.96); box-shadow: 0 16px 48px rgba(0,0,0,0.55);
+    backdrop-filter: blur(14px);
+  }
+  .compare-tray[hidden] { display: none; }
+  .compare-tray-copy { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .compare-tray-copy strong {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.67rem;
+    color: var(--text-primary); letter-spacing: 0.4px;
+  }
+  .compare-tray-copy span {
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    font-size: 0.72rem; color: var(--text-secondary);
+  }
+  .compare-tray-btn, .compare-tray-clear, .dialog-close {
+    border-radius: 6px; min-height: 34px; padding: 7px 12px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; cursor: pointer;
+  }
+  .compare-tray-btn {
+    border: 1px solid #60a5fa; background: rgba(96,165,250,0.16); color: #bfdbfe;
+  }
+  .compare-tray-btn:disabled { opacity: 0.4; cursor: default; }
+  .compare-tray-clear, .dialog-close {
+    border: 1px solid var(--border-subtle); background: transparent; color: var(--text-secondary);
+  }
+
+  .dashboard-dialog {
+    width: min(1120px, calc(100vw - 32px)); max-height: calc(100vh - 48px);
+    /* The global reset removes the browser's default auto margins from
+       <dialog>. Restore them so every modal is centered in the viewport. */
+    margin: auto;
+    padding: 0; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px;
+    background: #0d1322; color: var(--text-primary); box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  }
+  .compare-dialog[open] {
+    display: flex; flex-direction: column;
+    height: min(760px, calc(100vh - 48px)); overflow: hidden;
+  }
+  .dashboard-dialog::backdrop { background: rgba(2,6,14,0.78); backdrop-filter: blur(4px); }
+  .dialog-head {
+    position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 20px; padding: 18px 20px;
+    border-bottom: 1px solid var(--border-subtle); background: #0d1322;
+  }
+  .dialog-head h2 { margin: 3px 0 0; font-size: 1.1rem; }
+  .dialog-kicker {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.56rem;
+    color: #60a5fa; letter-spacing: 1.8px;
+  }
+  .dialog-close { padding: 5px 10px; }
+  .compare-dialog .dialog-head { position: static; flex: 0 0 auto; }
+  .compare-scroll { flex: 1 1 auto; min-height: 0; overflow: auto; padding: 0 20px 20px; }
+  .compare-table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  .compare-table th, .compare-table td {
+    padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.07);
+    text-align: left; vertical-align: top; font-size: 0.72rem;
+  }
+  .compare-table thead th { position: sticky; top: 0; background: #0d1322; z-index: 2; }
+  .compare-table thead th:first-child, .compare-table tbody th {
+    font-family: 'JetBrains Mono', monospace; color: var(--text-muted); font-size: 0.61rem;
+    text-transform: uppercase; letter-spacing: 0.7px;
+  }
+  .compare-table thead th:first-child, .compare-table tbody th {
+    position: sticky; left: 0; background: #0d1322; z-index: 1;
+  }
+  .compare-table thead th:first-child { z-index: 3; }
+  .compare-table thead strong { display: block; color: var(--text-primary); font-size: 0.78rem; }
+  .compare-table thead span {
+    display: block; max-width: 240px; margin-top: 5px; color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.54rem; line-height: 1.45;
+  }
+  .compare-different { background: rgba(251,191,36,0.07); color: #fde68a; }
+  .compare-sources {
+    margin-top: 18px; padding: 14px; border-radius: 8px;
+    border: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: 0.72rem;
+  }
+  .compare-sources ul { margin: 8px 0 0; padding-left: 18px; }
+
+  .source-dialog { width: min(620px, calc(100vw - 32px)); }
+  .source-card { padding: 20px; }
+  .source-product { font-size: 1rem; font-weight: 600; margin-bottom: 14px; }
+  .source-card dl { margin: 0; }
+  .source-card dl > div {
+    display: grid; grid-template-columns: 120px 1fr; gap: 14px;
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .source-card dt {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.59rem;
+    color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px;
+  }
+  .source-card dd { margin: 0; color: var(--text-secondary); font-size: 0.78rem; }
+  .source-card p { color: var(--text-muted); font-size: 0.72rem; line-height: 1.6; }
+  .confidence-high { color: #86efac; }
+
+  .dashboard-toast {
+    position: fixed; z-index: 100; left: 50%; bottom: 92px; transform: translateX(-50%);
+    padding: 9px 14px; border: 1px solid rgba(251,191,36,0.35); border-radius: 7px;
+    background: #171b27; color: #fde68a; font-size: 0.72rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  }
+  .dashboard-toast[hidden] { display: none; }
+
+  @media (max-width: 640px) {
+    .compare-tray { align-items: stretch; flex-wrap: wrap; bottom: 8px; }
+    .compare-tray-copy { flex-basis: 100%; }
+    .compare-tray-btn, .compare-tray-clear { flex: 1; }
+    .source-card dl > div { grid-template-columns: 1fr; gap: 5px; }
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════
+     REFINED COLOR SYSTEM — vendor context, not rainbow categories
+     ══════════════════════════════════════════════════════════════════════ */
+  body.amd-v2 {
+    --bg-primary: #080a10;
+    --bg-card: #181b20;
+    --border-subtle: rgba(193,169,104,0.10);
+    --text-primary: #ffffff;
+    --text-secondary: #9d9fa2;
+    --text-muted: #636466;
+    --vendor-accent: #ed1c24;
+    --vendor-accent-soft: rgba(237,28,36,0.14);
+    --vendor-accent-text: #c1a968;
+    --amd-gold: #c1a968;
+    --amd-gold-soft: rgba(193,169,104,0.14);
+  }
+  body.intel-v2 {
+    --bg-primary: #bbc4e0;
+    --bg-card: #d8deef;
+    --border-subtle: rgba(5,8,69,0.20);
+    --text-primary: #050845;
+    --text-secondary: #19345f;
+    --text-muted: #455b82;
+    --vendor-accent: #0046c8;
+    --vendor-accent-soft: rgba(0,70,200,0.12);
+    --vendor-accent-text: #054991;
+    --intel-platform: #054991;
+    --intel-platform-soft: rgba(0,199,253,0.16);
+  }
+  body.nvidia-v2 {
+    --bg-primary: #050607;
+    --bg-card: #121416;
+    --border-subtle: rgba(214,218,222,0.13);
+    --text-primary: #f5f6f7;
+    --text-secondary: #b4b8bd;
+    --text-muted: #747a81;
+    --vendor-accent: #76b900;
+    --vendor-accent-soft: rgba(118,185,0,0.15);
+    --vendor-accent-text: #8dcc19;
+    --nvidia-accent: #76b900;
+  }
+  body.nvidia-v2 .bg-grid {
+    background-image: linear-gradient(rgba(118,185,0,0.018) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(214,218,222,0.022) 1px, transparent 1px);
+  }
+  body.nvidia-v2 .vendor-pill {
+    background: #111315;
+    border-color: rgba(214,218,222,0.16);
+  }
+  body.nvidia-v2 .navrow,
+  body.nvidia-v2 .fgroup,
+  body.nvidia-v2 .core-range:last-of-type {
+    border-color: rgba(214,218,222,0.11);
+  }
+  body.nvidia-v2 .sku-card,
+  body.nvidia-v2 .dashboard-dialog,
+  body.nvidia-v2 .compare-tray {
+    box-shadow: 0 16px 42px rgba(0,0,0,0.34);
+  }
+  body.nvidia-v2 .v2-era {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(118,185,0,0.12), transparent 70%);
+  }
+  body.intel-v2 .bg-grid {
+    background-image: linear-gradient(rgba(5,8,69,0.035) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(5,8,69,0.035) 1px, transparent 1px);
+  }
+  body.intel-v2 .vendor-pill {
+    background: #a9b5d5;
+    border-color: rgba(5,8,69,0.24);
+  }
+  body.intel-v2 .search-wrap input,
+  body.intel-v2 .v2-subtabs,
+  body.intel-v2 .cr-num {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+  }
+  body.intel-v2 .navrow,
+  body.intel-v2 .fgroup,
+  body.intel-v2 .core-range:last-of-type {
+    border-color: rgba(5,8,69,0.12);
+  }
+  body.intel-v2 .cr-track { background: rgba(5,8,69,0.16); }
+  body.intel-v2 .crt { background: rgba(5,8,69,0.32); }
+  body.intel-v2 .fchip:hover { background: rgba(255,255,255,0.22); }
+  body.intel-v2 .expand-all-btn:hover,
+  body.intel-v2 .cr-pre:hover { border-color: rgba(5,8,69,0.30); }
+
+  /* Comparison controls follow Intel's pale presentation palette instead of
+     retaining the dark shared modal used by the AMD theme. */
+  body.intel-v2 .compare-tray {
+    background: rgba(216,222,239,0.97);
+    border-color: rgba(5,8,69,0.22);
+    box-shadow: 0 14px 36px rgba(5,8,69,0.22);
+  }
+  body.intel-v2 .compare-tray-btn {
+    border-color: var(--vendor-accent);
+    background: var(--vendor-accent-soft);
+    color: var(--vendor-accent-text);
+  }
+  body.intel-v2 .dashboard-dialog {
+    background: #d8deef;
+    border-color: rgba(5,8,69,0.24);
+    box-shadow: 0 24px 70px rgba(5,8,69,0.30);
+  }
+  body.intel-v2 .dashboard-dialog::backdrop {
+    background: rgba(5,8,69,0.28);
+  }
+  body.intel-v2 .dialog-head,
+  body.intel-v2 .compare-table thead th {
+    background: #d8deef;
+  }
+  body.intel-v2 .compare-table tbody th { background: #d8deef; }
+  body.intel-v2 .dialog-kicker { color: var(--vendor-accent); }
+  body.intel-v2 .compare-table th,
+  body.intel-v2 .compare-table td,
+  body.intel-v2 .source-card dl > div {
+    border-color: rgba(5,8,69,0.12);
+  }
+  body.intel-v2 .compare-different {
+    background: rgba(193,169,104,0.24);
+    color: #4f3f00;
+  }
+
+  .header-amd, .header-intel, .header-nvidia {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
+  body.amd-v2 .header-amd { color: var(--amd-gold); }
+  body.intel-v2 .header-intel { color: var(--vendor-accent-text); }
+  body.nvidia-v2 .header-nvidia { color: var(--vendor-accent-text); }
+
+  body.amd-v2 .vendor-pill-thumb,
+  body.intel-v2 .vendor-pill[data-active="intel"] .vendor-pill-thumb,
+  body.nvidia-v2 .vendor-pill[data-active="nvidia"] .vendor-pill-thumb {
+    background: var(--vendor-accent);
+  }
+  body.amd-v2 .a2-subtab.active,
+  body.intel-v2 .v2-subtab.active,
+  body.nvidia-v2 .n2-subtab.active {
+    color: var(--vendor-accent-text);
+    background: var(--vendor-accent-soft);
+  }
+  body.amd-v2 .v2-era-label,
+  body.intel-v2 .v2-era-label,
+  body.nvidia-v2 .v2-era-label { color: var(--vendor-accent-text); }
+  body.amd-v2 .core-range,
+  body.intel-v2 .core-range,
+  body.nvidia-v2 .core-range { --cr-ac: var(--vendor-accent); }
+
+  /* Card badges are descriptive text, not another categorical color system. */
+  body.amd-v2 .sku-tag,
+  body.intel-v2 .sku-tag,
+  body.nvidia-v2 .sku-tag {
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.045);
+    border-color: rgba(255,255,255,0.08);
+  }
+  body.amd-v2 .sku-card.selected .sku-tag,
+  body.intel-v2 .sku-card.selected .sku-tag,
+  body.nvidia-v2 .sku-card.selected .sku-tag {
+    color: var(--vendor-accent-text);
+    background: var(--vendor-accent-soft);
+    border-color: color-mix(in srgb, var(--vendor-accent) 32%, transparent);
+  }
+
+  body.amd-v2 .cpu-spec-table .cpu-val-highlight,
+  body.amd-v2 .gpu-spec-table .gpu-val-highlight,
+  body.intel-v2 .cpu-spec-table .cpu-val-highlight,
+  body.intel-v2 .gpu-spec-table .gpu-val-highlight,
+  body.nvidia-v2 .cpu-spec-table .cpu-val-highlight,
+  body.nvidia-v2 .gpu-spec-table .gpu-val-highlight { color: var(--vendor-accent-text); }
+
+  /* Platform separators are the major landmarks; give them more contrast and
+     surface area than the individual series below them. */
+  body.amd-v2 .v2-era,
+  body.intel-v2 .v2-era {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--vendor-accent-soft), transparent 70%);
+  }
+  body.amd-v2 .v2-era-label,
+  body.intel-v2 .v2-era-label {
+    color: color-mix(in srgb, var(--vendor-accent) 35%, white);
+    font-size: 0.72rem;
+    letter-spacing: 2.7px;
+  }
+  body.amd-v2 .v2-era::before,
+  body.intel-v2 .v2-era::before {
+    border-color: var(--vendor-accent);
+    background: color-mix(in srgb, var(--vendor-accent) 18%, var(--bg-primary));
+  }
+
+  /* The Ryzen AI Halo deck uses metallic gold for major headings and divider
+     lines. Keep AMD red for identity and controls, while platform landmarks
+     use gold so they sit clearly above individual product series. */
+  body.amd-v2 .v2-era {
+    background: linear-gradient(90deg, var(--amd-gold-soft), transparent 70%);
+  }
+  body.amd-v2 .v2-era-label { color: var(--amd-gold); }
+  body.amd-v2 .v2-era::before {
+    border-color: var(--amd-gold);
+    background: color-mix(in srgb, var(--amd-gold) 18%, var(--bg-primary));
+  }
+  body.intel-v2 .v2-era {
+    background: linear-gradient(90deg, var(--intel-platform-soft), transparent 70%);
+  }
+  body.intel-v2 .v2-era-label { color: var(--intel-platform); }
+  body.intel-v2 .v2-era::before {
+    border-color: var(--vendor-accent-text);
+    background: color-mix(in srgb, var(--vendor-accent-text) 18%, var(--bg-primary));
+  }
+
+  /* Product-line identity should read as a title, not as another small tag. */
+  .topbar header h1 {
+    font-size: 1.38rem;
+    line-height: 1.15;
+    letter-spacing: 0.7px;
+  }
+  @media (max-width: 900px) {
+    .topbar header h1 { font-size: 1.2rem; }
+  }
+  @media (max-width: 640px) {
+    .topbar header h1 { font-size: clamp(0.88rem, 3.5vw, 1rem); }
   }

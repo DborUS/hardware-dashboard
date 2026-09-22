@@ -4,13 +4,14 @@ Reports facts rather than opinions: shared left edges, vertical rhythm,
 horizontal overflow, touch-target sizes and text clipping.
 """
 import http.server, socketserver, threading, functools, collections
+from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-ROOT = '/sessions/charming-modest-thompson/mnt/hardware-dashboard'
+ROOT = Path(__file__).resolve().parents[1]
 PORT = 9011
 ARGS = ["--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage"]
 
-h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=ROOT)
+h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(ROOT))
 socketserver.TCPServer.allow_reuse_address = True
 srv = socketserver.TCPServer(("127.0.0.1", PORT), h)
 srv.RequestHandlerClass.log_message = lambda *a, **k: None
@@ -124,6 +125,19 @@ with sync_playwright() as p:
     r = pg.evaluate(MEASURE)
     print("=" * 66)
     print("  VIEWPORT 1440px  ·  INTEL XEON")
+    print("=" * 66)
+    for x, names in edge_report(r['edges']).items():
+        print("    %5d  %s" % (x, ', '.join(names)))
+    print("  block gaps      :", r['blockGaps'])
+    print("  overflow        :", r['overflow'] or 'none')
+    print("  clipped text    :", r['clipped'] or 'none')
+    print("  targets <32px   :", r['smallTargets'] or 'none')
+    pg.click("#tabNvidia")
+    pg.wait_for_timeout(1200)
+    r = pg.evaluate(MEASURE)
+    print()
+    print("=" * 66)
+    print("  VIEWPORT 1440px  ·  NVIDIA DATA CENTER")
     print("=" * 66)
     for x, names in edge_report(r['edges']).items():
         print("    %5d  %s" % (x, ', '.join(names)))

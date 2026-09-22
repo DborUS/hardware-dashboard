@@ -1,0 +1,87 @@
+Intel® Product Specification Comparison
+09/10/2026 12:31:09 PM
+ ,Intel® Arc™ Pro A30M Graphics ,Intel® Arc™ A750 Graphics ,Intel® Arc™ A770 Graphics (8GB) ,Intel® Arc™ A310 Graphics ,Intel® Arc™ A380 Graphics ,Intel® Arc™ A580 Graphics ,Intel® Arc™ A350M Graphics ,Intel® Arc™ A730M Graphics ,Intel® Arc™ A770M Graphics ,Intel® Arc™ A370M Graphics ,Intel® Arc™ A550M Graphics ,Intel® Arc™ A770 Graphics (16GB) ,Intel® Data Center GPU Flex 170 ,Intel® Data Center GPU Flex 140 ,Intel® Arc™ Pro A50 Graphics ,Intel® Arc™ Pro A40 Graphics ,Intel® Arc™ A530M Graphics ,Intel® Arc™ A570M Graphics ,Intel® Arc™ Pro A60M Graphics ,Intel® Data Center GPU Max 1550 ,Intel® Data Center GPU Max 1100 ,Intel® Arc™ Pro A60 Graphics ,Intel® Arc ™ A380E Graphics ,Intel® Arc ™ A370E Graphics ,Intel® Arc ™ A350E Graphics ,Intel® Arc ™ A310E Graphics ,Intel® Data Center GPU Flex 170V ,Intel® Arc ™ A580E Graphics ,Intel® Arc ™ A750E Graphics ,Intel® Arc™ B580 Graphics ,Intel® Arc™ B570 Graphics ,Intel® Arc™ Pro B50 Graphics ,Intel® Arc™ Pro B60 Graphics ,Intel® Arc™ Pro B65 Graphics ,Intel® Arc™ Pro B70 Graphics
+Essentials
+Model Number,Pro A30M,A750,A770,A310,A380,A580,A350M,A730M,A770M,A370M,A550M,A770,,,Pro A50,Pro A40,A530M,A570M,Pro A60M,,1100,Pro A60,A380E,A370E,A350E,A310E,,A580E,A750E,B580,B570,B50,B60,B65,B70
+Microarchitecture,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe-HPG,Xe-HPG,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe-HPC,Xe-HPC,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe HPG,Xe-HPG,Xe HPG,Xe HPG,Xe2,Xe2,Xe2,Xe2,Xe2,Xe2
+Lithography Type,TSMC N6,TSMC N6,TSMC N6,TSMC N6,TSMC N6,TSMC N6,TSMC N6,TSMC N6,TSMC N6,TSMC N6,TSMC N6,TSMC N6,,,TSMC N6,TSMC N6,TSMC N6,TSMC N6,TSMC N6,,,TSMC N6,TSMC N6,TSMC N6,TSMC N6,TSMC N6,,TSMC N6,TSMC N6,TSMC N5,TSMC N5,TSMC N5,TSMC N5,TSMC N5,TSMC N5
+Vertical Segment,Mobile,Desktop,Desktop,Desktop,Desktop,Desktop,Mobile,Mobile,Mobile,Mobile,Mobile,Desktop,,,Desktop,Desktop,Mobile,Mobile,Mobile,,,,Embedded,Embedded,Embedded,Embedded,,Embedded,Embedded,Desktop,Desktop,,,,
+Marketing Status,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched,Launched
+Launch Date,Q3'22,Q3'22,Q3'22,Q3'22,Q2'22,Q4'23,Q1' 22,Q2'22,Q2'22,Q1' 22,Q2'22,Q3'22,Q3'22,Q3'22,Q3'22,Q3'22,Q3'23,Q3'23,Q2'23,Q1'23,Q2'23,Q2'23,Q2'24,Q2'24,Q2'24,Q2'24,Q3'24,Q3'24,Q3'24,Q4'24,Q4'24,Q3'25,Q2'25,Q1'26,Q1'26
+Embedded Options Available,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,Yes,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No,No,No
+Warranty Period,,,,,,,,,,,,,3  yrs,3  yrs,3  yrs,3  yrs,,,,3  yrs,3  yrs,3  yrs,,,,,3 yrs,,,,,3 yrs,,,3 yrs
+Use Conditions,,,,,,,,,,,,,Server/Enterprise,Server/Enterprise,,,,,,Server/Enterprise,Server/Enterprise,,,,,,Server/Enterprise,,,,,,,,
+Usecase,,,,,,,,,,,,,Cloud Computing,Cloud Computing,,,,,,Artificial Intelligence |  High Performance Computing,Artificial Intelligence |  High Performance Computing,,,,,,Cloud Computing,,,,,,,,
+Expected Discontinuance,,,,,,,,,,,,,,,,,,,,Jan 2026,Jan 2026,July 2026,,,,,,,,,,,,,
+Recommended Customer Price,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,$249.00,,,,,
+
+GPU Specifications
+Xe-cores,8,28,32,6,8,24,6,24,32,8,16,32,32,16,8,8,12,16,16,128,56,16,8,8,6,6,32,24,28,20,18,16,20,20,32
+Render Slices,2,7,8,2,2,6,2,6,8,2,4,8,8,4,2,2,3,4,4,,,4,2,2,2,2,8,6,7,5,5,4,5,5,8
+Ray Tracing Units,8,28,32,6,8,24,6,24,32,8,16,32,32,16,8,8,12,16,16,128,56,16,8,8,6,6,32,24,28,20,18,16,20,20,32
+Intel® Xe Matrix Extensions (Intel® XMX) Engines,128,448,512,96,128,384,96,384,512,128,256,512,512,256,128,128,192,256,256,1024,448,256,128,128,96,96,512,384,448,160,144,128,160,160,256
+Xe Vector Engines,128,448,512,96,128,384,96,384,512,128,256,512,,,128,128,192,256,256,1024,448,256,128,128,96,96,,384,448,160,144,128,160,160,256
+Execution Units,128,,,,,,96,384,512,128,256,,512,256,128,128,192,256,256,,,256,128,128,96,96,512,384,448,,,,,,
+Graphics Clock,1550 MHz,2050 MHz,2100 MHz,2000 MHz,2000 MHz,1700 MHz,1150 MHz,1100 MHz,1650 MHz,1550 MHz,900 MHz,2100 MHz,,,2050 MHz,1550 MHz,1200 MHz,1300 MHz,1300 MHz,,,2000 MHz,2000 MHz,1550 MHz,1150 MHz,2000 MHz,,1700 MHz,2050 MHz,2670 MHz,2500 MHz,1700 MHz,2400 MHz,2400 MHz,2280 MHz
+GPU Peak TOPS (Int8),56,229,262,52,66,197,44,167,223,56,111,262,,,69,69,96,128,128,,,151,66,56,44,52,,197,229,233,203,170,197,197,367
+TGP,35W - 50W,,,,,,25W - 35W,80W-120W,120W-150W,35W - 50W,60W - 80W,,,,,,65W - 95W,75W - 95W,75W - 95W,,,,,35-50W,25-35W,,,,,,,,,,
+PCI Express Configurations ‡,Up to PCI Express 4.0 x8,Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x8  (x16 slot required),Up to PCI Express 4.0 x8  (x16 slot required),Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x8,Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x8,Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x8,Up to PCI Express 4.0 x 16,Up to PCI Express 4.0 x 16,Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x16,Gen 5 x16,Gen 5 x16,Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x8 (x16 slot required),Up to PCI Express 4.0 x8,Up to PCI Express 4.0 x8,Up to PCI Express 4.0 x8 (x16 slot required),Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x16,Up to PCI Express 4.0 x16,PCI Express 4.0 x8,PCI Express 4.0 x8,PCI Express 5.0 x8,PCI Express 5.0 x8,PCI Express 5.0 x16,PCI Express 5.0 x16
+Device ID,0x56B0,0x56A1,0x56A0,0x56A6,0x56A5,0x56A2,0x5694,0x5691,0x5690,0x5693,0x5692,0x56A0,0x56C0,0x56C1,0x56B1,0x56B1,0x5697,0x5696,0x56B2,0x0BD5,0x0BDA,0x56B3,0x56BA,0x56BC,0x56BD,0x56BB,0x56C2,0x56BF,0x56BE,0xE20B,0xE20C,0xE212,0xE211,0xE222,0xE223
+TBP,,225 W,225 W,75 W,75 W,185 W,,,,,,225 W,150 W,75 W,75 W,50 W,,,,,,130 W,75 W,,,75 W,150 W,185 W,225 W,190 W,150 W,70 W,200 W,200 W,230 W
+Graphics Clock - LP,,,,1000 MHz,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2000 MHz,,
+TBP - LP,,,,40W - 75W,,,,,,,,,,,,,,,,,,,,,,,,,,,,,120 - 200 W,,160-290
+Graphics Max Dynamic Frequency,,,,,,,,,,,,,2050 MHz,1950 MHz,,,,,,1600 MHz,1550 MHz,,,,,,2050 MHz,,,,,2600 MHz,,,2800 MHz
+Intel® Xe Matrix Extensions (Intel® XMX) Max Dynamic Clock,,,,,,,,,,,,,1950 MHz,1600 MHz,,,,,,,,,,,,,1500 MHz,,,,,,,,
+Graphics Base Clock,,,,,,,,,,,,,,,,,,,,900 MHz,1000 MHz,,,,,,,,,,,,,,
+Intel® Xe Link Maximum Frequency,,,,,,,,,,,,,,,,,,,,53 Gbps,,,,,,,,,,,,,,,
+TDP,,,,,,,,,,,,,,,,,,,,600 W,300 W,,,,,,,,,,,,,,
+GPU TFLOPS (FP32),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.65,12.28,12.28,22.94
+
+Memory Specifications
+Memory Size,4 GB,8 GB,8 GB,4 GB,6 GB,8 GB,4 GB,12 GB,16 GB,4 GB,8 GB,16 GB,16 GB,12 GB,6 GB,6 GB,,8 GB,8 GB,128 GB,48 GB,12 GB,6 GB,4 GB,4 GB,4 GB,16 GB,16 GB,16 GB,,,,,,
+Memory Type,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,HBM2e,HBM2e,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,GDDR6,,,,,,
+Graphics Memory Interface,64 bit,256 bit,256 bit,64 bit,96 bit,256 bit,64 bit,192 bit,256 bit,64 bit,128 bit,256 bit,256 bit,192 bit,96 bit,96 bit,128 bit,128 bit,128 bit,1024 bit,1024 bit,192 bit,96 bit,64 bit,64 bit,64 bit,256 bit,256 bit,256 bit,192 bit,160 bit,128 bit,192 bit,256 bit,256 bit
+Graphics Memory Bandwidth,112 GB/s,512 GB/s,512 GB/s,124 GB/s,186 GB/s,512 GB/s,112 GB/s,336 GB/s,512 GB/s,112 GB/s,224 GB/s,560 GB/s,576 GB/s,336 GB/s,192 GB/s,192 GB/s,224 GB/s,256 GB/s,256 GB/s,3276.8 GB/s,1228.8 GB/s,384 GB/s,186 GB/s,112 GB/s,112 GB/s,124 GB/s,576 GB/s,560 GB/s,560 GB/s,456 GB/s,380 GB/s,224 GB/s,456 GB/s,608 GB/s,608 GB/s
+Graphics Memory Speed,14 Gbps,16 Gbps,16 Gbps,15.5 Gbps,15.5 Gbps,16 Gbps,14 Gbps,14 Gbps,16 Gbps,14 Gbps,14 Gbps,17.5 Gbps,,,16 Gbps,16 Gbps,,,16 Gbps,,,16 Gbps,15.5 Gbps,14 Gbps,14 Gbps,15.5 Gbps,,17.5 Gbps,17.5 Gbps,19 Gbps,19 Gbps,14 Gbps,19 Gbps,,
+Memory,,,,,,,,,,,,,,,,,4-8GB,,,,,,,,,,,,,12 GB GDDR6,10 GB GDDR6,16 GB GDDR6,24 GB GDDR6,32 GB GDDR6,32 GB GDDR6
+ECC Memory Supported ‡,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Yes,,,Yes
+
+I/O Specifications
+# of Displays Supported‡,4,4,4,4,4,4,4,4,4,4,4,4,0,0,4,4,4,4,4,0,0,4,4,4,4,4,0,4,4,4,4,4,4,4,4
+Graphics Output‡,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,,,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,,,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,eDP* 1.4 |  DP 2.0 up to UHBR 10** |  HDMI* 2.1 |  HDMI* 2.0b,HDMI* 2.1 |  DP2.1 up to UHBR 13.5 |  DP2.1 up to UHBR 10,HDMI* 2.1 |  DP2.1 up to UHBR 13.5 |  DP2.1 up to UHBR 10,DP2.1 up to UHBR 13.5,HDMI* 2.1 |  DP2.1 up to UHBR 13.5 |  DP2.1 up to UHBR 10,HDMI* 2.1,DP2.1 up to UHBR 13.5
+Max Resolution (HDMI)‡,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,,,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,,,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,4096 x 2160@60Hz,,4096 x 2160@60Hz,4096 x 2160@60Hz,7680 x 4320@120Hz,7680 x 4320@120Hz,,7680 x 4320@120Hz,7680 x 4320@120Hz,7680 x 4320@120Hz
+Max Resolution (DP)‡,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,,,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,,,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,,4096 x 2160@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@60Hz,7680 x 4320@120Hz,7680 x 4320@120Hz
+Max Resolution (eDP - Integrated Flat Panel)‡,5120 x 2880@60Hz,,,,,,5120 x 2880@60Hz,5120 x 2880@60Hz,5120 x 2880@60Hz,5120 x 2880@60Hz,5120 x 2880@60Hz,,,,,,5120 x 2880@60Hz,5120 x 2880@60Hz,5120 x 2880@60Hz,,,,,5120 x 2880@60Hz,5120 x 2880@60Hz,,,,,,,,,,
+HDMI Variable Refresh Rate (VRR),,Yes,Yes,,,,,,,,,Yes,,,,,,,,,,,,,,,,,,Yes,Yes,,Yes,Yes,Yes
+
+Features
+H.264 Hardware Encode/Decode,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,No,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+H.265 (HEVC) Hardware Encode/Decode,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+AV1 Encode/Decode,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+
+Supported Technologies
+Ray Tracing,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+oneAPI Support,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+OpenVINO™ Support,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+DirectX* Support,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,,,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,Direct X 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate,DirectX 12 Ultimate
+Vulkan*  Support,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,,,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.4,1.3,1.3,1.3
+OpenGL* Support,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,,,Up to 4.6,Up to 4.6,4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6,Up to 4.6
+OpenCL* Support,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,,,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0
+Multi-Format Codec Engines,2,2,2,2,2,2,2,2,2,2,2,2,2,4,2,2,2,2,2,,,2,2,2,2,2,2,2,2,2,2,2,2,2,2
+VESA Adaptive Sync,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,Yes,Yes,Yes,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+Intel® Extension for PyTorch* (IPEX) Support,,Yes,Yes,,,,,,,,,Yes,,,,,,,,,,,,,,,,,,Yes,Yes,Yes,Yes,Yes,Yes
+Intel® Xe Super Sampling (XeSS) Support,,Yes,Yes,,,,,,,,,Yes,,,,,,,,,,,,,,,,,,Yes,Yes,Yes,Yes,Yes,Yes
+Media Profiles,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,HDR10 |  HDR10+ Gaming |  Dolby Vision,HDR10 |  HDR10+ Gaming |  Dolby Vision,Dolby Vision,HDR10 |  HDR10+ GAMING |  Dolby Vision,HDR10 |  HDR10+ GAMING |  Dolby Vision,HDR10 |  HDR10+ GAMING |  Dolby Vision
+
+Intel® Deep Link Technologies
+Intel® Deep Link Dynamic Power Share‡,Yes,,,,,,Yes,Yes,Yes,Yes,Yes,,,,,,Yes,Yes,Yes,,,,,Yes,Yes,,,,,,,,,,
+Intel® Deep Link Hyper Compute‡,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,Yes,Yes,Yes,,,,,,,,,
+Intel® Deep Link Hyper Encode‡,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,Yes,Yes,Yes,,,,,,,,,
+Intel® Deep Link Stream Assist‡,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,Yes,Yes,Yes,,,,,,,,,
+
+Intel Reference Card Attributes
+Dimensions (Length x Width),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,272 x 115 mm,,6.6" x 2.7",,,10.5" x 3.9"
+Slots,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,2,,,2
+Weight,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,779 G,,330 G,,,1020 G
+Minimum Power Supply Unit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,600 W,,280 W,,,
+Power Connectors,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1 x 8-pin,,No Connector Required,,,1 ATX 2X4 (8Pin)

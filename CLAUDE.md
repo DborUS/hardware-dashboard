@@ -207,9 +207,25 @@ see it: `escHtml()`, `stripVendor()`, and the whole core-range slider
 
 Data lives in `js/data/*.json` and is fetched at runtime. See `docs/DATA-SCHEMA.md`.
 
-`cpu-architecture-roadmap.html` (279 KB) is a **dead file** — the original single-file
-version, kept as history. Nothing links to it. Don't edit it; don't let its existence
-confuse you.
+> **AMD data is now COMPILED, not hand-edited (2026-08-27).**
+> `js/data/amd-cpu-specs.json` and `js/data/amd-gpu-data.json` are **generated** by
+> `tools/build-amd-data.py` from two inputs:
+>
+> | Input | Owns | Edit when |
+> |---|---|---|
+> | `docs/specs/amd-master.csv` | every **factual** field, 1,480 rows, 100% AMD-official | a spec changes |
+> | `js/data/amd-presentation.json` | **editorial** only — colour, subtitle, year, segment, era markers, defaultLinks | a display choice changes |
+>
+> Hand edits to the two output JSONs are overwritten. Run `python3 tools/build-amd-data.py`
+> after changing either input; `--check` exits non-zero if the committed files have drifted.
+>
+> **Scope rule from Daniel:** the dashboard contains *only* parts present in AMD's official
+> product-specification CSVs (`docs/specs/source-csv/`). The master CSV is that list.
+>
+> The master carries two dashboard-specific columns beyond the spec fields: `kind`
+> (`cpu`/`gpu` — never infer this, AMD omits thread counts on some APUs) and
+> `gpu_family_id` (joins a GPU row to its family in the presentation file).
+
 
 ### Two product-first renderers, one DOM
 
@@ -256,9 +272,12 @@ and brand-line sub-headings. AMD's Zen generations map 1:1 to codenames and need
 of it. Forcing both through one function meant flags everywhere — the P-core/E-core
 columns leaking onto AMD tables was exactly that failure.
 
-**Intel currently has no spec data.** Tables render their real column set with an empty
-body, pending the bulk CSV import. `js/data/intel-*.json` still hold 275 models and are
-not yet wired to the new structure.
+**All three Intel tabs carry spec data** as of 2026-09-10: Xeon 553, Client 340,
+Graphics 35. Each is built by its own importer from Daniel's official ARK exports
+(`tools/import-{xeon,client,graphics}-specs.py`) into
+`js/data/intel-<tab>-specs.json`, keyed by the family `name` in `V2_DATA`.
+The legacy `intel-cpu-specs.json` (275 models, old SKU keys) is **not** read by
+the v2 renderer.
 
 ---
 
@@ -462,10 +481,10 @@ over, neither `amd-data.json` nor `intel-data.json` supplies SKU *order* to the
 page — see the scope note at the top of the script. Treat as data hygiene, not a
 rendering defect.
 
-**Intel Client and Graphics have no spec data.** Deliberate — Daniel is building
-the framework first. `intel-cpu-specs.json` still holds 275 models under the old
-SKU keys. The core-range slider correctly renders nothing on those tabs and will
-appear on its own when the data lands.
+**~~Intel Client and Graphics have no spec data~~ — RESOLVED 2026-09-10.**
+Imported from Daniel's ARK exports; 340 and 35 models respectively, every one
+landing on a timeline block. The framework needed no changes to accept them,
+which was the point of building it first.
 
 **GPU consumer/workstation table layouts — WON'T FIX, don't re-raise.** Cosmetic
 only; every displayed value is accurate. Reviewed and closed 2026-08-12.
@@ -473,9 +492,9 @@ only; every displayed value is accurate. Reviewed and closed 2026-08-12.
 **`getLinks()` doesn't validate parsed JSON** (`JSON.parse` returned unchecked).
 Low severity, self-inflicted only.
 
-**Dead files** the sandbox cannot delete on the mount — hand these to Daniel:
-`js/amd-v2-data.js` (stale build intermediate), `intel-v2.html` (redirect stub),
-`cpu-architecture-roadmap.html` (279 KB original single-file version).
+**Dead files: deleted 2026-09-10.** `js/amd-v2-data.js` (stale build
+intermediate), `intel-v2.html` (redirect stub) and `cpu-architecture-roadmap.html`
+(279 KB original single-file version) are gone. History has them if ever needed.
 
 **Legacy code retained but unreachable:** `render()`, `renderGpu()`,
 `applyFilters()`, `buildFilterBar()`, `buildCodenameTable()` and the tech-tab
@@ -516,8 +535,76 @@ be misled by them when reading the file.
 | `tools/check-order.py` | Datacenter-first ordering. **Read its scope note** — it audits files that no longer render |
 | `tools/import-specs.py` | AMD CSV → specs JSON, format-preserving |
 | `tools/import-xeon-specs.py` · `assign-xeon-codenames.py` | The Xeon ARK pipeline |
+| `tools/import-client-specs.py` | Client ARK exports + master CSV codenames → `intel-client-specs.json` |
+| `tools/import-graphics-specs.py` | Discrete-GPU ARK export → `intel-graphics-specs.json` |
 | `tools/mockups/*.html` | Rejected design options, kept for reference |
 
 > **`js/amd-v2.js` is generated.** Edit `tools/gen-amd-v2.py` (the `A2_DATA`
 > taxonomy) or `tools/amd-v2-renderer.js` (the renderer half), then re-run
 > `python3 tools/gen-amd-v2.py`. Hand edits to `js/amd-v2.js` are lost.
+
+### Spec-table column budget
+
+**11-12 columns is the ceiling** at the 2-up card width; past that the rightmost
+column falls off the visible edge. Tables scroll horizontally by design (Xeon's
+13-column tables overflow to ~980px in an 822px column and always have), but a
+column a user must scroll to find is worth less than one they can see. **Adding
+a column means displacing one**, not appending. Rank candidates by fill rate:
+Displays (24/35) and Max Resolution (21/35) were added to the Graphics tab,
+measured, and removed again in favour of PCIe.
+
+A card should hold **2+ models**. A table header above a single row costs a lot
+of vertical space to say very little — nine of the thirteen original Graphics
+families were single-model, which is what made that tab feel thin.
+
+### Cache-busting — bump BOTH, they are separate mechanisms
+
+`DATA_VERSION` in `js/script.js` versions the **JSON fetches**. The `?v=` query
+strings on the three `<script>` tags in `index.html` version the **JS files
+themselves**, and they are hard-coded separately. Bumping only the first ships new
+data to an old renderer — the page then looks broken in ways no count check can
+see. Keep both on the same string.
+
+### The Intel importers
+
+One per sub-tab, each keyed by the family `name` in `V2_DATA` so the output drops
+straight into the cards. Re-run after replacing a source export:
+
+```bash
+python3 tools/import-client-specs.py   -o js/data/intel-client-specs.json
+python3 tools/import-graphics-specs.py -o js/data/intel-graphics-specs.json
+```
+
+Both take `--audit`. The client importer prints anything it could not join to a
+codename and anything dropped by the pre-2020 scope cutoff, so nothing rots
+silently. **ARK exports are transposed** (attributes as rows, products as
+columns, two-line preamble) and field names vary by generation — always read
+through a fallback chain, never a single key.
+
+### The AMD build chain — run in this order
+
+```bash
+python3 tools/build-amd-data.py    # master CSV + presentation -> the two JSONs
+python3 tools/derive-blocks.py     # codenames with no hand-written block -> derived-blocks.json
+python3 tools/gen-amd-v2.py        # JSONs + derived blocks -> js/amd-v2.js
+```
+
+All three are idempotent — running twice produces byte-identical output, so a
+second run is a free check. `build-amd-data.py --check` exits non-zero on drift.
+
+**Timeline blocks are now derived, not hand-typed.** `gen-amd-v2.py` still holds
+curated `EPYC_SERIES` / `RYZEN_SERIES` lists for the modern lines (they carry the
+bright accent colours and the marketing copy). Every codename those lists don't
+cover is grouped automatically by `derive-blocks.py` using AMD's own `family` and
+`series` values from the master CSV, and rendered in a muted palette.
+
+Two rules that fell out of building it, both worth keeping:
+- **EPYC groups by `series`, client groups by `family`.** AMD's `series` is the real
+  product generation for server parts (`EPYC 8005 Series`), but is far too granular
+  on the client side — 101 values, including `A10-Series APU for Desktops`.
+- **Opteron parts are filed under `family=EPYC`** by AMD (57 of them). They only
+  separate correctly because the EPYC rule keys on `series`.
+
+`derive-blocks.py` parses the hand-written lists out of `gen-amd-v2.py` source
+rather than shelling out to it — the generator now consumes the derived file, so
+calling it would be circular.

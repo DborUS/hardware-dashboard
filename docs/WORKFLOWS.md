@@ -280,11 +280,15 @@ column layout instead of the iGPU one. Get it wrong and the table shows the wron
 
 ```bash
 python3 tools/import-specs.py import ... --write
+python3 tools/build-compare-details.py
 python3 tools/smoke-test.py --shots
 ```
 
 Importing an existing key **replaces** all its models — that's how you refresh a series
 after a vendor spec update. The dry run tells you how many rows you're replacing.
+`build-compare-details.py` rebuilds the lazy-loaded comparison record from every
+non-empty column in the checked-in vendor CSVs. Run it after any source CSV changes so
+the comparison dialog does not fall back to only the compact table fields.
 
 **Step 5 — check the new tags reach a filter chip.**
 
@@ -465,7 +469,6 @@ Things that look reasonable and will damage the project:
 | Call `render()` from a filter or search handler | Undoes the v0.3.0 rewrite; back to 300–500 ms |
 | Add a framework, bundler, or npm dependency | Zero-dependency is the point; GitHub Pages serves it as-is |
 | Invent spec numbers to fill a gap | Wrong specs in front of a customer is the worst outcome |
-| Edit `cpu-architecture-roadmap.html` | Dead file, nothing links to it |
 | Commit without `--ignore-all-space` check | CRLF noise buries the real diff |
 | Skip the smoke test on a "trivial" change | Trivial JSON typos take the whole page down |
 | Interpolate user text without `escHtml()` | Breaks markup, and it's already a known bug |
