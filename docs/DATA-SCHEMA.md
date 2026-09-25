@@ -12,7 +12,7 @@ field names here are real, not aspirational.
 | `intel-cpu-specs.json` | object | 31 keys | 275 models. **Not currently rendered** — old SKU keys |
 | `intel-xeon-specs.json` | object | 29 keys | **553 Xeon models — live on the Xeon sub-tab** |
 | `nvidia-data.json` | object | 3 product-line keys | **71 audited models — 20 data center, 47 GeForce, 4 CPU/superchips** |
-| `compare-details.json` | object | 3 vendor keys | Full non-empty source-CSV fields, keyed by normalized product name and loaded only when Compare opens |
+| `compare-details.json` | object | 3 vendor keys | Full non-empty source-CSV fields plus shared master specifications, keyed by normalized product name and loaded only when Compare opens |
 
 Loaded at runtime by `loadVendorData()` and cached in `dataCache`. Filenames follow
 `js/data/{vendor}-data.json`, where vendor is `amd`, `intel`, `amd-gpu`, or `nvidia`.
@@ -153,6 +153,7 @@ by hand, use `json.dump(d, f, indent=4, ensure_ascii=True)`.
 | `tdp` | TDP | `"170W"` |
 | `sk` | Socket | `"AM5"` |
 | `tr` | Tray product ID | `"100-000001277"` |
+| `pr` | Published launch price in USD, formatted for display | `"$14,904"` |
 
 All values are **strings**, rendered verbatim. Match the phrasing of neighbouring rows —
 `"170W"` not `"170 W"`, `"Up to 5.7 GHz"` where siblings use that form.
@@ -184,7 +185,7 @@ not indexed. Add a field to that array to make it searchable.
 This is not a label — it picks which three columns render:
 
 ```
-_srv: true  → … Socket │ Sockets │ PCIe │ Memory │ Product ID
+_srv: true  → … Socket │ Sockets │ PCIe │ Memory │ 1kU Price │ Product ID
 _srv absent → … Socket │ GPU Model │ GPU CUs │ GPU Freq │ Product ID
 ```
 

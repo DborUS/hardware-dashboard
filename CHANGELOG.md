@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **Global product search** (2026-09-23) — search now checks every AMD, Intel,
+  and NVIDIA product tab. Matching inactive vendors get an inset marker;
+  product tabs get a small amber dot distinct from the selected tab. Result
+  routes jump to the right tab without
+  clearing the query. The marker has no count badge. Search now keeps spec
+  fields separate when normalizing punctuation, preventing unit values such as
+  "MB 300 W" from falsely matching the NVIDIA B300 part number.
+- **EPYC 1,000-unit pricing** (2026-09-23) — EPYC specification tables now show
+  AMD's published 1kU USD price immediately before Product ID. The values come
+  from `launch_price_usd` in `docs/specs/amd-master.csv`; models without a
+  published price show a dash.
 - **NVIDIA dashboard integration** (2026-09-21) — NVIDIA is now a first-class vendor
   with Data Center, GeForce, and CPU sub-tabs backed by 71 audited 2017+ products.
   Search, derived filters, shareable URLs, provenance, and cross-vendor comparison all
@@ -21,6 +32,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   build: EPYC 350, Ryzen 736, and GPU 303 models.
 
 ### Changed
+- **Readability pass** (2026-09-23) — increased 93 small-font declarations
+  (0.8rem and below) by 15% across vendor views, filters, metadata, cards,
+  tables, and dialogs. Increased specification/comparison table cell padding
+  by approximately 7% and arranged phone toolbar buttons in two columns to
+  prevent their enlarged labels from wrapping. Follow-up: enlarged product card
+  titles, descriptions, silicon labels, tags, and spec-table header metadata by
+  a further 5%, including phone overrides. Product specification table headers
+  and values gained another 5% across CPU and GPU views, including phone sizing.
+- **Intel dark theme** (2026-09-23) — replaced the pale Intel page, controls,
+  comparison tray, and dialogs with dark navy surfaces and readable blue/cyan
+  accents while preserving the existing Intel layout and product color cues.
+  Restored the shared Clear Selections control on Intel so comparison picks can
+  be cleared from the main toolbar, as on AMD and NVIDIA.
 - **Repository presentation and hygiene** (2026-09-21) — rewrote the README around the
   current nine-tab AMD, Intel, and NVIDIA dashboard; corrected the canonical repository
   and Pages URLs; documented the distinction between authoritative runtime inputs and

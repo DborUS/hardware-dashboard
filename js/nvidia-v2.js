@@ -294,14 +294,15 @@ function n2SpecMatch(targetId, query) {
 
 function n2Switch(tab) {
   n2Tab = tab;
-  n2Search = '';
+  n2Search = dashboardGlobalSearchQuery;
   n2Expanded.clear();
-  dom.searchInput.value = '';
+  dom.searchInput.value = n2Search;
   Object.keys(n2Active).forEach(key => delete n2Active[key]);
   document.querySelectorAll('.n2-subtab').forEach(button =>
     button.classList.toggle('active', button.dataset.tab === tab));
   n2BuildFilters();
   n2Render();
+  dashboardGlobalRender();
 }
 
 function n2Activate(data) {

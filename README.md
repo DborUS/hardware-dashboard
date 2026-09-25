@@ -26,7 +26,7 @@ families represented in their official specification exports.
 ## What it does
 
 - Groups products by vendor, product line, generation, and codename.
-- Searches model names and specification fields with relevance-ranked results.
+- Searches model names and specification fields across all AMD, Intel, and NVIDIA tabs.
 - Filters by product segment, brand, and core count where applicable.
 - Expands each family into detailed, horizontally scrollable specification tables.
 - Compares as many as four CPU or GPU models across vendors.
@@ -151,6 +151,7 @@ screenshots; passing counts alone do not prove that the layout is correct.
 |---|---|
 | [CLAUDE.md](CLAUDE.md) | Architecture, conventions, and repository-specific safeguards |
 | [Project state](docs/PROJECT-STATE.md) | Current baseline, open issues, and session history |
+| [Update queue](docs/UPDATE-QUEUE.md) | Visitor-facing changes waiting for a New update post |
 | [Workflows](docs/WORKFLOWS.md) | Repeatable import, generation, and verification procedures |
 | [Design system](docs/DESIGN-SYSTEM.md) | Colours, typography, spacing, and components |
 | [Data schema](docs/DATA-SCHEMA.md) | JSON contracts and SKU ordering rules |

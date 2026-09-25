@@ -27,7 +27,7 @@
 
 const A2_COLUMNS = {
   epyc:  ['Model', 'Cores', 'Threads', 'Base', 'Boost', 'L3 Cache', 'TDP',
-          'Socket', 'Sockets', 'PCIe', 'Memory', 'Product ID'],
+          'Socket', 'Sockets', 'PCIe', 'Memory', '1kU Price', 'Product ID'],
   ryzen: ['Model', 'Cores', 'Threads', 'Base', 'Boost', 'L3 Cache', 'TDP',
           'Socket', 'GPU Model', 'GPU CUs', 'GPU Freq', 'Product ID'],
   gpu:   ['Model', 'Form', 'Architecture', 'Process', 'CUs', 'Memory', 'Type',
@@ -35,7 +35,7 @@ const A2_COLUMNS = {
 };
 
 const A2_FIELDS = {
-  epyc:  ['n', 'c', 't', 'bas', 'bst', 'l3', 'tdp', 'sk', 'skc', 'pcie', 'mem', 'tr'],
+  epyc:  ['n', 'c', 't', 'bas', 'bst', 'l3', 'tdp', 'sk', 'skc', 'pcie', 'mem', 'pr', 'tr'],
   ryzen: ['n', 'c', 't', 'bas', 'bst', 'l3', 'tdp', 'sk', 'gm', 'gc', 'gf', 'tr'],
   gpu:   ['name', 'form', 'arch', 'process', 'cu', 'mem', 'memType', 'bw',
           'fp32', 'fp32m', 'pcie', 'tbp']
@@ -875,6 +875,9 @@ function a2Gen(g, cfg) {
       <div class="expand-icon">⌄</div>
       <div class="arch-subtitle">${escHtml(g.note)}</div>
     </div>
+    ${a2Tab === 'epyc' && g.id === 'epyc9005'
+      ? '<button type="button" class="a2-architecture-link" data-architecture-guide="epyc-9005">Explore architecture <span aria-hidden="true">↗</span></button>'
+      : ''}
     <div class="arch-body"><div class="arch-body-inner"><div class="skus-grid">${cards}</div></div></div>
   </div>`;
 }
@@ -940,6 +943,8 @@ function a2Render() {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); a2ToggleSpecs(c); }
     });
   });
+  dom.timeline.querySelector('[data-architecture-guide="epyc-9005"]')
+    ?.addEventListener('click', () => dashboardOpenEpycGuide());
 
   a2ApplyFilters();
 }
@@ -1109,10 +1114,15 @@ let a2Wired = false;
 
 /** Swap sub-tab: resets filters and rebuilds everything below the tab bar. */
 function a2Switch(tab) {
+  if (tab === a2Tab && typeof dashboardIsEpycGuideOpen === 'function'
+      && dashboardIsEpycGuideOpen()) {
+    dashboardCloseEpycGuide();
+    return;
+  }
   a2Tab = tab;
   a2Expanded.clear();
-  a2Search = '';
-  dom.searchInput.value = '';
+  a2Search = dashboardGlobalSearchQuery;
+  dom.searchInput.value = a2Search;
   for (const k of Object.keys(a2Active)) delete a2Active[k];
 
   document.querySelectorAll('.a2-subtab').forEach(b =>
@@ -1121,6 +1131,8 @@ function a2Switch(tab) {
   a2BuildCoreRange();
   a2BuildFilters();
   a2Render();
+  dashboardGlobalRender();
+  if (typeof dashboardSyncEpycGuide === 'function') dashboardSyncEpycGuide();
 }
 
 /** Take over the shared DOM and render the AMD tab. */

@@ -122,6 +122,8 @@ def build_cpu(rows):
             rec['pcie'] = clean(r['pcie_gen'])
             rec['mem']  = clean(r['mem_speed'])
             rec['_srv'] = '1'
+        if clean(r['launch_price_usd']):
+            rec['pr'] = f"${int(clean(r['launch_price_usd'])):,}"
         if clean(r['part_number']):
             rec['tr'] = clean(r['part_number'])
         by[clean(r['codename'])].append((r, rec))

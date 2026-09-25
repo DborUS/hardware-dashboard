@@ -470,8 +470,8 @@ const v2Slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g
 async function v2Switch(tab) {
   v2Tab = tab;
   v2Expanded.clear();
-  v2Search = '';
-  dom.searchInput.value = '';
+  v2Search = dashboardGlobalSearchQuery;
+  dom.searchInput.value = v2Search;
   for (const k of Object.keys(v2Active)) delete v2Active[k];
 
   document.querySelectorAll('#v2Subtabs .v2-subtab').forEach(b =>
@@ -481,6 +481,7 @@ async function v2Switch(tab) {
   v2BuildCoreRange();
   v2BuildFilters();
   v2Render();
+  dashboardGlobalRender();
 }
 
 /** Base silicon codename: 'Raptor Lake' from 'Raptor Lake · Intel 7'. */
@@ -968,10 +969,9 @@ async function v2Activate() {
   document.body.classList.add('intel-v2');
   document.getElementById('v2Subtabs').classList.add('visible');
   document.getElementById('v2Status').hidden = false;
-  // AMD-only chrome that has no meaning here
+  // Hide AMD-only chrome while keeping shared comparison controls available.
   dom.codenameTableWrap.innerHTML = '';
   dom.techTabs.classList.remove('visible');
-  dom.clearSelectionsBtn.hidden = true;
 
   if (!v2Wired) {
     document.querySelectorAll('#v2Subtabs .v2-subtab').forEach(b =>

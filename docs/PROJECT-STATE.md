@@ -3,18 +3,209 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-09-21 (ChipIndex header identity)
+**Last updated:** 2026-09-25 (EPYC guide source and diagram polish)
 **Current version:** 0.6.0 — NVIDIA data center, GeForce, and CPU coverage
-**Health:** Good — generators, ordering, full browser smoke test, screenshots, and layout
+**Health:** Good — AMD generation check, ordering, browser smoke test, and layout
 audit pass with no JavaScript errors
-**Committed:** repository publication and documentation cleanup through `eb35ea3`.
-The ChipIndex header identity described below is not yet committed.
+**Committed:** through `0663877` (ChipIndex branding). The update tracking and EPYC
+pricing changes described below are pending review and commit.
 
-> **A stale `.git/index.lock` blocked Daniel's commit this session.** It came from
-> git commands I ran in the sandbox, which `CLAUDE.md` forbids for exactly this
-> reason. If a commit fails with *"Unable to create index.lock: File exists"*, the
-> fix is `Remove-Item .git\index.lock` after confirming no git is running. **Don't
-> run git from the sandbox at all** — read the repo with `ls` / `cat` instead.
+## 2026-09-25 — EPYC guide source and diagram polish
+
+The AMD EPYC Architecture guide now names and links the exact source title,
+“5th Gen AMD EPYC™ Processor Architecture,” beside its introduction. The
+standalone atlas header and footer use the same title. The one- and two-socket
+diagram metric badges have more room for their labels. Cache versions were
+advanced so the dashboard stylesheet and embedded diagram update together.
+The visitor update remains in its existing Pending publication entry. The
+EPYC guide regression (including badge clearance and phone overflow), full
+dashboard smoke test, and responsive layout audit pass; desktop and phone
+renders were reviewed. The owner will review and publish the local changes.
+
+---
+
+## 2026-09-25 — EPYC guide publication cleanup
+
+Removed the Working together panel and all annotation features from the
+deployed EPYC 9005 guide: the dashboard note/share toolbar, the atlas note
+overlay, browser note storage, add/edit/delete actions, project import/export,
+and reset. The How to read this model panel now spans the available width.
+All eight diagrams, component hover names, selected highlights, definitions,
+Zen 5 / Zen 5c and socket switches, direct links, and frame resizing remain.
+The original separate atlas project was not edited.
+
+The full dashboard smoke test, JavaScript syntax check, layout audit, and
+`tools/test-epyc-guide.py` pass with no new overflow or JavaScript errors.
+Fresh desktop and phone renders are in the atlas-dashboard-plan review folder
+as `implementation-no-notes-*.png`. The pending visitor update was revised;
+this change remains local and unpublished.
+
+---
+
+## 2026-09-25 — EPYC 9005 architecture guide integrated
+
+Added an AMD EPYC-only Products / Architecture guide section row below the
+product toolbar. Products remains the default. The guide is explicitly scoped
+to EPYC 9005 / Zen 5, and the EPYC 9005 product series has a contextual
+Explore architecture entry. Other vendors and AMD product lines stay on
+Products. The product renderer remains mounted when the guide opens, preserving
+search, filters, core range, expansions, and comparison selections on return.
+
+The eight-model atlas is deployed at `architecture/epyc-9005/index.html` in an
+isolated same-origin frame with a compact ChipIndex appearance. Dashboard
+buttons initially added notes and imported/exported project files; those
+features were removed later the same day for web publication (see above).
+The original standalone atlas is unchanged.
+Guide and diagram direct links use `panel=guide`, `guide=epyc-9005`, and
+`diagram=ID`. The guide resizes its frame to content height, while diagrams
+pan horizontally on narrow screens. The header links to AMD’s 5th Gen EPYC
+white paper.
+
+Verified JavaScript syntax, the AMD ordering check, the full dashboard smoke
+test (all counts intact, zero JavaScript errors), the layout audit (no new
+overflow), and `tools/test-epyc-guide.py`. The guide test covers all eight
+model definitions, note import/export, direct links, product-state return,
+vendor exit, unknown IDs, and 390/320 px layouts. Browser renders are in the
+atlas-dashboard-plan review folder named in the proposal entry below. This
+change remains local; no commit or push was made.
+
+---
+
+## 2026-09-25 — EPYC architecture guide proposal
+
+Prepared a review plan and browser renders for adding the EPYC 9005 architecture
+atlas under a new AMD EPYC “Architecture guide” section row. The proposal keeps
+Products as the default, gives the atlas the full content width, and clearly
+limits its scope to EPYC 9005. The plan and renders are in
+`C:/Users/dbor/.codex/visualizations/2026/09/24/01a0d118-251d-7503-a9db-3a7c099418cc/atlas-dashboard-plan/`.
+This proposal was implemented later on 2026-09-25; see the integration entry
+above.
+
+---
+
+## 2026-09-23 — Specification table typography
+
+Raised CPU and GPU specification table headers and values by another 5%,
+including their phone sizes and the GPU form-factor cell override. Kept the
+existing table padding and horizontal scrolling. Revised the pending
+readability update rather than adding another announcement entry. Checked
+rendered EPYC, Intel Xeon, and NVIDIA table sizes at desktop width and EPYC at
+phone width without page overflow; the full browser smoke test passed with no
+JavaScript errors.
+
+---
+
+## 2026-09-23 — Cross-vendor comparison alignment
+
+The comparison dialog now puts shared specifications from the maintained vendor
+product records on the same rows across manufacturers. Original vendor-specific
+fields remain in an additional-details section. The lazy comparison dataset now
+includes newer Intel products that lack an ARK CSV export, using the maintained
+cross-vendor master only for Intel entries absent from intel-master.csv. The
+AMD and NVIDIA vendor masters remain authoritative for their products.
+The browser smoke test (including a shared CPU-core row assertion), ordering
+check, and JavaScript syntax check pass. EPYC 9536 and Xeon 6990E+ were
+checked directly for cores, threads, clocks, cache, power, socket, and memory
+channels in the regenerated comparison data.
+
+---
+
+## 2026-09-23 — Card and spec header readability
+
+Raised the text inside product cards and the metadata above specification
+tables by another 5% after review of the EPYC screenshot. The change covers
+card title, description, silicon label, and tag text, plus the spec header
+title, product path, and source line. Mobile card overrides were raised as well.
+Desktop and phone EPYC views show no page overflow, and the full browser smoke
+test passed with no JavaScript errors. The pending readability update was
+revised rather than duplicated.
+
+---
+
+## 2026-09-23 — Comparison table layout
+
+The comparison dialog now sizes its columns by the number of selected products,
+wraps long values within their cells, and lets the sticky specification column
+reach the scroll edge. This prevents values from appearing beneath row labels
+or leaking into the left gutter during horizontal scrolling. Chromium also
+needed a separate painting layer for pinned row labels so product values stay
+behind them. The full browser smoke test passed, and the dialog was visually
+checked at 840px with two and four selected products.
+
+---
+
+## 2026-09-23 — Readability pass
+
+Raised every small CSS font size at or below 0.8rem by 15% across the shared
+dashboard, including responsive overrides. Specification and comparison table
+cell padding grew by roughly 7%. At phone width, the four toolbar actions now
+form a two-column grid so the enlarged labels remain on one line. Verified
+desktop AMD, Intel, and NVIDIA views plus an open EPYC specification table at
+desktop and phone widths without page overflow; a 320px phone viewport also
+showed no clipped toolbar labels. The full browser smoke test and layout audit
+passed with no JavaScript errors. Added a pending visitor update.
+
+---
+
+## 2026-09-23 — Intel dark theme
+
+Replaced the Intel tab's pale page and control surfaces with dark navy, using
+blue for selection and cyan for platform landmarks. Comparison tray and dialogs
+now use the same palette. Kept the existing layout and generation colors. Added
+the visitor-facing change to the pending update queue. Desktop and phone-width
+screenshots were reviewed; the browser smoke test and layout audit passed.
+Restored the shared Clear Selections toolbar button on Intel; its existing
+handler clears cross-vendor comparison picks and selected rows.
+
+---
+
+## 2026-09-23 — Global search beacon
+
+The shared search bar now indexes product records across all nine AMD, Intel,
+and NVIDIA tabs when a visitor searches. Matching vendor and product-line tabs
+receive the selected beacon glow without a count badge. A route below the bar
+jumps to a matching tab while preserving the query; a manual vendor or
+product-line switch also keeps the query. The current tab retains its local
+search highlighting and filters. The index is built from the maintained runtime
+data and renderer taxonomies, then cached for the page session. Added a pending
+entry in `docs/UPDATE-QUEUE.md`.
+After review at a narrow sidebar width, the large vendor glow was reduced to
+an inset ring and small point. Inactive matching product tabs use a small
+amber dot, selected AMD tabs use a stronger red fill, and keyboard focus stays
+inside the tab boundary. The broad-query route presentation is under review
+before any further UI change.
+Fixed a search correctness issue: punctuation normalization had joined adjacent
+spec values, so "MB 300 W" looked like "B300" and marked AMD and Intel tabs as
+matches. Global indexing now checks each field separately, and local matching
+keeps words separate. The browser smoke test confirms B300 returns only NVIDIA
+Data Center, with no visible AMD result; the full smoke test passes.
+Verified routes for a sample from each of the nine tabs. Browser checks covered
+cross-vendor jumps, query persistence through manual tab changes and URL reload,
+clearing search, and phone-width overflow. The full smoke test and layout audit
+passed with no JavaScript errors.
+
+---
+
+## 2026-09-23 — EPYC pricing in specification tables
+
+AMD's 183 published EPYC 1kU prices now flow from `amd-master.csv` into
+`amd-cpu-specs.json` as formatted USD values. The EPYC table displays **1kU
+Price** immediately before Product ID; models without a published price show
+a dash. Ryzen and GPU source records have no prices, so their tables are
+unchanged. Added a pending visitor-facing entry in `docs/UPDATE-QUEUE.md`.
+Verified all 183 prices exactly match the master CSV, the browser smoke test
+checks the rendered column and sample values, and the layout audit passed.
+Updated `tools/amd-v2-renderer.js` to preserve the existing disclosure wrapper
+when the AMD renderer is regenerated.
+
+---
+
+## 2026-09-23 — Update tracking workflow
+
+Added `AGENTS.md` and `docs/UPDATE-QUEUE.md` so future work sessions record
+visitor-facing changes as they happen. Entries stay pending until the changes
+are live and their **New update** announcement is posted or declined. This is
+separate from the technical `CHANGELOG.md`. No dashboard behavior changed.
 
 ---
 

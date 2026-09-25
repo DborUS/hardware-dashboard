@@ -36,6 +36,9 @@ and customers who want to find a part and compare specs quickly.
    New UI must look like it was always there. See `docs/DESIGN-SYSTEM.md`.
 6. **Update `docs/PROJECT-STATE.md`** at the end of any working session, so the next
    session can pick up cleanly.
+7. **Track user-visible changes** in `docs/UPDATE-QUEUE.md` during the same session.
+   Keep them pending until the change is live and its **New update** block has been
+   posted (or Daniel says no post is needed). See `AGENTS.md` for the workflow.
 
 ---
 

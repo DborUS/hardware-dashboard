@@ -65,6 +65,23 @@ def store(data, vendor, model, fields, source):
         record["sources"].append(source)
 
 
+def read_common_specs(path, data, only_vendor=None, missing_only=False):
+    """Attach the shared master schema, including newer Intel parts without ARK CSVs."""
+    for row in csv.DictReader(read_text(path).splitlines()):
+        vendor = clean(row.get("vendor")).lower()
+        model = first(row, "model_full", "model")
+        if vendor not in data or not model or (only_vendor and vendor != only_vendor):
+            continue
+        key = model_key(model)
+        record = data[vendor].setdefault(key, {"fields": {}, "sources": []})
+        if missing_only and record.get("common"):
+            continue
+        record["common"] = {label: clean(value) for label, value in row.items()
+                            if label and clean(value)}
+        if not record["sources"]:
+            record["sources"].append(clean(row.get("source_url")) or path.name)
+
+
 def read_intel_transposed(path, data):
     rows = list(csv.reader(read_text(path).splitlines()))
     header_index = next(i for i, row in enumerate(rows)
@@ -120,6 +137,15 @@ def main():
         model = first(row, "model_full", "model", "Name")
         if model:
             store(data, "nvidia", model, row, "nvidia-master.csv")
+
+    # Vendor masters feed the visible tables. The older cross-vendor master can
+    # disagree with them on newly added products, so it must not override them.
+    for vendor in ("amd", "intel", "nvidia"):
+        read_common_specs(SPECS / f"{vendor}-master.csv", data)
+    # Intel's newest Xeon models are in the maintained cross-vendor master but
+    # have not yet appeared in an ARK export or intel-master.csv.
+    read_common_specs(SPECS / "hardware-specs-master.csv", data,
+                      only_vendor="intel", missing_only=True)
 
     text = json.dumps(data, ensure_ascii=True, separators=(",", ":")) + "\n"
     OUT.write_text(text, encoding="utf-8", newline="")

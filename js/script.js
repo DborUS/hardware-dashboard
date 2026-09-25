@@ -4,7 +4,7 @@
 
 // Bump when any js/data/*.json changes, so browsers refetch instead of serving a
 // stale copy. Mirrors the ?v= on the script tag in index.html.
-const DATA_VERSION = '20260921-header-1';
+const DATA_VERSION = '20260925-epyc-guide-3';
 
 // Cache for loaded data to avoid redundant fetches
 const dataCache = {};
@@ -188,14 +188,15 @@ function dashboardSearchCompact(value) {
   return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
 }
 
-/** Match normal text first, then a punctuation-free form. */
+/** Match normal text first, then punctuation variants within a single term. */
 function dashboardSearchMatch(haystack, query) {
   const hay = String(haystack || '').toLowerCase();
   const q = String(query || '').trim().toLowerCase();
   if (!q) return true;
   if (hay.includes(q)) return true;
   const compact = dashboardSearchCompact(q);
-  return compact.length >= 2 && dashboardSearchCompact(hay).includes(compact);
+  return compact.length >= 2 && hay.split(/\s+/).some(term =>
+    dashboardSearchCompact(term).includes(compact));
 }
 
 /** Exact means the model name ends in the requested SKU token, not a suffix sibling. */
@@ -262,6 +263,175 @@ function dashboardApplyCardSearch(card, group, context) {
   return { matched: metaHit || rowHits.length > 0, metaHit, rowHits, wrapper };
 }
 
+// Search every product tab without rendering nine timelines at once. The
+// existing tab renderers still own the visible filtering and row highlights.
+let dashboardGlobalSearchQuery = '';
+let dashboardGlobalIndex = null;
+let dashboardGlobalIndexPromise = null;
+let dashboardGlobalResults = [];
+
+async function dashboardLoadGlobalIndex() {
+  if (dashboardGlobalIndex) return dashboardGlobalIndex;
+  if (dashboardGlobalIndexPromise) return dashboardGlobalIndexPromise;
+  const getJson = async path => {
+    const response = await fetch(`js/data/${path}?v=${DATA_VERSION}`);
+    if (!response.ok) throw new Error(`Search data unavailable: ${path}`);
+    return response.json();
+  };
+  const cachedOrFetch = (data, path) => data && Object.keys(data).length
+    ? data : getJson(path);
+  dashboardGlobalIndexPromise = (async () => {
+    const [amdCpu, amdGpu, intelXeon, intelClient, intelGraphics, nvidia] = await Promise.all([
+      cachedOrFetch(AMD_CPU_SPECS, 'amd-cpu-specs.json'),
+      cachedOrFetch(VENDOR_CONFIG.amd.gpuData, 'amd-gpu-data.json'),
+      cachedOrFetch(V2_SPECS.xeon, 'intel-xeon-specs.json'),
+      cachedOrFetch(V2_SPECS.client, 'intel-client-specs.json'),
+      cachedOrFetch(V2_SPECS.graphics, 'intel-graphics-specs.json'),
+      cachedOrFetch(VENDOR_CONFIG.nvidia.data, 'nvidia-data.json')
+    ]);
+    const entries = [];
+    const add = (vendor, tab, label, context, details) => entries.push({
+      vendor, tab, label, context, fields: [label, ...context, ...details]
+    });
+    for (const tab of ['epyc', 'ryzen', 'gpu']) {
+      A2_DATA[tab].gens.filter(group => !group.era).forEach(group =>
+        group.families.forEach(family => {
+          const context = [group.name, family.name, family.desc || '', family.si || ''];
+          const key = family.key || family.name;
+          const models = tab === 'gpu'
+            ? (amdGpu.find(item => item.arch === key)?.gpuSpecs?.models || [])
+            : (amdCpu[key] || []).filter(model =>
+                !family.series?.length || family.series.includes(model._series));
+          if (!models.length) add('amd', tab, family.name, context, []);
+          models.forEach(model => add('amd', tab, model.n || model.name, context,
+            Object.values(model).filter(value => value != null)));
+        }));
+    }
+    for (const [tab, specs] of Object.entries({xeon: intelXeon, client: intelClient, graphics: intelGraphics})) {
+      V2_DATA[tab].gens.filter(group => !group.era).forEach(group =>
+        group.families.forEach(family => {
+          const context = [group.name, family.name, family.desc || '', family.si || ''];
+          const models = specs[family.name] || [];
+          if (!models.length) add('intel', tab, family.name, context, []);
+          models.forEach(model => add('intel', tab, model.n, context,
+            Object.values(model).filter(value => value != null)));
+        }));
+    }
+    for (const tab of ['datacenter', 'geforce', 'cpu']) {
+      (nvidia[tab] || []).forEach(model => add('nvidia', tab, model.n,
+        [model.series || '', model.arch || ''],
+        Object.values(model).filter(value => value != null)));
+    }
+    dashboardGlobalIndex = entries;
+    return entries;
+  })().catch(error => {
+    dashboardGlobalIndexPromise = null;
+    throw error;
+  });
+  return dashboardGlobalIndexPromise;
+}
+
+function dashboardGlobalMatches(query) {
+  const best = new Map();
+  const q = dashboardSearchCompact(query);
+  dashboardGlobalIndex.forEach(entry => {
+    if (!entry.fields.some(field => dashboardSearchMatch(field, query))) return;
+    const model = dashboardSearchCompact(entry.label);
+    const score = q.length >= 3 && (model === q || model.endsWith(q)) ? 100
+      : dashboardSearchMatch(entry.label, query) ? 60 : 10;
+    const key = `${entry.vendor}:${entry.tab}`;
+    if (!best.has(key) || score > best.get(key).score)
+      best.set(key, {...entry, score});
+  });
+  return [...best.values()].sort((a, b) => b.score - a.score);
+}
+
+function dashboardGlobalRender() {
+  const routes = document.getElementById('globalSearchRoutes');
+  const empty = document.getElementById('globalSearchEmpty');
+  dom.searchInput.classList.toggle('search-global-active', !!dashboardGlobalSearchQuery.trim());
+  document.querySelectorAll('.vendor-tab, .v2-subtab').forEach(tab =>
+    tab.classList.remove('search-beacon'));
+  routes.hidden = true;
+  routes.innerHTML = '';
+  empty.hidden = true;
+  if (!dashboardGlobalSearchQuery.trim()) return;
+  if (!dashboardGlobalIndex) {
+    routes.hidden = false;
+    routes.textContent = dashboardGlobalIndexPromise ? 'Searching all tabs…' : 'Search is unavailable. Try again.';
+    return;
+  }
+  dashboardGlobalResults = dashboardGlobalMatches(dashboardGlobalSearchQuery);
+  routes.hidden = false;
+  if (!dashboardGlobalResults.length) {
+    routes.textContent = 'No matches across AMD, Intel or NVIDIA.';
+    empty.textContent = 'Try a different product name, part number, or architecture.';
+    empty.hidden = false;
+    return;
+  }
+  const labels = {amd: {epyc: 'EPYC', ryzen: 'Ryzen', gpu: 'GPU'},
+    intel: {xeon: 'Xeon', client: 'Client', graphics: 'Graphics'},
+    nvidia: {datacenter: 'Data Center', geforce: 'GeForce', cpu: 'CPU'}};
+  if (!document.querySelector('.arch-group:not(.hidden)')) {
+    empty.textContent = 'No matches in this tab. Select a highlighted tab to view the result.';
+    empty.hidden = false;
+  }
+  routes.innerHTML = '<span class="global-search-label">✦ MATCH FOUND →</span>' +
+    dashboardGlobalResults.map(hit =>
+      `<button type="button" class="global-search-route" data-vendor="${hit.vendor}" data-tab="${hit.tab}"` +
+      ` aria-label="View ${escHtml(hit.label)} in ${hit.vendor.toUpperCase()} ${labels[hit.vendor][hit.tab]}">` +
+      `${hit.vendor.toUpperCase()} <span>›</span> ${labels[hit.vendor][hit.tab]}</button>`).join('');
+  dashboardGlobalResults.forEach(hit => {
+    if (hit.vendor !== currentVendor) {
+      document.getElementById(`tab${hit.vendor[0].toUpperCase()}${hit.vendor.slice(1)}`)
+        ?.classList.add('search-beacon');
+    } else {
+      const activeTab = hit.vendor === 'amd' ? a2Tab :
+        hit.vendor === 'intel' ? v2Tab : n2Tab;
+      if (hit.tab === activeTab) return;
+      const selector = hit.vendor === 'amd' ? '.a2-subtab' :
+        hit.vendor === 'intel' ? '#v2Subtabs .v2-subtab' : '.n2-subtab';
+      document.querySelector(`${selector}[data-tab="${hit.tab}"]`)?.classList.add('search-beacon');
+    }
+  });
+}
+
+function dashboardGlobalBestTab(vendor) {
+  return dashboardGlobalResults.find(hit => hit.vendor === vendor)?.tab || null;
+}
+
+function dashboardGlobalApplyToActive() {
+  dom.searchInput.value = dashboardGlobalSearchQuery;
+  dom.searchClear.classList.toggle('visible', !!dashboardGlobalSearchQuery);
+  if (v2IsActive()) v2SetSearch(dashboardGlobalSearchQuery);
+  else if (a2IsActive()) a2SetSearch(dashboardGlobalSearchQuery);
+  else if (n2IsActive()) n2SetSearch(dashboardGlobalSearchQuery);
+  dashboardGlobalRender();
+}
+
+function dashboardGlobalSearchChanged(value) {
+  dashboardGlobalSearchQuery = value;
+  dashboardGlobalResults = [];
+  if (!value.trim()) { dashboardGlobalResults = []; dashboardGlobalRender(); return; }
+  dashboardGlobalRender();
+  if (dashboardGlobalIndex || dashboardGlobalIndexPromise) return;
+  dashboardLoadGlobalIndex().then(dashboardGlobalRender).catch(error => {
+    console.error('Global search failed:', error);
+    dashboardGlobalRender();
+  });
+}
+
+async function dashboardGlobalNavigate(vendor, tab) {
+  if (vendor !== currentVendor) await switchVendor(vendor, tab);
+  else if (vendor === 'amd' && a2Tab !== tab) a2Switch(tab);
+  else if (vendor === 'intel' && v2Tab !== tab) await v2Switch(tab);
+  else if (vendor === 'nvidia' && n2Tab !== tab) n2Switch(tab);
+  dashboardGlobalApplyToActive();
+  const first = document.querySelector('.arch-group:not(.hidden)');
+  if (first && !first.classList.contains('expanded')) first.querySelector('.arch-header')?.click();
+  first?.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
 // ════════════════════════════════════════
 // GPU SEGMENTS
 // ════════════════════════════════════════
@@ -307,6 +477,12 @@ let filterBarGroups = [];            // group descriptors for the active unified
 let dashboardRestoringState = false;
 let dashboardUrlTimer = null;
 const dashboardSelections = new Map();
+const DASHBOARD_EPYC_DIAGRAMS = new Set([
+  'package', 'ccd', 'core', 'iod', 'lanes', 'sockets', 'numa', 'protection'
+]);
+let dashboardGuideOpen = false;
+let dashboardGuideDiagram = 'package';
+let dashboardGuidePreviousScroll = 0;
 
 // ════════════════════════════════════════
 // CACHED DOM REFERENCES (Performance)
@@ -370,14 +546,16 @@ function perfEnd(label) {
 // ════════════════════════════════════════
 // VENDOR SWITCHING
 // ════════════════════════════════════════
-async function switchVendor(vendor) {
+async function switchVendor(vendor, targetTab = null) {
   currentVendor = vendor;
+  dashboardGuideOpen = false;
+  dashboardSyncEpycGuide();
   currentTechTab = 'cpu';
   expandedGroups.clear();
   activeSegmentTags.clear();
   activeBrandTags.clear();
   activeGpuSegments.clear();
-  dom.searchInput.value = '';
+  dom.searchInput.value = dashboardGlobalSearchQuery;
 
   // Tab styling. `data-active` on the pill drives the sliding thumb; the
   // button classes still carry the active state for the smoke test and a11y.
@@ -457,7 +635,13 @@ async function switchVendor(vendor) {
     a2Deactivate();
     n2Activate(cfg.data);
   }
+  const tab = targetTab || dashboardGlobalBestTab(vendor);
+  if (vendor === 'intel' && tab && tab !== v2Tab) await v2Switch(tab);
+  if (vendor === 'amd' && tab && tab !== a2Tab) a2Switch(tab);
+  if (vendor === 'nvidia' && tab && tab !== n2Tab) n2Switch(tab);
+  dashboardGlobalApplyToActive();
   dashboardRestoreSelectedRows();
+  dashboardSyncEpycGuide();
   dashboardStateChanged();
 }
 
@@ -491,6 +675,79 @@ function switchTech(tab) {
 // SHAREABLE DASHBOARD STATE
 // ════════════════════════════════════════
 
+function dashboardIsEpycGuideOpen() { return dashboardGuideOpen; }
+
+function dashboardEpycGuideEligible() {
+  return currentVendor === 'amd' && a2Tab === 'epyc';
+}
+
+/** Keep the optional guide section scoped to AMD EPYC. The product DOM stays mounted. */
+function dashboardSyncEpycGuide() {
+  const nav = document.getElementById('epycModeNav');
+  const panel = document.getElementById('epycGuidePanel');
+  if (!nav || !panel) return;
+  const eligible = dashboardEpycGuideEligible();
+  if (!eligible) dashboardGuideOpen = false;
+  const open = eligible && dashboardGuideOpen;
+  nav.hidden = !eligible;
+  panel.hidden = !open;
+  document.body.classList.toggle('epyc-guide-open', open);
+  const productTab = document.getElementById('epycProductsTab');
+  const guideTab = document.getElementById('epycGuideTab');
+  productTab?.classList.toggle('active', !open);
+  guideTab?.classList.toggle('active', open);
+  productTab?.setAttribute('aria-selected', String(!open));
+  guideTab?.setAttribute('aria-selected', String(open));
+}
+
+function dashboardOpenEpycGuide(requestedDiagram = null) {
+  if (!dashboardEpycGuideEligible()) return false;
+  if (!dashboardGuideOpen) dashboardGuidePreviousScroll = window.scrollY;
+  if (requestedDiagram && DASHBOARD_EPYC_DIAGRAMS.has(requestedDiagram)) {
+    dashboardGuideDiagram = requestedDiagram;
+  }
+  dashboardGuideOpen = true;
+  dashboardSyncEpycGuide();
+  const frame = document.getElementById('epycGuideFrame');
+  if (frame && !frame.hasAttribute('src')) {
+    const params = new URLSearchParams({ embedded: '1', diagram: dashboardGuideDiagram, v: DATA_VERSION });
+    frame.src = `architecture/epyc-9005/index.html?${params.toString()}`;
+  }
+  dashboardStateChanged();
+  const nav = document.getElementById('epycModeNav');
+  if (nav && nav.getBoundingClientRect().top < -80) {
+    nav.scrollIntoView({block: 'start'});
+  }
+  return true;
+}
+
+function dashboardCloseEpycGuide() {
+  if (!dashboardGuideOpen) return;
+  dashboardGuideOpen = false;
+  dashboardSyncEpycGuide();
+  dashboardStateChanged();
+  requestAnimationFrame(() => window.scrollTo({top: dashboardGuidePreviousScroll}));
+}
+
+function dashboardGuideReceiveMessage(event) {
+  const frame = document.getElementById('epycGuideFrame');
+  if (!frame || event.source !== frame.contentWindow) return;
+  if (location.protocol === 'file:') {
+    if (event.origin !== 'null' && event.origin !== location.origin) return;
+  } else if (event.origin !== location.origin) return;
+  const data = event.data;
+  if (!data || typeof data !== 'object') return;
+  if (!['epyc-atlas:ready', 'epyc-atlas:height', 'epyc-atlas:diagram'].includes(data.type)) return;
+  const height = Number(data.height);
+  if (Number.isFinite(height) && height >= 300 && height <= 20000) {
+    frame.style.height = `${Math.ceil(height)}px`;
+  }
+  if (typeof data.diagram === 'string' && DASHBOARD_EPYC_DIAGRAMS.has(data.diagram)) {
+    dashboardGuideDiagram = data.diagram;
+    if (dashboardGuideOpen) dashboardStateChanged();
+  }
+}
+
 function dashboardApplyCoreValues(core, values) {
   if (!core || !values || values.length !== 2) return;
   const nearest = value => {
@@ -520,7 +777,10 @@ function dashboardReadUrlState() {
     tab: params.get('tab') || undefined,
     search: params.get('q') || '',
     filters,
-    core: core.length === 2 && core.every(Number.isFinite) ? core : null
+    core: core.length === 2 && core.every(Number.isFinite) ? core : null,
+    guide: params.get('panel') === 'guide' && params.get('guide') === 'epyc-9005',
+    diagram: DASHBOARD_EPYC_DIAGRAMS.has(params.get('diagram'))
+      ? params.get('diagram') : 'package'
   };
 }
 
@@ -544,6 +804,11 @@ function dashboardWriteUrl() {
     if (values.length) params.set(`f_${key}`, values.join('|'));
   });
   if (state.core) params.set('cores', `${state.core[0]}-${state.core[1]}`);
+  if (dashboardGuideOpen && dashboardEpycGuideEligible()) {
+    params.set('panel', 'guide');
+    params.set('guide', 'epyc-9005');
+    params.set('diagram', dashboardGuideDiagram);
+  }
   const next = `${window.location.pathname}?${params.toString()}`;
   window.history.replaceState(null, '', next);
 }
@@ -561,6 +826,10 @@ async function dashboardApplyUrlState(state) {
     n2ApplyDashboardState(state);
   } else if (typeof a2ApplyDashboardState === 'function') {
     a2ApplyDashboardState(state);
+  }
+  dashboardSyncEpycGuide();
+  if (state.guide && dashboardEpycGuideEligible()) {
+    dashboardOpenEpycGuide(state.diagram);
   }
 }
 
@@ -1323,6 +1592,40 @@ function dashboardImportedRecord(details, record) {
   return details?.[record.vendor.toLowerCase()]?.[dashboardCompareKey(record.model)] || null;
 }
 
+const DASHBOARD_COMMON_SPECS = [
+  ['series', 'Series'], ['codename', 'Codename'], ['arch', 'Architecture'],
+  ['p_cores', 'Performance cores'], ['e_cores', 'Efficiency cores'],
+  ['threads', 'Threads'], ['base_clock', 'Base clock'], ['boost_clock', 'Boost clock'],
+  ['all_core_boost', 'All-core boost'], ['l2_cache', 'L2 cache'], ['l3_cache', 'L3 cache'],
+  ['tdp', 'Power'], ['tdp_config_up', 'Maximum configured power'], ['process', 'Process'],
+  ['socket', 'Socket'], ['socket_count', 'Socket count'], ['pcie_gen', 'PCIe version'],
+  ['pcie_lanes', 'PCIe lanes'], ['mem_type', 'Memory type'],
+  ['mem_channels', 'Memory channels'], ['mem_speed', 'Memory speed / bandwidth'],
+  ['mem_max_capacity', 'Maximum memory'], ['ecc', 'ECC'], ['cxl', 'CXL'],
+  ['upi_links', 'UPI links'], ['igpu_model', 'Integrated graphics'],
+  ['igpu_cores', 'Integrated GPU cores'], ['igpu_clock', 'Integrated GPU clock'],
+  ['npu_tops', 'NPU TOPS'], ['launch_date', 'Launch date'],
+  ['launch_price_usd', 'Launch price (USD)'], ['part_number', 'Part number']
+];
+
+const DASHBOARD_SOURCE_SPEC_ALIASES = new Set([
+  'name', 'model', 'model_full', 'series', 'family', 'vendor', 'kind', 'segment', 'cores',
+  'codename', 'arch', 'architecture', 'gpu_family_id', 'source_url', 'source_tier',
+  'confidence', 'notes', 'source url', 'source tier', 'launch year',
+  ...DASHBOARD_COMMON_SPECS.map(([key]) => key),
+  '# of cpu cores', '# of threads', 'max. boost clock', 'base clock',
+  'l2 cache', 'l3 cache', 'default cpu power', 'platform', 'socket count',
+  'pci express version', 'system memory type', 'memory channels',
+  'system memory specification', '1ku pricing', 'product id tray',
+  'total cores', 'total threads', 'processor base frequency',
+  'max turbo frequency', 'cache', 'tdp', 'sockets supported',
+  'memory types', 'max memory size', 'max memory bandwidth'
+].map(dashboardSourceSpecKey));
+
+function dashboardSourceSpecKey(label) {
+  return String(label).toLowerCase().replace(/[®™©‡]/g, '').replace(/[^a-z0-9_#]+/g, ' ').trim();
+}
+
 function dashboardShowToast(message) {
   if (!dom.dashboardToast) return;
   dom.dashboardToast.textContent = message;
@@ -1377,30 +1680,47 @@ function clearAllSelections() {
 }
 
 function dashboardPaintComparison(records, details = null) {
-  const comparisonFields = new Map(records.map(record => {
-    const imported = dashboardImportedRecord(details, record);
-    return [record.key, imported?.fields || record.fields];
-  }));
-  const labels = [];
-  records.forEach(record => Object.keys(comparisonFields.get(record.key)).forEach(label => {
-    if (!labels.includes(label) && label.toLowerCase() !== 'model') labels.push(label);
-  }));
+  const imported = records.map(record => dashboardImportedRecord(details, record));
+  const comparisonFields = records.map((record, index) => imported[index]?.fields || record.fields);
+  const common = imported.map(item => item?.common || null);
   const head = records.map(record => `<th><strong>${escHtml(record.model)}</strong>` +
     `<span>${escHtml(record.path)}</span></th>`).join('');
-  const rows = labels.map(label => {
-    const values = records.map(record => comparisonFields.get(record.key)[label] || '—');
+  const paintRow = (label, values) => {
     const real = new Set(values.filter(value => value !== '—'));
     const different = real.size > 1;
     return `<tr><th>${escHtml(label)}</th>${values.map(value =>
       `<td class="${different ? 'compare-different' : ''}">${escHtml(value)}</td>`).join('')}</tr>`;
-  }).join('');
-  const sources = records.map(record => {
-    const imported = dashboardImportedRecord(details, record);
-    const source = imported?.sources?.join(', ') || record.source;
+  };
+  let rows = '';
+  if (common.some(Boolean)) {
+    const coreValues = gpu => common.map((item, index) => {
+      const isGpu = ['gpu', 'graphics', 'datacenter', 'geforce'].includes(records[index].productLine);
+      return isGpu === gpu ? (item?.cores || '—') : '—';
+    });
+    for (const [label, values] of [['CPU cores', coreValues(false)], ['GPU cores', coreValues(true)]]) {
+      if (values.some(value => value !== '—')) rows += paintRow(label, values);
+    }
+    rows += DASHBOARD_COMMON_SPECS.map(([key, label]) => {
+      const values = common.map(item => item?.[key] || (key === 'series' ? item?.family : '') || '—');
+      return values.every(value => value === '—') ? '' : paintRow(label, values);
+    }).join('');
+  }
+  const labels = [];
+  comparisonFields.forEach(fields => Object.keys(fields).forEach(label => {
+    if (dashboardSourceSpecKey(label) !== 'model' &&
+        (!common.some(Boolean) || !DASHBOARD_SOURCE_SPEC_ALIASES.has(dashboardSourceSpecKey(label))) &&
+        !labels.includes(label)) labels.push(label);
+  }));
+  if (labels.length && common.some(Boolean)) {
+    rows += `<tr class="compare-section"><th colspan="${records.length + 1}">Additional source specifications</th></tr>`;
+  }
+  rows += labels.map(label => paintRow(label, comparisonFields.map(fields => fields[label] || '—'))).join('');
+  const sources = records.map((record, index) => {
+    const source = imported[index]?.sources?.join(', ') || record.source;
     return `<li><strong>${escHtml(record.model)}</strong> — ${escHtml(source)}</li>`;
   }).join('');
   dom.compareContent.innerHTML = `
-    <table class="compare-table"><thead><tr><th>Specification</th>${head}</tr></thead>
+    <table class="compare-table" style="--compare-min-width: ${220 + 240 * records.length}px"><thead><tr><th>Specification</th>${head}</tr></thead>
       <tbody>${rows}</tbody></table>
     <div class="compare-sources"><strong>Sources</strong><ul>${sources}</ul></div>`;
 }
@@ -1890,6 +2210,12 @@ function stripVendor(t) {
 // Init DOM cache and event listeners
 initDomCache();
 
+(function wireEpycGuide() {
+  document.getElementById('epycProductsTab')?.addEventListener('click', dashboardCloseEpycGuide);
+  document.getElementById('epycGuideTab')?.addEventListener('click', () => dashboardOpenEpycGuide());
+  window.addEventListener('message', dashboardGuideReceiveMessage);
+})();
+
 // Narrow screens collapse the filter sidebar behind a disclosure button.
 // Above 900px the button is display:none and this listener never fires.
 (function wireSidebarToggle() {
@@ -1919,21 +2245,29 @@ const debouncedFilter = debounce(applyFilters, 300);
 dom.searchInput.addEventListener('input', () => {
   // Toggle clear button visibility
   dom.searchClear.classList.toggle('visible', dom.searchInput.value.length > 0);
+  dashboardGlobalSearchChanged(dom.searchInput.value);
   // Intel runs its own filter path; both renderers share this input.
-  if (typeof v2IsActive === 'function' && v2IsActive()) { v2SetSearch(dom.searchInput.value); return; }
-  if (typeof a2IsActive === 'function' && a2IsActive()) { a2SetSearch(dom.searchInput.value); return; }
-  if (typeof n2IsActive === 'function' && n2IsActive()) { n2SetSearch(dom.searchInput.value); return; }
-  debouncedFilter();
+  if (v2IsActive()) v2SetSearch(dom.searchInput.value);
+  else if (a2IsActive()) a2SetSearch(dom.searchInput.value);
+  else if (n2IsActive()) n2SetSearch(dom.searchInput.value);
+  else debouncedFilter();
+  dashboardGlobalRender();
 });
 
 // Clear search button
 dom.searchClear.addEventListener('click', () => {
   dom.searchInput.value = '';
   dom.searchClear.classList.remove('visible');
-  if (typeof v2IsActive === 'function' && v2IsActive()) { v2SetSearch(''); return; }
-  if (typeof a2IsActive === 'function' && a2IsActive()) { a2SetSearch(''); return; }
-  if (typeof n2IsActive === 'function' && n2IsActive()) { n2SetSearch(''); return; }
-  applyFilters();
+  dashboardGlobalSearchChanged('');
+  if (v2IsActive()) v2SetSearch('');
+  else if (a2IsActive()) a2SetSearch('');
+  else if (n2IsActive()) n2SetSearch('');
+  else applyFilters();
+  dashboardGlobalRender();
+});
+document.getElementById('globalSearchRoutes').addEventListener('click', event => {
+  const route = event.target.closest('.global-search-route');
+  if (route) dashboardGlobalNavigate(route.dataset.vendor, route.dataset.tab);
 });
 
 // Expand/Collapse
@@ -1959,6 +2293,7 @@ dashboardRestoringState = true;
 switchVendor(dashboardInitialState.vendor)
   .then(() => dashboardApplyUrlState(dashboardInitialState))
   .then(() => {
+    dashboardGlobalSearchChanged(dom.searchInput.value);
     dashboardRestoringState = false;
     dashboardWriteUrl();
   })

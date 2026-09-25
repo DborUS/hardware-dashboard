@@ -222,6 +222,25 @@ def main():
                 page.wait_for_timeout(700)
                 results[f"amd_{tab}_models"] = (
                     count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
+                if tab == "epyc":
+                    price_check = page.eval_on_selector_all(
+                        ".cpu-spec-table", """tables => ({
+                          columns: tables.every(table => {
+                            const headers = [...table.querySelectorAll('th')]
+                              .map(th => th.textContent.trim());
+                            return headers.at(-2) === '1kU Price' &&
+                              headers.at(-1) === 'Product ID';
+                          }),
+                          published: tables.some(table => [...table.querySelectorAll('tr')]
+                            .some(row => row.querySelector('td')?.textContent.trim() ===
+                              'EPYC 9996' && [...row.querySelectorAll('td')].at(-2)
+                                ?.textContent.trim() === '$14,904')),
+                          missing: tables.some(table => [...table.querySelectorAll('tbody tr')]
+                            .some(row => [...row.querySelectorAll('td')].at(-2)
+                              ?.textContent.trim() === '—'))
+                        })""")
+                    if not all(price_check.values()):
+                        failures.append(f"EPYC pricing column failed: {price_check}")
                 if args.shots:
                     page.screenshot(path=str(shots_dir / f"01-amd-{tab}.png"))
                 page.click("#collapseAllBtn")
@@ -296,8 +315,27 @@ def main():
             page.click("#collapseAllBtn")
             page.wait_for_timeout(350)
 
+            # Unit boundaries such as "MB 300 W" must not masquerade as B300.
+            page.fill("#searchInput", "B300")
+            page.wait_for_selector('.global-search-route[data-vendor="nvidia"][data-tab="datacenter"]')
+            if count(".global-search-route") != 1 or visible(".arch-group") != 0:
+                failures.append("B300 search should only find NVIDIA Data Center")
+            page.fill("#searchInput", "")
+            page.wait_for_timeout(350)
+
+            # A query for another vendor must reveal and open its product tab
+            # without clearing the query. The beacon deliberately has no count.
+            page.fill("#searchInput", "8490H")
+            page.wait_for_selector('.global-search-route[data-vendor="intel"][data-tab="xeon"]')
+            if count("#tabIntel.search-beacon") != 1:
+                failures.append("global search did not highlight Intel for Xeon 8490H")
+            page.click('.global-search-route[data-vendor="intel"][data-tab="xeon"]')
+            page.wait_for_timeout(450)
+            if page.input_value("#searchInput") != "8490H" or count('#v2Subtabs .v2-subtab[data-tab="xeon"].active') != 1:
+                failures.append("global search route did not retain query in Intel Xeon")
+            page.click("#searchClear")
+
             # --- Intel: three sub-tabs, generation-first renderer ---
-            page.click("#tabIntel")
             page.wait_for_timeout(1200)
             for tab, key in (("xeon", "xeon"), ("client", "client"), ("graphics", "gfx")):
                 page.click(f'.v2-subtab[data-tab="{tab}"]')
@@ -370,6 +408,11 @@ def main():
             page.click("#compareOpenBtn")
             if count("#compareDialog[open]") != 1 or count("#compareDialog thead th") != 4:
                 failures.append("cross-vendor comparison did not render three products")
+            page.wait_for_function("""() => [...document.querySelectorAll('#compareDialog tbody th')]
+                .some(th => th.textContent.trim() === 'CPU cores')""")
+            core_row = page.locator("#compareDialog tbody tr:has(> th:text-is('CPU cores'))")
+            if core_row.count() != 1 or any(value.strip() == '—' for value in core_row.locator('td').all_text_contents()):
+                failures.append("cross-vendor CPU cores did not align across all selected products")
             page.click('[data-close-dialog="compareDialog"]')
             page.click("#compareClearBtn")
             # AMD chrome must not leak into the Intel tab

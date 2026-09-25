@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20260921-brand-2">
+  <link rel="stylesheet" href="css/styles.css?v=20260925-epyc-guide-3">
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -68,7 +68,7 @@
     </div>
     <div class="search-wrap">
       <span class="search-icon">⌕</span>
-      <input type="text" id="searchInput" placeholder="Search architectures, SKUs, brands..." aria-label="Search architectures, SKUs, brands and specifications">
+      <input type="text" id="searchInput" placeholder="Search all AMD, Intel and NVIDIA products..." aria-label="Search all vendors, product lines and specifications">
       <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
     </div>
     <div class="toolbar">
@@ -78,6 +78,20 @@
       <button class="expand-all-btn" id="clearSelectionsBtn">Clear Selections</button>
     </div>
   </div>
+  <nav class="epyc-mode-nav" id="epycModeNav" role="tablist" aria-label="EPYC section" hidden>
+    <button type="button" class="epyc-mode-tab active" id="epycProductsTab" role="tab"
+            aria-selected="true" aria-controls="epycProductsPanel">
+      <span class="epyc-mode-label">Products</span>
+      <span class="epyc-mode-helper">EPYC series &amp; specifications</span>
+    </button>
+    <button type="button" class="epyc-mode-tab" id="epycGuideTab" role="tab"
+            aria-selected="false" aria-controls="epycGuidePanel">
+      <span class="epyc-mode-label">Architecture guide</span>
+      <span class="epyc-mode-helper">Interactive diagrams &amp; explanations</span>
+    </button>
+    <span class="epyc-mode-availability">GUIDE AVAILABLE / EPYC 9005</span>
+  </nav>
+  <div class="global-search-routes" id="globalSearchRoutes" role="status" aria-live="polite" hidden></div>
   <!-- Legacy CPU/GPU tech tabs. Both vendors are product-first now, so nothing
        shows these; kept only because script.js still holds a reference. -->
   <div class="tech-tabs" id="techTabs" hidden>
@@ -85,10 +99,28 @@
     <div class="tech-tab-divider"></div>
     <button class="tech-tab" id="techTabGpu" onclick="switchTech('gpu')">GPU</button>
   </div>
+  <!-- The atlas stays in an isolated same-origin page so its diagram styles
+       cannot alter ChipIndex product views. JS sets the frame URL on first use. -->
+  <section class="epyc-guide-panel" id="epycGuidePanel" aria-labelledby="epycGuideTitle" hidden>
+    <div class="epyc-guide-intro">
+      <div class="epyc-guide-intro-copy">
+        <div class="epyc-guide-kicker">AMD / EPYC 9005 · TECHNICAL REFERENCE</div>
+        <h2 id="epycGuideTitle">Inside EPYC 9005</h2>
+        <p>Explore how the chiplets, cores, fabric, memory and I/O connect. Select a part for a clear explanation and source page.</p>
+      </div>
+      <div class="epyc-guide-reference">
+        <span class="epyc-guide-reference-label">DIAGRAMS BASED ON AMD WHITE PAPER · MARCH 2025</span>
+        <a class="epyc-guide-source" href="https://www.amd.com/content/dam/amd/en/documents/epyc-business-docs/white-papers/5th-gen-amd-epyc-processor-architecture-white-paper.pdf"
+           target="_blank" rel="noopener noreferrer"><cite>5th Gen AMD EPYC™ Processor Architecture</cite> <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <iframe class="epyc-guide-frame" id="epycGuideFrame"
+            title="Interactive EPYC 9005 processor architecture diagrams" loading="lazy" scrolling="no"></iframe>
+  </section>
   <!-- Two-column layout: filter sidebar + timeline. Both renderers still
        write into #filterControls; only its position changed. Collapses to a
        single column under 900px, where the sidebar becomes a disclosure. -->
-  <div class="layout">
+  <div class="layout" id="epycProductsPanel">
     <aside class="sidebar" id="sidebar" aria-label="Filters">
       <button class="sidebar-toggle" id="sidebarToggle" aria-expanded="false"
               aria-controls="filterControls">
@@ -101,6 +133,7 @@
     <main class="content">
       <div id="codenameTableWrap"></div>
       <div class="sr-only" id="filterStatus" role="status" aria-live="polite" aria-atomic="true"></div>
+      <div class="global-search-empty" id="globalSearchEmpty" hidden></div>
       <div class="timeline" id="timeline"></div>
     </main>
   </div>
@@ -140,9 +173,9 @@
 
 <div class="dashboard-toast" id="dashboardToast" role="status" aria-live="polite" hidden></div>
 
-  <script src="js/intel-v2.js?v=20260921-header-1"></script>
-<script src="js/amd-v2.js?v=20260921-header-1"></script>
-<script src="js/nvidia-v2.js?v=20260921-header-1"></script>
-<script src="js/script.js?v=20260921-header-1"></script>
+  <script src="js/intel-v2.js?v=20260923-intel-clear-1"></script>
+<script src="js/amd-v2.js?v=20260925-epyc-guide-3"></script>
+<script src="js/nvidia-v2.js?v=20260923-global-search-1"></script>
+<script src="js/script.js?v=20260925-epyc-guide-3"></script>
 </body>
 </html>
