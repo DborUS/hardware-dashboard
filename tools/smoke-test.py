@@ -210,6 +210,17 @@ def main():
             page.goto(base, wait_until="networkidle")
             page.wait_for_timeout(900)
 
+            if page.locator(".brand-lockup-version").inner_text().strip().lower() != "public beta 0.0.1":
+                failures.append("header does not show public beta 0.0.1")
+            page.click("#whatsNewBtn")
+            if count("#whatsNewDialog[open]") != 1 or count("#whatsNewDialog .release-note") != 6:
+                failures.append("What's new dialog did not show all six release topics")
+            if "September 22, 2026" not in page.locator("#whatsNewDialog").inner_text():
+                failures.append("release notes do not identify the Tuesday update window")
+            page.keyboard.press("Escape")
+            if count("#whatsNewDialog[open]") != 0 or page.locator("#whatsNewBtn").get_attribute("aria-expanded") != "false":
+                failures.append("What's new dialog did not close with Escape")
+
             # --- AMD: three sub-tabs, product-first renderer ---
             if count("#a2Subtabs.visible") != 1:
                 failures.append("AMD sub-tabs not visible on load")

@@ -3,12 +3,30 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-09-25 (EPYC guide source and diagram polish)
-**Current version:** 0.6.0 — NVIDIA data center, GeForce, and CPU coverage
+**Last updated:** 2026-09-25 (public beta 0.0.1 release notes)
+**Current version:** Public beta 0.0.1 — pending publication
 **Health:** Good — AMD generation check, ordering, browser smoke test, and layout
 audit pass with no JavaScript errors
-**Committed:** through `0663877` (ChipIndex branding). The update tracking and EPYC
-pricing changes described below are pending review and commit.
+**Committed:** through `730604c` (dashboard updates and EPYC architecture guide).
+The public beta 0.0.1 release notes and whitespace cleanup are pending review
+and commit.
+
+## 2026-09-25 — Public beta 0.0.1 release notes
+
+The shared header now says public beta 0.0.1 and offers a What's new button at
+the top right. Its accessible dialog summarizes the visitor-facing changes
+since Tuesday, September 22, grouped into six short topics: EPYC
+architecture, cross-vendor search, comparisons, readability, Intel theme, and
+EPYC pricing. It opens on demand and closes with the button, Escape, or the
+backdrop. The prior guide file's extra EOF blank line and the update queue
+template's trailing spaces were cleaned up after the preceding push.
+The full dashboard smoke test, EPYC guide regression, JavaScript syntax check,
+and responsive layout audit pass. The pop-up was visually reviewed on all three
+vendors, at the 1024/920/900 px header breakpoints, and at 390/320 px phone
+widths without horizontal overflow. The new version and release notes remain
+local until the owner publishes them.
+
+---
 
 ## 2026-09-25 — EPYC guide source and diagram polish
 

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20260925-epyc-guide-3">
+  <link rel="stylesheet" href="css/styles.css?v=20260925-beta-001">
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -26,7 +26,7 @@
       <button class="vendor-tab" id="tabNvidia" role="tab"
               aria-selected="false" onclick="switchVendor('nvidia')">NVIDIA</button>
     </div>
-    <div class="brand-lockup" aria-label="ChipIndex by Dan Bor, public beta 0.0.0">
+    <div class="brand-lockup" aria-label="ChipIndex by Dan Bor, public beta 0.0.1">
       <div class="brand-lockup-title" aria-hidden="true">
         <span class="brand-lockup-name">ChipIndex</span>
         <span class="brand-lockup-by">by Dan Bor</span>
@@ -35,15 +35,19 @@
         <span class="brand-lockup-rule-start"></span>
         <span class="brand-lockup-rule-end"></span>
       </div>
-      <span class="brand-lockup-version" aria-hidden="true">Public beta 0.0.0</span>
+      <span class="brand-lockup-version" aria-hidden="true">Public beta 0.0.1</span>
     </div>
     <header id="pageHeader" class="sr-only">
       <h1 class="header-amd">EPYC</h1>
       <p>Data center processors</p>
     </header>
-    <div class="v2-status" id="v2Status" role="status" aria-live="polite" hidden></div>
-    <div class="v2-status" id="a2Status" role="status" aria-live="polite" hidden></div>
-    <div class="v2-status" id="n2Status" role="status" aria-live="polite" hidden></div>
+    <div class="topbar-tools">
+      <div class="v2-status" id="v2Status" role="status" aria-live="polite" hidden></div>
+      <div class="v2-status" id="a2Status" role="status" aria-live="polite" hidden></div>
+      <div class="v2-status" id="n2Status" role="status" aria-live="polite" hidden></div>
+      <button class="whats-new-trigger" id="whatsNewBtn" type="button"
+              aria-haspopup="dialog" aria-controls="whatsNewDialog" aria-expanded="false">What's new</button>
+    </div>
   </div>
 
   <!-- Row 2: product line, search and the expand/collapse controls together. -->
@@ -171,11 +175,48 @@
   <div id="sourceContent"></div>
 </dialog>
 
+<dialog class="dashboard-dialog whats-new-dialog" id="whatsNewDialog" aria-labelledby="whatsNewTitle">
+  <div class="dialog-head">
+    <div>
+      <div class="dialog-kicker">CHIPINDEX / PUBLIC BETA 0.0.1</div>
+      <h2 id="whatsNewTitle">What's new</h2>
+      <p class="release-period">Changes since Tuesday, September 22, 2026</p>
+    </div>
+    <button class="dialog-close" type="button" data-close-dialog="whatsNewDialog" aria-label="Close what's new">✕</button>
+  </div>
+  <div class="release-notes">
+    <section class="release-note">
+      <span class="release-note-label">ARCHITECTURE</span>
+      <div><h3>Explore EPYC 9005 from the inside</h3><p>Eight interactive diagrams explain its chiplets, cores, memory, I/O, sockets, and protection. Select a part for a plain-language definition and a link back to AMD's architecture white paper.</p></div>
+    </section>
+    <section class="release-note">
+      <span class="release-note-label">DISCOVERY</span>
+      <div><h3>Search across AMD, Intel, and NVIDIA</h3><p>One search finds products across all vendors. Markers show where other tabs have matches so you can jump to them without retyping.</p></div>
+    </section>
+    <section class="release-note">
+      <span class="release-note-label">COMPARISON</span>
+      <div><h3>Compare products more clearly</h3><p>Shared specifications now line up across manufacturers, with newer products included. Long values wrap inside their columns, and extra vendor details remain available below.</p></div>
+    </section>
+    <section class="release-note">
+      <span class="release-note-label">READABILITY</span>
+      <div><h3>Larger text and roomier tables</h3><p>Small labels, product cards, specification tables, and comparison rows are easier to read on desktop and phone screens.</p></div>
+    </section>
+    <section class="release-note">
+      <span class="release-note-label">INTEL</span>
+      <div><h3>A refreshed dark theme</h3><p>Intel views now use a dark palette with clearer blue and cyan accents. The main toolbar also offers Clear Selections for Intel comparisons.</p></div>
+    </section>
+    <section class="release-note">
+      <span class="release-note-label">EPYC SPECS</span>
+      <div><h3>Published EPYC pricing</h3><p>Where AMD provides it, EPYC specification tables now show the published 1,000-unit price beside each model.</p></div>
+    </section>
+  </div>
+</dialog>
+
 <div class="dashboard-toast" id="dashboardToast" role="status" aria-live="polite" hidden></div>
 
   <script src="js/intel-v2.js?v=20260923-intel-clear-1"></script>
-<script src="js/amd-v2.js?v=20260925-epyc-guide-3"></script>
+<script src="js/amd-v2.js?v=20260925-beta-001"></script>
 <script src="js/nvidia-v2.js?v=20260923-global-search-1"></script>
-<script src="js/script.js?v=20260925-epyc-guide-3"></script>
+<script src="js/script.js?v=20260925-beta-001"></script>
 </body>
 </html>

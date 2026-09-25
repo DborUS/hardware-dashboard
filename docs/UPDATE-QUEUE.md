@@ -6,6 +6,11 @@ short and plain; the technical details belong in `CHANGELOG.md`.
 
 ## Pending publication
 
+### Public beta 0.0.1 and What's new
+- Changed: 2026-09-25
+- Live: Pending
+- Update: The header now shows public beta 0.0.1. A What's new button opens a short summary of the dashboard improvements made since Tuesday, September 22.
+
 ### Explore the EPYC 9005 architecture
 - Changed: 2026-09-25
 - Live: Pending
@@ -61,8 +66,8 @@ _None yet._
 
 Use live pending entries to draft a block like this:
 
-> **New update** · YYYY-MM-DD  
-> **Short title** — What changed and why it helps visitors.  
+> **New update** · YYYY-MM-DD<br>
+> **Short title** — What changed and why it helps visitors.<br>
 > **Short title** — What changed and why it helps visitors.
 
 Combine related entries when that makes the announcement easier to scan.

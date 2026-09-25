@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **Public beta 0.0.1 release notes** (2026-09-25) — a What's new button in
+  the shared header opens an accessible dialog summarizing the visitor-facing
+  dashboard changes since September 22. The header version advances from
+  0.0.0 to 0.0.1 on every vendor view.
 - **Global product search** (2026-09-23) — search now checks every AMD, Intel,
   and NVIDIA product tab. Matching inactive vendors get an inset marker;
   product tabs get a small amber dot distinct from the selected tab. Result

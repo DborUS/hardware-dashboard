@@ -4,7 +4,7 @@
 
 // Bump when any js/data/*.json changes, so browsers refetch instead of serving a
 // stale copy. Mirrors the ?v= on the script tag in index.html.
-const DATA_VERSION = '20260925-epyc-guide-3';
+const DATA_VERSION = '20260925-beta-001';
 
 // Cache for loaded data to avoid redundant fetches
 const dataCache = {};
@@ -508,6 +508,8 @@ function initDomCache() {
     collapseAllBtn: document.getElementById('collapseAllBtn'),
     clearSelectionsBtn: document.getElementById('clearSelectionsBtn'),
     dataSourcesBtn: document.getElementById('dataSourcesBtn'),
+    whatsNewBtn: document.getElementById('whatsNewBtn'),
+    whatsNewDialog: document.getElementById('whatsNewDialog'),
     compareTray: document.getElementById('compareTray'),
     compareCount: document.getElementById('compareCount'),
     compareNames: document.getElementById('compareNames'),
@@ -2231,6 +2233,13 @@ setupRowSelectionHandlers();
 setupKeyboardHandlers();
 
 dom.dataSourcesBtn.addEventListener('click', dashboardShowSources);
+dom.whatsNewBtn.addEventListener('click', () => {
+  dom.whatsNewDialog.showModal();
+  dom.whatsNewBtn.setAttribute('aria-expanded', 'true');
+});
+dom.whatsNewDialog.addEventListener('close', () => {
+  dom.whatsNewBtn.setAttribute('aria-expanded', 'false');
+});
 dom.compareOpenBtn.addEventListener('click', dashboardRenderComparison);
 dom.compareClearBtn.addEventListener('click', clearAllSelections);
 document.querySelectorAll('[data-close-dialog]').forEach(button =>

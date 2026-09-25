@@ -845,7 +845,30 @@
     max-width: 46ch; min-width: 0; overflow: hidden;
     text-overflow: ellipsis; white-space: nowrap;
   }
-  .topbar .v2-status { margin: 0 0 0 auto; }
+  .topbar-tools {
+    display: flex; align-items: center; justify-content: flex-end;
+    gap: 15px; min-width: 0;
+  }
+  .topbar .v2-status { margin: 0; min-width: 0; text-align: right; }
+  .whats-new-trigger {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    flex: 0 0 auto; min-height: 36px; padding: 7px 11px;
+    border: 1px solid rgba(78,221,241,0.29); border-radius: 6px;
+    background: rgba(78,221,241,0.055); color: #a9edf5;
+    font: 700 0.7rem 'JetBrains Mono', monospace; letter-spacing: 0.35px;
+    white-space: nowrap; cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  .whats-new-trigger::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: #4eddf1; box-shadow: 0 0 8px rgba(78,221,241,0.5);
+  }
+  .whats-new-trigger:hover,
+  .whats-new-trigger[aria-expanded="true"] {
+    border-color: rgba(78,221,241,0.6); background: rgba(78,221,241,0.12);
+    color: #e5fbff;
+  }
+  .whats-new-trigger:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
 
   /* Row 2 — product line, search, controls */
   .navrow {
@@ -951,7 +974,8 @@
     .topbar header { gap: 8px; }
     .topbar header h1 { font-size: 1rem; }
     .topbar header p { display: none; }
-    .topbar .v2-status { grid-column: 1 / -1; margin-left: 0; width: 100%; text-align: left; }
+    .topbar-tools { grid-column: 1 / -1; justify-content: space-between; }
+    .topbar .v2-status { margin-right: auto; text-align: left; }
     .navrow { gap: 8px; padding-bottom: 12px; }
     .navrow .search-wrap { flex: 1 1 100%; max-width: 100%; order: 3; }
     .navrow .toolbar { order: 2; margin-left: auto; }
@@ -960,7 +984,8 @@
   @media (max-width: 640px) {
     .topbar { grid-template-columns: 1fr; gap: 12px; }
     .brand-lockup { grid-row: 1; width: 100%; }
-    .vendor-pill { grid-row: 2; width: 100%; }
+    .topbar-tools { grid-row: 2; min-height: 36px; }
+    .vendor-pill { grid-row: 3; width: 100%; }
     .brand-lockup-title { gap: 10px; }
     .brand-lockup-name { font-size: clamp(1.85rem, 9.5vw, 2.45rem); }
     .brand-lockup-by { font-size: clamp(0.58rem, 3.1vw, 0.78rem); }
@@ -1483,4 +1508,40 @@
     .epyc-mode-tab { padding-inline: 8px; }
     .epyc-mode-label { font-size: 0.7rem; }
     .epyc-mode-helper { font-size: 0.625rem; }
+  }
+
+  /* Public beta release notes use the same modal behavior as product details. */
+  .dashboard-dialog.whats-new-dialog {
+    width: min(700px, calc(100vw - 24px));
+    max-height: min(840px, calc(100dvh - 32px));
+    overflow-y: auto; background: #101827; border-color: rgba(78,221,241,0.25);
+  }
+  .whats-new-dialog .dialog-head {
+    align-items: flex-start; padding: 23px 26px 20px;
+    background: #101827; border-bottom-color: rgba(78,221,241,0.16);
+  }
+  .whats-new-dialog .dialog-kicker { color: #62ddec; }
+  .whats-new-dialog .dialog-head h2 { margin-top: 6px; font-size: 1.55rem; letter-spacing: -0.4px; }
+  .release-period { margin-top: 6px; color: var(--text-secondary); font-size: 0.85rem; }
+  .release-notes { padding: 3px 26px 14px; }
+  .release-note {
+    display: grid; grid-template-columns: 126px minmax(0, 1fr);
+    gap: 18px; align-items: start; padding: 17px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .release-note:last-child { border-bottom: 0; }
+  .release-note-label {
+    padding-top: 3px; color: #62ddec;
+    font: 700 0.65rem 'JetBrains Mono', monospace;
+    line-height: 1.4; letter-spacing: 1.1px;
+  }
+  .release-note h3 { margin: 0 0 5px; color: var(--text-primary); font-size: 0.97rem; line-height: 1.3; }
+  .release-note p { color: var(--text-secondary); font-size: 0.87rem; line-height: 1.5; }
+  @media (max-width: 640px) {
+    .whats-new-dialog .dialog-head { gap: 12px; padding: 19px 18px 17px; }
+    .whats-new-dialog .dialog-kicker { letter-spacing: 1px; }
+    .whats-new-dialog .dialog-head h2 { font-size: 1.35rem; }
+    .release-notes { padding: 1px 18px 12px; }
+    .release-note { grid-template-columns: 1fr; gap: 5px; padding: 14px 0; }
+    .release-note-label { padding-top: 0; }
   }
