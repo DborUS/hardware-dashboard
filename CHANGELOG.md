@@ -6,12 +6,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **Public beta 0.0.2 release notes** (2026-09-28) — the shared header and What's new
+  dialog now summarize the Ampere tab, manufacturer roadmaps, Xeon 6 family corrections,
+  and EPYC 9005 socket guide refinements since public beta 0.0.1. Asset and data cache
+  versions advance together.
+- **Manufacturer-sourced roadmap sections** (2026-09-26) — AMD EPYC, Ryzen,
+  and GPU; Intel Xeon, Client, and Graphics; and NVIDIA Data Center and CPU
+  tabs now lead with collapsible announced-product groups and direct official
+  collateral links. Announced entries do not enter released model counts,
+  filters, or cross-vendor comparisons. GeForce remains without a roadmap
+  group because no named future hardware was established from NVIDIA sources.
+- **Ampere Computing processor tab** (2026-09-26) — five product families and
+  26 official model SKUs join the dashboard with family, memory, and core filters,
+  sourced specification tables, global search, shareable URLs, and cross-vendor
+  comparison. AmpereOne MX and Aurora are labeled as roadmap entries without
+  selectable model rows. The runtime JSON is generated from a maintained master
+  CSV; published usage power remains separate from TDP.
 - **Public beta 0.0.1 release notes** (2026-09-25) — a What's new button in
   the shared header opens an accessible dialog summarizing the visitor-facing
   dashboard changes since September 22. The header version advances from
   0.0.0 to 0.0.1 on every vendor view.
 - **Global product search** (2026-09-23) — search now checks every AMD, Intel,
-  and NVIDIA product tab. Matching inactive vendors get an inset marker;
+  NVIDIA, and Ampere product tab. Matching inactive vendors get an inset marker;
   product tabs get a small amber dot distinct from the selected tab. Result
   routes jump to the right tab without
   clearing the query. The marker has no count badge. Search now keeps spec
@@ -36,6 +52,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   build: EPYC 350, Ryzen 736, and GPU 303 models.
 
 ### Changed
+- **Xeon 6300P family correction** (2026-09-28) — moved all nine FCLGA1700 Xeon 6 6300P models from Granite Rapids SP to a distinct Raptor Lake-E Refresh card. Intel's classification and platform now agree across the Xeon timeline, ARK importer, research master, comparison details, and search. Granite Rapids SP retains 34 Intel 3 / FCLGA4710 models; the Xeon total remains 553.
+- **Intel future product labels** (2026-09-26) — replaced unconfirmed Xeon 7,
+  Core Ultra Series 4, and Diamond Rapids HBM entries with manufacturer-backed
+  Diamond Rapids, Coral Rapids, and Nova Lake roadmap cards. Nova Lake carries
+  Intel's late-2026 projection; Diamond Rapids and Coral Rapids have no asserted
+  release year.
+- **Ampere announced roadmap placement** (2026-09-26) — moved AmpereOne MX
+  and Aurora to the top of the processor timeline in a collapsible,
+  Xeon 7-style unreleased group. Each product retains a direct link to official
+  collateral. Roadmap entries remain outside model counts, filters, and
+  comparison; their Ampere-specific hatch and badge use `#fe4943`. Collapsed
+  Ampere groups now keep hidden cards and links out of keyboard navigation.
+- **Ampere visual review** (2026-09-26) — uses the requested `#fe4943`
+  accent, moves the header and four-vendor switcher into clear rows at narrow
+  widths, and identifies a real SKU on each family card. Source notes and table
+  scroll cues are easier to read. Mobile comparisons reserve less width for
+  specification labels, leaving more room for product values.
 - **Readability pass** (2026-09-23) — increased 93 small-font declarations
   (0.8rem and below) by 15% across vendor views, filters, metadata, cards,
   tables, and dialogs. Increased specification/comparison table cell padding

@@ -803,7 +803,7 @@ function a2CountFor(key, tag) {
   const segs  = key === 'seg'  ? new Set([tag]) : (a2Active.seg  || new Set());
   const q = a2Search.trim().toLowerCase();
   let n = 0;
-  document.querySelectorAll('.arch-group').forEach(group => {
+  document.querySelectorAll('.arch-group:not(.dashboard-roadmap)').forEach(group => {
     if (gens.size && !gens.has(group.dataset.gen)) return;
     const hit = [...group.querySelectorAll('.sku-card')].some(card =>
       a2CoreOk(card) &&
@@ -929,6 +929,7 @@ function a2Render() {
     `<p>${escHtml(cfg.blurb)}</p>`;
 
   dom.timeline.innerHTML =
+    dashboardRoadmapHtml('amd', a2Tab) +
     cfg.gens.map(g => g.era ? a2Era(g) : a2Gen(g, cfg)).join('');
 
   document.querySelectorAll('.arch-header').forEach(h => {
@@ -959,6 +960,9 @@ function a2Toggle(id) {
   const open = el.classList.toggle('expanded');
   a2Expanded[open ? 'add' : 'delete'](id);
   el.querySelector('.arch-header').setAttribute('aria-expanded', String(open));
+  if (el.classList.contains('dashboard-roadmap')) {
+    el.querySelector('.arch-body').inert = !open;
+  }
 }
 
 function a2ToggleSpecs(card) {
@@ -972,9 +976,15 @@ function a2ExpandAll(open) {
   document.querySelectorAll('.arch-group').forEach(g => {
     g.classList.toggle('expanded', open);
     g.querySelector('.arch-header').setAttribute('aria-expanded', String(open));
+    if (g.classList.contains('dashboard-roadmap')) {
+      g.querySelector('.arch-body').inert = !open;
+    }
   });
   a2Expanded.clear();
-  if (open) A2_DATA[a2Tab].gens.filter(g => !g.era).forEach(g => a2Expanded.add(g.id));
+  if (open) {
+    A2_DATA[a2Tab].gens.filter(g => !g.era).forEach(g => a2Expanded.add(g.id));
+    if (document.getElementById('a2-roadmap')) a2Expanded.add('roadmap');
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -1030,7 +1040,7 @@ function a2ApplyFilters() {
   let shownGens = 0, shownCards = 0;
   const searchContext = dashboardSearchContext(q);
 
-  document.querySelectorAll('.arch-group').forEach(group => {
+  document.querySelectorAll('.arch-group:not(.dashboard-roadmap)').forEach(group => {
     const genOk = !gens.size || gens.has(group.dataset.gen);
     let visible = 0;
 
@@ -1062,6 +1072,9 @@ function a2ApplyFilters() {
     group.classList.toggle('hidden', visible === 0);
     if (visible) { shownGens++; shownCards += visible; }
   });
+
+  const roadmap = document.getElementById('a2-roadmap');
+  if (roadmap) roadmap.classList.toggle('hidden', !!q || !!any);
 
   document.querySelectorAll('.v2-era').forEach(era => {
     let live = false;

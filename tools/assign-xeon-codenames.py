@@ -57,8 +57,13 @@ def classify(get):
             return "Granite Rapids D"
         if sock == "FCLGA7529":
             return "Granite Rapids AP"
-        # LGA4710 mainstream and LGA1700 entry both fold into SP
-        return "Granite Rapids SP"
+        # Intel identifies the LGA1700 6300P entry line as Raptor Lake-E
+        # Refresh, separate from the Intel 3 / LGA4710 Granite Rapids platform.
+        if sock == "FCLGA1700" and num.startswith("63") and num.endswith("P"):
+            return "Raptor Lake-E Refresh"
+        if sock == "FCLGA4710":
+            return "Granite Rapids SP"
+        return None
 
     if fam.startswith("5th Gen"):
         return "Emerald Rapids SP"

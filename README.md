@@ -1,6 +1,6 @@
 # Hardware Dashboard
 
-A static, interactive reference for exploring AMD, Intel, and NVIDIA processors and
+A static, interactive reference for exploring AMD, Intel, NVIDIA, and Ampere processors and
 graphics products. It combines product timelines, searchable specification tables,
 filters, and cross-vendor comparison in one browser-based dashboard.
 
@@ -19,6 +19,7 @@ filters, and cross-vendor comparison in one browser-based dashboard.
 | NVIDIA Data Center | 9 launch-year groups | 20 |
 | NVIDIA GeForce | 5 series | 47 |
 | NVIDIA CPU and Superchips | 2 launch-year groups | 4 |
+| Ampere Computing Processors | 5 families | 26 |
 
 NVIDIA coverage begins in 2017. AMD and Intel coverage includes the modern product
 families represented in their official specification exports.
@@ -26,7 +27,7 @@ families represented in their official specification exports.
 ## What it does
 
 - Groups products by vendor, product line, generation, and codename.
-- Searches model names and specification fields across all AMD, Intel, and NVIDIA tabs.
+- Searches model names and specification fields across all four vendor views.
 - Filters by product segment, brand, and core count where applicable.
 - Expands each family into detailed, horizontally scrollable specification tables.
 - Compares as many as four CPU or GPU models across vendors.
@@ -59,6 +60,8 @@ hardware-dashboard/
 │   ├── amd-v2.js              Generated AMD taxonomy plus renderer
 │   ├── intel-v2.js            Intel renderer
 │   ├── nvidia-v2.js           NVIDIA renderer
+│   ├── ampere-v2.js           Ampere renderer
+│   ├── roadmap.js             Announced product cards
 │   └── data/                  Runtime JSON loaded by the dashboard
 ├── docs/
 │   ├── specs/                 Master data, audits, provenance, source exports
@@ -83,6 +86,8 @@ Specifications are never filled from guesswork. Unknown values remain blank.
 - **NVIDIA:** compiled from audited official product pages, comparison tables,
   architecture guides, and datasheets. The audit records source disagreements rather
   than silently choosing an inferred value.
+- **Ampere:** generated from an official-source master CSV, with published usage power
+  kept separate from TDP.
 
 `docs/specs/hardware-specs-master.csv` is a broader research workbench. It contains
 confidence and source-quality fields and may include secondary-source or provisional
@@ -136,11 +141,12 @@ python3 tools/smoke-test.py
 python3 tools/audit-layout.py
 ```
 
-The smoke test exercises all nine product tabs and guards these minimum model counts:
+The smoke test exercises all ten product tabs and guards these minimum model counts:
 
 - AMD: EPYC 350, Ryzen 736, GPU 303
 - Intel: Xeon 553, Client 340, Graphics 35
 - NVIDIA: Data Center 20, GeForce 47, CPU and Superchips 4
+- Ampere: Processors 26
 
 Use `python3 tools/smoke-test.py --shots` after visual changes and inspect the generated
 screenshots; passing counts alone do not prove that the layout is correct.

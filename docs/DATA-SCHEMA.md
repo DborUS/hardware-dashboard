@@ -10,7 +10,7 @@ field names here are real, not aspirational.
 | `amd-gpu-data.json` | array | 49 entries | 42 GPU families + era separators |
 | `amd-cpu-specs.json` | object | 46 keys | SKU name → CPU model array |
 | `intel-cpu-specs.json` | object | 31 keys | 275 models. **Not currently rendered** — old SKU keys |
-| `intel-xeon-specs.json` | object | 29 keys | **553 Xeon models — live on the Xeon sub-tab** |
+| `intel-xeon-specs.json` | object | 30 keys | **553 Xeon models — live on the Xeon sub-tab** |
 | `nvidia-data.json` | object | 3 product-line keys | **71 audited models — 20 data center, 47 GeForce, 4 CPU/superchips** |
 | `compare-details.json` | object | 3 vendor keys | Full non-empty source-CSV fields plus shared master specifications, keyed by normalized product name and loaded only when Compare opens |
 

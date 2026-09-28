@@ -11,10 +11,14 @@ ROOT = Path(__file__).resolve().parents[1]
 PORT = 9011
 ARGS = ["--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage"]
 
-h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(ROOT))
+class QuietHandler(http.server.SimpleHTTPRequestHandler):
+    def log_message(self, *args):
+        pass
+
+
+h = functools.partial(QuietHandler, directory=str(ROOT))
 socketserver.TCPServer.allow_reuse_address = True
 srv = socketserver.TCPServer(("127.0.0.1", PORT), h)
-srv.RequestHandlerClass.log_message = lambda *a, **k: None
 threading.Thread(target=srv.serve_forever, daemon=True).start()
 
 MEASURE = """() => {
@@ -49,6 +53,7 @@ MEASURE = """() => {
     }
   });
   R.overflow = [...new Set(R.overflow)].slice(0, 8);
+  R.documentWidth = document.documentElement.scrollWidth;
 
   // element wider than its parent (a clipping risk)
   R.clipped = [];
@@ -145,5 +150,50 @@ with sync_playwright() as p:
     print("  overflow        :", r['overflow'] or 'none')
     print("  clipped text    :", r['clipped'] or 'none')
     print("  targets <32px   :", r['smallTargets'] or 'none')
+    # Ampere has a single processor view; inspect it at desktop and phone
+    # widths, including 320px where a four-vendor switcher is most constrained.
+    ampere_overflow = []
+    ampere_table_failures = []
+    for width in (1440, 1024, 390, 320):
+        pg = b.new_page(viewport={"width": width, "height": 1100})
+        pg.goto(f"http://127.0.0.1:{PORT}/index.html")
+        pg.wait_for_timeout(2100)
+        pg.click("#tabAmpere")
+        pg.wait_for_timeout(1200)
+        r = pg.evaluate(MEASURE)
+        print()
+        print("=" * 66)
+        print("  VIEWPORT %dpx  ·  AMPERE PROCESSORS" % width)
+        print("=" * 66)
+        for x, names in edge_report(r['edges']).items():
+            print("    %5d  %s" % (x, ', '.join(names)))
+        print("  block gaps      :", r['blockGaps'])
+        print("  filter group gaps:", r['groupGaps'])
+        print("  overflow        :", r['overflow'] or 'none')
+        print("  document width  :", r['documentWidth'])
+        print("  clipped text    :", r['clipped'] or 'none')
+        print("  targets <32px   :", r['smallTargets'] or 'none')
+        if r['documentWidth'] > width + 1:
+            ampere_overflow.append((width, r['documentWidth']))
+        if width in (390, 320):
+            pg.locator('.arch-group:not(.p2-roadmap) .arch-header').first.click()
+            pg.locator('.arch-group:not(.p2-roadmap) .sku-card').first.click()
+            spec = pg.evaluate("""() => {
+              const panel = document.querySelector('.cpu-spec-overflow');
+              panel.scrollLeft = panel.scrollWidth;
+              return {client: panel.clientWidth, content: panel.scrollWidth,
+                      moved: panel.scrollLeft,
+                      document: document.documentElement.scrollWidth};
+            }""")
+            print("  expanded spec   :", spec)
+            if (spec['content'] <= spec['client'] + 1 or spec['moved'] <= 0 or
+                    spec['document'] > width + 1):
+                ampere_table_failures.append((width, spec))
+        pg.close()
+
     b.close()
 srv.shutdown()
+if ampere_overflow:
+    raise SystemExit(f"Ampere viewport overflow: {ampere_overflow}")
+if ampere_table_failures:
+    raise SystemExit(f"Ampere specification table did not scroll within its panel: {ampere_table_failures}")

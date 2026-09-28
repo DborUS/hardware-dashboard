@@ -180,7 +180,7 @@ function n2Group(group, index) {
 function n2Render() {
   const cfg = N2_CONFIG[n2Tab];
   dom.pageHeader.innerHTML = `<h1 class="header-nvidia">${escHtml(cfg.title)}</h1><p>${escHtml(cfg.blurb)}</p>`;
-  dom.timeline.innerHTML = n2Groups().map(n2Group).join('');
+  dom.timeline.innerHTML = dashboardRoadmapHtml('nvidia', n2Tab) + n2Groups().map(n2Group).join('');
   document.querySelectorAll('.arch-header').forEach(header => {
     header.addEventListener('click', () => n2Toggle(header.dataset.gen));
     header.addEventListener('keydown', event => {
@@ -202,6 +202,7 @@ function n2Toggle(id) {
   const open = group.classList.toggle('expanded');
   n2Expanded[open ? 'add' : 'delete'](id);
   group.querySelector('.arch-header').setAttribute('aria-expanded', String(open));
+  group.querySelector('.arch-body')?.toggleAttribute('inert', !open);
 }
 
 function n2ToggleSpecs(card) {
@@ -215,9 +216,13 @@ function n2ExpandAll(open) {
   document.querySelectorAll('.arch-group').forEach(group => {
     group.classList.toggle('expanded', open);
     group.querySelector('.arch-header').setAttribute('aria-expanded', String(open));
+    group.querySelector('.arch-body')?.toggleAttribute('inert', !open);
   });
   n2Expanded.clear();
-  if (open) n2Groups().forEach(group => n2Expanded.add(group.id));
+  if (open) {
+    if (dom.timeline.querySelector('.dashboard-roadmap')) n2Expanded.add('roadmap');
+    n2Groups().forEach(group => n2Expanded.add(group.id));
+  }
 }
 
 function n2CardValues(card, key) {
@@ -234,7 +239,7 @@ function n2CardMatchesFilters(card, overrideKey = '', overrideTag = '') {
 function n2CountFor(key, tag) {
   const query = n2Search.trim().toLowerCase();
   let count = 0;
-  document.querySelectorAll('.arch-group').forEach(group => {
+  document.querySelectorAll('.arch-group:not(.dashboard-roadmap)').forEach(group => {
     const found = [...group.querySelectorAll('.sku-card')].some(card =>
       n2CardMatchesFilters(card, key, tag) &&
       (!query || card.dataset.search.includes(query) || group.dataset.search.includes(query) || n2SpecMatch(card.dataset.target, query)));
@@ -265,7 +270,7 @@ function n2ApplyFilters() {
   const badge = document.getElementById('sidebarCount');
   if (badge) { badge.textContent = activeCount; badge.hidden = activeCount === 0; }
 
-  document.querySelectorAll('.arch-group').forEach(group => {
+  document.querySelectorAll('.arch-group:not(.dashboard-roadmap)').forEach(group => {
     let visible = 0;
     group.querySelectorAll('.sku-card').forEach(card => {
       const search = dashboardApplyCardSearch(card, group, context);
@@ -280,6 +285,8 @@ function n2ApplyFilters() {
     group.classList.toggle('hidden', visible === 0);
     if (visible) { shownGroups++; shownCards += visible; }
   });
+
+  dom.timeline.querySelector('.dashboard-roadmap')?.classList.toggle('hidden', !!query || activeCount > 0);
 
   const status = document.getElementById('n2Status');
   if (status) status.textContent = `${shownGroups} groups · ${shownCards} product lines`;

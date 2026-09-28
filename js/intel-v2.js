@@ -119,6 +119,8 @@ function v2Columns(tier) {
 // carried over from the current data purely so the blocks aren't all identical
 // in size — it is NOT spec data and nothing reads it but the card label.
 
+const V2_CORE_SOURCE = 'https://www.intel.com/content/www/us/en/developer/topic-technology/software-security-guidance/processors-affected-consolidated-product-cpu-model.html';
+
 const V2_DATA = {
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -129,7 +131,7 @@ const V2_DATA = {
     blurb: 'Server · workstation · embedded',
     filters: [
       { label: 'Generation', key: 'gen', tags: [
-        ['Xeon 7',  '#f97316'], ['Xeon 6+', '#fb923c'], ['Xeon 6', '#ef4444'],
+        ['Xeon 6+', '#fb923c'], ['Xeon 6', '#ef4444'],
         ['Xeon 5',  '#a78bfa'], ['Xeon 4',  '#8b5cf6'], ['Xeon 3', '#7c3aed'],
         ['Xeon 2',  '#6366f1'], ['Xeon 1',  '#4f46e5'], ['Xeon W', '#34d399'],
         ['Xeon E',  '#22d3ee'], ['Xeon D',  '#14b8a6']
@@ -151,13 +153,7 @@ const V2_DATA = {
       // (604 SKUs) on 2026-08-16. Mobile Xeon W/E and Broadwell-D are out of
       // scope per Daniel; the cutoff is drawn at the family boundary, so every
       // part here is Skylake-era (2017) or newer.
-      { era: 'Xeon Scalable', eraNote: 'Socketed server — 1S through 8S' },
-
-      { id: 'xeon7', name: 'Xeon 7', years: '2027', color: '#f97316',
-        note: 'Unreleased — Diamond Rapids', unreleased: true, families: [
-        { name: 'Diamond Rapids',     desc: 'Next-gen P-core Xeon, successor to Granite Rapids', tier: 'P-core', seg: '2P', si: 'Diamond Rapids · Intel 18A', n: 0 },
-        { name: 'Diamond Rapids HBM', desc: 'High-bandwidth memory variant for AI / HPC',        tier: 'P-core', seg: '2P', si: 'Diamond Rapids · Intel 18A', n: 0 }
-      ]},
+      { era: 'Xeon server', eraNote: 'Socketed server — 1S through 8S' },
 
       { id: 'xeon6p', name: 'Xeon 6+', years: '2026', color: '#fb923c',
         note: 'Refreshed E-core line on Intel 18A', families: [
@@ -166,11 +162,11 @@ const V2_DATA = {
 
       { id: 'xeon6', name: 'Xeon 6', years: '2024 – 2026', color: '#ef4444',
         note: 'First split into P-core and E-core product lines', families: [
-        { name: 'Granite Rapids AP', desc: 'Xeon 6900P — max core count, FCLGA7529',        tier: 'P-core', seg: '2P',   si: 'Granite Rapids · Intel 3', n: 8 },
-        { name: 'Granite Rapids SP', desc: 'Xeon 6700P + 63xx entry parts, FCLGA4710 / 1700', tier: 'P-core', seg: '2P',   si: 'Granite Rapids · Intel 3', n: 43 },
-        { name: 'Granite Rapids D',  desc: 'Xeon 6 SoC for edge and networking, BGA',        tier: 'P-core', seg: 'Edge', si: 'Granite Rapids · Intel 3', n: 22 },
-        { name: 'Sierra Forest AP',  desc: 'Xeon 6900E — up to 288 E-cores, FCLGA7529',      tier: 'E-core', seg: '2P',   si: 'Sierra Forest · Intel 3', n: 0 },
-        { name: 'Sierra Forest SP',  desc: 'Xeon 6700E — E-core density, FCLGA4710',         tier: 'E-core', seg: '2P',   si: 'Sierra Forest · Intel 3', n: 7 }
+        { name: 'Granite Rapids AP', coreDesign: 'Redwood Cove', coreType: 'P-core', desc: 'Xeon 6900P — max core count, FCLGA7529',        tier: 'P-core', seg: '2P',   si: 'Granite Rapids · Intel 3', n: 8 },
+        { name: 'Granite Rapids SP', coreDesign: 'Redwood Cove', coreType: 'P-core', desc: 'Xeon 6500P / 6700P, FCLGA4710',              tier: 'P-core', seg: '2P',   si: 'Granite Rapids · Intel 3', n: 34 },
+        { name: 'Granite Rapids D', coreDesign: 'Redwood Cove', coreType: 'P-core',  desc: 'Xeon 6 SoC for edge and networking, BGA',        tier: 'P-core', seg: 'Edge', si: 'Granite Rapids · Intel 3', n: 22 },
+        { name: 'Sierra Forest SP', coreDesign: 'Crestmont', coreType: 'E-core',  desc: 'Xeon 6700E — E-core density, FCLGA4710',         tier: 'E-core', seg: '2P',   si: 'Sierra Forest · Intel 3', n: 7 },
+        { name: 'Raptor Lake-E Refresh', desc: 'Xeon 6300P entry server, FCLGA1700', tier: 'P-core', seg: '1P', si: 'Raptor Lake-E Refresh · Intel 7', n: 9 }
       ]},
 
       { id: 'xeon5', name: 'Xeon 5 (5th Gen Scalable)', genTag: 'Xeon 5', years: '2023', color: '#a78bfa',
@@ -207,7 +203,7 @@ const V2_DATA = {
 
       { id: 'xeonw', name: 'Xeon W', years: '2017 – 2026', color: '#34d399',
         note: 'Single-socket workstation — split by socket generation', families: [
-        { name: 'Granite Rapids WS',           desc: 'Xeon 6 workstation, FCLGA4710',   tier: 'Workstation', seg: '1P', si: 'Granite Rapids · Intel 3', n: 11 },
+        { name: 'Granite Rapids WS', coreDesign: 'Redwood Cove', coreType: 'P-core',           desc: 'Xeon 6 workstation, FCLGA4710',   tier: 'Workstation', seg: '1P', si: 'Granite Rapids · Intel 3', n: 11 },
         { name: 'Sapphire Rapids WS-3400/3500', desc: 'w7 / w9 expert, up to 60C',      tier: 'Workstation', seg: '1P', si: 'Sapphire Rapids · Intel 7', n: 14 },
         { name: 'Sapphire Rapids WS-2400/2500', desc: 'w3 / w5 mainstream, LGA 4677',   tier: 'Workstation', seg: '1P', si: 'Sapphire Rapids · Intel 7', n: 15 },
         { name: 'Ice Lake-W (W-33xx)',         desc: '10 nm, LGA 4189',                 tier: 'Workstation', seg: '1P', si: 'Ice Lake · 10 nm', n: 5 },
@@ -268,11 +264,6 @@ const V2_DATA = {
       // rebadged older silicon — so both live in one block, distinguished by
       // the Brand chip rather than by being split across the timeline.
       { era: 'Series branding', eraNote: 'No generation number. "Ultra" = newest architecture · plain "Core" = rebadged older silicon' },
-
-      { id: 's4', name: 'Core / Core Ultra Series 4', years: '2027', color: '#a855f7',
-        note: 'Model numbers 4xx · unreleased', unreleased: true, families: [
-        { name: 'Nova Lake', desc: 'Successor to Panther Lake', tier: 'Core Ultra', seg: 'Desktop', si: 'Nova Lake · TBD', n: 0 }
-      ]},
 
       { id: 's3', name: 'Core / Core Ultra Series 3', genTag: 'Series 3', years: '2026', color: '#38bdf8',
         note: 'Model numbers 3xx · Intel 18A', families: [
@@ -585,6 +576,7 @@ function v2Render() {
     `<p>${escHtml(cfg.blurb)}</p>`;
 
   dom.timeline.innerHTML =
+    dashboardRoadmapHtml('intel', v2Tab) +
     cfg.gens.map(g => g.era ? v2Era(g) : v2Gen(g, cfg)).join('');
 
   document.querySelectorAll('.arch-header').forEach(h => {
@@ -755,7 +747,7 @@ function v2Card(f, g, i, cfg) {
   const cols = v2Columns(f.tier);
   const tags = [f.tier, f.seg].filter(Boolean).map(t =>
     `<span class="sku-tag">${escHtml(t)}</span>`).join('');
-  const metaSearch = (f.name + ' ' + f.desc + ' ' + (f.si || '')).toLowerCase();
+  const metaSearch = (f.name + ' ' + f.desc + ' ' + (f.si || '') + ' ' + (f.coreDesign || '')).toLowerCase();
   const modelSearch = ((V2_SPECS[v2Tab] || {})[f.name] || [])
     .map(v2ModelSearch).join(' ');
 
@@ -771,6 +763,7 @@ function v2Card(f, g, i, cfg) {
       <div class="sku-spec-toggle">specs ▾</div>
       <div class="sku-name">${escHtml(f.name)}</div>
       <div class="sku-desc">${escHtml(f.desc)}</div>
+      ${f.coreDesign ? `<div class="v2-core-design"><span>${escHtml(f.coreType)} microarchitecture:</span><strong>${escHtml(f.coreDesign)}</strong></div>` : ''}
       ${f.si ? `<div class="v2-silicon">${escHtml(f.si)}</div>` : ''}
       <div class="search-summary" hidden></div>
       <div class="sku-tags">${tags}</div>
@@ -782,6 +775,7 @@ function v2Card(f, g, i, cfg) {
             <span class="cpu-spec-header-title">${escHtml(f.name)}</span>
             <div class="identity-path">Intel › ${escHtml(stripVendor(cfg.title))} › ${escHtml(g.name)} › ${escHtml(f.name)}</div>
             <div class="source-line">Source: Intel ARK specification export</div>
+            ${f.coreDesign ? `<div class="source-line v2-core-source">Core design naming: <a href="${V2_CORE_SOURCE}" target="_blank" rel="noopener noreferrer">Intel processor reference ↗</a></div>` : ''}
           </div>
           <span class="cpu-spec-header-title v2-await">${v2Count(f.name)}</span>
         </div>
@@ -802,6 +796,8 @@ function v2Toggle(id) {
   const open = el.classList.toggle('expanded');
   v2Expanded[open ? 'add' : 'delete'](id);
   el.querySelector('.arch-header').setAttribute('aria-expanded', String(open));
+  if (el.classList.contains('dashboard-roadmap'))
+    el.querySelector('.arch-body')?.toggleAttribute('inert', !open);
 }
 
 function v2ToggleSpecs(card) {
@@ -815,9 +811,12 @@ function v2ExpandAll(open) {
   document.querySelectorAll('.arch-group').forEach(g => {
     g.classList.toggle('expanded', open);
     g.querySelector('.arch-header').setAttribute('aria-expanded', String(open));
+    if (g.classList.contains('dashboard-roadmap'))
+      g.querySelector('.arch-body')?.toggleAttribute('inert', !open);
   });
   v2Expanded.clear();
   if (open) V2_DATA[v2Tab].gens.filter(g => !g.era).forEach(g => v2Expanded.add(g.id));
+  if (open && document.querySelector('.dashboard-roadmap')) v2Expanded.add('roadmap');
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -853,7 +852,7 @@ function v2CountFor(key, tag) {
   const segs  = key === 'seg'  ? new Set([tag]) : (v2Active.seg  || new Set());
   const q = v2Search.trim().toLowerCase();
   let n = 0;
-  document.querySelectorAll('.arch-group').forEach(group => {
+  document.querySelectorAll('.arch-group:not(.dashboard-roadmap)').forEach(group => {
     if (gens.size && !gens.has(group.dataset.gen)) return;
     const hit = [...group.querySelectorAll('.sku-card')].some(card =>
       v2CoreOk(card) &&
@@ -900,7 +899,7 @@ function v2ApplyFilters() {
   let shownGens = 0, shownCards = 0;
   const searchContext = dashboardSearchContext(q);
 
-  document.querySelectorAll('.arch-group').forEach(group => {
+  document.querySelectorAll('.arch-group:not(.dashboard-roadmap)').forEach(group => {
     const genOk = !gens.size || gens.has(group.dataset.gen);
     let visible = 0;
 
@@ -935,6 +934,8 @@ function v2ApplyFilters() {
     group.classList.toggle('hidden', visible === 0);
     if (visible) { shownGens++; shownCards += visible; }
   });
+
+  dom.timeline.querySelector('.dashboard-roadmap')?.classList.toggle('hidden', !!q || !!any);
 
   // An era heading with no surviving generations under it is an orphan; hide it.
   // Same problem the production page solves for its year separators.

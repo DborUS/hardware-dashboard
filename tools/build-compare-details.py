@@ -69,6 +69,8 @@ def read_common_specs(path, data, only_vendor=None, missing_only=False):
     """Attach the shared master schema, including newer Intel parts without ARK CSVs."""
     for row in csv.DictReader(read_text(path).splitlines()):
         vendor = clean(row.get("vendor")).lower()
+        if vendor == "ampere computing":
+            vendor = "ampere"
         model = first(row, "model_full", "model")
         if vendor not in data or not model or (only_vendor and vendor != only_vendor):
             continue
@@ -76,8 +78,21 @@ def read_common_specs(path, data, only_vendor=None, missing_only=False):
         record = data[vendor].setdefault(key, {"fields": {}, "sources": []})
         if missing_only and record.get("common"):
             continue
-        record["common"] = {label: clean(value) for label, value in row.items()
-                            if label and clean(value)}
+        common = {label: clean(value) for label, value in row.items()
+                  if label and clean(value)}
+        if vendor == "ampere":
+            # Align equivalent fields with the cross-vendor comparison rows.
+            # Ampere's published usage power is a benchmark measurement, not TDP.
+            common["mem_max_capacity"] = common.get("mem_max", "")
+            common["process"] = common.get("process_node", "")
+            if common.get("frequency"):
+                kind = common.get("frequency_type", "").lower()
+                qualifier = " (up to with Turbo)" if "turbo" in kind else ""
+                common["frequency"] += f" GHz{qualifier}"
+            for power_field in ("usage_power", "tdp"):
+                if common.get(power_field):
+                    common[power_field] += " W"
+        record["common"] = common
         if not record["sources"]:
             record["sources"].append(clean(row.get("source_url")) or path.name)
 
@@ -119,7 +134,7 @@ def count_models(data):
 
 
 def main():
-    data = {"intel": {}, "amd": {}, "nvidia": {}}
+    data = {"intel": {}, "amd": {}, "nvidia": {}, "ampere": {}}
     for folder in (SPECS / "source-csv-intel", SPECS / "source-csv-intel-gpu"):
         for path in sorted(folder.glob("*.csv")):
             read_intel_transposed(path, data)
@@ -138,9 +153,15 @@ def main():
         if model:
             store(data, "nvidia", model, row, "nvidia-master.csv")
 
+    for row in csv.DictReader(read_text(SPECS / "ampere-master.csv").splitlines()):
+        model = first(row, "model_full", "model")
+        if model:
+            store(data, "ampere", model, row,
+                  clean(row.get("source_url")) or "ampere-master.csv")
+
     # Vendor masters feed the visible tables. The older cross-vendor master can
     # disagree with them on newly added products, so it must not override them.
-    for vendor in ("amd", "intel", "nvidia"):
+    for vendor in ("amd", "intel", "nvidia", "ampere"):
         read_common_specs(SPECS / f"{vendor}-master.csv", data)
     # Intel's newest Xeon models are in the maintained cross-vendor master but
     # have not yet appeared in an ARK export or intel-master.csv.
@@ -151,7 +172,8 @@ def main():
     OUT.write_text(text, encoding="utf-8", newline="")
     print(f"wrote {OUT.relative_to(ROOT)} ({len(text):,} bytes)")
     print(f"Intel: {len(data['intel']):,} products; AMD: {len(data['amd']):,} products; "
-          f"NVIDIA: {len(data['nvidia']):,} products")
+          f"NVIDIA: {len(data['nvidia']):,} products; "
+          f"Ampere: {len(data['ampere']):,} products")
     return 0
 
 

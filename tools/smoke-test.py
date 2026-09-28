@@ -56,10 +56,10 @@ EXPECT = {
     # spec data (Client and Graphics imported 2026-09-10), so all three are
     # guarded by a model count -- the assertion that catches a restructure
     # silently dropping rows.
-    "intel_xeon_groups": 11,
-    "intel_xeon_cards": 33,
+    "intel_xeon_groups": 10,
+    "intel_xeon_cards": 31,
     "intel_xeon_models": 553,
-    "intel_client_groups": 11,
+    "intel_client_groups": 10,
     "intel_client_cards": 49,
     "intel_client_models": 340,
     "intel_gfx_groups": 4,
@@ -72,6 +72,11 @@ EXPECT = {
     "nvidia_geforce_models": 47,
     "nvidia_cpu_groups": 2,
     "nvidia_cpu_models": 4,
+    # Ampere Computing: one processor tab, five product families, 26 published
+    # model rows. Roadmap families without SKUs do not count as products.
+    "ampere_groups": 5,
+    "ampere_cards": 5,
+    "ampere_models": 26,
 }
 
 # Filter chips that are known to match no content, as "<tab>:<chip>".
@@ -176,7 +181,56 @@ def main():
                     sel, "e => e.filter(x => !x.classList.contains('hidden')).length"
                 )
 
-            def check_chips(label):
+            def check_shared_roadmap(vendor, tab, expected_cards):
+                """Roadmap leads its tab, links to the maker, and has no model UI."""
+                label = f"{vendor}-{tab}"
+                roadmap = page.locator("#timeline > .arch-group.dashboard-roadmap")
+                if expected_cards == 0:
+                    if roadmap.count():
+                        failures.append(f"{label} has an unannounced roadmap group")
+                    return
+                if (roadmap.count() != 1 or
+                        page.locator("#timeline > .arch-group.dashboard-roadmap:first-child").count() != 1):
+                    failures.append(f"{label} roadmap must be the first group")
+                    return
+                cards = roadmap.locator(".dashboard-roadmap-card")
+                if cards.count() != expected_cards:
+                    failures.append(f"{label} roadmap has {cards.count()} cards, expected {expected_cards}")
+                prefix = {"amd": "a2", "intel": "v2", "nvidia": "n2"}[vendor]
+                if (roadmap.get_attribute("id") != f"{prefix}-roadmap" or
+                        roadmap.locator(".arch-header.unreleased-arch").count() != 1 or
+                        roadmap.locator(".arch-body[inert]").count() != 1):
+                    failures.append(f"{label} roadmap header or collapsed state is wrong")
+                card_checks = page.eval_on_selector_all(
+                    "#timeline > .dashboard-roadmap .dashboard-roadmap-card",
+                    """(cards, domain) => cards.every(card => {
+                      const links = [...card.querySelectorAll('a[href]')];
+                      return links.length > 0 && links.every(link => {
+                        const url = new URL(link.href);
+                        return url.protocol === 'https:' &&
+                          (url.hostname === domain || url.hostname.endsWith('.' + domain));
+                      }) && !card.matches('.has-specs, [role], [tabindex], [data-target]') &&
+                        !card.querySelector('table, .cpu-spec-wrapper, [data-target]');
+                    })""", f"{vendor}.com")
+                if not card_checks or roadmap.locator("tbody tr, .has-specs").count():
+                    failures.append(f"{label} roadmap needs official links and static, nonselectable cards")
+
+            def check_roadmap_rows(vendor, tab, expected_cards):
+                """Expansion exposes collateral without adding model rows."""
+                if not expected_cards:
+                    return
+                label = f"{vendor}-{tab}"
+                if count(".dashboard-roadmap .arch-body[inert]"):
+                    failures.append(f"{label} roadmap stayed inert after Expand all")
+                if count(".dashboard-roadmap tbody tr"):
+                    failures.append(f"{label} roadmap introduced model rows")
+                all_rows = count(".cpu-spec-table tbody tr") - count(".v2-empty-row")
+                released_rows = (count(".arch-group:not(.dashboard-roadmap) .cpu-spec-table tbody tr") -
+                                 count(".arch-group:not(.dashboard-roadmap) .v2-empty-row"))
+                if all_rows != released_rows:
+                    failures.append(f"{label} roadmap changed the released model total")
+
+            def check_chips(label, require_cards=False):
                 """Click every filter chip; a chip that hides everything is a bug.
 
                 Counts alone cannot catch this -- the page renders correctly and
@@ -192,7 +246,10 @@ def main():
                     chip.click()
                     page.wait_for_timeout(18)
                     checked += 1
-                    if visible(".arch-group") == 0:
+                    groups = visible(".arch-group:not(.dashboard-roadmap)")
+                    cards = count(".arch-group:not(.dashboard-roadmap):not(.hidden) .sku-card:not(.hidden)")
+                    rows = count(".arch-group:not(.dashboard-roadmap):not(.hidden) tbody tr[data-search]:not(.hidden)")
+                    if groups == 0 or (require_cards and (cards == 0 or rows == 0)):
                         dead.append(tag)
                     chip.click()          # restore
                     page.wait_for_timeout(10)
@@ -210,14 +267,15 @@ def main():
             page.goto(base, wait_until="networkidle")
             page.wait_for_timeout(900)
 
-            if page.locator(".brand-lockup-version").inner_text().strip().lower() != "public beta 0.0.1":
-                failures.append("header does not show public beta 0.0.1")
+            if page.locator(".brand-lockup-version").inner_text().strip().lower() != "public beta 0.0.2":
+                failures.append("header does not show public beta 0.0.2")
             page.click("#whatsNewBtn")
-            if count("#whatsNewDialog[open]") != 1 or count("#whatsNewDialog .release-note") != 6:
-                failures.append("What's new dialog did not show all six release topics")
-            if "September 22, 2026" not in page.locator("#whatsNewDialog").inner_text():
-                failures.append("release notes do not identify the Tuesday update window")
+            if count("#whatsNewDialog[open]") != 1 or count("#whatsNewDialog .release-note") != 4:
+                failures.append("What's new dialog did not show all four release topics")
+            if "since public beta 0.0.1" not in page.locator("#whatsNewDialog").inner_text().lower():
+                failures.append("release notes do not identify the previous version")
             page.keyboard.press("Escape")
+            page.wait_for_timeout(150)  # native dialog close and aria sync are asynchronous
             if count("#whatsNewDialog[open]") != 0 or page.locator("#whatsNewBtn").get_attribute("aria-expanded") != "false":
                 failures.append("What's new dialog did not close with Escape")
 
@@ -227,10 +285,12 @@ def main():
             for tab in ("epyc", "ryzen", "gpu"):
                 page.click(f'.a2-subtab[data-tab="{tab}"]')
                 page.wait_for_timeout(700)
-                results[f"amd_{tab}_groups"] = count(".arch-group")
-                results[f"amd_{tab}_cards"] = count(".sku-card")
+                check_shared_roadmap("amd", tab, {"epyc": 5, "ryzen": 1, "gpu": 4}[tab])
+                results[f"amd_{tab}_groups"] = count(".arch-group:not(.dashboard-roadmap)")
+                results[f"amd_{tab}_cards"] = count(".arch-group:not(.dashboard-roadmap) .sku-card")
                 page.click("#expandAllBtn")
                 page.wait_for_timeout(700)
+                check_roadmap_rows("amd", tab, {"epyc": 5, "ryzen": 1, "gpu": 4}[tab])
                 results[f"amd_{tab}_models"] = (
                     count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
                 if tab == "epyc":
@@ -275,7 +335,7 @@ def main():
             page.press("#a2core-min", "Enter")
             page.wait_for_timeout(400)
             snapped = page.input_value("#a2core-min")
-            narrowed = visible(".sku-card")
+            narrowed = visible(".arch-group:not(.dashboard-roadmap) .sku-card")
             if snapped != "96":
                 failures.append(f"typed min 96 snapped to {snapped}")
             if not (0 < narrowed < results["amd_epyc_cards"]):
@@ -283,7 +343,7 @@ def main():
             results["amd_core_min96_cards"] = narrowed
             page.click("#a2core .cr-pre:last-child")   # All
             page.wait_for_timeout(350)
-            if visible(".sku-card") != results["amd_epyc_cards"]:
+            if visible(".arch-group:not(.dashboard-roadmap) .sku-card") != results["amd_epyc_cards"]:
                 failures.append("core-range 'All' preset did not restore every card")
             # GPU has no core data and must therefore render no slider.
             page.click('.a2-subtab[data-tab="gpu"]')
@@ -296,10 +356,10 @@ def main():
             # --- Search reaches into the spec tables ---
             page.click('.a2-subtab[data-tab="epyc"]')
             page.wait_for_timeout(700)
-            all_series = count(".arch-group")
+            all_series = count(".arch-group:not(.dashboard-roadmap)")
             page.fill("#searchInput", "9575F")
             page.wait_for_timeout(700)
-            narrowed = visible(".arch-group")
+            narrowed = visible(".arch-group:not(.dashboard-roadmap)")
             if narrowed >= all_series or narrowed == 0:
                 failures.append(
                     f"search '9575F' should narrow results; got {narrowed} "
@@ -313,12 +373,12 @@ def main():
             # highlights the exact row after the user opens it.
             page.fill("#searchInput", "9575F")
             page.wait_for_timeout(500)
-            if count(".arch-group.expanded") or count(".cpu-spec-wrapper.open"):
+            if count(".arch-group:not(.dashboard-roadmap).expanded") or count(".cpu-spec-wrapper.open"):
                 failures.append("AMD exact search auto-opened a result")
             if count(".search-summary:not([hidden])") != 1:
                 failures.append("AMD exact search should show one match summary")
-            page.click(".arch-group:not(.hidden) .arch-header")
-            page.click(".sku-card:not(.hidden)")
+            page.click(".arch-group:not(.dashboard-roadmap):not(.hidden) .arch-header")
+            page.click(".arch-group:not(.dashboard-roadmap) .sku-card:not(.hidden)")
             page.wait_for_timeout(150)
             if count("tr.search-match") != 1:
                 failures.append("AMD 9575F search should highlight exactly one row")
@@ -329,7 +389,7 @@ def main():
             # Unit boundaries such as "MB 300 W" must not masquerade as B300.
             page.fill("#searchInput", "B300")
             page.wait_for_selector('.global-search-route[data-vendor="nvidia"][data-tab="datacenter"]')
-            if count(".global-search-route") != 1 or visible(".arch-group") != 0:
+            if count(".global-search-route") != 1 or visible(".arch-group:not(.dashboard-roadmap)") != 0:
                 failures.append("B300 search should only find NVIDIA Data Center")
             page.fill("#searchInput", "")
             page.wait_for_timeout(350)
@@ -351,14 +411,17 @@ def main():
             for tab, key in (("xeon", "xeon"), ("client", "client"), ("graphics", "gfx")):
                 page.click(f'.v2-subtab[data-tab="{tab}"]')
                 page.wait_for_timeout(900)
-                results[f"intel_{key}_groups"] = count(".arch-group")
-                results[f"intel_{key}_cards"] = count(".sku-card")
+                roadmap_cards = {"xeon": 2, "client": 1, "graphics": 1}[tab]
+                check_shared_roadmap("intel", tab, roadmap_cards)
+                results[f"intel_{key}_groups"] = count(".arch-group:not(.dashboard-roadmap)")
+                results[f"intel_{key}_cards"] = count(".arch-group:not(.dashboard-roadmap) .sku-card")
                 check_chips(f"intel-{tab}")
                 # Every Intel sub-tab now carries spec data, so every one gets
                 # a model count. Expanding is required -- the rows only exist
                 # in the DOM once the cards are open.
                 page.click("#expandAllBtn")
                 page.wait_for_timeout(1200)
+                check_roadmap_rows("intel", tab, roadmap_cards)
                 results[f"intel_{key}_models"] = (
                     count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
                 page.click("#collapseAllBtn")
@@ -366,20 +429,55 @@ def main():
                 if args.shots:
                     page.screenshot(path=str(shots_dir / f"04-intel-{tab}.png"))
 
+            # Intel classifies the nine FCLGA1700 6300P models as Raptor
+            # Lake-E Refresh, separate from the FCLGA4710 Granite Rapids SP.
+            page.click('.v2-subtab[data-tab="xeon"]')
+            page.wait_for_timeout(850)
+            families = page.evaluate("""() => ({
+                granite: (V2_SPECS.xeon['Granite Rapids SP'] || []).map(m => m.n),
+                raptor: (V2_SPECS.xeon['Raptor Lake-E Refresh'] || []).map(m => m.n),
+                card: document.querySelector('#v2-xeon6 .sku-card[data-seg="1P"] .sku-name')?.textContent
+            })""")
+            if (len(families['granite']) != 34 or len(families['raptor']) != 9
+                    or families['card'] != 'Raptor Lake-E Refresh'
+                    or any(name.startswith('Xeon 63') for name in families['granite'])
+                    or not all(name.startswith('Xeon 63') for name in families['raptor'])):
+                failures.append(f"Xeon 6300P family split is wrong: {families}")
+
+            # Core microarchitecture names must resolve to the right Xeon 6
+            # codename cards in both the visible tab and global search.
+            for term, expected in (
+                ("Redwood Cove", {"Granite Rapids AP", "Granite Rapids SP",
+                                   "Granite Rapids D", "Granite Rapids WS"}),
+                ("Crestmont", {"Sierra Forest SP"}),
+            ):
+                page.fill("#searchInput", term)
+                page.wait_for_timeout(550)
+                cards = set(page.locator(
+                    ".arch-group:not(.dashboard-roadmap):not(.hidden) "
+                    ".sku-card:not(.hidden) .sku-name").all_text_contents())
+                if cards != expected:
+                    failures.append(f"{term} search returned {sorted(cards)}, expected {sorted(expected)}")
+                if count('.global-search-route[data-vendor="intel"][data-tab="xeon"]') != 1:
+                    failures.append(f"{term} global search did not find Intel Xeon")
+                if count(".arch-group:not(.hidden) .sku-card:not(.hidden) .v2-core-design") != len(expected):
+                    failures.append(f"{term} card core-design labels are missing")
+            page.click("#searchClear")
+
             # Intel now follows the same exact-match and collapsed-result rules.
             page.click('.v2-subtab[data-tab="client"]')
             page.wait_for_timeout(850)
             page.fill("#searchInput", "14900K")
             page.wait_for_timeout(500)
-            if count(".arch-group.expanded") or count(".cpu-spec-wrapper.open"):
+            if count(".arch-group:not(.dashboard-roadmap).expanded") or count(".cpu-spec-wrapper.open"):
                 failures.append("Intel exact search auto-opened a result")
             if count(".search-summary:not([hidden])") != 1:
                 failures.append("Intel 14900K search should prefer one exact SKU")
             summary = page.locator(".search-summary:not([hidden])").text_content()
             if "Exact SKU" not in summary or "14900K" not in summary:
                 failures.append(f"Intel exact-match explanation is wrong: {summary}")
-            page.click(".arch-group:not(.hidden) .arch-header")
-            page.click(".sku-card:not(.hidden)")
+            page.click(".arch-group:not(.dashboard-roadmap):not(.hidden) .arch-header")
+            page.click(".arch-group:not(.dashboard-roadmap) .sku-card:not(.hidden)")
             page.wait_for_timeout(150)
             if count("tr.search-match") != 1:
                 failures.append("Intel 14900K search should highlight exactly one row")
@@ -447,14 +545,17 @@ def main():
             for tab in ("datacenter", "geforce", "cpu"):
                 page.click(f'.n2-subtab[data-tab="{tab}"]')
                 page.wait_for_timeout(500)
-                results[f"nvidia_{tab}_groups"] = count(".arch-group")
+                roadmap_cards = {"datacenter": 3, "geforce": 0, "cpu": 1}[tab]
+                check_shared_roadmap("nvidia", tab, roadmap_cards)
+                results[f"nvidia_{tab}_groups"] = count(".arch-group:not(.dashboard-roadmap)")
                 check_chips(f"nvidia-{tab}")
                 page.click("#expandAllBtn")
                 page.wait_for_timeout(350)
+                check_roadmap_rows("nvidia", tab, roadmap_cards)
                 results[f"nvidia_{tab}_models"] = (
                     count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
                 if args.shots:
-                    page.locator(".sku-card").first.click()
+                    page.locator(".arch-group:not(.dashboard-roadmap) .sku-card.has-specs").first.click()
                     page.wait_for_timeout(120)
                     page.screenshot(path=str(shots_dir / f"07-nvidia-{tab}.png"))
                 page.click("#collapseAllBtn")
@@ -470,6 +571,154 @@ def main():
             page.click('[data-close-dialog="sourceDialog"]')
             page.click("#searchClear")
 
+            # --- Ampere Computing: five server-processor families ---
+            # Search from another vendor to catch omissions in the global index
+            # and navigation. This SKU is unique to AmpereOne M.
+            page.fill("#searchInput", "A192-32M")
+            ampere_route = '.global-search-route[data-vendor="ampere"][data-tab="processors"]'
+            page.wait_for_selector(ampere_route)
+            if count("#tabAmpere.search-beacon") != 1:
+                failures.append("global search did not highlight Ampere for A192-32M")
+            page.click(ampere_route)
+            page.wait_for_timeout(500)
+            if (page.input_value("#searchInput") != "A192-32M" or
+                    count('#vendorPill[data-active="ampere"]') != 1):
+                failures.append("Ampere search route did not retain the SKU query")
+            if count(".search-summary:not([hidden])") != 1:
+                failures.append("Ampere exact search should show one A192-32M match")
+            if not all(part in page.url for part in
+                       ("vendor=ampere", "tab=processors", "q=A192-32M")):
+                failures.append(f"Ampere search URL did not preserve state: {page.url}")
+            page.reload(wait_until="networkidle")
+            page.wait_for_timeout(900)
+            if (page.input_value("#searchInput") != "A192-32M" or
+                    count('#vendorPill[data-active="ampere"]') != 1):
+                failures.append("shared Ampere search URL did not restore its state")
+            page.click("#searchClear")
+            page.wait_for_timeout(400)
+
+            results["ampere_groups"] = count(".arch-group:not(.p2-roadmap)")
+            results["ampere_cards"] = count(".arch-group:not(.p2-roadmap) .sku-card")
+            if any(count(f"#{tab}.visible") for tab in
+                   ("a2Subtabs", "v2Subtabs", "n2Subtabs")):
+                failures.append("another vendor's product sub-tabs leaked into Ampere")
+            if results["ampere_groups"] != 5 or results["ampere_cards"] != 5:
+                failures.append("Ampere should render one card in each of five families")
+            roadmap = page.locator("#timeline > .arch-group").first
+            if (roadmap.get_attribute("id") != "p2-roadmap" or
+                    count(".p2-roadmap .arch-header.unreleased-arch") != 1 or
+                    count(".p2-roadmap .p2-roadmap-card") != 2 or
+                    count(".p2-roadmap .p2-roadmap-card a[href*='amperecomputing.com']") != 2 or
+                    count(".p2-roadmap .has-specs, .p2-roadmap tbody tr") != 0):
+                failures.append("Ampere roadmap must lead the timeline with two linked, non-selectable products")
+            roadmap_header = roadmap.locator(".arch-header")
+            roadmap_header.focus()
+            page.keyboard.press("Enter")
+            if roadmap_header.get_attribute("aria-expanded") != "true":
+                failures.append("Ampere roadmap did not expand with Enter")
+            page.keyboard.press("Space")
+            if roadmap_header.get_attribute("aria-expanded") != "false":
+                failures.append("Ampere roadmap did not collapse with Space")
+            family_names = [name.strip().lower() for name in
+                            page.locator(".arch-group:not(.p2-roadmap) .arch-name").all_text_contents()]
+            family_order = ("ampereone m", "ampereone", "altra max", "altra", "emag")
+            if len(family_names) == 5 and any(
+                    expected not in actual for expected, actual in
+                    zip(family_order, family_names)):
+                failures.append(f"Ampere family order is wrong: {family_names}")
+            first_header = page.locator(".arch-group:not(.p2-roadmap) .arch-header").first
+            first_header.focus()
+            page.keyboard.press("Enter")
+            if first_header.get_attribute("aria-expanded") != "true":
+                failures.append("Ampere family did not expand with Enter")
+            page.keyboard.press("Space")
+            if first_header.get_attribute("aria-expanded") != "false":
+                failures.append("Ampere family did not collapse with Space")
+            first_header.click()
+            first_card = page.locator(".arch-group:not(.p2-roadmap) .sku-card").first
+            first_card.focus()
+            page.keyboard.press("Enter")
+            if first_card.get_attribute("aria-expanded") != "true":
+                failures.append("Ampere specification card did not open with Enter")
+            page.keyboard.press("Space")
+            if first_card.get_attribute("aria-expanded") != "false":
+                failures.append("Ampere specification card did not close with Space")
+            first_header.click()
+            if count("#p2core .crt") < 2:
+                failures.append("Ampere core-count slider has fewer than two stops")
+            check_chips("ampere-processors", require_cards=True)
+
+            page.click("#expandAllBtn")
+            page.wait_for_timeout(350)
+            results["ampere_models"] = count(
+                ".cpu-spec-table tbody tr[data-search]")
+            if results["ampere_models"] != 26:
+                failures.append("Ampere inventory must have exactly 26 published model rows")
+            rows_per_family = page.eval_on_selector_all(
+                ".arch-group:not(.p2-roadmap)", "groups => groups.map(group => group.querySelectorAll('tbody tr[data-search]').length)")
+            if any(rows == 0 for rows in rows_per_family):
+                failures.append(f"Ampere has a family without published models: {rows_per_family}")
+            model_names = [name.strip() for name in page.locator(
+                ".cpu-spec-table tbody tr[data-search] td:first-child").all_text_contents()]
+            if len(set(model_names)) != len(model_names):
+                failures.append("Ampere inventory repeats a published model row")
+            model_text = " ".join(page.locator(
+                ".cpu-spec-table tbody tr[data-search]").all_text_contents())
+            if "A192-32M" not in model_text:
+                failures.append("AmpereOne M A192-32M specification row is missing")
+            power_headers = [h.strip() for h in page.locator(
+                ".cpu-spec-table thead th").all_text_contents()]
+            if power_headers.count("Usage Power") != 4 or power_headers.count("TDP") != 1:
+                failures.append("Ampere power headings should distinguish four usage-power families from eMAG TDP")
+            if any(name in model_text for name in
+                   ("Graviton", "Axion", "Cobalt", "Grace")):
+                failures.append("a cloud or other-manufacturer chip appeared in Ampere rows")
+            if args.shots:
+                page.screenshot(path=str(shots_dir / "08-ampere-families.png"))
+
+            page.click("#dataSourcesBtn")
+            source_links = page.locator(
+                '#sourceContent a[href*="amperecomputing.com"]').count()
+            if source_links == 0:
+                failures.append("Ampere source panel has no official Ampere Computing link")
+            page.click('[data-close-dialog="sourceDialog"]')
+
+            # Two Ampere model rows should be selectable and compare on cores.
+            page.locator(".arch-group:not(.p2-roadmap) .sku-card").first.click()
+            page.wait_for_selector(".cpu-spec-wrapper.open tbody tr[data-search]")
+            ampere_rows = page.locator(".cpu-spec-wrapper.open tbody tr[data-search]")
+            if ampere_rows.count() < 2:
+                failures.append("Ampere's first family has fewer than two selectable SKUs")
+            else:
+                ampere_rows.nth(0).click()
+                ampere_rows.nth(1).click()
+                if (count("#compareTray:not([hidden])") != 1 or
+                        page.locator("#compareOpenBtn").is_disabled()):
+                    failures.append("Ampere comparison tray did not enable for two SKUs")
+                else:
+                    page.click("#compareOpenBtn")
+                    if (count("#compareDialog[open]") != 1 or
+                            count("#compareDialog thead th") != 3):
+                        failures.append("Ampere comparison did not show two products")
+                    page.wait_for_function("""() => [...document.querySelectorAll('#compareDialog tbody th')]
+                        .some(th => th.textContent.trim() === 'CPU cores')""")
+                    core_row = page.locator(
+                        "#compareDialog tbody tr:has(> th:text-is('CPU cores'))")
+                    if (core_row.count() != 1 or any(
+                            value.strip() == '—' for value in
+                            core_row.locator('td').all_text_contents())):
+                        failures.append("Ampere comparison is missing CPU core counts")
+                    page.click('[data-close-dialog="compareDialog"]')
+                page.click("#compareClearBtn")
+            page.click("#collapseAllBtn")
+            page.set_viewport_size({"width": 390, "height": 900})
+            page.wait_for_timeout(300)
+            if page.evaluate("document.documentElement.scrollWidth > innerWidth + 1"):
+                failures.append("Ampere tab overflows a 390px phone viewport")
+            if args.shots:
+                page.screenshot(path=str(shots_dir / "09-ampere-mobile.png"))
+            page.set_viewport_size({"width": 1440, "height": 1000})
+
             page.click("#tabAmd")
             page.wait_for_timeout(1200)
 
@@ -479,7 +728,7 @@ def main():
                 failures.append("NVIDIA sub-tabs still visible after switching to AMD")
             if count("#a2Subtabs.visible") != 1:
                 failures.append("AMD sub-tabs not restored after returning from Intel")
-            if count(".arch-group") < 6:
+            if count(".arch-group:not(.dashboard-roadmap)") < 6:
                 failures.append("AMD did not re-render after returning from Intel")
 
             browser.close()

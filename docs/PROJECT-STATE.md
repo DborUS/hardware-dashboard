@@ -3,13 +3,152 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-09-25 (public beta 0.0.1 release notes)
-**Current version:** Public beta 0.0.1 — pending publication
-**Health:** Good — AMD generation check, ordering, browser smoke test, and layout
-audit pass with no JavaScript errors
-**Committed:** through `730604c` (dashboard updates and EPYC architecture guide).
-The public beta 0.0.1 release notes and whitespace cleanup are pending review
-and commit.
+**Last updated:** 2026-09-28 (public beta 0.0.2)
+**Current version:** Public beta 0.0.2
+**Previous release:** Public beta 0.0.1 (`1cac582`)
+**Health:** Good — ordering, AMD and Ampere data checks, full browser smoke test,
+EPYC guide regression, and responsive layout audit pass with no JavaScript errors.
+
+## 2026-09-28 — Public beta 0.0.2 release review
+
+The shared header and What's new dialog now cover the new Ampere Computing tab,
+manufacturer-sourced announced roadmaps, corrected Xeon 6 family and core-design
+lookup, and refined EPYC 9005 socket diagrams. The release text describes changes
+since 0.0.1. CSS, JavaScript, and runtime JSON use the same cache version.
+
+The release includes the dashboard's Ampere source data, roadmap ledger, Xeon
+correction, guide changes, and their checks. The separate Xeon learning projects
+are outside this repository and are not part of this release. The README now
+reflects four vendors and ten product tabs. Pending visitor updates remain in
+`docs/UPDATE-QUEUE.md` until the owner confirms the site is live and the New
+update block has been posted.
+
+Verification: `tools/check-order.py`, AMD and Ampere generated-data checks,
+`tools/smoke-test.py`, `tools/test-epyc-guide.py`, and `tools/audit-layout.py`
+pass. The smoke test reports 350 EPYC, 736 Ryzen, 303 AMD GPU, 553 Xeon,
+340 Intel Client, 35 Intel Graphics, 71 NVIDIA, and 26 Ampere models, with
+no browser JavaScript errors. The layout audit reports no page-level overflow
+at its checked desktop and phone widths.
+
+---
+
+## 2026-09-28 — Xeon 6300P family correction
+
+Intel's [6300-series support article](https://www.intel.com/content/www/us/en/support/articles/000100193/processors/intel-xeon-processors.html) identifies the nine Xeon 6 6300P models as Raptor Lake-E Refresh. The [6377P ARK page](https://www.intel.com/content/www/us/en/products/sku/246153/intel-xeon-6377p-processor-36m-cache-3-100-ghz/specifications.html) confirms Intel 7 and FCLGA1700. These are distinct from Intel 3 / FCLGA4710 Granite Rapids SP. The old ARK assignment rule folded both sockets into SP, and the Xeon 6 card repeated that error.
+
+The assignment rule now routes 6300P to Raptor Lake-E Refresh and leaves only LGA4710 parts in Granite Rapids SP. The nine models have their own Xeon 6 card; SP falls from 43 to 34 models, while the Xeon total remains 553. The ARK-derived runtime JSON, research master, and comparison details were updated. The separate card has 1P and Intel 7 labels, and the broader era label now covers entry-server Xeon 6. The pending Xeon visitor update was revised. Syntax, ordering, data conservation, and the full browser smoke test pass with no JavaScript errors (31 Xeon cards, 553 models). Changes are local; no commit or push.
+
+---
+
+## 2026-09-26 — Intel Xeon 6 core design lookup
+
+The Intel Xeon cards now show the core microarchitecture beneath their
+processor codename: Granite Rapids uses the Redwood Cove P-core design,
+and Sierra Forest uses the Crestmont E-core design. This relationship is
+sourced to Intel's [affected-processor model table](https://www.intel.com/content/www/us/en/developer/topic-technology/software-security-guidance/processors-affected-consolidated-product-cpu-model.html).
+It identifies core names that do not appear as separate product codenames
+or SKUs in ChipIndex. The expanded card links to the Intel source.
+
+Intel card search and cross-vendor search index these names. Searches for
+`Redwood Cove` show the four Granite Rapids cards; `Crestmont` shows the
+Sierra Forest SP card. Intel's [current Xeon 6 E-core catalog](https://www.intel.com/content/www/us/en/products/details/processors/xeon/6-e-core-series.html)
+lists 6700E Sierra Forest SKUs but no 6900E. Its [288-core 6990E+](https://www.intel.com/content/www/us/en/products/sku/246074/intel-xeon-6990e-processor-576m-cache-2-20-ghz/specifications.html)
+belongs to Xeon 6+ Clearwater Forest. The former zero-spec Sierra Forest
+AP/6900E card was therefore removed from the active released timeline;
+no replacement SKU claim was invented. Existing SKU specifications and
+ordering remain unchanged. The Intel renderer, shared search, card styles,
+smoke assertion, and asset cache tags were updated. The update queue entry
+remains pending until the owner confirms it is live.
+
+Verification: JavaScript syntax checks, `tools/check-order.py`, and the
+full `tools/smoke-test.py` pass with no JavaScript errors. The responsive
+layout audit exits successfully and reports no horizontal overflow.
+Changes are local; no commit or push was made.
+
+---
+
+## 2026-09-26 — Manufacturer roadmaps
+
+Added 18 announced roadmap entries across eight product tabs: AMD EPYC,
+Ryzen, and GPU; Intel Xeon, Client, and Graphics; and NVIDIA Data Center and
+CPU. Each section leads its tab as a collapsible unreleased group with
+individual product cards and direct manufacturer collateral. A source ledger
+and exclusions are recorded in `docs/specs/manufacturer-roadmap-sources.md`.
+The entries remain outside released model totals, filter chips, and comparison.
+No GeForce roadmap group appears because no named future product was supported
+by NVIDIA collateral at review time.
+
+Removed the speculative Intel Xeon 7 and Core Ultra Series 4 labels and the
+unsupported Diamond Rapids HBM variant from the released-product timeline.
+The sourced Intel roadmap now uses Diamond Rapids, Coral Rapids, and Nova Lake
+with only timing that Intel stated. The full browser smoke test passes,
+including roadmap placement, official links, expansion, and unchanged released
+model totals; ordering and responsive layout audits pass with no overflow.
+Desktop and 390/320 px phone screenshots were reviewed, and the roadmap
+subtitle and timing badge contrast was refined. Changes remain local and
+uncommitted pending owner review and publication.
+
+---
+
+## 2026-09-26 — Ampere Computing processor tab
+
+Added Ampere Computing as a fourth vendor tab using the established product
+timeline, core range, filter chip, specification table, search, comparison,
+source, and shareable URL patterns. Its five families contain 26 published
+model rows: AmpereOne M (6), AmpereOne (7), Altra Max (5), Altra (7), and
+eMAG 8180 (1). Announced AmpereOne MX and Aurora appear in a separate roadmap
+group because no model-level specifications are published. The data excludes
+cloud-provider and partner processors. Official Ampere product documents are
+linked from the tab and recorded in `docs/specs/ampere-sources.md`.
+
+The source master separates measured usage power from eMAG's TDP, preserves
+frequency qualifiers, and generates both the runtime tab data and normalized
+comparison entries. Search, filter, URL restore, source links, cross-vendor
+comparison, and keyboard controls are covered in the smoke test. The data
+builder check and ordering check pass. The layout audit found no new horizontal
+overflow at 1440, 1024, 390, or 320 px; expanded specification tables scroll
+within their panels on phones. Fresh desktop and phone screenshots were
+reviewed. The update is local and awaits owner review; no commit or push.
+
+A follow-up visual review set Ampere's primary accent to `#fe4943`, stacked the
+header and four-way switcher before they crowd the logo, and corrected an
+intermediate-width byline/status overlap. Cards now preview a real model and
+keep the spec toggle clear on phones. Source notes are easier to read, long
+tables and phone comparisons show sideways-scroll cues, and the phone
+comparison gives product values more room. Model selection has a keyboard
+button with a pressed state. The sidebar, phone specification table, and
+comparison views were checked visually after these changes.
+
+The announced roadmap now leads the Ampere timeline as an expandable,
+Xeon 7-style unreleased group. MX and Aurora have individual cards with direct
+official collateral links. The hatch and badge use Ampere's `#fe4943` accent.
+Roadmap entries stay outside released family/model totals, filters, and
+comparison. Collapsed Ampere groups keep their hidden cards and links out of
+keyboard navigation. The full browser smoke test passed with no JavaScript
+errors; desktop and phone screenshots were reviewed. The responsive layout audit
+passed at 1440, 1024, 390, and 320 px with no Ampere overflow. The revised
+view is open in the sidebar; changes remain local and uncommitted.
+
+---
+
+## 2026-09-26 — EPYC 9005 socket topology routing
+
+Updated the one- and two-socket architecture diagrams from AMD white paper
+pp. 11–12. The 1P view centers the single-socket title and traces each G and P
+SERDES group to PCIe Gen 5 (64 + 64 lanes). The 2P view illustrates three
+G groups per CPU carrying intersocket Infinity Fabric, with the remaining G
+group and all P groups routed to PCIe (16 + 64 lanes per CPU, 160 per server).
+The specific G numbering is labeled illustrative; the diagram also notes the
+four-link fabric alternative. Individual SERDES tiles now have selectable
+definitions. The embedded guide URL uses a new version tag so the update is
+loaded after publication.
+
+Reviewed desktop renders of both socket modes. The EPYC guide regression,
+full dashboard smoke test, and layout audit pass with no JavaScript errors
+or new page overflow. The existing pending Architecture guide visitor update
+was revised. Changes are local and await owner review; no commit or push.
+
+---
 
 ## 2026-09-25 — Public beta 0.0.1 release notes
 

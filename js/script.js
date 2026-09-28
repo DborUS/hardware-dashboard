@@ -4,7 +4,7 @@
 
 // Bump when any js/data/*.json changes, so browsers refetch instead of serving a
 // stale copy. Mirrors the ?v= on the script tag in index.html.
-const DATA_VERSION = '20260925-beta-001';
+const DATA_VERSION = '20260928-beta-002';
 
 // Cache for loaded data to avoid redundant fetches
 const dataCache = {};
@@ -19,8 +19,8 @@ let loadingVendor = null;
 
 /**
  * Loads vendor data from JSON files dynamically
- * @param {string} vendor - 'intel', 'amd', 'amd-gpu', or 'nvidia'
- * @returns {Promise<Array>} The loaded data array
+ * @param {string} vendor - 'intel', 'amd', 'amd-gpu', 'nvidia', or 'ampere'
+ * @returns {Promise<Array|Object>} The loaded data
  */
 async function loadVendorData(vendor) {
   // Return cached data if available
@@ -112,6 +112,11 @@ const VENDOR_CONFIG = {
   nvidia: {
     title: 'NVIDIA Hardware',
     headerClass: 'header-nvidia',
+    data: null
+  },
+  ampere: {
+    title: 'Ampere Computing Processors',
+    headerClass: 'header-ampere',
     data: null
   },
   amd: {
@@ -281,13 +286,14 @@ async function dashboardLoadGlobalIndex() {
   const cachedOrFetch = (data, path) => data && Object.keys(data).length
     ? data : getJson(path);
   dashboardGlobalIndexPromise = (async () => {
-    const [amdCpu, amdGpu, intelXeon, intelClient, intelGraphics, nvidia] = await Promise.all([
+    const [amdCpu, amdGpu, intelXeon, intelClient, intelGraphics, nvidia, ampere] = await Promise.all([
       cachedOrFetch(AMD_CPU_SPECS, 'amd-cpu-specs.json'),
       cachedOrFetch(VENDOR_CONFIG.amd.gpuData, 'amd-gpu-data.json'),
       cachedOrFetch(V2_SPECS.xeon, 'intel-xeon-specs.json'),
       cachedOrFetch(V2_SPECS.client, 'intel-client-specs.json'),
       cachedOrFetch(V2_SPECS.graphics, 'intel-graphics-specs.json'),
-      cachedOrFetch(VENDOR_CONFIG.nvidia.data, 'nvidia-data.json')
+      cachedOrFetch(VENDOR_CONFIG.nvidia.data, 'nvidia-data.json'),
+      cachedOrFetch(VENDOR_CONFIG.ampere.data, 'ampere-data.json')
     ]);
     const entries = [];
     const add = (vendor, tab, label, context, details) => entries.push({
@@ -310,7 +316,7 @@ async function dashboardLoadGlobalIndex() {
     for (const [tab, specs] of Object.entries({xeon: intelXeon, client: intelClient, graphics: intelGraphics})) {
       V2_DATA[tab].gens.filter(group => !group.era).forEach(group =>
         group.families.forEach(family => {
-          const context = [group.name, family.name, family.desc || '', family.si || ''];
+          const context = [group.name, family.name, family.desc || '', family.si || '', family.coreDesign || ''];
           const models = specs[family.name] || [];
           if (!models.length) add('intel', tab, family.name, context, []);
           models.forEach(model => add('intel', tab, model.n, context,
@@ -322,6 +328,9 @@ async function dashboardLoadGlobalIndex() {
         [model.series || '', model.arch || ''],
         Object.values(model).filter(value => value != null)));
     }
+    (ampere.processors || []).forEach(model => add('ampere', 'processors', model.n,
+      [model.series || '', model.arch || '', 'Ampere Computing'],
+      Object.values(model).filter(value => value != null)));
     dashboardGlobalIndex = entries;
     return entries;
   })().catch(error => {
@@ -364,14 +373,15 @@ function dashboardGlobalRender() {
   dashboardGlobalResults = dashboardGlobalMatches(dashboardGlobalSearchQuery);
   routes.hidden = false;
   if (!dashboardGlobalResults.length) {
-    routes.textContent = 'No matches across AMD, Intel or NVIDIA.';
+    routes.textContent = 'No matches across AMD, Intel, NVIDIA or Ampere.';
     empty.textContent = 'Try a different product name, part number, or architecture.';
     empty.hidden = false;
     return;
   }
   const labels = {amd: {epyc: 'EPYC', ryzen: 'Ryzen', gpu: 'GPU'},
     intel: {xeon: 'Xeon', client: 'Client', graphics: 'Graphics'},
-    nvidia: {datacenter: 'Data Center', geforce: 'GeForce', cpu: 'CPU'}};
+    nvidia: {datacenter: 'Data Center', geforce: 'GeForce', cpu: 'CPU'},
+    ampere: {processors: 'Processors'}};
   if (!document.querySelector('.arch-group:not(.hidden)')) {
     empty.textContent = 'No matches in this tab. Select a highlighted tab to view the result.';
     empty.hidden = false;
@@ -387,7 +397,8 @@ function dashboardGlobalRender() {
         ?.classList.add('search-beacon');
     } else {
       const activeTab = hit.vendor === 'amd' ? a2Tab :
-        hit.vendor === 'intel' ? v2Tab : n2Tab;
+        hit.vendor === 'intel' ? v2Tab :
+        hit.vendor === 'nvidia' ? n2Tab : 'processors';
       if (hit.tab === activeTab) return;
       const selector = hit.vendor === 'amd' ? '.a2-subtab' :
         hit.vendor === 'intel' ? '#v2Subtabs .v2-subtab' : '.n2-subtab';
@@ -406,6 +417,7 @@ function dashboardGlobalApplyToActive() {
   if (v2IsActive()) v2SetSearch(dashboardGlobalSearchQuery);
   else if (a2IsActive()) a2SetSearch(dashboardGlobalSearchQuery);
   else if (n2IsActive()) n2SetSearch(dashboardGlobalSearchQuery);
+  else if (p2IsActive()) p2SetSearch(dashboardGlobalSearchQuery);
   dashboardGlobalRender();
 }
 
@@ -502,6 +514,7 @@ function initDomCache() {
     tabIntel: document.getElementById('tabIntel'),
     tabAmd: document.getElementById('tabAmd'),
     tabNvidia: document.getElementById('tabNvidia'),
+    tabAmpere: document.getElementById('tabAmpere'),
     techTabCpu: document.getElementById('techTabCpu'),
     techTabGpu: document.getElementById('techTabGpu'),
     expandAllBtn: document.getElementById('expandAllBtn'),
@@ -564,9 +577,11 @@ async function switchVendor(vendor, targetTab = null) {
   dom.tabIntel.className = 'vendor-tab' + (vendor === 'intel' ? ' active-intel' : '');
   dom.tabAmd.className = 'vendor-tab' + (vendor === 'amd' ? ' active-amd' : '');
   dom.tabNvidia.className = 'vendor-tab' + (vendor === 'nvidia' ? ' active-nvidia' : '');
+  dom.tabAmpere.className = 'vendor-tab' + (vendor === 'ampere' ? ' active-ampere' : '');
   dom.tabIntel.setAttribute('aria-selected', vendor === 'intel' ? 'true' : 'false');
   dom.tabAmd.setAttribute('aria-selected', vendor === 'amd' ? 'true' : 'false');
   dom.tabNvidia.setAttribute('aria-selected', vendor === 'nvidia' ? 'true' : 'false');
+  dom.tabAmpere.setAttribute('aria-selected', vendor === 'ampere' ? 'true' : 'false');
   const pill = document.getElementById('vendorPill');
   if (pill) pill.dataset.active = vendor;
 
@@ -627,15 +642,23 @@ async function switchVendor(vendor, targetTab = null) {
   if (vendor === 'intel') {
     a2Deactivate();
     n2Deactivate();
+    p2Deactivate();
     await v2Activate();
   } else if (vendor === 'amd') {
     v2Deactivate();
     n2Deactivate();
+    p2Deactivate();
     a2Activate(AMD_CPU_SPECS, cfg.gpuData);
-  } else {
+  } else if (vendor === 'nvidia') {
     v2Deactivate();
     a2Deactivate();
+    p2Deactivate();
     n2Activate(cfg.data);
+  } else if (vendor === 'ampere') {
+    v2Deactivate();
+    a2Deactivate();
+    n2Deactivate();
+    p2Activate(cfg.data);
   }
   const tab = targetTab || dashboardGlobalBestTab(vendor);
   if (vendor === 'intel' && tab && tab !== v2Tab) await v2Switch(tab);
@@ -712,7 +735,7 @@ function dashboardOpenEpycGuide(requestedDiagram = null) {
   dashboardSyncEpycGuide();
   const frame = document.getElementById('epycGuideFrame');
   if (frame && !frame.hasAttribute('src')) {
-    const params = new URLSearchParams({ embedded: '1', diagram: dashboardGuideDiagram, v: DATA_VERSION });
+    const params = new URLSearchParams({ embedded: '1', diagram: dashboardGuideDiagram, v: '20260926-topology-1' });
     frame.src = `architecture/epyc-9005/index.html?${params.toString()}`;
   }
   dashboardStateChanged();
@@ -767,9 +790,9 @@ function dashboardApplyCoreValues(core, values) {
 function dashboardReadUrlState() {
   const params = new URLSearchParams(window.location.search);
   const requestedVendor = params.get('vendor');
-  const vendor = ['amd', 'intel', 'nvidia'].includes(requestedVendor) ? requestedVendor : 'amd';
+  const vendor = ['amd', 'intel', 'nvidia', 'ampere'].includes(requestedVendor) ? requestedVendor : 'amd';
   const filters = {};
-  ['gen', 'code', 'tier', 'seg'].forEach(key => {
+  ['gen', 'code', 'tier', 'seg', 'series', 'memType'].forEach(key => {
     const value = params.get(`f_${key}`);
     if (value) filters[key] = value.split('|').filter(Boolean);
   });
@@ -791,7 +814,9 @@ function dashboardCurrentState() {
     ? (typeof v2DashboardState === 'function' ? v2DashboardState() : {})
     : currentVendor === 'nvidia'
       ? (typeof n2DashboardState === 'function' ? n2DashboardState() : {})
-      : (typeof a2DashboardState === 'function' ? a2DashboardState() : {});
+      : currentVendor === 'ampere'
+        ? (typeof p2DashboardState === 'function' ? p2DashboardState() : {})
+        : (typeof a2DashboardState === 'function' ? a2DashboardState() : {});
   return { vendor: currentVendor, ...renderer };
 }
 
@@ -826,6 +851,8 @@ async function dashboardApplyUrlState(state) {
     await v2ApplyDashboardState(state);
   } else if (state.vendor === 'nvidia' && typeof n2ApplyDashboardState === 'function') {
     n2ApplyDashboardState(state);
+  } else if (state.vendor === 'ampere' && typeof p2ApplyDashboardState === 'function') {
+    p2ApplyDashboardState(state);
   } else if (typeof a2ApplyDashboardState === 'function') {
     a2ApplyDashboardState(state);
   }
@@ -1542,6 +1569,7 @@ function dashboardActiveProductLine() {
   if (currentVendor === 'intel' && typeof v2Tab !== 'undefined') return v2Tab;
   if (currentVendor === 'amd' && typeof a2Tab !== 'undefined') return a2Tab;
   if (currentVendor === 'nvidia' && typeof n2Tab !== 'undefined') return n2Tab;
+  if (currentVendor === 'ampere') return 'processors';
   return currentTechTab;
 }
 
@@ -1598,12 +1626,16 @@ const DASHBOARD_COMMON_SPECS = [
   ['series', 'Series'], ['codename', 'Codename'], ['arch', 'Architecture'],
   ['p_cores', 'Performance cores'], ['e_cores', 'Efficiency cores'],
   ['threads', 'Threads'], ['base_clock', 'Base clock'], ['boost_clock', 'Boost clock'],
+  ['frequency', 'Published frequency'],
   ['all_core_boost', 'All-core boost'], ['l2_cache', 'L2 cache'], ['l3_cache', 'L3 cache'],
-  ['tdp', 'Power'], ['tdp_config_up', 'Maximum configured power'], ['process', 'Process'],
+  ['system_level_cache', 'System level cache'],
+  ['tdp', 'Power'], ['usage_power', 'Usage power (measured)'],
+  ['tdp_config_up', 'Maximum configured power'], ['process', 'Process'],
   ['socket', 'Socket'], ['socket_count', 'Socket count'], ['pcie_gen', 'PCIe version'],
   ['pcie_lanes', 'PCIe lanes'], ['mem_type', 'Memory type'],
   ['mem_channels', 'Memory channels'], ['mem_speed', 'Memory speed / bandwidth'],
-  ['mem_max_capacity', 'Maximum memory'], ['ecc', 'ECC'], ['cxl', 'CXL'],
+  ['mem_max_capacity', 'Maximum memory'],
+  ['ecc', 'ECC'], ['cxl', 'CXL'],
   ['upi_links', 'UPI links'], ['igpu_model', 'Integrated graphics'],
   ['igpu_cores', 'Integrated GPU cores'], ['igpu_clock', 'Integrated GPU clock'],
   ['npu_tops', 'NPU TOPS'], ['launch_date', 'Launch date'],
@@ -1614,6 +1646,7 @@ const DASHBOARD_SOURCE_SPEC_ALIASES = new Set([
   'name', 'model', 'model_full', 'series', 'family', 'vendor', 'kind', 'segment', 'cores',
   'codename', 'arch', 'architecture', 'gpu_family_id', 'source_url', 'source_tier',
   'confidence', 'notes', 'source url', 'source tier', 'launch year',
+  'mem_max', 'process_node', 'frequency_type',
   ...DASHBOARD_COMMON_SPECS.map(([key]) => key),
   '# of cpu cores', '# of threads', 'max. boost clock', 'base clock',
   'l2 cache', 'l3 cache', 'default cpu power', 'platform', 'socket count',
@@ -1647,8 +1680,10 @@ function dashboardRefreshCompareTray() {
 function dashboardRestoreSelectedRows() {
   document.querySelectorAll('.cpu-spec-table tbody tr[data-search]').forEach(row => {
     const record = dashboardRowRecord(row);
-    row.classList.toggle('row-selected', dashboardSelections.has(record.key));
-    if (dashboardSelections.has(record.key)) row.classList.remove('search-match');
+    const selected = dashboardSelections.has(record.key);
+    row.classList.toggle('row-selected', selected);
+    row.querySelector('.p2-model-select')?.setAttribute('aria-pressed', String(selected));
+    if (selected) row.classList.remove('search-match');
   });
   dashboardRefreshCompareTray();
 }
@@ -1670,6 +1705,8 @@ function setupRowSelectionHandlers() {
       row.classList.add('row-selected');
       row.classList.remove('search-match');
     }
+    row.querySelector('.p2-model-select')?.setAttribute('aria-pressed',
+      String(dashboardSelections.has(record.key)));
     dashboardRefreshCompareTray();
   });
 }
@@ -1678,6 +1715,8 @@ function clearAllSelections() {
   dashboardSelections.clear();
   document.querySelectorAll('.cpu-spec-table tbody tr.row-selected').forEach(row =>
     row.classList.remove('row-selected'));
+  document.querySelectorAll('.p2-model-select[aria-pressed="true"]').forEach(button =>
+    button.setAttribute('aria-pressed', 'false'));
   dashboardRefreshCompareTray();
 }
 
@@ -1722,6 +1761,7 @@ function dashboardPaintComparison(records, details = null) {
     return `<li><strong>${escHtml(record.model)}</strong> — ${escHtml(source)}</li>`;
   }).join('');
   dom.compareContent.innerHTML = `
+    <p class="compare-scroll-hint">Scroll sideways to see more products →</p>
     <table class="compare-table" style="--compare-min-width: ${220 + 240 * records.length}px"><thead><tr><th>Specification</th>${head}</tr></thead>
       <tbody>${rows}</tbody></table>
     <div class="compare-sources"><strong>Sources</strong><ul>${sources}</ul></div>`;
@@ -1760,13 +1800,29 @@ const DASHBOARD_SOURCE_INFO = {
     datacenter: ['NVIDIA Data Center GPUs', 'NVIDIA official product pages, architecture guides, and datasheets', 'Audited official vendor data', 'Every displayed part was reconciled against an independent specification database; official NVIDIA values remain authoritative.'],
     geforce: ['NVIDIA GeForce', 'NVIDIA official GeForce comparison tables', 'Audited official vendor data', 'Combined NVIDIA memory variants are separated into distinct dashboard rows.'],
     cpu: ['NVIDIA CPU + Superchips', 'NVIDIA official platform guides and product pages', 'Audited official vendor data', 'Known NVIDIA documentation conflicts are retained in notes and never silently resolved.']
+  },
+  ampere: {
+    processors: ['Ampere Computing processors', 'Ampere official product briefs and eMAG documentation', 'Official vendor data', 'Published usage power is kept separate from TDP. Announced processors without model specifications appear only in the roadmap.']
   }
 };
+
+function dashboardAmpereSourceLinks() {
+  const links = new Map();
+  (VENDOR_CONFIG.ampere.data?.processors || []).forEach(record => {
+    const url = typeof p2SourceUrl === 'function' ? p2SourceUrl(record.source) : null;
+    if (!url) return;
+    if (!links.has(url)) links.set(url, new Set());
+    links.get(url).add(record.series);
+  });
+  return [...links].map(([url, series]) => [url, [...series].join(' / ')]);
+}
 
 function dashboardShowSources() {
   const tab = dashboardActiveProductLine();
   const info = DASHBOARD_SOURCE_INFO[currentVendor]?.[tab] ||
     ['Current dataset', 'Vendor specification export', 'Vendor data', 'Unknown values are left blank.'];
+  const ampereSourceLinks = currentVendor === 'ampere'
+    ? dashboardAmpereSourceLinks() : [];
   dom.sourceContent.innerHTML = `
     <div class="source-card">
       <div class="source-product">${escHtml(info[0])}</div>
@@ -1775,6 +1831,8 @@ function dashboardShowSources() {
         <div><dt>Confidence</dt><dd><span class="confidence-high">${escHtml(info[2])}</span></dd></div>
         <div><dt>Handling</dt><dd>${escHtml(info[3])}</dd></div>
       </dl>
+      ${ampereSourceLinks.length ? `<div class="source-links"><strong>Official product documents</strong><ul>${ampereSourceLinks.map(([url, series]) =>
+        `<li><a href="${escHtml(url)}" target="_blank" rel="noopener noreferrer">${escHtml(series)} ↗</a></li>`).join('')}</ul></div>` : ''}
       <p>The source line is also shown above every expanded specification table.</p>
     </div>`;
   dom.sourceDialog.showModal();
@@ -2259,6 +2317,7 @@ dom.searchInput.addEventListener('input', () => {
   if (v2IsActive()) v2SetSearch(dom.searchInput.value);
   else if (a2IsActive()) a2SetSearch(dom.searchInput.value);
   else if (n2IsActive()) n2SetSearch(dom.searchInput.value);
+  else if (p2IsActive()) p2SetSearch(dom.searchInput.value);
   else debouncedFilter();
   dashboardGlobalRender();
 });
@@ -2271,6 +2330,7 @@ dom.searchClear.addEventListener('click', () => {
   if (v2IsActive()) v2SetSearch('');
   else if (a2IsActive()) a2SetSearch('');
   else if (n2IsActive()) n2SetSearch('');
+  else if (p2IsActive()) p2SetSearch('');
   else applyFilters();
   dashboardGlobalRender();
 });
@@ -2284,6 +2344,7 @@ dom.expandAllBtn.addEventListener('click', () => {
   if (typeof v2IsActive === 'function' && v2IsActive()) { v2ExpandAll(true); return; }
   if (typeof a2IsActive === 'function' && a2IsActive()) { a2ExpandAll(true); return; }
   if (typeof n2IsActive === 'function' && n2IsActive()) { n2ExpandAll(true); return; }
+  if (typeof p2IsActive === 'function' && p2IsActive()) { p2ExpandAll(true); return; }
   const cfg = VENDOR_CONFIG[currentVendor];
   const data = (currentTechTab === 'gpu' && cfg.gpuData) ? cfg.gpuData : cfg.data;
   data.forEach(a => { if (a.id) expandedGroups.add(a.id); }); render();
@@ -2292,6 +2353,7 @@ dom.collapseAllBtn.addEventListener('click', () => {
   if (typeof v2IsActive === 'function' && v2IsActive()) { v2ExpandAll(false); return; }
   if (typeof a2IsActive === 'function' && a2IsActive()) { a2ExpandAll(false); return; }
   if (typeof n2IsActive === 'function' && n2IsActive()) { n2ExpandAll(false); return; }
+  if (typeof p2IsActive === 'function' && p2IsActive()) { p2ExpandAll(false); return; }
   expandedGroups.clear(); render();
 });
 dom.clearSelectionsBtn.addEventListener('click', clearAllSelections);

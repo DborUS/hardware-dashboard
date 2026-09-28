@@ -1,0 +1,20 @@
+[
+    {
+        "n": "AmpereOne MX",
+        "series": "AmpereOne",
+        "year": 2024,
+        "status": "Announced roadmap",
+        "maxCores": 256,
+        "source": "https://amperecomputing.com/assets/AmpereOne_Efficiency_White_Paper_3bc51280f9.pdf",
+        "notes": "Announced as an upcoming 12-channel processor on the N3 process node. No model-level SKU table is published."
+    },
+    {
+        "n": "AmpereOne Aurora",
+        "series": "AmpereOne",
+        "year": 2024,
+        "status": "Announced roadmap",
+        "maxCores": 512,
+        "source": "https://www.amperecomputing.com/blogs/introducing-ampereone-aurora",
+        "notes": "Future product with up to 512 cores and integrated AI acceleration. No model-level SKU table is published."
+    }
+]
