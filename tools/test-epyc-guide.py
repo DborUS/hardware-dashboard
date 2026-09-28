@@ -45,7 +45,7 @@ def main():
             page.locator("#epycGuideTab").click()
             frame = page.frame_locator("#epycGuideFrame")
             frame.locator("#viewNav .view-btn").first.wait_for()
-            check("5th Gen AMD EPYC™ Processor Architecture" in page.locator(".epyc-guide-source").inner_text(),
+            check("5th Gen AMD EPYC™ Processor Architecture" in page.locator("#epycGuidePanel .epyc-guide-source").inner_text(),
                   "guide header names the source white paper")
             check(len(frame.locator("#viewNav .view-btn").all()) == 8, "all eight diagram models load")
             for view in ("package", "ccd", "core", "iod", "lanes", "sockets", "numa", "protection"):
@@ -73,6 +73,50 @@ def main():
                     }""")
                     check(all(clearance >= 12 for clearance in metric_clearances),
                           f"socket metric labels have padding inside their badges ({metric_clearances})")
+            check(frame.locator('#diagram').get_attribute('role') == 'group',
+                  "interactive SVG exposes its component buttons")
+            frame.locator('#viewNav [data-view="numa"]').focus()
+            frame.locator('#viewNav [data-view="numa"]').press('Enter')
+            check(frame.locator('#viewNav [data-view="numa"]').evaluate('(e) => e === document.activeElement'),
+                  "keyboard focus stays on the selected diagram tab")
+            frame.locator('#controls [data-numa="zen5c"]').focus()
+            frame.locator('#controls [data-numa="zen5c"]').press('Enter')
+            check(frame.locator('#controls [data-numa="zen5c"]').evaluate('(e) => e === document.activeElement'),
+                  "keyboard focus stays on the NUMA mode")
+            check('UP TO 3' in frame.locator('#diagram').text_content() and
+                  'CCD 12' in frame.locator('#diagram').text_content(),
+                  "Zen 5c NPS=4 shows up to three CCDs per domain")
+            frame.locator('#controls [data-numa="zen5"]').click()
+            check('UP TO 4' in frame.locator('#diagram').text_content() and
+                  'CCD 16' in frame.locator('#diagram').text_content(),
+                  "Zen 5 NPS=4 shows up to four CCDs per domain")
+            frame.locator('#viewNav [data-view="protection"]').click()
+            check('ROM → loader → BIOS' in frame.locator('#diagram').text_content() and
+                  'uncorrectable → poison / report' in frame.locator('#diagram').text_content(),
+                  "boot validation and independent error handling have clear direction")
+            frame.locator('#relatedList [data-id="poison"]').click()
+            check('uncorrectable' in frame.locator('#detailDefinition').inner_text(),
+                  "related protection capability opens a plain definition")
+            frame.locator('#viewNav [data-view="lanes"]').click()
+            check('1P MAX GEN 5' in frame.locator('#diagram').text_content(),
+                  "128-lane diagram badge is qualified as one-socket maximum")
+            frame.locator('#relatedList [data-id="split"]').click()
+            check('bifurcation' in frame.locator('#detailDefinition').inner_text().lower(),
+                  "related I/O protocol opens its definition")
+            check(frame.locator('#atlasSourceTitle').is_visible() and
+                  frame.locator('.atlas-source-row').count() == 2,
+                  "guide includes the white paper and supporting datasheet")
+            frame.locator('.atlas-glossary summary').click()
+            frame.locator('#atlasKey button').first.click()
+            frame.locator('#atlasKey button').nth(1).click()
+            page.locator('.epyc-term-toast').nth(1).wait_for()
+            check(page.locator('.epyc-term-toast').count() == 2 and
+                  page.locator('.epyc-term-toast.is-compact').count() == 1,
+                  "glossary definitions stack in the dashboard corner")
+            frame.locator('#atlasKey button').nth(1).press('Escape')
+            page.wait_for_function("document.querySelectorAll('.epyc-term-toast').length === 1")
+            check(page.locator('.epyc-term-toast').count() == 1,
+                  "Escape from the embedded glossary dismisses the newest definition")
             frame.locator('#viewNav [data-view="package"]').click()
             check(page.locator(".layout").is_hidden(), "product layout is hidden in guide")
             check(page.locator("#searchInput").is_hidden(), "product search is hidden in guide")
@@ -92,6 +136,8 @@ def main():
             frame.locator('#viewNav [data-view="lanes"].active').wait_for()
             check(frame.locator('#viewNav [data-view="lanes"].active').count() == 1, "guide reload restores selected diagram")
             page.locator("#epycProductsTab").click()
+            check(page.locator('.epyc-term-toast').count() == 0,
+                  "returning to Products clears guide term notices")
             check(page.locator("#searchInput").input_value() == "9005", "return to Products preserves search")
             check(page.locator("#timeline .arch-group").count() == product_count, "return to Products preserves product DOM")
             check(page.locator(".layout").is_visible(), "product layout returns")

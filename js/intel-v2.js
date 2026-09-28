@@ -459,7 +459,13 @@ const v2Slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g
 
 /** Swap sub-tab: resets filters and rebuilds everything below the tab bar. */
 async function v2Switch(tab) {
+  if (tab === v2Tab && typeof dashboardIsXeonGuideOpen === 'function'
+      && dashboardIsXeonGuideOpen()) {
+    dashboardCloseXeonGuide();
+    return;
+  }
   v2Tab = tab;
+  if (typeof dashboardSyncXeonGuide === 'function') dashboardSyncXeonGuide();
   v2Expanded.clear();
   v2Search = dashboardGlobalSearchQuery;
   dom.searchInput.value = v2Search;
@@ -591,6 +597,8 @@ function v2Render() {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); v2ToggleSpecs(c); }
     });
   });
+  document.querySelector('[data-architecture-guide="xeon-6"]')
+    ?.addEventListener('click', () => dashboardOpenXeonGuide('family'));
 
   v2ApplyFilters();
 }
@@ -671,6 +679,13 @@ function v2Gen(g, cfg) {
       <div class="expand-icon">⌄</div>
       <div class="arch-subtitle">${escHtml(g.note)}</div>
     </div>
+    ${v2Tab === 'xeon' && g.id === 'xeon6' ? `
+    <div class="v2-architecture-entry">
+      <button type="button" class="v2-architecture-link" data-architecture-guide="xeon-6">
+        Explore selected Xeon 6 architecture <span aria-hidden="true">↗</span>
+      </button>
+      <span>Granite Rapids AP/SP · Sierra Forest SP</span>
+    </div>` : ''}
     <div class="arch-body"><div class="arch-body-inner"><div class="skus-grid">${cards}</div></div></div>
   </div>`;
 }

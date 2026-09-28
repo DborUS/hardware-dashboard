@@ -3,11 +3,104 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-09-28 (public beta 0.0.2)
-**Current version:** Public beta 0.0.2
-**Previous release:** Public beta 0.0.1 (`1cac582`)
+**Last updated:** 2026-09-28 (public beta 0.0.3)
+**Current version:** Public beta 0.0.3
+**Previous release:** Public beta 0.0.2 (`63d5bec`)
 **Health:** Good — ordering, AMD and Ampere data checks, full browser smoke test,
-EPYC guide regression, and responsive layout audit pass with no JavaScript errors.
+EPYC and Xeon guide regressions, and responsive layout audit pass with no JavaScript errors.
+
+## 2026-09-28 — Public beta 0.0.3 release preparation
+
+Before this update, the latest commit on `origin/main` was public beta 0.0.2.
+The header and What's new dialog now identify 0.0.3. The new release notes
+describe the selected Xeon 6 architecture guide and the revised EPYC
+9005 guide as changes since 0.0.2. Ampere, roadmaps, and Xeon family
+corrections remain recorded under the earlier 0.0.2 release.
+
+The 0.0.3 changes passed the full dashboard smoke test, both guide
+regressions, the responsive layout audit, JavaScript syntax checks, and
+`git diff --check`. No commit or push was made in this session.
+
+---
+
+## 2026-09-28 — AMD EPYC 9005 guide alignment and final diagram review
+
+Integrated the reviewed AMD visual proposal into the dashboard's EPYC
+architecture guide. The guide now has an explanation above the diagram,
+consistent model headers and typography, a collapsible acronym key, and a
+source library naming the AMD architecture white paper and supporting EPYC
+9005 datasheet. Acronym definitions appear in a compact top-right dashboard
+stack, retain independent 15-second timers, can be closed with Escape or the
+close button, and clear when the user returns to Products. The standalone
+preview was kept in sync.
+
+The NUMA diagram now switches between Zen 5 and Zen 5c examples: each NPS=4
+domain has three I/O-die DDR5 controllers and up to four Zen 5 or three Zen 5c
+CCDs. The protection diagram now shows the Secure Processor, ROM, loader,
+BIOS, and core startup in order. Separate branches describe key management,
+memory encryption, and guest protection; RAS shows detection/correction and
+poisoning/reporting of uncorrectable errors. Socket and I/O lane labels
+qualify maximums. Related connection and protection capabilities are
+selectable beneath their diagrams, with the same sourced detail panel.
+
+Validation: the expanded EPYC guide regression, Xeon guide regression, full
+dashboard smoke test, and responsive layout audit pass. Browser screenshots
+of the integrated desktop guide, both NUMA modes, protection, sockets, and
+the term stack were reviewed. No commit or push was made; the revised EPYC
+visitor update remains pending in `docs/UPDATE-QUEUE.md`.
+
+---
+
+## 2026-09-28 - EPYC guide channel counts and definitions
+
+The two-socket EPYC 9005 diagram now shows twelve DDR5 channel marks per
+processor (six on each side), matching the 24-channel header. The one-socket
+view remains at twelve. All 51 short selected-component definitions were
+reviewed and rewritten to identify the part or function before explaining its
+purpose. Zen 5c is now distinguished from a Zen 5c CCD; the latter is a
+densely packed compute chiplet. Floating-point, cache, SERDES, GMI, security,
+and NUMA descriptions were clarified. The embedded guide cache tag advanced.
+
+The separate AMD visual-alignment preview acquired a source-backed term key
+with full NPS, SEV-ES, and SEV-SNP entries. Its Zen 5c clock comparison was
+qualified to the EPYC 9005 model lineup and linked to the AMD processor
+datasheet as a supporting source. Its later dashboard integration and NUMA
+and boot-flow corrections are recorded in the section above.
+
+Verification: all 219 preview diagram targets passed, the focused glossary
+and 24/12-channel checks passed, the EPYC guide regression passed, and the
+full dashboard smoke test passed with no JavaScript errors. The pending
+visitor update was revised. No commit or push was made.
+
+---
+
+## 2026-09-28 — Xeon 6 architecture guide integration
+
+Added the finished four-view Xeon learning atlas under Intel → Xeon → Architecture
+guide. The dashboard introduction identifies its physical-diagram scope as selected
+Granite Rapids 6900P/6700P/6500P and Sierra Forest 6700E platforms; Xeon 6+ is
+family context only. It links the Intel product brief, HPC tuning guide, and RAS
+paper by title. The Xeon 6 timeline group offers a contextual guide entry.
+
+The isolated guide at `architecture/xeon-6/` retains the standalone diagrams,
+definitions, source library, and independently timed acronym notices. Embedded
+styling hides only its duplicate masthead and hero. The iframe reports its
+height, view, and mode to the dashboard. URLs restore `panel=guide`,
+`guide=xeon-6`, `diagram=VIEW`, and valid `mode=MODE`; switching back to Products
+keeps search and filters. Guide navigation is limited to the Intel Xeon tab.
+The standalone atlas project remains unchanged. CSS, script, data-fetch, and
+embedded-atlas cache tags were advanced together. The 0.0.3 release labels
+this guide for visitors.
+
+Verification: JavaScript syntax checks, the full dashboard smoke test, the
+responsive layout audit, and the existing EPYC guide regression pass. The new
+Xeon guide regression passes 35 checks, including deep links, view/mode changes,
+acronym stacking, product-state return, iframe height, and 390/320 px phone
+overflow and diagram panning. Desktop and 390 px guide screenshots were reviewed.
+No commit or push was made; the visitor update remains pending in
+`docs/UPDATE-QUEUE.md`.
+
+---
 
 ## 2026-09-28 — Public beta 0.0.2 release review
 

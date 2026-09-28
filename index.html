@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20260928-beta-002">
+  <link rel="stylesheet" href="css/styles.css?v=20260928-amd-alignment-1">
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -28,7 +28,7 @@
       <button class="vendor-tab" id="tabAmpere" role="tab"
               aria-selected="false" onclick="switchVendor('ampere')">AMPERE</button>
     </div>
-    <div class="brand-lockup" aria-label="ChipIndex by Dan Bor, public beta 0.0.2">
+    <div class="brand-lockup" aria-label="ChipIndex by Dan Bor, public beta 0.0.3">
       <div class="brand-lockup-title" aria-hidden="true">
         <span class="brand-lockup-name">ChipIndex</span>
         <span class="brand-lockup-by">by Dan Bor</span>
@@ -37,7 +37,7 @@
         <span class="brand-lockup-rule-start"></span>
         <span class="brand-lockup-rule-end"></span>
       </div>
-      <span class="brand-lockup-version" aria-hidden="true">Public beta 0.0.2</span>
+      <span class="brand-lockup-version" aria-hidden="true">Public beta 0.0.3</span>
     </div>
     <header id="pageHeader" class="sr-only">
       <h1 class="header-amd">EPYC</h1>
@@ -98,6 +98,19 @@
     </button>
     <span class="epyc-mode-availability">GUIDE AVAILABLE / EPYC 9005</span>
   </nav>
+  <nav class="epyc-mode-nav xeon-mode-nav" id="xeonModeNav" role="tablist" aria-label="Xeon section" hidden>
+    <button type="button" class="epyc-mode-tab active" id="xeonProductsTab" role="tab"
+            aria-selected="true" aria-controls="epycProductsPanel">
+      <span class="epyc-mode-label">Products</span>
+      <span class="epyc-mode-helper">Xeon series &amp; specifications</span>
+    </button>
+    <button type="button" class="epyc-mode-tab" id="xeonGuideTab" role="tab"
+            aria-selected="false" aria-controls="xeonGuidePanel">
+      <span class="epyc-mode-label">Architecture guide</span>
+      <span class="epyc-mode-helper">Interactive diagrams &amp; explanations</span>
+    </button>
+    <span class="epyc-mode-availability">GUIDE AVAILABLE / SELECTED XEON 6 PLATFORMS</span>
+  </nav>
   <div class="global-search-routes" id="globalSearchRoutes" role="status" aria-live="polite" hidden></div>
   <!-- Legacy CPU/GPU tech tabs. Both vendors are product-first now, so nothing
        shows these; kept only because script.js still holds a reference. -->
@@ -123,6 +136,26 @@
     </div>
     <iframe class="epyc-guide-frame" id="epycGuideFrame"
             title="Interactive EPYC 9005 processor architecture diagrams" loading="lazy" scrolling="no"></iframe>
+  </section>
+  <section class="epyc-guide-panel xeon-guide-panel" id="xeonGuidePanel" aria-labelledby="xeonGuideTitle" hidden>
+    <div class="epyc-guide-intro">
+      <div class="epyc-guide-intro-copy">
+        <div class="epyc-guide-kicker">INTEL / SELECTED XEON 6 PLATFORMS · TECHNICAL REFERENCE</div>
+        <h2 id="xeonGuideTitle">Inside Xeon 6</h2>
+        <p>Explore P-core and E-core designs, package dies, memory locality, and platform links. Physical diagrams cover selected Granite Rapids 6900P/6700P/6500P and Sierra Forest 6700E configurations. Xeon 6+ appears for family context only.</p>
+      </div>
+      <div class="epyc-guide-reference xeon-guide-reference">
+        <span class="epyc-guide-reference-label">SOURCE DOCUMENTS</span>
+        <a class="epyc-guide-source" href="https://www.intel.com/content/www/us/en/products/docs/xeon-6-product-brief.html"
+           target="_blank" rel="noopener noreferrer"><cite>The Intel Xeon 6 Processor Family</cite> <span aria-hidden="true">↗</span></a>
+        <a class="epyc-guide-source" href="https://www.intel.com/content/www/us/en/content-details/858491/intel-xeon-6-with-p-cores-configuration-and-tuning-guide-for-hpc-applications.html"
+           target="_blank" rel="noopener noreferrer"><cite>Intel® Xeon® 6 with P-cores Configuration and Tuning Guide for HPC Applications</cite> <span aria-hidden="true">↗</span></a>
+        <a class="epyc-guide-source" href="https://cdrdv2-public.intel.com/848948/Intel%C2%AE%20Xeon%C2%AE%206%20Processors%20with%20P-cores%20Reliability%20Availability%20and%20Serviceability.pdf"
+           target="_blank" rel="noopener noreferrer"><cite>Intel® Xeon® 6 Processors with Performance-cores (P-cores): Reliability, Availability, and Serviceability</cite> <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <iframe class="epyc-guide-frame" id="xeonGuideFrame"
+            title="Interactive Xeon 6 processor architecture diagrams" loading="lazy" scrolling="no"></iframe>
   </section>
   <!-- Two-column layout: filter sidebar + timeline. Both renderers still
        write into #filterControls; only its position changed. Collapses to a
@@ -181,39 +214,35 @@
 <dialog class="dashboard-dialog whats-new-dialog" id="whatsNewDialog" aria-labelledby="whatsNewTitle">
   <div class="dialog-head">
     <div>
-      <div class="dialog-kicker">CHIPINDEX / PUBLIC BETA 0.0.2</div>
+      <div class="dialog-kicker">CHIPINDEX / PUBLIC BETA 0.0.3</div>
       <h2 id="whatsNewTitle">What's new</h2>
-      <p class="release-period">Changes since public beta 0.0.1</p>
+      <p class="release-period">Changes since public beta 0.0.2</p>
     </div>
     <button class="dialog-close" type="button" data-close-dialog="whatsNewDialog" aria-label="Close what's new">✕</button>
   </div>
   <div class="release-notes">
     <section class="release-note">
-      <span class="release-note-label">AMPERE</span>
-      <div><h3>Explore Ampere Computing processors</h3><p>A new tab covers 26 models across five families. Filter by family, memory, or core count, inspect sourced specifications, and compare models across manufacturers.</p></div>
-    </section>
-    <section class="release-note">
-      <span class="release-note-label">ROADMAPS</span>
-      <div><h3>See announced products and their sources</h3><p>Future products now lead relevant AMD, Intel, NVIDIA, and Ampere timelines. Each card links to manufacturer material and stays separate from released model counts and comparisons.</p></div>
-    </section>
-    <section class="release-note">
       <span class="release-note-label">XEON 6</span>
-      <div><h3>Find the right Xeon 6 family</h3><p>Xeon 6300P parts now appear in their own Raptor Lake-E Refresh card. Search Redwood Cove or Crestmont to find the matching Granite Rapids or Sierra Forest core design.</p></div>
+      <div><h3>Explore selected Xeon 6 designs</h3><p>A new architecture guide diagrams P-core and E-core layouts, package dies, memory locality, and platform links. Xeon 6300P also has its own Raptor Lake-E Refresh card; search can find Redwood Cove and Crestmont.</p></div>
     </section>
     <section class="release-note">
       <span class="release-note-label">EPYC 9005</span>
-      <div><h3>Trace socket connections</h3><p>The architecture guide now traces G and P SERDES groups through one- and two-socket layouts, clarifying how intersocket links and external PCIe lanes are used.</p></div>
+      <div><h3>Explore the EPYC 9005 architecture</h3><p>Eight sourced diagrams now have plain definitions, an acronym key, and a source library. Compare Zen 5 and Zen 5c NUMA layouts, then trace I/O lanes, sockets, validated boot, and error handling.</p></div>
     </section>
   </div>
 </dialog>
 
 <div class="dashboard-toast" id="dashboardToast" role="status" aria-live="polite" hidden></div>
+<div class="epyc-term-stack" id="epycTermStack" role="region" aria-label="EPYC architecture term definitions" hidden>
+  <button class="epyc-term-more" id="epycTermMore" type="button" hidden></button>
+</div>
+<div class="sr-only" id="epycTermAnnouncement" role="status" aria-live="polite" aria-atomic="true"></div>
 
-  <script src="js/roadmap.js?v=20260928-beta-002"></script>
-  <script src="js/intel-v2.js?v=20260928-beta-002"></script>
-<script src="js/amd-v2.js?v=20260928-beta-002"></script>
-<script src="js/nvidia-v2.js?v=20260928-beta-002"></script>
-<script src="js/ampere-v2.js?v=20260928-beta-002"></script>
-<script src="js/script.js?v=20260928-beta-002"></script>
+  <script src="js/roadmap.js?v=20260928-xeon-guide-1"></script>
+  <script src="js/intel-v2.js?v=20260928-xeon-guide-1"></script>
+<script src="js/amd-v2.js?v=20260928-xeon-guide-1"></script>
+<script src="js/nvidia-v2.js?v=20260928-xeon-guide-1"></script>
+<script src="js/ampere-v2.js?v=20260928-xeon-guide-1"></script>
+<script src="js/script.js?v=20260928-amd-alignment-1"></script>
 </body>
 </html>

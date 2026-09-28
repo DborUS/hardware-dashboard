@@ -6,6 +6,16 @@ short and plain; the technical details belong in `CHANGELOG.md`.
 
 ## Pending publication
 
+### Public beta 0.0.3 and What's new
+- Changed: 2026-09-28
+- Live: Pending
+- Update: The header now shows public beta 0.0.3. What's new covers the selected Xeon 6 architecture guide and the revised EPYC 9005 architecture guide since 0.0.2.
+
+### Explore selected Xeon 6 architectures
+- Changed: 2026-09-28
+- Live: Pending
+- Update: The Intel Xeon tab now includes interactive diagrams for selected Granite Rapids and Sierra Forest designs. Trace P-core and E-core layouts, package dies, memory locality, and platform links; select parts for sourced technical explanations.
+
 ### Public beta 0.0.2 and What's new
 - Changed: 2026-09-28
 - Live: Pending
@@ -42,9 +52,9 @@ short and plain; the technical details belong in `CHANGELOG.md`.
 - Update: The header now shows public beta 0.0.1. A What's new button opens a short summary of the dashboard improvements made since Tuesday, September 22.
 
 ### Explore the EPYC 9005 architecture
-- Changed: 2026-09-26
+- Changed: 2026-09-28
 - Live: Pending
-- Update: Explore interactive diagrams of EPYC 9005 chiplets, cores, memory, I/O, sockets, and protection. The socket views trace G and P SERDES to intersocket links and external PCIe, making 1P and 2P lane choices clear. Select components for explanations drawn from AMD’s linked architecture white paper.
+- Update: Explore sourced EPYC 9005 diagrams of chiplets, cores, memory, I/O, sockets, and protection. The guide now explains each model before its diagram, distinguishes Zen 5 and Zen 5c NUMA layouts, and includes an acronym key and source library. Select components for plain-language definitions; optional terms open in brief corner notices.
 
 ### Clearer comparisons across manufacturers
 - Changed: 2026-09-23

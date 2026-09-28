@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090e18">
+  <title>How Xeon 6 CPUs Are Built | Architecture Field Guide</title>
+  <script>if(new URLSearchParams(location.search).get('embedded')==='1')document.documentElement.classList.add('embedded');</script>
+  <link rel="stylesheet" href="styles.css?v=20260928-xeon-guide-1">
+  <script src="app.js?v=20260928-xeon-guide-1" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="masthead">
+      <div class="wordmark"><span class="wordmark-symbol" aria-hidden="true">▦</span><strong>ChipIndex</strong><span class="wordmark-divider">/</span><span>FIELD GUIDE</span></div>
+      <div class="mast-meta"><span class="live-dot" aria-hidden="true"></span> XEON 6 DESIGNS <span class="meta-divider">/</span> 3 SOURCE PDFS + PUBLIC SOURCES</div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-rule"></span> PROCESSOR ARCHITECTURE · INTERACTIVE ATLAS</div>
+        <h1 id="page-title">How Xeon 6 CPUs <em>are built.</em></h1>
+        <p>This atlas covers selected Xeon 6 server designs: Granite Rapids 6900P, 6700P, and 6500P with P-cores, and Sierra Forest 6700E with E-cores. Start with their core designs, then follow the package parts, memory locality, and server links.</p>
+      </div>
+      <div class="hero-aside" aria-label="Guide scope"><span>04</span><small>architecture<br>models</small><i></i><span>03</span><small>supplied<br>documents</small></div>
+    </section>
+
+    <section class="scope-rail" aria-labelledby="scopeTitle">
+      <div class="scope-primary">
+        <span class="scope-overline">START HERE · DECODE THE NAMES</span>
+        <h2 id="scopeTitle">One family, <span>two naming axes</span></h2>
+        <p>Read the name as <strong>product series → codename and package branch → core type.</strong> Granite Rapids and Sierra Forest are chip codenames. AP/SP identify package branches; P/E identify core types. The two labels answer different questions.</p>
+        <div class="scope-grammar" aria-label="Processor naming example"><span>Xeon 6900P</span><i aria-hidden="true">→</i><span>Granite Rapids-AP</span><i aria-hidden="true">→</i><span>P-cores</span></div>
+        <p class="scope-priorities">P-core designs emphasize per-core and vector execution; E-core designs emphasize core density and parallel throughput. These CPUs do not mix the two core types.</p>
+      </div>
+      <div class="scope-context">
+        <span class="scope-overline">BRANCHES IN THESE DIAGRAMS</span>
+        <div class="scope-context-items">
+          <div class="scope-branch scope-branch-ap"><b>Granite Rapids-AP</b><span>Xeon 6900P · P-cores</span><small>UCC package · 3 compute dies + 2 I/O dies · up to 12 DDR5 channels</small></div>
+          <div class="scope-branch scope-branch-sp"><b>Granite Rapids-SP</b><span>Xeon 6700P / 6500P · P-cores</span><small>XCC: 2 compute dies; HCC/LCC: 1 each · 2 I/O dies · 8 DDR5 channels · HCC up to 48 P-cores / LCC up to 16</small></div>
+          <div class="scope-branch scope-branch-e"><b>Sierra Forest-SP</b><span>Xeon 6700E · E-cores</span><small>Separate E-core product · up to 8 DDR5 channels</small></div>
+        </div>
+        <p class="scope-exclusions">These views omit the distinct Xeon 6300P / Catlow and Xeon 6 SoC lines, 4- and 8-socket platforms, and Xeon 6+ / Clearwater Forest. “Sierra Forest-AP / 6900E” appears in older source material; Intel’s <a href="https://www.intel.com/content/www/us/en/products/details/processors/xeon/6-e-core-series.html" target="_blank" rel="noopener noreferrer">current Xeon 6 E-core catalog ↗</a> lists 6700E. Package positions are schematic. <a href="https://cdrdv2-public.intel.com/852810/HPC-and-AI-Workloads-with-Intel-Xeon-6-Processors.pdf" target="_blank" rel="noopener noreferrer">Intel package comparison ↗</a></p>
+      </div>
+    </section>
+
+    <div class="view-nav-wrap"><div class="nav-caption"><span>04 MODELS · CORE DESIGNS → PACKAGE + BOARD → NUMA → PLATFORM LINKS</span><span>SCROLL OR SWIPE TO SEE MORE →</span></div><nav class="view-nav" id="viewNav" aria-label="Architecture models"></nav></div>
+
+    <section class="diagram-panel" aria-labelledby="viewTitle">
+      <header class="diagram-toolbar">
+        <div class="diagram-heading"><div class="diagram-identity"><span class="diagram-kicker" id="viewKicker"></span><span class="view-scope" id="viewScope"></span></div><h2 id="viewTitle"></h2><p id="viewSubtitle"></p></div>
+        <div class="diagram-tools"><div class="mode-controls" id="modeControls" role="group" aria-label="Diagram configuration"></div><span class="source-chip" id="viewRefs"></span></div>
+      </header>
+      <section class="reading-card model-notes" aria-labelledby="readingTitle"><div class="model-notes-copy"><div class="section-label">MODEL NOTES</div><h2 id="readingTitle"></h2><p id="viewIntro"></p></div><ul id="viewPoints"></ul><div class="teaching-notes"><div><span>TECHNICAL SUMMARY</span><p id="viewSummary"></p></div><div><span>SCOPE / LIMITS</span><p id="viewLimits"></p></div></div></section>
+      <div class="diagram-orientation"><span>CONNECTIONS SHOWN</span><p id="viewPath"></p><a href="#featureDetail">Jump to selected definition ↓</a></div>
+      <div class="stage-scroller" id="stageScroller" tabindex="0" aria-label="Scrollable architecture diagram">
+        <div class="stage" id="stage">
+          <svg id="diagram" viewBox="0 0 1200 650" role="group" aria-label="Interactive architecture diagram. Use Tab to move among the labeled parts, then Enter to read a definition."></svg>
+          <div class="hover-tip" id="hoverTip" role="tooltip" hidden></div>
+        </div>
+      </div>
+      <div class="diagram-foot"><div class="legend"><span><i class="legend-compute"></i>COMPUTE</span><span><i class="legend-fabric"></i>CHIP / DEVICE LINKS</span><span><i class="legend-memory"></i>MEMORY</span></div><span class="interaction-hint">HOVER: NAME <b>·</b> SELECT: DETAIL <b>·</b> LOGICAL SCHEMATIC</span><span class="pan-hint">SWIPE TO PAN DIAGRAM ↔</span><a class="detail-jump" id="detailJump" href="#featureDetail">READ DEFINITION ↓</a></div>
+      <details class="diagram-glossary" id="diagramGlossary"><summary><span>ACRONYM KEY</span><small id="glossaryCount"></small><span class="glossary-chevron" aria-hidden="true">⌄</span></summary><div class="glossary-content"><p id="glossaryIntro"></p><div class="diagram-key" id="diagramKey" aria-label="Acronyms used in this model"></div></div></details>
+      <section class="feature-detail" id="featureDetail" tabindex="-1" aria-live="polite" data-active="false">
+        <div class="detail-heading"><div><span class="detail-eyebrow" id="detailEyebrow">FIELD NOTES / SELECT A PART</span><h3 id="detailTitle">Explore the diagram</h3></div><div class="detail-source" id="detailSource" aria-label="Component sources"></div></div>
+        <div class="detail-context" id="detailContext" hidden></div>
+        <div class="detail-body"><div class="detail-section"><span>WHAT IT IS</span><p id="detailDefinition">Hover over a part to see its name. Select it to read a short explanation.</p></div><div class="detail-section"><span>IN THIS DESIGN</span><p id="detailExplanation">The model notes above the diagram explain the relationships and configurations shown.</p></div></div>
+      </section>
+    </section>
+
+    <div class="lower-grid">
+      <section class="source-card" aria-labelledby="sourceTitle"><div class="section-label">SOURCE LIBRARY</div><h2 id="sourceTitle">Three supplied Intel documents + supporting public sources</h2><p>The product brief and high-performance computing (HPC) guide support these diagrams. The reliability, availability, and serviceability (RAS) paper supplies basic memory-controller context; its detailed fault handling is outside this primer.</p><div class="source-list"><div><b>BRIEF / FAMILY</b><span><a href="https://www.intel.com/content/www/us/en/products/docs/xeon-6-product-brief.html" target="_blank" rel="noopener noreferrer">The Intel Xeon 6 Processor Family ↗</a><small>Intel product brief · 2025</small><i>Its 288 E-core wording predates the current Xeon 6+ 6990E+ listing; see product context below.</i></span></div><div><b>HPC / COMPUTE</b><span><a href="https://www.intel.com/content/www/us/en/content-details/858491/intel-xeon-6-with-p-cores-configuration-and-tuning-guide-for-hpc-applications.html" target="_blank" rel="noopener noreferrer">Intel® Xeon® 6 with P-cores Configuration and Tuning Guide for HPC Applications ↗</a><small>Doc. 858491 · Rev. 1.4 · April 2026</small></span></div><div><b>RAS / BACKGROUND</b><span><a href="https://cdrdv2-public.intel.com/848948/Intel%C2%AE%20Xeon%C2%AE%206%20Processors%20with%20P-cores%20Reliability%20Availability%20and%20Serviceability.pdf" target="_blank" rel="noopener noreferrer">Intel® Xeon® 6 Processors with Performance-cores (P-cores): Reliability, Availability, and Serviceability ↗</a><small>Error-correcting code (ECC) context only · Rev. 1.0 · March 2025</small></span></div></div><div class="additional-sources"><span class="section-label">ADDITIONAL INTEL ARCHITECTURE SOURCES</span><p>These establish the P/E processor relationship, core design names, mesh and EMIB connections, and E-core chiplet structure.</p><div class="source-list"><div><b>SEPARATE / ARTICLE</b><span><a href="https://www.intel.com/content/www/us/en/newsroom/news/tackling-throughput-computing-sierra-forest.html" target="_blank" rel="noopener noreferrer">Tackling Throughput Computing with Sierra Forest ↗</a><small>Intel Newsroom · September 2023</small></span></div><div><b>ARCH / OVERVIEW</b><span><a href="https://download.intel.com/newsroom/2023/data-center-hpc/Hot_Chips_23_Granite_Rapids_Sierra_Forest_Xeon_Press_Briefing.pdf" target="_blank" rel="noopener noreferrer">Unveiling Intel’s 2024 Xeon Architecture ↗</a><small>Intel Hot Chips press briefing · August 2023</small></span></div><div><b>FABRIC / BRIDGES</b><span><a href="https://hc2023.hotchips.org/assets/program/conference/day1/Platforms/HC2023.Intel.Gianos.v7.pdf" target="_blank" rel="noopener noreferrer">Architecting for Flexibility and Value with Next Gen Intel Xeon Processors ↗</a><small>Intel Hot Chips architecture presentation · pp. 5–7</small></span></div><div><b>E-ARCH / DETAIL</b><span><a href="https://hc2023.hotchips.org/assets/program/conference/day1/CPU2/HC2023.Intel.Soltis.FINAL.pdf" target="_blank" rel="noopener noreferrer">The Next Generation of High Performance, Energy-Efficient Computing: Intel Xeon Processors Built on Efficient-Core ↗</a><small>Intel Hot Chips architecture presentation · August 2023</small></span></div><div><b>COMPATIBILITY</b><span><a href="https://www.intel.com/content/www/us/en/support/articles/000029316/processors/intel-xeon-processors.html" target="_blank" rel="noopener noreferrer">Can a Board Be Populated With Two Different Intel Xeon Processors? ↗</a><small>Intel processor support</small></span></div><div><b>CORE_NAMES / LOOKUP</b><span><a href="https://www.intel.com/content/www/us/en/developer/topic-technology/software-security-guidance/processors-affected-consolidated-product-cpu-model.html" target="_blank" rel="noopener noreferrer">Affected Processors: Consolidated Product and CPU Model ↗</a><small>Intel table mapping Granite Rapids/Redwood Cove and Sierra Forest/Crestmont</small></span></div></div></div><p class="source-note">6700E die-count evidence: <a href="https://www.computerbase.de/artikel/prozessoren/intel-xeon-6700e-sierra-forest-details.88231/" target="_blank" rel="noopener noreferrer">ComputerBase launch report ↗</a> describes one compute die and two I/O dies in the SP package. Intel architecture figures show chiplet roles; the arrangement here remains schematic.</p><p class="source-note">Relative HCC/LCC compute-die size: <a href="https://www.nextplatform.com/compute/2024/09/24/intel-shoots-granite-rapids-xeon-6-into-the-datacenter/1650836" target="_blank" rel="noopener noreferrer">The Next Platform architecture report ↗</a>. Intel’s die-class figure supplies the 48/16 P-core ceilings; the drawing does not imply measured die dimensions.</p><p class="source-note">Bridge detail: <a href="https://www.intel.com/content/dam/www/central-libraries/us/en/documents/2025-07/emib-product-brief.pdf" target="_blank" rel="noopener noreferrer">Intel EMIB technology brief ↗</a>. External link rates: <a href="https://pcisig.com/what-bit-rates-does-pcie-50-specification-support-and-how-does-it-compare-prior-pcie-generations" target="_blank" rel="noopener noreferrer">PCI-SIG PCIe 5.0 FAQ ↗</a>. Protocol background: <a href="https://community.intel.com/t5/Blogs/Tech-Innovation/Data-Center/Breaking-the-Memory-Wall-with-Compute-Express-Link-CXL/post/1594848" target="_blank" rel="noopener noreferrer">Intel's CXL explainer ↗</a>.</p><div class="product-context"><span class="section-label">CATALOG / CURRENT PRODUCT CONTEXT</span><p>The current product lists pair Granite Rapids with 6900P/6700P/6500P, Sierra Forest with 6700E, and Clearwater Forest with 6900E+. The 2025 brief's older 288 E-core Xeon 6 wording is superseded by Intel's 6990E+ listing under Xeon 6+. These catalog links establish names, not package geometry.</p><a href="https://www.intel.com/content/www/us/en/ark/products/codename/198508/products-formerly-sierra-forest.html" target="_blank" rel="noopener noreferrer">Sierra Forest · 6700E catalog ↗</a><a href="https://www.intel.com/content/www/us/en/ark/products/codename/236204/products-formerly-clearwater-forest.html" target="_blank" rel="noopener noreferrer">Clearwater Forest · 6900E+ catalog ↗</a><a href="https://www.intel.com/content/www/us/en/support/articles/000059657/processors/intel-xeon-processors.html" target="_blank" rel="noopener noreferrer">Intel series marking guide ↗</a></div><div class="product-context"><span class="section-label">PLATFORM / PHYSICAL LIMITS</span><p>These Intel sources support the per-CPU socket, memory-channel, PCIe-lane, CXL-capable-lane, and UPI-link limits used in the platform diagram. CXL-capable lanes are a subset of the PCIe lane bank.</p><a href="https://cdrdv2-public.intel.com/852810/HPC-and-AI-Workloads-with-Intel-Xeon-6-Processors.pdf" target="_blank" rel="noopener noreferrer">Intel Xeon 6 die-class figure and platform table · PDF pp. 6–7 ↗</a><a href="https://cdrdv2-public.intel.com/842211/White-Paper-Micron-Intel-HPC-AI-Workloads.pdf" target="_blank" rel="noopener noreferrer">Intel–Micron platform white paper · sec. II.A ↗</a><a href="https://www.intel.com/content/www/us/en/products/sku/241834/intel-xeon-6781p-processor-336m-cache-2-00-ghz/specifications.html" target="_blank" rel="noopener noreferrer">Intel Xeon 6781P specification · one-socket example ↗</a><a href="https://www.intel.com/content/www/us/en/products/sku/240362/intel-xeon-6780e-processor-108m-cache-2-20-ghz/specifications.html" target="_blank" rel="noopener noreferrer">Intel Xeon 6780E specification · E-core thread example ↗</a><a href="https://www.intel.com/content/www/us/en/support/articles/000055173/processors/intel-xeon-processors.html" target="_blank" rel="noopener noreferrer">Intel supported-socket series list ↗</a><a href="https://www.intel.cn/content/www/cn/zh/artificial-intelligence/new-xeon-6-products-cure-choice-difficulties.html" target="_blank" rel="noopener noreferrer">Intel-hosted package-class explanation · guest-authored ↗</a><a href="https://www.intel.com/content/www/us/en/products/sku/241844/intel-xeon-6787p-processor-336m-cache-2-00-ghz/specifications.html" target="_blank" rel="noopener noreferrer">6787P specification · XCC example ↗</a><a href="https://www.intel.com/content/www/us/en/products/sku/242638/intel-xeon-6736p-processor-144m-cache-2-00-ghz/specifications.html" target="_blank" rel="noopener noreferrer">6736P specification · HCC example ↗</a><a href="https://www.intel.com/content/www/us/en/products/sku/242668/intel-xeon-6507p-processor-48m-cache-3-50-ghz/specifications.html" target="_blank" rel="noopener noreferrer">6507P specification · LCC example ↗</a><a href="https://www.intel.com/content/www/us/en/support/articles/000100190/processors/intel-xeon-processors.html" target="_blank" rel="noopener noreferrer">Separate 6300P Catlow platform ↗</a></div></section>
+    </div>
+    <footer class="site-footer"><span>Educational schematics based on the cited Intel documents. Component placement is conceptual unless the source figure specifies the relationship.</span><span>FEATURES AND MAXIMA VARY BY SKU / PLATFORM</span></footer>
+  </main>
+  <div class="term-toast-stack" id="termToastStack" role="region" aria-label="Open term definitions"></div>
+  <template id="termToastTemplate">
+    <aside class="term-toast">
+      <div class="term-toast-content" role="status" aria-live="polite" aria-atomic="true">
+        <span class="term-toast-kicker">TERM DEFINITION</span>
+        <h2 class="term-toast-title"></h2>
+        <p class="term-toast-definition"></p>
+      </div>
+      <div class="term-toast-timer">
+        <button type="button" aria-label="Close definition notification; otherwise closes automatically after 15 seconds">
+          <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle class="term-timer-track" cx="20" cy="20" r="15"></circle><circle class="term-timer-progress" cx="20" cy="20" r="15"></circle></svg>
+          <span aria-hidden="true">×</span>
+        </button>
+        <span class="term-toast-countdown" aria-hidden="true">15s</span>
+      </div>
+    </aside>
+  </template>
+</body>
+</html>

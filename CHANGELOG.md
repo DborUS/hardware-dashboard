@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **Public beta 0.0.3 release notes** (2026-09-28) — the header advances to
+  0.0.3, and What's new describes the selected Xeon 6 architecture guide and
+  revised EPYC 9005 guide since the already released public beta 0.0.2.
+- **Xeon 6 architecture guide** (2026-09-28) — embedded the four-view Xeon atlas in
+  the Intel Xeon tab, with product/guide navigation, selected-family scope, links to
+  the three source documents, synchronized view and mode URLs, responsive iframe
+  height, and a route back to unchanged product filters. Diagrammed platforms are
+  selected Granite Rapids 6900P/6700P/6500P and Sierra Forest 6700E designs;
+  Xeon 6+ appears only as family context.
 - **Public beta 0.0.2 release notes** (2026-09-28) — the shared header and What's new
   dialog now summarize the Ampere tab, manufacturer roadmaps, Xeon 6 family corrections,
   and EPYC 9005 socket guide refinements since public beta 0.0.1. Asset and data cache
@@ -52,6 +61,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   build: EPYC 350, Ryzen 736, and GPU 303 models.
 
 ### Changed
+- **EPYC 9005 architecture guide alignment** (2026-09-28) — brought the AMD
+  guide's model context, type scale, acronym key, source library, and timed
+  glossary notices into the dashboard's Intel-aligned guide layout. The NPS=4
+  views now distinguish up to four Zen 5 CCDs from up to three Zen 5c CCDs per
+  domain and label the three memory controllers as I/O-die components. The
+  protection view separates validated boot from key management, encryption,
+  guest protection, and fault handling. PCIe lane badges state their socket
+  limits; keyboard focus, Escape dismissal, and related capability definitions
+  are available across the diagrams.
+- **EPYC 9005 diagram counts and definitions** (2026-09-28) - the two-socket
+  topology now draws twelve DDR5 channel marks beside each CPU, matching its
+  24-channel total and the one-socket visual convention. Rewrote the guide
+  component definitions to identify the actual part and its role before
+  describing design-specific behavior. The embedded guide cache tag advanced.
 - **Xeon 6300P family correction** (2026-09-28) — moved all nine FCLGA1700 Xeon 6 6300P models from Granite Rapids SP to a distinct Raptor Lake-E Refresh card. Intel's classification and platform now agree across the Xeon timeline, ARK importer, research master, comparison details, and search. Granite Rapids SP retains 34 Intel 3 / FCLGA4710 models; the Xeon total remains 553.
 - **Intel future product labels** (2026-09-26) — replaced unconfirmed Xeon 7,
   Core Ultra Series 4, and Diamond Rapids HBM entries with manufacturer-backed

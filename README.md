@@ -32,6 +32,7 @@ families represented in their official specification exports.
 - Expands each family into detailed, horizontally scrollable specification tables.
 - Compares as many as four CPU or GPU models across vendors.
 - Preserves filters and navigation state in shareable URLs.
+- Includes interactive architecture guides for EPYC 9005 and selected Xeon 6 platforms.
 - Shows data provenance and confidence information inside the dashboard.
 - Runs as a responsive, zero-dependency static site.
 
@@ -69,6 +70,7 @@ hardware-dashboard/
 │   ├── DESIGN-SYSTEM.md       Visual tokens and component conventions
 │   ├── PROJECT-STATE.md       Current status and engineering history
 │   └── WORKFLOWS.md           Maintenance and import procedures
+├── architecture/             Embedded EPYC 9005 and Xeon 6 diagram guides
 ├── tools/                     Importers, generators, audits, and browser tests
 ├── CLAUDE.md                  Repository-specific engineering instructions
 └── CHANGELOG.md               Release history

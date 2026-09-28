@@ -1564,6 +1564,11 @@
     border-bottom-color: var(--vendor-accent, #ed1c24);
     background: linear-gradient(180deg, rgba(237,28,36,0.09), rgba(237,28,36,0.035));
   }
+  .xeon-mode-nav .epyc-mode-tab.active {
+    border-color: rgba(87,200,255,0.26);
+    border-bottom-color: var(--vendor-accent, #57c8ff);
+    background: linear-gradient(180deg, rgba(87,200,255,0.11), rgba(87,200,255,0.035));
+  }
   .epyc-mode-tab:focus-visible {
     outline: 2px solid #60a5fa; outline-offset: -4px;
   }
@@ -1581,6 +1586,7 @@
     letter-spacing: 1.35px; white-space: nowrap;
   }
   .epyc-guide-open .epyc-mode-availability { display: none; }
+  .xeon-guide-open .xeon-mode-nav .epyc-mode-availability { display: none; }
 
   /* The product renderer remains mounted while the guide is open. */
   body.epyc-guide-open .navrow .search-wrap,
@@ -1588,6 +1594,11 @@
   body.epyc-guide-open .global-search-routes,
   body.epyc-guide-open .layout,
   body.epyc-guide-open .compare-tray { display: none !important; }
+  body.xeon-guide-open .navrow .search-wrap,
+  body.xeon-guide-open .navrow .toolbar,
+  body.xeon-guide-open .global-search-routes,
+  body.xeon-guide-open .layout,
+  body.xeon-guide-open .compare-tray { display: none !important; }
   .epyc-guide-panel { min-width: 0; }
   .epyc-guide-intro {
     display: flex; align-items: end; justify-content: space-between; gap: 24px;
@@ -1627,11 +1638,48 @@
   .epyc-guide-source cite { font-style: normal; }
   .epyc-guide-source:hover { background: rgba(193,169,104,0.1); border-color: rgba(193,169,104,0.4); }
   .epyc-guide-source:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+  .xeon-guide-panel .epyc-guide-kicker { color: #80d5ff; }
+  .xeon-guide-panel .epyc-guide-intro { align-items: flex-start; }
+  .xeon-guide-panel .epyc-guide-intro-copy { flex: 1 1 0; }
+  .xeon-guide-reference { flex: 0 1 510px; max-width: 510px; }
+  .xeon-guide-reference .epyc-guide-source {
+    width: 100%; justify-content: space-between; max-width: 100%;
+    border-color: rgba(87,200,255,0.25); background: rgba(87,200,255,0.055);
+    color: #a6e0ff; overflow-wrap: anywhere;
+  }
+  .xeon-guide-reference .epyc-guide-source:hover {
+    background: rgba(87,200,255,0.12); border-color: rgba(87,200,255,0.48);
+  }
+  .xeon-guide-reference .epyc-guide-source cite { min-width: 0; }
   .epyc-guide-frame {
     display: block; width: 100%; height: 860px; min-width: 0;
     border: 0; background: transparent; color-scheme: dark;
   }
   .epyc-guide-panel:not([hidden]) + .layout { display: none; }
+  .xeon-guide-panel:not([hidden]) + .layout { display: none; }
+
+  .v2-architecture-entry {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 4px 10px;
+  }
+  .v2-architecture-entry > span {
+    margin: 0 20px 8px 0; color: var(--text-secondary);
+    font: 600 0.68rem 'JetBrains Mono', monospace;
+  }
+  .v2-architecture-link {
+    display: inline-flex; align-items: center; gap: 7px;
+    min-height: 35px; margin: 0 20px 8px; padding: 6px 9px;
+    border: 1px solid rgba(87,200,255,0.32); border-radius: 5px;
+    background: rgba(87,200,255,0.08); color: #a6e0ff;
+    font: 600 0.75rem 'JetBrains Mono', monospace;
+    text-decoration: none; cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  .v2-architecture-link:hover {
+    background: rgba(87,200,255,0.16); border-color: rgba(87,200,255,0.6);
+    color: #e1f6ff;
+  }
+  .v2-architecture-link:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+  .v2-architecture-link [aria-hidden] { color: #80d5ff; }
 
   /* The 9005 entry is the only product that opens this generation's guide. */
   .a2-architecture-link {
@@ -1655,6 +1703,7 @@
     .epyc-guide-intro { flex-direction: column; align-items: flex-start; gap: 12px; }
     .epyc-guide-reference { align-items: flex-start; }
     .epyc-guide-reference-label { text-align: left; }
+    .xeon-guide-reference { flex: none; width: 100%; max-width: none; }
   }
   @media (max-width: 640px) {
     .epyc-mode-nav { gap: 6px; min-height: 72px; margin-bottom: 15px; }
@@ -1666,6 +1715,8 @@
     .epyc-guide-intro p { font-size: 0.91rem; }
     .epyc-guide-reference { margin-top: 12px; }
     .a2-architecture-link { margin-inline: 14px; min-height: 44px; }
+    .v2-architecture-link { margin-inline: 14px; min-height: 44px; }
+    .v2-architecture-entry > span { margin-left: 14px; }
   }
   @media (max-width: 375px) {
     body.epyc-guide-open .v2-subtab { padding-inline: 8px; font-size: 0.7rem; }
@@ -1708,4 +1759,74 @@
     .release-notes { padding: 1px 18px 12px; }
     .release-note { grid-template-columns: 1fr; gap: 5px; padding: 14px 0; }
     .release-note-label { padding-top: 0; }
+  }
+
+  /* AMD architecture term notices live in the dashboard viewport, above the iframe. */
+  .epyc-term-stack {
+    position: fixed; z-index: 90; top: 18px; right: 18px;
+    display: flex; flex-direction: column; gap: 10px;
+    width: min(420px, calc(100vw - 36px));
+    pointer-events: none;
+  }
+  .epyc-term-stack[hidden],
+  .epyc-term-toast[hidden],
+  .epyc-term-more[hidden] { display: none; }
+  .epyc-term-toast {
+    display: grid; grid-template-columns: minmax(0, 1fr) 40px;
+    gap: 12px; padding: 16px 16px 17px 18px;
+    border: 1px solid #83daeb; border-left: 3px solid #4bd7ed;
+    border-radius: 9px; background: linear-gradient(135deg, #214459, #162b3c);
+    box-shadow: 0 14px 45px #000b; pointer-events: auto;
+  }
+  .epyc-term-content { min-width: 0; }
+  .epyc-term-content small {
+    color: #7ee8f2; font: 800 11px/1.35 'JetBrains Mono', Consolas, monospace;
+    letter-spacing: .12em;
+  }
+  .epyc-term-content h3 { margin: 5px 0; color: #fff; font-size: 19px; line-height: 1.3; }
+  .epyc-term-content p { margin: 0; color: #e0edf3; font-size: 14px; line-height: 1.5; }
+  .epyc-term-reopen { display: none; }
+  .epyc-term-toast.is-compact { align-items: center; min-height: 58px; padding: 8px 10px 8px 14px; }
+  .epyc-term-toast.is-compact .epyc-term-content small,
+  .epyc-term-toast.is-compact .epyc-term-content h3,
+  .epyc-term-toast.is-compact .epyc-term-content p { display: none; }
+  .epyc-term-toast.is-compact .epyc-term-reopen {
+    display: block; width: 100%; min-height: 42px; padding: 3px 0;
+    border: 0; background: transparent; color: #fff;
+    font: 700 15px/1.3 'DM Sans', 'Segoe UI', sans-serif;
+    text-align: left; cursor: pointer;
+  }
+  .epyc-term-reopen:hover { color: #7ee8f2; }
+  .epyc-term-timer { display: flex; flex-direction: column; align-items: center; }
+  .epyc-term-close {
+    position: relative; display: grid; place-items: center;
+    width: 40px; height: 40px; border: 0; border-radius: 50%;
+    background: conic-gradient(#68daec 0deg, #68daec var(--epyc-term-progress, 360deg),
+      #395d6e var(--epyc-term-progress, 360deg));
+    color: #fff; font-size: 23px; cursor: pointer;
+  }
+  .epyc-term-close::before {
+    content: ''; position: absolute; inset: 3px; border-radius: 50%; background: #1e4355;
+  }
+  .epyc-term-close span { position: relative; }
+  .epyc-term-close:hover::before { background: #2a6175; }
+  .epyc-term-countdown {
+    margin-top: 3px; color: #a4cad9; font: 700 10px/1 Consolas, monospace;
+  }
+  .epyc-term-more {
+    min-height: 38px; padding: 7px 12px; border: 1px solid #52798a;
+    border-radius: 8px; background: #162b3c; color: #c8e6ef;
+    font: 700 12px/1.3 'JetBrains Mono', Consolas, monospace;
+    text-align: left; cursor: pointer; pointer-events: auto;
+  }
+  .epyc-term-more:hover { border-color: #4bd7ed; background: #214459; }
+  .epyc-term-reopen:focus-visible,
+  .epyc-term-more:focus-visible,
+  .epyc-term-close:focus-visible { outline: 2px solid #4bd7ed; outline-offset: 3px; }
+  @media (max-width: 640px) {
+    .epyc-term-stack { top: 10px; right: 10px; width: calc(100vw - 20px); }
+  }
+  @media (max-height: 520px) {
+    .epyc-term-toast:not(.is-compact) { padding: 11px 12px 12px 14px; }
+    .epyc-term-content p { font-size: 13px; line-height: 1.35; }
   }

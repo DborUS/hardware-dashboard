@@ -267,12 +267,15 @@ def main():
             page.goto(base, wait_until="networkidle")
             page.wait_for_timeout(900)
 
-            if page.locator(".brand-lockup-version").inner_text().strip().lower() != "public beta 0.0.2":
-                failures.append("header does not show public beta 0.0.2")
+            if page.locator(".brand-lockup-version").inner_text().strip().lower() != "public beta 0.0.3":
+                failures.append("header does not show public beta 0.0.3")
             page.click("#whatsNewBtn")
-            if count("#whatsNewDialog[open]") != 1 or count("#whatsNewDialog .release-note") != 4:
-                failures.append("What's new dialog did not show all four release topics")
-            if "since public beta 0.0.1" not in page.locator("#whatsNewDialog").inner_text().lower():
+            release_topics = page.locator("#whatsNewDialog .release-note h3").all_inner_texts()
+            if count("#whatsNewDialog[open]") != 1 or len(release_topics) != 2 or not all(
+                term in " ".join(release_topics).lower() for term in ("xeon 6", "epyc 9005")
+            ):
+                failures.append("What's new dialog did not show both architecture-guide topics")
+            if "since public beta 0.0.2" not in page.locator("#whatsNewDialog").inner_text().lower():
                 failures.append("release notes do not identify the previous version")
             page.keyboard.press("Escape")
             page.wait_for_timeout(150)  # native dialog close and aria sync are asynchronous

@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+/* Presentation layer shared with the dashboard; SVG geometry and diagram colors
+   remain in the atlas. */
+:root {
+  --proposal-sans: 'DM Sans', 'Segoe UI', Arial, sans-serif;
+  --proposal-mono: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+  --proposal-bg: #0a0e1a;
+  --proposal-panel: #101a27;
+  --proposal-raised: #152537;
+  --proposal-edge: #314658;
+  --proposal-soft: #a9bdc9;
+}
+
+html.embedded body { overflow-x: hidden; font-family: var(--proposal-sans); }
+html.embedded .app { padding-bottom: 3px; }
+
+.atlas-nav-wrap { min-width: 0; }
+.atlas-nav-caption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3px 14px;
+  padding: 0 5px 3px;
+  color: #91acbb;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: .07em;
+}
+.atlas-nav-caption span:last-child { color: var(--cyan); }
+.view-nav { gap: 8px; padding: 5px 3px 16px; }
+.view-btn,
+html.embedded .view-btn {
+  position: relative;
+  flex: 0 0 170px;
+  min-width: 170px;
+  min-height: 78px;
+  gap: 7px;
+  padding: 12px 13px;
+  border: 1px solid #344658;
+  border-radius: 8px;
+  background: #111b28;
+  box-shadow: inset 0 1px 0 #ffffff07;
+}
+.view-btn:hover,
+html.embedded .view-btn:hover {
+  border-color: #74b3c0;
+  background: #192b3b;
+  box-shadow: inset 0 1px 0 #ffffff0b;
+}
+.view-btn.active,
+html.embedded .view-btn.active {
+  border-color: #70bbca;
+  background: linear-gradient(135deg, #1e3545, #142431);
+  box-shadow: inset 0 0 0 1px #4bd7ed22, 0 5px 18px #0006;
+}
+.view-btn.active::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--red);
+}
+.view-btn:focus-visible { outline-offset: -4px; }
+.view-index { font-size: 12px; font-weight: 700; letter-spacing: .035em; }
+.view-name { font-size: 15px; line-height: 1.3; }
+
+.diagram-wrap,
+html.embedded .diagram-wrap {
+  border: 1px solid #3d5365;
+  border-radius: 11px;
+  background: var(--proposal-panel);
+}
+.diagram-head,
+html.embedded .diagram-head {
+  min-height: 89px;
+  align-items: flex-start;
+  padding: 18px 23px;
+  background: #152638;
+  border-bottom-color: #314658;
+}
+.diagram-head h2 {
+  margin: 5px 0 4px;
+  font-size: 23px;
+  line-height: 1.2;
+}
+.diagram-head p { color: #b1c5d1; font-size: 15px; line-height: 1.45; }
+.atlas-model-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; }
+.atlas-model-id {
+  color: #ff9a80;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+.atlas-model-tag {
+  padding: 3px 7px;
+  border: 1px solid #516d7d;
+  border-radius: 4px;
+  background: #203b4c;
+  color: #bbecf4;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+.head-right { align-items: flex-start; gap: 12px; }
+.paper-ref { align-self: center; color: #e4cd96; font-size: 12px; }
+.switches { gap: 5px; }
+.switches button {
+  min-height: 39px;
+  padding: 7px 12px;
+  border-color: #557186;
+  background: #1b3547;
+  color: #d0e3ec;
+  font-size: 12px;
+}
+.switches button[aria-pressed="true"] {
+  background: #4bd7ed;
+  border-color: #a0eff8;
+  color: #08232d;
+  box-shadow: inset 0 -3px 0 #18869a;
+}
+
+.reading,
+html.embedded .reading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: 15px 28px;
+  padding: 19px 23px 20px;
+  border: 0;
+  border-bottom: 1px solid #345066;
+  border-radius: 0;
+  background: linear-gradient(110deg, #142739, #1a3444);
+}
+.reading-copy { min-width: 0; }
+.under h3 {
+  margin: 0 0 7px;
+  color: #76ddeb;
+  font-size: 13px;
+  letter-spacing: .13em;
+}
+.under p { margin: 0; color: #d2e1e7; font-size: 15px; line-height: 1.55; }
+.under ul {
+  align-self: start;
+  margin: 0;
+  padding-left: 19px;
+  color: #c4d4de;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.under li { margin-bottom: 6px; padding-left: 2px; }
+.under li::marker { color: var(--cyan); }
+.under { margin: 0; }
+
+.stage { min-width: 1000px; }
+.stage-footer {
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 11px 22px;
+  background: #142433;
+  color: #9fb7c4;
+  font-size: 12px;
+  line-height: 1.35;
+}
+.stage-footer .key { gap: 10px 20px; }
+.stage-footer i { width: 8px; height: 8px; }
+.atlas-detail-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 29px;
+  padding: 4px 9px;
+  border: 1px solid #497386;
+  border-radius: 5px;
+  background: #1b4053;
+  color: #c1eef6;
+  font: 800 11px/1.25 Consolas, "JetBrains Mono", monospace;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.atlas-detail-link:hover { border-color: var(--cyan); color: white; }
+.atlas-glossary { border-top: 1px solid #334a5c; background: #101d2a; }
+.atlas-glossary summary {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 46px;
+  padding: 8px 22px;
+  list-style: none;
+  cursor: pointer;
+  color: #cfebf2;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+.atlas-glossary summary::-webkit-details-marker { display: none; }
+.atlas-glossary summary:hover { background: #183246; }
+.atlas-glossary summary:focus-visible { outline: 2px solid var(--cyan); outline-offset: -4px; border-radius: 5px; }
+.atlas-glossary summary small {
+  color: #9eb8c6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.atlas-glossary summary i {
+  margin-left: auto;
+  color: var(--cyan);
+  font-size: 22px;
+  font-style: normal;
+  line-height: 1;
+}
+.atlas-glossary[open] summary i { transform: rotate(180deg); }
+.atlas-glossary-content { padding: 0 22px 17px; }
+.atlas-glossary-content p {
+  margin: 0 0 11px;
+  color: #b8cfda;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.atlas-key { display: flex; flex-wrap: wrap; gap: 6px 15px; }
+.term-button {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: none;
+  color: #a5e3f0;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: underline;
+  text-decoration-color: #69b7c9;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.term-button:hover { color: white; text-decoration-color: white; }
+.term-button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.atlas-key .term-button { font-size: 13px; font-weight: 800; }
+
+.feature-detail {
+  min-height: 140px;
+  padding: 20px 23px 24px;
+  border-left: 0;
+  border-top: 1px solid #467084;
+  background: linear-gradient(125deg, #173145, #122330 65%);
+}
+.feature-detail[data-active="true"] { border-top-color: #82dce9; border-left: 0; }
+.feature-detail-head h3,
+.feature-detail h3 { font-size: 21px; }
+.feature-detail-content {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 23px;
+  max-width: none;
+  margin-top: 19px;
+}
+.detail-row { min-width: 0; }
+.detail-label { font-size: 12px; }
+.detail-row p,
+.detail-definition p { font-size: 15.6px; line-height: 1.55; }
+.feature-detail-ref { font-size: 12px; }
+.atlas-source-card {
+  margin: 14px 3px 0;
+  padding: 21px 23px;
+  border: 1px solid #385167;
+  border-radius: 10px;
+  background: linear-gradient(130deg, #111e2a, #0e1722);
+}
+.atlas-source-label,
+.atlas-page-index-head b {
+  color: var(--cyan);
+  font: 800 12px/1.3 var(--proposal-mono);
+  letter-spacing: .12em;
+}
+.atlas-source-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; }
+.atlas-source-heading h2 { margin: 6px 0 7px; color: #edf5f8; font-size: 21px; letter-spacing: -.03em; }
+.atlas-source-heading span { color: #90aebd; font: 700 12px/1.4 var(--proposal-mono); letter-spacing: .07em; }
+.atlas-source-intro,
+.atlas-source-row p,
+.atlas-source-note { color: #afc4cf; font-size: 14px; line-height: 1.55; }
+.atlas-source-intro { max-width: 920px; margin: 0 0 16px; }
+.atlas-source-row {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 14px;
+  padding: 15px 0;
+  border-top: 1px solid #2e4354;
+  border-bottom: 1px solid #2e4354;
+}
+.atlas-source-row + .atlas-source-row { border-top: 0; }
+.atlas-source-row b { color: var(--cyan); font: 800 12px/1.4 var(--proposal-mono); letter-spacing: .08em; }
+.atlas-source-row a { color: #e4f6fa; font-size: 16px; line-height: 1.4; font-weight: 700; text-decoration: none; text-underline-offset: 3px; }
+.atlas-source-row a:hover,
+.atlas-source-row a:focus-visible { color: var(--cyan); text-decoration: underline; }
+.atlas-source-row small { display: block; margin-top: 3px; color: #97aebc; font: 600 12px/1.4 var(--proposal-mono); }
+.atlas-source-row p { margin: 8px 0 0; }
+.atlas-page-index { margin-top: 17px; }
+.atlas-page-index-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; }
+.atlas-page-index-head span { color: #89a5b4; font-size: 12px; }
+.atlas-page-index ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.atlas-page-index li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  padding: 7px 0;
+  border-top: 1px solid #243747;
+  color: #c7d8e1;
+  font-size: 13px;
+}
+.atlas-page-index li span { min-width: 0; }
+.atlas-page-index li strong { flex: 0 0 auto; color: #e7cf91; font: 700 12px/1.5 var(--proposal-mono); text-align: right; }
+.atlas-source-note { margin: 16px 0 0; padding-top: 11px; border-top: 1px solid #2e4354; font-size: 12px; }
+.footer { padding: 0 3px; font-size: 12px; line-height: 1.5; }
+
+/* Match Intel's interface font pair while preserving the AMD SVG label face. */
+.view-index,
+.view-name,
+.paper-ref,
+.switches button,
+.stage-footer,
+.hover-tip,
+.feature-detail-kicker,
+.detail-label,
+.feature-detail-ref,
+.under h3,
+.footer,
+.atlas-nav-caption,
+.atlas-model-id,
+.atlas-model-tag,
+.atlas-detail-link,
+.atlas-glossary summary,
+.atlas-key .term-button,
+.term-toast small { font-family: var(--proposal-mono); }
+.stage svg text { font-family: 'Segoe UI', Arial, sans-serif; }
+.stage svg .mono { font-family: Consolas, monospace; }
+
+.term-toast-stack {
+  position: fixed;
+  z-index: 50;
+  top: 18px;
+  right: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(420px, calc(100vw - 36px));
+}
+.term-toast-stack[hidden],
+.term-toast[hidden],
+.term-toast-copy[hidden],
+.term-toast-reopen[hidden],
+.term-toast-more[hidden] { display: none; }
+.term-toast {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 40px;
+  gap: 12px;
+  padding: 16px 16px 17px 18px;
+  border: 1px solid #83daeb;
+  border-left: 3px solid var(--cyan);
+  border-radius: 9px;
+  background: linear-gradient(135deg, #214459, #162b3c);
+  box-shadow: 0 14px 45px #000b;
+}
+.term-toast.is-compact {
+  align-items: center;
+  padding: 8px 10px 8px 14px;
+  min-height: 58px;
+}
+.term-toast-reopen {
+  min-width: 0;
+  min-height: 42px;
+  padding: 3px 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font: 700 15px/1.3 var(--proposal-sans);
+  text-align: left;
+  cursor: pointer;
+}
+.term-toast-reopen:hover { color: var(--cyan); }
+.term-toast-reopen:focus-visible,
+.term-toast-more:focus-visible,
+.term-toast-close:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.term-toast h4 { margin: 5px 0; font-size: 18px; }
+.term-toast p { margin: 0; color: #deedf3; font-size: 14px; line-height: 1.5; }
+.term-toast small { color: var(--cyan); font: 800 11px Consolas, monospace; letter-spacing: .12em; }
+.term-toast-controls { display: flex; flex-direction: column; align-items: center; }
+.term-toast-close {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: conic-gradient(var(--cyan) 0deg, var(--cyan) var(--toast-progress, 360deg), #395d6e var(--toast-progress, 360deg));
+  color: white;
+  font-size: 23px;
+  cursor: pointer;
+}
+.term-toast-close::before { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: #1e4355; }
+.term-toast-close span { position: relative; }
+.term-toast-close:hover::before { background: #2a6175; }
+.term-toast-countdown { margin-top: 3px; color: #a4cad9; font: 700 10px/1 Consolas, monospace; }
+.term-toast-more {
+  min-height: 38px;
+  padding: 7px 12px;
+  border: 1px solid #52798a;
+  border-radius: 8px;
+  background: #162b3c;
+  color: #c8e6ef;
+  font: 700 12px/1.3 var(--proposal-mono);
+  text-align: left;
+  cursor: pointer;
+}
+.term-toast-more:hover { border-color: var(--cyan); background: #214459; }
+
+@media (max-width: 1100px) {
+  .head-right { flex-wrap: wrap; justify-content: flex-start; }
+  .diagram-head { flex-wrap: wrap; }
+}
+@media (max-width: 760px) {
+  .atlas-nav-caption span:first-child { display: none; }
+  .atlas-nav-caption { justify-content: flex-end; }
+  .diagram-head,
+  html.embedded .diagram-head { padding: 16px 17px; }
+  .diagram-head h2 { font-size: 21px; }
+  .head-right { width: 100%; justify-content: space-between; }
+  .reading,
+  html.embedded .reading { grid-template-columns: 1fr; gap: 10px; padding: 17px; }
+  .stage-footer { padding: 11px 17px; }
+  .atlas-glossary summary { padding: 8px 17px; }
+  .atlas-glossary-content { padding: 0 17px 16px; }
+  .feature-detail { padding: 19px 17px 22px; }
+  .feature-detail-content { grid-template-columns: 1fr; gap: 17px; }
+  .atlas-source-card { padding: 18px 17px; }
+  .atlas-source-row { grid-template-columns: 1fr; gap: 5px; }
+  .atlas-page-index ul { grid-template-columns: 1fr; }
+}
+@media (max-width: 390px) {
+  .switches button { min-height: 42px; }
+  .paper-ref { font-size: 11px; }
+  .stage-footer .key { gap: 7px 12px; }
+  .term-toast-stack { top: 10px; right: 10px; width: calc(100vw - 20px); }
+}

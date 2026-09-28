@@ -4,7 +4,7 @@
 
 // Bump when any js/data/*.json changes, so browsers refetch instead of serving a
 // stale copy. Mirrors the ?v= on the script tag in index.html.
-const DATA_VERSION = '20260928-beta-002';
+const DATA_VERSION = '20260928-amd-alignment-1';
 
 // Cache for loaded data to avoid redundant fetches
 const dataCache = {};
@@ -492,9 +492,20 @@ const dashboardSelections = new Map();
 const DASHBOARD_EPYC_DIAGRAMS = new Set([
   'package', 'ccd', 'core', 'iod', 'lanes', 'sockets', 'numa', 'protection'
 ]);
+const DASHBOARD_XEON_VIEW_MODES = {
+  family: [],
+  package: ['6900', '6787', '6736', '6507', '6700E'],
+  snc: ['unified', '6900-local', '6700-local', 'single', '6700E-local'],
+  io: ['6900-2S', '6700-2S', '6781-1S', '6700E-2S']
+};
 let dashboardGuideOpen = false;
 let dashboardGuideDiagram = 'package';
 let dashboardGuidePreviousScroll = 0;
+const dashboardEpycTermTimers = new Map();
+let dashboardEpycTermBound = false;
+let dashboardXeonGuideOpen = false;
+let dashboardXeonGuideRoute = {view: 'family', mode: null};
+let dashboardXeonGuidePreviousScroll = 0;
 
 // ════════════════════════════════════════
 // CACHED DOM REFERENCES (Performance)
@@ -564,7 +575,9 @@ function perfEnd(label) {
 async function switchVendor(vendor, targetTab = null) {
   currentVendor = vendor;
   dashboardGuideOpen = false;
+  dashboardXeonGuideOpen = false;
   dashboardSyncEpycGuide();
+  dashboardSyncXeonGuide();
   currentTechTab = 'cpu';
   expandedGroups.clear();
   activeSegmentTags.clear();
@@ -667,6 +680,7 @@ async function switchVendor(vendor, targetTab = null) {
   dashboardGlobalApplyToActive();
   dashboardRestoreSelectedRows();
   dashboardSyncEpycGuide();
+  dashboardSyncXeonGuide();
   dashboardStateChanged();
 }
 
@@ -714,6 +728,7 @@ function dashboardSyncEpycGuide() {
   const eligible = dashboardEpycGuideEligible();
   if (!eligible) dashboardGuideOpen = false;
   const open = eligible && dashboardGuideOpen;
+  if (!open) dashboardClearEpycTerms();
   nav.hidden = !eligible;
   panel.hidden = !open;
   document.body.classList.toggle('epyc-guide-open', open);
@@ -735,7 +750,7 @@ function dashboardOpenEpycGuide(requestedDiagram = null) {
   dashboardSyncEpycGuide();
   const frame = document.getElementById('epycGuideFrame');
   if (frame && !frame.hasAttribute('src')) {
-    const params = new URLSearchParams({ embedded: '1', diagram: dashboardGuideDiagram, v: '20260926-topology-1' });
+    const params = new URLSearchParams({ embedded: '1', diagram: dashboardGuideDiagram, v: '20260928-amd-alignment-1' });
     frame.src = `architecture/epyc-9005/index.html?${params.toString()}`;
   }
   dashboardStateChanged();
@@ -754,6 +769,130 @@ function dashboardCloseEpycGuide() {
   requestAnimationFrame(() => window.scrollTo({top: dashboardGuidePreviousScroll}));
 }
 
+function dashboardLayoutEpycTerms() {
+  const stack = document.getElementById('epycTermStack');
+  const more = document.getElementById('epycTermMore');
+  if (!stack || !more) return;
+  const cards = Array.from(stack.querySelectorAll('.epyc-term-toast'));
+  if (!cards.length) {
+    stack.hidden = true;
+    more.hidden = true;
+    return;
+  }
+  const focusedCard = cards.find(card => card.contains(document.activeElement));
+  const limit = window.innerWidth <= 640 || window.innerHeight <= 600 ? 2 : 3;
+  let visible = Math.min(limit, cards.length);
+  cards.forEach((card, index) => {
+    card.hidden = index >= visible;
+    card.classList.toggle('is-compact', index !== 0);
+  });
+  stack.hidden = false;
+  const updateMore = () => {
+    const hiddenCount = cards.length - visible;
+    more.hidden = hiddenCount === 0;
+    if (hiddenCount) {
+      more.textContent = `+${hiddenCount} earlier ${hiddenCount === 1 ? 'term' : 'terms'} · show next definition`;
+      more.setAttribute('aria-label', `Show an earlier definition; ${hiddenCount} hidden`);
+    }
+  };
+  updateMore();
+  const available = window.innerHeight - (window.innerWidth <= 640 ? 18 : 36);
+  while (visible > 1 && stack.getBoundingClientRect().height > available) {
+    cards[--visible].hidden = true;
+    updateMore();
+  }
+  if (focusedCard?.hidden) {
+    cards[0].querySelector('.epyc-term-close')?.focus({preventScroll: true});
+  }
+}
+
+function dashboardClearEpycTerms() {
+  for (const timer of dashboardEpycTermTimers.values()) window.clearInterval(timer);
+  dashboardEpycTermTimers.clear();
+  const stack = document.getElementById('epycTermStack');
+  const more = document.getElementById('epycTermMore');
+  if (stack && more) {
+    stack.replaceChildren(more);
+    stack.hidden = true;
+    more.hidden = true;
+  }
+  const announcement = document.getElementById('epycTermAnnouncement');
+  if (announcement) announcement.textContent = '';
+}
+
+function dashboardShowEpycTerm(term, definition) {
+  if (!dashboardGuideOpen || !dashboardEpycGuideEligible()) return;
+  if (typeof term !== 'string' || typeof definition !== 'string') return;
+  term = term.trim();
+  definition = definition.trim();
+  if (!term || !definition || term.length > 80 || definition.length > 1000) return;
+  const stack = document.getElementById('epycTermStack');
+  const more = document.getElementById('epycTermMore');
+  const announcement = document.getElementById('epycTermAnnouncement');
+  if (!stack || !more || !announcement) return;
+  if (!dashboardEpycTermBound) {
+    more.addEventListener('click', () => {
+      const hidden = Array.from(stack.querySelectorAll('.epyc-term-toast[hidden]'));
+      const card = hidden.at(-1);
+      if (!card) return;
+      stack.prepend(card);
+      dashboardLayoutEpycTerms();
+      card.querySelector('.epyc-term-close')?.focus({preventScroll: true});
+    });
+    window.addEventListener('resize', dashboardLayoutEpycTerms);
+    window.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return;
+      const top = stack.querySelector('.epyc-term-toast:not([hidden]) .epyc-term-close');
+      if (top) { event.preventDefault(); top.click(); }
+    });
+    dashboardEpycTermBound = true;
+  }
+  announcement.textContent = '';
+  window.requestAnimationFrame(() => {
+    if (dashboardGuideOpen) announcement.textContent = `${term}: ${definition}`;
+  });
+  const card = document.createElement('aside');
+  card.className = 'epyc-term-toast';
+  card.setAttribute('role', 'group');
+  card.setAttribute('aria-label', `Definition of ${term}`);
+  card.innerHTML = '<div class="epyc-term-content"><small>TERM DEFINITION</small><h3></h3><p></p><button class="epyc-term-reopen" type="button"></button></div><div class="epyc-term-timer"><button class="epyc-term-close" type="button"><span aria-hidden="true">×</span></button><span class="epyc-term-countdown" aria-hidden="true">15s</span></div>';
+  card.querySelector('h3').textContent = term;
+  card.querySelector('p').textContent = definition;
+  const reopen = card.querySelector('.epyc-term-reopen');
+  reopen.textContent = term;
+  reopen.setAttribute('aria-label', `Show definition of ${term}`);
+  reopen.addEventListener('click', () => {
+    stack.prepend(card);
+    dashboardLayoutEpycTerms();
+    card.querySelector('.epyc-term-close')?.focus({preventScroll: true});
+  });
+  const close = card.querySelector('.epyc-term-close');
+  close.setAttribute('aria-label', `Close definition of ${term}`);
+  const countdown = card.querySelector('.epyc-term-countdown');
+  const remove = () => {
+    const hadFocus = card.contains(document.activeElement);
+    window.clearInterval(dashboardEpycTermTimers.get(card));
+    dashboardEpycTermTimers.delete(card);
+    card.remove();
+    dashboardLayoutEpycTerms();
+    if (hadFocus) {
+      const next = stack.querySelector('.epyc-term-toast:not([hidden]) .epyc-term-close');
+      (next || document.getElementById('epycGuideFrame'))?.focus({preventScroll: true});
+    }
+  };
+  close.addEventListener('click', remove);
+  stack.prepend(card);
+  dashboardLayoutEpycTerms();
+  const started = performance.now();
+  const timer = window.setInterval(() => {
+    const remaining = Math.max(0, 15 - (performance.now() - started) / 1000);
+    countdown.textContent = `${Math.ceil(remaining)}s`;
+    close.style.setProperty('--epyc-term-progress', `${remaining / 15 * 360}deg`);
+    if (remaining <= 0) remove();
+  }, 100);
+  dashboardEpycTermTimers.set(card, timer);
+}
+
 function dashboardGuideReceiveMessage(event) {
   const frame = document.getElementById('epycGuideFrame');
   if (!frame || event.source !== frame.contentWindow) return;
@@ -762,7 +901,15 @@ function dashboardGuideReceiveMessage(event) {
   } else if (event.origin !== location.origin) return;
   const data = event.data;
   if (!data || typeof data !== 'object') return;
-  if (!['epyc-atlas:ready', 'epyc-atlas:height', 'epyc-atlas:diagram'].includes(data.type)) return;
+  if (!['epyc-atlas:ready', 'epyc-atlas:height', 'epyc-atlas:diagram', 'epyc-atlas:term', 'epyc-atlas:term-dismiss'].includes(data.type)) return;
+  if (data.type === 'epyc-atlas:term') {
+    dashboardShowEpycTerm(data.term, data.definition);
+    return;
+  }
+  if (data.type === 'epyc-atlas:term-dismiss') {
+    document.querySelector('#epycTermStack .epyc-term-toast:not([hidden]) .epyc-term-close')?.click();
+    return;
+  }
   const height = Number(data.height);
   if (Number.isFinite(height) && height >= 300 && height <= 20000) {
     frame.style.height = `${Math.ceil(height)}px`;
@@ -770,6 +917,94 @@ function dashboardGuideReceiveMessage(event) {
   if (typeof data.diagram === 'string' && DASHBOARD_EPYC_DIAGRAMS.has(data.diagram)) {
     dashboardGuideDiagram = data.diagram;
     if (dashboardGuideOpen) dashboardStateChanged();
+  }
+}
+
+/** Validate a Xeon atlas view and its mode before using either in a frame URL. */
+function dashboardXeonRoute(view, mode) {
+  const id = Object.prototype.hasOwnProperty.call(DASHBOARD_XEON_VIEW_MODES, view)
+    ? view : 'family';
+  const modes = DASHBOARD_XEON_VIEW_MODES[id];
+  return {view: id, mode: modes.length ? (modes.includes(mode) ? mode : modes[0]) : null};
+}
+
+function dashboardXeonGuideEligible() {
+  return currentVendor === 'intel' && v2Tab === 'xeon';
+}
+
+function dashboardIsXeonGuideOpen() { return dashboardXeonGuideOpen; }
+
+/** Keep the Xeon guide on the Intel Xeon product line while retaining product state. */
+function dashboardSyncXeonGuide() {
+  const nav = document.getElementById('xeonModeNav');
+  const panel = document.getElementById('xeonGuidePanel');
+  if (!nav || !panel) return;
+  const eligible = dashboardXeonGuideEligible();
+  if (!eligible) dashboardXeonGuideOpen = false;
+  const open = eligible && dashboardXeonGuideOpen;
+  nav.hidden = !eligible;
+  panel.hidden = !open;
+  document.body.classList.toggle('xeon-guide-open', open);
+  const productTab = document.getElementById('xeonProductsTab');
+  const guideTab = document.getElementById('xeonGuideTab');
+  productTab?.classList.toggle('active', !open);
+  guideTab?.classList.toggle('active', open);
+  productTab?.setAttribute('aria-selected', String(!open));
+  guideTab?.setAttribute('aria-selected', String(open));
+}
+
+function dashboardXeonFrameUrl() {
+  const params = new URLSearchParams({
+    embedded: '1', view: dashboardXeonGuideRoute.view, v: '20260928-xeon-guide-1'
+  });
+  if (dashboardXeonGuideRoute.mode) params.set('mode', dashboardXeonGuideRoute.mode);
+  return `architecture/xeon-6/index.html?${params.toString()}`;
+}
+
+function dashboardOpenXeonGuide(requestedView = null, requestedMode = null) {
+  if (!dashboardXeonGuideEligible()) return false;
+  if (!dashboardXeonGuideOpen) dashboardXeonGuidePreviousScroll = window.scrollY;
+  const previousRoute = dashboardXeonGuideRoute;
+  if (requestedView !== null) dashboardXeonGuideRoute = dashboardXeonRoute(requestedView, requestedMode);
+  dashboardXeonGuideOpen = true;
+  dashboardSyncXeonGuide();
+  const frame = document.getElementById('xeonGuideFrame');
+  if (frame && (!frame.hasAttribute('src') || (requestedView !== null &&
+      (previousRoute.view !== dashboardXeonGuideRoute.view ||
+       previousRoute.mode !== dashboardXeonGuideRoute.mode)))) {
+    frame.src = dashboardXeonFrameUrl();
+  }
+  dashboardStateChanged();
+  const nav = document.getElementById('xeonModeNav');
+  if (nav && nav.getBoundingClientRect().top < -80) nav.scrollIntoView({block: 'start'});
+  return true;
+}
+
+function dashboardCloseXeonGuide() {
+  if (!dashboardXeonGuideOpen) return;
+  dashboardXeonGuideOpen = false;
+  dashboardSyncXeonGuide();
+  dashboardStateChanged();
+  requestAnimationFrame(() => window.scrollTo({top: dashboardXeonGuidePreviousScroll}));
+}
+
+function dashboardXeonGuideReceiveMessage(event) {
+  const frame = document.getElementById('xeonGuideFrame');
+  if (!frame || event.source !== frame.contentWindow) return;
+  if (location.protocol === 'file:') {
+    if (event.origin !== 'null' && event.origin !== location.origin) return;
+  } else if (event.origin !== location.origin) return;
+  const data = event.data;
+  if (!data || typeof data !== 'object') return;
+  if (!['xeon-atlas:ready', 'xeon-atlas:height', 'xeon-atlas:view'].includes(data.type)) return;
+  const height = Number(data.height);
+  if (Number.isFinite(height) && height >= 300 && height <= 20000) {
+    frame.style.height = `${Math.ceil(height)}px`;
+  }
+  if (typeof data.view === 'string' &&
+      Object.prototype.hasOwnProperty.call(DASHBOARD_XEON_VIEW_MODES, data.view)) {
+    dashboardXeonGuideRoute = dashboardXeonRoute(data.view, data.mode);
+    if (dashboardXeonGuideOpen) dashboardStateChanged();
   }
 }
 
@@ -805,7 +1040,9 @@ function dashboardReadUrlState() {
     core: core.length === 2 && core.every(Number.isFinite) ? core : null,
     guide: params.get('panel') === 'guide' && params.get('guide') === 'epyc-9005',
     diagram: DASHBOARD_EPYC_DIAGRAMS.has(params.get('diagram'))
-      ? params.get('diagram') : 'package'
+      ? params.get('diagram') : 'package',
+    xeonGuide: params.get('panel') === 'guide' && params.get('guide') === 'xeon-6',
+    xeonRoute: dashboardXeonRoute(params.get('diagram'), params.get('mode'))
   };
 }
 
@@ -835,6 +1072,11 @@ function dashboardWriteUrl() {
     params.set('panel', 'guide');
     params.set('guide', 'epyc-9005');
     params.set('diagram', dashboardGuideDiagram);
+  } else if (dashboardXeonGuideOpen && dashboardXeonGuideEligible()) {
+    params.set('panel', 'guide');
+    params.set('guide', 'xeon-6');
+    params.set('diagram', dashboardXeonGuideRoute.view);
+    if (dashboardXeonGuideRoute.mode) params.set('mode', dashboardXeonGuideRoute.mode);
   }
   const next = `${window.location.pathname}?${params.toString()}`;
   window.history.replaceState(null, '', next);
@@ -857,8 +1099,11 @@ async function dashboardApplyUrlState(state) {
     a2ApplyDashboardState(state);
   }
   dashboardSyncEpycGuide();
+  dashboardSyncXeonGuide();
   if (state.guide && dashboardEpycGuideEligible()) {
     dashboardOpenEpycGuide(state.diagram);
+  } else if (state.xeonGuide && dashboardXeonGuideEligible()) {
+    dashboardOpenXeonGuide(state.xeonRoute.view, state.xeonRoute.mode);
   }
 }
 
@@ -2274,6 +2519,12 @@ initDomCache();
   document.getElementById('epycProductsTab')?.addEventListener('click', dashboardCloseEpycGuide);
   document.getElementById('epycGuideTab')?.addEventListener('click', () => dashboardOpenEpycGuide());
   window.addEventListener('message', dashboardGuideReceiveMessage);
+})();
+
+(function wireXeonGuide() {
+  document.getElementById('xeonProductsTab')?.addEventListener('click', dashboardCloseXeonGuide);
+  document.getElementById('xeonGuideTab')?.addEventListener('click', () => dashboardOpenXeonGuide());
+  window.addEventListener('message', dashboardXeonGuideReceiveMessage);
 })();
 
 // Narrow screens collapse the filter sidebar behind a disclosure button.
