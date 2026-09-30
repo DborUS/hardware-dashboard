@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a101b">
+  <title>Inside NVIDIA GH200 | ChipIndex Architecture Field Guide</title>
+  <script>if(new URLSearchParams(location.search).get('embedded')==='1')document.documentElement.classList.add('embedded');</script>
+  <link rel="stylesheet" href="styles.css?v=20260930-gh200-6">
+  <script src="app.js?v=20260930-gh200-9" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">▦</span><strong>ChipIndex</strong><span class="slash">/</span><span>FIELD GUIDE</span></div>
+      <span class="mast-meta"><span class="status-dot" aria-hidden="true"></span> NVIDIA · GH200 / GRACE / HOPPER</span>
+    </header>
+
+    <section class="hero" aria-labelledby="pageTitle">
+      <div>
+        <div class="eyebrow">PROCESSOR ARCHITECTURE <span aria-hidden="true">·</span> INTERACTIVE ATLAS</div>
+        <h1 id="pageTitle">Inside <em>Grace Hopper.</em></h1>
+        <p>Start with the GH200 superchip, then inspect one Grace CPU SoC and the Hopper GPU architecture it connects to. Select a part in any drawing to see what it does and how it fits this design.</p>
+      </div>
+      <div class="hero-count" aria-label="Three architecture models"><b>03</b><span>architecture<br>models</span></div>
+    </section>
+
+    <section class="scope-card" aria-labelledby="scopeTitle">
+      <div class="scope-lead">
+        <span class="overline">START HERE · THREE NAMES, THREE LEVELS</span>
+        <h2 id="scopeTitle">One superchip, <span>two processors.</span></h2>
+        <p><b>GH200 Grace Hopper</b> contains one <b>Grace CPU SoC</b> and one <b>Hopper GPU</b> joined by a coherent chip-to-chip connection. Grace CPU Superchip is a <em>different</em> two-Grace product; its white paper helps explain the Grace SoC inside GH200.</p>
+      </div>
+      <div class="name-rail" aria-label="Product name decoder">
+        <div><small>PRODUCT</small><strong>GH200</strong><span>Grace Hopper superchip</span></div>
+        <div><small>CPU</small><strong>Grace</strong><span>Arm-based CPU SoC</span></div>
+        <div><small>GPU DIE</small><strong>GH100</strong><span>Hopper architecture</span></div>
+        <div><small>GPU PRODUCT</small><strong>H100</strong><span>Enabled GH100 variants</span></div>
+      </div>
+      <p class="scope-caveat">The detailed GPU view uses NVIDIA's <b>full GH100 blueprint</b> to teach hardware hierarchy. It is not an assertion that all 144 streaming multiprocessors are enabled in GH200 or any shipping H100. Die positions and route lengths are schematic.</p>
+    </section>
+
+    <div class="nav-wrap"><div class="nav-caption"><span>03 MODELS · SUPERCHIP → CPU SOC → GPU DIE</span><span>SCROLL OR SWIPE TO SEE MORE →</span></div><nav id="viewNav" class="view-nav" aria-label="Architecture models"></nav></div>
+
+    <section class="diagram-panel" aria-labelledby="viewTitle">
+      <header class="diagram-toolbar">
+        <div><div class="diagram-identity"><span id="viewKicker"></span><span id="viewScope"></span></div><h2 id="viewTitle"></h2><p id="viewSubtitle"></p></div>
+        <div class="diagram-ref" id="viewRef"></div>
+      </header>
+      <section class="reading-card" aria-labelledby="notesTitle">
+        <div class="reading-main"><span class="overline">MODEL NOTES</span><h3 id="notesTitle"></h3><p id="viewIntro"></p></div>
+        <ul id="viewPoints"></ul>
+        <div class="reading-limit"><span>SCOPE / LIMITS</span><p id="viewLimit"></p></div>
+      </section>
+      <div class="path-cue"><span>CONNECTIONS SHOWN</span><p id="viewPath"></p></div>
+      <div class="stage-scroller" id="stageScroller" tabindex="0" aria-label="Pan the architecture diagram horizontally when needed">
+        <div class="stage" id="stage">
+          <svg id="diagram" viewBox="0 0 1200 690" role="group" aria-label="Interactive architecture diagram. Tab through labeled parts and press Enter for a definition."></svg>
+          <div class="hover-tip" id="hoverTip" role="tooltip" hidden></div>
+        </div>
+      </div>
+      <div class="diagram-foot"><div class="legend"><span><i class="compute"></i> COMPUTE</span><span><i class="fabric"></i> FABRIC / LINK</span><span><i class="memory"></i> MEMORY</span></div><span class="diagram-hint">HOVER: NAME <b>·</b> SELECT: DETAIL <b>·</b> SCHEMATIC</span><span class="pan-hint">SWIPE TO PAN ↔</span><a href="#featureDetail">READ DEFINITION ↓</a></div>
+      <details class="glossary" id="glossary"><summary><span>ACRONYM KEY</span><small id="glossaryCount"></small><span aria-hidden="true">⌄</span></summary><div class="glossary-content"><p>Select an underlined term in the explanations, or choose one here, for a short definition. Diagram parts use the selected definition below.</p><div id="glossaryTerms" class="glossary-terms"></div></div></details>
+      <section class="feature-detail" id="featureDetail" tabindex="-1" aria-live="polite" data-active="false">
+        <div class="detail-header"><div><span id="detailKicker" class="overline">FIELD NOTES / SELECT A PART</span><h3 id="detailTitle">Explore the diagram</h3></div><div id="detailSource" class="detail-source"></div></div>
+        <div class="detail-columns"><div><span class="overline">WHAT IT IS</span><p id="detailWhat">Hover over a part to see its name. Select it to read an explanation.</p></div><div><span class="overline">IN THIS DESIGN</span><p id="detailDesign">The model notes above explain how the selected drawing is scoped.</p></div></div>
+      </section>
+    </section>
+
+    <section class="sources" aria-labelledby="sourcesTitle"><span class="overline">SOURCE LIBRARY</span><h2 id="sourcesTitle">NVIDIA architecture references</h2><p>These NVIDIA documents establish the processor relationship and the parts represented in each schematic. Figure and page references appear again in the selected-part notes.</p><div class="source-list">
+      <article><span>GH200 / RELATIONSHIP</span><div><a href="https://developer.nvidia.com/blog/nvidia-grace-hopper-superchip-architecture-in-depth/" target="_blank" rel="noopener noreferrer">NVIDIA Grace Hopper Superchip Architecture In-Depth ↗</a><small>NVIDIA Technical Blog · Figure 2 · 2022</small><p>One Grace CPU, one Hopper GPU, their separate attached memories, and coherent NVLink-C2C. The cited article gives 900 GB/s total, 450 GB/s per direction.</p></div></article>
+      <article><span>GRACE / FABRIC</span><div><a href="https://dam-cdn.nvd.orangelogic.com/AssetLink/0ins1m74kwu3uc06dyow18b1s1v654m2.pdf" target="_blank" rel="noopener noreferrer">NVIDIA Grace CPU Superchip Whitepaper ↗</a><small>Version 1.1 · printed pp. 5–7, Table 1 and Figure 2</small><p>Grace CPU cores, distributed cache, Cache Switch Nodes, Scalable Coherency Fabric, LPDDR5X, and system interfaces. Its headline 144-core and 228 MB L3 figures describe <b>two Grace CPUs</b>; this guide draws one.</p></div></article>
+      <article><span>GRACE / MEMORY</span><div><a href="https://developer.nvidia.com/blog/inside-nvidia-grace-cpu-nvidia-amps-up-superchip-engineering-for-hpc-and-ai/" target="_blank" rel="noopener noreferrer">Inside NVIDIA Grace CPU ↗</a><small>NVIDIA Technical Blog · LPDDR5X memory interface · 2022</small><p>Describes the 32-channel Grace LPDDR5X interface and the path between the CPU fabric and attached memory. Capacity figures in this launch-era article are not used as fixed GH200 specifications here.</p></div></article>
+      <article><span>HOPPER / FULL DIE</span><div><a href="https://dam-cdn.nvd.orangelogic.com/AssetLink/705n6ur546g0uk43w0117r17n8042d73.pdf" target="_blank" rel="noopener noreferrer">NVIDIA H100 Tensor Core GPU Architecture ↗</a><small>Version 1.04 · printed pp. 18–21, 47; Figure 6 (GH100) and Figure 7 (SM)</small><p>Full GH100 hierarchy: GPCs, TPCs, SMs, L2, memory controllers, HBM, and fourth-generation NVLink. The white paper separately lists lower enabled counts for H100 products.</p></div></article>
+      <article><span>GH200 / PRODUCT SCOPE</span><div><a href="https://docs.nvidia.com/dccpu/grace-perf-tuning-guide/index.html" target="_blank" rel="noopener noreferrer">NVIDIA Grace Performance Tuning Guide ↗</a><small>NVIDIA documentation · product configuration tables</small><p>Checks that GH200 has one Grace CPU and one Hopper GPU and distinguishes HBM3 and HBM3e variants. Capacity and enabled-unit counts vary by product.</p></div></article>
+    </div></section>
+    <footer class="footer"><span>Educational schematics redrawn from cited NVIDIA architecture sources.</span><span>NOT A DIE MICROGRAPH OR SCALE DRAWING</span></footer>
+  </main>
+  <div id="termNotices" class="term-notices" role="region" aria-label="Term definitions"><button id="termEarlier" class="term-earlier" type="button" hidden></button></div>
+</body>
+</html>

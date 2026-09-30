@@ -6,6 +6,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+
+- No entries yet.
+
+## [Public beta 0.0.4] - 2026-09-30
+
+### Added
+
+- **GH200 architecture guide in the NVIDIA CPU tab** — added a three-model,
+  source-linked walkthrough of the Grace Hopper superchip, one Grace CPU SoC,
+  and the full GH100 GPU blueprint. The embedded guide keeps its diagram view
+  in the dashboard URL and resizes with its content. Diagram selections explain
+  parts and connections, while underlined terms open brief definitions.
+- **Dated upgrade history** — the What's new dialog now has its own scrollable
+  history for public beta 0.0.1 through 0.0.4, with an update date and a short
+  visitor-facing summary for each release. The dashboard header and shared
+  asset versions advance to 0.0.4.
+
+## [Prior technical changes through public beta 0.0.3] - 2026-09-28
+
+### Added
 - **Public beta 0.0.3 release notes** (2026-09-28) — the header advances to
   0.0.3, and What's new describes the selected Xeon 6 architecture guide and
   revised EPYC 9005 guide since the already released public beta 0.0.2.

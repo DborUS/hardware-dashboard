@@ -3,11 +3,31 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-09-28 (public beta 0.0.3)
-**Current version:** Public beta 0.0.3
-**Previous release:** Public beta 0.0.2 (`63d5bec`)
-**Health:** Good — ordering, AMD and Ampere data checks, full browser smoke test,
-EPYC and Xeon guide regressions, and responsive layout audit pass with no JavaScript errors.
+**Last updated:** 2026-09-30 (GH200 guide and public beta 0.0.4 preparation)
+**Current version:** Public beta 0.0.4
+**Previous release:** Public beta 0.0.3 (`fdf51f1`)
+**Health:** Good — full dashboard smoke test, GH200 browser and responsive review,
+and JavaScript syntax checks pass without errors.
+
+## 2026-09-30 — GH200 guide and dated public beta history
+
+The NVIDIA CPU tab now embeds the three-view GH200 architecture atlas. The
+superchip, Grace CPU, and full GH100 GPU drawings use the same component-detail
+pattern as the AMD and Intel guides, while preserving the distinction between
+the full GH100 blueprint and shipping enabled-unit counts. The embedded view
+and dashboard URL stay synchronized, and the iframe grows with the diagram.
+
+The header advances to public beta 0.0.4. What's new has a scrollable history
+with dates and short summaries for 0.0.1 through 0.0.4. The technical release
+entry is in `CHANGELOG.md`; the visitor update remains pending in
+`docs/UPDATE-QUEUE.md` until the site is confirmed live.
+
+Browser review covered desktop and 320–390px widths, diagram navigation,
+definitions, source links, product return, and the update history. The full
+dashboard smoke test passed without JavaScript errors. Benchmark and OEM
+platform work is still local and outside this release.
+
+---
 
 ## 2026-09-28 — Public beta 0.0.3 release preparation
 

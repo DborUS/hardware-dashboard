@@ -309,6 +309,7 @@ function n2Switch(tab) {
     button.classList.toggle('active', button.dataset.tab === tab));
   n2BuildFilters();
   n2Render();
+  dashboardSyncGh200Guide();
   dashboardGlobalRender();
 }
 

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20260928-amd-alignment-1">
+  <link rel="stylesheet" href="css/styles.css?v=20260930-public-beta-004">
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -28,7 +28,7 @@
       <button class="vendor-tab" id="tabAmpere" role="tab"
               aria-selected="false" onclick="switchVendor('ampere')">AMPERE</button>
     </div>
-    <div class="brand-lockup" aria-label="ChipIndex by Dan Bor, public beta 0.0.3">
+    <div class="brand-lockup" aria-label="ChipIndex by Dan Bor, public beta 0.0.4">
       <div class="brand-lockup-title" aria-hidden="true">
         <span class="brand-lockup-name">ChipIndex</span>
         <span class="brand-lockup-by">by Dan Bor</span>
@@ -37,7 +37,7 @@
         <span class="brand-lockup-rule-start"></span>
         <span class="brand-lockup-rule-end"></span>
       </div>
-      <span class="brand-lockup-version" aria-hidden="true">Public beta 0.0.3</span>
+      <span class="brand-lockup-version" aria-hidden="true">Public beta 0.0.4</span>
     </div>
     <header id="pageHeader" class="sr-only">
       <h1 class="header-amd">EPYC</h1>
@@ -111,6 +111,19 @@
     </button>
     <span class="epyc-mode-availability">GUIDE AVAILABLE / SELECTED XEON 6 PLATFORMS</span>
   </nav>
+  <nav class="epyc-mode-nav gh200-mode-nav" id="gh200ModeNav" role="tablist" aria-label="NVIDIA CPU section" hidden>
+    <button type="button" class="epyc-mode-tab active" id="gh200ProductsTab" role="tab"
+            aria-selected="true" aria-controls="epycProductsPanel">
+      <span class="epyc-mode-label">Products</span>
+      <span class="epyc-mode-helper">NVIDIA CPUs &amp; superchips</span>
+    </button>
+    <button type="button" class="epyc-mode-tab" id="gh200GuideTab" role="tab"
+            aria-selected="false" aria-controls="gh200GuidePanel">
+      <span class="epyc-mode-label">Architecture guide</span>
+      <span class="epyc-mode-helper">Interactive GH200 diagrams &amp; definitions</span>
+    </button>
+    <span class="epyc-mode-availability">GUIDE AVAILABLE / GH200 GRACE HOPPER</span>
+  </nav>
   <div class="global-search-routes" id="globalSearchRoutes" role="status" aria-live="polite" hidden></div>
   <!-- Legacy CPU/GPU tech tabs. Both vendors are product-first now, so nothing
        shows these; kept only because script.js still holds a reference. -->
@@ -156,6 +169,26 @@
     </div>
     <iframe class="epyc-guide-frame" id="xeonGuideFrame"
             title="Interactive Xeon 6 processor architecture diagrams" loading="lazy" scrolling="no"></iframe>
+  </section>
+  <section class="epyc-guide-panel gh200-guide-panel" id="gh200GuidePanel" aria-labelledby="gh200GuideTitle" hidden>
+    <div class="epyc-guide-intro">
+      <div class="epyc-guide-intro-copy">
+        <div class="epyc-guide-kicker">NVIDIA / GH200 GRACE HOPPER · TECHNICAL REFERENCE</div>
+        <h2 id="gh200GuideTitle">Inside Grace Hopper</h2>
+        <p>Trace the GH200 superchip, one Grace CPU SoC, and the full GH100 GPU blueprint. The Hopper drawing explains the architecture; enabled units vary by product.</p>
+      </div>
+      <div class="epyc-guide-reference gh200-guide-reference">
+        <span class="epyc-guide-reference-label">SOURCE DOCUMENTS</span>
+        <a class="epyc-guide-source" href="https://developer.nvidia.com/blog/nvidia-grace-hopper-superchip-architecture-in-depth/"
+           target="_blank" rel="noopener noreferrer"><cite>NVIDIA Grace Hopper Superchip Architecture In-Depth</cite> <span aria-hidden="true">↗</span></a>
+        <a class="epyc-guide-source" href="https://dam-cdn.nvd.orangelogic.com/AssetLink/0ins1m74kwu3uc06dyow18b1s1v654m2.pdf"
+           target="_blank" rel="noopener noreferrer"><cite>NVIDIA Grace CPU Superchip Whitepaper</cite> <span aria-hidden="true">↗</span></a>
+        <a class="epyc-guide-source" href="https://dam-cdn.nvd.orangelogic.com/AssetLink/705n6ur546g0uk43w0117r17n8042d73.pdf"
+           target="_blank" rel="noopener noreferrer"><cite>NVIDIA H100 Tensor Core GPU Architecture</cite> <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <iframe class="epyc-guide-frame" id="gh200GuideFrame"
+            title="Interactive GH200 Grace Hopper architecture diagrams" loading="lazy" scrolling="no"></iframe>
   </section>
   <!-- Two-column layout: filter sidebar + timeline. Both renderers still
        write into #filterControls; only its position changed. Collapses to a
@@ -214,20 +247,42 @@
 <dialog class="dashboard-dialog whats-new-dialog" id="whatsNewDialog" aria-labelledby="whatsNewTitle">
   <div class="dialog-head">
     <div>
-      <div class="dialog-kicker">CHIPINDEX / PUBLIC BETA 0.0.3</div>
+      <div class="dialog-kicker">CHIPINDEX / PUBLIC BETA 0.0.4</div>
       <h2 id="whatsNewTitle">What's new</h2>
-      <p class="release-period">Changes since public beta 0.0.2</p>
+      <p class="release-period">Current update first · scroll for earlier upgrades ↓</p>
     </div>
     <button class="dialog-close" type="button" data-close-dialog="whatsNewDialog" aria-label="Close what's new">✕</button>
   </div>
-  <div class="release-notes">
-    <section class="release-note">
-      <span class="release-note-label">XEON 6</span>
-      <div><h3>Explore selected Xeon 6 designs</h3><p>A new architecture guide diagrams P-core and E-core layouts, package dies, memory locality, and platform links. Xeon 6300P also has its own Raptor Lake-E Refresh card; search can find Redwood Cove and Crestmont.</p></div>
+  <div class="release-history" id="releaseHistory" role="region" aria-label="Dated public beta update history" tabindex="0">
+    <section class="release-version" aria-labelledby="release004">
+      <div class="release-version-head"><h3 id="release004">Public beta 0.0.4</h3><time datetime="2026-09-30">Updated September 30, 2026</time></div>
+      <div class="release-notes">
+        <section class="release-note"><span class="release-note-label">GH200</span><div><h4>Explore Grace Hopper from the inside</h4><p>Three sourced diagrams show the GH200 superchip, Grace CPU, and Hopper GPU. Select a part to trace cache, memory, and NVLink-C2C connections; underlined terms open short definitions.</p></div></section>
+        <section class="release-note"><span class="release-note-label">UPDATES</span><div><h4>Browse earlier upgrades</h4><p>The dated history below keeps previous public beta changes available in one place.</p></div></section>
+      </div>
     </section>
-    <section class="release-note">
-      <span class="release-note-label">EPYC 9005</span>
-      <div><h3>Explore the EPYC 9005 architecture</h3><p>Eight sourced diagrams now have plain definitions, an acronym key, and a source library. Compare Zen 5 and Zen 5c NUMA layouts, then trace I/O lanes, sockets, validated boot, and error handling.</p></div>
+    <section class="release-version" aria-labelledby="release003">
+      <div class="release-version-head"><h3 id="release003">Public beta 0.0.3</h3><time datetime="2026-09-28">Updated September 28, 2026</time></div>
+      <div class="release-notes">
+        <section class="release-note"><span class="release-note-label">XEON 6</span><div><h4>Explore selected Xeon 6 designs</h4><p>A new architecture guide diagrams P-core and E-core layouts, package dies, memory locality, and platform links. Xeon 6300P also has its own Raptor Lake-E Refresh card; search can find Redwood Cove and Crestmont.</p></div></section>
+        <section class="release-note"><span class="release-note-label">EPYC 9005</span><div><h4>Explore the EPYC 9005 architecture</h4><p>Eight sourced diagrams now have plain definitions, an acronym key, and a source library. Compare Zen 5 and Zen 5c NUMA layouts, then trace I/O lanes, sockets, validated boot, and error handling.</p></div></section>
+      </div>
+    </section>
+    <section class="release-version" aria-labelledby="release002">
+      <div class="release-version-head"><h3 id="release002">Public beta 0.0.2</h3><time datetime="2026-09-28">Updated September 28, 2026</time></div>
+      <div class="release-notes">
+        <section class="release-note"><span class="release-note-label">AMPERE</span><div><h4>Find Ampere processors</h4><p>Five families and 26 models joined the dashboard with sourced specifications, filters, search, and comparisons.</p></div></section>
+        <section class="release-note"><span class="release-note-label">ROADMAPS</span><div><h4>Separate announced products from released models</h4><p>Manufacturer-sourced roadmap groups now sit above the product timelines without changing released-model counts.</p></div></section>
+        <section class="release-note"><span class="release-note-label">XEON / EPYC</span><div><h4>Clarify families and platform links</h4><p>Xeon 6300P moved to its Raptor Lake-E Refresh family. The EPYC 9005 guide gained clearer G/P SERDES and socket-link explanations.</p></div></section>
+      </div>
+    </section>
+    <section class="release-version" aria-labelledby="release001">
+      <div class="release-version-head"><h3 id="release001">Public beta 0.0.1</h3><time datetime="2026-09-25">Updated September 25, 2026</time></div>
+      <div class="release-notes">
+        <section class="release-note"><span class="release-note-label">EPYC 9005</span><div><h4>See the first architecture guide</h4><p>Interactive diagrams and plain definitions explain the chiplets, cores, memory, I/O, and connections.</p></div></section>
+        <section class="release-note"><span class="release-note-label">DISCOVERY</span><div><h4>Find and compare products more easily</h4><p>Search expanded across AMD, Intel, and NVIDIA; comparison details became clearer and small text easier to read.</p></div></section>
+        <section class="release-note"><span class="release-note-label">DETAILS</span><div><h4>More source context</h4><p>Intel gained a refreshed dark theme, and EPYC tables began showing AMD's published 1,000-unit pricing where available.</p></div></section>
+      </div>
     </section>
   </div>
 </dialog>
@@ -241,8 +296,8 @@
   <script src="js/roadmap.js?v=20260928-xeon-guide-1"></script>
   <script src="js/intel-v2.js?v=20260928-xeon-guide-1"></script>
 <script src="js/amd-v2.js?v=20260928-xeon-guide-1"></script>
-<script src="js/nvidia-v2.js?v=20260928-xeon-guide-1"></script>
+<script src="js/nvidia-v2.js?v=20260930-public-beta-004"></script>
 <script src="js/ampere-v2.js?v=20260928-xeon-guide-1"></script>
-<script src="js/script.js?v=20260928-amd-alignment-1"></script>
+<script src="js/script.js?v=20260930-public-beta-004"></script>
 </body>
 </html>

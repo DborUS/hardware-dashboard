@@ -267,16 +267,23 @@ def main():
             page.goto(base, wait_until="networkidle")
             page.wait_for_timeout(900)
 
-            if page.locator(".brand-lockup-version").inner_text().strip().lower() != "public beta 0.0.3":
-                failures.append("header does not show public beta 0.0.3")
+            if page.locator(".brand-lockup-version").inner_text().strip().lower() != "public beta 0.0.4":
+                failures.append("header does not show public beta 0.0.4")
             page.click("#whatsNewBtn")
-            release_topics = page.locator("#whatsNewDialog .release-note h3").all_inner_texts()
-            if count("#whatsNewDialog[open]") != 1 or len(release_topics) != 2 or not all(
-                term in " ".join(release_topics).lower() for term in ("xeon 6", "epyc 9005")
+            releases = page.locator("#releaseHistory .release-version")
+            release_dates = releases.locator("time").all_inner_texts()
+            release_topics = page.locator("#whatsNewDialog .release-note h4").all_inner_texts()
+            if count("#whatsNewDialog[open]") != 1 or len(release_topics) < 8 or not all(
+                term in " ".join(release_topics).lower()
+                for term in ("grace hopper", "xeon 6", "epyc 9005")
             ):
-                failures.append("What's new dialog did not show both architecture-guide topics")
-            if "since public beta 0.0.2" not in page.locator("#whatsNewDialog").inner_text().lower():
-                failures.append("release notes do not identify the previous version")
+                failures.append("What's new dialog is missing release topics")
+            if releases.count() != 4 or len(release_dates) != 4 or not all(release_dates):
+                failures.append("What's new history is missing dated beta upgrades")
+            if not page.locator("#releaseHistory").evaluate(
+                "el => el.scrollHeight > el.clientHeight"
+            ):
+                failures.append("What's new history is not scrollable")
             page.keyboard.press("Escape")
             page.wait_for_timeout(150)  # native dialog close and aria sync are asynchronous
             if count("#whatsNewDialog[open]") != 0 or page.locator("#whatsNewBtn").get_attribute("aria-expanded") != "false":

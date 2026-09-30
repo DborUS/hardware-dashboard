@@ -4,7 +4,7 @@
 
 // Bump when any js/data/*.json changes, so browsers refetch instead of serving a
 // stale copy. Mirrors the ?v= on the script tag in index.html.
-const DATA_VERSION = '20260928-amd-alignment-1';
+const DATA_VERSION = '20260930-public-beta-004';
 
 // Cache for loaded data to avoid redundant fetches
 const dataCache = {};
@@ -498,6 +498,7 @@ const DASHBOARD_XEON_VIEW_MODES = {
   snc: ['unified', '6900-local', '6700-local', 'single', '6700E-local'],
   io: ['6900-2S', '6700-2S', '6781-1S', '6700E-2S']
 };
+const DASHBOARD_GH200_VIEWS = new Set(['superchip', 'grace', 'hopper']);
 let dashboardGuideOpen = false;
 let dashboardGuideDiagram = 'package';
 let dashboardGuidePreviousScroll = 0;
@@ -506,6 +507,9 @@ let dashboardEpycTermBound = false;
 let dashboardXeonGuideOpen = false;
 let dashboardXeonGuideRoute = {view: 'family', mode: null};
 let dashboardXeonGuidePreviousScroll = 0;
+let dashboardGh200GuideOpen = false;
+let dashboardGh200GuideView = 'superchip';
+let dashboardGh200GuidePreviousScroll = 0;
 
 // ════════════════════════════════════════
 // CACHED DOM REFERENCES (Performance)
@@ -576,8 +580,10 @@ async function switchVendor(vendor, targetTab = null) {
   currentVendor = vendor;
   dashboardGuideOpen = false;
   dashboardXeonGuideOpen = false;
+  dashboardGh200GuideOpen = false;
   dashboardSyncEpycGuide();
   dashboardSyncXeonGuide();
+  dashboardSyncGh200Guide();
   currentTechTab = 'cpu';
   expandedGroups.clear();
   activeSegmentTags.clear();
@@ -681,6 +687,7 @@ async function switchVendor(vendor, targetTab = null) {
   dashboardRestoreSelectedRows();
   dashboardSyncEpycGuide();
   dashboardSyncXeonGuide();
+  dashboardSyncGh200Guide();
   dashboardStateChanged();
 }
 
@@ -1008,6 +1015,78 @@ function dashboardXeonGuideReceiveMessage(event) {
   }
 }
 
+function dashboardGh200GuideEligible() {
+  return currentVendor === 'nvidia' && n2Tab === 'cpu';
+}
+
+/** Show the GH200 atlas beside the NVIDIA CPU products without replacing their state. */
+function dashboardSyncGh200Guide() {
+  const nav = document.getElementById('gh200ModeNav');
+  const panel = document.getElementById('gh200GuidePanel');
+  if (!nav || !panel) return;
+  const eligible = dashboardGh200GuideEligible();
+  if (!eligible) dashboardGh200GuideOpen = false;
+  const open = eligible && dashboardGh200GuideOpen;
+  nav.hidden = !eligible;
+  panel.hidden = !open;
+  document.body.classList.toggle('gh200-guide-open', open);
+  const productTab = document.getElementById('gh200ProductsTab');
+  const guideTab = document.getElementById('gh200GuideTab');
+  productTab?.classList.toggle('active', !open);
+  guideTab?.classList.toggle('active', open);
+  productTab?.setAttribute('aria-selected', String(!open));
+  guideTab?.setAttribute('aria-selected', String(open));
+}
+
+function dashboardOpenGh200Guide(requestedView = null) {
+  if (!dashboardGh200GuideEligible()) return false;
+  if (!dashboardGh200GuideOpen) dashboardGh200GuidePreviousScroll = window.scrollY;
+  const previousView = dashboardGh200GuideView;
+  if (requestedView && DASHBOARD_GH200_VIEWS.has(requestedView)) {
+    dashboardGh200GuideView = requestedView;
+  }
+  dashboardGh200GuideOpen = true;
+  dashboardSyncGh200Guide();
+  const frame = document.getElementById('gh200GuideFrame');
+  if (frame && (!frame.hasAttribute('src') || previousView !== dashboardGh200GuideView)) {
+    const params = new URLSearchParams({
+      embedded: '1', view: dashboardGh200GuideView, v: '20260930-gh200-1'
+    });
+    frame.src = `architecture/gh200/index.html?${params.toString()}`;
+  }
+  dashboardStateChanged();
+  const nav = document.getElementById('gh200ModeNav');
+  if (nav && nav.getBoundingClientRect().top < -80) nav.scrollIntoView({block: 'start'});
+  return true;
+}
+
+function dashboardCloseGh200Guide() {
+  if (!dashboardGh200GuideOpen) return;
+  dashboardGh200GuideOpen = false;
+  dashboardSyncGh200Guide();
+  dashboardStateChanged();
+  requestAnimationFrame(() => window.scrollTo({top: dashboardGh200GuidePreviousScroll}));
+}
+
+function dashboardGh200GuideReceiveMessage(event) {
+  const frame = document.getElementById('gh200GuideFrame');
+  if (!frame || event.source !== frame.contentWindow) return;
+  if (location.protocol === 'file:') {
+    if (event.origin !== 'null' && event.origin !== location.origin) return;
+  } else if (event.origin !== location.origin) return;
+  const data = event.data;
+  if (!data || typeof data !== 'object') return;
+  if (!['gh200-atlas:ready', 'gh200-atlas:height', 'gh200-atlas:view'].includes(data.type)) return;
+  const height = Number(data.height);
+  if (Number.isFinite(height) && height >= 300 && height <= 20000) {
+    frame.style.height = `${Math.ceil(height)}px`;
+  }
+  if (typeof data.view === 'string' && DASHBOARD_GH200_VIEWS.has(data.view)) {
+    dashboardGh200GuideView = data.view;
+    if (dashboardGh200GuideOpen) dashboardStateChanged();
+  }
+}
+
 function dashboardApplyCoreValues(core, values) {
   if (!core || !values || values.length !== 2) return;
   const nearest = value => {
@@ -1042,7 +1121,10 @@ function dashboardReadUrlState() {
     diagram: DASHBOARD_EPYC_DIAGRAMS.has(params.get('diagram'))
       ? params.get('diagram') : 'package',
     xeonGuide: params.get('panel') === 'guide' && params.get('guide') === 'xeon-6',
-    xeonRoute: dashboardXeonRoute(params.get('diagram'), params.get('mode'))
+    xeonRoute: dashboardXeonRoute(params.get('diagram'), params.get('mode')),
+    gh200Guide: params.get('panel') === 'guide' && params.get('guide') === 'gh200',
+    gh200View: DASHBOARD_GH200_VIEWS.has(params.get('diagram'))
+      ? params.get('diagram') : 'superchip'
   };
 }
 
@@ -1077,6 +1159,10 @@ function dashboardWriteUrl() {
     params.set('guide', 'xeon-6');
     params.set('diagram', dashboardXeonGuideRoute.view);
     if (dashboardXeonGuideRoute.mode) params.set('mode', dashboardXeonGuideRoute.mode);
+  } else if (dashboardGh200GuideOpen && dashboardGh200GuideEligible()) {
+    params.set('panel', 'guide');
+    params.set('guide', 'gh200');
+    params.set('diagram', dashboardGh200GuideView);
   }
   const next = `${window.location.pathname}?${params.toString()}`;
   window.history.replaceState(null, '', next);
@@ -1100,10 +1186,13 @@ async function dashboardApplyUrlState(state) {
   }
   dashboardSyncEpycGuide();
   dashboardSyncXeonGuide();
+  dashboardSyncGh200Guide();
   if (state.guide && dashboardEpycGuideEligible()) {
     dashboardOpenEpycGuide(state.diagram);
   } else if (state.xeonGuide && dashboardXeonGuideEligible()) {
     dashboardOpenXeonGuide(state.xeonRoute.view, state.xeonRoute.mode);
+  } else if (state.gh200Guide && dashboardGh200GuideEligible()) {
+    dashboardOpenGh200Guide(state.gh200View);
   }
 }
 
@@ -2527,6 +2616,12 @@ initDomCache();
   window.addEventListener('message', dashboardXeonGuideReceiveMessage);
 })();
 
+(function wireGh200Guide() {
+  document.getElementById('gh200ProductsTab')?.addEventListener('click', dashboardCloseGh200Guide);
+  document.getElementById('gh200GuideTab')?.addEventListener('click', () => dashboardOpenGh200Guide());
+  window.addEventListener('message', dashboardGh200GuideReceiveMessage);
+})();
+
 // Narrow screens collapse the filter sidebar behind a disclosure button.
 // Above 900px the button is display:none and this listener never fires.
 (function wireSidebarToggle() {
@@ -2544,6 +2639,7 @@ setupKeyboardHandlers();
 dom.dataSourcesBtn.addEventListener('click', dashboardShowSources);
 dom.whatsNewBtn.addEventListener('click', () => {
   dom.whatsNewDialog.showModal();
+  document.getElementById('releaseHistory').scrollTop = 0;
   dom.whatsNewBtn.setAttribute('aria-expanded', 'true');
 });
 dom.whatsNewDialog.addEventListener('close', () => {

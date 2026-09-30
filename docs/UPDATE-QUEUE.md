@@ -6,6 +6,16 @@ short and plain; the technical details belong in `CHANGELOG.md`.
 
 ## Pending publication
 
+### Browse earlier public beta upgrades
+- Changed: 2026-09-30
+- Live: Pending
+- Update: The What's new panel now scrolls through dated summaries of public beta 0.0.1, 0.0.2, 0.0.3, and 0.0.4, so visitors can see what each upgrade added.
+
+### Understand the Grace Hopper architecture
+- Changed: 2026-09-30
+- Live: Pending
+- Update: Open the NVIDIA CPU architecture guide for three GH200 diagrams showing where Grace, Hopper, their memory, and their chip-to-chip link sit. Cleaner CPU and GPU layouts and expanded component definitions trace how requests move through cache, memory, and the interconnect, while distinguishing the full GH100 blueprint from enabled products. Underlined terms in the explanations open short definitions without leaving the diagram.
+
 ### Public beta 0.0.3 and What's new
 - Changed: 2026-09-28
 - Live: Pending
