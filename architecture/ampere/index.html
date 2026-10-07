@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080a0f">
+  <title>Ampere Architecture Guide | ChipIndex</title>
+  <script>if (new URLSearchParams(location.search).get('embedded') === '1') document.documentElement.classList.add('embedded');</script>
+  <link rel="stylesheet" href="styles.css?v=20261007-ampere-guide-1">
+</head>
+<body>
+  <main class="guide-shell">
+    <header class="masthead">
+      <a class="brand" href="../../index.html?vendor=ampere&amp;tab=processors" target="_top" aria-label="ChipIndex Ampere products">
+        <strong>ChipIndex</strong><span class="brand-divider" aria-hidden="true">/</span><span>FIELD GUIDE</span>
+      </a>
+      <span class="masthead-context">AMPERE <span aria-hidden="true">/</span> ARCHITECTURE</span>
+    </header>
+
+    <div class="status-line" aria-label="Ampere architecture guide status: in progress">
+      <span class="status-index">FIELD GUIDE <span aria-hidden="true">/</span> AMPERE</span>
+      <span class="status-badge"><span class="status-dot" aria-hidden="true"></span> IN PROGRESS</span>
+    </div>
+
+    <section class="guide-stage" aria-labelledby="guide-title">
+      <div class="stage-copy">
+        <p class="eyebrow">ARCHITECTURE GUIDE</p>
+        <h1 id="guide-title">Ampere architecture<span class="title-period">.</span></h1>
+        <p class="lead">The architecture guide is in progress.</p>
+        <p class="description">This space will hold sourced diagrams and explanations once they have been reviewed. For now, explore the Ampere processor specifications in the product catalog.</p>
+        <a class="products-link" href="../../index.html?vendor=ampere&amp;tab=processors" target="_top">
+          View Ampere products <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="reserved-panel" role="img" aria-label="Diagram area reserved for the future Ampere architecture guide; no diagram has been published yet">
+        <div class="panel-top"><span>ARCHITECTURE VIEW</span><span>01 / PENDING</span></div>
+        <div class="panel-center">
+          <span class="empty-mark" aria-hidden="true">+</span>
+          <strong>Diagram in preparation</strong>
+          <span>No architecture diagram is published here yet.</span>
+        </div>
+        <div class="panel-bottom"><span>CHIPINDEX / FIELD GUIDE</span><span>AMPERE</span></div>
+      </div>
+    </section>
+
+    <footer class="footer"><span>Continue with the product catalog while this guide is prepared.</span><span>AMPERE / CHIPINDEX</span></footer>
+  </main>
+  <script>
+    if (document.documentElement.classList.contains('embedded') && window.parent !== window) {
+      const shell = document.querySelector('.guide-shell');
+      const reportHeight = () => window.parent.postMessage({
+        type: 'ampere-atlas:height',
+        height: Math.ceil(shell.getBoundingClientRect().height)
+      }, location.origin);
+      window.addEventListener('load', reportHeight);
+      new ResizeObserver(reportHeight).observe(shell);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,746 @@
+valid,1
+
+"SPEC CPU2026 Integer Rate Result"
+
+"Full Results Table"
+
+Benchmark,"Base # Copies","Base Run Time","Base Rate","Base Selected","Base Status","Peak # Copies","Peak Run Time","Peak Rate","Peak Selected","Peak Status",Description
+706.stockfish_r,1,100.039954,12.594968,0,S,,,,,,"refrate(ref) iteration #1"
+706.stockfish_r,1,100.999109,12.475358,1,S,,,,,,"refrate(ref) iteration #2"
+706.stockfish_r,1,101.956756,12.358181,0,S,,,,,,"refrate(ref) iteration #3"
+707.ntest_r,1,120.604327,4.908613,0,S,,,,,,"refrate(ref) iteration #1"
+707.ntest_r,1,117.205142,5.050973,0,S,,,,,,"refrate(ref) iteration #2"
+707.ntest_r,1,119.448614,4.956106,1,S,,,,,,"refrate(ref) iteration #3"
+708.sqlite_r,1,134.376417,3.929261,1,S,,,,,,"refrate(ref) iteration #1"
+708.sqlite_r,1,136.761354,3.86074,0,S,,,,,,"refrate(ref) iteration #2"
+708.sqlite_r,1,128.94978,4.094617,0,S,,,,,,"refrate(ref) iteration #3"
+710.omnetpp_r,1,82.641823,5.8808,1,S,,,,,,"refrate(ref) iteration #1"
+710.omnetpp_r,1,82.613167,5.882839,0,S,,,,,,"refrate(ref) iteration #2"
+710.omnetpp_r,1,82.784596,5.870657,0,S,,,,,,"refrate(ref) iteration #3"
+714.cpython_r,1,69.983404,6.84448,1,S,,,,,,"refrate(ref) iteration #1"
+714.cpython_r,1,70.561022,6.78845,0,S,,,,,,"refrate(ref) iteration #2"
+714.cpython_r,1,69.406384,6.901382,0,S,,,,,,"refrate(ref) iteration #3"
+721.gcc_r,1,124.385562,5.51511,1,S,,,,,,"refrate(ref) iteration #1"
+721.gcc_r,1,125.384538,5.471169,0,S,,,,,,"refrate(ref) iteration #2"
+721.gcc_r,1,117.562518,5.835193,0,S,,,,,,"refrate(ref) iteration #3"
+723.llvm_r,1,96.005312,5.280958,0,S,,,,,,"refrate(ref) iteration #1"
+723.llvm_r,1,97.722275,5.188172,0,S,,,,,,"refrate(ref) iteration #2"
+723.llvm_r,1,96.266598,5.266624,1,S,,,,,,"refrate(ref) iteration #3"
+727.cppcheck_r,1,66.762614,5.377261,0,S,,,,,,"refrate(ref) iteration #1"
+727.cppcheck_r,1,66.813979,5.373127,1,S,,,,,,"refrate(ref) iteration #2"
+727.cppcheck_r,1,66.982791,5.359586,0,S,,,,,,"refrate(ref) iteration #3"
+729.abc_r,1,104.557767,4.389918,1,S,,,,,,"refrate(ref) iteration #1"
+729.abc_r,1,103.507824,4.434447,0,S,,,,,,"refrate(ref) iteration #2"
+729.abc_r,1,104.625553,4.387074,0,S,,,,,,"refrate(ref) iteration #3"
+734.vpr_r,1,86.951521,5.301805,1,S,,,,,,"refrate(ref) iteration #1"
+734.vpr_r,1,86.692694,5.317634,0,S,,,,,,"refrate(ref) iteration #2"
+734.vpr_r,1,87.814887,5.249679,0,S,,,,,,"refrate(ref) iteration #3"
+735.gem5_r,1,82.367147,5.912552,1,S,,,,,,"refrate(ref) iteration #1"
+735.gem5_r,1,82.85939,5.877427,0,S,,,,,,"refrate(ref) iteration #2"
+735.gem5_r,1,82.27664,5.919056,0,S,,,,,,"refrate(ref) iteration #3"
+750.sealcrypto_r,1,45.29762,11.832851,0,S,,,,,,"refrate(ref) iteration #1"
+750.sealcrypto_r,1,43.297734,12.379401,0,S,,,,,,"refrate(ref) iteration #2"
+750.sealcrypto_r,1,45.172435,11.865643,1,S,,,,,,"refrate(ref) iteration #3"
+753.ns3_r,1,81.115034,7.557169,1,S,,,,,,"refrate(ref) iteration #1"
+753.ns3_r,1,81.015035,7.566497,0,S,,,,,,"refrate(ref) iteration #2"
+753.ns3_r,1,81.189863,7.550204,0,S,,,,,,"refrate(ref) iteration #3"
+777.zstd_r,1,165.973422,3.880139,1,S,,,,,,"refrate(ref) iteration #1"
+777.zstd_r,1,166.174463,3.875445,0,S,,,,,,"refrate(ref) iteration #2"
+777.zstd_r,1,143.612459,4.484291,0,S,,,,,,"refrate(ref) iteration #3"
+
+"Selected Results Table"
+
+Benchmark,"Base # Copies","Base Run Time","Base Rate","Base Selected","Base Status","Peak # Copies","Peak Run Time","Peak Rate","Peak Selected","Peak Status",Description
+706.stockfish_r,1,100.999109,12.475358,1,S,,,,,NR,"SelectedIteration (base #2; peak NR)"
+707.ntest_r,1,119.448614,4.956106,1,S,,,,,NR,"SelectedIteration (base #3; peak NR)"
+708.sqlite_r,1,134.376417,3.929261,1,S,,,,,NR,"SelectedIteration (base #1; peak NR)"
+710.omnetpp_r,1,82.641823,5.8808,1,S,,,,,NR,"SelectedIteration (base #1; peak NR)"
+714.cpython_r,1,69.983404,6.84448,1,S,,,,,NR,"SelectedIteration (base #1; peak NR)"
+721.gcc_r,1,124.385562,5.51511,1,S,,,,,NR,"SelectedIteration (base #1; peak NR)"
+723.llvm_r,1,96.266598,5.266624,1,S,,,,,NR,"SelectedIteration (base #3; peak NR)"
+727.cppcheck_r,1,66.813979,5.373127,1,S,,,,,NR,"SelectedIteration (base #2; peak NR)"
+729.abc_r,1,104.557767,4.389918,1,S,,,,,NR,"SelectedIteration (base #1; peak NR)"
+734.vpr_r,1,86.951521,5.301805,1,S,,,,,NR,"SelectedIteration (base #1; peak NR)"
+735.gem5_r,1,82.367147,5.912552,1,S,,,,,NR,"SelectedIteration (base #1; peak NR)"
+750.sealcrypto_r,1,45.172435,11.865643,1,S,,,,,NR,"SelectedIteration (base #3; peak NR)"
+753.ns3_r,1,81.115034,7.557169,1,S,,,,,NR,"SelectedIteration (base #1; peak NR)"
+777.zstd_r,1,165.973422,3.880139,1,S,,,,,NR,"SelectedIteration (base #1; peak NR)"
+
+SPECrate2026_int_base,5.970105,,5.970105
+SPECrate2026_int_peak,"Not Run",,,,,,,"Not Run"
+
+"Run number:",001.1
+"runcpu command:","/opt/builds/spec2026/bin/harness/runcpu --configfile llvm-rc-linux-aarch64-dgx-spark.cfg --action run --iterations 4 --reportable --nopower --runmode rate --tune base --size refrate intrate"
+"output root:","not used"
+
+"Hardware Vendor:",NVIDIA
+"Hardware Model:","NVIDIA DGX Spark (3.9 GHz NVIDIA GB10 CPU)"
+"Date tested:",Feb-2026
+"CPU2026 License:",9044
+"Test sponsor:",Arm
+"Tested by:",Arm
+"Hardware avail:",Oct-2025
+"Software avail:",Feb-2026
+
+
+HARDWARE
+
+"CPU Name","NVIDIA GB10"
+"  Max MHz",4004
+"  Nominal",3900
+Enabled,"20 (10x Cortex-X925, 10x Cortex-A725) cores, 1 chip"
+Orderable,"1 chips"
+"Cache L1","64 KB I + 64 KB D on chip per core"
+"  L2","2 MB I+D on chip per core; 512 KB I+D on"
+,"chip per core"
+"  L3","16 MB I+D on chip per 10 core cluster (Cluster"
+,"1); 8 MB I+D on chip per 10 core cluster (Cluster"
+,0)
+"  Other",None
+Memory,"128 GB (LPDDR5X-8533 MT/s)"
+Storage,"1 x 3.7 TB NVMe SSD"
+Cooling,Air
+Other,None
+
+SOFTWARE
+
+OS,"Ubuntu 24.04.3 LTS"
+,6.14.0-1013-nvidia
+Compiler,"C/C++/Fortran: Version 22.1.0 of LLVM"
+"Compiler Category",Community
+Firmware,"Version 5.36_0ACUM018 released Aug-2025"
+"File System",ext4
+"System State","Run level 5 (graphical multi-user)"
+"Base Pointers",64-bit
+"Peak Pointers","Not Applicable"
+Other,None
+"Power Management","OS set to prefer performance at the cost of"
+,"additional power usage"
+
+"Compiler Notes"
+
+" The compiler used was release candidate 2 of llvm 22.1.0,"
+" downloaded from github.com/llvm/llvm-project/releases/download/llvmorg-22.1.0-rc2"
+" built locally with GCC14 with default flags and clang, flang and lld projects"
+" following the instructions detailed here: https://llvm.org/docs/CMake.html"
+
+"Operating System Notes"
+
+" 'ulimit -s unlimited' was used to set environment stack size limit"
+" THP was enabled by running $echo always | sudo tee /sys/kernel/mm/transparent_hugepage/enabled"
+
+"Environment Variables Notes"
+
+"Environment variables set by runcpu before the start of the run:"
+"LD_LIBRARY_PATH ="
+"     ""/opt/llvm/llvm-22.1.0-rc2/lib64/:/opt/llvm/llvm-22.1.0-rc2/lib/:/lib64"""
+
+
+"General Notes"
+
+" CPU consists of 2 heterogeneous clusters: with L3 of 8MB and 16MB respectively."
+" Each CPU cluster is made up of 5 e-cores and 5 p-cores"
+
+"Platform Notes"
+
+
+" Sysinfo program /opt/builds/spec2026/bin/sysinfo"
+" Rev: 069f95da7e7f5d81b2ce48a82150e54f"
+" running on spark-ca5f Fri Feb  6 10:24:39 2026"
+
+" SUT (System Under Test) info as seen by some common utilities."
+
+" ------------------------------------------------------------"
+" Table of contents"
+" ------------------------------------------------------------"
+"  1. uname -srvm"
+"  2. w"
+"  3. Username"
+"  4. ulimit -a"
+"  5. sysinfo process ancestry"
+"  6. /proc/cpuinfo"
+"  7. lscpu"
+"  8. numactl --hardware"
+"  9. /proc/meminfo"
+" 10. who -r"
+" 11. Systemd service manager version: systemd 255 (255.4-1ubuntu8.11)"
+" 12. Services, from systemctl list-unit-files"
+" 13. Linux kernel boot-time arguments, from /proc/cmdline"
+" 14. cpupower frequency-info"
+" 15. sysctl"
+" 16. /sys/kernel/mm/transparent_hugepage"
+" 17. /sys/kernel/mm/transparent_hugepage/khugepaged"
+" 18. OS release"
+" 19. Disk information"
+" 20. /sys/devices/virtual/dmi/id"
+" 21. dmidecode"
+" 22. BIOS"
+" ------------------------------------------------------------"
+
+" ------------------------------------------------------------"
+" 1. uname -srvm"
+"   Linux 6.14.0-1013-nvidia #13-Ubuntu SMP PREEMPT_DYNAMIC Wed Oct 29 06:01:19 UTC 2025 aarch64"
+
+" ------------------------------------------------------------"
+" 2. w"
+"    10:24:39 up 2 days,  1:59,  2 users,  load average: 0.94, 0.99, 1.00"
+"   USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU  WHAT"
+"   fralov01          10.34.125.5      08:02    1:18m  0.00s  0.03s sshd: fralov01 [priv]"
+"   gdm      tty1     -                Wed08    2days  1:28   0.04s /usr/bin/gjs -m"
+"   /usr/share/gnome-shell/org.gnome.ScreenSaver"
+
+" ------------------------------------------------------------"
+" 3. Username"
+"   From environment variable $USER:  root"
+"   From the command 'logname':       fralov01"
+
+" ------------------------------------------------------------"
+" 4. ulimit -a"
+"   time(seconds)        unlimited"
+"   file(blocks)         unlimited"
+"   data(kbytes)         unlimited"
+"   stack(kbytes)        unlimited"
+"   coredump(blocks)     0"
+"   memory(kbytes)       unlimited"
+"   locked memory(kbytes) 15688996"
+"   process              511872"
+"   nofiles              1024"
+"   vmemory(kbytes)      unlimited"
+"   locks                unlimited"
+"   rtprio               0"
+
+" ------------------------------------------------------------"
+" 5. sysinfo process ancestry"
+"  /sbin/init splash"
+"  sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+"  sshd: fralov01 [priv]"
+"  sshd: fralov01@pts/0"
+"  -bash"
+"  sudo bash"
+"  sudo bash"
+"  bash"
+"  runcpu --config=llvm-rc-linux-aarch64-dgx-spark.cfg --action=run fprate intrate --iterations=4 --reportable"
+"  runcpu --configfile llvm-rc-linux-aarch64-dgx-spark.cfg --action run --iterations 4 --reportable --nopower"
+"    --runmode rate --tune base --size refrate intrate --nopreenv --note-preenv --logfile"
+"    $SPEC/tmp/CPU2026.001/templogs/preenv.intrate.001.1.log --lognum 001.1 --from_runcpu 2"
+"  specperl $SPEC/bin/sysinfo -f"
+" $SPEC = /opt/builds/spec2026"
+
+" ------------------------------------------------------------"
+" 6. /proc/cpuinfo"
+"     CPU implementer : 0x41"
+"     CPU architecture: 8"
+"     CPU variant     : 0x0"
+"     CPU part        : 0xd85"
+"     CPU part        : 0xd87"
+"     CPU revision    : 1"
+"     Features        : fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt"
+"                       fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm sb"
+"                       paca pacg dcpodp sve2 sveaes svepmull svebitperm svesha3 svesm4 flagm2 frint svei8mm"
+"                       svebf16 i8mm bf16 dgh bti ecv afp wfxt"
+"    WARNING: the number of ""processors"" from /proc/cpuinfo does not seem to match the number of hardware"
+"    threads as reported by lscpu.   Please verify counts independently."
+
+" ------------------------------------------------------------"
+" 7. lscpu"
+
+" From lscpu from util-linux 2.39.3:"
+"   Architecture:                            aarch64"
+"   CPU op-mode(s):                          64-bit"
+"   Byte Order:                              Little Endian"
+"   CPU(s):                                  20"
+"   On-line CPU(s) list:                     0-19"
+"   Vendor ID:                               ARM"
+"   BIOS Vendor ID:                          NVIDIA"
+"   Model name:                              Cortex-X925"
+"   BIOS Model name:                         GB10 Spark CPU @ 3.9GHz"
+"   BIOS CPU family:                         258"
+"   Model:                                   1"
+"   Thread(s) per core:                      1"
+"   Core(s) per socket:                      10"
+"   Socket(s):                               1"
+"   Stepping:                                r0p1"
+"   CPU(s) scaling MHz:                      116%"
+"   CPU max MHz:                             4004.0000"
+"   CPU min MHz:                             1378.0000"
+"   BogoMIPS:                                2000.00"
+"   Flags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp"
+"                                            cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512"
+"                                            sve asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp sve2"
+"                                            sveaes svepmull svebitperm svesha3 svesm4 flagm2 frint svei8mm"
+"                                            svebf16 i8mm bf16 dgh bti ecv afp wfxt"
+"   Model name:                              Cortex-A725"
+"   BIOS Model name:                         GB10 Spark CPU @ 3.9GHz"
+"   BIOS CPU family:                         258"
+"   Model:                                   1"
+"   Thread(s) per core:                      1"
+"   Core(s) per socket:                      10"
+"   Socket(s):                               1"
+"   Stepping:                                r0p1"
+"   CPU(s) scaling MHz:                      83%"
+"   CPU max MHz:                             2860.0000"
+"   CPU min MHz:                             338.0000"
+"   BogoMIPS:                                2000.00"
+"   Flags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp"
+"                                            cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512"
+"                                            sve asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp sve2"
+"                                            sveaes svepmull svebitperm svesha3 svesm4 flagm2 frint svei8mm"
+"                                            svebf16 i8mm bf16 dgh bti ecv afp wfxt"
+"   L1d cache:                               1.3 MiB (20 instances)"
+"   L1i cache:                               1.3 MiB (20 instances)"
+"   L2 cache:                                25 MiB (20 instances)"
+"   L3 cache:                                24 MiB (2 instances)"
+"   NUMA node(s):                            1"
+"   NUMA node0 CPU(s):                       0-19"
+"   Vulnerability Gather data sampling:      Not affected"
+"   Vulnerability Ghostwrite:                Not affected"
+"   Vulnerability Indirect target selection: Not affected"
+"   Vulnerability Itlb multihit:             Not affected"
+"   Vulnerability L1tf:                      Not affected"
+"   Vulnerability Mds:                       Not affected"
+"   Vulnerability Meltdown:                  Not affected"
+"   Vulnerability Mmio stale data:           Not affected"
+"   Vulnerability Reg file data sampling:    Not affected"
+"   Vulnerability Retbleed:                  Not affected"
+"   Vulnerability Spec rstack overflow:      Not affected"
+"   Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl"
+"   Vulnerability Spectre v1:                Mitigation; __user pointer sanitization"
+"   Vulnerability Spectre v2:                Mitigation; CSV2, BHB"
+"   Vulnerability Srbds:                     Not affected"
+"   Vulnerability Tsa:                       Not affected"
+"   Vulnerability Tsx async abort:           Not affected"
+"   Vulnerability Vmscape:                   Not affected"
+
+" From lscpu --cache:"
+"      NAME ONE-SIZE ALL-SIZE WAYS TYPE        LEVEL SETS PHY-LINE COHERENCY-SIZE"
+"      L1d       64K     1.3M    4 Data            1  256                      64"
+"      L1i       64K     1.3M    4 Instruction     1  256                      64"
+"      L2       512K      25M    8 Unified         2 1024                      64"
+"      L3         8M      24M   16 Unified         3 8192                      64"
+
+" ------------------------------------------------------------"
+" 8. numactl --hardware"
+" NOTE: a numactl 'node' might or might not correspond to a physical chip."
+"   available: 1 nodes (0)"
+"   node 0 cpus: 0-19"
+"   node 0 size: 122570 MB"
+"   node 0 free: 42736 MB"
+"   node distances:"
+"   node   0"
+"     0:  10"
+
+" ------------------------------------------------------------"
+" 9. /proc/meminfo"
+"    MemTotal:       125511968 kB"
+
+" ------------------------------------------------------------"
+" 10. who -r"
+"   run-level 5 Feb 4 08:25"
+
+" ------------------------------------------------------------"
+" 11. Systemd service manager version: systemd 255 (255.4-1ubuntu8.11)"
+"   Default Target  Status"
+"   graphical       running"
+
+" ------------------------------------------------------------"
+" 12. Services, from systemctl list-unit-files"
+"   STATE            UNIT FILES"
+"   enabled          ModemManager NetworkManager NetworkManager-dispatcher accounts-daemon anacron apparmor"
+"                    apport avahi-daemon blk-availability bluetooth cfg-iommu cloud-config cloud-final"
+"                    cloud-init cloud-init-local console-setup containerd cron cups cups-browsed dgx-dashboard"
+"                    dgx-dashboard-admin dgx-release dgxstation-desktop dmesg docker e2scrub_reap finalrd"
+"                    getty@ gnome-remote-desktop grub-common grub-initrd-fallback kdump-tools keyboard-setup"
+"                    lvm2-monitor multipathd networkd-dispatcher nv-cpu-governor nv-docker-gpus"
+"                    nvidia-cdi-refresh nvidia-conf-xconfig nvidia-console-settings nvidia-disable-aqc-nic"
+"                    nvidia-disable-init-on-alloc nvidia-disable-numa-balancing nvidia-earlycon"
+"                    nvidia-enable-power-meter-cap nvidia-grubserial nvidia-hibernate"
+"                    nvidia-nvme-interrupt-coalescing nvidia-pci-realloc nvidia-persistenced nvidia-raid-config"
+"                    nvidia-redfish-config nvidia-resume nvidia-spark-run-apt-upgrade-once nvidia-suspend"
+"                    nvmefc-boot-connections nvmf-autoconnect open-iscsi open-vm-tools openvpn pollinate"
+"                    ras-mc-ctl rasdaemon restart-resolved rsyslog samba-ad-dc secureboot-db setvtrgb"
+"                    smartmontools snapd srp_daemon ssl-cert switcheroo-control sysstat systemd-pstore"
+"                    systemd-resolved systemd-timesyncd ua-reboot-cmds ubuntu-advantage udisks2 ufw vgauth"
+"                    wpa_supplicant"
+"   enabled-runtime  netplan-ovs-cleanup systemd-fsck-root systemd-remount-fs"
+"   disabled         NetworkManager-wait-online brltty console-getty debug-shell dgx-oobe dgx-oobe-admin"
+"                    dgx-oobe-hostname dgx-oobe-hotspot dgx-oobe-hotspot-watchdog dgx-oobe-ubuntu-pro-activate"
+"                    dnsmasq dnsmasq@ iperf3 ipmievd iscsid nftables nmbd nvidia-desktop-default-snaps"
+"                    nvidia-dgx-sol nvidia-dgx-telemetry nvidia-remove-gnome-software-once"
+"                    nvidia-spark-mlnx-firmware-manager nvidia-spark-remove-once nvidia-suspend-then-hibernate"
+"                    openvpn-client@ openvpn-server@ openvpn@ quota quotarpc rpcbind rsync rtkit-daemon"
+"                    setup-oem-config-override smbd speech-dispatcherd srp_daemon_port@ ssh"
+"                    systemd-boot-check-no-failures systemd-confext systemd-network-generator systemd-networkd"
+"                    systemd-networkd-wait-online systemd-networkd-wait-online@ systemd-pcrlock-file-system"
+"                    systemd-pcrlock-firmware-code systemd-pcrlock-firmware-config systemd-pcrlock-machine-id"
+"                    systemd-pcrlock-make-policy systemd-pcrlock-secureboot-authority"
+"                    systemd-pcrlock-secureboot-policy systemd-sysext systemd-time-wait-sync upower"
+"                    wpa_supplicant-nl80211@ wpa_supplicant-wired@ wpa_supplicant@"
+"   generated        speech-dispatcher"
+"   indirect         saned@ serial-getty@ spice-vdagentd systemd-sysupdate systemd-sysupdate-reboot uuidd"
+"   masked           alsa-utils cryptdisks cryptdisks-early hwclock multipath-tools-boot nfs-common nvsm"
+"                    nvsm-api-gateway nvsm-core nvsm-exporter nvsm-mqtt nvsm-notifier saned screen-cleanup sudo"
+"                    x11-common"
+
+" ------------------------------------------------------------"
+" 13. Linux kernel boot-time arguments, from /proc/cmdline"
+"   BOOT_IMAGE=/boot/vmlinuz-6.14.0-1013-nvidia"
+"   root=UUID=d27bfd26-ff30-400e-9eca-9cdf73de9406"
+"   ro"
+"   init_on_alloc=0"
+"   console=tty0"
+"   plymouth.ignore-serial-consoles"
+"   plymouth.use-simpledrm"
+"   earlycon=uart,mmio32,0x16A00000"
+"   console=tty0"
+"   console=ttyS0,921600"
+"   crashkernel=1G-:0M"
+"   quiet"
+"   splash"
+"   pci=pcie_bus_safe"
+"   vt.handoff=7"
+
+" ------------------------------------------------------------"
+" 14. cpupower frequency-info"
+"   analyzing CPU 19:"
+"     current policy: frequency should be within 1.38 GHz and 4.00 GHz."
+"                     The governor ""performance"" may decide which speed to use"
+"                     within this range."
+
+" ------------------------------------------------------------"
+" 15. sysctl"
+"   kernel.numa_balancing               0"
+"   kernel.randomize_va_space           2"
+"   vm.compaction_proactiveness        20"
+"   vm.dirty_background_bytes           0"
+"   vm.dirty_background_ratio          10"
+"   vm.dirty_bytes                      0"
+"   vm.dirty_expire_centisecs        3000"
+"   vm.dirty_ratio                     20"
+"   vm.dirty_writeback_centisecs      500"
+"   vm.dirtytime_expire_seconds     43200"
+"   vm.extfrag_threshold              500"
+"   vm.min_unmapped_ratio               1"
+"   vm.nr_hugepages                     0"
+"   vm.nr_hugepages_mempolicy           0"
+"   vm.nr_overcommit_hugepages          0"
+"   vm.swappiness                      60"
+"   vm.watermark_boost_factor       15000"
+"   vm.watermark_scale_factor          10"
+"   vm.zone_reclaim_mode                0"
+
+" ------------------------------------------------------------"
+" 16. /sys/kernel/mm/transparent_hugepage"
+"   defrag          always defer defer+madvise [madvise] never"
+"   enabled         [always] madvise never"
+"   hpage_pmd_size  2097152"
+"   shmem_enabled   always within_size advise [never] deny force"
+
+" ------------------------------------------------------------"
+" 17. /sys/kernel/mm/transparent_hugepage/khugepaged"
+"   alloc_sleep_millisecs   60000"
+"   defrag                      1"
+"   max_ptes_none             511"
+"   max_ptes_shared           256"
+"   max_ptes_swap              64"
+"   pages_to_scan            4096"
+"   scan_sleep_millisecs    10000"
+
+" ------------------------------------------------------------"
+" 18. OS release"
+"   From /etc/*-release /etc/*-version"
+"   os-release  Ubuntu 24.04.3 LTS"
+"   dgx-release DGX_NAME=""DGX Spark"""
+
+" ------------------------------------------------------------"
+" 19. Disk information"
+" SPEC is set to: /opt/builds/spec2026"
+"   Filesystem     Type  Size  Used Avail Use% Mounted on"
+"   /dev/nvme0n1p2 ext4  3.7T  493G  3.0T  14% /"
+
+" ------------------------------------------------------------"
+" 20. /sys/devices/virtual/dmi/id"
+"     Vendor:         NVIDIA"
+"     Product:        NVIDIA_DGX_Spark"
+"     Product Family: DGX Spark"
+"     Serial:         1984025007657"
+
+" ------------------------------------------------------------"
+" 21. dmidecode"
+"   Additional information from dmidecode 3.5 follows.  WARNING: Use caution when you interpret this section."
+"   The 'dmidecode' program reads system data which is ""intended to allow hardware to be accurately"
+"   determined"", but the intent may not be met, as there are frequent changes to hardware, firmware, and the"
+"   ""DMTF SMBIOS"" standard."
+"   Memory:"
+"     1x SK Hynix None 128 GB 8533"
+
+
+" ------------------------------------------------------------"
+" 22. BIOS"
+" (This section combines info from /sys/devices and dmidecode.)"
+"    BIOS Vendor:       American Megatrends International, LLC."
+"    BIOS Version:      5.36_0ACUM018"
+"    BIOS Date:         08/06/2025"
+"    BIOS Revision:     5.36"
+
+"Compiler Version Notes"
+
+==============================================================================
+"C      | 708.sqlite_r(base) 714.cpython_r(base) 777.zstd_r(base)"
+------------------------------------------------------------------------------
+"clang version 22.1.0-rc2"
+"Target: aarch64-unknown-linux-gnu"
+"Thread model: posix"
+"InstalledDir: /opt/llvm/llvm-22.1.0-rc2/bin"
+------------------------------------------------------------------------------
+
+==============================================================================
+"C++    | 706.stockfish_r(base) 707.ntest_r(base) 727.cppcheck_r(base)"
+"       | 753.ns3_r(base)"
+------------------------------------------------------------------------------
+"clang version 22.1.0-rc2"
+"Target: aarch64-unknown-linux-gnu"
+"Thread model: posix"
+"InstalledDir: /opt/llvm/llvm-22.1.0-rc2/bin"
+------------------------------------------------------------------------------
+
+==============================================================================
+"C++, C | 710.omnetpp_r(base) 721.gcc_r(base) 723.llvm_r(base) 729.abc_r(base)"
+"       | 734.vpr_r(base) 735.gem5_r(base) 750.sealcrypto_r(base)"
+------------------------------------------------------------------------------
+"clang version 22.1.0-rc2"
+"Target: aarch64-unknown-linux-gnu"
+"Thread model: posix"
+"InstalledDir: /opt/llvm/llvm-22.1.0-rc2/bin"
+------------------------------------------------------------------------------
+
+"Base Runtime Environment"
+706.stockfish_r," No flags used"
+707.ntest_r," No flags used"
+708.sqlite_r," No flags used"
+710.omnetpp_r," No flags used"
+714.cpython_r," No flags used"
+721.gcc_r," No flags used"
+723.llvm_r," No flags used"
+727.cppcheck_r," No flags used"
+729.abc_r," No flags used"
+734.vpr_r," No flags used"
+735.gem5_r," No flags used"
+750.sealcrypto_r," No flags used"
+753.ns3_r," No flags used"
+777.zstd_r," No flags used"
+
+"Base Compiler Invocation"
+706.stockfish_r," clang++"," clang++"
+707.ntest_r," clang++"," clang++"
+708.sqlite_r," clang"," clang"
+710.omnetpp_r," clang++"," clang"," clang++"
+714.cpython_r," clang"," clang"
+721.gcc_r," clang++"," clang"," clang++"
+723.llvm_r," clang++"," clang"," clang++"
+727.cppcheck_r," clang++"," clang++"
+729.abc_r," clang++"," clang"," clang++"
+734.vpr_r," clang++"," clang"," clang++"
+735.gem5_r," clang++"," clang"," clang++"
+750.sealcrypto_r," clang++"," clang"," clang++"
+753.ns3_r," clang++"," clang++"
+777.zstd_r," clang"," clang"
+
+"Base Portability Flags"
+706.stockfish_r," -DSPEC_LP64"
+707.ntest_r," -DSPEC_LP64"
+708.sqlite_r," -DSPEC_LP64"
+710.omnetpp_r," -fno-finite-math-only"," -DSPEC_LP64"
+714.cpython_r," -DSPEC_LP64"
+721.gcc_r," -DSPEC_LP64"
+723.llvm_r," -DSPEC_LP64"
+727.cppcheck_r," -DSPEC_LP64"
+729.abc_r," -DSPEC_LP64"
+734.vpr_r," -fno-finite-math-only"," -DSPEC_LP64"
+735.gem5_r," -fno-finite-math-only"," -DSPEC_LP64"
+750.sealcrypto_r," -DSPEC_LP64"
+753.ns3_r," -fno-finite-math-only"," -DSPEC_LP64"
+777.zstd_r," -DSPEC_LP64"
+
+"Base Optimization Flags"
+706.stockfish_r," -fuse-ld=lld"," -std=c++17"," -fuse-ld=lld"," -std=c++17"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"," -pthread"
+707.ntest_r," -fuse-ld=lld"," -std=c++17"," -fuse-ld=lld"," -std=c++17"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"
+708.sqlite_r," -fuse-ld=lld"," -std=c18"," -fuse-ld=lld"," -std=c18"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"
+710.omnetpp_r," -fuse-ld=lld"," -std=c++17"," -fuse-ld=lld"," -std=c18"," -fuse-ld=lld"," -std=c++17"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"
+714.cpython_r," -fuse-ld=lld"," -std=c18"," -fuse-ld=lld"," -std=c18"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"
+721.gcc_r," -fuse-ld=lld"," -std=c++17"," -fuse-ld=lld"," -std=c18"," -fuse-ld=lld"," -std=c++17"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"
+723.llvm_r," -fuse-ld=lld"," -std=c++17"," -fuse-ld=lld"," -std=c18"," -fuse-ld=lld"," -std=c++17"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"," -pthread"
+727.cppcheck_r," -fuse-ld=lld"," -std=c++17"," -fuse-ld=lld"," -std=c++17"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"
+729.abc_r," -fuse-ld=lld"," -std=c++17"," -fuse-ld=lld"," -std=c18"," -fuse-ld=lld"," -std=c++17"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"
+734.vpr_r," -fuse-ld=lld"," -std=c++17"," -fuse-ld=lld"," -std=c18"," -fuse-ld=lld"," -std=c++17"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"
+735.gem5_r," -fuse-ld=lld"," -std=c++17"," -fuse-ld=lld"," -std=c18"," -fuse-ld=lld"," -std=c++17"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"," -pthread"
+750.sealcrypto_r," -fuse-ld=lld"," -std=c++17"," -fuse-ld=lld"," -std=c18"," -fuse-ld=lld"," -std=c++17"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"
+753.ns3_r," -fuse-ld=lld"," -std=c++17"," -fuse-ld=lld"," -std=c++17"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"
+777.zstd_r," -fuse-ld=lld"," -std=c18"," -fuse-ld=lld"," -std=c18"," -g"," -O3"," -mcpu=native"," -ffast-math"," -flto=thin"," -fomit-frame-pointer"
+
+"Base Other Flags"
+706.stockfish_r," No flags used"
+707.ntest_r," No flags used"
+708.sqlite_r," No flags used"
+710.omnetpp_r," No flags used"
+714.cpython_r," No flags used"
+721.gcc_r," No flags used"
+723.llvm_r," No flags used"
+727.cppcheck_r," No flags used"
+729.abc_r," No flags used"
+734.vpr_r," No flags used"
+735.gem5_r," No flags used"
+750.sealcrypto_r," No flags used"
+753.ns3_r," No flags used"
+777.zstd_r," No flags used"
+
+"Base Forbidden Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Base Unknown Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Peak Runtime Environment"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Peak Compiler Invocation"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Peak Portability Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Peak Optimization Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Peak Other Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Peak Forbidden Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Peak Unknown Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+----------------
+"For questions about","this result, please","contact the tester.",
+"For other inquiries,","please contact",info@spec.org.,
+"Copyright 2026 Standard","Performance Evaluation",Corporation,
+"Tested with SPEC CPU2026",v0.902.0.
+"Result run on","2026-02-06 05:24:39-0500."
+"Report generated on","2026-08-11 15:14:16","by SPEC CPU2026 CSV","formatter (ea367760)."
+"Originally published on ",2026-05-05.

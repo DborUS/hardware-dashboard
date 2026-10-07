@@ -697,9 +697,13 @@ function a2Rows(family, colspan) {
   if (!models.length || !fields) {
     return `<tr class="v2-empty-row"><td colspan="${colspan}">No spec data yet</td></tr>`;
   }
-  return models.map(m => `<tr data-search="${escHtml(Object.values(m).filter(v => v != null).join(' ').toLowerCase())}">` + fields.map((f, i) =>
-    `<td class="${i === 0 ? 'cpu-model-name' : ''}">${escHtml(m[f] ?? '—')}</td>`
-  ).join('') + '</tr>').join('');
+  return models.map(m => {
+    const cells = fields.map((f, i) =>
+      `<td class="${i === 0 ? 'cpu-model-name' : ''}">${escHtml(m[f] ?? '—')}</td>`);
+    if (a2Tab !== 'gpu') cells.push(benchmarkTableCells('AMD', `amd/${a2Tab}`, m.n));
+    return `<tr data-search="${escHtml(Object.values(m).filter(v => v != null).join(' ').toLowerCase())}">` +
+      cells.join('') + '</tr>';
+  }).join('');
 }
 
 /** Add one deduplicated codename filter for tabs that opt into it. */
@@ -886,6 +890,9 @@ function a2Gen(g, cfg) {
 function a2Card(f, g, i, cfg) {
   const id = `a2t-${g.id}-${a2Slug(f.name)}`;
   const cols = A2_COLUMNS[a2Tab];
+  const benchmarkCols = benchmarkTableColumns(`amd/${a2Tab}`);
+  const headers = cols.map(c => `<th>${escHtml(c)}</th>`);
+  if (benchmarkCols.length) headers.push(benchmarkTableHeaders(`amd/${a2Tab}`));
   const tags = [...a2Tiers(f), f.seg].filter(Boolean).map(t =>
     `<span class="sku-tag">${escHtml(t)}</span>`).join('');
   const metaSearch = (f.name + ' ' + (f.key || '') + ' ' + f.desc + ' ' + (f.si || '')).toLowerCase();
@@ -911,12 +918,13 @@ function a2Card(f, g, i, cfg) {
             <span class="cpu-spec-header-title">${escHtml(f.name)}</span>
             <div class="identity-path">AMD › ${escHtml(stripVendor(cfg.title))} › ${escHtml(g.name)} › ${escHtml(f.name)}</div>
             <div class="source-line">Source: AMD official Product Specifications CSV</div>
+            ${benchmarkTableLegend(`amd/${a2Tab}`)}
           </div>
           <span class="cpu-spec-header-title v2-await">${a2Count(f)}</span>
         </div>
         <table class="cpu-spec-table">
-          <thead><tr>${cols.map(c => `<th>${escHtml(c)}</th>`).join('')}</tr></thead>
-          <tbody>${a2Rows(f, cols.length)}</tbody>
+          <thead><tr>${headers.join('')}</tr></thead>
+          <tbody>${a2Rows(f, cols.length + benchmarkCols.length)}</tbody>
         </table>
       </div>
     </div>`;

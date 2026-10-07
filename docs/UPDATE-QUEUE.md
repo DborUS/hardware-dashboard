@@ -6,15 +6,30 @@ short and plain; the technical details belong in `CHANGELOG.md`.
 
 ## Pending publication
 
+### Find architecture guides from any product line
+- Changed: 2026-10-05
+- Live: Pending
+- Update: Architecture guides stay visible across AMD, Intel, and NVIDIA product tabs. Open the EPYC 9005, selected Xeon 6, or GH200 guide while browsing another product line; ChipIndex switches to the relevant section and opens the diagrams. Ampere now has an architecture tab with a clearly marked coming-soon page while its sourced diagrams are prepared.
+
 ### Browse earlier public beta upgrades
 - Changed: 2026-09-30
 - Live: Pending
-- Update: The What's new panel now scrolls through dated summaries of public beta 0.0.1, 0.0.2, 0.0.3, and 0.0.4, so visitors can see what each upgrade added.
+- Update: The What's new panel now leads with the October 7 benchmark update and keeps dated summaries of public beta 0.0.1 through 0.0.4 below it, so visitors can see what each upgrade added.
+
+### Find OEM platforms from a CPU
+- Changed: 2026-09-30
+- Live: Pending
+- Update: Select the small server icon beside a CPU to see named OEM systems, their socket and memory layout, form factor, size, important configuration limits, and official sources. The expanded source-backed index covers recent EPYC, Xeon, and AmpereOne servers alongside selected Lenovo, Dell, and HP laptops, desktops, and workstations. Fixed regional client models keep their product codes. An empty view clearly means ChipIndex has not verified a platform for that part yet.
 
 ### Understand the Grace Hopper architecture
 - Changed: 2026-09-30
 - Live: Pending
 - Update: Open the NVIDIA CPU architecture guide for three GH200 diagrams showing where Grace, Hopper, their memory, and their chip-to-chip link sit. Cleaner CPU and GPU layouts and expanded component definitions trace how requests move through cache, memory, and the interconnect, while distinguishing the full GH100 blueprint from enabled products. Underlined terms in the explanations open short definitions without leaving the diagram.
+
+### Explore public benchmark results
+- Changed: 2026-10-07
+- Live: Pending
+- Update: Compare dated public results by workload in the dark red and black Benchmarks explorer. Expanded SPEC CPU, MLPerf and Blender imports now link 3,862 results to 697 catalog products; source dates and coverage limits appear beside scores. SPEC CPU 2026 test builds, server CPU counts and AI scenarios have separate scales. Clear Rate labels distinguish throughput scores from separate SPEC Speed results. Enterprise charts now identify their model order as a ChipIndex selection of linked server reports, and the report list as an imported subset. Browse client Desktop or Laptop CPUs, see catalog CPU cores and clock speeds beside CPU scores, search, filter, open original reports, and compare up to three results. The source directory explains what is imported and why other public scores may be absent. Benchmarks now sits beside Products and Architecture on each vendor page; those tabs open All manufacturers. CPU specification tables retain their original compact columns and row height, with just one Benchmark column at the far right. It shows a short test name beside a sourced score rather than a report count; select it to open that model and test in Benchmarks. The benchmark page links back to the relevant specs.
 
 ### Public beta 0.0.3 and What's new
 - Changed: 2026-09-28

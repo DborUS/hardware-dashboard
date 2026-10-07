@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20260930-public-beta-004">
+  <link rel="stylesheet" href="css/styles.css?v=20261007-benchmark-score-column-1">
+  <link rel="stylesheet" href="css/platforms.css?v=20260930-platforms-4">
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -85,44 +86,77 @@
       <button class="expand-all-btn" id="clearSelectionsBtn">Clear Selections</button>
     </div>
   </div>
-  <nav class="epyc-mode-nav" id="epycModeNav" role="tablist" aria-label="EPYC section" hidden>
-    <button type="button" class="epyc-mode-tab active" id="epycProductsTab" role="tab"
-            aria-selected="true" aria-controls="epycProductsPanel">
+  <nav class="epyc-mode-nav" id="epycModeNav" aria-label="AMD sections" hidden>
+    <button type="button" class="epyc-mode-tab active" id="epycProductsTab"
+            aria-pressed="true" aria-controls="epycProductsPanel">
       <span class="epyc-mode-label">Products</span>
       <span class="epyc-mode-helper">EPYC series &amp; specifications</span>
     </button>
-    <button type="button" class="epyc-mode-tab" id="epycGuideTab" role="tab"
-            aria-selected="false" aria-controls="epycGuidePanel">
+    <button type="button" class="epyc-mode-tab" id="epycGuideTab"
+            aria-pressed="false" aria-controls="epycGuidePanel">
       <span class="epyc-mode-label">Architecture guide</span>
       <span class="epyc-mode-helper">Interactive diagrams &amp; explanations</span>
     </button>
+    <a class="epyc-mode-tab benchmark-mode-tab" id="epycBenchmarkTab"
+       href="benchmarks/" aria-label="Open all benchmark results">
+      <span class="epyc-mode-label">Benchmarks <span aria-hidden="true">↗</span></span>
+      <span class="epyc-mode-helper">All public benchmark results</span>
+    </a>
     <span class="epyc-mode-availability">GUIDE AVAILABLE / EPYC 9005</span>
   </nav>
-  <nav class="epyc-mode-nav xeon-mode-nav" id="xeonModeNav" role="tablist" aria-label="Xeon section" hidden>
-    <button type="button" class="epyc-mode-tab active" id="xeonProductsTab" role="tab"
-            aria-selected="true" aria-controls="epycProductsPanel">
+  <nav class="epyc-mode-nav xeon-mode-nav" id="xeonModeNav" aria-label="Intel sections" hidden>
+    <button type="button" class="epyc-mode-tab active" id="xeonProductsTab"
+            aria-pressed="true" aria-controls="epycProductsPanel">
       <span class="epyc-mode-label">Products</span>
       <span class="epyc-mode-helper">Xeon series &amp; specifications</span>
     </button>
-    <button type="button" class="epyc-mode-tab" id="xeonGuideTab" role="tab"
-            aria-selected="false" aria-controls="xeonGuidePanel">
+    <button type="button" class="epyc-mode-tab" id="xeonGuideTab"
+            aria-pressed="false" aria-controls="xeonGuidePanel">
       <span class="epyc-mode-label">Architecture guide</span>
       <span class="epyc-mode-helper">Interactive diagrams &amp; explanations</span>
     </button>
+    <a class="epyc-mode-tab benchmark-mode-tab" id="xeonBenchmarkTab"
+       href="benchmarks/" aria-label="Open all benchmark results">
+      <span class="epyc-mode-label">Benchmarks <span aria-hidden="true">↗</span></span>
+      <span class="epyc-mode-helper">All public benchmark results</span>
+    </a>
     <span class="epyc-mode-availability">GUIDE AVAILABLE / SELECTED XEON 6 PLATFORMS</span>
   </nav>
-  <nav class="epyc-mode-nav gh200-mode-nav" id="gh200ModeNav" role="tablist" aria-label="NVIDIA CPU section" hidden>
-    <button type="button" class="epyc-mode-tab active" id="gh200ProductsTab" role="tab"
-            aria-selected="true" aria-controls="epycProductsPanel">
+  <nav class="epyc-mode-nav gh200-mode-nav" id="gh200ModeNav" aria-label="NVIDIA sections" hidden>
+    <button type="button" class="epyc-mode-tab active" id="gh200ProductsTab"
+            aria-pressed="true" aria-controls="epycProductsPanel">
       <span class="epyc-mode-label">Products</span>
       <span class="epyc-mode-helper">NVIDIA CPUs &amp; superchips</span>
     </button>
-    <button type="button" class="epyc-mode-tab" id="gh200GuideTab" role="tab"
-            aria-selected="false" aria-controls="gh200GuidePanel">
+    <button type="button" class="epyc-mode-tab" id="gh200GuideTab"
+            aria-pressed="false" aria-controls="gh200GuidePanel">
       <span class="epyc-mode-label">Architecture guide</span>
       <span class="epyc-mode-helper">Interactive GH200 diagrams &amp; definitions</span>
     </button>
+    <a class="epyc-mode-tab benchmark-mode-tab" id="gh200BenchmarkTab"
+       href="benchmarks/" aria-label="Open all benchmark results">
+      <span class="epyc-mode-label">Benchmarks <span aria-hidden="true">↗</span></span>
+      <span class="epyc-mode-helper">All public benchmark results</span>
+    </a>
     <span class="epyc-mode-availability">GUIDE AVAILABLE / GH200 GRACE HOPPER</span>
+  </nav>
+  <nav class="epyc-mode-nav ampere-mode-nav" id="ampereModeNav" aria-label="Ampere sections" hidden>
+    <button type="button" class="epyc-mode-tab active" id="ampereProductsTab"
+            aria-pressed="true" aria-controls="epycProductsPanel">
+      <span class="epyc-mode-label">Products</span>
+      <span class="epyc-mode-helper">Ampere processors &amp; specifications</span>
+    </button>
+    <button type="button" class="epyc-mode-tab" id="ampereGuideTab"
+            aria-pressed="false" aria-controls="ampereGuidePanel">
+      <span class="epyc-mode-label">Architecture guide</span>
+      <span class="epyc-mode-helper">Ampere architecture · coming soon</span>
+    </button>
+    <a class="epyc-mode-tab benchmark-mode-tab" id="ampereBenchmarkTab"
+       href="benchmarks/" aria-label="Open all benchmark results">
+      <span class="epyc-mode-label">Benchmarks <span aria-hidden="true">↗</span></span>
+      <span class="epyc-mode-helper">All public benchmark results</span>
+    </a>
+    <span class="epyc-mode-availability">ARCHITECTURE GUIDE / COMING SOON</span>
   </nav>
   <div class="global-search-routes" id="globalSearchRoutes" role="status" aria-live="polite" hidden></div>
   <!-- Legacy CPU/GPU tech tabs. Both vendors are product-first now, so nothing
@@ -190,6 +224,10 @@
     <iframe class="epyc-guide-frame" id="gh200GuideFrame"
             title="Interactive GH200 Grace Hopper architecture diagrams" loading="lazy" scrolling="no"></iframe>
   </section>
+  <section class="epyc-guide-panel ampere-guide-panel" id="ampereGuidePanel" aria-label="Ampere architecture guide" hidden>
+    <iframe class="epyc-guide-frame" id="ampereGuideFrame"
+            title="Ampere processor architecture guide preview" loading="lazy" scrolling="no"></iframe>
+  </section>
   <!-- Two-column layout: filter sidebar + timeline. Both renderers still
        write into #filterControls; only its position changed. Collapses to a
        single column under 900px, where the sidebar becomes a disclosure. -->
@@ -244,6 +282,17 @@
   <div id="sourceContent"></div>
 </dialog>
 
+<dialog class="dashboard-dialog platform-dialog" id="platformDialog" aria-labelledby="platformTitle">
+  <div class="dialog-head">
+    <div>
+      <div class="dialog-kicker">OEM PLATFORM COMPATIBILITY</div>
+      <h2 id="platformTitle">Supported platforms</h2>
+    </div>
+    <button class="dialog-close" type="button" data-close-dialog="platformDialog" aria-label="Close platform details">✕</button>
+  </div>
+  <div class="platform-dialog-body" id="platformContent"></div>
+</dialog>
+
 <dialog class="dashboard-dialog whats-new-dialog" id="whatsNewDialog" aria-labelledby="whatsNewTitle">
   <div class="dialog-head">
     <div>
@@ -254,6 +303,13 @@
     <button class="dialog-close" type="button" data-close-dialog="whatsNewDialog" aria-label="Close what's new">✕</button>
   </div>
   <div class="release-history" id="releaseHistory" role="region" aria-label="Dated public beta update history" tabindex="0">
+    <section class="release-version" aria-labelledby="release20261007">
+      <div class="release-version-head"><h3 id="release20261007">October 7 update</h3><time datetime="2026-10-07">Updated October 7, 2026</time></div>
+      <div class="release-notes">
+        <section class="release-note"><span class="release-note-label">BENCHMARKS</span><div><h4>Compare public benchmark results</h4><p>Explore selected SPEC CPU, MLPerf Inference, and Blender results by workload. Scores show their units, test conditions, capture dates, and original sources. CPU specification tables now end with one compact benchmark score.</p></div></section>
+        <section class="release-note"><span class="release-note-label">DISCOVERY</span><div><h4>Start with all manufacturers</h4><p>Vendor Benchmarks tabs open the explorer with All manufacturers. Select a CPU table score to open that model and its exact test in Benchmarks.</p></div></section>
+      </div>
+    </section>
     <section class="release-version" aria-labelledby="release004">
       <div class="release-version-head"><h3 id="release004">Public beta 0.0.4</h3><time datetime="2026-09-30">Updated September 30, 2026</time></div>
       <div class="release-notes">
@@ -294,10 +350,13 @@
 <div class="sr-only" id="epycTermAnnouncement" role="status" aria-live="polite" aria-atomic="true"></div>
 
   <script src="js/roadmap.js?v=20260928-xeon-guide-1"></script>
-  <script src="js/intel-v2.js?v=20260928-xeon-guide-1"></script>
-<script src="js/amd-v2.js?v=20260928-xeon-guide-1"></script>
-<script src="js/nvidia-v2.js?v=20260930-public-beta-004"></script>
-<script src="js/ampere-v2.js?v=20260928-xeon-guide-1"></script>
-<script src="js/script.js?v=20260930-public-beta-004"></script>
+  <script src="js/data/benchmark-table-index.js?v=20261007-benchmark-score-column-1"></script>
+  <script src="js/benchmark-table.js?v=20261007-benchmark-score-column-1"></script>
+  <script src="js/intel-v2.js?v=20261007-benchmark-score-column-1"></script>
+<script src="js/amd-v2.js?v=20261007-benchmark-score-column-1"></script>
+<script src="js/nvidia-v2.js?v=20261007-benchmark-score-column-1"></script>
+<script src="js/ampere-v2.js?v=20261007-benchmark-score-column-1"></script>
+<script src="js/script.js?v=20261007-benchmark-all-entry-1"></script>
+<script src="js/platforms.js?v=20260930-platforms-4"></script>
 </body>
 </html>

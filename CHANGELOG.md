@@ -7,7 +7,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- No entries yet.
+- **Benchmark explorer redesign (2026-10-07)** — AMD-inspired red/black styling,
+  hardware/workload/version selection, plain-language score context, separate
+  results/coverage/source tabs, and actual-score chart axes. Chart and table share
+  the same source-linked representatives. Empty-by-default comparisons, keyboard
+  tabs, URL state/clipboard sharing, and reset controls make selections explicit.
+  CPU views now show source-derived catalog core, clock and appropriate power
+  labels beside results, distinct from tested-system configuration.
+- **Benchmark source registry and refresh coordinator** — 3,862 sourced results
+  for 697 catalog products, captured October 7, 2026. Archive-wide SPEC
+  discovery with bounded CPU2017 disclosures, separate CPU2026 builds,
+  reproducible MLPerf/Blender imports, source hashes/review queues and
+  rollback on failed validation. Coverage notice, bounded rankings, freshness
+  notes, read-only CI checks and scoped source details support the larger
+  dataset. PassMark and OpenBenchmarking remain unconnected for documented
+  access reasons.
+
+### Changed
+
+- **Benchmark entry links and CPU scores (2026-10-07)** — Vendor Benchmarks tabs open the all-manufacturer explorer. CPU specification tables preserve their original column order and compact rows, then append one rightmost Benchmark column with a shorthand test name and sourced score rather than report counts; selecting it opens the exact model and test cohort. The site's What's new history leads with an October 7 benchmark update.
 
 ## [Public beta 0.0.4] - 2026-09-30
 

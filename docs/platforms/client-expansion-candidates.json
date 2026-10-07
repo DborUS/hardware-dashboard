@@ -1,0 +1,638 @@
+{
+  "schemaVersion": 1,
+  "snapshotDate": "2026-09-30",
+  "products": [
+    {
+      "catalogId": "amd-3f428b671616a85fc874",
+      "vendor": "AMD",
+      "dashboardTab": "amd/ryzen",
+      "model": "Ryzen AI 7 PRO 350",
+      "productId": "100-000000713"
+    },
+    {
+      "catalogId": "amd-000510bb42d2c370a8b5",
+      "vendor": "AMD",
+      "dashboardTab": "amd/ryzen",
+      "model": "Ryzen AI 5 PRO 340",
+      "productId": "100-000001600"
+    },
+    {
+      "catalogId": "amd-7af62f731266285f3670",
+      "vendor": "AMD",
+      "dashboardTab": "amd/ryzen",
+      "model": "Ryzen 7 8700G",
+      "productId": "100-000001236"
+    },
+    {
+      "catalogId": "amd-5dd6bde0c6c9da22c7c9",
+      "vendor": "AMD",
+      "dashboardTab": "amd/ryzen",
+      "model": "Ryzen 7 PRO 8700G",
+      "productId": "100-000001238 (AM5)"
+    },
+    {
+      "catalogId": "amd-0a22662c586de9c2835d",
+      "vendor": "AMD",
+      "dashboardTab": "amd/ryzen",
+      "model": "Ryzen Threadripper PRO 7985WX",
+      "productId": "100-000000454"
+    },
+    {
+      "catalogId": "amd-322272c17463258c6c9e",
+      "vendor": "AMD",
+      "dashboardTab": "amd/ryzen",
+      "model": "Ryzen Threadripper PRO 7975WX",
+      "productId": "100-000000453"
+    },
+    {
+      "catalogId": "amd-86c6e237ce280966ec34",
+      "vendor": "AMD",
+      "dashboardTab": "amd/ryzen",
+      "model": "Ryzen Threadripper PRO 9985WX",
+      "productId": "100-000000722"
+    },
+    {
+      "catalogId": "amd-ef255a1ae071f0cb2268",
+      "vendor": "AMD",
+      "dashboardTab": "amd/ryzen",
+      "model": "Ryzen Threadripper PRO 9995WX",
+      "productId": "100-000001361"
+    },
+    {
+      "catalogId": "intel-b7ec099f7d236e9f567f",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/client",
+      "model": "Core Ultra 7 265H"
+    },
+    {
+      "catalogId": "intel-8eb83bb7e80ec223f7f1",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/client",
+      "model": "Core Ultra 7 255H"
+    },
+    {
+      "catalogId": "intel-a0811159e55b6874e352",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/client",
+      "model": "Core Ultra 7 265"
+    },
+    {
+      "catalogId": "intel-f844d171a3a976b6bf95",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/client",
+      "model": "Core Ultra 7 256V"
+    },
+    {
+      "catalogId": "intel-eeb9ea9d702f3b7cbd70",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/client",
+      "model": "Core Ultra 7 258V"
+    },
+    {
+      "catalogId": "intel-041fd6de919f92f1b312",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/client",
+      "model": "Core Ultra 9 288V"
+    },
+    {
+      "catalogId": "intel-d3f6fc9e028bdaaa93ed",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/client",
+      "model": "Core Ultra 5 245"
+    },
+    {
+      "catalogId": "intel-1abaffac42208ec8164b",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/client",
+      "model": "Core Ultra 5 235"
+    }
+  ],
+  "platforms": [
+    {
+      "id": "lenovo-thinkpad-t14-gen-6-amd",
+      "oem": "Lenovo",
+      "model": "ThinkPad T14 Gen 6 (AMD)",
+      "category": "laptop",
+      "formFactor": "notebook",
+      "displaySizeInches": 14,
+      "dimmSlots": 2,
+      "dimensions": "315.9 × 223.7 × 10.9/16.13 mm (front/rear); max height 21.8 mm non-WWAN or 21.95 mm WWAN",
+      "sourceIds": [
+        "client-lenovo-t14g6-amd"
+      ]
+    },
+    {
+      "id": "lenovo-thinkcentre-m75t-gen-5",
+      "oem": "Lenovo",
+      "model": "ThinkCentre M75t Gen 5",
+      "category": "desktop",
+      "formFactor": "tower",
+      "volumeLiters": 13.6,
+      "dimmSlots": 2,
+      "dimensions": "145 × 296 × 346 mm (W × D × H; varies by configuration)",
+      "sourceIds": [
+        "client-lenovo-m75t-g5"
+      ]
+    },
+    {
+      "id": "lenovo-thinkstation-p8",
+      "oem": "Lenovo",
+      "model": "ThinkStation P8",
+      "category": "workstation",
+      "formFactor": "tower",
+      "platformNote": "Tower chassis; Lenovo also lists an optional 4U rack mounting kit.",
+      "volumeLiters": 39,
+      "socketCount": 1,
+      "memoryChannelsPerSocket": 8,
+      "dimmSlots": 8,
+      "dimensions": "175 × 508 × 434.4 mm (W × D × H, with feet)",
+      "sourceIds": [
+        "client-lenovo-p8"
+      ]
+    },
+    {
+      "id": "hp-elitebook-8-g1i-14",
+      "oem": "HP",
+      "model": "EliteBook 8 G1i 14",
+      "category": "laptop",
+      "formFactor": "notebook",
+      "displaySizeInches": 14,
+      "dimmSlots": 2,
+      "dimensions": "US D6DG0UA#ABA and D6DF8UA#ABA: 12.43 × 8.74 × 0.46 in front / 0.61 in rear (W × D × H)",
+      "sourceIds": [
+        "client-hp-elitebook-g1i-d6dg0ua",
+        "client-hp-elitebook-g1i-d6df8ua"
+      ]
+    },
+    {
+      "id": "hp-elitedesk-8-tower-g1i",
+      "oem": "HP",
+      "model": "EliteDesk 8 Tower G1i",
+      "category": "desktop",
+      "formFactor": "tower",
+      "dimmSlots": 4,
+      "sourceIds": [
+        "client-hp-elitedesk-g1i-99m73et"
+      ]
+    },
+    {
+      "id": "hp-z6-g5-a",
+      "oem": "HP",
+      "model": "Z6 G5 A Workstation",
+      "category": "workstation",
+      "formFactor": "tower",
+      "dimensions": "16.9 × 46.5 × 44.5 cm (W × D × H; HP also gives 4U rack dimension)",
+      "sourceIds": [
+        "client-hp-z6g5a-aq1z4pa",
+        "client-hp-z6g5a-dz5a1pa",
+        "client-hp-z6g5a-dc2v2pa"
+      ]
+    },
+    {
+      "id": "dell-16-plus-2-in-1-db06250",
+      "oem": "Dell",
+      "model": "Dell 16 Plus 2-in-1 DB06250",
+      "category": "laptop",
+      "formFactor": "convertible",
+      "displaySizeInches": 16,
+      "dimensions": "356.78 × 250.60 × 14.13 mm front / 15.57 mm rear (W × D × H)",
+      "sourceIds": [
+        "client-dell-db06250-processor",
+        "client-dell-db06250-dimensions",
+        "client-dell-db06250-display"
+      ]
+    },
+    {
+      "id": "dell-pro-slim-qcs1250",
+      "oem": "Dell",
+      "model": "Dell Pro Slim QCS1250",
+      "category": "desktop",
+      "formFactor": "slim",
+      "dimensions": "95 × 293 × 303.50 mm (W × D × H)",
+      "sourceIds": [
+        "client-dell-qcs1250-processor",
+        "client-dell-qcs1250-dimensions"
+      ]
+    },
+    {
+      "id": "dell-precision-7875-tower",
+      "oem": "Dell",
+      "model": "Precision 7875 Tower",
+      "category": "workstation",
+      "formFactor": "tower",
+      "dimensions": "172.60 × 465.00 × 442.70 mm (W × D × H; excludes feet and lock protrusions)",
+      "sourceIds": [
+        "client-dell-7875-processor",
+        "client-dell-7875-dimensions"
+      ]
+    }
+  ],
+  "compatibility": [
+    {
+      "catalogId": "amd-3f428b671616a85fc874",
+      "platformId": "lenovo-thinkpad-t14-gen-6-amd",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-lenovo-t14g6-amd"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Lenovo PSREF system-family processor option; actual machine types and regional orderability can vary."
+    },
+    {
+      "catalogId": "amd-000510bb42d2c370a8b5",
+      "platformId": "lenovo-thinkpad-t14-gen-6-amd",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-lenovo-t14g6-amd"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Lenovo PSREF system-family processor option; actual machine types and regional orderability can vary."
+    },
+    {
+      "catalogId": "amd-7af62f731266285f3670",
+      "platformId": "lenovo-thinkcentre-m75t-gen-5",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-lenovo-m75t-g5"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Lenovo PSREF system-family processor option; actual machine types and regional orderability can vary."
+    },
+    {
+      "catalogId": "amd-5dd6bde0c6c9da22c7c9",
+      "platformId": "lenovo-thinkcentre-m75t-gen-5",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-lenovo-m75t-g5"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Lenovo PSREF system-family processor option; actual machine types and regional orderability can vary."
+    },
+    {
+      "catalogId": "amd-0a22662c586de9c2835d",
+      "platformId": "lenovo-thinkstation-p8",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-lenovo-p8"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Lenovo PSREF system-family processor option; actual machine types and regional orderability can vary."
+    },
+    {
+      "catalogId": "amd-322272c17463258c6c9e",
+      "platformId": "lenovo-thinkstation-p8",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-lenovo-p8"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Lenovo PSREF system-family processor option; actual machine types and regional orderability can vary."
+    },
+    {
+      "catalogId": "amd-86c6e237ce280966ec34",
+      "platformId": "lenovo-thinkstation-p8",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-lenovo-p8"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Lenovo PSREF system-family processor option; actual machine types and regional orderability can vary."
+    },
+    {
+      "catalogId": "amd-ef255a1ae071f0cb2268",
+      "platformId": "lenovo-thinkstation-p8",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-lenovo-p8"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Lenovo PSREF system-family processor option; actual machine types and regional orderability can vary."
+    },
+    {
+      "catalogId": "intel-b7ec099f7d236e9f567f",
+      "platformId": "hp-elitebook-8-g1i-14",
+      "supportLevel": "confirmed",
+      "evidenceType": "fixed_configuration",
+      "oemOptionCode": "D6DG0UA#ABA",
+      "market": "US",
+      "sourceIds": [
+        "client-hp-elitebook-g1i-d6dg0ua"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Published US HP product-code configuration only; regional options and current inventory can vary, and this is not an open CPU-upgrade claim."
+    },
+    {
+      "catalogId": "intel-8eb83bb7e80ec223f7f1",
+      "platformId": "hp-elitebook-8-g1i-14",
+      "supportLevel": "confirmed",
+      "evidenceType": "fixed_configuration",
+      "oemOptionCode": "D6DF8UA#ABA",
+      "market": "US",
+      "sourceIds": [
+        "client-hp-elitebook-g1i-d6df8ua"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Published US HP product-code configuration only; regional options and current inventory can vary, and this is not an open CPU-upgrade claim."
+    },
+    {
+      "catalogId": "intel-a0811159e55b6874e352",
+      "platformId": "hp-elitedesk-8-tower-g1i",
+      "supportLevel": "confirmed",
+      "evidenceType": "fixed_configuration",
+      "oemOptionCode": "99M73ET",
+      "market": "IE",
+      "sourceIds": [
+        "client-hp-elitedesk-g1i-99m73et"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Published Irish HP product-code configuration only; regional options and current inventory can vary, and this is not an open CPU-upgrade claim."
+    },
+    {
+      "catalogId": "amd-0a22662c586de9c2835d",
+      "platformId": "hp-z6-g5-a",
+      "supportLevel": "confirmed",
+      "evidenceType": "fixed_configuration",
+      "oemOptionCode": "AQ1Z4PA",
+      "market": "TH",
+      "sourceIds": [
+        "client-hp-z6g5a-aq1z4pa"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Published Thai HP product-code configuration only; regional options and current inventory can vary, and this is not an open CPU-upgrade claim."
+    },
+    {
+      "catalogId": "amd-86c6e237ce280966ec34",
+      "platformId": "hp-z6-g5-a",
+      "supportLevel": "confirmed",
+      "evidenceType": "fixed_configuration",
+      "oemOptionCode": "DZ5A1PA",
+      "market": "IN",
+      "sourceIds": [
+        "client-hp-z6g5a-dz5a1pa"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Published Indian HP product-code configuration only; regional options and current inventory can vary, and this is not an open CPU-upgrade claim."
+    },
+    {
+      "catalogId": "amd-ef255a1ae071f0cb2268",
+      "platformId": "hp-z6-g5-a",
+      "supportLevel": "confirmed",
+      "evidenceType": "fixed_configuration",
+      "oemOptionCode": "DC2V2PA",
+      "market": "IN",
+      "sourceIds": [
+        "client-hp-z6g5a-dc2v2pa"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Published Indian HP product-code configuration only; regional options and current inventory can vary, and this is not an open CPU-upgrade claim."
+    },
+    {
+      "catalogId": "intel-f844d171a3a976b6bf95",
+      "platformId": "dell-16-plus-2-in-1-db06250",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-dell-db06250-processor"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Dell owner's-manual system-family processor option; actual regional configurations and orderability can vary."
+    },
+    {
+      "catalogId": "intel-eeb9ea9d702f3b7cbd70",
+      "platformId": "dell-16-plus-2-in-1-db06250",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-dell-db06250-processor"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Dell owner's-manual system-family processor option; actual regional configurations and orderability can vary."
+    },
+    {
+      "catalogId": "intel-041fd6de919f92f1b312",
+      "platformId": "dell-16-plus-2-in-1-db06250",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-dell-db06250-processor"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Dell owner's-manual system-family processor option; actual regional configurations and orderability can vary."
+    },
+    {
+      "catalogId": "intel-1abaffac42208ec8164b",
+      "platformId": "dell-pro-slim-qcs1250",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-dell-qcs1250-processor"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Dell owner's-manual system-family processor option; actual regional configurations and orderability can vary."
+    },
+    {
+      "catalogId": "intel-d3f6fc9e028bdaaa93ed",
+      "platformId": "dell-pro-slim-qcs1250",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-dell-qcs1250-processor"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Dell owner's-manual system-family processor option; actual regional configurations and orderability can vary."
+    },
+    {
+      "catalogId": "intel-a0811159e55b6874e352",
+      "platformId": "dell-pro-slim-qcs1250",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-dell-qcs1250-processor"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Dell owner's-manual system-family processor option; actual regional configurations and orderability can vary."
+    },
+    {
+      "catalogId": "amd-ef255a1ae071f0cb2268",
+      "platformId": "dell-precision-7875-tower",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-dell-7875-processor"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Dell owner's-manual system-family processor option; actual regional configurations and orderability can vary."
+    },
+    {
+      "catalogId": "amd-86c6e237ce280966ec34",
+      "platformId": "dell-precision-7875-tower",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-dell-7875-processor"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Dell owner's-manual system-family processor option; actual regional configurations and orderability can vary."
+    },
+    {
+      "catalogId": "amd-0a22662c586de9c2835d",
+      "platformId": "dell-precision-7875-tower",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-dell-7875-processor"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Dell owner's-manual system-family processor option; actual regional configurations and orderability can vary."
+    },
+    {
+      "catalogId": "amd-322272c17463258c6c9e",
+      "platformId": "dell-precision-7875-tower",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "sourceIds": [
+        "client-dell-7875-processor"
+      ],
+      "reviewStatus": "source_row_verified",
+      "restrictionNote": "Dell owner's-manual system-family processor option; actual regional configurations and orderability can vary."
+    }
+  ],
+  "sources": [
+    {
+      "id": "client-lenovo-t14g6-amd",
+      "publisher": "Lenovo PSREF",
+      "title": "ThinkPad T14 Gen 6 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_6_AMD/ThinkPad_T14_Gen_6_AMD_Spec.PDF",
+      "locator": "PDF p. 2 processor table: Ryzen AI 5 PRO 340 and Ryzen AI 7 PRO 350; p. 3 two SODIMM slots; p. 4 display; p. 5 mechanical variants",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-lenovo-m75t-g5",
+      "publisher": "Lenovo PSREF",
+      "title": "ThinkCentre M75t Gen 5 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M75t_Gen_5/ThinkCentre_M75t_Gen_5_Spec.PDF",
+      "locator": "PDF p. 2 processor table: Ryzen 7 8700G and Ryzen 7 PRO 8700G; p. 3 memory; p. 4 Tower 13.6L and dimensions",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-lenovo-p8",
+      "publisher": "Lenovo PSREF",
+      "title": "ThinkStation P8 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkStation/ThinkStation_P8/ThinkStation_P8_Spec.pdf",
+      "locator": "PDF p. 2 processor table: Threadripper PRO 7975WX, 7985WX, 9985WX, 9995WX; 1x sTR5; p. 3 memory; p. 5 mechanical",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-hp-elitebook-g1i-d6dg0ua",
+      "publisher": "HP",
+      "title": "EliteBook 8 G1i 14 product D6DG0UA#ABA",
+      "url": "https://www.hp.com/us-en/shop/pdp/hp-elitebook-8-g1i-14-inch-notebook-ai-pc-wolf-pro-security-edition-d6dg0ua-aba",
+      "locator": "Product # D6DG0UA#ABA and Technical Specs: Core Ultra 7 265H, 14-inch display, two SODIMM slots, dimensions",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-hp-elitebook-g1i-d6df8ua",
+      "publisher": "HP",
+      "title": "EliteBook 8 G1i 14 product D6DF8UA#ABA",
+      "url": "https://www.hp.com/us-en/shop/pdp/hp-elitebook-8-g1i-14-inch-notebook-ai-pc-wolf-pro-security-edition-p-d6df8ua-aba-1",
+      "locator": "Product # D6DF8UA#ABA and Technical Specs: Core Ultra 7 255H, 14-inch display, two SODIMM slots, dimensions",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-hp-elitedesk-g1i-99m73et",
+      "publisher": "HP",
+      "title": "EliteDesk 8 Tower G1i product 99M73ET",
+      "url": "https://www.hp.com/ie-en/products/desktops/product-details/product-specifications/2103084582",
+      "locator": "All tech specs: 99M73ET, Core Ultra 7 265, four DIMM slots, Tower form factor; published W×D×H dimension order conflicts with HP Support family physical specifications, so dimensions are held",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-hp-z6g5a-aq1z4pa",
+      "publisher": "HP",
+      "title": "Z6 G5 A Workstation product AQ1Z4PA",
+      "url": "https://www.hp.com/th-en/products/workstations/product-details/product-specifications/2102619394",
+      "locator": "All tech specs: AQ1Z4PA, Threadripper PRO 7985WX, Tower form factor and minimum dimensions",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-hp-z6g5a-dz5a1pa",
+      "publisher": "HP",
+      "title": "Z6 G5 A Workstation product DZ5A1PA",
+      "url": "https://www.hp.com/in-en/products/workstations/product-details/product-specifications/2104039734",
+      "locator": "All tech specs: DZ5A1PA, Threadripper PRO 9985WX, Tower form factor and dimensions",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-hp-z6g5a-dc2v2pa",
+      "publisher": "HP",
+      "title": "Z6 G5 A Workstation product DC2V2PA",
+      "url": "https://www.hp.com/in-en/products/workstations/product-details/product-specifications/2104023921",
+      "locator": "All tech specs: DC2V2PA, Threadripper PRO 9995WX, Tower form factor and dimensions",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-dell-db06250-processor",
+      "publisher": "Dell",
+      "title": "Dell 16 Plus 2-in-1 DB06250 Owner's Manual: Processor",
+      "url": "https://www.dell.com/support/manuals/en-us/dell-db06250-2-in-1-laptop/dell_16_plus_2n1_db06250_om/processor?guid=guid-b67a387f-2bea-450b-b3c0-dd25a6eb8d8e&lang=en-us",
+      "locator": "Processor table 1, options 2–4: Core Ultra 7 256V, 258V, and Core Ultra 9 288V",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-dell-db06250-dimensions",
+      "publisher": "Dell",
+      "title": "Dell 16 Plus 2-in-1 DB06250 Owner's Manual: Dimensions and weight",
+      "url": "https://www.dell.com/support/manuals/en-us/dell-db06250-2-in-1-laptop/dell_16_plus_2n1_db06250_om/dimensions-and-weight?guid=guid-362133ff-c5e8-4acd-a164-4ce876572659&lang=en-us",
+      "locator": "Dimensions and weight table 1: width 356.78, depth 250.60, front/rear height 14.13/15.57 mm",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-dell-db06250-display",
+      "publisher": "Dell",
+      "title": "Dell 16 Plus 2-in-1 DB06250 Owner's Manual: Display",
+      "url": "https://www.dell.com/support/manuals/en-us/dell-db06250-2-in-1-laptop/dell_16_plus_2n1_db06250_om/display?guid=guid-73e1ca36-2dcd-41d4-b0bd-abbae75a1deb&lang=en-us",
+      "locator": "Display table: 16-inch diagonal",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-dell-qcs1250-processor",
+      "publisher": "Dell",
+      "title": "Dell Pro Slim QCS1250 Owner's Manual: Processor",
+      "url": "https://www.dell.com/support/manuals/en-us/dell-pro-qcs1250-slim-desktop/dell-pro-slim-qcs1250_om/processor?guid=guid-9624579f-1c61-4cc1-8d36-b274a69d55a2&lang=en-us",
+      "locator": "Processor table 2, options 6–8: Core Ultra 5 235, 245, and Core Ultra 7 265",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-dell-qcs1250-dimensions",
+      "publisher": "Dell",
+      "title": "Dell Pro Slim QCS1250 Owner's Manual: Dimensions and weight",
+      "url": "https://www.dell.com/support/manuals/en-us/dell-pro-qcs1250-slim-desktop/dell-pro-slim-qcs1250_om/dimensions-and-weight?guid=guid-362133ff-c5e8-4acd-a164-4ce876572659&lang=en-us",
+      "locator": "Dimensions and weight table 1: width 95, depth 293, height 303.50 mm",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-dell-7875-processor",
+      "publisher": "Dell",
+      "title": "Precision 7875 Tower Owner's Manual: Processor",
+      "url": "https://www.dell.com/support/manuals/en-us/precision-t7875-workstation/precision_7875_tower_om/processor?guid=guid-fc16090c-53af-40bd-98c0-91a0c4539e77&lang=en-us",
+      "locator": "Processor tables 1–2: Threadripper PRO 9995WX, 9985WX, 7985WX, 7975WX",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "client-dell-7875-dimensions",
+      "publisher": "Dell",
+      "title": "Precision 7875 Tower Owner's Manual: Dimensions and weight",
+      "url": "https://www.dell.com/support/manuals/en-us/precision-t7875-workstation/precision_7875_tower_om/dimensions-and-weight?guid=guid-476edaac-b30e-4ef6-b273-319a3db074b1&lang=en-us",
+      "locator": "Dimensions and weight table 1: base width 172.60, depth 465.00, height 442.70 mm; larger with feet/lock protrusions",
+      "retrievedAt": "2026-09-30"
+    }
+  ]
+}

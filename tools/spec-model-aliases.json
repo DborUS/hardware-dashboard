@@ -1,0 +1,33 @@
+{
+    "schemaVersion": 1,
+    "aliases": [
+        {
+            "vendor": "Ampere",
+            "model": "AmpereOne A192-32M",
+            "sourceCpuName": "AmpereOneM A192-32M",
+            "suites": [
+                "cpu2026"
+            ],
+            "evidenceUrls": [
+                "https://www.spec.org/cpu2026/results/res2026q2/cpu2026-20260210-00010.html"
+            ],
+            "reason": "SPEC uses the AmpereOneM family name for this exact A192-32M catalog SKU."
+        },
+        {
+            "vendor": "NVIDIA",
+            "model": "GB10 Grace Blackwell Superchip",
+            "sourceCpuName": "NVIDIA GB10",
+            "suites": [
+                "cpu2026"
+            ],
+            "systemNameMustContain": "DGX Spark",
+            "coresPerChip": 20,
+            "testedComponent": "CPU",
+            "evidenceUrls": [
+                "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+                "https://www.spec.org/cpu2026/results/res2026q2/cpu2026-20260210-00020.html"
+            ],
+            "reason": "NVIDIA identifies DGX Spark as a GB10 Grace Blackwell Superchip system with a 20-core Arm CPU. The SPEC disclosure tests that CPU component, not its GPU or combined AI performance."
+        }
+    ]
+}

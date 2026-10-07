@@ -116,14 +116,17 @@ function n2TableRows(records) {
   const cfg = N2_CONFIG[n2Tab];
   return records.map(record => {
     const search = Object.values(record).filter(value => value != null).join(' ').toLowerCase();
-    return `<tr data-search="${escHtml(search)}">${cfg.fields.map((field, index) =>
-      `<td class="${index === 0 ? 'cpu-model-name' : ''}">${escHtml(record[field] || '—')}</td>`
-    ).join('')}</tr>`;
+    const cells = cfg.fields.map((field, index) =>
+      `<td class="${index === 0 ? 'cpu-model-name' : ''}">${escHtml(record[field] || '—')}</td>`);
+    if (n2Tab === 'cpu') cells.push(benchmarkTableCells('NVIDIA', 'nvidia/cpu', record.n));
+    return `<tr data-search="${escHtml(search)}">${cells.join('')}</tr>`;
   }).join('');
 }
 
 function n2Card(family, group, index) {
   const cfg = N2_CONFIG[n2Tab];
+  const headers = cfg.columns.map(column => `<th>${escHtml(column)}</th>`);
+  if (n2Tab === 'cpu') headers.push(benchmarkTableHeaders('nvidia/cpu'));
   const id = `n2t-${group.id}-${n2Slug(family.name)}`;
   const architectures = [...new Set(family.records.map(row => row.arch).filter(Boolean))];
   const series = [...new Set(family.records.map(row => row.series).filter(Boolean))];
@@ -150,8 +153,9 @@ function n2Card(family, group, index) {
           <span class="cpu-spec-header-title">${escHtml(family.name)}</span>
           <div class="identity-path">NVIDIA › ${escHtml(cfg.title)} › ${escHtml(group.name)} › ${escHtml(family.name)}</div>
           <div class="source-line">Source: ${escHtml(cfg.source)}</div>
+          ${benchmarkTableLegend(`nvidia/${n2Tab}`)}
         </div><span class="cpu-spec-header-title v2-await">${family.records.length} model${family.records.length === 1 ? '' : 's'}</span></div>
-        <table class="cpu-spec-table"><thead><tr>${cfg.columns.map(column => `<th>${escHtml(column)}</th>`).join('')}</tr></thead>
+        <table class="cpu-spec-table"><thead><tr>${headers.join('')}</tr></thead>
           <tbody>${n2TableRows(family.records)}</tbody></table>
       </div>
     </div>`;

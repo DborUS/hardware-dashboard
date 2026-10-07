@@ -1,0 +1,9 @@
+{
+    "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/blob/main/summary_results.json",
+    "downloadUrl": "https://raw.githubusercontent.com/mlcommons/inference_results_v6.0/4d3916ac9cf474b679cdfcf492d43a0559418ad1/summary_results.json",
+    "revision": "4d3916ac9cf474b679cdfcf492d43a0559418ad1",
+    "retrievedAt": "2026-10-07T17:01:36Z",
+    "snapshotDate": "2026-10-07",
+    "sha256": "52fa813a27834e8de38eca9fd381688df1cf9cd95020d2bd9e951f6cc16384ae",
+    "captureMethod": "official-commit-pinned-download"
+}

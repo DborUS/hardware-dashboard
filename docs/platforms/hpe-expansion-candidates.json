@@ -1,0 +1,4874 @@
+{
+  "schemaVersion": 1,
+  "snapshotDate": "2026-09-30",
+  "researchStatus": "candidate_for_second_review",
+  "products": [
+    {
+      "catalogId": "amd-0132d13801f21f500520",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9555",
+      "productId": "100-000001142"
+    },
+    {
+      "catalogId": "amd-023b75891c3df803278d",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9754",
+      "productId": "100-000001234"
+    },
+    {
+      "catalogId": "amd-03ca4de63c796a7065eb",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9184X",
+      "productId": "100-000001255"
+    },
+    {
+      "catalogId": "amd-0e99864f858283348a2d",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9535",
+      "productId": "100-000001147"
+    },
+    {
+      "catalogId": "amd-1b1dfce6091041b695da",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9374F",
+      "productId": "100-000000792"
+    },
+    {
+      "catalogId": "amd-1bec19a828e005f96280",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8434P",
+      "productId": "100-000000877"
+    },
+    {
+      "catalogId": "amd-2a8a0dae73192b511a37",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9825",
+      "productId": "100-000000837"
+    },
+    {
+      "catalogId": "amd-2aa587b52d6afb84a6b1",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8324PN",
+      "productId": "100-000001162"
+    },
+    {
+      "catalogId": "amd-2e29ef28d8bad0fb1f1f",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9124",
+      "productId": "100-000000802"
+    },
+    {
+      "catalogId": "amd-2fce7c87f0bd79c319a8",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8224P",
+      "productId": "100-000001134"
+    },
+    {
+      "catalogId": "amd-330479125dea2c7f94fe",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9365",
+      "productId": "100-000001448"
+    },
+    {
+      "catalogId": "amd-36162aad92e75d733511",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8324P",
+      "productId": "100-000001133"
+    },
+    {
+      "catalogId": "amd-38827fffedffcd919dc3",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8325P",
+      "productId": "100-000002160"
+    },
+    {
+      "catalogId": "amd-3a73938c9cdc8e1af5c1",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9654",
+      "productId": "100-000000789"
+    },
+    {
+      "catalogId": "amd-3aa5a48d5efc6089bfb9",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8224PN",
+      "productId": "100-000001164"
+    },
+    {
+      "catalogId": "amd-43a29e47003ee20deb83",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9555P",
+      "productId": "100-000001523"
+    },
+    {
+      "catalogId": "amd-4e2482a19422a82087d2",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9554",
+      "productId": "100-000000790"
+    },
+    {
+      "catalogId": "amd-533ef46f46e792a53597",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9575F",
+      "productId": "100-000001554"
+    },
+    {
+      "catalogId": "amd-58067b889f2a3a4d3968",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9475F",
+      "productId": "100-000001143"
+    },
+    {
+      "catalogId": "amd-5fc268b641d9fba44b10",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9534",
+      "productId": "100-000000799"
+    },
+    {
+      "catalogId": "amd-608a4a36496b251041aa",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9335",
+      "productId": "100-000001149"
+    },
+    {
+      "catalogId": "amd-639477f61d81cdc2f5ce",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9654P",
+      "productId": "100-000000803"
+    },
+    {
+      "catalogId": "amd-6608fc51fa19463427b3",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8024PN",
+      "productId": "100-000001170"
+    },
+    {
+      "catalogId": "amd-69bb2a841328733d69dd",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9224",
+      "productId": "100-000000939"
+    },
+    {
+      "catalogId": "amd-69dd3c422dc53b10aa41",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9655P",
+      "productId": "100-000001522"
+    },
+    {
+      "catalogId": "amd-703b30192d9f90201b46",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9455P",
+      "productId": "100-000001563"
+    },
+    {
+      "catalogId": "amd-79b6848046eef65e48e0",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9354P",
+      "productId": "100-000000805"
+    },
+    {
+      "catalogId": "amd-7ad83ccd267c03b56ca4",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9745",
+      "productId": "100-000001460"
+    },
+    {
+      "catalogId": "amd-7ada88bf83a5caf7a781",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8225P",
+      "productId": "100-000002161"
+    },
+    {
+      "catalogId": "amd-7bd4c234f5117b8b2b07",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9115",
+      "productId": "100-000001552"
+    },
+    {
+      "catalogId": "amd-7cfb6c400cf40bf444bc",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9175F",
+      "productId": "100-000001145"
+    },
+    {
+      "catalogId": "amd-868936d8f7a46af7b9a7",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9634",
+      "productId": "100-000000797"
+    },
+    {
+      "catalogId": "amd-87f14037b849fa2c41d6",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9015",
+      "productId": "100-000001553"
+    },
+    {
+      "catalogId": "amd-88b04433c4e4469e498c",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9565",
+      "productId": "100-000001447"
+    },
+    {
+      "catalogId": "amd-8a2d4eb27e17be3da6e7",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9174F",
+      "productId": "100-000000796"
+    },
+    {
+      "catalogId": "amd-8cd62f71e0fc8ea5043d",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9275F",
+      "productId": "100-000001144"
+    },
+    {
+      "catalogId": "amd-9213b53eaa2a4ca55804",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8435P",
+      "productId": "100-000002159"
+    },
+    {
+      "catalogId": "amd-92784fe5e4f2faaed137",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9655",
+      "productId": "100-000000674"
+    },
+    {
+      "catalogId": "amd-92aab6f743944093806a",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9135",
+      "productId": "100-000001150"
+    },
+    {
+      "catalogId": "amd-98a94e467cbefadf876c",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9334",
+      "productId": "100-000000800"
+    },
+    {
+      "catalogId": "amd-a24661387e0195fdc3a5",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9645",
+      "productId": "100-000001461"
+    },
+    {
+      "catalogId": "amd-a9bb711f3c3d0f231f80",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9355P",
+      "productId": "100-000001521"
+    },
+    {
+      "catalogId": "amd-af1fcfda023366d04c43",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8125P",
+      "productId": "100-000002162"
+    },
+    {
+      "catalogId": "amd-b056d09b0ba9f1158d6b",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9375F",
+      "productId": "100-000001197"
+    },
+    {
+      "catalogId": "amd-bddafc363697173671d2",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8635P",
+      "productId": "100-000002157"
+    },
+    {
+      "catalogId": "amd-c1e1c049df8b9e285f94",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9454P",
+      "productId": "100-000000873"
+    },
+    {
+      "catalogId": "amd-c9d9c86c09e055eb6743",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9255",
+      "productId": "100-000000694"
+    },
+    {
+      "catalogId": "amd-cb42bea06bd0f7cb76d6",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8124P",
+      "productId": "100-000001135"
+    },
+    {
+      "catalogId": "amd-cd4f21dee8d4ae3cb129",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8434PN",
+      "productId": "100-000001174"
+    },
+    {
+      "catalogId": "amd-cd7405b435ac2d6e73c7",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9455",
+      "productId": "100-000001542"
+    },
+    {
+      "catalogId": "amd-d6e22518b374ab018961",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9384X",
+      "productId": "100-000001256"
+    },
+    {
+      "catalogId": "amd-d7edcd7a17f64d69d7dd",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9845",
+      "productId": "100-000001458"
+    },
+    {
+      "catalogId": "amd-d8f96747bc1a02c178d3",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8534P",
+      "productId": "100-000000875"
+    },
+    {
+      "catalogId": "amd-da0dd93c3db1513272e5",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8534PN",
+      "productId": "100-000001172"
+    },
+    {
+      "catalogId": "amd-deaad975bc5619a77cf2",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9454",
+      "productId": "100-000000478"
+    },
+    {
+      "catalogId": "amd-e43b499495c8a7ac9b69",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9684X",
+      "productId": "100-000001254"
+    },
+    {
+      "catalogId": "amd-e5185a0ab5391b0acd13",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8535P",
+      "productId": "100-000002158"
+    },
+    {
+      "catalogId": "amd-e70bf571d7d5001edfef",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9274F",
+      "productId": "100-000000794"
+    },
+    {
+      "catalogId": "amd-e83fb6a664adf6db657a",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8025P",
+      "productId": "100-000002163"
+    },
+    {
+      "catalogId": "amd-ea3a7f6f3ee9147aaf6c",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9254",
+      "productId": "100-000000480"
+    },
+    {
+      "catalogId": "amd-ebd16e388c6c0785b568",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8124PN",
+      "productId": "100-000001166"
+    },
+    {
+      "catalogId": "amd-f087fb0881ac2f95c35e",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 8024P",
+      "productId": "100-000001136"
+    },
+    {
+      "catalogId": "amd-f6445f07a0e43611b56f",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9355",
+      "productId": "100-000001148"
+    },
+    {
+      "catalogId": "amd-f931f220fc21dcccb171",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9554P",
+      "productId": "100-000000804"
+    },
+    {
+      "catalogId": "amd-f95d3a3530f59f5ce425",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9354",
+      "productId": "100-000000798"
+    },
+    {
+      "catalogId": "amd-faf8224d7f17d770dbf3",
+      "vendor": "AMD",
+      "dashboardTab": "amd/epyc",
+      "model": "EPYC 9474F",
+      "productId": "100-000000788"
+    },
+    {
+      "catalogId": "intel-0e2e940c461f1ff9df8f",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6728P"
+    },
+    {
+      "catalogId": "intel-0e603b0825bf2841a2ec",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6738P"
+    },
+    {
+      "catalogId": "intel-23d22dc263a6e5a34201",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6732P"
+    },
+    {
+      "catalogId": "intel-266106e5f1a24124b6f5",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6736P"
+    },
+    {
+      "catalogId": "intel-281e8716fd84a897fc29",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6748P"
+    },
+    {
+      "catalogId": "intel-2e8da37d8aed185110d6",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6768P"
+    },
+    {
+      "catalogId": "intel-2f55aeebd918b01a9f8c",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6737P"
+    },
+    {
+      "catalogId": "intel-477f35bc41b6e7aca2c2",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6760P"
+    },
+    {
+      "catalogId": "intel-483f96596ad2582fdb59",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6714P"
+    },
+    {
+      "catalogId": "intel-55aed4fff4909b0f6c95",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6767P"
+    },
+    {
+      "catalogId": "intel-5829cef91c89fe5c7ce7",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6710E"
+    },
+    {
+      "catalogId": "intel-5bdcb9c5df7c447536c2",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6745P"
+    },
+    {
+      "catalogId": "intel-623738144541ea533120",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6724P"
+    },
+    {
+      "catalogId": "intel-762b6275ae456d9a62bd",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6746E"
+    },
+    {
+      "catalogId": "intel-7705378c150321f95432",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6530P"
+    },
+    {
+      "catalogId": "intel-81d566efd7926b6477f9",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6780E"
+    },
+    {
+      "catalogId": "intel-867f237ad912479a9fca",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6756E"
+    },
+    {
+      "catalogId": "intel-92e3603655238b526f36",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6747P"
+    },
+    {
+      "catalogId": "intel-95136ad31a4e1f4dbb6e",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6515P"
+    },
+    {
+      "catalogId": "intel-a0442e1c1104da184c5f",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6740P"
+    },
+    {
+      "catalogId": "intel-a404c927e007b9f18ae3",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6507P"
+    },
+    {
+      "catalogId": "intel-a677bed3121655ff65f5",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6725P"
+    },
+    {
+      "catalogId": "intel-a77973f0863d27945c62",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6730P"
+    },
+    {
+      "catalogId": "intel-a84687d2e1b66dac92df",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6731E"
+    },
+    {
+      "catalogId": "intel-a9b12f1d087e5e7f9141",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6503P"
+    },
+    {
+      "catalogId": "intel-a9e31beaf6a5f4f6e832",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6761P"
+    },
+    {
+      "catalogId": "intel-b45d09bb5c495abacd2f",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6505P"
+    },
+    {
+      "catalogId": "intel-b4d944af3248b1a8e0db",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6511P"
+    },
+    {
+      "catalogId": "intel-bc07a9fb050a8ae30d4d",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6527P"
+    },
+    {
+      "catalogId": "intel-bc1f03c190bc18305bb2",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6517P"
+    },
+    {
+      "catalogId": "intel-ca660dbee8a25400c737",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6520P"
+    },
+    {
+      "catalogId": "intel-dd975dbf0f2b334d6f9e",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6741P"
+    },
+    {
+      "catalogId": "intel-e584614254531c142cbc",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6521P"
+    },
+    {
+      "catalogId": "intel-ec3673fa0ebe903705b4",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6740E"
+    },
+    {
+      "catalogId": "intel-ed9c07def7081f89724c",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6781P"
+    },
+    {
+      "catalogId": "intel-ee7e13fd01f9659f975c",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6788P"
+    },
+    {
+      "catalogId": "intel-ef124b107763422cd947",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6787P"
+    },
+    {
+      "catalogId": "intel-eff7f69f0351220b4e89",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6731P"
+    },
+    {
+      "catalogId": "intel-f24c9396b3b6b0bd6aea",
+      "vendor": "INTEL",
+      "dashboardTab": "intel/xeon",
+      "model": "Xeon 6766E"
+    }
+  ],
+  "platforms": [
+    {
+      "id": "hpe-proliant-dl145-gen11",
+      "oem": "HPE",
+      "model": "ProLiant DL145 Gen11",
+      "category": "edge_server",
+      "formFactor": "rack",
+      "rackUnits": 2,
+      "socketCount": 1,
+      "memoryChannelsPerSocket": 6,
+      "dimmSlots": 6,
+      "dimensions": "8.75 × 35.94 × 40.66 cm (H × W × D; without bezel/filter)",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ]
+    },
+    {
+      "id": "hpe-proliant-dl325-gen11",
+      "oem": "HPE",
+      "model": "ProLiant DL325 Gen11",
+      "category": "rack_server",
+      "formFactor": "rack",
+      "rackUnits": 1,
+      "socketCount": 1,
+      "memoryChannelsPerSocket": 12,
+      "dimmSlots": 12,
+      "dimensions": "4.29 × 43.46 × 64.94 cm (H × W × D; 8SFF chassis)",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ]
+    },
+    {
+      "id": "hpe-proliant-dl345-gen11",
+      "oem": "HPE",
+      "model": "ProLiant DL345 Gen11",
+      "category": "rack_server",
+      "formFactor": "rack",
+      "rackUnits": 2,
+      "socketCount": 1,
+      "memoryChannelsPerSocket": 12,
+      "dimmSlots": 12,
+      "dimensions": "8.75 × 44.8 × 64.6 cm (H × W × D; 8SFF/24SFF/EDSFF chassis)",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ]
+    },
+    {
+      "id": "hpe-proliant-dl365-gen11",
+      "oem": "HPE",
+      "model": "ProLiant DL365 Gen11",
+      "category": "rack_server",
+      "formFactor": "rack",
+      "rackUnits": 1,
+      "socketCount": 2,
+      "memoryChannelsPerSocket": 12,
+      "dimmSlots": 24,
+      "dimensions": "4.29 × 43.46 × 64.94 cm (H × W × D; SFF chassis)",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ]
+    },
+    {
+      "id": "hpe-proliant-compute-dl320-gen12",
+      "oem": "HPE",
+      "model": "ProLiant Compute DL320 Gen12",
+      "category": "rack_server",
+      "formFactor": "rack",
+      "rackUnits": 1,
+      "socketCount": 1,
+      "memoryChannelsPerSocket": 8,
+      "dimmSlots": 16,
+      "dimensions": "4.28 × 43.46 × 60.75 cm (H × W × D; SFF chassis)",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ]
+    },
+    {
+      "id": "hpe-proliant-compute-dl380-gen12",
+      "oem": "HPE",
+      "model": "ProLiant Compute DL380 Gen12",
+      "category": "rack_server",
+      "formFactor": "rack",
+      "rackUnits": 2,
+      "socketCount": 2,
+      "memoryChannelsPerSocket": 8,
+      "dimmSlots": 32,
+      "dimensions": "8.75 × 44.8 × 72.70 cm (H × W × D; SFF/EDSFF chassis)",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ]
+    }
+  ],
+  "compatibility": [
+    {
+      "catalogId": "amd-d8f96747bc1a02c178d3",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P69263-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8534P",
+        "oemOptionCodeAsPrinted": "P69263-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-1bec19a828e005f96280",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P69262-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8434P",
+        "oemOptionCodeAsPrinted": "P69262-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-36162aad92e75d733511",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P69261-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8324P",
+        "oemOptionCodeAsPrinted": "P69261-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-2fce7c87f0bd79c319a8",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P69260-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8224P",
+        "oemOptionCodeAsPrinted": "P69260-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-cb42bea06bd0f7cb76d6",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P69259-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8124P",
+        "oemOptionCodeAsPrinted": "P69259-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-f087fb0881ac2f95c35e",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P69258-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8024P",
+        "oemOptionCodeAsPrinted": "P69258-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-da0dd93c3db1513272e5",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71874-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8534PN",
+        "oemOptionCodeAsPrinted": "P71874-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-cd4f21dee8d4ae3cb129",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71871-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8434PN",
+        "oemOptionCodeAsPrinted": "P71871-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-2aa587b52d6afb84a6b1",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71868-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8324PN",
+        "oemOptionCodeAsPrinted": "P71868-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-3aa5a48d5efc6089bfb9",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71865-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8224PN",
+        "oemOptionCodeAsPrinted": "P71865-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-ebd16e388c6c0785b568",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71862-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8124PN",
+        "oemOptionCodeAsPrinted": "P71862-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-6608fc51fa19463427b3",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71859-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8024PN",
+        "oemOptionCodeAsPrinted": "P71859-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-4800 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-bddafc363697173671d2",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P88840-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8635P",
+        "oemOptionCodeAsPrinted": "P88840-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-6400 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-e5185a0ab5391b0acd13",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P88842-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8535P",
+        "oemOptionCodeAsPrinted": "P88842-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-6400 memory options. HPE does not support this CPU with Optimized Acoustics FIO configuration P73006-B21; supported ambient temperature depends on the selected heatsink and high-temperature configuration.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-9213b53eaa2a4ca55804",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P88844-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8435P",
+        "oemOptionCodeAsPrinted": "P88844-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-6400 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-38827fffedffcd919dc3",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P88846-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8325P",
+        "oemOptionCodeAsPrinted": "P88846-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-6400 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-7ada88bf83a5caf7a781",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P88848-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8225P",
+        "oemOptionCodeAsPrinted": "P88848-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-6400 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-af1fcfda023366d04c43",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P88850-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8125P",
+        "oemOptionCodeAsPrinted": "P88850-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-6400 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-e83fb6a664adf6db657a",
+      "platformId": "hpe-proliant-dl145-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P88852-B21",
+      "sourceIds": [
+        "hpe-dl145-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 8025P",
+        "oemOptionCodeAsPrinted": "P88852-B21",
+        "optionTableLocator": "PDF p. 70, Core Options > Processor"
+      },
+      "restrictionNote": "Requires DDR5-6400 memory options. Cooling, ambient and optimized-acoustics support depend on the selected CPU and heatsink.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-d7edcd7a17f64d69d7dd",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72646-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9845",
+        "oemOptionCodeAsPrinted": "P72646-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-2a8a0dae73192b511a37",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72647-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9825",
+        "oemOptionCodeAsPrinted": "P72647-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-7ad83ccd267c03b56ca4",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72648-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9745",
+        "oemOptionCodeAsPrinted": "P72648-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-a24661387e0195fdc3a5",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72649-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9645",
+        "oemOptionCodeAsPrinted": "P72649-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-69dd3c422dc53b10aa41",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72662-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9655P",
+        "oemOptionCodeAsPrinted": "P72662-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-88b04433c4e4469e498c",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72651-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9565",
+        "oemOptionCodeAsPrinted": "P72651-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-0e99864f858283348a2d",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72652-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9535",
+        "oemOptionCodeAsPrinted": "P72652-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-533ef46f46e792a53597",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72758-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9575F",
+        "oemOptionCodeAsPrinted": "P72758-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-43a29e47003ee20deb83",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72663-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9555P",
+        "oemOptionCodeAsPrinted": "P72663-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-58067b889f2a3a4d3968",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72666-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9475F",
+        "oemOptionCodeAsPrinted": "P72666-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-703b30192d9f90201b46",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72664-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9455P",
+        "oemOptionCodeAsPrinted": "P72664-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-330479125dea2c7f94fe",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72655-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9365",
+        "oemOptionCodeAsPrinted": "P72655-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-608a4a36496b251041aa",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72656-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9335",
+        "oemOptionCodeAsPrinted": "P72656-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-b056d09b0ba9f1158d6b",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72667-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9375F",
+        "oemOptionCodeAsPrinted": "P72667-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-a9bb711f3c3d0f231f80",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72665-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9355P",
+        "oemOptionCodeAsPrinted": "P72665-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-c9d9c86c09e055eb6743",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72658-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9255",
+        "oemOptionCodeAsPrinted": "P72658-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-8cd62f71e0fc8ea5043d",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72668-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9275F",
+        "oemOptionCodeAsPrinted": "P72668-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-92aab6f743944093806a",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72660-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9135",
+        "oemOptionCodeAsPrinted": "P72660-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-7bd4c234f5117b8b2b07",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72659-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9115",
+        "oemOptionCodeAsPrinted": "P72659-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-7cfb6c400cf40bf444bc",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72669-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9175F",
+        "oemOptionCodeAsPrinted": "P72669-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "320W CPU requires closed-loop liquid-cooling heatsink P58463-B21 and liquid-cooling fans P59668-B21. HPE's >300W cooling matrix lists supported drive/backplane layouts and temperature/memory-option limits by chassis.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-87f14037b849fa2c41d6",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72661-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9015",
+        "oemOptionCodeAsPrinted": "P72661-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-023b75891c3df803278d",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P60463-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9754",
+        "oemOptionCodeAsPrinted": "P60463-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-639477f61d81cdc2f5ce",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53697-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9654P",
+        "oemOptionCodeAsPrinted": "P53697-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-e43b499495c8a7ac9b69",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P63493-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9684X",
+        "oemOptionCodeAsPrinted": "P63493-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-868936d8f7a46af7b9a7",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53705-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9634",
+        "oemOptionCodeAsPrinted": "P53705-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-5fc268b641d9fba44b10",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53699-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9534",
+        "oemOptionCodeAsPrinted": "P53699-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-f931f220fc21dcccb171",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53703-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9554P",
+        "oemOptionCodeAsPrinted": "P53703-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-c1e1c049df8b9e285f94",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53709-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9454P",
+        "oemOptionCodeAsPrinted": "P53709-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-faf8224d7f17d770dbf3",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53706-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9474F",
+        "oemOptionCodeAsPrinted": "P53706-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-98a94e467cbefadf876c",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53712-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9334",
+        "oemOptionCodeAsPrinted": "P53712-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-79b6848046eef65e48e0",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53704-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9354P",
+        "oemOptionCodeAsPrinted": "P53704-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-1b1dfce6091041b695da",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53710-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9374F",
+        "oemOptionCodeAsPrinted": "P53710-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-d6e22518b374ab018961",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P63492-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9384X",
+        "oemOptionCodeAsPrinted": "P63492-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W. This CPU is limited to 25°C supported ambient and excludes EDSFF CTO.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-ea3a7f6f3ee9147aaf6c",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53707-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9254",
+        "oemOptionCodeAsPrinted": "P53707-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W. This CPU is limited to 25°C supported ambient.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-69bb2a841328733d69dd",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P58540-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9224",
+        "oemOptionCodeAsPrinted": "P58540-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-e70bf571d7d5001edfef",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53711-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9274F",
+        "oemOptionCodeAsPrinted": "P53711-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-2e29ef28d8bad0fb1f1f",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53702-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9124",
+        "oemOptionCodeAsPrinted": "P53702-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-8a2d4eb27e17be3da6e7",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53698-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9174F",
+        "oemOptionCodeAsPrinted": "P53698-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-03ca4de63c796a7065eb",
+      "platformId": "hpe-proliant-dl325-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P63491-B21",
+      "sourceIds": [
+        "hpe-dl325-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9184X",
+        "oemOptionCodeAsPrinted": "P63491-B21",
+        "optionTableLocator": "PDF pp. 24-25, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink selection depends on TDP: standard at <=240W, performance above 240W through 300W, closed-loop liquid cooling at >=320W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-d7edcd7a17f64d69d7dd",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72646-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9845",
+        "oemOptionCodeAsPrinted": "P72646-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-2a8a0dae73192b511a37",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72647-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9825",
+        "oemOptionCodeAsPrinted": "P72647-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-7ad83ccd267c03b56ca4",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72648-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9745",
+        "oemOptionCodeAsPrinted": "P72648-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-a24661387e0195fdc3a5",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72649-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9645",
+        "oemOptionCodeAsPrinted": "P72649-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-69dd3c422dc53b10aa41",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72662-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9655P",
+        "oemOptionCodeAsPrinted": "P72662-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-88b04433c4e4469e498c",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72651-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9565",
+        "oemOptionCodeAsPrinted": "P72651-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-0e99864f858283348a2d",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72652-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9535",
+        "oemOptionCodeAsPrinted": "P72652-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-533ef46f46e792a53597",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72758-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9575F",
+        "oemOptionCodeAsPrinted": "P72758-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-43a29e47003ee20deb83",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72663-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9555P",
+        "oemOptionCodeAsPrinted": "P72663-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-58067b889f2a3a4d3968",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72666-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9475F",
+        "oemOptionCodeAsPrinted": "P72666-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-703b30192d9f90201b46",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72664-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9455P",
+        "oemOptionCodeAsPrinted": "P72664-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-330479125dea2c7f94fe",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72655-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9365",
+        "oemOptionCodeAsPrinted": "P72655-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-608a4a36496b251041aa",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72656-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9335",
+        "oemOptionCodeAsPrinted": "P72656-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-b056d09b0ba9f1158d6b",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72667-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9375F",
+        "oemOptionCodeAsPrinted": "P72667-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-a9bb711f3c3d0f231f80",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72665-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9355P",
+        "oemOptionCodeAsPrinted": "P72665-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-c9d9c86c09e055eb6743",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72658-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9255",
+        "oemOptionCodeAsPrinted": "P72658-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-8cd62f71e0fc8ea5043d",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72668-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9275F",
+        "oemOptionCodeAsPrinted": "P72668-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-92aab6f743944093806a",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72660-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9135",
+        "oemOptionCodeAsPrinted": "P72660-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-7bd4c234f5117b8b2b07",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72659-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9115",
+        "oemOptionCodeAsPrinted": "P72659-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-7cfb6c400cf40bf444bc",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72669-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9175F",
+        "oemOptionCodeAsPrinted": "P72669-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-87f14037b849fa2c41d6",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72661-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9015",
+        "oemOptionCodeAsPrinted": "P72661-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-023b75891c3df803278d",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P60463-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9754",
+        "oemOptionCodeAsPrinted": "P60463-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-639477f61d81cdc2f5ce",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53697-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9654P",
+        "oemOptionCodeAsPrinted": "P53697-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-e43b499495c8a7ac9b69",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P63493-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9684X",
+        "oemOptionCodeAsPrinted": "P63493-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-868936d8f7a46af7b9a7",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53705-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9634",
+        "oemOptionCodeAsPrinted": "P53705-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-5fc268b641d9fba44b10",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53699-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9534",
+        "oemOptionCodeAsPrinted": "P53699-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-f931f220fc21dcccb171",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53703-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9554P",
+        "oemOptionCodeAsPrinted": "P53703-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-c1e1c049df8b9e285f94",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53709-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9454P",
+        "oemOptionCodeAsPrinted": "P53709-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-faf8224d7f17d770dbf3",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53706-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9474F",
+        "oemOptionCodeAsPrinted": "P53706-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-98a94e467cbefadf876c",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53712-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9334",
+        "oemOptionCodeAsPrinted": "P53712-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-79b6848046eef65e48e0",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53704-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9354P",
+        "oemOptionCodeAsPrinted": "P53704-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-1b1dfce6091041b695da",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53710-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9374F",
+        "oemOptionCodeAsPrinted": "P53710-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-d6e22518b374ab018961",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P63492-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9384X",
+        "oemOptionCodeAsPrinted": "P63492-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "320W CPU requires performance heatsink P58459-B21 and performance fans P58465-B21. The 4LFF mid-tray cage requires a CPU <=300W; HPE's cooling matrix lists 4LFF/8SFF mid-tray layouts only through 300W.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-ea3a7f6f3ee9147aaf6c",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53707-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9254",
+        "oemOptionCodeAsPrinted": "P53707-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-69bb2a841328733d69dd",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P58540-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9224",
+        "oemOptionCodeAsPrinted": "P58540-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-e70bf571d7d5001edfef",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53711-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9274F",
+        "oemOptionCodeAsPrinted": "P53711-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-2e29ef28d8bad0fb1f1f",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53702-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9124",
+        "oemOptionCodeAsPrinted": "P53702-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-8a2d4eb27e17be3da6e7",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53698-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9174F",
+        "oemOptionCodeAsPrinted": "P53698-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "amd-03ca4de63c796a7065eb",
+      "platformId": "hpe-proliant-dl345-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P63491-B21",
+      "sourceIds": [
+        "hpe-dl345-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9184X",
+        "oemOptionCodeAsPrinted": "P63491-B21",
+        "optionTableLocator": "PDF pp. 28-29, Core Options > Processor"
+      },
+      "restrictionNote": "Heatsink/fans depend on TDP and drive layout; <=240W uses standard cooling, >=260W requires performance heatsink, and some mid-tray layouts need 1U performance heatsink/fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-5829cef91c89fe5c7ce7",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71117-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6710E",
+        "oemOptionCodeAsPrinted": "P71117-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-a84687d2e1b66dac92df",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71118-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6731E",
+        "oemOptionCodeAsPrinted": "P71118-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-ec3673fa0ebe903705b4",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71119-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6740E",
+        "oemOptionCodeAsPrinted": "P71119-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-762b6275ae456d9a62bd",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71120-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6746E",
+        "oemOptionCodeAsPrinted": "P71120-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-867f237ad912479a9fca",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71121-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6756E",
+        "oemOptionCodeAsPrinted": "P71121-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-f24c9396b3b6b0bd6aea",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71122-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6766E",
+        "oemOptionCodeAsPrinted": "P71122-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-81d566efd7926b6477f9",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71124-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6780E",
+        "oemOptionCodeAsPrinted": "P71124-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-a9b12f1d087e5e7f9141",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P94926-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6503P",
+        "oemOptionCodeAsPrinted": "P94926-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-a404c927e007b9f18ae3",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74504-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6507P",
+        "oemOptionCodeAsPrinted": "P74504-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-bc1f03c190bc18305bb2",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74507-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6517P",
+        "oemOptionCodeAsPrinted": "P74507-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-a677bed3121655ff65f5",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P87302-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6725P",
+        "oemOptionCodeAsPrinted": "P87302-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-bc07a9fb050a8ae30d4d",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74570-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6527P",
+        "oemOptionCodeAsPrinted": "P74570-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-a77973f0863d27945c62",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74573-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6730P",
+        "oemOptionCodeAsPrinted": "P74573-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-23d22dc263a6e5a34201",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74578-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6732P",
+        "oemOptionCodeAsPrinted": "P74578-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-266106e5f1a24124b6f5",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74575-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6736P",
+        "oemOptionCodeAsPrinted": "P74575-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-2f55aeebd918b01a9f8c",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74576-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6737P",
+        "oemOptionCodeAsPrinted": "P74576-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-5bdcb9c5df7c447536c2",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P81591-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6745P",
+        "oemOptionCodeAsPrinted": "P81591-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-92e3603655238b526f36",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73831-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6747P",
+        "oemOptionCodeAsPrinted": "P73831-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-55aed4fff4909b0f6c95",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73834-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6767P",
+        "oemOptionCodeAsPrinted": "P73834-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-ef124b107763422cd947",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73837-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6787P",
+        "oemOptionCodeAsPrinted": "P73837-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-b45d09bb5c495abacd2f",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74503-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6505P",
+        "oemOptionCodeAsPrinted": "P74503-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-95136ad31a4e1f4dbb6e",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74506-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6515P",
+        "oemOptionCodeAsPrinted": "P74506-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-ca660dbee8a25400c737",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74568-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6520P",
+        "oemOptionCodeAsPrinted": "P74568-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-7705378c150321f95432",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74571-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6530P",
+        "oemOptionCodeAsPrinted": "P74571-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-a0442e1c1104da184c5f",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73829-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6740P",
+        "oemOptionCodeAsPrinted": "P73829-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-477f35bc41b6e7aca2c2",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73832-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6760P",
+        "oemOptionCodeAsPrinted": "P73832-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-b4d944af3248b1a8e0db",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74505-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6511P",
+        "oemOptionCodeAsPrinted": "P74505-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-e584614254531c142cbc",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74569-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6521P",
+        "oemOptionCodeAsPrinted": "P74569-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-eff7f69f0351220b4e89",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74574-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6731P",
+        "oemOptionCodeAsPrinted": "P74574-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-dd975dbf0f2b334d6f9e",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73830-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6741P",
+        "oemOptionCodeAsPrinted": "P73830-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-a9e31beaf6a5f4f6e832",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73833-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6761P",
+        "oemOptionCodeAsPrinted": "P73833-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-ed9c07def7081f89724c",
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73836-B21",
+      "sourceIds": [
+        "hpe-dl320-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6781P",
+        "oemOptionCodeAsPrinted": "P73836-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "Processors >185W require high-performance heatsink and seven matching fans; >270W requires closed-loop liquid cooling and seven matching fans.",
+      "supportedCpuQuantities": [
+        1
+      ]
+    },
+    {
+      "catalogId": "intel-5829cef91c89fe5c7ce7",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71117-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6710E",
+        "oemOptionCodeAsPrinted": "P71117-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-a84687d2e1b66dac92df",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71118-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6731E",
+        "oemOptionCodeAsPrinted": "P71118-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only. HPE lists UPI 0; do not assert 2P support without a per-SKU check."
+    },
+    {
+      "catalogId": "intel-ec3673fa0ebe903705b4",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71119-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6740E",
+        "oemOptionCodeAsPrinted": "P71119-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-762b6275ae456d9a62bd",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71120-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6746E",
+        "oemOptionCodeAsPrinted": "P71120-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-867f237ad912479a9fca",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71121-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6756E",
+        "oemOptionCodeAsPrinted": "P71121-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-f24c9396b3b6b0bd6aea",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71122-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6766E",
+        "oemOptionCodeAsPrinted": "P71122-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-81d566efd7926b6477f9",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P71124-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6780E",
+        "oemOptionCodeAsPrinted": "P71124-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-a9b12f1d087e5e7f9141",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P94926-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6503P",
+        "oemOptionCodeAsPrinted": "P94926-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-a404c927e007b9f18ae3",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74504-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6507P",
+        "oemOptionCodeAsPrinted": "P74504-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-bc1f03c190bc18305bb2",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74507-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6517P",
+        "oemOptionCodeAsPrinted": "P74507-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-bc07a9fb050a8ae30d4d",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74570-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6527P",
+        "oemOptionCodeAsPrinted": "P74570-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-a677bed3121655ff65f5",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P87302-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6725P",
+        "oemOptionCodeAsPrinted": "P87302-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-a77973f0863d27945c62",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74573-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6730P",
+        "oemOptionCodeAsPrinted": "P74573-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-23d22dc263a6e5a34201",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74578-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6732P",
+        "oemOptionCodeAsPrinted": "P74578-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-266106e5f1a24124b6f5",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74575-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6736P",
+        "oemOptionCodeAsPrinted": "P74575-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-2f55aeebd918b01a9f8c",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74576-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6737P",
+        "oemOptionCodeAsPrinted": "P74576-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-5bdcb9c5df7c447536c2",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P81591-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6745P",
+        "oemOptionCodeAsPrinted": "P81591-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-92e3603655238b526f36",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73831-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6747P",
+        "oemOptionCodeAsPrinted": "P73831-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-55aed4fff4909b0f6c95",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73834-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6767P",
+        "oemOptionCodeAsPrinted": "P73834-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-b45d09bb5c495abacd2f",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74503-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6505P",
+        "oemOptionCodeAsPrinted": "P74503-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-95136ad31a4e1f4dbb6e",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74506-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6515P",
+        "oemOptionCodeAsPrinted": "P74506-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-ca660dbee8a25400c737",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74568-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6520P",
+        "oemOptionCodeAsPrinted": "P74568-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-7705378c150321f95432",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74571-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6530P",
+        "oemOptionCodeAsPrinted": "P74571-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-a0442e1c1104da184c5f",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73829-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6740P",
+        "oemOptionCodeAsPrinted": "P73829-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-477f35bc41b6e7aca2c2",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73832-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6760P",
+        "oemOptionCodeAsPrinted": "P73832-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-483f96596ad2582fdb59",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74508-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6714P",
+        "oemOptionCodeAsPrinted": "P74508-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-623738144541ea533120",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74509-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6724P",
+        "oemOptionCodeAsPrinted": "P74509-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-0e2e940c461f1ff9df8f",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74572-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6728P",
+        "oemOptionCodeAsPrinted": "P74572-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-0e603b0825bf2841a2ec",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74577-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6738P",
+        "oemOptionCodeAsPrinted": "P74577-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-281e8716fd84a897fc29",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P74579-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6748P",
+        "oemOptionCodeAsPrinted": "P74579-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-2e8da37d8aed185110d6",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73835-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6768P",
+        "oemOptionCodeAsPrinted": "P73835-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "intel-ee7e13fd01f9659f975c",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P73838-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6788P",
+        "oemOptionCodeAsPrinted": "P73838-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "restrictionNote": "A 2P build requires matching processor models; the 4LFF midplane cage supports CPUs <=225W only."
+    },
+    {
+      "catalogId": "amd-d7edcd7a17f64d69d7dd",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72646-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9845",
+        "oemOptionCodeAsPrinted": "P72646-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-2a8a0dae73192b511a37",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72647-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9825",
+        "oemOptionCodeAsPrinted": "P72647-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-7ad83ccd267c03b56ca4",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72648-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9745",
+        "oemOptionCodeAsPrinted": "P72648-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-92784fe5e4f2faaed137",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72650-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9655",
+        "oemOptionCodeAsPrinted": "P72650-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-a24661387e0195fdc3a5",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72649-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9645",
+        "oemOptionCodeAsPrinted": "P72649-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-88b04433c4e4469e498c",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72651-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9565",
+        "oemOptionCodeAsPrinted": "P72651-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-533ef46f46e792a53597",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72758-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9575F",
+        "oemOptionCodeAsPrinted": "P72758-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-0132d13801f21f500520",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72653-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9555",
+        "oemOptionCodeAsPrinted": "P72653-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-0e99864f858283348a2d",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72652-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9535",
+        "oemOptionCodeAsPrinted": "P72652-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-58067b889f2a3a4d3968",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72666-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9475F",
+        "oemOptionCodeAsPrinted": "P72666-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-cd7405b435ac2d6e73c7",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72654-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9455",
+        "oemOptionCodeAsPrinted": "P72654-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-330479125dea2c7f94fe",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72655-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9365",
+        "oemOptionCodeAsPrinted": "P72655-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-b056d09b0ba9f1158d6b",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72667-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9375F",
+        "oemOptionCodeAsPrinted": "P72667-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-f6445f07a0e43611b56f",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72657-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9355",
+        "oemOptionCodeAsPrinted": "P72657-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-608a4a36496b251041aa",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72656-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9335",
+        "oemOptionCodeAsPrinted": "P72656-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-8cd62f71e0fc8ea5043d",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72668-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9275F",
+        "oemOptionCodeAsPrinted": "P72668-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-c9d9c86c09e055eb6743",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72658-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9255",
+        "oemOptionCodeAsPrinted": "P72658-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-7cfb6c400cf40bf444bc",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72669-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9175F",
+        "oemOptionCodeAsPrinted": "P72669-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-92aab6f743944093806a",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72660-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9135",
+        "oemOptionCodeAsPrinted": "P72660-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-7bd4c234f5117b8b2b07",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72659-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9115",
+        "oemOptionCodeAsPrinted": "P72659-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-87f14037b849fa2c41d6",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P72661-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9015",
+        "oemOptionCodeAsPrinted": "P72661-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-023b75891c3df803278d",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P60463-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9754",
+        "oemOptionCodeAsPrinted": "P60463-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-e43b499495c8a7ac9b69",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P63493-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9684X",
+        "oemOptionCodeAsPrinted": "P63493-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-3a73938c9cdc8e1af5c1",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53696-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9654",
+        "oemOptionCodeAsPrinted": "P53696-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-868936d8f7a46af7b9a7",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53705-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9634",
+        "oemOptionCodeAsPrinted": "P53705-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-4e2482a19422a82087d2",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53700-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9554",
+        "oemOptionCodeAsPrinted": "P53700-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-5fc268b641d9fba44b10",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53699-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9534",
+        "oemOptionCodeAsPrinted": "P53699-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-faf8224d7f17d770dbf3",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53706-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9474F",
+        "oemOptionCodeAsPrinted": "P53706-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-deaad975bc5619a77cf2",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53708-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9454",
+        "oemOptionCodeAsPrinted": "P53708-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-d6e22518b374ab018961",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P63492-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9384X",
+        "oemOptionCodeAsPrinted": "P63492-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-1b1dfce6091041b695da",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53710-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9374F",
+        "oemOptionCodeAsPrinted": "P53710-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-f95d3a3530f59f5ce425",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53701-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9354",
+        "oemOptionCodeAsPrinted": "P53701-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-98a94e467cbefadf876c",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53712-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9334",
+        "oemOptionCodeAsPrinted": "P53712-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-e70bf571d7d5001edfef",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53711-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9274F",
+        "oemOptionCodeAsPrinted": "P53711-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-ea3a7f6f3ee9147aaf6c",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53707-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9254",
+        "oemOptionCodeAsPrinted": "P53707-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-69bb2a841328733d69dd",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P58540-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9224",
+        "oemOptionCodeAsPrinted": "P58540-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-03ca4de63c796a7065eb",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P63491-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9184X",
+        "oemOptionCodeAsPrinted": "P63491-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-8a2d4eb27e17be3da6e7",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53698-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9174F",
+        "oemOptionCodeAsPrinted": "P53698-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    },
+    {
+      "catalogId": "amd-2e29ef28d8bad0fb1f1f",
+      "platformId": "hpe-proliant-dl365-gen11",
+      "supportLevel": "confirmed",
+      "evidenceType": "supported_processor_table",
+      "oemOptionCode": "P53702-B21",
+      "sourceIds": [
+        "hpe-dl365-gen11"
+      ],
+      "reviewStatus": "source_row_verified",
+      "evidence": {
+        "normalizedProcessorModel": "EPYC 9124",
+        "oemOptionCodeAsPrinted": "P53702-B21",
+        "optionTableLocator": "Core Options > Processor Option Kits"
+      },
+      "restrictionNote": "A 2P build requires two of the same processor model. EDSFF CTO requires 2 CPUs; >240W requires performance cooling; >=320W limits drive count."
+    }
+  ],
+  "sources": [
+    {
+      "id": "hpe-dl145-gen11",
+      "publisher": "HPE",
+      "title": "HPE ProLiant DL145 Gen11 QuickSpecs, Version 22 (8 September 2026)",
+      "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20ProLiant%20DL145%20Gen11%20QuickSpecs-a50009217enw.pdf?contentDisposition=attachment&deepLink=&form=false&hf=regular&id=a50009217enw.pdf&isFutureVersion=false&isLinearized=false&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&utm_campaign=&utm_content=&utm_medium=&utm_source=&utm_term=&ver=22",
+      "locator": "PDF pp. 1, 8-10, 70, 87: 2U/1P, processor tables, Core Options processor kits, dimensions; configuration/cooling matrices pp. 21 and 32-51",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "hpe-dl325-gen11",
+      "publisher": "HPE",
+      "title": "HPE ProLiant DL325 Gen11 QuickSpecs, Version 40 (3 August 2026)",
+      "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20ProLiant%20DL325%20Gen11%20QuickSpecs-a50004297enw.pdf?contentDisposition=attachment&deepLink=&form=false&hf=regular&id=a50004297enw.pdf&isFutureVersion=false&isLinearized=false&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&utm_campaign=&utm_content=&utm_medium=&utm_source=&utm_term=&ver=40",
+      "locator": "PDF pp. 1, 5, 8, 24-25, 53: 1U/1P, memory, Core Options processor kits, cooling notes, chassis dimensions",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "hpe-dl345-gen11",
+      "publisher": "HPE",
+      "title": "HPE ProLiant DL345 Gen11 QuickSpecs, Version 40 (3 August 2026)",
+      "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20ProLiant%20DL345%20Gen11%20QuickSpecs-a50004298enw.pdf?contentDisposition=attachment&deepLink=&form=false&hf=regular&id=a50004298enw.pdf&isFutureVersion=false&isLinearized=false&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&utm_campaign=&utm_content=&utm_medium=&utm_source=&utm_term=&ver=40",
+      "locator": "PDF pp. 1, 5, 8, 28-29, 63: 2U/1P, memory, Core Options processor kits, cooling notes, chassis dimensions",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "hpe-dl365-gen11",
+      "publisher": "HPE",
+      "title": "HPE ProLiant DL365 Gen11 QuickSpecs, Version 45 (8 September 2026)",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004299enw.html",
+      "locator": "Overview; Standard Features > Memory; Configuration Information > Processor Options; Technical Specifications > System Unit; Summary of Changes",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "hpe-dl320-gen12",
+      "publisher": "HPE",
+      "title": "HPE ProLiant Compute DL320 Gen12 QuickSpecs, Version 20 (8 September 2026)",
+      "url": "https://www.hpe.com/fi/en/collaterals/collateral.a50004283enw.html",
+      "locator": "Overview; Standard Features > Memory; Core Options > Processor; Technical Specifications > System Unit; Summary of Changes",
+      "retrievedAt": "2026-09-30"
+    },
+    {
+      "id": "hpe-dl380-gen12",
+      "publisher": "HPE",
+      "title": "HPE ProLiant Compute DL380 Gen12 QuickSpecs, Version 19 (8 September 2026)",
+      "url": "https://www.hpe.com/nl/en/collaterals/collateral.a00073551enw.html",
+      "locator": "Overview; Standard Features > Memory; Core Options > Processor; Technical Specifications > System Unit",
+      "retrievedAt": "2026-09-30"
+    }
+  ],
+  "platformDetails": {
+    "hpe-proliant-dl145-gen11": {
+      "mounting": [
+        "2U rack",
+        "wall",
+        "desk"
+      ],
+      "chassisVariants": [
+        {
+          "name": "without bezel/filter",
+          "heightCm": 8.75,
+          "widthCm": 35.94,
+          "depthCm": 40.66
+        },
+        {
+          "name": "with bezel/filter",
+          "heightCm": 8.75,
+          "widthCm": 38.44,
+          "depthCm": 50.74
+        }
+      ],
+      "configurationNotes": [
+        "EPYC 8004 processor kits require DDR5-4800 memory; EPYC 8005 kits require DDR5-6400 memory.",
+        "Cooling, ambient temperature and optimized acoustics vary by CPU and heatsink; an acoustics-table 'No support' does not mean the CPU is unsupported in the system."
+      ]
+    },
+    "hpe-proliant-dl325-gen11": {
+      "chassisVariants": [
+        {
+          "name": "8SFF",
+          "heightCm": 4.29,
+          "widthCm": 43.46,
+          "depthCm": 64.94
+        },
+        {
+          "name": "4LFF or EDSFF",
+          "heightCm": 4.29,
+          "widthCm": 43.46,
+          "depthCm": 70.89
+        },
+        {
+          "name": "GPU CTO",
+          "heightCm": 4.29,
+          "widthCm": 43.46,
+          "depthCm": 81.84
+        }
+      ],
+      "configurationNotes": [
+        "HPE requires a standard heatsink at <=240W, performance heatsink above 240W through 300W, and closed-loop liquid cooling at >=320W.",
+        "EPYC 9254 and 9384X have a 25°C supported ambient limit; EPYC 9384X is excluded from the EDSFF CTO chassis."
+      ]
+    },
+    "hpe-proliant-dl345-gen11": {
+      "chassisVariants": [
+        {
+          "name": "8SFF, 24SFF or EDSFF",
+          "heightCm": 8.75,
+          "widthCm": 44.8,
+          "depthCm": 64.6
+        },
+        {
+          "name": "8LFF",
+          "heightCm": 8.75,
+          "widthCm": 44.8,
+          "depthCm": 66.3
+        },
+        {
+          "name": "GPU CTO",
+          "heightCm": 8.75,
+          "widthCm": 44.8,
+          "depthCm": 79.87
+        }
+      ],
+      "configurationNotes": [
+        "HPE requires standard heatsink/fans at <=240W and a performance heatsink at >=260W.",
+        "For <=300W CPUs with 4LFF or 8SFF mid-tray drives, HPE requires the 1U performance heatsink and performance fans."
+      ]
+    },
+    "hpe-proliant-dl365-gen11": {
+      "chassisVariants": [
+        {
+          "name": "SFF",
+          "heightCm": 4.29,
+          "widthCm": 43.46,
+          "depthCm": 64.94
+        },
+        {
+          "name": "EDSFF",
+          "heightCm": 4.29,
+          "widthCm": 43.46,
+          "depthCm": 70.89
+        },
+        {
+          "name": "GPU CTO",
+          "heightCm": 4.29,
+          "widthCm": 43.46,
+          "depthCm": 81.84
+        }
+      ],
+      "configurationNotes": [
+        "The platform has up to 2 processors and 12 memory channels per installed processor; 24 DIMM slots require 2 CPUs.",
+        "EDSFF chassis require 2 CPUs plus performance heatsink or direct liquid cooling and performance fans.",
+        "The processor option list confirms model eligibility but does not by itself prove both 1P and 2P configurations for every listed SKU."
+      ]
+    },
+    "hpe-proliant-compute-dl320-gen12": {
+      "chassisVariants": [
+        {
+          "name": "SFF",
+          "heightCm": 4.28,
+          "widthCm": 43.46,
+          "depthCm": 60.75
+        },
+        {
+          "name": "SFF/EDSFF or 4LFF",
+          "heightCm": 4.28,
+          "widthCm": 43.46,
+          "depthCm": 66.7
+        },
+        {
+          "name": "12LFF",
+          "heightCm": 4.28,
+          "widthCm": 43.46,
+          "depthCm": 99.74
+        },
+        {
+          "name": "GPU CTO",
+          "heightCm": 4.28,
+          "widthCm": 43.46,
+          "depthCm": 82.18
+        }
+      ],
+      "configurationNotes": [
+        "CPU TDP above 185W requires high-performance heatsink and seven fan kits; above 270W requires closed-loop liquid cooling and matching fans.",
+        "12LFF chassis requires a rack at least 1200 mm deep."
+      ]
+    },
+    "hpe-proliant-compute-dl380-gen12": {
+      "chassisVariants": [
+        {
+          "name": "SFF or EDSFF",
+          "heightCm": 8.75,
+          "widthCm": 44.8,
+          "depthCm": 72.7
+        },
+        {
+          "name": "LFF",
+          "heightCm": 8.75,
+          "widthCm": 44.8,
+          "depthCm": 73.25
+        }
+      ],
+      "configurationNotes": [
+        "In a 2P build, the two CPU models must match.",
+        "The 4LFF midplane cage is limited to processors <=225W.",
+        "The processor option list confirms model eligibility but does not prove both 1P and 2P configurations for each SKU; Xeon 6731E is listed with UPI 0."
+      ]
+    }
+  },
+  "reviewedSystems": [
+    {
+      "platformId": "hpe-proliant-dl145-gen11",
+      "sourceId": "hpe-dl145-gen11",
+      "reviewStatus": "source_row_verified",
+      "oemProcessorOptionRows": 19,
+      "newCatalogEdges": 19,
+      "alreadyInSite": false,
+      "sourceAlreadyInSite": false
+    },
+    {
+      "platformId": "hpe-proliant-dl325-gen11",
+      "sourceId": "hpe-dl325-gen11",
+      "reviewStatus": "source_row_verified",
+      "oemProcessorOptionRows": 39,
+      "newCatalogEdges": 39,
+      "alreadyInSite": false,
+      "sourceAlreadyInSite": false
+    },
+    {
+      "platformId": "hpe-proliant-dl345-gen11",
+      "sourceId": "hpe-dl345-gen11",
+      "reviewStatus": "source_row_verified",
+      "oemProcessorOptionRows": 39,
+      "newCatalogEdges": 39,
+      "alreadyInSite": false,
+      "sourceAlreadyInSite": false
+    },
+    {
+      "platformId": "hpe-proliant-dl365-gen11",
+      "sourceId": "hpe-dl365-gen11",
+      "reviewStatus": "source_row_verified",
+      "oemProcessorOptionRows": 39,
+      "newCatalogEdges": 39,
+      "alreadyInSite": false,
+      "sourceAlreadyInSite": false
+    },
+    {
+      "platformId": "hpe-proliant-compute-dl320-gen12",
+      "sourceId": "hpe-dl320-gen12",
+      "reviewStatus": "source_row_verified",
+      "oemProcessorOptionRows": 32,
+      "newCatalogEdges": 32,
+      "alreadyInSite": false,
+      "sourceAlreadyInSite": false
+    },
+    {
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "sourceId": "hpe-dl380-gen12",
+      "reviewStatus": "source_row_verified",
+      "oemProcessorOptionRows": 34,
+      "newCatalogEdges": 32,
+      "alreadyInSite": true,
+      "sourceAlreadyInSite": true
+    }
+  ],
+  "unmatchedCatalogRows": [
+    {
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "model": "Xeon 6762P",
+      "oemOptionCode": "P90157-B21",
+      "sourceIds": [
+        "hpe-dl380-gen12"
+      ],
+      "evidence": {
+        "normalizedProcessorModel": "Xeon 6762P",
+        "oemOptionCodeAsPrinted": "P90157-B21",
+        "optionTableLocator": "Core Options > Processor"
+      },
+      "reason": "Exact HPE option exists, but this CPU is absent from the ChipIndex catalog snapshot."
+    }
+  ],
+  "alreadyInSiteEdges": [
+    {
+      "catalogId": "intel-ef124b107763422cd947",
+      "platformId": "hpe-proliant-compute-dl380-gen12",
+      "model": "Xeon 6787P",
+      "oemOptionCode": "P73837-B21"
+    }
+  ],
+  "uncertainSupportRows": []
+}

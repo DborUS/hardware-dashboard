@@ -1,0 +1,358 @@
+{
+    "schemaVersion": 1,
+    "mode": "reviewed-snapshots",
+    "dateMeaning": "Dates identify source snapshot capture, not this page visit or registry rebuild. Different tests may have different capture dates.",
+    "coverageMeaning": "Counts describe results imported into ChipIndex. They do not measure the size or complete coverage of an external benchmark archive.",
+    "totalRecords": 3862,
+    "productsWithResults": 697,
+    "catalogProducts": 2393,
+    "sources": [
+        {
+            "id": "spec",
+            "name": "SPEC CPU",
+            "status": "available",
+            "label": "Imported snapshot",
+            "description": "Published server CPU results for integer and floating-point throughput.",
+            "workloads": [
+                "Server throughput",
+                "Scientific computing"
+            ],
+            "homepage": "https://www.spec.org/cpu2017/results/",
+            "accessMethod": "Official result indexes and full system disclosures; the importer scans available rate-result archives and retains a disclosed selection of exact catalog matches.",
+            "limitations": [
+                "Scores describe a complete submitted system, including its CPU count, memory, compiler and operating system.",
+                "CPU2017 and CPU2026 use separate scales. Compare the same suite, metric, base result and CPU count.",
+                "Archive indexes are scanned for catalog matches. CPU2017 retains the latest two reports per model and CPU count plus previously verified reports; this is not every system submission. CPU2026 test builds stay separate."
+            ],
+            "rightsNote": "Retain the full result link, exact metric and system context; follow SPEC's fair-use and reporting rules.",
+            "references": [
+                {
+                    "label": "CPU2017 results",
+                    "url": "https://www.spec.org/cpu2017/results/"
+                },
+                {
+                    "label": "CPU2026 results",
+                    "url": "https://www.spec.org/cpu2026/results/"
+                },
+                {
+                    "label": "Result-use rules",
+                    "url": "https://www.spec.org/products/fairuse/"
+                }
+            ],
+            "refresh": {
+                "mode": "reviewed-online-import",
+                "command": "python tools/refresh-benchmarks.py --refresh spec --allow-network",
+                "note": "Replays retained source captures. Add --allow-network for live archive discovery and report retrieval; full report capture is an explicit importer option."
+            },
+            "datasets": [
+                {
+                    "id": "spec2017-int",
+                    "filename": "enterprise-benchmark-sample.json",
+                    "path": "js/data/enterprise-benchmark-sample.json",
+                    "label": "Integer throughput \u00b7 CPU2017",
+                    "metric": "SPECrate2017_int_base",
+                    "recordCount": 1658,
+                    "productCount": 513,
+                    "snapshotDate": "2026-10-07",
+                    "sourceUrl": "https://www.spec.org/cpu2017/results/rint2017/",
+                    "scope": "Archive-wide exact enterprise CPU matches; 1/2 CPUs; rint2017 base rate",
+                    "sha256": "61ce8ffde91e5ddc9039b8a89f904c38302cb285d5a1dfc643e83b2db85428fc",
+                    "byteSize": 1977849,
+                    "benchmarkVersions": [
+                        "SPEC CPU2017 v1.0.2",
+                        "SPEC CPU2017 v1.0.5",
+                        "SPEC CPU2017 v1.1.0",
+                        "SPEC CPU2017 v1.1.5",
+                        "SPEC CPU2017 v1.1.7",
+                        "SPEC CPU2017 v1.1.8",
+                        "SPEC CPU2017 v1.1.9"
+                    ]
+                },
+                {
+                    "id": "spec2017-fp",
+                    "filename": "enterprise-benchmark-fp-sample.json",
+                    "path": "js/data/enterprise-benchmark-fp-sample.json",
+                    "label": "Floating-point throughput \u00b7 CPU2017",
+                    "metric": "SPECrate2017_fp_base",
+                    "recordCount": 1629,
+                    "productCount": 512,
+                    "snapshotDate": "2026-10-07",
+                    "sourceUrl": "https://www.spec.org/cpu2017/results/rfp2017/",
+                    "scope": "Archive-wide exact enterprise CPU matches; 1/2 CPUs; rfp2017 base rate",
+                    "sha256": "c3deb4c27537cd2eaf35f586adb1e28a14f0765342a1b3470183aa85af169cb7",
+                    "byteSize": 1936576,
+                    "benchmarkVersions": [
+                        "SPEC CPU2017 v1.0.2",
+                        "SPEC CPU2017 v1.0.5",
+                        "SPEC CPU2017 v1.1.0",
+                        "SPEC CPU2017 v1.1.5",
+                        "SPEC CPU2017 v1.1.7",
+                        "SPEC CPU2017 v1.1.8",
+                        "SPEC CPU2017 v1.1.9"
+                    ]
+                },
+                {
+                    "id": "spec2026-int",
+                    "filename": "enterprise-benchmark-2026-int-sample.json",
+                    "path": "js/data/enterprise-benchmark-2026-int-sample.json",
+                    "label": "Integer throughput \u00b7 CPU2026",
+                    "metric": "SPECrate2026_int_base",
+                    "recordCount": 178,
+                    "productCount": 76,
+                    "snapshotDate": "2026-10-07",
+                    "sourceUrl": "https://www.spec.org/cpu2026/results/rint2026/",
+                    "scope": "Archive-wide exact enterprise CPU matches; 1/2 CPUs; rint2026 base rate",
+                    "sha256": "8fc9c5cbfba8d47a7d4ff94ead6a5c511d117f0ffdc8af09a3ed21c41abc9864",
+                    "byteSize": 205049,
+                    "benchmarkVersions": [
+                        "SPEC CPU2026 v0.902.0",
+                        "SPEC CPU2026 v0.903.0",
+                        "SPEC CPU2026 v1.0.0",
+                        "SPEC CPU2026 v1.0.1"
+                    ]
+                },
+                {
+                    "id": "spec2026-fp",
+                    "filename": "enterprise-benchmark-2026-fp-sample.json",
+                    "path": "js/data/enterprise-benchmark-2026-fp-sample.json",
+                    "label": "Floating-point throughput \u00b7 CPU2026",
+                    "metric": "SPECrate2026_fp_base",
+                    "recordCount": 177,
+                    "productCount": 75,
+                    "snapshotDate": "2026-10-07",
+                    "sourceUrl": "https://www.spec.org/cpu2026/results/rfp2026/",
+                    "scope": "Archive-wide exact enterprise CPU matches; 1/2 CPUs; rfp2026 base rate",
+                    "sha256": "c2393aa94e279f2e0616a5bf07c5278a548a939cd4bcfea67d8ae4f634e6fb53",
+                    "byteSize": 203529,
+                    "benchmarkVersions": [
+                        "SPEC CPU2026 v0.902.0",
+                        "SPEC CPU2026 v0.903.0",
+                        "SPEC CPU2026 v1.0.0",
+                        "SPEC CPU2026 v1.0.1"
+                    ]
+                }
+            ],
+            "recordCount": 3642,
+            "productCount": 516,
+            "lastRetrievedDate": "2026-10-07",
+            "oldestSnapshotDate": "2026-10-07"
+        },
+        {
+            "id": "mlperf",
+            "name": "MLPerf Inference",
+            "status": "available",
+            "label": "Imported snapshot",
+            "description": "AI inference throughput from submitted datacenter systems running Llama 2 70B.",
+            "workloads": [
+                "Interactive AI serving",
+                "Batch AI inference"
+            ],
+            "homepage": "https://github.com/mlcommons/inference_results_v6.0",
+            "accessMethod": "Official MLCommons summary JSON retained with its revision, capture timestamp and content hash. The importer accounts for every source row and keeps the selected comparison cohort.",
+            "limitations": [
+                "Results describe a whole system with eight accelerators, not one accelerator.",
+                "Server measures throughput under response-time constraints; Offline measures batch throughput. Keep their charts separate.",
+                "The selection is v6.0, Closed, Available, Llama 2 70B 99%, one node. Software, host CPUs and precision can differ.",
+                "Hardware identities that cannot be resolved to one catalog product remain in the exclusion review."
+            ],
+            "rightsNote": "Preserve submission context and follow MLCommons result messaging and trademark guidance.",
+            "references": [
+                {
+                    "label": "Official summary JSON",
+                    "url": "https://github.com/mlcommons/inference_results_v6.0/blob/main/summary_results.json"
+                },
+                {
+                    "label": "Result messaging guidance",
+                    "url": "https://github.com/mlcommons/policies/blob/master/MLPerf_Results_Messaging_Guidelines.adoc"
+                }
+            ],
+            "refresh": {
+                "mode": "reviewed-online-import",
+                "command": "python tools/refresh-benchmarks.py --refresh mlperf --allow-network",
+                "note": "Captures the official v6.0 summary and rebuilds both scenarios with validation. Offline replay retains the original capture date."
+            },
+            "datasets": [
+                {
+                    "id": "mlperf-server",
+                    "filename": "enterprise-benchmark-mlperf-v6-server-sample.json",
+                    "path": "js/data/enterprise-benchmark-mlperf-v6-server-sample.json",
+                    "label": "AI serving \u00b7 Llama 2 70B Server",
+                    "metric": "MLPerf_Inference_v6.0_llama2-70b-99_Server_Tokens_per_second",
+                    "recordCount": 23,
+                    "productCount": 7,
+                    "snapshotDate": "2026-10-07",
+                    "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/blob/main/summary_results.json",
+                    "scope": "Published whole-system Server throughput for one-node systems with exactly eight accelerators.",
+                    "sha256": "e106acb10c8c5967404ac2d0db031d82a8095a23966050e6a971cf6c55b0ac7e",
+                    "byteSize": 37408,
+                    "benchmarkVersions": [
+                        "MLPerf Inference v6.0"
+                    ]
+                },
+                {
+                    "id": "mlperf-offline",
+                    "filename": "enterprise-benchmark-mlperf-v6-offline-sample.json",
+                    "path": "js/data/enterprise-benchmark-mlperf-v6-offline-sample.json",
+                    "label": "Batch inference \u00b7 Llama 2 70B Offline",
+                    "metric": "MLPerf_Inference_v6.0_llama2-70b-99_Offline_Tokens_per_second",
+                    "recordCount": 23,
+                    "productCount": 7,
+                    "snapshotDate": "2026-10-07",
+                    "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/blob/main/summary_results.json",
+                    "scope": "Published whole-system Offline throughput for one-node systems with exactly eight accelerators.",
+                    "sha256": "8f69c9a19f6d6f653a7db707a8e6de8c8c6827fb76e2b30a177c05ae62d21565",
+                    "byteSize": 37487,
+                    "benchmarkVersions": [
+                        "MLPerf Inference v6.0"
+                    ]
+                }
+            ],
+            "recordCount": 46,
+            "productCount": 7,
+            "lastRetrievedDate": "2026-10-07",
+            "oldestSnapshotDate": "2026-10-07"
+        },
+        {
+            "id": "blender",
+            "name": "Blender Open Data",
+            "status": "available",
+            "label": "Imported snapshot",
+            "description": "CPU and GPU rendering speed in Blender's Cycles renderer, summarized by device model.",
+            "workloads": [
+                "CPU rendering",
+                "GPU rendering"
+            ],
+            "homepage": "https://opendata.blender.org/",
+            "accessMethod": "Official grouped JSON export retained with a content hash. Blender also publishes downloadable daily raw snapshots under CC0.",
+            "limitations": [
+                "These are Blender 5.2.0 device medians with at least five submissions, across mixed operating systems and compute backends.",
+                "The score is rendering samples per minute; it does not measure gaming, general responsiveness or AI performance.",
+                "Only unique exact catalog models are matched. Unspecified memory variants and unmatched laptop GPUs stay excluded."
+            ],
+            "rightsNote": "Blender's downloadable raw dataset is CC0. Retain source links and aggregation context.",
+            "references": [
+                {
+                    "label": "How the benchmark works",
+                    "url": "https://opendata.blender.org/about/"
+                },
+                {
+                    "label": "Download public data",
+                    "url": "https://opendata.blender.org/download/"
+                }
+            ],
+            "refresh": {
+                "mode": "reviewed-online-import",
+                "command": "python tools/refresh-benchmarks.py --refresh blender --allow-network",
+                "note": "Captures Blender's official grouped export, records its hash and capture time, and rebuilds exact catalog matches. Offline replay retains that capture date."
+            },
+            "datasets": [
+                {
+                    "id": "blender-rendering",
+                    "filename": "benchmark-sample.json",
+                    "path": "js/data/benchmark-sample.json",
+                    "label": "CPU and GPU rendering \u00b7 Blender 5.2.0",
+                    "metric": "median samples per minute",
+                    "recordCount": 174,
+                    "productCount": 174,
+                    "snapshotDate": "2026-10-07",
+                    "sourceUrl": "https://opendata.blender.org/benchmarks/query/?group_by=device_name&blender_version=5.2.0",
+                    "scope": "Blender 5.2.0; all operating systems and compute types",
+                    "sha256": "f4ee370db82bb548a2d853fb087f240da71bf6bdd308627dff20f9c7a8652e36",
+                    "byteSize": 142520,
+                    "benchmarkVersions": [
+                        "5.2.0"
+                    ]
+                }
+            ],
+            "recordCount": 174,
+            "productCount": 174,
+            "lastRetrievedDate": "2026-10-07",
+            "oldestSnapshotDate": "2026-10-07"
+        },
+        {
+            "id": "openbenchmarking",
+            "name": "Phoronix / OpenBenchmarking",
+            "status": "planned",
+            "label": "Not connected",
+            "description": "Application-specific tests such as compilation, compression, databases and scientific computing.",
+            "workloads": [
+                "Compilation",
+                "Compression",
+                "Databases",
+                "Scientific computing"
+            ],
+            "homepage": "https://openbenchmarking.org/",
+            "accessMethod": "Phoronix Test Suite provides saved result exports, including JSON and CSV. No ChipIndex importer is connected.",
+            "limitations": [
+                "Phoronix Test Suite runs many independent test profiles; there is no single Phoronix score.",
+                "An import needs the exact test profile version, options, units, score direction and system configuration.",
+                "Public result access and an open-source test runner do not establish permission to republish every hosted result."
+            ],
+            "rightsNote": "Review hosted-result terms and the chosen export's permitted use before importing.",
+            "references": [
+                {
+                    "label": "Test profiles",
+                    "url": "https://openbenchmarking.org/tests"
+                },
+                {
+                    "label": "Result export documentation",
+                    "url": "https://github.com/phoronix-test-suite/phoronix-test-suite/blob/master/documentation/phoronix-test-suite.md"
+                },
+                {
+                    "label": "Site terms",
+                    "url": "https://openbenchmarking.org/legal"
+                }
+            ],
+            "refresh": {
+                "mode": "not-connected",
+                "command": null,
+                "note": "No imported results. Export selection and a compatible result adapter are required."
+            },
+            "datasets": [],
+            "recordCount": 0,
+            "productCount": 0,
+            "lastRetrievedDate": null,
+            "oldestSnapshotDate": null
+        },
+        {
+            "id": "passmark",
+            "name": "PassMark",
+            "status": "license-required",
+            "label": "Not connected",
+            "description": "Broad CPU and graphics comparisons from PerformanceTest submissions.",
+            "workloads": [
+                "General CPU performance",
+                "Single-thread performance",
+                "Graphics"
+            ],
+            "homepage": "https://www.cpubenchmark.net/",
+            "accessMethod": "PassMark offers licensed CPU and GPU CSV data downloads. A licensed feed and a ChipIndex adapter are not connected.",
+            "limitations": [
+                "The published data-licensing terms restrict redistribution and reproduction of PassMark's benchmark charts.",
+                "Permission for this site's intended public display must be established with PassMark before a feed is imported.",
+                "A public score page or PerformanceTest upload API key is not a licensed data feed."
+            ],
+            "rightsNote": "Data access and permitted public display depend on the licensing agreement.",
+            "references": [
+                {
+                    "label": "Data licensing and restrictions",
+                    "url": "https://www.passmark.com/services/market-analysis.php"
+                },
+                {
+                    "label": "How scores are collected",
+                    "url": "https://www.cpubenchmark.net/graph_notes.html"
+                }
+            ],
+            "refresh": {
+                "mode": "license-required",
+                "command": null,
+                "note": "No imported results. The standard subscription excludes public ranking sites. No import is planned without a specific written grant."
+            },
+            "datasets": [],
+            "recordCount": 0,
+            "productCount": 0,
+            "lastRetrievedDate": null,
+            "oldestSnapshotDate": null
+        }
+    ]
+}

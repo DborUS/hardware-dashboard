@@ -130,13 +130,14 @@ function p2TableRows(family, columns) {
   return family.records.map(record => {
     const search = Object.values(record).filter(value => value != null)
       .join(' ').toLowerCase();
+    const cells = columns.map(([field], index) =>
+      index === 0
+        ? `<td class="cpu-model-name"><button type="button" class="p2-model-select" aria-pressed="false" aria-label="Select ${escHtml(record.n)} for comparison">${escHtml(record.n)}</button></td>`
+        : `<td>${escHtml(p2DisplayValue(record, field))}</td>`);
+    cells.push(benchmarkTableCells('Ampere', 'ampere/processors', record.n));
     return `<tr data-search="${escHtml(search)}" data-core="${record.cores ?? ''}"
                 data-mem-type="${escHtml(record.memType || '')}">
-      ${columns.map(([field], index) =>
-        index === 0
-          ? `<td class="cpu-model-name"><button type="button" class="p2-model-select" aria-pressed="false" aria-label="Select ${escHtml(record.n)} for comparison">${escHtml(record.n)}</button></td>`
-          : `<td>${escHtml(p2DisplayValue(record, field))}</td>`)
-        .join('')}
+      ${cells.join('')}
     </tr>`;
   }).join('');
 }
@@ -164,6 +165,8 @@ function p2Sources(records) {
 function p2Card(family) {
   const id = `p2t-${family.id}`;
   const columns = p2Columns(family);
+  const headers = columns.map(([, title]) => `<th>${escHtml(title)}</th>`);
+  headers.push(benchmarkTableHeaders('ampere/processors'));
   const coreValues = family.records.map(record => p2Number(record.cores))
     .filter(value => value !== null);
   const coreMin = coreValues.length ? Math.min(...coreValues) : null;
@@ -204,11 +207,12 @@ function p2Card(family) {
           <span class="cpu-spec-header-title">${escHtml(family.name)}</span>
           <div class="identity-path">Ampere Computing › Processors › ${escHtml(family.name)}</div>
           <div class="source-line">${p2Sources(family.records)}</div>
+          ${benchmarkTableLegend('ampere/processors')}
           ${notes.map(note => `<div class="source-line p2-source-note">${escHtml(note)}</div>`).join('')}
         </div><span class="cpu-spec-header-title v2-await">${family.records.length} model${family.records.length === 1 ? '' : 's'}</span></div>
         <div class="p2-table-hint">Scroll for more specifications →</div>
         <table class="cpu-spec-table"><thead><tr>
-          ${columns.map(([, title]) => `<th>${escHtml(title)}</th>`).join('')}
+          ${headers.join('')}
         </tr></thead><tbody>${p2TableRows(family, columns)}</tbody></table>
       </div>
     </div>`;

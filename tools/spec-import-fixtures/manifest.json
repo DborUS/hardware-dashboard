@@ -1,0 +1,190 @@
+{
+    "description": "Unaltered complete official HTML disclosures plus excerpts of their official index rows, retained solely as parser regression inputs. Index-row files are excerpts, not full documents; indexSourceSha256 identifies the original full index.",
+    "records": [
+        {
+            "suite": "cpu2026",
+            "metric": "SPECrate2026_int_base",
+            "indexUrl": "https://www.spec.org/cpu2026/results/rint2026/",
+            "indexSourceSha256": "522372fa641733d51c9da617ccbce4034ee550535f2b9d8ae8b2577fda8c30a1",
+            "indexRowFile": "index-row-1.html",
+            "sourceFile": "disclosure-1.html.gz",
+            "evidence": {
+                "url": "https://www.spec.org/cpu2026/results/res2026q2/cpu2026-20260210-00020.html",
+                "fetchedAt": "2026-10-07T16:57:07+00:00",
+                "sha256": "0d1575a5d29ab3c01f860b7c06a4e27095fb7af60d8bf4d537c1222c0a7da916",
+                "httpStatus": 200,
+                "resolvedUrl": "https://www.spec.org/cpu2026/results/res2026q2/cpu2026-20260210-00020.html",
+                "contentType": "text/html; charset=UTF-8",
+                "bytes": 200630,
+                "file": "d292eb2ed4a67a31d9fcc34ea04f5b5d31014840a75f071e6a0154c381382ff5.html.gz"
+            },
+            "candidate": {
+                "sourceUrl": "https://www.spec.org/cpu2026/results/res2026q2/cpu2026-20260210-00020.html",
+                "systemName": "NVIDIA DGX Spark (3.9 GHz NVIDIA GB10 CPU)",
+                "indexCpuCount": "1",
+                "indexEnabledCores": "20 (10x Cortex-X925, 10x Cortex-A725)",
+                "indexBaseScore": "5.97",
+                "indexBaseCopies": "1",
+                "catalogMatches": [
+                    "NVIDIA GB10 Grace Blackwell Superchip"
+                ],
+                "vendor": "NVIDIA",
+                "model": "GB10 Grace Blackwell Superchip"
+            },
+            "expected": {
+                "model": "GB10 Grace Blackwell Superchip",
+                "vendor": "NVIDIA",
+                "productLine": "Grace Blackwell",
+                "score": 5.97,
+                "metric": "SPECrate2026_int_base",
+                "benchmarkVersion": "SPEC CPU2026 v0.902.0",
+                "sourceUrl": "https://www.spec.org/cpu2026/results/res2026q2/cpu2026-20260210-00020.html",
+                "sourceCpuName": "NVIDIA GB10",
+                "systemName": "NVIDIA DGX Spark (3.9 GHz NVIDIA GB10 CPU)",
+                "cpuCount": 1,
+                "enabledCores": 20,
+                "baseCopies": 1,
+                "memory": "128 GB (LPDDR5X-8533 MT/s)",
+                "operatingSystem": "Ubuntu 24.04.3 LTS 6.14.0-1013-nvidia",
+                "compiler": "C/C++/Fortran: Version 22.1.0 of LLVM",
+                "testSponsor": "Arm",
+                "testedBy": "Arm",
+                "testDate": "Feb-2026",
+                "publishedDate": "2026-05-05",
+                "retrievedDate": "2026-10-07",
+                "sourceDocumentSha256": "0d1575a5d29ab3c01f860b7c06a4e27095fb7af60d8bf4d537c1222c0a7da916",
+                "testedComponent": "CPU",
+                "identityEvidenceUrls": [
+                    "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+                    "https://www.spec.org/cpu2026/results/res2026q2/cpu2026-20260210-00020.html"
+                ]
+            },
+            "csvEvidence": {
+                "file": "disclosure-1.csv",
+                "url": "https://www.spec.org/cpu2026/results/res2026q2/cpu2026-20260210-00020.csv",
+                "retrievedDate": "2026-10-07",
+                "sha256": "12400dc4f6a33c27f30d9fd268980668a23042753a8d15835cb44dac7c39764c"
+            }
+        },
+        {
+            "suite": "cpu2026",
+            "metric": "SPECrate2026_int_base",
+            "indexUrl": "https://www.spec.org/cpu2026/results/rint2026/",
+            "indexSourceSha256": "522372fa641733d51c9da617ccbce4034ee550535f2b9d8ae8b2577fda8c30a1",
+            "indexRowFile": "index-row-2.html",
+            "sourceFile": "disclosure-2.html.gz",
+            "evidence": {
+                "url": "https://www.spec.org/cpu2026/results/res2026q3/cpu2026-20260810-00423.html",
+                "fetchedAt": "2026-10-07T16:57:07+00:00",
+                "sha256": "69acbe52d6fbaa51212e1f5af0832554bb2087b151bd2ea01e5c19b36e8e106d",
+                "httpStatus": 200,
+                "resolvedUrl": "https://www.spec.org/cpu2026/results/res2026q3/cpu2026-20260810-00423.html",
+                "contentType": "text/html; charset=UTF-8",
+                "bytes": 606363,
+                "file": "d7a622a649fb2c55da9a3b4696555f9102736a2b69980ff2e5acc7f0f4bac5f4.html.gz"
+            },
+            "candidate": {
+                "sourceUrl": "https://www.spec.org/cpu2026/results/res2026q3/cpu2026-20260810-00423.html",
+                "systemName": "ASUS RS520QA-E13-RS8U (2.25 GHz, AMD EPYC 9965)",
+                "indexCpuCount": "1",
+                "indexEnabledCores": "192",
+                "indexBaseScore": "719",
+                "indexBaseCopies": "384",
+                "catalogMatches": [
+                    "AMD EPYC 9965"
+                ],
+                "vendor": "AMD",
+                "model": "EPYC 9965"
+            },
+            "expected": {
+                "model": "EPYC 9965",
+                "vendor": "AMD",
+                "productLine": "EPYC",
+                "score": 719,
+                "metric": "SPECrate2026_int_base",
+                "benchmarkVersion": "SPEC CPU2026 v1.0.1",
+                "sourceUrl": "https://www.spec.org/cpu2026/results/res2026q3/cpu2026-20260810-00423.html",
+                "sourceCpuName": "AMD EPYC 9965",
+                "systemName": "ASUS RS520QA-E13-RS8U (2.25 GHz, AMD EPYC 9965)",
+                "cpuCount": 1,
+                "enabledCores": 192,
+                "baseCopies": 384,
+                "memory": "768 GB (12 x 64 GB 2Rx4 PC5-6400B-R)",
+                "operatingSystem": "SUSE Linux Enterprise Server 15 SP6 (x86_64) Kernel 6.4.0-150600.21-default",
+                "compiler": "C/C++/Fortran: Version 5.2.0 of AOCC",
+                "testSponsor": "ASUSTeK Computer Inc.",
+                "testedBy": "ASUSTeK Computer Inc.",
+                "testDate": "Jul-2026",
+                "publishedDate": "2026-08-25",
+                "retrievedDate": "2026-10-07",
+                "sourceDocumentSha256": "69acbe52d6fbaa51212e1f5af0832554bb2087b151bd2ea01e5c19b36e8e106d"
+            },
+            "csvEvidence": {
+                "file": "disclosure-2.csv",
+                "url": "https://www.spec.org/cpu2026/results/res2026q3/cpu2026-20260810-00423.csv",
+                "retrievedDate": "2026-10-07",
+                "sha256": "0383225c62784f9310e14516d3b8b949262a5d03719a0299a945dcc6cfa66a55"
+            }
+        },
+        {
+            "suite": "cpu2017",
+            "metric": "SPECrate2017_int_base",
+            "indexUrl": "https://www.spec.org/cpu2017/results/rint2017/",
+            "indexSourceSha256": "e08935eddb103c256c6149a3e73493867a14e54e81b6c6c6eab3a925e52a7ded",
+            "indexRowFile": "index-row-3.html",
+            "sourceFile": "disclosure-3.html.gz",
+            "evidence": {
+                "url": "https://www.spec.org/cpu2017/results/res2017q4/cpu2017-20171017-00153.html",
+                "fetchedAt": "2026-10-07T17:05:16+00:00",
+                "sha256": "3b31fa98ea1b75bdd9f426adafe7f9225c8bf819ca2787ac3b77b86cb102a5cf",
+                "httpStatus": 200,
+                "resolvedUrl": "https://www.spec.org/cpu2017/results/res2017q4/cpu2017-20171017-00153.html",
+                "contentType": "text/html; charset=UTF-8",
+                "bytes": 218271,
+                "file": "974d2368ba73f5b9b2f395104d1635b0ad0956c729a17c81e4111ee5f99c7ea3.html.gz"
+            },
+            "candidate": {
+                "sourceUrl": "https://www.spec.org/cpu2017/results/res2017q4/cpu2017-20171017-00153.html",
+                "systemName": "ThinkSystem SR650 (2.50 GHz, Intel Xeon Platinum 8180)",
+                "indexCpuCount": "1",
+                "indexEnabledCores": "28",
+                "indexBaseScore": "141",
+                "indexBaseCopies": "56",
+                "catalogMatches": [
+                    "Intel Xeon Platinum 8180"
+                ],
+                "vendor": "Intel",
+                "model": "Xeon Platinum 8180"
+            },
+            "expected": {
+                "model": "Xeon Platinum 8180",
+                "vendor": "Intel",
+                "productLine": "Xeon",
+                "score": 141,
+                "metric": "SPECrate2017_int_base",
+                "benchmarkVersion": "SPEC CPU2017 v1.0.2",
+                "sourceUrl": "https://www.spec.org/cpu2017/results/res2017q4/cpu2017-20171017-00153.html",
+                "sourceCpuName": "Intel Xeon Platinum 8180",
+                "systemName": "ThinkSystem SR650 (2.50 GHz, Intel Xeon Platinum 8180)",
+                "cpuCount": 1,
+                "enabledCores": 28,
+                "baseCopies": 56,
+                "memory": "192 GB (12 x 16 GB 2Rx8 PC4-2666V-R)",
+                "operatingSystem": "SUSE Linux Enterprise Server 12 SP2 (x86_64) Kernel 4.4.21-69-default",
+                "compiler": "C/C++: Version 18.0.0.128 of Intel C/C++ Compiler for Linux; Fortran: Version 18.0.0.128 of Intel Fortran Compiler for Linux",
+                "testSponsor": "Lenovo Global Technology",
+                "testedBy": "Lenovo Global Technology",
+                "testDate": "Oct-2017",
+                "publishedDate": "2017-10-31",
+                "retrievedDate": "2026-10-07",
+                "sourceDocumentSha256": "3b31fa98ea1b75bdd9f426adafe7f9225c8bf819ca2787ac3b77b86cb102a5cf"
+            },
+            "csvEvidence": {
+                "file": "disclosure-3.csv",
+                "url": "https://www.spec.org/cpu2017/results/res2017q4/cpu2017-20171017-00153.csv",
+                "retrievedDate": "2026-10-07",
+                "sha256": "24651166692e292ae932d70996bbf851b0d93dc58472e94ad2caf86de73787b1"
+            }
+        }
+    ]
+}

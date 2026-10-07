@@ -1,0 +1,2340 @@
+{
+    "schemaVersion": 1,
+    "snapshotDate": "2026-09-30",
+    "catalogSource": "js/data/benchmark-catalog.json",
+    "platformSource": "js/data/platform-compatibility.json",
+    "meaning": "An eligible CPU with zero exact OEM edges is not yet verified, never unsupported.",
+    "eligibleCount": 272,
+    "mappedEligibleCount": 208,
+    "exactEligibleLinkCount": 723,
+    "totalExactLinkCount": 749,
+    "platformModelCount": 43,
+    "oems": [
+        "Cisco",
+        "Dell",
+        "GIGABYTE",
+        "HP",
+        "HPE",
+        "Lenovo"
+    ],
+    "lanes": [
+        {
+            "id": "amd_epyc_server",
+            "label": "AMD EPYC server",
+            "dashboardTab": "amd/epyc",
+            "sourceField": "sourceSeries",
+            "includedFamilies": [
+                "EPYC 4004 Series",
+                "EPYC 4005 Series",
+                "EPYC 8004 Series",
+                "EPYC 8005 Series",
+                "EPYC 9004 Series",
+                "EPYC 9005 Series",
+                "EPYC 9006 Series"
+            ],
+            "eligibleCount": 115,
+            "mappedCount": 77,
+            "exactLinkCount": 417,
+            "platformModelCount": 23,
+            "oems": [
+                "Cisco",
+                "Dell",
+                "HPE",
+                "Lenovo"
+            ],
+            "products": [
+                {
+                    "catalogId": "amd-58fa23d34d62efffef0d",
+                    "model": "EPYC 4124P",
+                    "productId": "100-000001570",
+                    "sourceFamily": "EPYC 4004 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-04b086ba17b9abd81777",
+                    "model": "EPYC 4244P",
+                    "productId": "100-000001480",
+                    "sourceFamily": "EPYC 4004 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-399f3dd135545a7caf2b",
+                    "model": "EPYC 4344P",
+                    "productId": "100-000001479",
+                    "sourceFamily": "EPYC 4004 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-9534a6dd84f9bcfadc87",
+                    "model": "EPYC 4364P",
+                    "productId": "100-000001477",
+                    "sourceFamily": "EPYC 4004 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-45373a84498a132bd7c8",
+                    "model": "EPYC 4464P",
+                    "productId": "100-000001478",
+                    "sourceFamily": "EPYC 4004 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-6ab05b6412e788efc903",
+                    "model": "EPYC 4484PX",
+                    "productId": "100-000001482",
+                    "sourceFamily": "EPYC 4004 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-487f04fc4c8cebaeb910",
+                    "model": "EPYC 4564P",
+                    "productId": "100-000001476",
+                    "sourceFamily": "EPYC 4004 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-662aeff29f999983a54f",
+                    "model": "EPYC 4584PX",
+                    "productId": "100-000001481",
+                    "sourceFamily": "EPYC 4004 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-17884d59d0a27e61edaa",
+                    "model": "EPYC 4245P",
+                    "productId": "100-000001555",
+                    "sourceFamily": "EPYC 4005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-ffeab3d99eb427315dbe",
+                    "model": "EPYC 4345P",
+                    "productId": "100-000001556",
+                    "sourceFamily": "EPYC 4005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-f32905d2cf1872d114a5",
+                    "model": "EPYC 4465P",
+                    "productId": "100-000001558",
+                    "sourceFamily": "EPYC 4005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-6481f0bbc01552fd99ee",
+                    "model": "EPYC 4545P",
+                    "productId": "100-000001764",
+                    "sourceFamily": "EPYC 4005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-e3f02124cc60b115fe9d",
+                    "model": "EPYC 4565P",
+                    "productId": "100-000001559",
+                    "sourceFamily": "EPYC 4005 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-2affd70eed7233aa0657",
+                    "model": "EPYC 4585PX",
+                    "productId": "100-000001561",
+                    "sourceFamily": "EPYC 4005 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-f087fb0881ac2f95c35e",
+                    "model": "EPYC 8024P",
+                    "productId": "100-000001136",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-6608fc51fa19463427b3",
+                    "model": "EPYC 8024PN",
+                    "productId": "100-000001170",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-cb42bea06bd0f7cb76d6",
+                    "model": "EPYC 8124P",
+                    "productId": "100-000001135",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-ebd16e388c6c0785b568",
+                    "model": "EPYC 8124PN",
+                    "productId": "100-000001166",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-2fce7c87f0bd79c319a8",
+                    "model": "EPYC 8224P",
+                    "productId": "100-000001134",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-3aa5a48d5efc6089bfb9",
+                    "model": "EPYC 8224PN",
+                    "productId": "100-000001164",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-36162aad92e75d733511",
+                    "model": "EPYC 8324P",
+                    "productId": "100-000001133",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-2aa587b52d6afb84a6b1",
+                    "model": "EPYC 8324PN",
+                    "productId": "100-000001162",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-1bec19a828e005f96280",
+                    "model": "EPYC 8434P",
+                    "productId": "100-000000877",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-cd4f21dee8d4ae3cb129",
+                    "model": "EPYC 8434PN",
+                    "productId": "100-000001174",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-d8f96747bc1a02c178d3",
+                    "model": "EPYC 8534P",
+                    "productId": "100-000000875",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-da0dd93c3db1513272e5",
+                    "model": "EPYC 8534PN",
+                    "productId": "100-000001172",
+                    "sourceFamily": "EPYC 8004 Series",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-e83fb6a664adf6db657a",
+                    "model": "EPYC 8025P",
+                    "productId": "100-000002163",
+                    "sourceFamily": "EPYC 8005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-af1fcfda023366d04c43",
+                    "model": "EPYC 8125P",
+                    "productId": "100-000002162",
+                    "sourceFamily": "EPYC 8005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-7ada88bf83a5caf7a781",
+                    "model": "EPYC 8225P",
+                    "productId": "100-000002161",
+                    "sourceFamily": "EPYC 8005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-38827fffedffcd919dc3",
+                    "model": "EPYC 8325P",
+                    "productId": "100-000002160",
+                    "sourceFamily": "EPYC 8005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-9213b53eaa2a4ca55804",
+                    "model": "EPYC 8435P",
+                    "productId": "100-000002159",
+                    "sourceFamily": "EPYC 8005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-e5185a0ab5391b0acd13",
+                    "model": "EPYC 8535P",
+                    "productId": "100-000002158",
+                    "sourceFamily": "EPYC 8005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-bddafc363697173671d2",
+                    "model": "EPYC 8635P",
+                    "productId": "100-000002157",
+                    "sourceFamily": "EPYC 8005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-2e29ef28d8bad0fb1f1f",
+                    "model": "EPYC 9124",
+                    "productId": "100-000000802",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-8a2d4eb27e17be3da6e7",
+                    "model": "EPYC 9174F",
+                    "productId": "100-000000796",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-03ca4de63c796a7065eb",
+                    "model": "EPYC 9184X",
+                    "productId": "100-000001255",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-69bb2a841328733d69dd",
+                    "model": "EPYC 9224",
+                    "productId": "100-000000939",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-ea3a7f6f3ee9147aaf6c",
+                    "model": "EPYC 9254",
+                    "productId": "100-000000480",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-e70bf571d7d5001edfef",
+                    "model": "EPYC 9274F",
+                    "productId": "100-000000794",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-98a94e467cbefadf876c",
+                    "model": "EPYC 9334",
+                    "productId": "100-000000800",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-f95d3a3530f59f5ce425",
+                    "model": "EPYC 9354",
+                    "productId": "100-000000798",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-79b6848046eef65e48e0",
+                    "model": "EPYC 9354P",
+                    "productId": "100-000000805",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 7,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-1b1dfce6091041b695da",
+                    "model": "EPYC 9374F",
+                    "productId": "100-000000792",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-d6e22518b374ab018961",
+                    "model": "EPYC 9384X",
+                    "productId": "100-000001256",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-deaad975bc5619a77cf2",
+                    "model": "EPYC 9454",
+                    "productId": "100-000000478",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-c1e1c049df8b9e285f94",
+                    "model": "EPYC 9454P",
+                    "productId": "100-000000873",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 7,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-faf8224d7f17d770dbf3",
+                    "model": "EPYC 9474F",
+                    "productId": "100-000000788",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-5fc268b641d9fba44b10",
+                    "model": "EPYC 9534",
+                    "productId": "100-000000799",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-4e2482a19422a82087d2",
+                    "model": "EPYC 9554",
+                    "productId": "100-000000790",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-f931f220fc21dcccb171",
+                    "model": "EPYC 9554P",
+                    "productId": "100-000000804",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-868936d8f7a46af7b9a7",
+                    "model": "EPYC 9634",
+                    "productId": "100-000000797",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-3a73938c9cdc8e1af5c1",
+                    "model": "EPYC 9654",
+                    "productId": "100-000000789",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-639477f61d81cdc2f5ce",
+                    "model": "EPYC 9654P",
+                    "productId": "100-000000803",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-e43b499495c8a7ac9b69",
+                    "model": "EPYC 9684X",
+                    "productId": "100-000001254",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-962c33321426a8b50555",
+                    "model": "EPYC 9734",
+                    "productId": "100-000001235",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 5,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-023b75891c3df803278d",
+                    "model": "EPYC 9754",
+                    "productId": "100-000001234",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-37205dd04ac81f46e636",
+                    "model": "EPYC 9754S",
+                    "productId": "100-000001371",
+                    "sourceFamily": "EPYC 9004 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-87f14037b849fa2c41d6",
+                    "model": "EPYC 9015",
+                    "productId": "100-000001553",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 11,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-7bd4c234f5117b8b2b07",
+                    "model": "EPYC 9115",
+                    "productId": "100-000001552",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-92aab6f743944093806a",
+                    "model": "EPYC 9135",
+                    "productId": "100-000001150",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 11,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-7cfb6c400cf40bf444bc",
+                    "model": "EPYC 9175F",
+                    "productId": "100-000001145",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-c9d9c86c09e055eb6743",
+                    "model": "EPYC 9255",
+                    "productId": "100-000000694",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 11,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-8cd62f71e0fc8ea5043d",
+                    "model": "EPYC 9275F",
+                    "productId": "100-000001144",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-608a4a36496b251041aa",
+                    "model": "EPYC 9335",
+                    "productId": "100-000001149",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 11,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-f6445f07a0e43611b56f",
+                    "model": "EPYC 9355",
+                    "productId": "100-000001148",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-a9bb711f3c3d0f231f80",
+                    "model": "EPYC 9355P",
+                    "productId": "100-000001521",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 7,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-330479125dea2c7f94fe",
+                    "model": "EPYC 9365",
+                    "productId": "100-000001448",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-b056d09b0ba9f1158d6b",
+                    "model": "EPYC 9375F",
+                    "productId": "100-000001197",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-cd7405b435ac2d6e73c7",
+                    "model": "EPYC 9455",
+                    "productId": "100-000001542",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-703b30192d9f90201b46",
+                    "model": "EPYC 9455P",
+                    "productId": "100-000001563",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 7,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-58067b889f2a3a4d3968",
+                    "model": "EPYC 9475F",
+                    "productId": "100-000001143",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-0e99864f858283348a2d",
+                    "model": "EPYC 9535",
+                    "productId": "100-000001147",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-0132d13801f21f500520",
+                    "model": "EPYC 9555",
+                    "productId": "100-000001142",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-43a29e47003ee20deb83",
+                    "model": "EPYC 9555P",
+                    "productId": "100-000001523",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 7,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-88b04433c4e4469e498c",
+                    "model": "EPYC 9565",
+                    "productId": "100-000001447",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-533ef46f46e792a53597",
+                    "model": "EPYC 9575F",
+                    "productId": "100-000001554",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 15,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-a24661387e0195fdc3a5",
+                    "model": "EPYC 9645",
+                    "productId": "100-000001461",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-92784fe5e4f2faaed137",
+                    "model": "EPYC 9655",
+                    "productId": "100-000000674",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-69dd3c422dc53b10aa41",
+                    "model": "EPYC 9655P",
+                    "productId": "100-000001522",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 7,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-7ad83ccd267c03b56ca4",
+                    "model": "EPYC 9745",
+                    "productId": "100-000001460",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-db3eb3c89f2fb66f99cc",
+                    "model": "EPYC 9755",
+                    "productId": "100-000001443",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-2a8a0dae73192b511a37",
+                    "model": "EPYC 9825",
+                    "productId": "100-000000837",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-d7edcd7a17f64d69d7dd",
+                    "model": "EPYC 9845",
+                    "productId": "100-000001458",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 8,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-875a13a81d726bb31a87",
+                    "model": "EPYC 9965",
+                    "productId": "100-000000976",
+                    "sourceFamily": "EPYC 9005 Series",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "amd-d95c8708d871e84cbc9c",
+                    "model": "EPYC 9016",
+                    "productId": "100-000001671",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-dc040d56770decf0e740",
+                    "model": "EPYC 9116",
+                    "productId": "100-000001665",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-afea833b165fcf4df15a",
+                    "model": "EPYC 9176F",
+                    "productId": "100-000001664",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-8e4b089c5824e57538cf",
+                    "model": "EPYC 9256",
+                    "productId": "100-000001669",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-0e7d5bba947ca932c9e0",
+                    "model": "EPYC 9276F",
+                    "productId": "100-000002100",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-b1dfa098c84eb7677390",
+                    "model": "EPYC 9336",
+                    "productId": "100-000001265",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-12ab69cdf1b070967e92",
+                    "model": "EPYC 9356",
+                    "productId": "100-000001667",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-7144dcbeda225fbdc50b",
+                    "model": "EPYC 9356P",
+                    "productId": "100-000001891",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-4e11b1f8f0248002998b",
+                    "model": "EPYC 9376F",
+                    "productId": "100-000001663",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-8d01ea59ac2c50494c53",
+                    "model": "EPYC 9456",
+                    "productId": "100-000001666",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-761856078f56b02ff8ec",
+                    "model": "EPYC 9456P",
+                    "productId": "100-000001890",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-aa56ae927ab57699f44f",
+                    "model": "EPYC 9476F",
+                    "productId": "100-000002099",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-db8b5d9e3b297e56a357",
+                    "model": "EPYC 9526",
+                    "productId": "100-000001264",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-fa2aedbc6445a67702f8",
+                    "model": "EPYC 9536",
+                    "productId": "100-000001263",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-a31ad538639ccd9867aa",
+                    "model": "EPYC 9536P",
+                    "productId": "100-000002105",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-1d72e466603523b9cd5f",
+                    "model": "EPYC 9556",
+                    "productId": "100-000001647",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-12d7b96b838180288e25",
+                    "model": "EPYC 9576F",
+                    "productId": "100-000001661",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-e55915c75584f528ccb6",
+                    "model": "EPYC 9586F",
+                    "productId": "100-000001645",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-5e31f40f3b3c7e88c063",
+                    "model": "EPYC 9646",
+                    "productId": "100-000001262",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-a2af19cefd2620a97199",
+                    "model": "EPYC 9646P",
+                    "productId": "100-000001896",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-5a06a3966659b96d0c8f",
+                    "model": "EPYC 9656",
+                    "productId": "100-000001048",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-94b273c6e9be42649eb8",
+                    "model": "EPYC 9676F",
+                    "productId": "100-000001660",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-ccd9d5a5bd5c3685f6a3",
+                    "model": "EPYC 9686F",
+                    "productId": "100-000001644",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-0bcc9ccc82ef79d59d52",
+                    "model": "EPYC 9736",
+                    "productId": "100-000002103",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-7e27a07f2932d635d4bf",
+                    "model": "EPYC 9736P",
+                    "productId": "100-000002104",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-175361f8740e9b0d88c5",
+                    "model": "EPYC 9746",
+                    "productId": "100-000001261",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-9e16e69cc9c276c820d0",
+                    "model": "EPYC 9756",
+                    "productId": "100-000001046",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-a88c6e4efec7ebd98f17",
+                    "model": "EPYC 9846",
+                    "productId": "100-000001044",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-a676e6170b08d47351c9",
+                    "model": "EPYC 9966",
+                    "productId": "100-000002189",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-8a233db3d741343239c7",
+                    "model": "EPYC 9996",
+                    "productId": "100-000001041",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "amd-b1ba7e43d05988e0b8e6",
+                    "model": "EPYC 9G76",
+                    "productId": "100-000002120",
+                    "sourceFamily": "EPYC 9006 Series",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                }
+            ]
+        },
+        {
+            "id": "intel_xeon_server",
+            "label": "Intel Xeon server",
+            "dashboardTab": "intel/xeon",
+            "sourceField": "sourceGroup",
+            "includedFamilies": [
+                "Sapphire Rapids SP",
+                "Emerald Rapids SP",
+                "Sierra Forest SP",
+                "Granite Rapids SP",
+                "Granite Rapids AP",
+                "Clearwater Forest"
+            ],
+            "eligibleCount": 140,
+            "mappedCount": 124,
+            "exactLinkCount": 299,
+            "platformModelCount": 8,
+            "oems": [
+                "Dell",
+                "HPE",
+                "Lenovo"
+            ],
+            "products": [
+                {
+                    "catalogId": "intel-d9f010ffbb2a632fa564",
+                    "model": "Xeon 6960E+",
+                    "productId": null,
+                    "sourceFamily": "Clearwater Forest",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-80b4ec4b90645f348901",
+                    "model": "Xeon 6970E+",
+                    "productId": null,
+                    "sourceFamily": "Clearwater Forest",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-02d51089c8e9536d98f6",
+                    "model": "Xeon 6980E+",
+                    "productId": null,
+                    "sourceFamily": "Clearwater Forest",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-bbdf64bf56f9a8799115",
+                    "model": "Xeon 6990E+",
+                    "productId": null,
+                    "sourceFamily": "Clearwater Forest",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-5e0444b1aaf02c93f7e2",
+                    "model": "Xeon Bronze 3508U",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-47f95c10576294ed1946",
+                    "model": "Xeon Gold 5512U",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-942f6fd79a2c31a9521e",
+                    "model": "Xeon Gold 5515+",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-1272cb0a29d13f10d297",
+                    "model": "Xeon Gold 5520+",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-72f1c698642637886b86",
+                    "model": "Xeon Gold 6526Y",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-9ad6f736b45235cee46e",
+                    "model": "Xeon Gold 6530",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-7ae66451c6ad2bd87005",
+                    "model": "Xeon Gold 6534",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-f6bec2be45706a98da73",
+                    "model": "Xeon Gold 6538N",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-67adfe35cbf0f0b918ad",
+                    "model": "Xeon Gold 6538Y+",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-e3f9a7ffcc4965ca85e1",
+                    "model": "Xeon Gold 6542Y",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-aa1e6eae8d994fa0ea4c",
+                    "model": "Xeon Gold 6544Y",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-23c4151e030e4b525dd5",
+                    "model": "Xeon Gold 6548N",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-dd4282f53e38db37fd5d",
+                    "model": "Xeon Gold 6548Y+",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-9eccb7080d557df6174b",
+                    "model": "Xeon Gold 6554S",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-d61cb3abeba75ebaab1b",
+                    "model": "Xeon Gold 6558Q",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-cb860097600494aca9d3",
+                    "model": "Xeon Platinum 8558",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-85e8ea481ccd833237e5",
+                    "model": "Xeon Platinum 8558P",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-57007bf9d25f9a14035e",
+                    "model": "Xeon Platinum 8558U",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-ea1a506407eabb90311c",
+                    "model": "Xeon Platinum 8562Y+",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-52ca462df5158a91a8b2",
+                    "model": "Xeon Platinum 8568Y+",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-b66c0c84fc5d6a3d4526",
+                    "model": "Xeon Platinum 8570",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-4efe5c4b654604c7c15d",
+                    "model": "Xeon Platinum 8571N",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-09960c3d0b06dfa47627",
+                    "model": "Xeon Platinum 8580",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-6de3f8aa1980038672c8",
+                    "model": "Xeon Platinum 8581V",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-f0488a691508c007379b",
+                    "model": "Xeon Platinum 8592+",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-29245f4c467aad8e7c6a",
+                    "model": "Xeon Platinum 8592V",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-6d4025ea045680bf8d7b",
+                    "model": "Xeon Platinum 8593Q",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-769b10b8aa03f72dce73",
+                    "model": "Xeon Silver 4509Y",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-bac6443e6768f7ad69d1",
+                    "model": "Xeon Silver 4510",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-bcca1b12b00fad8bb074",
+                    "model": "Xeon Silver 4510T",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-d933dd63d595fd05178a",
+                    "model": "Xeon Silver 4514Y",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-5f53036f03c5368407f6",
+                    "model": "Xeon Silver 4516Y+",
+                    "productId": null,
+                    "sourceFamily": "Emerald Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-3792bd8dcad4e119f2cd",
+                    "model": "Xeon 6944P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids AP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-ba83d72979ba1b190f2c",
+                    "model": "Xeon 6952P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids AP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-043a86649fa2509a23a6",
+                    "model": "Xeon 6960P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids AP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-ea8fb44f3a12acade3b0",
+                    "model": "Xeon 6962P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids AP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-58fed8378a0ddb31e2ce",
+                    "model": "Xeon 6972P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids AP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-9c866ec4810cd0242775",
+                    "model": "Xeon 6978P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids AP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-af8e47825b6ef17a777a",
+                    "model": "Xeon 6979P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids AP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-e496b3df2029251500b4",
+                    "model": "Xeon 6980P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids AP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-a9b12f1d087e5e7f9141",
+                    "model": "Xeon 6503P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-b45d09bb5c495abacd2f",
+                    "model": "Xeon 6505P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-a404c927e007b9f18ae3",
+                    "model": "Xeon 6507P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-b4d944af3248b1a8e0db",
+                    "model": "Xeon 6511P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-95136ad31a4e1f4dbb6e",
+                    "model": "Xeon 6515P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-bc1f03c190bc18305bb2",
+                    "model": "Xeon 6517P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-ca660dbee8a25400c737",
+                    "model": "Xeon 6520P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-e584614254531c142cbc",
+                    "model": "Xeon 6521P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-bc07a9fb050a8ae30d4d",
+                    "model": "Xeon 6527P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-7705378c150321f95432",
+                    "model": "Xeon 6530P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-483f96596ad2582fdb59",
+                    "model": "Xeon 6714P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-623738144541ea533120",
+                    "model": "Xeon 6724P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-a677bed3121655ff65f5",
+                    "model": "Xeon 6725P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-0e2e940c461f1ff9df8f",
+                    "model": "Xeon 6728P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-a77973f0863d27945c62",
+                    "model": "Xeon 6730P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-eff7f69f0351220b4e89",
+                    "model": "Xeon 6731P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-23d22dc263a6e5a34201",
+                    "model": "Xeon 6732P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-266106e5f1a24124b6f5",
+                    "model": "Xeon 6736P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-2f55aeebd918b01a9f8c",
+                    "model": "Xeon 6737P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-0e603b0825bf2841a2ec",
+                    "model": "Xeon 6738P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-a0442e1c1104da184c5f",
+                    "model": "Xeon 6740P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-dd975dbf0f2b334d6f9e",
+                    "model": "Xeon 6741P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-5bdcb9c5df7c447536c2",
+                    "model": "Xeon 6745P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-92e3603655238b526f36",
+                    "model": "Xeon 6747P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-281e8716fd84a897fc29",
+                    "model": "Xeon 6748P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-477f35bc41b6e7aca2c2",
+                    "model": "Xeon 6760P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 4,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-a9e31beaf6a5f4f6e832",
+                    "model": "Xeon 6761P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-55aed4fff4909b0f6c95",
+                    "model": "Xeon 6767P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 5,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-2e8da37d8aed185110d6",
+                    "model": "Xeon 6768P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-1717f3d0120469f25044",
+                    "model": "Xeon 6774P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-e92a6951c700931ba161",
+                    "model": "Xeon 6776P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-ed9c07def7081f89724c",
+                    "model": "Xeon 6781P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-ef124b107763422cd947",
+                    "model": "Xeon 6787P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 6,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-ee7e13fd01f9659f975c",
+                    "model": "Xeon 6788P",
+                    "productId": null,
+                    "sourceFamily": "Granite Rapids SP",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-276dd2864e5f68d2cae9",
+                    "model": "Xeon Bronze 3408U",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-4a966a913928be9887ac",
+                    "model": "Xeon Gold 5403N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-5932e7cc97ec7f54bebd",
+                    "model": "Xeon Gold 5411N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-265a81afdc4cc4d11a00",
+                    "model": "Xeon Gold 5412U",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-5443eb5eb96e528a447c",
+                    "model": "Xeon Gold 5415+",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-a57ce89d0ba3492304fd",
+                    "model": "Xeon Gold 5416S",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-7f79d2ed0dac190fbf38",
+                    "model": "Xeon Gold 5418N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-6530ea3df390510e0c54",
+                    "model": "Xeon Gold 5418Y",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-53cff31084890afde722",
+                    "model": "Xeon Gold 5420+",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-b2684df8eb129df8f4d1",
+                    "model": "Xeon Gold 5423N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-fdd1f3e05a41c2611faa",
+                    "model": "Xeon Gold 5433N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-d8db5f149874a3617f58",
+                    "model": "Xeon Gold 6403N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-b67aa81601d532b3c737",
+                    "model": "Xeon Gold 6414U",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-c84c657d92dcc5bda6e6",
+                    "model": "Xeon Gold 6416H",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-1775f6dc8ec1235027ab",
+                    "model": "Xeon Gold 6418H",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-a55e6690bd454b9f54bf",
+                    "model": "Xeon Gold 6421N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-5bb9c6ea7a478311b120",
+                    "model": "Xeon Gold 6423N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-993efbfd779e8b1371e8",
+                    "model": "Xeon Gold 6426Y",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-9894878835bc24234d45",
+                    "model": "Xeon Gold 6428N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-d77185953e7b64d93f7e",
+                    "model": "Xeon Gold 6430",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-9fe19fd775abf04e6c0f",
+                    "model": "Xeon Gold 6433N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-03bfa2a86536448fa114",
+                    "model": "Xeon Gold 6433NE",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "intel-a5654c9ea6f2851989b7",
+                    "model": "Xeon Gold 6434",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-b1194142c77134da669f",
+                    "model": "Xeon Gold 6434H",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-c716e4a924854b1d596d",
+                    "model": "Xeon Gold 6438M",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-b33ffc02b1bba2f91394",
+                    "model": "Xeon Gold 6438N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-67d4c1d8e44c8b6fc217",
+                    "model": "Xeon Gold 6438Y+",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-57c3973dd0d5e30034ba",
+                    "model": "Xeon Gold 6442Y",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-3c929ca56e20d049e912",
+                    "model": "Xeon Gold 6443N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-54edea820ce4b86df5ee",
+                    "model": "Xeon Gold 6444Y",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-5ade379ac7ddb47b1b61",
+                    "model": "Xeon Gold 6448H",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-8794b0b821782b9e7aa3",
+                    "model": "Xeon Gold 6448Y",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-1588a080d5a3774f00d3",
+                    "model": "Xeon Gold 6454S",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-7a98fb0fc803e26853db",
+                    "model": "Xeon Gold 6458Q",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-adbf03d28e6d114ba48e",
+                    "model": "Xeon Platinum 8444H",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-e0802a6fa8d0dbeef90e",
+                    "model": "Xeon Platinum 8450H",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-b3dd5e3d5bb79922e14f",
+                    "model": "Xeon Platinum 8452Y",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-cb1d8629fd11a7623d62",
+                    "model": "Xeon Platinum 8454H",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-529566505463c87903fa",
+                    "model": "Xeon Platinum 8458P",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-4734f0241af3f93666c0",
+                    "model": "Xeon Platinum 8460H",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-9bcb4e6be5f2ab22dc0c",
+                    "model": "Xeon Platinum 8460Y+",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-378041fb0fb68cfb3324",
+                    "model": "Xeon Platinum 8461V",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-530806cb01ad95d60b58",
+                    "model": "Xeon Platinum 8462Y+",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-2519fff2a8b5386899b6",
+                    "model": "Xeon Platinum 8468",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-67d2b1cfd5d1fa9e116d",
+                    "model": "Xeon Platinum 8468H",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-2ddf8591bbf7300b5282",
+                    "model": "Xeon Platinum 8468V",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-38fee08fd66e43c747d0",
+                    "model": "Xeon Platinum 8470",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-e9849c9146bd453384d7",
+                    "model": "Xeon Platinum 8470N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-0f929d891ea89d0cfd5f",
+                    "model": "Xeon Platinum 8470Q",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-0f97f6c1a094b7a27885",
+                    "model": "Xeon Platinum 8471N",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-ae7f885f8e1cc06617d7",
+                    "model": "Xeon Platinum 8480+",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-7315b7299832a66c954a",
+                    "model": "Xeon Platinum 8490H",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-1b1392b1349d362bac7e",
+                    "model": "Xeon Silver 4410T",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-6823df4c8f7703cbedf0",
+                    "model": "Xeon Silver 4410Y",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-980d32c851b8056ba193",
+                    "model": "Xeon Silver 4416+",
+                    "productId": null,
+                    "sourceFamily": "Sapphire Rapids SP",
+                    "platformCount": 2,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-5829cef91c89fe5c7ce7",
+                    "model": "Xeon 6710E",
+                    "productId": null,
+                    "sourceFamily": "Sierra Forest SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-a84687d2e1b66dac92df",
+                    "model": "Xeon 6731E",
+                    "productId": null,
+                    "sourceFamily": "Sierra Forest SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-ec3673fa0ebe903705b4",
+                    "model": "Xeon 6740E",
+                    "productId": null,
+                    "sourceFamily": "Sierra Forest SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-762b6275ae456d9a62bd",
+                    "model": "Xeon 6746E",
+                    "productId": null,
+                    "sourceFamily": "Sierra Forest SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-867f237ad912479a9fca",
+                    "model": "Xeon 6756E",
+                    "productId": null,
+                    "sourceFamily": "Sierra Forest SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-f24c9396b3b6b0bd6aea",
+                    "model": "Xeon 6766E",
+                    "productId": null,
+                    "sourceFamily": "Sierra Forest SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "intel-81d566efd7926b6477f9",
+                    "model": "Xeon 6780E",
+                    "productId": null,
+                    "sourceFamily": "Sierra Forest SP",
+                    "platformCount": 3,
+                    "state": "mapped_exact"
+                }
+            ]
+        },
+        {
+            "id": "ampereone_server",
+            "label": "AmpereOne server",
+            "dashboardTab": "ampere/processors",
+            "sourceField": "sourceSeries",
+            "includedFamilies": [
+                "AmpereOne",
+                "AmpereOne M"
+            ],
+            "eligibleCount": 13,
+            "mappedCount": 7,
+            "exactLinkCount": 7,
+            "platformModelCount": 1,
+            "oems": [
+                "GIGABYTE"
+            ],
+            "products": [
+                {
+                    "catalogId": "ampere-0c9f76a894454d335f9d",
+                    "model": "AmpereOne A128-34X",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "ampere-e1e0dc8d96e011c5cda9",
+                    "model": "AmpereOne A144-24X",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "ampere-ead3f5a16b87d50f6803",
+                    "model": "AmpereOne A144-27X",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "ampere-7d98b6fff1222bf00733",
+                    "model": "AmpereOne A160-28X",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "ampere-9840699508ffbcc657e0",
+                    "model": "AmpereOne A192-26X",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "ampere-ddf09a7adf702bfc4c68",
+                    "model": "AmpereOne A192-32X",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "ampere-36433c5a0850d9a2d94c",
+                    "model": "AmpereOne A96-36X",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne",
+                    "platformCount": 1,
+                    "state": "mapped_exact"
+                },
+                {
+                    "catalogId": "ampere-dc8ff7c860bf22294ac9",
+                    "model": "AmpereOne A144-26M",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne M",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "ampere-0c93116796d1c92723f7",
+                    "model": "AmpereOne A144-33M",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne M",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "ampere-55260ae882e53eab9d8b",
+                    "model": "AmpereOne A160-28M",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne M",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "ampere-35d09843a8b977623ca9",
+                    "model": "AmpereOne A192-26M",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne M",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "ampere-f141d3e9e9605f021908",
+                    "model": "AmpereOne A192-32M",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne M",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "ampere-6e14ab5b60673e1329e1",
+                    "model": "AmpereOne A96-36M",
+                    "productId": null,
+                    "sourceFamily": "AmpereOne M",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                }
+            ]
+        },
+        {
+            "id": "nvidia_cpu_modules",
+            "label": "NVIDIA CPU modules",
+            "dashboardTab": "nvidia/cpu",
+            "sourceField": "sourceSeries",
+            "includedFamilies": [
+                "Grace CPU",
+                "Grace Hopper",
+                "Grace Blackwell"
+            ],
+            "eligibleCount": 4,
+            "mappedCount": 0,
+            "exactLinkCount": 0,
+            "platformModelCount": 0,
+            "oems": [],
+            "products": [
+                {
+                    "catalogId": "nvidia-b6a2aeef2f7697ddf6dd",
+                    "model": "GB10 Grace Blackwell Superchip",
+                    "productId": null,
+                    "sourceFamily": "Grace Blackwell",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "nvidia-b7ca6a34c79912515448",
+                    "model": "Grace CPU C1",
+                    "productId": null,
+                    "sourceFamily": "Grace CPU",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "nvidia-fcd62a52e5e2caac5046",
+                    "model": "Grace CPU Superchip",
+                    "productId": null,
+                    "sourceFamily": "Grace CPU",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                },
+                {
+                    "catalogId": "nvidia-7459963a2e4b7a4a799a",
+                    "model": "GH200 Grace Hopper Superchip",
+                    "productId": null,
+                    "sourceFamily": "Grace Hopper",
+                    "platformCount": 0,
+                    "state": "not_yet_verified"
+                }
+            ]
+        }
+    ],
+    "deferredQueues": [
+        {
+            "label": "AMD embedded and adjacent EPYC",
+            "dashboardTab": "amd/epyc",
+            "sourceFamilies": [
+                "EPYC Embedded 4005 Series",
+                "EPYC Embedded 8004 Series",
+                "EPYC Embedded 9004 Series",
+                "EPYC Embedded 9005 Series"
+            ],
+            "catalogCount": 40,
+            "mappedPilotCount": 0,
+            "state": "eligibility_review_pending"
+        },
+        {
+            "label": "Intel Xeon D edge systems",
+            "dashboardTab": "intel/xeon",
+            "sourceFamilies": [
+                "Granite Rapids D"
+            ],
+            "catalogCount": 22,
+            "mappedPilotCount": 0,
+            "state": "eligibility_review_pending"
+        },
+        {
+            "label": "Intel Xeon W workstation",
+            "dashboardTab": "intel/xeon",
+            "sourceFamilies": [
+                "Sapphire Rapids WS-2400/2500",
+                "Sapphire Rapids WS-3400/3500",
+                "Granite Rapids WS"
+            ],
+            "catalogCount": 40,
+            "mappedPilotCount": 0,
+            "state": "eligibility_review_pending"
+        },
+        {
+            "label": "AMD client and workstation catalog",
+            "dashboardTab": "amd/ryzen",
+            "sourceFamilies": [],
+            "catalogCount": 736,
+            "mappedPilotCount": 8,
+            "state": "eligibility_review_pending"
+        },
+        {
+            "label": "Intel client catalog",
+            "dashboardTab": "intel/client",
+            "sourceFamilies": [],
+            "catalogCount": 340,
+            "mappedPilotCount": 8,
+            "state": "eligibility_review_pending"
+        }
+    ]
+}

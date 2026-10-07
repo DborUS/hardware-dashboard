@@ -1,0 +1,784 @@
+valid,1
+
+"SPEC CPU2026 Integer Rate Result"
+
+"Full Results Table"
+
+Benchmark,"Base # Copies","Base Run Time","Base Rate","Base Selected","Base Status","Peak # Copies","Peak Run Time","Peak Rate","Peak Selected","Peak Status",Description
+706.stockfish_r,384,277.314348,1744.73472,0,S,384,270.565182,1788.256512,0,S,"refrate(ref) iteration #1"
+706.stockfish_r,384,271.508197,1782.045696,1,S,384,272.163102,1777.757568,0,S,"refrate(ref) iteration #2"
+706.stockfish_r,384,270.576083,1788.184704,0,S,384,270.779388,1786.84224,1,S,"refrate(ref) iteration #3"
+707.ntest_r,384,263.576847,862.473216,0,S,384,262.846087,864.871296,0,S,"refrate(ref) iteration #1"
+707.ntest_r,384,263.133272,863.927424,1,S,384,261.981712,867.7248,0,S,"refrate(ref) iteration #2"
+707.ntest_r,384,262.079438,867.401088,0,S,384,262.430461,866.241024,1,S,"refrate(ref) iteration #3"
+708.sqlite_r,384,382.784093,529.677312,0,S,384,365.322434,554.994816,0,S,"refrate(ref) iteration #1"
+708.sqlite_r,384,379.944253,533.636352,0,S,384,365.336382,554.973312,1,S,"refrate(ref) iteration #2"
+708.sqlite_r,384,380.28445,533.158656,1,S,384,366.027111,553.926144,0,S,"refrate(ref) iteration #3"
+710.omnetpp_r,384,240.335608,776.514048,1,S,192,108.812757,857.546496,0,S,"refrate(ref) iteration #1"
+710.omnetpp_r,384,242.227813,770.448384,0,S,192,108.674839,858.634752,1,S,"refrate(ref) iteration #2"
+710.omnetpp_r,384,239.983228,777.654528,0,S,192,107.928306,864.573888,0,S,"refrate(ref) iteration #3"
+714.cpython_r,384,218.560025,841.581312,0,S,384,185.195029,993.201792,1,S,"refrate(ref) iteration #1"
+714.cpython_r,384,218.928841,840.163584,1,S,384,185.170132,993.33504,0,S,"refrate(ref) iteration #2"
+714.cpython_r,384,219.627476,837.490944,0,S,384,186.132223,988.200576,0,S,"refrate(ref) iteration #3"
+721.gcc_r,384,599.136381,439.672704,0,S,384,576.875289,456.63936,1,S,"refrate(ref) iteration #1"
+721.gcc_r,384,598.999848,439.772928,1,S,384,575.80473,457.488384,0,S,"refrate(ref) iteration #2"
+721.gcc_r,384,597.826998,440.635776,0,S,384,577.036383,456.511872,0,S,"refrate(ref) iteration #3"
+723.llvm_r,384,286.484511,679.575936,0,S,384,284.123767,685.222656,1,S,"refrate(ref) iteration #1"
+723.llvm_r,384,285.870912,681.034752,1,S,384,283.359783,687.07008,0,S,"refrate(ref) iteration #2"
+723.llvm_r,384,284.58086,684.121728,0,S,384,285.041313,683.01696,0,S,"refrate(ref) iteration #3"
+727.cppcheck_r,384,252.028711,546.985344,0,S,384,252.028711,546.985344,0,S,"refrate(ref) iteration #1"
+727.cppcheck_r,384,242.641766,568.146048,0,S,384,242.641766,568.146048,0,S,"refrate(ref) iteration #2"
+727.cppcheck_r,384,245.573113,561.364224,1,S,384,245.573113,561.364224,1,S,"refrate(ref) iteration #3"
+729.abc_r,384,365.782278,481.86048,0,S,384,365.782278,481.86048,0,S,"refrate(ref) iteration #1"
+729.abc_r,384,365.576842,482.1312,1,S,384,365.576842,482.1312,1,S,"refrate(ref) iteration #2"
+729.abc_r,384,364.741063,483.235968,0,S,384,364.741063,483.235968,0,S,"refrate(ref) iteration #3"
+734.vpr_r,384,319.029958,554.88192,0,S,384,319.029958,554.88192,0,S,"refrate(ref) iteration #1"
+734.vpr_r,384,320.014588,553.174656,0,S,384,320.014588,553.174656,0,S,"refrate(ref) iteration #2"
+734.vpr_r,384,319.738365,553.652736,1,S,384,319.738365,553.652736,1,S,"refrate(ref) iteration #3"
+735.gem5_r,384,176.591177,1058.988288,1,S,384,176.591177,1058.988288,1,S,"refrate(ref) iteration #1"
+735.gem5_r,384,176.720921,1058.210688,0,S,384,176.720921,1058.210688,0,S,"refrate(ref) iteration #2"
+735.gem5_r,384,176.074652,1062.094848,0,S,384,176.074652,1062.094848,0,S,"refrate(ref) iteration #3"
+750.sealcrypto_r,384,298.169285,690.292608,0,S,192,139.191354,739.356288,0,S,"refrate(ref) iteration #1"
+750.sealcrypto_r,384,298.383349,689.797248,1,S,192,139.522105,737.60352,1,S,"refrate(ref) iteration #2"
+750.sealcrypto_r,384,299.384067,687.491328,0,S,192,140.067422,734.731968,0,S,"refrate(ref) iteration #3"
+753.ns3_r,384,158.862065,1481.738112,0,S,384,158.122597,1488.667776,1,S,"refrate(ref) iteration #1"
+753.ns3_r,384,158.389592,1486.158336,1,S,384,157.927893,1490.502912,0,S,"refrate(ref) iteration #2"
+753.ns3_r,384,158.011047,1489.718784,0,S,384,158.481236,1485.298944,0,S,"refrate(ref) iteration #3"
+777.zstd_r,384,656.646808,376.60416,0,S,384,642.691916,384.78144,1,S,"refrate(ref) iteration #1"
+777.zstd_r,384,657.816284,375.934848,0,S,384,642.401163,384.955776,0,S,"refrate(ref) iteration #2"
+777.zstd_r,384,657.580725,376.069248,1,S,384,642.78523,384.72576,0,S,"refrate(ref) iteration #3"
+
+"Selected Results Table"
+
+Benchmark,"Base # Copies","Base Run Time","Base Rate","Base Selected","Base Status","Peak # Copies","Peak Run Time","Peak Rate","Peak Selected","Peak Status",Description
+706.stockfish_r,384,271.508197,1782.045696,1,S,384,270.779388,1786.84224,1,S,"SelectedIteration (base #2; peak #3)"
+707.ntest_r,384,263.133272,863.927424,1,S,384,262.430461,866.241024,1,S,"SelectedIteration (base #2; peak #3)"
+708.sqlite_r,384,380.28445,533.158656,1,S,384,365.336382,554.973312,1,S,"SelectedIteration (base #3; peak #2)"
+710.omnetpp_r,384,240.335608,776.514048,1,S,192,108.674839,858.634752,1,S,"SelectedIteration (base #1; peak #2)"
+714.cpython_r,384,218.928841,840.163584,1,S,384,185.195029,993.201792,1,S,"SelectedIteration (base #2; peak #1)"
+721.gcc_r,384,598.999848,439.772928,1,S,384,576.875289,456.63936,1,S,"SelectedIteration (base #2; peak #1)"
+723.llvm_r,384,285.870912,681.034752,1,S,384,284.123767,685.222656,1,S,"SelectedIteration (base #2; peak #1)"
+727.cppcheck_r,384,245.573113,561.364224,1,S,384,245.573113,561.364224,1,S,"SelectedIteration (base #3; peak #3)"
+729.abc_r,384,365.576842,482.1312,1,S,384,365.576842,482.1312,1,S,"SelectedIteration (base #2; peak #2)"
+734.vpr_r,384,319.738365,553.652736,1,S,384,319.738365,553.652736,1,S,"SelectedIteration (base #3; peak #3)"
+735.gem5_r,384,176.591177,1058.988288,1,S,384,176.591177,1058.988288,1,S,"SelectedIteration (base #1; peak #1)"
+750.sealcrypto_r,384,298.383349,689.797248,1,S,192,139.522105,737.60352,1,S,"SelectedIteration (base #2; peak #2)"
+753.ns3_r,384,158.389592,1486.158336,1,S,384,158.122597,1488.667776,1,S,"SelectedIteration (base #2; peak #1)"
+777.zstd_r,384,657.580725,376.069248,1,S,384,642.691916,384.78144,1,S,"SelectedIteration (base #3; peak #1)"
+
+SPECrate2026_int_base,718.710568,,718.710568
+SPECrate2026_int_peak,742.118002,,,,,,,742.118002
+
+"Run number:",019.0
+"runcpu command:","/aocc520/bin/harness/runcpu --configfile amd_rate_aocc520_znver5_A1.cfg --tune all --reportable --iterations 3 --nopower --runmode rate --tune base:peak --size test:train:refrate intrate"
+"output root:","not used"
+
+"Hardware Vendor:","ASUSTeK Computer Inc."
+"Hardware Model:","ASUS RS520QA-E13-RS8U (2.25 GHz, AMD EPYC 9965)"
+"Date tested:",Jul-2026
+"CPU2026 License:",9016
+"Test sponsor:","ASUSTeK Computer Inc."
+"Tested by:","ASUSTeK Computer Inc."
+"Hardware avail:",Jun-2025
+"Software avail:",May-2026
+
+
+HARDWARE
+
+"CPU Name","AMD EPYC 9965"
+"  Max MHz",3700
+"  Nominal",2250
+Enabled,"192 cores, 1 chip, 2 threads/core"
+Orderable,"1 chip"
+"Cache L1","32 KB I + 48 KB D on chip per core"
+"  L2","1 MB I+D on chip per core"
+"  L3","384 MB I+D on chip per chip,"
+,"32 MB shared / 16 cores"
+"  Other",None
+Memory,"768 GB (12 x 64 GB 2Rx4 PC5-6400B-R)"
+Storage,"1 x 4.0 TB PCIe NVMe SSD"
+Cooling,Air
+Other,None
+
+SOFTWARE
+
+OS,"SUSE Linux Enterprise Server 15 SP6 (x86_64)"
+,"Kernel 6.4.0-150600.21-default"
+Compiler,"C/C++/Fortran: Version 5.2.0 of AOCC"
+"Compiler Category",Vendor
+Firmware,"Version 0302 released Jun-2025"
+"File System",xfs
+"System State","Run level 3 (multi-user)"
+"Base Pointers",64-bit
+"Peak Pointers",64-bit
+Other,"jemalloc: jemalloc memory allocator library v5.3.1"
+"Power Management","BIOS and OS set to prefer performance"
+,"at the cost of additional power usage."
+
+"Compiler Notes"
+
+"The AMD64 AOCC Compiler Suite is available at"
+http://developer.amd.com/amd-aocc/
+
+
+"Submit Notes"
+
+"The config file option 'submit' was used."
+"'numactl' was used to bind copies to the cores."
+"See the configuration file for details."
+
+
+"Operating System Notes"
+
+"'ulimit -s unlimited' was used to set environment stack size limit"
+"'ulimit -l 2097152' was used to set environment locked pages in memory limit"
+"OS set to performance mode via cpupower frequency-set -g performance"
+
+"runcpu command invoked through numactl i.e.:"
+"numactl --interleave=all runcpu <etc>"
+
+"To limit dirty cache to 8% of memory, 'sysctl -w vm.dirty_ratio=8' run as root."
+"To limit swap usage to minimum necessary, 'sysctl -w vm.swappiness=1' run as root."
+"To free node-local memory and avoid remote memory usage,"
+"'sysctl -w vm.zone_reclaim_mode=1' run as root."
+"To clear filesystem caches, 'sync; sysctl -w vm.drop_caches=3' run as root."
+"To disable address space layout randomization (ASLR) to reduce run-to-run"
+"variability, 'sysctl -w kernel.randomize_va_space=0' run as root."
+
+"To enable Transparent Hugepages (THP) for all allocations,"
+"'echo always > /sys/kernel/mm/transparent_hugepage/enabled' and"
+"'echo always > /sys/kernel/mm/transparent_hugepage/defrag' run as root."
+
+
+"Environment Variables Notes"
+
+"Environment variables set by runcpu before the start of the run:"
+"LD_LIBRARY_PATH ="
+"     ""/aocc520/amd_rate_aocc520_znver5_A_lib/lib:/aocc520/amd_rate_aocc520_zn"
+"     ver5_A_lib/lib32:"""
+"MALLOC_CONF = ""retain:true"""
+
+
+"General Notes"
+
+"Binaries were compiled on a system with 2x AMD EPYC Venice256 CPU + 2TiB Memory using Ubuntu 24.04"
+"jemalloc: configured and built with GCC v15.2.0 in Ubuntu 24.04 (No options specified)"
+"jemalloc 5.3.1 is available here:"
+https://github.com/jemalloc/jemalloc/releases/tag/5.3.1
+
+
+"Platform Notes"
+
+"BIOS Configuration:"
+"SR-IOV Support = Disabled"
+"SVM Mode = Disabled"
+"NUMA nodes per socket = NPS4"
+"Determinism Control = Manual"
+"DRAM Scrub time = Disabled"
+"Engine Boost = Aggressive"
+"TDP Control = Manual"
+"TDP = 500"
+"PPT Control = Manual"
+"PPT = 500"
+"L1 Stream HW Prefetcher = Disabled"
+"L2 Stream HW Prefetcher = Disabled"
+"BMC Configuration:"
+"Fan mode = Full speed mode"
+
+" Sysinfo program /aocc520/bin/sysinfo"
+" Rev: 779ab21020787073335a329f3a45e2cd"
+" running on localhost Tue Jul 21 17:19:33 2026"
+
+" SUT (System Under Test) info as seen by some common utilities."
+
+" ------------------------------------------------------------"
+" Table of contents"
+" ------------------------------------------------------------"
+"  1. uname -srvm"
+"  2. w"
+"  3. Username"
+"  4. ulimit -a"
+"  5. sysinfo process ancestry"
+"  6. /proc/cpuinfo"
+"  7. lscpu"
+"  8. numactl --hardware"
+"  9. /proc/meminfo"
+" 10. who -r"
+" 11. Systemd service manager version: systemd 254 (254.10+suse.84.ge8d77af424)"
+" 12. Services, from systemctl list-unit-files"
+" 13. Linux kernel boot-time arguments, from /proc/cmdline"
+" 14. cpupower frequency-info"
+" 15. tuned-adm active"
+" 16. sysctl"
+" 17. /sys/kernel/mm/transparent_hugepage"
+" 18. /sys/kernel/mm/transparent_hugepage/khugepaged"
+" 19. OS release"
+" 20. Disk information"
+" 21. /sys/devices/virtual/dmi/id"
+" 22. dmidecode"
+" 23. BIOS"
+" ------------------------------------------------------------"
+
+" ------------------------------------------------------------"
+" 1. uname -srvm"
+"   Linux 6.4.0-150600.21-default #1 SMP PREEMPT_DYNAMIC Thu May 16 11:09:22 UTC 2024 (36c1e09) x86_64"
+
+" ------------------------------------------------------------"
+" 2. w"
+"    17:19:33 up 14 days,  1:18,  2 users,  load average: 1.33, 1.08, 1.03"
+"   USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT"
+"   root     tty1     -                07Jul26 25.00s 12.60s  0.00s /bin/bash ./rate.sh"
+"   root     tty2     -                07Jul26  7days  0.15s  0.15s -bash"
+
+" ------------------------------------------------------------"
+" 3. Username"
+"   From environment variable $USER:  root"
+
+" ------------------------------------------------------------"
+" 4. ulimit -a"
+"   core file size          (blocks, -c) unlimited"
+"   data seg size           (kbytes, -d) unlimited"
+"   scheduling priority             (-e) 0"
+"   file size               (blocks, -f) unlimited"
+"   pending signals                 (-i) 3092327"
+"   max locked memory       (kbytes, -l) 2048"
+"   max memory size         (kbytes, -m) unlimited"
+"   open files                      (-n) 1024"
+"   pipe size            (512 bytes, -p) 8"
+"   POSIX message queues     (bytes, -q) 819200"
+"   real-time priority              (-r) 0"
+"   stack size              (kbytes, -s) unlimited"
+"   cpu time               (seconds, -t) unlimited"
+"   max user processes              (-u) 3092327"
+"   virtual memory          (kbytes, -v) unlimited"
+"   file locks                      (-x) unlimited"
+
+" ------------------------------------------------------------"
+" 5. sysinfo process ancestry"
+"  /usr/lib/systemd/systemd --switched-root --system --deserialize=42"
+"  login -- root"
+"  -bash"
+"  /bin/bash ./rate.sh"
+"  python3 ./run_amd_rate_aocc520_znver5_A1.py"
+"  runcpu --config amd_rate_aocc520_znver5_A1.cfg --tune all --reportable --iterations 3 intrate"
+"  runcpu --configfile amd_rate_aocc520_znver5_A1.cfg --tune all --reportable --iterations 3 --nopower"
+"    --runmode rate --tune base:peak --size test:train:refrate intrate --nopreenv --note-preenv --logfile"
+"    $SPEC/tmp/CPU2026.019/templogs/preenv.intrate.019.0.log --lognum 019.0 --from_runcpu 2"
+"  specperl $SPEC/bin/sysinfo"
+" $SPEC = /aocc520"
+
+" ------------------------------------------------------------"
+" 6. /proc/cpuinfo"
+"     model name      : AMD EPYC 9965 192-Core Processor"
+"     vendor_id       : AuthenticAMD"
+"     cpu family      : 26"
+"     model           : 17"
+"     stepping        : 0"
+"     microcode       : 0xb101047"
+"     bugs            : sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass"
+"     TLB size        : 192 4K pages"
+"     cpu cores       : 192"
+"     siblings        : 384"
+"     1 physical ids (chips)"
+"     384 processors (hardware threads)"
+"     physical id 0: core ids 0-191"
+"     physical id 0: apicids 0-383"
+"   Caution: /proc/cpuinfo data regarding chips, cores, and threads is not necessarily reliable, especially for"
+"   virtualized systems.  Use the above data carefully."
+
+" ------------------------------------------------------------"
+" 7. lscpu"
+
+" From lscpu from util-linux 2.39.3:"
+"   Architecture:                         x86_64"
+"   CPU op-mode(s):                       32-bit, 64-bit"
+"   Address sizes:                        52 bits physical, 57 bits virtual"
+"   Byte Order:                           Little Endian"
+"   CPU(s):                               384"
+"   On-line CPU(s) list:                  0-383"
+"   Vendor ID:                            AuthenticAMD"
+"   BIOS Vendor ID:                       Advanced Micro Devices, Inc."
+"   Model name:                           AMD EPYC 9965 192-Core Processor"
+"   BIOS Model name:                      AMD EPYC 9965 192-Core Processor                Unknown CPU @ 2.2GHz"
+"   BIOS CPU family:                      107"
+"   CPU family:                           26"
+"   Model:                                17"
+"   Thread(s) per core:                   2"
+"   Core(s) per socket:                   192"
+"   Socket(s):                            1"
+"   Stepping:                             0"
+"   Frequency boost:                      enabled"
+"   CPU(s) scaling MHz:                   61%"
+"   CPU max MHz:                          3700.1951"
+"   CPU min MHz:                          1500.0000"
+"   BogoMIPS:                             4493.00"
+"   Flags:                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat"
+"                                         pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb"
+"                                         rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid"
+"                                         extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 pcid"
+"                                         sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm"
+"                                         cmp_legacy extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch"
+"                                         osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext"
+"                                         perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2"
+"                                         ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase tsc_adjust bmi1 avx2"
+"                                         smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap"
+"                                         avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt"
+"                                         xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total"
+"                                         cqm_mbm_local user_shstk avx_vnni avx512_bf16 clzero irperf"
+"                                         xsaveerptr rdpru wbnoinvd amd_ppin cppc arat npt lbrv svm_lock"
+"                                         nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter"
+"                                         pfthreshold avic v_vmsave_vmload vgif x2avic v_spec_ctrl vnmi"
+"                                         avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq"
+"                                         avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid bus_lock_detect"
+"                                         movdiri movdir64b overflow_recov succor smca fsrm avx512_vp2intersect"
+"                                         flush_l1d debug_swap"
+"   L1d cache:                            9 MiB (192 instances)"
+"   L1i cache:                            6 MiB (192 instances)"
+"   L2 cache:                             192 MiB (192 instances)"
+"   L3 cache:                             384 MiB (12 instances)"
+"   NUMA node(s):                         4"
+"   NUMA node0 CPU(s):                    0-47,192-239"
+"   NUMA node1 CPU(s):                    48-95,240-287"
+"   NUMA node2 CPU(s):                    96-143,288-335"
+"   NUMA node3 CPU(s):                    144-191,336-383"
+"   Vulnerability Gather data sampling:   Not affected"
+"   Vulnerability Itlb multihit:          Not affected"
+"   Vulnerability L1tf:                   Not affected"
+"   Vulnerability Mds:                    Not affected"
+"   Vulnerability Meltdown:               Not affected"
+"   Vulnerability Mmio stale data:        Not affected"
+"   Vulnerability Reg file data sampling: Not affected"
+"   Vulnerability Retbleed:               Not affected"
+"   Vulnerability Spec rstack overflow:   Not affected"
+"   Vulnerability Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl"
+"   Vulnerability Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization"
+"   Vulnerability Spectre v2:             Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP"
+"                                         always-on; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected"
+"   Vulnerability Srbds:                  Not affected"
+"   Vulnerability Tsx async abort:        Not affected"
+
+" From lscpu --cache:"
+"      NAME ONE-SIZE ALL-SIZE WAYS TYPE        LEVEL  SETS PHY-LINE COHERENCY-SIZE"
+"      L1d       48K       9M   12 Data            1    64        1             64"
+"      L1i       32K       6M    8 Instruction     1    64        1             64"
+"      L2         1M     192M   16 Unified         2  1024        1             64"
+"      L3        32M     384M   16 Unified         3 32768        1             64"
+
+" ------------------------------------------------------------"
+" 8. numactl --hardware"
+" NOTE: a numactl 'node' might or might not correspond to a physical chip."
+"   available: 4 nodes (0-3)"
+"   node 0 cpus: 0-47,192-239"
+"   node 0 size: 192720 MB"
+"   node 0 free: 192052 MB"
+"   node 1 cpus: 48-95,240-287"
+"   node 1 size: 193510 MB"
+"   node 1 free: 192788 MB"
+"   node 2 cpus: 96-143,288-335"
+"   node 2 size: 193510 MB"
+"   node 2 free: 192838 MB"
+"   node 3 cpus: 144-191,336-383"
+"   node 3 size: 193365 MB"
+"   node 3 free: 192672 MB"
+"   node distances:"
+"   node   0   1   2   3"
+"     0:  10  12  12  12"
+"     1:  12  10  12  12"
+"     2:  12  12  10  12"
+"     3:  12  12  12  10"
+
+" ------------------------------------------------------------"
+" 9. /proc/meminfo"
+"    MemTotal:       791662512 kB"
+
+" ------------------------------------------------------------"
+" 10. who -r"
+"   run-level 3 Jul 7 16:01"
+
+" ------------------------------------------------------------"
+" 11. Systemd service manager version: systemd 254 (254.10+suse.84.ge8d77af424)"
+"   Default Target  Status"
+"   multi-user      running"
+
+" ------------------------------------------------------------"
+" 12. Services, from systemctl list-unit-files"
+"   STATE            UNIT FILES"
+"   enabled          YaST2-Firstboot YaST2-Second-Stage apparmor auditd cron display-manager getty@ irqbalance"
+"                    issue-generator kbdsettings klog lvm2-monitor nscd nvmefc-boot-connections"
+"                    nvmf-autoconnect postfix purge-kernels rollback rsyslog smartd sshd systemd-pstore wicked"
+"                    wickedd-auto4 wickedd-dhcp4 wickedd-dhcp6 wickedd-nanny"
+"   enabled-runtime  systemd-remount-fs"
+"   disabled         autofs autoyast-initscripts blk-availability boot-sysctl ca-certificates chrony-wait"
+"                    chronyd console-getty cups cups-browsed debug-shell ebtables exchange-bmc-os-info"
+"                    firewalld fsidd gpm grub2-once haveged hwloc-dump-hwdata ipmi ipmievd issue-add-ssh-keys"
+"                    kexec-load lunmask man-db-create multipathd nfs nfs-blkmap rpcbind rpmconfigcheck rsyncd"
+"                    serial-getty@ smartd_generate_opts snmpd snmptrapd svnserve systemd-boot-check-no-failures"
+"                    systemd-confext systemd-network-generator systemd-sysext systemd-time-wait-sync"
+"                    systemd-timesyncd tuned udisks2 vncserver@"
+"   indirect         systemd-userdbd wickedd"
+
+" ------------------------------------------------------------"
+" 13. Linux kernel boot-time arguments, from /proc/cmdline"
+"   BOOT_IMAGE=/boot/vmlinuz-6.4.0-150600.21-default"
+"   root=UUID=bd4eeb48-8f2c-47c9-ae06-b7241b1d0eb7"
+"   splash=silent"
+"   mitigations=auto"
+"   quiet"
+"   security=apparmor"
+"   video=1024x768"
+
+" ------------------------------------------------------------"
+" 14. cpupower frequency-info"
+"   analyzing CPU 311:"
+"     current policy: frequency should be within 1.50 GHz and 2.25 GHz."
+"                     The governor ""performance"" may decide which speed to use"
+"                     within this range."
+"     boost state support:"
+"       Supported: yes"
+"       Active: yes"
+
+" ------------------------------------------------------------"
+" 15. tuned-adm active"
+"   It seems that tuned daemon is not running, preset profile is not activated."
+"   Preset profile: throughput-performance"
+
+" ------------------------------------------------------------"
+" 16. sysctl"
+"   kernel.numa_balancing               1"
+"   kernel.randomize_va_space           0"
+"   vm.compaction_proactiveness        20"
+"   vm.dirty_background_bytes           0"
+"   vm.dirty_background_ratio          10"
+"   vm.dirty_bytes                      0"
+"   vm.dirty_expire_centisecs        3000"
+"   vm.dirty_ratio                      8"
+"   vm.dirty_writeback_centisecs      500"
+"   vm.dirtytime_expire_seconds     43200"
+"   vm.extfrag_threshold              500"
+"   vm.min_unmapped_ratio               1"
+"   vm.nr_hugepages                     0"
+"   vm.nr_hugepages_mempolicy           0"
+"   vm.nr_overcommit_hugepages          0"
+"   vm.swappiness                       1"
+"   vm.watermark_boost_factor       15000"
+"   vm.watermark_scale_factor          10"
+"   vm.zone_reclaim_mode                1"
+
+" ------------------------------------------------------------"
+" 17. /sys/kernel/mm/transparent_hugepage"
+"   defrag          [always] defer defer+madvise madvise never"
+"   enabled         [always] madvise never"
+"   hpage_pmd_size  2097152"
+"   shmem_enabled   always within_size advise [never] deny force"
+
+" ------------------------------------------------------------"
+" 18. /sys/kernel/mm/transparent_hugepage/khugepaged"
+"   alloc_sleep_millisecs   60000"
+"   defrag                      1"
+"   max_ptes_none             511"
+"   max_ptes_shared           256"
+"   max_ptes_swap              64"
+"   pages_to_scan            4096"
+"   scan_sleep_millisecs    10000"
+
+" ------------------------------------------------------------"
+" 19. OS release"
+"   From /etc/*-release /etc/*-version"
+"   os-release SUSE Linux Enterprise Server 15 SP6"
+
+" ------------------------------------------------------------"
+" 20. Disk information"
+" SPEC is set to: /aocc520"
+"   Filesystem     Type  Size  Used Avail Use% Mounted on"
+"   /dev/nvme0n1p4 xfs   2.0T  548G  1.5T  27% /"
+
+" ------------------------------------------------------------"
+" 21. /sys/devices/virtual/dmi/id"
+"     Vendor:         ASUSTeK COMPUTER INC."
+"     Product:        RS520QA-E13-RS8U"
+"     Product Family: Server"
+"     Serial:         /psn/"
+
+" ------------------------------------------------------------"
+" 22. dmidecode"
+"   Additional information from dmidecode 3.4 follows.  WARNING: Use caution when you interpret this section."
+"   The 'dmidecode' program reads system data which is ""intended to allow hardware to be accurately"
+"   determined"", but the intent may not be met, as there are frequent changes to hardware, firmware, and the"
+"   ""DMTF SMBIOS"" standard."
+"   Memory:"
+"     11x Samsung M321R8GA0EB2-CCPPC 64 GB 2 rank 6400"
+"     1x Samsung M321R8GA0EB2-CCPWC 64 GB 2 rank 6400"
+
+
+" ------------------------------------------------------------"
+" 23. BIOS"
+" (This section combines info from /sys/devices and dmidecode.)"
+"    BIOS Vendor:       American Megatrends Inc."
+"    BIOS Version:      0302"
+"    BIOS Date:         06/26/2025"
+"    BIOS Revision:     3.2"
+
+"Compiler Version Notes"
+
+==============================================================================
+"C      | 708.sqlite_r(base, peak) 714.cpython_r(base, peak) 777.zstd_r(base,"
+"       | peak)"
+------------------------------------------------------------------------------
+"AMD clang version 17.0.6 (CLANG: AOCC_5.2.0-Build#2035 2026_04_10)"
+"Target: x86_64-unknown-linux-gnu"
+"Thread model: posix"
+"InstalledDir: /opt/AMD/aocc/aocc-compiler-rel-5.2.0-4925-2035/bin"
+------------------------------------------------------------------------------
+
+==============================================================================
+"C++    | 706.stockfish_r(base, peak) 707.ntest_r(base, peak)"
+"       | 727.cppcheck_r(base, peak) 753.ns3_r(base, peak)"
+------------------------------------------------------------------------------
+"AMD clang version 17.0.6 (CLANG: AOCC_5.2.0-Build#2035 2026_04_10)"
+"Target: x86_64-unknown-linux-gnu"
+"Thread model: posix"
+"InstalledDir: /opt/AMD/aocc/aocc-compiler-rel-5.2.0-4925-2035/bin"
+------------------------------------------------------------------------------
+
+==============================================================================
+"C++, C | 710.omnetpp_r(base, peak) 721.gcc_r(base, peak) 723.llvm_r(base,"
+"       | peak) 729.abc_r(base, peak) 734.vpr_r(base, peak) 735.gem5_r(base,"
+"       | peak) 750.sealcrypto_r(base, peak)"
+------------------------------------------------------------------------------
+"AMD clang version 17.0.6 (CLANG: AOCC_5.2.0-Build#2035 2026_04_10)"
+"Target: x86_64-unknown-linux-gnu"
+"Thread model: posix"
+"InstalledDir: /opt/AMD/aocc/aocc-compiler-rel-5.2.0-4925-2035/bin"
+------------------------------------------------------------------------------
+
+"Base Runtime Environment"
+706.stockfish_r," No flags used"
+707.ntest_r," No flags used"
+708.sqlite_r," No flags used"
+710.omnetpp_r," No flags used"
+714.cpython_r," No flags used"
+721.gcc_r," No flags used"
+723.llvm_r," No flags used"
+727.cppcheck_r," No flags used"
+729.abc_r," No flags used"
+734.vpr_r," No flags used"
+735.gem5_r," No flags used"
+750.sealcrypto_r," No flags used"
+753.ns3_r," No flags used"
+777.zstd_r," No flags used"
+
+"Base Compiler Invocation"
+706.stockfish_r," clang++"," clang++"
+707.ntest_r," clang++"," clang++"
+708.sqlite_r," clang"," clang"
+710.omnetpp_r," clang++"," clang"," clang++"
+714.cpython_r," clang"," clang"
+721.gcc_r," clang++"," clang"," clang++"
+723.llvm_r," clang++"," clang"," clang++"
+727.cppcheck_r," clang++"," clang++"
+729.abc_r," clang++"," clang"," clang++"
+734.vpr_r," clang++"," clang"," clang++"
+735.gem5_r," clang++"," clang"," clang++"
+750.sealcrypto_r," clang++"," clang"," clang++"
+753.ns3_r," clang++"," clang++"
+777.zstd_r," clang"," clang"
+
+"Base Portability Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Base Optimization Flags"
+706.stockfish_r," -std=c++17"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+707.ntest_r," -std=c++17"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+708.sqlite_r," -std=c18"," -std=c18"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -fstrip-mining"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -ljemalloc"," -lamdlibm"
+710.omnetpp_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+714.cpython_r," -std=c18"," -std=c18"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -fstrip-mining"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -ljemalloc"," -lamdlibm"
+721.gcc_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+723.llvm_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+727.cppcheck_r," -std=c++17"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+729.abc_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+734.vpr_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+735.gem5_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+750.sealcrypto_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+753.ns3_r," -std=c++17"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+777.zstd_r," -std=c18"," -std=c18"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -fstrip-mining"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -ljemalloc"," -lamdlibm"
+
+"Base Other Flags"
+706.stockfish_r," No flags used"
+707.ntest_r," No flags used"
+708.sqlite_r," No flags used"
+710.omnetpp_r," No flags used"
+714.cpython_r," No flags used"
+721.gcc_r," No flags used"
+723.llvm_r," No flags used"
+727.cppcheck_r," No flags used"
+729.abc_r," No flags used"
+734.vpr_r," No flags used"
+735.gem5_r," No flags used"
+750.sealcrypto_r," No flags used"
+753.ns3_r," No flags used"
+777.zstd_r," No flags used"
+
+"Base Forbidden Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Base Unknown Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Peak Runtime Environment"
+706.stockfish_r," No flags used"
+707.ntest_r," No flags used"
+708.sqlite_r," No flags used"
+710.omnetpp_r," No flags used"
+714.cpython_r," No flags used"
+721.gcc_r," No flags used"
+723.llvm_r," No flags used"
+727.cppcheck_r," No flags used"
+729.abc_r," No flags used"
+734.vpr_r," No flags used"
+735.gem5_r," No flags used"
+750.sealcrypto_r," No flags used"
+753.ns3_r," No flags used"
+777.zstd_r," No flags used"
+
+"Peak Compiler Invocation"
+706.stockfish_r," clang++"," clang++"
+707.ntest_r," clang++"," clang++"
+708.sqlite_r," clang"," clang"
+710.omnetpp_r," clang++"," clang"," clang++"
+714.cpython_r," clang"," clang"
+721.gcc_r," clang++"," clang"," clang++"
+723.llvm_r," clang++"," clang"," clang++"
+727.cppcheck_r," clang++"," clang++"
+729.abc_r," clang++"," clang"," clang++"
+734.vpr_r," clang++"," clang"," clang++"
+735.gem5_r," clang++"," clang"," clang++"
+750.sealcrypto_r," clang++"," clang"," clang++"
+753.ns3_r," clang++"," clang++"
+777.zstd_r," clang"," clang"
+
+"Peak Portability Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Peak Optimization Flags"
+706.stockfish_r," -std=c++17"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+707.ntest_r," -std=c++17"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+708.sqlite_r," -std=c18"," -std=c18"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -fstrip-mining"," -fprofile-instr-generate"," -fprofile-instr-use"," -fprofile-instr-generate"," -fprofile-instr-use"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -ljemalloc"," -lamdlibm"
+710.omnetpp_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+714.cpython_r," -std=c18"," -std=c18"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -fstrip-mining"," -fprofile-instr-generate"," -fprofile-instr-use"," -fprofile-instr-generate"," -fprofile-instr-use"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -ljemalloc"," -lamdlibm"
+721.gcc_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -fprofile-instr-generate"," -fprofile-instr-use"," -fprofile-instr-generate"," -fprofile-instr-use"," -fprofile-instr-generate"," -fprofile-instr-use"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+723.llvm_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+727.cppcheck_r," -std=c++17"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+729.abc_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+734.vpr_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+735.gem5_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+750.sealcrypto_r," -std=c++17"," -std=c18"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+753.ns3_r," -std=c++17"," -std=c++17"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fvirtual-function-elimination"," -fvisibility=hidden"," -mllvm -inline-threshold=1500"," -stdlib=libc++"," -ljemalloc"," -lamdlibm"
+777.zstd_r," -std=c18"," -std=c18"," -no-pie"," -Wl,-mllvm -Wl,-inline-threshold=1500"," -fstrip-mining"," -O3"," -march=znver5"," -fveclib=AMDLIBM"," -flto"," -fno-PIE"," -fno-plt"," -fremap-arrays"," -mllvm -inline-threshold=1500"," -mllvm -inline-threshold=3000"," -ljemalloc"," -lamdlibm"
+
+"Peak Other Flags"
+706.stockfish_r," No flags used"
+707.ntest_r," No flags used"
+708.sqlite_r," No flags used"
+710.omnetpp_r," No flags used"
+714.cpython_r," No flags used"
+721.gcc_r," No flags used"
+723.llvm_r," No flags used"
+727.cppcheck_r," No flags used"
+729.abc_r," No flags used"
+734.vpr_r," No flags used"
+735.gem5_r," No flags used"
+750.sealcrypto_r," No flags used"
+753.ns3_r," No flags used"
+777.zstd_r," No flags used"
+
+"Peak Forbidden Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+
+"Peak Unknown Flags"
+706.stockfish_r
+707.ntest_r
+708.sqlite_r
+710.omnetpp_r
+714.cpython_r
+721.gcc_r
+723.llvm_r
+727.cppcheck_r
+729.abc_r
+734.vpr_r
+735.gem5_r
+750.sealcrypto_r
+753.ns3_r
+777.zstd_r
+----------------
+"For questions about","this result, please","contact the tester.",
+"For other inquiries,","please contact",info@spec.org.,
+"Copyright 2026 Standard","Performance Evaluation",Corporation,
+"Tested with SPEC CPU2026",v1.0.1.
+"Result run on","2026-07-21 05:19:32-0400."
+"Report generated on","2026-08-26 13:56:22","by SPEC CPU2026 CSV","formatter (ea367760)."
+"Originally published on ",2026-08-25.

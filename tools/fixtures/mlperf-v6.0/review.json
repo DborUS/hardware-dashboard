@@ -1,0 +1,149 @@
+{
+    "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/blob/main/summary_results.json",
+    "sourceSha256": "52fa813a27834e8de38eca9fd381688df1cf9cd95020d2bd9e951f6cc16384ae",
+    "retrievedAt": "2026-10-07T17:01:36Z",
+    "sourceRows": 520,
+    "importedCounts": {
+        "Server": 23,
+        "Offline": 23
+    },
+    "importedModels": {
+        "Server": [
+            "AMD Instinct MI300X",
+            "AMD Instinct MI325X",
+            "AMD Instinct MI350X",
+            "AMD Instinct MI355X",
+            "NVIDIA B200 SXM",
+            "NVIDIA H200 NVL",
+            "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+        ],
+        "Offline": [
+            "AMD Instinct MI300X",
+            "AMD Instinct MI325X",
+            "AMD Instinct MI350X",
+            "AMD Instinct MI355X",
+            "NVIDIA B200 SXM",
+            "NVIDIA H200 NVL",
+            "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+        ]
+    },
+    "excludedByCohort": {
+        "outside cohort: Availability": 9,
+        "outside cohort: Category": 14,
+        "outside cohort: Nodes": 14,
+        "outside cohort: Suite": 55,
+        "outside cohort: UsedModel": 344,
+        "outside cohort: a#": 14,
+        "outside cohort: inferred": 14
+    },
+    "unmatchedCandidates": [
+        {
+            "resultId": "6.0-0006",
+            "scenario": "Offline",
+            "sourceAcceleratorName": "NVIDIA B300-SXM-270GB",
+            "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/tree/main/closed/ASUSTeK/results/XA_NB3I-E12_B300x8_TRT",
+            "reason": "no reviewed exact catalog identity"
+        },
+        {
+            "resultId": "6.0-0006",
+            "scenario": "Server",
+            "sourceAcceleratorName": "NVIDIA B300-SXM-270GB",
+            "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/tree/main/closed/ASUSTeK/results/XA_NB3I-E12_B300x8_TRT",
+            "reason": "no reviewed exact catalog identity"
+        },
+        {
+            "resultId": "6.0-0010",
+            "scenario": "Offline",
+            "sourceAcceleratorName": "NVIDIA B300-SXM-270GB",
+            "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/tree/main/closed/Cisco/results/C880A_M8_B300_288GBx8_TRT",
+            "reason": "no reviewed exact catalog identity"
+        },
+        {
+            "resultId": "6.0-0010",
+            "scenario": "Server",
+            "sourceAcceleratorName": "NVIDIA B300-SXM-270GB",
+            "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/tree/main/closed/Cisco/results/C880A_M8_B300_288GBx8_TRT",
+            "reason": "no reviewed exact catalog identity"
+        },
+        {
+            "resultId": "6.0-0024",
+            "scenario": "Offline",
+            "sourceAcceleratorName": "NVIDIA B300-SXM-270GB",
+            "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/tree/main/closed/Dell/results/XE9780L-B300-SXM-270GBx8_TRT",
+            "reason": "no reviewed exact catalog identity"
+        },
+        {
+            "resultId": "6.0-0024",
+            "scenario": "Server",
+            "sourceAcceleratorName": "NVIDIA B300-SXM-270GB",
+            "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/tree/main/closed/Dell/results/XE9780L-B300-SXM-270GBx8_TRT",
+            "reason": "no reviewed exact catalog identity"
+        },
+        {
+            "resultId": "6.0-0039",
+            "scenario": "Offline",
+            "sourceAcceleratorName": "NVIDIA B300-SXM-270GB",
+            "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/tree/main/closed/GigaComputing/results/G894-SD3-AAX7_B300-SXM-270GBx8_TRT",
+            "reason": "no reviewed exact catalog identity"
+        },
+        {
+            "resultId": "6.0-0039",
+            "scenario": "Server",
+            "sourceAcceleratorName": "NVIDIA B300-SXM-270GB",
+            "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/tree/main/closed/GigaComputing/results/G894-SD3-AAX7_B300-SXM-270GBx8_TRT",
+            "reason": "no reviewed exact catalog identity"
+        },
+        {
+            "resultId": "6.0-0073",
+            "scenario": "Offline",
+            "sourceAcceleratorName": "NVIDIA B300-SXM-270GB",
+            "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/tree/main/closed/NVIDIA/results/B300-SXM-270GBx8_TRT",
+            "reason": "no reviewed exact catalog identity"
+        },
+        {
+            "resultId": "6.0-0073",
+            "scenario": "Server",
+            "sourceAcceleratorName": "NVIDIA B300-SXM-270GB",
+            "sourceUrl": "https://github.com/mlcommons/inference_results_v6.0/tree/main/closed/NVIDIA/results/B300-SXM-270GBx8_TRT",
+            "reason": "no reviewed exact catalog identity"
+        }
+    ],
+    "pendingAliases": [
+        {
+            "sourceAcceleratorName": "NVIDIA B300-SXM-270GB",
+            "candidateCatalogModel": "B300 SXM",
+            "reason": "Catalog memory is 288 GB; summary names 270GB. The official sources do not explicitly reconcile these figures, so the alias remains unapproved.",
+            "references": [
+                "https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory/latest/components.html",
+                "https://resources.nvidia.com/en-us-gpu-resources/blackwell-ultra-datasheet"
+            ]
+        }
+    ],
+    "identityNotes": [
+        {
+            "sourceAcceleratorName": "AMD Instinct MI355X 288GB HBM3e (Power Cap 1000 W)",
+            "model": "Instinct MI355X",
+            "reason": "The complete model name is unchanged; the source explicitly describes the power cap as a submitted-system setting. Preserve this raw name on each distinct SUT result."
+        },
+        {
+            "sourceAcceleratorName": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "model": "RTX PRO 6000 Blackwell Server Edition",
+            "reason": "Exact official product name including Server Edition; no workstation or mobile variants are merged.",
+            "reference": "https://www.nvidia.com/en-us/data-center/rtx-pro-6000-blackwell-server-edition/"
+        }
+    ],
+    "reportingGuidance": {
+        "source": "https://github.com/mlcommons/policies/blob/master/MLPerf_Results_Messaging_Guidelines.adoc",
+        "requiredContext": [
+            "submitter",
+            "benchmark version and division",
+            "system under test",
+            "workload and scenario",
+            "accelerator count",
+            "retrieval date and source",
+            "result ID",
+            "trademark legend"
+        ],
+        "restriction": "Preserve official context and scenario; do not use proxy power or normalize these whole-system scores."
+    }
+}

@@ -1,0 +1,3418 @@
+{
+    "meta": {
+        "snapshotDate": "2026-10-07",
+        "retrievedAt": "2026-10-07T17:02:21Z",
+        "sourceCaptureMethod": "official-public-query-json",
+        "sourceRows": 894,
+        "importedRows": 174,
+        "excludedRows": 720,
+        "source": "Blender Open Data",
+        "sourceUrl": "https://opendata.blender.org/benchmarks/query/?group_by=device_name&blender_version=5.2.0",
+        "metric": "median samples per minute",
+        "scope": "Blender 5.2.0; all operating systems and compute types",
+        "minimumSamples": 5,
+        "coreCountSource": "CPU core counts are product specifications from the exact ChipIndex dashboard spec rows, based on AMD official product data and Intel ARK exports. They are not measured or reported by Blender Open Data.",
+        "deviceSegmentSource": "CPU device segments come from the exact official model in retained AMD Form Factor and Intel ARK Vertical Segment exports. AMD CPUs listed for both laptops and desktops appear in both filters. Blender medians pool systems and do not identify the tested chassis, power limit, or cooling.",
+        "sourceExportSha256": "c32e221b40c0ea668676df0e87eff0cf76a6595664a8072b445c4093d4076dd7"
+    },
+    "results": [
+        {
+            "model": "Ryzen Threadripper 7960X",
+            "vendor": "AMD",
+            "productLine": "Ryzen Threadripper",
+            "deviceType": "CPU",
+            "score": 880.29,
+            "samples": 6,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen Threadripper 7960X 24-Cores",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+Threadripper+7960X+24-Cores&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 Threadripper\u2122 7960X"
+            }
+        },
+        {
+            "model": "Ryzen 9 9950X3D",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 676.4,
+            "samples": 147,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 9950X3D 16-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+9950X3D+16-Core+Processor&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 9950X3D"
+            }
+        },
+        {
+            "model": "Ryzen 9 9950X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 662.86,
+            "samples": 98,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 9950X 16-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+9950X+16-Core+Processor&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 9950X"
+            }
+        },
+        {
+            "model": "Ryzen 9 9955HX",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 637.85,
+            "samples": 23,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 9955HX 16-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+9955HX+16-Core+Processor&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 9955HX"
+            }
+        },
+        {
+            "model": "Core Ultra 7 270K Plus",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 619.83,
+            "samples": 69,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 7 270K Plus",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+7+270K+Plus&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 1 Core ultra to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 7 processor 270K Plus"
+            }
+        },
+        {
+            "model": "Core i9 14900KF",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 595.67,
+            "samples": 24,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i9-14900KF",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i9-14900KF&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i9 processor 14900KF"
+            }
+        },
+        {
+            "model": "Ryzen 9 7950X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 578.38,
+            "samples": 25,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 7950X 16-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+7950X+16-Core+Processor&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 7950X"
+            }
+        },
+        {
+            "model": "Core Ultra 9 285K",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 575.38,
+            "samples": 89,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 9 285K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+9+285K&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 9 Processor 285K"
+            }
+        },
+        {
+            "model": "Ryzen 9 7950X3D",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 573.66,
+            "samples": 33,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 7950X3D 16-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+7950X3D+16-Core+Processor&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 7950X3D"
+            }
+        },
+        {
+            "model": "Core Ultra 9 290HX Plus",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 556.9,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 9 290HX Plus",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+9+290HX+Plus&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 1 Core ultra to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 9 processor 290HX Plus"
+            }
+        },
+        {
+            "model": "Core i9-13900K",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 556.41,
+            "samples": 12,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i9-13900K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i9-13900K&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i9-13900K Processor"
+            }
+        },
+        {
+            "model": "Ryzen 9 9900X3D",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 542.45,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 9900X3D 12-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+9900X3D+12-Core+Processor&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 9900X3D"
+            }
+        },
+        {
+            "model": "Ryzen Threadripper 3960X",
+            "vendor": "AMD",
+            "productLine": "Ryzen Threadripper",
+            "deviceType": "CPU",
+            "score": 537.01,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen Threadripper 3960X 24-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+Threadripper+3960X+24-Core+Processor&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 Threadripper\u2122 3960X"
+            }
+        },
+        {
+            "model": "Core i9 14900K",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 527.24,
+            "samples": 74,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i9-14900K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i9-14900K&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i9 processor 14900K"
+            }
+        },
+        {
+            "model": "Ryzen 9 8945HX",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 514.64,
+            "samples": 13,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 8945HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+8945HX&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 8945HX"
+            }
+        },
+        {
+            "model": "Ryzen 9 9900X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 511.24,
+            "samples": 49,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 9900X 12-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+9900X+12-Core+Processor&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 9900X"
+            }
+        },
+        {
+            "model": "Core Ultra 9 275HX",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 506.02,
+            "samples": 63,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 9 275HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+9+275HX&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 1 Core ultra to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 9 Processor 275HX"
+            }
+        },
+        {
+            "model": "Core Ultra 7 265K",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 480.36,
+            "samples": 22,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 7 265K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+7+265K&group_by=device_name",
+            "coreCount": 20,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 7 Processor 265K"
+            }
+        },
+        {
+            "model": "Ryzen 9 8940HX",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 480.09,
+            "samples": 14,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 8940HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+8940HX&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 8940HX"
+            }
+        },
+        {
+            "model": "Core i7 14700K",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 449.1,
+            "samples": 17,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-14700K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-14700K&group_by=device_name",
+            "coreCount": 20,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7 processor 14700K"
+            }
+        },
+        {
+            "model": "Ryzen 9 7900X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 444.1,
+            "samples": 27,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 7900X 12-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+7900X+12-Core+Processor&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 7900X"
+            }
+        },
+        {
+            "model": "Core i7 14700KF",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 436.5,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-14700KF",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-14700KF&group_by=device_name",
+            "coreCount": 20,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7 processor 14700KF"
+            }
+        },
+        {
+            "model": "Ryzen 9 7900X3D",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 426.42,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 7900X3D 12-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+7900X3D+12-Core+Processor&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 7900X3D"
+            }
+        },
+        {
+            "model": "Ryzen 9 5950X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 420.03,
+            "samples": 82,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 5950X 16-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+5950X+16-Core+Processor&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 5950X"
+            }
+        },
+        {
+            "model": "Ryzen 9 7900",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 416.51,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 7900 12-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+7900+12-Core+Processor&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 7900"
+            }
+        },
+        {
+            "model": "Ryzen 9 5900XT",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 410.54,
+            "samples": 32,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 5900XT 16-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+5900XT+16-Core+Processor&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Boxed Processor, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 5900XT"
+            }
+        },
+        {
+            "model": "Core i9-13980HX",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 391.67,
+            "samples": 17,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i9-13980HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i9-13980HX&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i9-13980HX Processor"
+            }
+        },
+        {
+            "model": "Core i9-13900",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 388.18,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i9-13900",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i9-13900&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i9-13900 Processor"
+            }
+        },
+        {
+            "model": "Core i9-13900HX",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 385.83,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i9-13900HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i9-13900HX&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i9-13900HX Processor"
+            }
+        },
+        {
+            "model": "Core i7-13700K",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 384.45,
+            "samples": 11,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i7-13700K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i7-13700K&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-13700K Processor"
+            }
+        },
+        {
+            "model": "Core Ultra 7 255HX",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 379.92,
+            "samples": 17,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 7 255HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+7+255HX&group_by=device_name",
+            "coreCount": 20,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 7 Processor 255HX"
+            }
+        },
+        {
+            "model": "Core i7-13700KF",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 378.51,
+            "samples": 13,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i7-13700KF",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i7-13700KF&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-13700KF Processor"
+            }
+        },
+        {
+            "model": "Ryzen 7 9850X3D",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 378.4,
+            "samples": 18,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 9850X3D 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+9850X3D+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 9850X3D"
+            }
+        },
+        {
+            "model": "Ryzen 7 9800X3D",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 368.29,
+            "samples": 169,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 9800X3D 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+9800X3D+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 9800X3D"
+            }
+        },
+        {
+            "model": "Ryzen AI Max+ 395",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 367.43,
+            "samples": 22,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD RYZEN AI MAX+ 395",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+RYZEN+AI+MAX%2B+395&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 AI Max+ 395"
+            }
+        },
+        {
+            "model": "Core i9 14900HX",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 362.2,
+            "samples": 12,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i9-14900HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i9-14900HX&group_by=device_name",
+            "coreCount": 24,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i9 processor 14900HX"
+            }
+        },
+        {
+            "model": "Core i7 14700HX",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 334.13,
+            "samples": 17,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-14700HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-14700HX&group_by=device_name",
+            "coreCount": 20,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7 processor 14700HX"
+            }
+        },
+        {
+            "model": "Core i9-12900K",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 330.85,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i9-12900K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i9-12900K&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i9-12900K Processor"
+            }
+        },
+        {
+            "model": "Ryzen AI 9 HX 375",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 329.95,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen AI 9 HX 375",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+AI+9+HX+375&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 AI 9 HX 375"
+            }
+        },
+        {
+            "model": "Core i5 14600KF",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 326.81,
+            "samples": 13,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i5-14600KF",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i5-14600KF&group_by=device_name",
+            "coreCount": 14,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5 processor 14600KF"
+            }
+        },
+        {
+            "model": "Ryzen 7 9700X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 320.73,
+            "samples": 66,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 9700X 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+9700X+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 9700X"
+            }
+        },
+        {
+            "model": "Core i5 14600K",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 319.92,
+            "samples": 17,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i5-14600K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i5-14600K&group_by=device_name",
+            "coreCount": 14,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5 processor 14600K"
+            }
+        },
+        {
+            "model": "Ryzen 9 5900X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 318.49,
+            "samples": 40,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 5900X 12-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+5900X+12-Core+Processor&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 5900X"
+            }
+        },
+        {
+            "model": "Core i7 14700F",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 315.29,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-14700F",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-14700F&group_by=device_name",
+            "coreCount": 20,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7 processor 14700F"
+            }
+        },
+        {
+            "model": "Core i5-13600K",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 314.84,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i5-13600K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i5-13600K&group_by=device_name",
+            "coreCount": 14,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5-13600K Processor"
+            }
+        },
+        {
+            "model": "Core i7 14700",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 314.04,
+            "samples": 10,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-14700",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-14700&group_by=device_name",
+            "coreCount": 20,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7 processor 14700"
+            }
+        },
+        {
+            "model": "Core i5-13600KF",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 308.93,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i5-13600KF",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i5-13600KF&group_by=device_name",
+            "coreCount": 14,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5-13600KF Processor"
+            }
+        },
+        {
+            "model": "Ryzen 7 7700X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 300.91,
+            "samples": 26,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 7700X 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+7700X+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 7700X"
+            }
+        },
+        {
+            "model": "Core i7-12700K",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 300.88,
+            "samples": 17,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-12700K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-12700K&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-12700K Processor"
+            }
+        },
+        {
+            "model": "Ryzen AI 9 HX 370",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 299.72,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen AI 9 HX 370",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+AI+9+HX+370&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 AI 9 HX 370"
+            }
+        },
+        {
+            "model": "Core i7-12700KF",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 299.65,
+            "samples": 10,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-12700KF",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-12700KF&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-12700KF Processor"
+            }
+        },
+        {
+            "model": "Ryzen 7 7800X3D",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 296.29,
+            "samples": 56,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 7800X3D 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+7800X3D+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 7800X3D"
+            }
+        },
+        {
+            "model": "Core i7 14650HX",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 293.16,
+            "samples": 18,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-14650HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-14650HX&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7 processor 14650HX"
+            }
+        },
+        {
+            "model": "Core Ultra 9 386H",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 288.9,
+            "samples": 11,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 9 386H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+9+386H&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 1 Core ultra to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 9 Processor 386H"
+            }
+        },
+        {
+            "model": "Ryzen 7 7700",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 286.15,
+            "samples": 21,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 7700 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+7700+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 7700"
+            }
+        },
+        {
+            "model": "Ryzen 9 3900X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 280.97,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 3900X 12-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+3900X+12-Core+Processor&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 3900X"
+            }
+        },
+        {
+            "model": "Core Ultra 9 285H",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 273.53,
+            "samples": 10,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 9 285H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+9+285H&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 9 Processor 285H"
+            }
+        },
+        {
+            "model": "Core Ultra 7 356H",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 271.75,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 7 356H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+7+356H&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 1 Core ultra to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 7 Processor 356H"
+            }
+        },
+        {
+            "model": "Core Ultra 5 245K",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 271.53,
+            "samples": 25,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 5 245K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+5+245K&group_by=device_name",
+            "coreCount": 14,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 5 Processor 245K"
+            }
+        },
+        {
+            "model": "Ryzen 7 8700G",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 265.84,
+            "samples": 11,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 8700G",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+8700G&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 8700G"
+            }
+        },
+        {
+            "model": "Ryzen 5 9600X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 262.28,
+            "samples": 61,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 9600X 6-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+9600X+6-Core+Processor&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 9600X"
+            }
+        },
+        {
+            "model": "Core i7-12700F",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 248.63,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-12700F",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-12700F&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-12700F Processor"
+            }
+        },
+        {
+            "model": "Ryzen 7 260",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 244.39,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 260",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+260&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 260"
+            }
+        },
+        {
+            "model": "Ryzen 7 5800XT",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 243.31,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 5800XT 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+5800XT+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Boxed Processor, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 5800XT"
+            }
+        },
+        {
+            "model": "Core i5-12600K",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 242.41,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i5-12600K",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i5-12600K&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5-12600K Processor"
+            }
+        },
+        {
+            "model": "Ryzen 7 8845HS",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 241.17,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 8845HS",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+8845HS&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 8845HS"
+            }
+        },
+        {
+            "model": "Core Ultra X7 358H",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 240.42,
+            "samples": 19,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra X7 358H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+X7+358H&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 1 Core ultra to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra X7 Processor 358H"
+            }
+        },
+        {
+            "model": "Core i7-13700HX",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 231.21,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i7-13700HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i7-13700HX&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-13700HX Processor"
+            }
+        },
+        {
+            "model": "Ryzen 5 7500X3D",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 230.69,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 7500X3D 6-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+7500X3D+6-Core+Processor&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 7500X3D"
+            }
+        },
+        {
+            "model": "Ryzen 7 5800X3D",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 222.86,
+            "samples": 52,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 5800X3D 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+5800X3D+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 5800X3D"
+            }
+        },
+        {
+            "model": "Ryzen 7 5700X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 221.54,
+            "samples": 86,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 5700X 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+5700X+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 5700X"
+            }
+        },
+        {
+            "model": "Ryzen 7 5700X3D",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 221.39,
+            "samples": 12,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 5700X3D 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+5700X3D+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 5700X3D"
+            }
+        },
+        {
+            "model": "Ryzen 7 5800X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 221.03,
+            "samples": 33,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 5800X 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+5800X+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 5800X"
+            }
+        },
+        {
+            "model": "Core Ultra 5 225F",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 219.78,
+            "samples": 6,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 5 225F",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+5+225F&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 5 Processor 225F"
+            }
+        },
+        {
+            "model": "Ryzen 5 7600X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 217.82,
+            "samples": 16,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 7600X 6-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+7600X+6-Core+Processor&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 7600X"
+            }
+        },
+        {
+            "model": "Ryzen AI 7 350",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 217.33,
+            "samples": 21,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen AI 7 350",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+AI+7+350&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 AI 7 350"
+            }
+        },
+        {
+            "model": "Ryzen 7 250",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 216.72,
+            "samples": 11,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 250",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+250&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 250"
+            }
+        },
+        {
+            "model": "Core Ultra 7 165H",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 214.25,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 7 165H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+7+165H&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 7 Processor 165H"
+            }
+        },
+        {
+            "model": "Core i5 14400",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 213.12,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i5-14400",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i5-14400&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5 processor 14400"
+            }
+        },
+        {
+            "model": "Core i5 14400F",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 212.82,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i5-14400F",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i5-14400F&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5 processor 14400F"
+            }
+        },
+        {
+            "model": "Core Ultra 7 255H",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 209.61,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 7 255H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+7+255H&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 7 Processor 255H"
+            }
+        },
+        {
+            "model": "Core i7-13650HX",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 209.56,
+            "samples": 17,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i7-13650HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i7-13650HX&group_by=device_name",
+            "coreCount": 14,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-13650HX Processor"
+            }
+        },
+        {
+            "model": "Core 7 240H",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 209.04,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core 7 240H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+7+240H&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 7 processor 240H"
+            }
+        },
+        {
+            "model": "Ryzen 5 7600X3D",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 207.79,
+            "samples": 6,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 7600X3D 6-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+7600X3D+6-Core+Processor&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 7600X3D"
+            }
+        },
+        {
+            "model": "Ryzen 5 7600",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 207.68,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 7600 6-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+7600+6-Core+Processor&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 7600"
+            }
+        },
+        {
+            "model": "Core Ultra 9 185H",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 204.97,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 9 185H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+9+185H&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 9 Processor 185H"
+            }
+        },
+        {
+            "model": "Ryzen 5 7500F",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 201.98,
+            "samples": 21,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 7500F 6-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+7500F+6-Core+Processor&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 7500F"
+            }
+        },
+        {
+            "model": "Core i5-13450HX",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 201.76,
+            "samples": 10,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i5-13450HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i5-13450HX&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5-13450HX Processor"
+            }
+        },
+        {
+            "model": "Core i5-13400F",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 197.62,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i5-13400F",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i5-13400F&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5-13400F Processor"
+            }
+        },
+        {
+            "model": "Ryzen 7 5700G",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 196.52,
+            "samples": 11,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 5700G",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+5700G&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 5700G"
+            }
+        },
+        {
+            "model": "Core i9-12900H",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 192.99,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i9-12900H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i9-12900H&group_by=device_name",
+            "coreCount": 14,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i9-12900H Processor"
+            }
+        },
+        {
+            "model": "Ryzen 7 3800X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 192.59,
+            "samples": 6,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 3800X 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+3800X+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 3800X"
+            }
+        },
+        {
+            "model": "Core i7-12700H",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 187.37,
+            "samples": 12,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-12700H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-12700H&group_by=device_name",
+            "coreCount": 14,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-12700H Processor"
+            }
+        },
+        {
+            "model": "Ryzen 7 7435HS",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 177.5,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 7435HS",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+7435HS&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 7435HS"
+            }
+        },
+        {
+            "model": "Core i7-13700H",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 175.49,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i7-13700H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i7-13700H&group_by=device_name",
+            "coreCount": 14,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-13700H Processor"
+            }
+        },
+        {
+            "model": "Ryzen 7 2700X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 172.42,
+            "samples": 10,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 2700X Eight-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+2700X+Eight-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 2700X"
+            }
+        },
+        {
+            "model": "Ryzen 7 3700X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 172.14,
+            "samples": 21,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 3700X 8-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+3700X+8-Core+Processor&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 3700X"
+            }
+        },
+        {
+            "model": "Ryzen 7 7735HS",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 170.68,
+            "samples": 11,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 7735HS",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+7735HS&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 7735HS"
+            }
+        },
+        {
+            "model": "Core i5-12400F",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 168.03,
+            "samples": 13,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i5-12400F",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i5-12400F&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Desktop",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5-12400F Processor"
+            }
+        },
+        {
+            "model": "Core i5 14450HX",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 163.06,
+            "samples": 46,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i5-14450HX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i5-14450HX&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5 processor 14450HX"
+            }
+        },
+        {
+            "model": "Ryzen 7 5800H",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 162.59,
+            "samples": 10,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 5800H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+5800H&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 5800H"
+            }
+        },
+        {
+            "model": "Ryzen 5 5600X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 159.63,
+            "samples": 43,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 5600X 6-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+5600X+6-Core+Processor&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 5600X"
+            }
+        },
+        {
+            "model": "Ryzen 5 5600G",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 159.52,
+            "samples": 14,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 5600G",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+5600G&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 5600G"
+            }
+        },
+        {
+            "model": "Ryzen 5 5600",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 153.82,
+            "samples": 50,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 5600 6-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+5600+6-Core+Processor&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 5600"
+            }
+        },
+        {
+            "model": "Core i7-13620H",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 152.96,
+            "samples": 49,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i7-13620H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i7-13620H&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-13620H Processor"
+            }
+        },
+        {
+            "model": "Ryzen 5 5600GT",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 146.76,
+            "samples": 13,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 5600GT",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+5600GT&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 5600GT"
+            }
+        },
+        {
+            "model": "Ryzen 5 3600X",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 141.79,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 3600X 6-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+3600X+6-Core+Processor&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 3600X"
+            }
+        },
+        {
+            "model": "Ryzen 5 5500",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 141.66,
+            "samples": 18,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 5500",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+5500&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 5500"
+            }
+        },
+        {
+            "model": "Core Ultra 5 125H",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 138.24,
+            "samples": 12,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 5 125H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+5+125H&group_by=device_name",
+            "coreCount": 14,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 5 Processor 125H"
+            }
+        },
+        {
+            "model": "Ryzen 5 3600",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 136.78,
+            "samples": 35,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 3600 6-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+3600+6-Core+Processor&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 3600"
+            }
+        },
+        {
+            "model": "Core i7-12650H",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 135.45,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-12650H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-12650H&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-12650H Processor"
+            }
+        },
+        {
+            "model": "Ryzen AI 7 445",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 132.03,
+            "samples": 11,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen AI 7 445",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+AI+7+445&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 AI 7 445"
+            }
+        },
+        {
+            "model": "Core Ultra 7 258V",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 128.42,
+            "samples": 6,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 7 258V",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+7+258V&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 7 Processor 258V"
+            }
+        },
+        {
+            "model": "Ryzen 5 2600",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 124.82,
+            "samples": 12,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 2600 Six-Core Processor",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+2600+Six-Core+Processor&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Desktops, Boxed Processor",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 2600"
+            }
+        },
+        {
+            "model": "Core i5-13420H",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 122.09,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i5-13420H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i5-13420H&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5-13420H Processor"
+            }
+        },
+        {
+            "model": "Ryzen 7 7730U",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 121.1,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 7730U",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+7730U&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 7730U"
+            }
+        },
+        {
+            "model": "Core Ultra 7 155H",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 117.6,
+            "samples": 12,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 7 155H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+7+155H&group_by=device_name",
+            "coreCount": 16,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core Ultra CSV.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 7 Processor 155H"
+            }
+        },
+        {
+            "model": "Ryzen 5 5600H",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 114.94,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 5600H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+5600H&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 5600H"
+            }
+        },
+        {
+            "model": "Core i5-12450H",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 112.5,
+            "samples": 6,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i5-12450H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i5-12450H&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5-12450H Processor"
+            }
+        },
+        {
+            "model": "Core 5 210H",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 112.35,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core 5 210H",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+5+210H&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel core 14th to modern gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 5 processor 210H"
+            }
+        },
+        {
+            "model": "Ryzen 9 5900HS",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 112.1,
+            "samples": 17,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 9 5900HS",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+9+5900HS&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 9 5900HS"
+            }
+        },
+        {
+            "model": "Core i7-1260P",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 110.67,
+            "samples": 13,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-1260P",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-1260P&group_by=device_name",
+            "coreCount": 12,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-1260P Processor"
+            }
+        },
+        {
+            "model": "Core i7-1355U",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 93.87,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "13th Gen Intel Core i7-1355U",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=13th+Gen+Intel+Core+i7-1355U&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Core 10th to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-1355U Processor"
+            }
+        },
+        {
+            "model": "Ryzen 5 5500U",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 91.7,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 5500U",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+5500U&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 5500U"
+            }
+        },
+        {
+            "model": "Core Ultra 5 322",
+            "vendor": "Intel",
+            "productLine": "Core Ultra",
+            "deviceType": "CPU",
+            "score": 85.01,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core Ultra 5 322",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+Ultra+5+322&group_by=device_name",
+            "coreCount": 6,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 1 Core ultra to 13th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 Ultra 5 Processor 322"
+            }
+        },
+        {
+            "model": "Ryzen 7 PRO 5850U",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 84.59,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 PRO 5850U",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+PRO+5850U&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 PRO 5850U"
+            }
+        },
+        {
+            "model": "Core i7-1255U",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 76.11,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i7-1255U",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i7-1255U&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i7-1255U Processor"
+            }
+        },
+        {
+            "model": "Core i5-1235U",
+            "vendor": "Intel",
+            "productLine": "Core",
+            "deviceType": "CPU",
+            "score": 67.52,
+            "samples": 6,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Core i5-1235U",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Core+i5-1235U&group_by=device_name",
+            "coreCount": 10,
+            "deviceSegments": [
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Vertical Segment",
+                "value": "Mobile",
+                "sourceFile": "docs/specs/source-csv-intel/Intel Client 12th gen to 10th gen.csv",
+                "sourceProductName": "Intel\u00ae Core\u2122 i5-1235U Processor"
+            }
+        },
+        {
+            "model": "Ryzen 5 7520U",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 56.95,
+            "samples": 6,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 5 7520U",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+5+7520U&group_by=device_name",
+            "coreCount": 4,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 5 7520U"
+            }
+        },
+        {
+            "model": "GeForce RTX 5090",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 16071.62,
+            "samples": 143,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 5090",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+5090&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 4090",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 11568.16,
+            "samples": 69,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 4090",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+4090&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 5080",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 9129.2,
+            "samples": 315,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 5080",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+5080&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 4080",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 8284.06,
+            "samples": 56,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 4080",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+4080&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 4080 SUPER",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 8075.3,
+            "samples": 33,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 4080 SUPER",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+4080+SUPER&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 5070 Ti",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 7702.49,
+            "samples": 188,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 5070 Ti",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+5070+Ti&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 4070 Ti SUPER",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 6999.15,
+            "samples": 27,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 4070 Ti SUPER",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+4070+Ti+SUPER&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 4070 Ti",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 6271.76,
+            "samples": 16,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 4070 Ti",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+4070+Ti&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 4070 SUPER",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 5928.65,
+            "samples": 81,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 4070 SUPER",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+4070+SUPER&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 5070",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 5798.32,
+            "samples": 141,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 5070",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+5070&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 3090 Ti",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 5271.39,
+            "samples": 12,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 3090 Ti",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+3090+Ti&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 3090",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 5096.96,
+            "samples": 85,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 3090",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+3090&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 7900 XTX",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 5015.38,
+            "samples": 59,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 7900 XTX",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+7900+XTX&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 3080 Ti",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 4935.41,
+            "samples": 45,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 3080 Ti",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+3080+Ti&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 7900 XT",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 4068.19,
+            "samples": 22,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 7900 XT",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+7900+XT&group_by=device_name"
+        },
+        {
+            "model": "Arc Pro B70",
+            "vendor": "Intel",
+            "productLine": "Arc",
+            "deviceType": "GPU",
+            "score": 3742.56,
+            "samples": 12,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Arc Pro B70 Graphics",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Arc+Pro+B70+Graphics&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 5060",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 3642.8,
+            "samples": 80,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 5060",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+5060&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 7900 GRE",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 3409.28,
+            "samples": 30,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 7900 GRE",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+7900+GRE&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 9070 XT",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 3387.82,
+            "samples": 329,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 9070 XT",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+9070+XT&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 3070 Ti",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 3321.68,
+            "samples": 30,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 3070 Ti",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+3070+Ti&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 9070",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 3004.18,
+            "samples": 18,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 9070",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+9070&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 6950 XT",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 2969.55,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 6950 XT",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+6950+XT&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 4060",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 2963.98,
+            "samples": 55,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 4060",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+4060&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 3070",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 2955.85,
+            "samples": 71,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 3070",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+3070&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 6900 XT",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 2864.57,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 6900 XT",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+6900+XT&group_by=device_name"
+        },
+        {
+            "model": "Arc B580",
+            "vendor": "Intel",
+            "productLine": "Arc",
+            "deviceType": "GPU",
+            "score": 2818.35,
+            "samples": 19,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Arc B580 Graphics",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Arc+B580+Graphics&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 5050",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 2760.54,
+            "samples": 22,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 5050",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+5050&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 7800 XT",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 2732.29,
+            "samples": 10,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 7800 XT",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+7800+XT&group_by=device_name"
+        },
+        {
+            "model": "Arc Pro B65",
+            "vendor": "Intel",
+            "productLine": "Arc",
+            "deviceType": "GPU",
+            "score": 2731.52,
+            "samples": 21,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Arc Pro B65 Graphics",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Arc+Pro+B65+Graphics&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 2080 Ti",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 2601.62,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 2080 Ti",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+2080+Ti&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 6800 XT",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 2567.21,
+            "samples": 9,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 6800 XT",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+6800+XT&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 7700 XT",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 2277.1,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 7700 XT",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+7700+XT&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 2080",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 2134.83,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 2080",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+2080&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 6800",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 2116.03,
+            "samples": 7,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 6800",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+6800&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 2070 Super",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 2078.28,
+            "samples": 22,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 2070 SUPER",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+2070+SUPER&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 2060 Super",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 1927.97,
+            "samples": 15,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 2060 SUPER",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+2060+SUPER&group_by=device_name"
+        },
+        {
+            "model": "GeForce RTX 2070",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 1919.97,
+            "samples": 13,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce RTX 2070",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+RTX+2070&group_by=device_name"
+        },
+        {
+            "model": "Arc A750",
+            "vendor": "Intel",
+            "productLine": "Arc",
+            "deviceType": "GPU",
+            "score": 1894.43,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "Intel Arc A750 Graphics",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=Intel+Arc+A750+Graphics&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 6700 XT",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 1615.34,
+            "samples": 14,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 6700 XT",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+6700+XT&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 7600",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 1249.02,
+            "samples": 14,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 7600",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+7600&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 5700 XT",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 963.7,
+            "samples": 8,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 5700 XT",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+5700+XT&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 6600 XT",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 782.65,
+            "samples": 6,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 6600 XT",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+6600+XT&group_by=device_name"
+        },
+        {
+            "model": "Radeon RX 6600",
+            "vendor": "AMD",
+            "productLine": "Radeon",
+            "deviceType": "GPU",
+            "score": 737.27,
+            "samples": 14,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Radeon RX 6600",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Radeon+RX+6600&group_by=device_name"
+        },
+        {
+            "model": "GeForce GTX 1660 Ti",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 685.33,
+            "samples": 25,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce GTX 1660 Ti",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+GTX+1660+Ti&group_by=device_name"
+        },
+        {
+            "model": "GeForce GTX 1660 Super",
+            "vendor": "NVIDIA",
+            "productLine": "GeForce",
+            "deviceType": "GPU",
+            "score": 679.12,
+            "samples": 24,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "NVIDIA GeForce GTX 1660 SUPER",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=NVIDIA+GeForce+GTX+1660+SUPER&group_by=device_name"
+        }
+    ]
+}

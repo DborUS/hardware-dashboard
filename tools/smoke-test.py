@@ -25,12 +25,15 @@ Exit code is 0 if all checks pass, 1 otherwise -- so this can gate a commit.
 
 import argparse
 import http.server
+import json
 import os
+import re
 import socketserver
 import subprocess
 import sys
 import threading
 from pathlib import Path
+from urllib.parse import parse_qs, urlparse
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -105,8 +108,10 @@ def serve(port, directory):
     handler = lambda *a, **kw: http.server.SimpleHTTPRequestHandler(
         *a, directory=str(directory), **kw
     )
-    socketserver.TCPServer.allow_reuse_address = True
-    httpd = socketserver.TCPServer(("127.0.0.1", port), handler)
+    socketserver.ThreadingTCPServer.allow_reuse_address = True
+    socketserver.ThreadingTCPServer.daemon_threads = True
+    socketserver.ThreadingTCPServer.request_queue_size = 64
+    httpd = socketserver.ThreadingTCPServer(("127.0.0.1", port), handler)
     t = threading.Thread(target=httpd.serve_forever, daemon=True)
     t.start()
     return httpd
@@ -180,6 +185,116 @@ def main():
                 return page.eval_on_selector_all(
                     sel, "e => e.filter(x => !x.classList.contains('hidden')).length"
                 )
+
+            def check_benchmark_nav(vendor, tab):
+                nav_id = {"amd": "epycModeNav", "intel": "xeonModeNav",
+                          "nvidia": "gh200ModeNav", "ampere": "ampereModeNav"}[vendor]
+                nav = page.locator(f"#{nav_id}")
+                if not nav.is_visible():
+                    failures.append(f"{vendor}-{tab} product navigation is hidden")
+                    return
+                link = nav.locator(".benchmark-mode-tab")
+                if link.count() != 1:
+                    failures.append(f"{vendor}-{tab} has no single Benchmarks tab")
+                    return
+                if link.get_attribute("href") != "benchmarks/":
+                    failures.append(f"{vendor}-{tab} benchmark link is not the unfiltered explorer: {link.get_attribute('href')}")
+                if link.get_attribute("role") == "tab":
+                    failures.append(f"{vendor}-{tab} page link incorrectly uses an in-page tab role")
+
+            def check_benchmark_table_links(vendor, tab):
+                """Keep one compact final column and link scores to their product."""
+                tables = page.locator(".cpu-spec-table").evaluate_all("""tables =>
+                  tables.map((table, index) => {
+                    const headers = [...table.querySelectorAll('thead th')]
+                      .map(th => th.textContent.trim());
+                    const rows = [...table.querySelectorAll('tbody tr:not(.v2-empty-row)')];
+                    const malformedRows = rows.filter(row => {
+                      const cells = [...row.querySelectorAll(':scope > td')];
+                      return cells.length !== headers.length ||
+                        cells.at(-1)?.classList.contains('bt-cell') !== true ||
+                        row.querySelectorAll(':scope > td.bt-cell').length !== 1;
+                    }).length;
+                    const scored = rows.flatMap(row => {
+                      const cell = row.querySelector(':scope > td.bt-cell');
+                      const link = cell?.querySelector(':scope > a[href]');
+                      if (!link) return [];
+                      const test = link.querySelector('.bt-test');
+                      const score = link.querySelector('.bt-score');
+                      const testTop = test?.getBoundingClientRect().top;
+                      const scoreTop = score?.getBoundingClientRect().top;
+                      return [{
+                        href: link.getAttribute('href'),
+                        model: row.querySelector(':scope > td:first-child')?.textContent.trim(),
+                        test: test?.textContent.trim(),
+                        score: score?.textContent.trim(),
+                        oneLine: test && score && Math.abs(testTop - scoreTop) <= 4,
+                        extra: !!cell.querySelector('.bt-meta, .bt-entry')
+                      }];
+                    });
+                    return {index, headers, malformedRows, scored};
+                  })""")
+                if not tables:
+                    failures.append(f"{vendor}-{tab} has no CPU specification tables")
+                    return
+                for table in tables:
+                    headers = table["headers"]
+                    if headers[-1:] != ["Benchmark"] or headers.count("Benchmark") != 1:
+                        failures.append(
+                            f"{vendor}-{tab} table {table['index']} needs one rightmost Benchmark column: {headers[-4:]}"
+                        )
+                    if any(old in headers for old in ("Integer Rate", "FP Rate", "3D Render")):
+                        failures.append(f"{vendor}-{tab} table {table['index']} still has multiple benchmark columns")
+                    if table["malformedRows"]:
+                        failures.append(
+                            f"{vendor}-{tab} table {table['index']} has {table['malformedRows']} rows with extra or misplaced cells"
+                        )
+                scores = [score for table in tables for score in table["scored"]]
+                if not scores:
+                    failures.append(f"{vendor}-{tab} has no linked CPU benchmark scores")
+                    return
+                mode = "client" if tab in ("ryzen", "client") else "enterprise"
+                for score in scores:
+                    if (not score["oneLine"] or score["extra"] or
+                            not re.fullmatch(r"[0-9][0-9,.]*", score["score"] or "")):
+                        failures.append(f"{vendor}-{tab} has a tall or malformed benchmark score: {score}")
+                        break
+                    label = score["test"] or ""
+                    if mode == "client":
+                        if label != "Blender5.2":
+                            failures.append(f"{vendor}-{tab} score lacks Blender shorthand: {label}")
+                            break
+                    elif not (label.startswith(("SPECint", "SPECfp")) and
+                              label.endswith(("1P", "2P"))):
+                        failures.append(f"{vendor}-{tab} score lacks SPEC shorthand and CPU count: {label}")
+                        break
+                    url = urlparse(score["href"] or "")
+                    params = parse_qs(url.query)
+                    if url.path != "benchmarks/" or params.get("mode") != [mode]:
+                        failures.append(f"{vendor}-{tab} score does not link into its benchmark mode: {score['href']}")
+                        break
+                    if params.get("q", [""])[0].casefold() != (score["model"] or "").casefold():
+                        failures.append(f"{vendor}-{tab} score link searches for the wrong model: {score['href']}")
+                        break
+                    if mode == "client":
+                        if params.get("version") != ["5.2.0"] or params.get("compute") != ["mixed"]:
+                            failures.append(f"{vendor}-{tab} Blender link lacks its test cohort: {score['href']}")
+                            break
+                    else:
+                        expected_metric = "integer" if label.startswith("SPECint") else "floating"
+                        expected_suite = "2026" if "26" in label.split()[0] else "2017"
+                        expected_cpus = label[-2]
+                        try:
+                            linked_model = json.loads(params.get("model", [""])[0])
+                        except (TypeError, ValueError):
+                            linked_model = None
+                        if (params.get("suite") != [expected_suite] or
+                                params.get("metric") != [expected_metric] or
+                                not params.get("build", [""])[0] or
+                                params.get("cpus") != [expected_cpus] or
+                                linked_model != [vendor.casefold(), (score["model"] or "").casefold()]):
+                            failures.append(f"{vendor}-{tab} SPEC score lacks its exact product/test cohort: {score['href']}")
+                            break
 
             def check_shared_roadmap(vendor, tab, expected_cards):
                 """Roadmap leads its tab, links to the maker, and has no model UI."""
@@ -278,8 +393,11 @@ def main():
                 for term in ("grace hopper", "xeon 6", "epyc 9005")
             ):
                 failures.append("What's new dialog is missing release topics")
-            if releases.count() != 4 or len(release_dates) != 4 or not all(release_dates):
-                failures.append("What's new history is missing dated beta upgrades")
+            if (releases.count() != 5 or len(release_dates) != 5 or not all(release_dates) or
+                    releases.first.locator("time").get_attribute("datetime") != "2026-10-07" or
+                    not all(term in " ".join(release_topics).lower()
+                            for term in ("benchmark results", "all manufacturers"))):
+                failures.append("What's new history is missing the October 7 benchmark update")
             if not page.locator("#releaseHistory").evaluate(
                 "el => el.scrollHeight > el.clientHeight"
             ):
@@ -290,11 +408,16 @@ def main():
                 failures.append("What's new dialog did not close with Escape")
 
             # --- AMD: three sub-tabs, product-first renderer ---
+            page.wait_for_function(
+                "() => currentVendor === 'amd' && document.getElementById('a2Subtabs')?.classList.contains('visible')",
+                timeout=20000,
+            )
             if count("#a2Subtabs.visible") != 1:
                 failures.append("AMD sub-tabs not visible on load")
             for tab in ("epyc", "ryzen", "gpu"):
                 page.click(f'.a2-subtab[data-tab="{tab}"]')
                 page.wait_for_timeout(700)
+                check_benchmark_nav("amd", tab)
                 check_shared_roadmap("amd", tab, {"epyc": 5, "ryzen": 1, "gpu": 4}[tab])
                 results[f"amd_{tab}_groups"] = count(".arch-group:not(.dashboard-roadmap)")
                 results[f"amd_{tab}_cards"] = count(".arch-group:not(.dashboard-roadmap) .sku-card")
@@ -303,21 +426,24 @@ def main():
                 check_roadmap_rows("amd", tab, {"epyc": 5, "ryzen": 1, "gpu": 4}[tab])
                 results[f"amd_{tab}_models"] = (
                     count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
+                if tab in ("epyc", "ryzen"):
+                    check_benchmark_table_links("amd", tab)
                 if tab == "epyc":
                     price_check = page.eval_on_selector_all(
                         ".cpu-spec-table", """tables => ({
                           columns: tables.every(table => {
                             const headers = [...table.querySelectorAll('th')]
                               .map(th => th.textContent.trim());
-                            return headers.at(-2) === '1kU Price' &&
-                              headers.at(-1) === 'Product ID';
+                            return headers.at(-3) === '1kU Price' &&
+                              headers.at(-2) === 'Product ID' &&
+                              headers.at(-1) === 'Benchmark';
                           }),
                           published: tables.some(table => [...table.querySelectorAll('tr')]
                             .some(row => row.querySelector('td')?.textContent.trim() ===
-                              'EPYC 9996' && [...row.querySelectorAll('td')].at(-2)
+                              'EPYC 9996' && [...row.querySelectorAll('td')].at(-3)
                                 ?.textContent.trim() === '$14,904')),
                           missing: tables.some(table => [...table.querySelectorAll('tbody tr')]
-                            .some(row => [...row.querySelectorAll('td')].at(-2)
+                            .some(row => [...row.querySelectorAll('td')].at(-3)
                               ?.textContent.trim() === '—'))
                         })""")
                     if not all(price_check.values()):
@@ -421,6 +547,7 @@ def main():
             for tab, key in (("xeon", "xeon"), ("client", "client"), ("graphics", "gfx")):
                 page.click(f'.v2-subtab[data-tab="{tab}"]')
                 page.wait_for_timeout(900)
+                check_benchmark_nav("intel", tab)
                 roadmap_cards = {"xeon": 2, "client": 1, "graphics": 1}[tab]
                 check_shared_roadmap("intel", tab, roadmap_cards)
                 results[f"intel_{key}_groups"] = count(".arch-group:not(.dashboard-roadmap)")
@@ -434,6 +561,8 @@ def main():
                 check_roadmap_rows("intel", tab, roadmap_cards)
                 results[f"intel_{key}_models"] = (
                     count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
+                if tab in ("xeon", "client"):
+                    check_benchmark_table_links("intel", tab)
                 page.click("#collapseAllBtn")
                 page.wait_for_timeout(500)
                 if args.shots:
@@ -508,8 +637,8 @@ def main():
             page.click("#expandAllBtn")
             page.click(".sku-card:has(+ .cpu-spec-wrapper tbody tr[data-search])")
             page.wait_for_timeout(150)
-            page.locator(".cpu-spec-wrapper.open tbody tr[data-search]").nth(0).click()
-            page.locator(".cpu-spec-wrapper.open tbody tr[data-search]").nth(1).click()
+            page.locator(".cpu-spec-wrapper.open tbody tr[data-search]").nth(0).locator("td").first.click()
+            page.locator(".cpu-spec-wrapper.open tbody tr[data-search]").nth(1).locator("td").first.click()
             if count("#compareTray:not([hidden])") != 1 or page.locator("#compareOpenBtn").is_disabled():
                 failures.append("comparison tray did not enable after two selections")
 
@@ -523,7 +652,7 @@ def main():
                 failures.append("comparison selections did not survive vendor switch")
             page.click("#expandAllBtn")
             page.click(".sku-card:has(+ .cpu-spec-wrapper tbody tr[data-search])")
-            page.locator(".cpu-spec-wrapper.open tbody tr[data-search]").first.click()
+            page.locator(".cpu-spec-wrapper.open tbody tr[data-search]").first.locator("td").first.click()
             page.click("#compareOpenBtn")
             if count("#compareDialog[open]") != 1 or count("#compareDialog thead th") != 4:
                 failures.append("cross-vendor comparison did not render three products")
@@ -555,6 +684,7 @@ def main():
             for tab in ("datacenter", "geforce", "cpu"):
                 page.click(f'.n2-subtab[data-tab="{tab}"]')
                 page.wait_for_timeout(500)
+                check_benchmark_nav("nvidia", tab)
                 roadmap_cards = {"datacenter": 3, "geforce": 0, "cpu": 1}[tab]
                 check_shared_roadmap("nvidia", tab, roadmap_cards)
                 results[f"nvidia_{tab}_groups"] = count(".arch-group:not(.dashboard-roadmap)")
@@ -564,6 +694,8 @@ def main():
                 check_roadmap_rows("nvidia", tab, roadmap_cards)
                 results[f"nvidia_{tab}_models"] = (
                     count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
+                if tab == "cpu":
+                    check_benchmark_table_links("nvidia", tab)
                 if args.shots:
                     page.locator(".arch-group:not(.dashboard-roadmap) .sku-card.has-specs").first.click()
                     page.wait_for_timeout(120)
@@ -606,6 +738,18 @@ def main():
                 failures.append("shared Ampere search URL did not restore its state")
             page.click("#searchClear")
             page.wait_for_timeout(400)
+            check_benchmark_nav("ampere", "processors")
+            page.click("#ampereGuideTab")
+            page.wait_for_function("() => new URL(location.href).searchParams.get('guide') === 'ampere'")
+            if (not page.locator("#ampereGuidePanel").is_visible() or
+                    page.locator("#epycProductsPanel").is_visible() or
+                    "panel=guide" not in page.url):
+                failures.append("Ampere architecture tab did not open its guide panel")
+            page.locator("#ampereGuideFrame").wait_for(state="attached")
+            page.click("#ampereProductsTab")
+            if (page.locator("#ampereGuidePanel").is_visible() or
+                    not page.locator("#epycProductsPanel").is_visible()):
+                failures.append("Ampere Products tab did not restore specifications")
 
             results["ampere_groups"] = count(".arch-group:not(.p2-roadmap)")
             results["ampere_cards"] = count(".arch-group:not(.p2-roadmap) .sku-card")
@@ -662,6 +806,7 @@ def main():
             page.wait_for_timeout(350)
             results["ampere_models"] = count(
                 ".cpu-spec-table tbody tr[data-search]")
+            check_benchmark_table_links("ampere", "processors")
             if results["ampere_models"] != 26:
                 failures.append("Ampere inventory must have exactly 26 published model rows")
             rows_per_family = page.eval_on_selector_all(
@@ -700,8 +845,8 @@ def main():
             if ampere_rows.count() < 2:
                 failures.append("Ampere's first family has fewer than two selectable SKUs")
             else:
-                ampere_rows.nth(0).click()
-                ampere_rows.nth(1).click()
+                ampere_rows.nth(0).locator("td").first.click()
+                ampere_rows.nth(1).locator("td").first.click()
                 if (count("#compareTray:not([hidden])") != 1 or
                         page.locator("#compareOpenBtn").is_disabled()):
                     failures.append("Ampere comparison tray did not enable for two SKUs")

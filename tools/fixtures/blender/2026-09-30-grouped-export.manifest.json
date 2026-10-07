@@ -1,0 +1,22 @@
+{
+    "schemaVersion": 1,
+    "source": "Blender Open Data",
+    "captureMethod": "retained-browser-export",
+    "captureDate": "2026-09-30",
+    "sourceQueryUrl": "https://opendata.blender.org/benchmarks/query/?group_by=device_name&blender_version=5.2.0",
+    "sourceExportFile": "2026-09-30-grouped-export.json",
+    "sourceExportSha256": "6a186679037bc49249968785b404d7246948672dafe4b782971ec11efdb379a6",
+    "sourceExportBytes": 35551,
+    "blenderVersion": "5.2.0",
+    "groupBy": [
+        "device_name"
+    ],
+    "operatingSystems": "all",
+    "computeTypes": "all",
+    "sourceRows": 858,
+    "minimumSamples": 5,
+    "dataPolicyUrl": "https://opendata.blender.org/about/",
+    "archiveLicense": "CC0-1.0",
+    "archiveLicenseUrl": "https://opendata.blender.org/download/",
+    "captureNote": "Original browser table export retained with its previously recorded capture date; no exact retrieval timestamp or HTTP headers were recorded."
+}

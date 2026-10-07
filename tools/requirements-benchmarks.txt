@@ -1,0 +1,2 @@
+# Browser checks; source importers and regression tests use the Python standard library.
+playwright==1.63.0

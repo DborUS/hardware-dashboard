@@ -33,8 +33,93 @@ families represented in their official specification exports.
 - Compares as many as four CPU or GPU models across vendors.
 - Preserves filters and navigation state in shareable URLs.
 - Includes interactive architecture guides for EPYC 9005, selected Xeon 6 platforms, and NVIDIA GH200.
+- Offers an interactive benchmark explorer with source-linked datacenter CPU, accelerator, and Blender rendering results.
 - Shows data provenance and confidence information inside the dashboard.
 - Runs as a responsive, zero-dependency static site.
+
+## Benchmark explorer
+
+Open **Benchmarks** from any vendor product page or visit `benchmarks/`.
+Vendor Benchmarks tabs start with all manufacturers; linked CPU table scores open their matching model and test. Choose hardware,
+workload and source version, then read the score unit, tested-system boundary,
+capture date and published result. The AMD-inspired red and black explorer
+provides a model chart, equivalent score table, filtered source reports and
+three-result comparisons. Search, manufacturer, core count, CPU count, client
+Desktop/Laptop, scenario and test-build controls preserve a shareable view URL.
+Long report lists show 100 at a time; Show more reveals all sourced reports.
+The source directory lists each imported dataset's scope and count.
+
+The **October 7, 2026** reviewed snapshot contains **3,862 linked results for
+697 of 2,393 indexed products**:
+
+| Source | Selected scope | Results | Distinct scored products |
+| --- | --- | ---: | ---: |
+| SPEC CPU | CPU 2017/2026 integer and floating-point rate, exact enterprise catalog CPUs | 3,642 | 516 |
+| MLPerf® Inference | v6.0, Llama 2 70B 99%, Closed/Available, eight accelerators, Server and Offline | 46 | 7 |
+| Blender Open Data | 5.2.0 rendering, exact client CPU and GPU models, at least five submissions | 174 | 174 |
+
+SPEC CPU 2017 searches the available rate-result archives and retains the two
+newest disclosures per exact model and CPU count, plus previously verified
+reports. SPEC CPU 2026 includes every exact matched report found in the
+reviewed archive indexes. Its four published test builds stay in separate
+views. CPU 2017 and CPU 2026 scores, integer/floating-point tests, and one-/two-
+CPU systems use separate comparisons. SPEC scores describe submitted server
+systems, including compiler, memory and copy count. NVIDIA GB10 appears only
+as a sourced CPU-component test in a DGX Spark system; it is not a GPU score.
+
+CPU names also show catalog core and clock specifications where the product
+source provides them. These are processor model specifications, not clocks
+measured during a benchmark run. Intel client P-core and E-core frequency
+pairs stay distinct; power figures with a different scope are not presented
+as CPU TDP. SPEC system CPU count and enabled cores remain separate.
+
+CPU specification tables keep their original columns and add one compact
+Benchmark column at the end. Enterprise rows show the test, build, tested
+CPU count and one published SPEC system score; client rows show the Blender
+5.2.0 rendering median. Select a score to open that model and test in the
+benchmark explorer. These are sourced system or community results, not an
+intrinsic CPU rating. A dash means no result in the imported snapshots, not
+that the processor has no public benchmark result.
+
+MLPerf Request stream and Batch processing retain the official Server and
+Offline scenarios as separate whole-system Tokens/s results. B300 remains
+unmatched because its source and catalog memory labels lack a reviewed identity
+bridge. Blender medians pool community submissions and do not describe gaming
+or overall laptop performance. Some AMD client models appear under Desktop
+and Laptop because the manufacturer lists both form factors; the filter does
+not identify the chassis that submitted each Blender run.
+
+**Coverage is selected, not exhaustive.** Missing products may have public
+scores outside these matched sources or comparison cohorts. PassMark remains
+unconnected because its standard terms restrict public benchmark comparison
+sites; the owner confirmed no separate permission. OpenBenchmarking/Phoronix
+remains unconnected while result access and reuse terms are unresolved. See
+[benchmark program and source policy](docs/BENCHMARK-PROGRAM.md).
+
+### Refresh and release checks
+
+The static site loads reviewed JSON snapshots. The browser does not query
+third-party benchmark sites. Dates represent actual source capture, not the
+page visit. Importers retain source hashes and reviewed exclusions. Run:
+
+```powershell
+python tools/refresh-benchmarks.py --check
+python tools/build-product-benchmark-index.py --check
+python tools/smoke-benchmarks.py
+python tools/smoke-test.py
+python tools/audit-layout.py
+```
+
+`--check` replays the retained inputs and verifies snapshots, catalog, source
+registry and the generated product-table benchmark index without fetching new
+data. Use
+`python tools/refresh-benchmarks.py --refresh all --allow-network` to capture
+supported public sources explicitly, then review source exclusions, browser
+screenshots and the changed files before publication. `--refresh spec`,
+`--refresh mlperf`, or `--refresh blender` can replay or refresh one source;
+omit `--allow-network` for offline replay. Failed refreshes restore the prior
+validated files. GitHub's benchmark validation workflow performs read-only
+checks on changes; it does not refresh or publish data.
 
 ## Run locally
 
@@ -56,6 +141,7 @@ hardware-dashboard/
 ├── index.html                 Static application shell
 ├── css/
 │   └── styles.css             Shared and vendor-scoped presentation
+├── benchmarks/               Standalone interactive benchmark explorer
 ├── js/
 │   ├── script.js              Bootstrap, shared state, search, comparison
 │   ├── amd-v2.js              Generated AMD taxonomy plus renderer

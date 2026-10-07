@@ -1,0 +1,1750 @@
+{
+    "schemaVersion": 1,
+    "snapshotDate": "2026-09-30",
+    "publicationStatus": "research_candidates_not_in_live_snapshot",
+    "reviewProtocol": "source_row_verified: exact row read in Dell HTML. search_index_only: official Dell PDF row exposed in search index but PDF gave 403 on direct browser open. needs_review: unresolved footnote, cooling, or variant. Source-row review does not itself confirm every platform spec; check each platform source before publication.",
+    "platforms": [
+        {
+            "id": "dell-poweredge-r4715",
+            "oem": "Dell",
+            "model": "PowerEdge R4715",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 1,
+            "socketCount": 1,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "dell-exp-r4715-config",
+                "dell-exp-r4715-memory"
+            ],
+            "researchNote": "Options from one US order code; regional availability can vary."
+        },
+        {
+            "id": "dell-poweredge-r5715",
+            "oem": "Dell",
+            "model": "PowerEdge R5715",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 1,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "dell-exp-r5715-config",
+                "dell-exp-r5715-memory"
+            ],
+            "researchNote": "Channel count omitted pending direct platform manual confirmation."
+        },
+        {
+            "id": "dell-poweredge-c6615",
+            "oem": "Dell",
+            "model": "PowerEdge C6615",
+            "category": "multi_node",
+            "formFactor": "compute sled",
+            "socketCount": 1,
+            "memoryChannelsPerSocket": 6,
+            "dimmSlots": 6,
+            "sourceIds": [
+                "dell-exp-c6615-thermal",
+                "dell-exp-c6615-chassis-layout",
+                "dell-exp-c6600-overview",
+                "dell-exp-c6615-support",
+                "dell-exp-c6615-memory"
+            ],
+            "platformNote": "One C6615 compute sled; the 2U C6600 enclosure holds up to four sleds.",
+            "researchNote": "The 2U rack height belongs to the enclosure, not the individual sled."
+        },
+        {
+            "id": "dell-poweredge-r6615",
+            "oem": "Dell",
+            "model": "PowerEdge R6615",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 1,
+            "socketCount": 1,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 12,
+            "sourceIds": [
+                "dell-exp-r6615-config",
+                "dell-exp-r6615-overview",
+                "dell-exp-r6615-memory"
+            ]
+        },
+        {
+            "id": "dell-poweredge-r6625",
+            "oem": "Dell",
+            "model": "PowerEdge R6625",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 1,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "dell-exp-r6625-guide",
+                "dell-exp-r6625-thermal"
+            ]
+        },
+        {
+            "id": "dell-poweredge-r7615",
+            "oem": "Dell",
+            "model": "PowerEdge R7615",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 1,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 12,
+            "sourceIds": [
+                "dell-exp-r7615-guide",
+                "dell-exp-r7615-thermal"
+            ]
+        },
+        {
+            "id": "dell-poweredge-r7625",
+            "oem": "Dell",
+            "model": "PowerEdge R7625",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "dell-exp-r7625-guide",
+                "dell-exp-r7625-thermal"
+            ]
+        },
+        {
+            "id": "dell-poweredge-r6725",
+            "oem": "Dell",
+            "model": "PowerEdge R6725",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 1,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "dimensions": "42.8 x 482.0 x 817.89 mm with bezel",
+            "sourceIds": [
+                "dell-exp-r6725-thermal",
+                "dell-exp-r6725-product",
+                "dell-exp-r6725-overview",
+                "dell-exp-r6725-memory"
+            ],
+            "researchNote": "Dell direct product page and installation manual verify 1U. Dimensions are from the direct product page; the older specification-sheet search index disagrees on bezel depth."
+        },
+        {
+            "id": "dell-poweredge-r7715",
+            "oem": "Dell",
+            "model": "PowerEdge R7715",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 1,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "dell-exp-r7715-thermal",
+                "dell-exp-r7715-overview",
+                "dell-exp-r7715-memory"
+            ]
+        },
+        {
+            "id": "dell-poweredge-r470",
+            "oem": "Dell",
+            "model": "PowerEdge R470",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 1,
+            "socketCount": 1,
+            "memoryChannelsPerSocket": 8,
+            "dimmSlots": 16,
+            "sourceIds": [
+                "dell-exp-r470-thermal",
+                "dell-exp-r470-product",
+                "dell-exp-r470-memory"
+            ]
+        },
+        {
+            "id": "dell-poweredge-r670",
+            "oem": "Dell",
+            "model": "PowerEdge R670",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 1,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 8,
+            "dimmSlots": 32,
+            "sourceIds": [
+                "dell-exp-r670-guide",
+                "dell-exp-r670-processor"
+            ]
+        },
+        {
+            "id": "dell-poweredge-r660",
+            "oem": "Dell",
+            "model": "PowerEdge R660",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 1,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 8,
+            "dimmSlots": 32,
+            "sourceIds": [
+                "dell-exp-r660-guide"
+            ],
+            "researchNote": "8592+ superscript and cooling/board restrictions need direct PDF review."
+        },
+        {
+            "id": "dell-poweredge-r760",
+            "oem": "Dell",
+            "model": "PowerEdge R760",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 8,
+            "dimmSlots": 32,
+            "sourceIds": [
+                "dell-exp-r760-guide"
+            ],
+            "researchNote": "8592+ superscript and cooling/board restrictions need direct PDF review."
+        },
+        {
+            "id": "dell-poweredge-xe9685l",
+            "oem": "Dell",
+            "model": "PowerEdge XE9685L",
+            "category": "gpu_server",
+            "formFactor": "rack",
+            "rackUnits": 4,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "dell-exp-xe9685l-guide"
+            ],
+            "researchNote": "Direct liquid cooled."
+        },
+        {
+            "id": "dell-poweredge-xe9780",
+            "oem": "Dell",
+            "model": "PowerEdge XE9780",
+            "category": "gpu_server",
+            "formFactor": "rack",
+            "rackUnits": 10,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 8,
+            "dimmSlots": 32,
+            "sourceIds": [
+                "dell-exp-xe9780-guide"
+            ],
+            "researchNote": "Air cooled 8-GPU system; thermal matrix has B300/B200 CPU rows."
+        },
+        {
+            "id": "dell-poweredge-m7725",
+            "oem": "Dell",
+            "model": "PowerEdge M7725",
+            "category": "blade",
+            "formFactor": "modular compute node",
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "dell-exp-m7725-guide"
+            ],
+            "researchNote": "Node in M7701/IR7000; M7701 is 1 OU, which must not render as 1U."
+        }
+    ],
+    "compatibility": [
+        {
+            "catalogId": "amd-87f14037b849fa2c41d6",
+            "platformId": "dell-poweredge-r4715",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r4715-config"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "Dell US configurator processor option",
+            "matchedModel": "EPYC 9015",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "configurator_option",
+            "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-92aab6f743944093806a",
+            "platformId": "dell-poweredge-r4715",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r4715-config"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "Dell US configurator processor option",
+            "matchedModel": "EPYC 9135",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "configurator_option",
+            "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-c9d9c86c09e055eb6743",
+            "platformId": "dell-poweredge-r4715",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r4715-config"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "Dell US configurator processor option",
+            "matchedModel": "EPYC 9255",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "configurator_option",
+            "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-608a4a36496b251041aa",
+            "platformId": "dell-poweredge-r4715",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r4715-config"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "Dell US configurator processor option",
+            "matchedModel": "EPYC 9335",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "configurator_option",
+            "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-87f14037b849fa2c41d6",
+            "platformId": "dell-poweredge-r5715",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r5715-config"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "Dell US configurator processor option",
+            "matchedModel": "EPYC 9015",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "configurator_option",
+            "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-92aab6f743944093806a",
+            "platformId": "dell-poweredge-r5715",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r5715-config"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "Dell US configurator processor option",
+            "matchedModel": "EPYC 9135",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "configurator_option",
+            "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-c9d9c86c09e055eb6743",
+            "platformId": "dell-poweredge-r5715",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r5715-config"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "Dell US configurator processor option",
+            "matchedModel": "EPYC 9255",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "configurator_option",
+            "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-608a4a36496b251041aa",
+            "platformId": "dell-poweredge-r5715",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r5715-config"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "Dell US configurator processor option",
+            "matchedModel": "EPYC 9335",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "configurator_option",
+            "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-d8f96747bc1a02c178d3",
+            "platformId": "dell-poweredge-c6615",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-c6615-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "thermal restriction matrix",
+            "matchedModel": "EPYC 8534P",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "researchNote": "Chassis, ambient and DIMM restrictions in Tables 1-3 apply.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-1bec19a828e005f96280",
+            "platformId": "dell-poweredge-c6615",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-c6615-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "thermal restriction matrix",
+            "matchedModel": "EPYC 8434P",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "researchNote": "Chassis, ambient and DIMM restrictions in Tables 1-3 apply.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-36162aad92e75d733511",
+            "platformId": "dell-poweredge-c6615",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-c6615-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "thermal restriction matrix",
+            "matchedModel": "EPYC 8324P",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "researchNote": "Chassis, ambient and DIMM restrictions in Tables 1-3 apply.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-2fce7c87f0bd79c319a8",
+            "platformId": "dell-poweredge-c6615",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-c6615-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "thermal restriction matrix",
+            "matchedModel": "EPYC 8224P",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "researchNote": "Chassis, ambient and DIMM restrictions in Tables 1-3 apply.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-cb42bea06bd0f7cb76d6",
+            "platformId": "dell-poweredge-c6615",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-c6615-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "thermal restriction matrix",
+            "matchedModel": "EPYC 8124P",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "researchNote": "Chassis, ambient and DIMM restrictions in Tables 1-3 apply.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-f087fb0881ac2f95c35e",
+            "platformId": "dell-poweredge-c6615",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-c6615-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "thermal restriction matrix",
+            "matchedModel": "EPYC 8024P",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "researchNote": "Chassis, ambient and DIMM restrictions in Tables 1-3 apply.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-4e2482a19422a82087d2",
+            "platformId": "dell-poweredge-r6615",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r6615-config"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "Dell US configurator processor option",
+            "matchedModel": "EPYC 9554",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "configurator_option",
+            "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-4e2482a19422a82087d2",
+            "platformId": "dell-poweredge-r6625",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r6625-guide",
+                "dell-exp-r6625-thermal"
+            ],
+            "reviewStatus": "needs_review",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "EPYC 9554",
+            "researchNote": "Exact 9554 is in both guide and HTML thermal matrix, but air matrix cells show N/A; adjudicate liquid-cooling configuration.",
+            "sourceWordingKind": "technical_guide_supported_processor_table",
+            "restrictionNote": "Air-cooling matrix shows N/A for 9554 in listed columns; liquid-cooling eligibility needs adjudication.",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "amd-4e2482a19422a82087d2",
+            "platformId": "dell-poweredge-r7615",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r7615-guide",
+                "dell-exp-r7615-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "EPYC 9554",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "researchNote": "Specific drive/GPU/thermal layout restrictions apply; inspect cited Dell matrix.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Dell table names 9554/9554P together; some GPU/drive combinations are not supported or need a lower ambient limit.",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "amd-4e2482a19422a82087d2",
+            "platformId": "dell-poweredge-r7625",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r7625-guide",
+                "dell-exp-r7625-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "EPYC 9554",
+            "researchNote": "Specific drive/GPU/thermal layout restrictions apply; inspect cited Dell matrix.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Dell table names 9554; some configurations require liquid cooling or a 30 C ambient.",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "amd-87f14037b849fa2c41d6",
+            "platformId": "dell-poweredge-r6725",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r6725-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "thermal restriction matrix",
+            "matchedModel": "EPYC 9015",
+            "researchNote": "9575F air/DLC requirements vary by storage configuration.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Fans or direct liquid cooling vary by storage layout. The 9575F row includes a configuration requiring DLC and some 30 C-only cells.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-92aab6f743944093806a",
+            "platformId": "dell-poweredge-r6725",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r6725-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "thermal restriction matrix",
+            "matchedModel": "EPYC 9135",
+            "researchNote": "9575F air/DLC requirements vary by storage configuration.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Fans or direct liquid cooling vary by storage layout. The 9575F row includes a configuration requiring DLC and some 30 C-only cells.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-c9d9c86c09e055eb6743",
+            "platformId": "dell-poweredge-r6725",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r6725-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "thermal restriction matrix",
+            "matchedModel": "EPYC 9255",
+            "researchNote": "9575F air/DLC requirements vary by storage configuration.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Fans or direct liquid cooling vary by storage layout. The 9575F row includes a configuration requiring DLC and some 30 C-only cells.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-608a4a36496b251041aa",
+            "platformId": "dell-poweredge-r6725",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r6725-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "thermal restriction matrix",
+            "matchedModel": "EPYC 9335",
+            "researchNote": "9575F air/DLC requirements vary by storage configuration.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Fans or direct liquid cooling vary by storage layout. The 9575F row includes a configuration requiring DLC and some 30 C-only cells.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "dell-poweredge-r6725",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r6725-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "thermal restriction matrix",
+            "matchedModel": "EPYC 9575F",
+            "researchNote": "9575F air/DLC requirements vary by storage configuration.",
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Fans or direct liquid cooling vary by storage layout. The 9575F row includes a configuration requiring DLC and some 30 C-only cells.",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "dell-poweredge-r7715",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r7715-thermal"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "EPYC 9575F",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Air-cooled non-GPU matrix lists 2U extended heatsink and HPR Gold fans for 9575F; GPU/DLC configurations have separate rows.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "intel-ef124b107763422cd947",
+            "platformId": "dell-poweredge-r470",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r470-thermal",
+                "dell-exp-r470-product"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "Xeon 6787P",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Dell lists Xeon 6 P-core CPUs with the R1S option; for 350 W 6787P/6767P the thermal table calls for remote heatsink and HPR Silver fans in listed drive configurations.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "intel-55aed4fff4909b0f6c95",
+            "platformId": "dell-poweredge-r470",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r470-thermal",
+                "dell-exp-r470-product"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "Xeon 6767P",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceWordingKind": "thermal_restriction_table",
+            "restrictionNote": "Dell lists Xeon 6 P-core CPUs with the R1S option; for 350 W 6787P/6767P the thermal table calls for remote heatsink and HPR Silver fans in listed drive configurations.",
+            "publicationRecommendation": "exact_cpu_edge_ready_for_editorial_review"
+        },
+        {
+            "catalogId": "intel-ef124b107763422cd947",
+            "platformId": "dell-poweredge-r670",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r670-guide",
+                "dell-exp-r670-processor"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "Xeon 6787P",
+            "sourceWordingKind": "processor_firmware_support_table",
+            "restrictionNote": "Processor/BIOS table names this SKU. Review 350 W thermal/backplane limits before publication.",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "intel-55aed4fff4909b0f6c95",
+            "platformId": "dell-poweredge-r670",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r670-guide",
+                "dell-exp-r670-processor"
+            ],
+            "reviewStatus": "source_row_verified",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "Xeon 6767P",
+            "sourceWordingKind": "processor_firmware_support_table",
+            "restrictionNote": "Processor/BIOS table names this SKU. Review 350 W thermal/backplane limits before publication.",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "intel-2519fff2a8b5386899b6",
+            "platformId": "dell-poweredge-r660",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r660-guide"
+            ],
+            "reviewStatus": "needs_review",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "Xeon Platinum 8468",
+            "researchNote": "Direct PDF review needed for superscript/cooling/board restrictions.",
+            "sourceWordingKind": "technical_guide_supported_processor_table",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "intel-f0488a691508c007379b",
+            "platformId": "dell-poweredge-r660",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r660-guide"
+            ],
+            "reviewStatus": "needs_review",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "Xeon Platinum 8592+",
+            "researchNote": "Direct PDF review needed for superscript/cooling/board restrictions.",
+            "sourceWordingKind": "technical_guide_supported_processor_table",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "intel-2519fff2a8b5386899b6",
+            "platformId": "dell-poweredge-r760",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r760-guide"
+            ],
+            "reviewStatus": "needs_review",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "Xeon Platinum 8468",
+            "researchNote": "Direct PDF review needed for superscript/cooling/board restrictions.",
+            "sourceWordingKind": "technical_guide_supported_processor_table",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "intel-f0488a691508c007379b",
+            "platformId": "dell-poweredge-r760",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-r760-guide"
+            ],
+            "reviewStatus": "needs_review",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "Xeon Platinum 8592+",
+            "researchNote": "Direct PDF review needed for superscript/cooling/board restrictions.",
+            "sourceWordingKind": "technical_guide_supported_processor_table",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "dell-poweredge-xe9685l",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-xe9685l-guide"
+            ],
+            "reviewStatus": "search_index_only",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "EPYC 9575F",
+            "researchNote": "Direct liquid cooling required.",
+            "sourceWordingKind": "technical_guide_supported_processor_table",
+            "restrictionNote": "Direct liquid cooling only; official PDF row needs direct second review.",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "intel-ef124b107763422cd947",
+            "platformId": "dell-poweredge-xe9780",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-xe9780-guide"
+            ],
+            "reviewStatus": "search_index_only",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "Xeon 6787P",
+            "sourceWordingKind": "technical_guide_supported_processor_table",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "intel-55aed4fff4909b0f6c95",
+            "platformId": "dell-poweredge-xe9780",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-xe9780-guide"
+            ],
+            "reviewStatus": "search_index_only",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "Xeon 6767P",
+            "sourceWordingKind": "technical_guide_supported_processor_table",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        },
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "dell-poweredge-m7725",
+            "supportLevel": "candidate",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-exp-m7725-guide"
+            ],
+            "reviewStatus": "search_index_only",
+            "evidenceSubtype": "supported processor table",
+            "matchedModel": "EPYC 9575F",
+            "sourceWordingKind": "technical_guide_supported_processor_table",
+            "restrictionNote": "Compute node is in an OU-format rack enclosure; official PDF row needs direct second review.",
+            "publicationRecommendation": "hold_for_configuration_or_pdf_review"
+        }
+    ],
+    "sources": [
+        {
+            "id": "dell-exp-r4715-config",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R4715 Rack Server | Dell USA",
+            "url": "https://www.dell.com/en-us/shop/servers-storage-and-networking/poweredge-r4715/spd/poweredge-r4715/promo_r4715_1?view=configurations",
+            "locator": "Intro; Processor options, HTML lines 54-58 and 117-140",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "1U, one socket; EPYC 9015, 9135, 9255, 9335 selectable options",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r4715-memory",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R4715 Installation and Service Manual, memory guidelines",
+            "url": "https://www.dell.com/support/manuals/en-pk/poweredge-r4715/r4715_ism/system-memory-guidelines?guid=guid-24acbc2b-eeed-4e06-aa84-bbb23568b7a3&lang=en-us",
+            "locator": "System memory guidelines",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "Channels A-L; 24 DIMM slots",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r5715-config",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R5715 Rack Server | Dell USA",
+            "url": "https://www.dell.com/en-us/shop/cty/pdp/spd/poweredge-r5715/promo_r5715_1",
+            "locator": "Intro; Processor options, HTML lines 54-58 and 106-130",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "2U, one socket; EPYC 9015, 9135, 9255, 9335 selectable options",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r5715-memory",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R5715 Installation and Service Manual, memory specifications",
+            "url": "https://www.dell.com/support/manuals/en-us/poweredge-r5715/r5715_ism_pub/memory-specifications?guid=guid-80b0e7ed-ca1a-471a-871c-3487e6d52f72&lang=en-us",
+            "locator": "Memory specifications",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "24 DIMM slots; memory-channel count not established in this pass",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-c6615-thermal",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge C6615 Installation and Service Manual, thermal restriction matrix",
+            "url": "https://www.dell.com/support/manuals/en-us/poweredge-c6615/pec6615_ism_pub/thermal-restriction-matrix?guid=guid-69c71e77-38be-4220-88ce-4e290281031e&lang=en-us",
+            "locator": "Tables 1-3; HTML lines 194-225",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "8534P, 8434P, 8324P, 8224P, 8124P, 8024P listed for air-cooled chassis; Samsung 96 GB DIMM restriction",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-c6615-spec",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge C6615 Specification Sheet",
+            "url": "https://www.delltechnologies.com/asset/en-in/products/servers/technical-support/poweredge-c6615-spec-sheet.pdf",
+            "locator": "System overview; processor/memory specs",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "Up to four one-socket sleds in a 2U C6600 chassis; six DDR5 channels and six DIMM slots per sled",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-c6615-chassis-layout",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge C6615 Installation and Service Manual, C6600 chassis options",
+            "url": "https://www.dell.com/support/manuals/en-us/poweredge-c6615/pec6615_ism_pub/c6600-chassis-options-and-drive-enumerations?guid=guid-97b6bc34-2e1c-4a57-84dd-b5dcc4e4500e&lang=en-us",
+            "locator": "C6600 chassis options and drive enumerations, four C6615 sleds",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "C6600 chassis configurations have up to four C6615 compute sleds",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-c6600-overview",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge C6600 Installation and Service Manual, system overview",
+            "url": "https://www.dell.com/support/manuals/en-us/poweredge-c6600-enclosure/pec6600_ism_pub/poweredge-c6600-system-overview?guid=guid-c38c8b45-0cd0-47c5-9fb4-e6f699ac820f&lang=en-us",
+            "locator": "PowerEdge C6600 system overview",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "C6600 is an ultra-dense 2U enclosure",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-c6615-support",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge C6615 support overview",
+            "url": "https://www.dell.com/support/product-details/en-uk/product/poweredge-c6615",
+            "locator": "Product overview, HTML lines 106-109",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "PowerEdge C6615 is a one-socket compute sled",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-c6615-memory",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge C6615 Installation and Service Manual, system memory guidelines",
+            "url": "https://www.dell.com/support/manuals/en-us/poweredge-c6615/pec6615_ism_pub/system-memory-guidelines?guid=guid-22bc8922-67e9-4dd5-9f5c-c75f7430011b&lang=en-us",
+            "locator": "System memory guidelines, HTML lines 199-209",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "Six memory channels A-F and six DIMM sockets per C6615 sled",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6615-config",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6615 Rack Server | Dell USA",
+            "url": "https://www.dell.com/en-us/shop/cty/pdp/spd/poweredge-r6615/pe_r6615_tm_vi_vp_sb",
+            "locator": "System overview; Processor options",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "One-socket R6615 offers EPYC 9554, distinct from 9554P",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6615-overview",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6615 Installation and Service Manual, system overview",
+            "url": "https://www.dell.com/support/manuals/en-td/oth-xlr6615/r6615_ism/system-overview?guid=guid-e5eca3f1-ef6c-40e7-888b-2a78e8a26bb5&lang=en-us",
+            "locator": "System overview",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "R6615 is a 1U server supporting one AMD EPYC 9004 processor and 12 DIMM slots",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6615-memory",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6615 Installation and Service Manual, system memory guidelines",
+            "url": "https://www.dell.com/support/manuals/en-us/oth-r6615/r6615_ism/system-memory-guidelines?guid=guid-f3337f5b-0230-404d-8830-1408213211af",
+            "locator": "System memory guidelines, HTML lines 325-335",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "Twelve memory channels per processor and 12 DIMM sockets per system",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6615-spec",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6615 Specification Sheet",
+            "url": "https://www.delltechnologies.com/asset/en-au/products/servers/technical-support/poweredge-r6615-spec-sheet.pdf",
+            "locator": "System and memory specifications",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "1U, one socket, 12 DIMM slots",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6625-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6625 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/no-no/products/servers/technical-support/poweredge-r6625-technical-guide.pdf",
+            "locator": "Table 3 supported processors; processor features",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "9554 row; 12 DDR5 channels per processor",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r7615-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R7615 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-gb/products/servers/technical-support/poweredge-r7615-technical-guide.pdf",
+            "locator": "Table 3 supported processors, p. 17",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "9554 row; one socket and 12 DDR5 channels",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r7625-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R7625 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/no-no/products/servers/technical-support/poweredge-r7625-technical-guide.pdf",
+            "locator": "Table 3 supported processors, p. 18; thermal matrix",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "9554 row; some high-TDP/backplane combinations require liquid cooling",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6725-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6725 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/poweredge-r6725-technical-guide.pdf",
+            "locator": "Table 15 supported processors, p. 28; product comparison",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "9575F plus 9015, 9135, 9255, 9335 rows; two sockets and 24 DIMMs",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6725-thermal",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6725 Installation and Service Manual, thermal restriction matrix",
+            "url": "https://www.dell.com/support/manuals/en-us/oth-xlr6725/r6725_ism/thermal-restriction-matrix?guid=guid-4623defd-c6aa-4a26-b28c-4b033e2e40b8&lang=en-us",
+            "locator": "Table 3, HTML lines 293-305",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "9015 OPN 100-000001553; 9135 100-000001150; 9255 100-000000694; 9335 100-000001149; 9575F 100-000001554; 9575F has storage-dependent air/DLC requirements",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6725-spec",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6725 Specification Sheet",
+            "url": "https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/poweredge-r6725-spec-sheet.pdf",
+            "locator": "Form factor and chassis dimensions",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "1U; search-index bezel depth 816.921 mm conflicts with Dell's current direct product page (817.89 mm); do not use this source for dimensions",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6725-product",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6725 product specifications",
+            "url": "https://www.dell.com/en-in/shop/ipovw/poweredge-r6725",
+            "locator": "Form Factor; Dimensions & Weight, HTML lines 201-215",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "1U rack server; 42.80 mm height, 482.00 mm width, 817.89 mm depth with bezel, 815.10 mm without bezel",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6725-overview",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6725 Installation and Service Manual, system configurations and features",
+            "url": "https://www.dell.com/support/manuals/en-us/poweredge-r6725/r6725_ism/poweredge-r6725-system-configurations-and-features?guid=guid-6ad52ba4-ba51-4ad8-acac-f56a394a91e4&lang=en-us",
+            "locator": "PowerEdge R6725 system configurations and features",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "R6725 is a 1U server supporting two AMD EPYC 9005 processors and 24 DIMM slots",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6725-memory",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6725 Installation and Service Manual, system memory guidelines",
+            "url": "https://www.dell.com/support/manuals/en-ca/poweredge-r6725/r6725_ism/system-memory-guidelines?guid=guid-889c376c-ba42-4745-a49f-1934e5132fc0&lang=en-us",
+            "locator": "System memory guidelines, HTML lines 268-282",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "Twelve channels per processor, 12 DIMM sockets per processor, 24 sockets per system",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r7715-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R7715 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/poweredge-r7715-technical-guide.pdf",
+            "locator": "Table 17 supported processors; product comparison",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "9575F row; one socket; 24 DIMMs; 2U",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r7715-overview",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R7715 Installation and Service Manual, system configurations and features",
+            "url": "https://www.dell.com/support/manuals/en-us/poweredge-r7715/r7715_ism_pub/poweredge-r7715-system-configurations-and-features?guid=guid-9221c3b4-1346-4fe6-8a8d-5cd85038219b&lang=en-us",
+            "locator": "PowerEdge R7715 system configurations and features",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "R7715 is a 2U server supporting one AMD EPYC 9005 processor",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r7715-memory",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R7715 Installation and Service Manual, system memory guidelines",
+            "url": "https://www.dell.com/support/manuals/en-mg/poweredge-r7715/r7715_ism_pub/system-memory-guidelines?guid=guid-90e70256-d182-48c4-92e3-7f28fdd23f91&lang=en-us",
+            "locator": "System memory guidelines, HTML lines 248-256",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "Twelve memory channels A-L with two DIMM slots each, 24 DIMM slots total",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r470-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R470 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/poweredge-r470-technical-guide.pdf",
+            "locator": "Table 19, Xeon 6 P-core supported processors",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "6787P and 6767P rows; one socket, 1U, eight channels",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r470-product",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R470 product specifications",
+            "url": "https://www.dell.com/en-in/shop/ipovw/poweredge-r470",
+            "locator": "Processor, HTML lines 43-60; Form Factor, HTML lines 185-189",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "1U one-socket server; Xeon 6 P-core processor support with R1S option",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r470-memory",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R470 Installation and Service Manual, system memory guidelines",
+            "url": "https://www.dell.com/support/manuals/en-re/poweredge-r470/r470_ism/system-memory-guidelines?guid=guid-0f3c9aff-1560-4705-9f46-1ce9b76661d6&lang=en-us",
+            "locator": "System memory guidelines, HTML lines 236-245",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "Eight memory channels A-H with two DIMM slots each, 16 DIMM slots total",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r670-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R670 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-au/products/servers/technical-support/poweredge-r670-technical-guide.pdf",
+            "locator": "Xeon 6 P-core supported processor table; overview",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "6787P and 6767P rows; two sockets, 1U, 32 DIMMs",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r660-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R660 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-gb/products/servers/technical-support/poweredge-r660-technical-guide.pdf",
+            "locator": "Tables 3-4 4th/5th Gen Xeon; footnote pending",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "8468 and 8592+ listed; 8592+ superscript needs adjudication",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r760-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R760 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-gb/products/servers/technical-support/poweredge-r760-technical-guide.pdf",
+            "locator": "Tables 3-4 4th/5th Gen Xeon; footnote pending",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "8468 and 8592+ listed; system-board/thermal footnotes need adjudication",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-xe9685l-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge XE9685L Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/poweredge-xe9685l-technical-guide.pdf",
+            "locator": "Table 1 features; Table 4 supported processors",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "9575F row; 4U, two sockets, 24 DIMMs, direct liquid cooling",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-xe9780-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge XE9780 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/poweredge-xe9780-technical-guide.pdf",
+            "locator": "System overview; Table 6 supported processors; Table 38 thermal matrix",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "6787P and 6767P rows; 10U, two sockets, 32 DIMMs, eight channels/socket",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-m7725-guide",
+            "publisher": "Dell Technologies",
+            "title": "Dell PowerEdge IR7000, M7701, and M7725 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-ca/products/servers/technical-support/poweredge-m7725-technical-guide.pdf",
+            "locator": "Table 17 supported processors; system overview",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "official_pdf_search_index",
+            "evidenceWording": "9575F row; node has two CPUs and 24 DIMMs; two nodes in 1 OU M7701 enclosure",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r470-thermal",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R470 Installation and Service Manual, thermal restriction matrix",
+            "url": "https://www.dell.com/support/manuals/en-us/poweredge-r470/r470_ism/thermal-restriction-matrix?guid=guid-54a39d03-bc26-480a-9e09-283c90e54af1&lang=en-us",
+            "locator": "Thermal restriction matrix, HTML lines 298-299 and 333-334",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "6787P and 6767P named in air-cooling thermal rows.",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r670-processor",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R670 Installation and Service Manual, processor specifications",
+            "url": "https://www.dell.com/support/manuals/en-us/poweredge-r670/r670_ism_pub/processor-specifications?guid=guid-8042c30c-4a07-476f-9e06-ba75b25f4e31&lang=en-us",
+            "locator": "Processor/BIOS support table, HTML lines 269-270",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "6787P and 6767P named with minimum BIOS/iDRAC versions.",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r7715-thermal",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R7715 Installation and Service Manual, thermal restriction matrix",
+            "url": "https://www.dell.com/support/manuals/en-us/poweredge-r7715/r7715_ism_pub/thermal-restriction-matrix?guid=guid-f513183b-2975-4970-aa4c-31adbd884713&lang=en-us",
+            "locator": "Table 3 air cooling, HTML line 281; GPU and DLC matrices",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "9575F named in air-cooled and DLC configurations.",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r6625-thermal",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6625 Installation and Service Manual, thermal restriction matrix",
+            "url": "https://www.dell.com/support/manuals/en-us/oth-r6625/r6625_ism/thermal-restriction-matrix?guid=guid-5adc3ee9-6d22-4433-b5b3-6fe49f102dca&lang=en-us",
+            "locator": "Air cooling restriction matrix, HTML line 305; liquid-cooling note",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "9554 named, but air matrix shows N/A for listed configurations; review cooling before publication.",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r7615-thermal",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R7615 Installation and Service Manual, thermal restriction matrix",
+            "url": "https://www.dell.com/support/manuals/en-my/oth-xlr7615/per7615_ism_pub/thermal-restriction-matrix?guid=guid-c9f64f79-be25-4b1a-889e-d669ff31b29f&lang=en-us",
+            "locator": "Thermal restriction tables, HTML lines 523-531 and 598",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "9554/9554P named; support varies by drive/GPU/cooling layout.",
+            "revision": null
+        },
+        {
+            "id": "dell-exp-r7625-thermal",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R7625 Installation and Service Manual, thermal restriction matrix",
+            "url": "https://www.dell.com/support/manuals/en-in/oth-r7625/per7625_ism_pub/thermal-restriction-matrix?guid=guid-f00f0811-a193-454c-9ca3-3974c930e12d&lang=en-us",
+            "locator": "Thermal restriction tables, HTML lines 409-411 and 452-453",
+            "retrievedAt": "2026-09-30",
+            "accessMode": "direct_html",
+            "evidenceWording": "9554 named; one table notes 30 C ambient; liquid cooling required in some configurations.",
+            "revision": null
+        }
+    ],
+    "inventory": [
+        {
+            "model": "PowerEdge R4715",
+            "platformId": "dell-poweredge-r4715",
+            "status": "candidate_source_row_verified",
+            "exactMatchedCatalogModels": [
+                "EPYC 9015",
+                "EPYC 9135",
+                "EPYC 9255",
+                "EPYC 9335"
+            ]
+        },
+        {
+            "model": "PowerEdge R5715",
+            "platformId": "dell-poweredge-r5715",
+            "status": "candidate_source_row_verified",
+            "exactMatchedCatalogModels": [
+                "EPYC 9015",
+                "EPYC 9135",
+                "EPYC 9255",
+                "EPYC 9335"
+            ]
+        },
+        {
+            "model": "PowerEdge C6615",
+            "platformId": "dell-poweredge-c6615",
+            "status": "candidate_source_row_verified",
+            "exactMatchedCatalogModels": [
+                "EPYC 8534P",
+                "EPYC 8434P",
+                "EPYC 8324P",
+                "EPYC 8224P",
+                "EPYC 8124P",
+                "EPYC 8024P"
+            ]
+        },
+        {
+            "model": "PowerEdge R6615",
+            "platformId": "dell-poweredge-r6615",
+            "status": "candidate_source_row_verified",
+            "exactMatchedCatalogModels": [
+                "EPYC 9554"
+            ]
+        },
+        {
+            "model": "PowerEdge R6625",
+            "platformId": "dell-poweredge-r6625",
+            "status": "candidate_cooling_review",
+            "exactMatchedCatalogModels": [
+                "EPYC 9554"
+            ]
+        },
+        {
+            "model": "PowerEdge R7615",
+            "platformId": "dell-poweredge-r7615",
+            "status": "candidate_source_row_verified",
+            "exactMatchedCatalogModels": [
+                "EPYC 9554"
+            ]
+        },
+        {
+            "model": "PowerEdge R7625",
+            "platformId": "dell-poweredge-r7625",
+            "status": "candidate_source_row_verified",
+            "exactMatchedCatalogModels": [
+                "EPYC 9554"
+            ]
+        },
+        {
+            "model": "PowerEdge R6725",
+            "platformId": "dell-poweredge-r6725",
+            "status": "candidate_source_row_verified",
+            "exactMatchedCatalogModels": [
+                "EPYC 9015",
+                "EPYC 9135",
+                "EPYC 9255",
+                "EPYC 9335",
+                "EPYC 9575F"
+            ]
+        },
+        {
+            "model": "PowerEdge R7715",
+            "platformId": "dell-poweredge-r7715",
+            "status": "candidate_source_row_verified",
+            "exactMatchedCatalogModels": [
+                "EPYC 9575F"
+            ]
+        },
+        {
+            "model": "PowerEdge R470",
+            "platformId": "dell-poweredge-r470",
+            "status": "candidate_source_row_verified",
+            "exactMatchedCatalogModels": [
+                "Xeon 6787P",
+                "Xeon 6767P"
+            ]
+        },
+        {
+            "model": "PowerEdge R670",
+            "platformId": "dell-poweredge-r670",
+            "status": "candidate_source_row_verified",
+            "exactMatchedCatalogModels": [
+                "Xeon 6787P",
+                "Xeon 6767P"
+            ]
+        },
+        {
+            "model": "PowerEdge R660",
+            "platformId": "dell-poweredge-r660",
+            "status": "candidate_requires_pdf_review",
+            "exactMatchedCatalogModels": [
+                "Xeon Platinum 8468",
+                "Xeon Platinum 8592+"
+            ]
+        },
+        {
+            "model": "PowerEdge R760",
+            "platformId": "dell-poweredge-r760",
+            "status": "candidate_requires_pdf_review",
+            "exactMatchedCatalogModels": [
+                "Xeon Platinum 8468",
+                "Xeon Platinum 8592+"
+            ]
+        },
+        {
+            "model": "PowerEdge XE9685L",
+            "platformId": "dell-poweredge-xe9685l",
+            "status": "candidate_requires_pdf_review",
+            "exactMatchedCatalogModels": [
+                "EPYC 9575F"
+            ]
+        },
+        {
+            "model": "PowerEdge XE9780",
+            "platformId": "dell-poweredge-xe9780",
+            "status": "candidate_requires_pdf_review",
+            "exactMatchedCatalogModels": [
+                "Xeon 6787P",
+                "Xeon 6767P"
+            ]
+        },
+        {
+            "model": "PowerEdge M7725",
+            "platformId": "dell-poweredge-m7725",
+            "status": "candidate_requires_pdf_review",
+            "exactMatchedCatalogModels": [
+                "EPYC 9575F"
+            ]
+        },
+        {
+            "model": "PowerEdge R6715",
+            "platformId": "dell-poweredge-r6715",
+            "status": "already_in_live_snapshot",
+            "exactMatchedCatalogModels": [
+                "EPYC 9575F"
+            ]
+        },
+        {
+            "model": "PowerEdge R7725",
+            "platformId": "dell-poweredge-r7725",
+            "status": "already_in_live_snapshot",
+            "exactMatchedCatalogModels": [
+                "EPYC 9575F"
+            ]
+        },
+        {
+            "model": "PowerEdge R770",
+            "platformId": "dell-poweredge-r770",
+            "status": "already_in_live_snapshot",
+            "exactMatchedCatalogModels": [
+                "Xeon 6787P"
+            ]
+        },
+        {
+            "model": "PowerEdge XE9785L",
+            "status": "inventory_only_needs_form_factor_and_pdf_review",
+            "exactMatchedCatalogModels": [
+                "EPYC 9575F"
+            ],
+            "note": "Official guide search index includes 9575F; IR7000 OU vs rack U and model variant need review."
+        },
+        {
+            "model": "EPYC 9006 / Intel Xeon 6+ Dell platforms",
+            "status": "no_qualifying_exact_dell_table_found_in_initial_pass",
+            "note": "Evidence gap, not an incompatibility claim."
+        },
+        {
+            "model": "EPYC 8005 / EPYC 4004 / EPYC 4005 Dell platforms",
+            "status": "no_qualifying_exact_dell_table_found_in_initial_pass",
+            "note": "Evidence gap, not an incompatibility claim."
+        }
+    ],
+    "publishRecommendation": {
+        "meaning": "Exact CPU-to-system edges with Dell HTML row checked and no unresolved PDF or cooling issue. Editorial integration must separately verify platform-level specs and run the repository validator.",
+        "edges": [
+            {
+                "catalogId": "amd-87f14037b849fa2c41d6",
+                "platformId": "dell-poweredge-r4715",
+                "matchedModel": "EPYC 9015",
+                "basis": "configurator_option",
+                "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+                "sourceIds": [
+                    "dell-exp-r4715-config"
+                ]
+            },
+            {
+                "catalogId": "amd-92aab6f743944093806a",
+                "platformId": "dell-poweredge-r4715",
+                "matchedModel": "EPYC 9135",
+                "basis": "configurator_option",
+                "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+                "sourceIds": [
+                    "dell-exp-r4715-config"
+                ]
+            },
+            {
+                "catalogId": "amd-c9d9c86c09e055eb6743",
+                "platformId": "dell-poweredge-r4715",
+                "matchedModel": "EPYC 9255",
+                "basis": "configurator_option",
+                "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+                "sourceIds": [
+                    "dell-exp-r4715-config"
+                ]
+            },
+            {
+                "catalogId": "amd-608a4a36496b251041aa",
+                "platformId": "dell-poweredge-r4715",
+                "matchedModel": "EPYC 9335",
+                "basis": "configurator_option",
+                "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+                "sourceIds": [
+                    "dell-exp-r4715-config"
+                ]
+            },
+            {
+                "catalogId": "amd-87f14037b849fa2c41d6",
+                "platformId": "dell-poweredge-r5715",
+                "matchedModel": "EPYC 9015",
+                "basis": "configurator_option",
+                "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+                "sourceIds": [
+                    "dell-exp-r5715-config"
+                ]
+            },
+            {
+                "catalogId": "amd-92aab6f743944093806a",
+                "platformId": "dell-poweredge-r5715",
+                "matchedModel": "EPYC 9135",
+                "basis": "configurator_option",
+                "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+                "sourceIds": [
+                    "dell-exp-r5715-config"
+                ]
+            },
+            {
+                "catalogId": "amd-c9d9c86c09e055eb6743",
+                "platformId": "dell-poweredge-r5715",
+                "matchedModel": "EPYC 9255",
+                "basis": "configurator_option",
+                "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+                "sourceIds": [
+                    "dell-exp-r5715-config"
+                ]
+            },
+            {
+                "catalogId": "amd-608a4a36496b251041aa",
+                "platformId": "dell-poweredge-r5715",
+                "matchedModel": "EPYC 9335",
+                "basis": "configurator_option",
+                "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+                "sourceIds": [
+                    "dell-exp-r5715-config"
+                ]
+            },
+            {
+                "catalogId": "amd-d8f96747bc1a02c178d3",
+                "platformId": "dell-poweredge-c6615",
+                "matchedModel": "EPYC 8534P",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+                "sourceIds": [
+                    "dell-exp-c6615-thermal"
+                ]
+            },
+            {
+                "catalogId": "amd-1bec19a828e005f96280",
+                "platformId": "dell-poweredge-c6615",
+                "matchedModel": "EPYC 8434P",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+                "sourceIds": [
+                    "dell-exp-c6615-thermal"
+                ]
+            },
+            {
+                "catalogId": "amd-36162aad92e75d733511",
+                "platformId": "dell-poweredge-c6615",
+                "matchedModel": "EPYC 8324P",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+                "sourceIds": [
+                    "dell-exp-c6615-thermal"
+                ]
+            },
+            {
+                "catalogId": "amd-2fce7c87f0bd79c319a8",
+                "platformId": "dell-poweredge-c6615",
+                "matchedModel": "EPYC 8224P",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+                "sourceIds": [
+                    "dell-exp-c6615-thermal"
+                ]
+            },
+            {
+                "catalogId": "amd-cb42bea06bd0f7cb76d6",
+                "platformId": "dell-poweredge-c6615",
+                "matchedModel": "EPYC 8124P",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+                "sourceIds": [
+                    "dell-exp-c6615-thermal"
+                ]
+            },
+            {
+                "catalogId": "amd-f087fb0881ac2f95c35e",
+                "platformId": "dell-poweredge-c6615",
+                "matchedModel": "EPYC 8024P",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Air-cooled chassis and ambient limits are specified in Tables 1-3; Tables 1 and 3 disallow 96 GB Samsung DIMMs.",
+                "sourceIds": [
+                    "dell-exp-c6615-thermal"
+                ]
+            },
+            {
+                "catalogId": "amd-4e2482a19422a82087d2",
+                "platformId": "dell-poweredge-r6615",
+                "matchedModel": "EPYC 9554",
+                "basis": "configurator_option",
+                "restrictionNote": "Dell US configurator option; regional/order-code availability and selected configuration can vary.",
+                "sourceIds": [
+                    "dell-exp-r6615-config"
+                ]
+            },
+            {
+                "catalogId": "amd-87f14037b849fa2c41d6",
+                "platformId": "dell-poweredge-r6725",
+                "matchedModel": "EPYC 9015",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Fans or direct liquid cooling vary by storage layout. The 9575F row includes a configuration requiring DLC and some 30 C-only cells.",
+                "sourceIds": [
+                    "dell-exp-r6725-thermal"
+                ]
+            },
+            {
+                "catalogId": "amd-92aab6f743944093806a",
+                "platformId": "dell-poweredge-r6725",
+                "matchedModel": "EPYC 9135",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Fans or direct liquid cooling vary by storage layout. The 9575F row includes a configuration requiring DLC and some 30 C-only cells.",
+                "sourceIds": [
+                    "dell-exp-r6725-thermal"
+                ]
+            },
+            {
+                "catalogId": "amd-c9d9c86c09e055eb6743",
+                "platformId": "dell-poweredge-r6725",
+                "matchedModel": "EPYC 9255",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Fans or direct liquid cooling vary by storage layout. The 9575F row includes a configuration requiring DLC and some 30 C-only cells.",
+                "sourceIds": [
+                    "dell-exp-r6725-thermal"
+                ]
+            },
+            {
+                "catalogId": "amd-608a4a36496b251041aa",
+                "platformId": "dell-poweredge-r6725",
+                "matchedModel": "EPYC 9335",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Fans or direct liquid cooling vary by storage layout. The 9575F row includes a configuration requiring DLC and some 30 C-only cells.",
+                "sourceIds": [
+                    "dell-exp-r6725-thermal"
+                ]
+            },
+            {
+                "catalogId": "amd-533ef46f46e792a53597",
+                "platformId": "dell-poweredge-r7715",
+                "matchedModel": "EPYC 9575F",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Air-cooled non-GPU matrix lists 2U extended heatsink and HPR Gold fans for 9575F; GPU/DLC configurations have separate rows.",
+                "sourceIds": [
+                    "dell-exp-r7715-thermal"
+                ]
+            },
+            {
+                "catalogId": "intel-ef124b107763422cd947",
+                "platformId": "dell-poweredge-r470",
+                "matchedModel": "Xeon 6787P",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Dell lists Xeon 6 P-core CPUs with the R1S option; for 350 W 6787P/6767P the thermal table calls for remote heatsink and HPR Silver fans in listed drive configurations.",
+                "sourceIds": [
+                    "dell-exp-r470-thermal",
+                    "dell-exp-r470-product"
+                ]
+            },
+            {
+                "catalogId": "intel-55aed4fff4909b0f6c95",
+                "platformId": "dell-poweredge-r470",
+                "matchedModel": "Xeon 6767P",
+                "basis": "thermal_restriction_table",
+                "restrictionNote": "Dell lists Xeon 6 P-core CPUs with the R1S option; for 350 W 6787P/6767P the thermal table calls for remote heatsink and HPR Silver fans in listed drive configurations.",
+                "sourceIds": [
+                    "dell-exp-r470-thermal",
+                    "dell-exp-r470-product"
+                ]
+            }
+        ]
+    }
+}

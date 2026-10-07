@@ -1,0 +1,69 @@
+name: Benchmark validation
+
+on:
+  pull_request:
+    paths:
+      - 'benchmarks/**'
+      - 'js/**'
+      - 'css/**'
+      - 'index.html'
+      - 'docs/specs/**'
+      - 'tools/**'
+      - '.github/workflows/benchmark-validation.yml'
+  push:
+    paths:
+      - 'benchmarks/**'
+      - 'js/**'
+      - 'css/**'
+      - 'index.html'
+      - 'docs/specs/**'
+      - 'tools/**'
+      - '.github/workflows/benchmark-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: benchmark-validation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Retained sources and browser checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: tools/requirements-benchmarks.txt
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r tools/requirements-benchmarks.txt
+          python -m playwright install --with-deps chromium
+      - name: Validate retained snapshots, all importers, catalog, and registry
+        # --check runs check-benchmarks, all three importer --check commands,
+        # build-benchmark-catalog --check, registry reconciliation, and the
+        # generated product-table index check offline.
+        run: python tools/refresh-benchmarks.py --check
+      - name: Check generated product-table benchmark index
+        run: python tools/build-product-benchmark-index.py --check
+      - name: Exercise ingestion and refresh failure cases
+        run: |
+          python tools/test-spec-import.py
+          python tools/test-mlperf-import.py
+          python tools/test-blender-import.py
+          python tools/test-benchmark-refresh.py
+      - name: Benchmark browser checks
+        run: python tools/smoke-benchmarks.py
+      - name: Dashboard browser checks
+        run: python tools/smoke-test.py
+      - name: Dashboard layout audit
+        run: python tools/audit-layout.py

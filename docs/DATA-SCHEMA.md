@@ -13,13 +13,93 @@ field names here are real, not aspirational.
 | `intel-xeon-specs.json` | object | 30 keys | **553 Xeon models — live on the Xeon sub-tab** |
 | `nvidia-data.json` | object | 3 product-line keys | **71 audited models — 20 data center, 47 GeForce, 4 CPU/superchips** |
 | `compare-details.json` | object | 3 vendor keys | Full non-empty source-CSV fields plus shared master specifications, keyed by normalized product name and loaded only when Compare opens |
+| `benchmark-sample.json` | object | 174 results | Dated Blender Open Data snapshot; exact ChipIndex model names, grouped median scores, submission counts, and filtered source URLs |
+| `enterprise-benchmark-sample.json` | object | 1,658 results | Dated SPEC CPU 2017 integer-rate system results for ChipIndex enterprise CPUs, with original result links and test configuration |
+| `enterprise-benchmark-fp-sample.json` | object | 1,629 results | Dated SPEC CPU 2017 floating-point-rate system results with the same disclosure and configuration fields |
+| `enterprise-benchmark-2026-int-sample.json` | object | 178 results | Dated SPEC CPU 2026 integer base-rate disclosures, separated by test build |
+| `enterprise-benchmark-2026-fp-sample.json` | object | 177 results | Dated SPEC CPU 2026 floating-point base-rate disclosures, separated by test build |
+| `enterprise-benchmark-mlperf-v6-server-sample.json` | object | 23 results | Official MLPerf® Inference v6.0 Closed/Available Server results for one-node, eight-accelerator Llama 2 70B 99% systems |
+| `enterprise-benchmark-mlperf-v6-offline-sample.json` | object | 23 results | The matching Offline scenario as a separate score scale and result snapshot |
+| `benchmark-catalog.json` | object | 2,393 products, 2,414 display placements | Generated identity index of every displayed non-roadmap specification row, with exact snapshot metric matches and explicit unverified release status |
+| `benchmark-table-index.js` | JavaScript object | 645 scored CPU models | Generated compact lookup for one source-linked SPEC system score or Blender CPU median per model, keyed by exact catalog vendor/model |
 
-Loaded at runtime by `loadVendorData()` and cached in `dataCache`. Filenames follow
-`js/data/{vendor}-data.json`, where vendor is `amd`, `intel`, `amd-gpu`, or `nvidia`.
+The product catalog files are loaded at runtime by `loadVendorData()` and cached
+in `dataCache`. Their filenames follow `js/data/{vendor}-data.json`, where vendor
+is `amd`, `intel`, `amd-gpu`, or `nvidia`. Benchmark JSON snapshots are
+fetched by `benchmarks/`; the compact `benchmark-table-index.js` is loaded by
+the product dashboard.
 
-`compare-details.json` is the exception: `dashboardRenderComparison()` loads it on
+`compare-details.json` is also loaded on demand: `dashboardRenderComparison()` loads it on
 demand so the normal dashboard stays light. Regenerate it with
 `python3 tools/build-compare-details.py`; never hand-edit it.
+
+## Benchmark snapshots and provenance
+
+The seven dated files below are fetched by `benchmarks/`. Every score links to
+an official source. The October 7, 2026 reviewed captures contain:
+
+| File | Rows | Scope |
+| --- | ---: | --- |
+| `enterprise-benchmark-sample.json` | 1,658 | SPEC CPU 2017 integer base rate |
+| `enterprise-benchmark-fp-sample.json` | 1,629 | SPEC CPU 2017 floating-point base rate |
+| `enterprise-benchmark-2026-int-sample.json` | 178 | SPEC CPU 2026 integer base rate, four test builds |
+| `enterprise-benchmark-2026-fp-sample.json` | 177 | SPEC CPU 2026 floating-point base rate, four test builds |
+| `enterprise-benchmark-mlperf-v6-server-sample.json` | 23 | MLPerf® Inference v6.0 Llama 2 70B 99% Server |
+| `enterprise-benchmark-mlperf-v6-offline-sample.json` | 23 | Matching Offline scenario |
+| `benchmark-sample.json` | 174 | Blender 5.2.0 medians: 129 client CPUs, 45 GPUs |
+
+SPEC rows retain exact catalog identity, numeric base-rate score, suite,
+`benchmarkVersion`, full system URL, tested CPU count, enabled cores,
+`baseCopies`, sponsor, system and compiler details, publication/retrieval dates,
+and `sourceDocumentSha256`. NVIDIA's GB10 alias requires an exact DGX Spark
+system and 20 cores per chip; `testedComponent: CPU` distinguishes its CPU
+benchmark from GPU or combined superchip performance. CPU 2026 builds are
+separate cohorts; CPU 2017 versions use SPEC's reviewed compatibility rules.
+The bounded 2017 selection is recorded in `spec-import-review.json` and the
+retained indexed source records; source HTML cache can be recreated locally.
+
+MLPerf rows keep the official scenario and workload, submitter, SUT, eight-chip
+count, result ID, whole-system Tokens/s, performance source URL and original
+accelerator name. `tools/fixtures/mlperf-v6.0/` retains the official summary
+JSON, revision, hash and exclusion review. Server and Offline are separate
+comparison scales. Unresolved B300 identities remain in the review.
+
+Blender rows keep version, CPU/GPU type, official source query, device name,
+score, submissions and compute group. CPU rows also have `deviceSegments` and
+`deviceSegmentSource` derived from AMD Form Factor or Intel ARK Vertical
+Segment. The live grouped export and capture manifest are retained in `tools/`;
+`tools/blender-import-review.json` accounts for every source label. Median
+scores are community summaries across submitted hardware and software setups.
+
+`benchmark-catalog.json` is generated from 2,414 dashboard placements and
+2,393 distinct product identities. `snapshotMetrics` means an exact result
+in the checked snapshots. It does not establish product eligibility, release
+status or absence from public sources. CPU `productSpecs` are display-ready
+`coreLabel`, `clockLabel` and `powerLabel` values derived from each exact
+`sourceRecordRef`; unavailable or inapplicable fields are omitted. They describe
+the catalog CPU model and stay separate from SPEC tested-system CPU count,
+enabled cores and observed performance. The generated
+`benchmark-table-index.js` projects 645 scored CPU models into product tables.
+SPEC entries retain suite, build, and one- or two-CPU report counts plus a
+featured published system result selected from one cohort. The table shows that
+result's test, build, CPU count and score in one end column; its link opens the
+same model and cohort in the benchmark explorer. It does not assign an intrinsic
+score to a CPU. Blender entries retain the 5.2.0 mixed-compute CPU median,
+submission count, and official source link. Run `python tools/build-product-benchmark-index.py`
+after a reviewed snapshot update, or `--check` to detect drift; the refresh
+transaction regenerates and rolls back this file with its source snapshots.
+The generated `benchmark-sources.json` lists source access, each dataset's
+metric/scope/count, actual capture date, bytes and SHA-256. Its counts are checked against snapshot
+and catalog files before release. The browser never fetches third-party data
+on a page visit.
+
+Use `python tools/refresh-benchmarks.py --check` to replay all retained inputs
+and validate identity, source URLs, metadata, catalog, registry and the
+product-table index. An explicit
+`--refresh SOURCE --allow-network` downloads a new supported capture, validates
+it, and rolls back published files if any stage fails. The importers accept
+`--check` individually for source-specific audits. The browser smoke checks
+all workload switches and score/source identity after a data change.
 
 `nvidia-data.json` is generated from the three audited CSVs in
 `docs/specs/source-csv-nvidia/`. Regenerate it with
@@ -330,6 +410,36 @@ python3 tools/check-order.py --fix      # print the corrected order (does not wr
 Tier ordering is machine-checkable and the script enforces it. **Intra-tier performance
 ordering is not** — it needs domain knowledge the script does not have, so it stays a
 review-time judgement.
+
+---
+
+## OEM platform compatibility
+
+`js/data/platform-compatibility.json` is a dated, manually reviewed snapshot of
+CPU-to-OEM-system evidence. It is separate from the CPU specification exports and
+does not infer support from a shared socket, processor family, power limit, or
+benchmark result. An absent link means research is incomplete, not that the
+system is incompatible.
+
+| Array | Identity and purpose |
+| --- | --- |
+| `products[]` | Small projection of catalog `id`, vendor, `dashboardTab`, exact `model`, and optional `productId`; lets the page join the visible row without downloading the full catalog. |
+| `platforms[]` | One canonical OEM model/revision, with `category`, `formFactor`, optional `rackUnits` or `dimensions`, `socketCount`, `memoryChannelsPerSocket`, maximum `dimmSlots`, optional `platformNote` for chassis/node distinctions, and source IDs. Client dimensions and display or volume fields are included only when the OEM provides them. |
+| `compatibility[]` | Exact `catalogId` → `platformId` edge, `supportLevel`, `evidenceType`, edge-level source IDs, optional `supportedCpuQuantities`, OEM option code, documented `market`, and `restrictionNote`. The note is shown inside the platform detail when cooling, chassis, CTO, memory, or quantity limits matter. Omit `supportedCpuQuantities` when the OEM source does not establish the precise allowed socket population. `fixed_configuration` describes an OEM-published CPU/system pairing, not an interchangeable processor option. |
+| `sources[]` | Official publisher, title, HTTPS URL, table/page `locator`, and `retrievedAt` date. The CPU option source and the chassis-specification source may differ. |
+
+`catalogId` must match a product in generated `benchmark-catalog.json` with the
+same vendor, model, tab, and product ID when available. Run
+`python tools/check-platforms.py` after any edit; the validator checks these
+joins, references, duplicate edges, source hosts, and hardware-value
+plausibility. Researchers must also inspect the exact OEM source rows and
+configuration limits. See `docs/platforms/SOURCES.md` for the current evidence
+ledger and `docs/PLATFORM-COMPATIBILITY-PLAN.md` for the staged research scope.
+The public snapshot is generated from `docs/platforms/pilot-seed.json` and
+candidate research files pinned in `docs/platforms/PUBLICATION-MANIFEST.json`.
+Run `python tools/build-platform-snapshot.py --check` to detect candidate or
+snapshot drift. Changing a candidate file requires another review and an
+updated approval hash before rebuilding the site snapshot.
 
 ---
 

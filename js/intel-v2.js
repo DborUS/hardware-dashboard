@@ -729,10 +729,12 @@ function v2Rows(name, colspan, tier) {
     return `<tr class="v2-empty-row"><td colspan="${colspan}">` +
            'No spec data yet</td></tr>';
   }
-  return models.map(m => `<tr data-search="${escHtml(v2ModelSearch(m))}">` +
-    fields.map((f, i) =>
-      `<td class="${i === 0 ? 'cpu-model-name' : ''}">${escHtml(m[f] ?? '\u2014')}</td>`
-    ).join('') + '</tr>').join('');
+  return models.map(m => {
+    const cells = fields.map((f, i) =>
+      `<td class="${i === 0 ? 'cpu-model-name' : ''}">${escHtml(m[f] ?? '\u2014')}</td>`);
+    if (v2Tab !== 'graphics') cells.push(benchmarkTableCells('Intel', `intel/${v2Tab}`, m.n));
+    return `<tr data-search="${escHtml(v2ModelSearch(m))}">` + cells.join('') + '</tr>';
+  }).join('');
 }
 
 /**
@@ -760,6 +762,9 @@ function v2CardTiers(f) {
 function v2Card(f, g, i, cfg) {
   const id = `v2t-${g.id}-${v2Slug(f.name)}`;
   const cols = v2Columns(f.tier);
+  const benchmarkCols = benchmarkTableColumns(`intel/${v2Tab}`);
+  const headers = cols.map(c => `<th>${escHtml(c)}</th>`);
+  if (benchmarkCols.length) headers.push(benchmarkTableHeaders(`intel/${v2Tab}`));
   const tags = [f.tier, f.seg].filter(Boolean).map(t =>
     `<span class="sku-tag">${escHtml(t)}</span>`).join('');
   const metaSearch = (f.name + ' ' + f.desc + ' ' + (f.si || '') + ' ' + (f.coreDesign || '')).toLowerCase();
@@ -790,13 +795,14 @@ function v2Card(f, g, i, cfg) {
             <span class="cpu-spec-header-title">${escHtml(f.name)}</span>
             <div class="identity-path">Intel › ${escHtml(stripVendor(cfg.title))} › ${escHtml(g.name)} › ${escHtml(f.name)}</div>
             <div class="source-line">Source: Intel ARK specification export</div>
+            ${benchmarkTableLegend(`intel/${v2Tab}`)}
             ${f.coreDesign ? `<div class="source-line v2-core-source">Core design naming: <a href="${V2_CORE_SOURCE}" target="_blank" rel="noopener noreferrer">Intel processor reference ↗</a></div>` : ''}
           </div>
           <span class="cpu-spec-header-title v2-await">${v2Count(f.name)}</span>
         </div>
         <table class="cpu-spec-table">
-          <thead><tr>${cols.map(c => `<th>${escHtml(c)}</th>`).join('')}</tr></thead>
-          <tbody>${v2Rows(f.name, cols.length, f.tier)}</tbody>
+          <thead><tr>${headers.join('')}</tr></thead>
+          <tbody>${v2Rows(f.name, cols.length + benchmarkCols.length, f.tier)}</tbody>
         </table>
       </div>
     </div>`;

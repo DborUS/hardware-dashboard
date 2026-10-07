@@ -26,6 +26,10 @@ TEST*.md
 debug*.html
 screenshots/
 tools/screenshots/
+/tools/.refresh-test-*/
 archive/
 tmp/
 /data/
+
+# Reconstructible official SPEC HTML cache (manifest and extracted evidence are retained)
+/tools/spec-source-cache/*.html.gz

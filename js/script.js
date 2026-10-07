@@ -4,7 +4,7 @@
 
 // Bump when any js/data/*.json changes, so browsers refetch instead of serving a
 // stale copy. Mirrors the ?v= on the script tag in index.html.
-const DATA_VERSION = '20260930-public-beta-004';
+const DATA_VERSION = '20261007-benchmark-integration-2';
 
 // Cache for loaded data to avoid redundant fetches
 const dataCache = {};
@@ -510,6 +510,8 @@ let dashboardXeonGuidePreviousScroll = 0;
 let dashboardGh200GuideOpen = false;
 let dashboardGh200GuideView = 'superchip';
 let dashboardGh200GuidePreviousScroll = 0;
+let dashboardAmpereGuideOpen = false;
+let dashboardAmpereGuidePreviousScroll = 0;
 
 // ════════════════════════════════════════
 // CACHED DOM REFERENCES (Performance)
@@ -581,9 +583,11 @@ async function switchVendor(vendor, targetTab = null) {
   dashboardGuideOpen = false;
   dashboardXeonGuideOpen = false;
   dashboardGh200GuideOpen = false;
+  dashboardAmpereGuideOpen = false;
   dashboardSyncEpycGuide();
   dashboardSyncXeonGuide();
   dashboardSyncGh200Guide();
+  dashboardSyncAmpereGuide();
   currentTechTab = 'cpu';
   expandedGroups.clear();
   activeSegmentTags.clear();
@@ -688,6 +692,8 @@ async function switchVendor(vendor, targetTab = null) {
   dashboardSyncEpycGuide();
   dashboardSyncXeonGuide();
   dashboardSyncGh200Guide();
+  dashboardSyncAmpereGuide();
+  dashboardSyncBenchmarkTabs();
   dashboardStateChanged();
 }
 
@@ -723,11 +729,23 @@ function switchTech(tab) {
 
 function dashboardIsEpycGuideOpen() { return dashboardGuideOpen; }
 
+/** Every dashboard entry opens the same unfiltered benchmark explorer. */
+function dashboardSyncBenchmarkTabs() {
+  for (const id of ['epycBenchmarkTab', 'xeonBenchmarkTab', 'gh200BenchmarkTab', 'ampereBenchmarkTab']) {
+    const link = document.getElementById(id);
+    if (!link) continue;
+    link.href = 'benchmarks/';
+    link.setAttribute('aria-label', 'Open all benchmark results');
+    const helper = link.querySelector('.epyc-mode-helper');
+    if (helper) helper.textContent = 'All public benchmark results';
+  }
+}
+
 function dashboardEpycGuideEligible() {
   return currentVendor === 'amd' && a2Tab === 'epyc';
 }
 
-/** Keep the optional guide section scoped to AMD EPYC. The product DOM stays mounted. */
+/** Show the EPYC guide entry throughout AMD; the diagram itself stays on EPYC. */
 function dashboardSyncEpycGuide() {
   const nav = document.getElementById('epycModeNav');
   const panel = document.getElementById('epycGuidePanel');
@@ -736,15 +754,25 @@ function dashboardSyncEpycGuide() {
   if (!eligible) dashboardGuideOpen = false;
   const open = eligible && dashboardGuideOpen;
   if (!open) dashboardClearEpycTerms();
-  nav.hidden = !eligible;
+  nav.hidden = currentVendor !== 'amd';
+  nav.setAttribute('aria-label', 'AMD products and EPYC 9005 architecture guide');
   panel.hidden = !open;
   document.body.classList.toggle('epyc-guide-open', open);
   const productTab = document.getElementById('epycProductsTab');
   const guideTab = document.getElementById('epycGuideTab');
+  const productHelper = productTab?.querySelector('.epyc-mode-helper');
+  if (productHelper) productHelper.textContent = {
+    epyc: 'EPYC series & specifications',
+    ryzen: 'Ryzen processors & specifications',
+    gpu: 'AMD GPUs & specifications'
+  }[a2Tab] || 'AMD products & specifications';
+  const guideHelper = guideTab?.querySelector('.epyc-mode-helper');
+  if (guideHelper) guideHelper.textContent = 'EPYC 9005 diagrams & explanations';
   productTab?.classList.toggle('active', !open);
   guideTab?.classList.toggle('active', open);
-  productTab?.setAttribute('aria-selected', String(!open));
-  guideTab?.setAttribute('aria-selected', String(open));
+  productTab?.setAttribute('aria-pressed', String(!open));
+  guideTab?.setAttribute('aria-pressed', String(open));
+  dashboardSyncBenchmarkTabs();
 }
 
 function dashboardOpenEpycGuide(requestedDiagram = null) {
@@ -941,7 +969,7 @@ function dashboardXeonGuideEligible() {
 
 function dashboardIsXeonGuideOpen() { return dashboardXeonGuideOpen; }
 
-/** Keep the Xeon guide on the Intel Xeon product line while retaining product state. */
+/** Show the Xeon guide entry throughout Intel; the diagram itself stays on Xeon. */
 function dashboardSyncXeonGuide() {
   const nav = document.getElementById('xeonModeNav');
   const panel = document.getElementById('xeonGuidePanel');
@@ -949,15 +977,25 @@ function dashboardSyncXeonGuide() {
   const eligible = dashboardXeonGuideEligible();
   if (!eligible) dashboardXeonGuideOpen = false;
   const open = eligible && dashboardXeonGuideOpen;
-  nav.hidden = !eligible;
+  nav.hidden = currentVendor !== 'intel';
+  nav.setAttribute('aria-label', 'Intel products and Xeon 6 architecture guide');
   panel.hidden = !open;
   document.body.classList.toggle('xeon-guide-open', open);
   const productTab = document.getElementById('xeonProductsTab');
   const guideTab = document.getElementById('xeonGuideTab');
+  const productHelper = productTab?.querySelector('.epyc-mode-helper');
+  if (productHelper) productHelper.textContent = {
+    xeon: 'Xeon series & specifications',
+    client: 'Intel Client products & specifications',
+    graphics: 'Intel Graphics products & specifications'
+  }[v2Tab] || 'Intel products & specifications';
+  const guideHelper = guideTab?.querySelector('.epyc-mode-helper');
+  if (guideHelper) guideHelper.textContent = 'Selected Xeon 6 diagrams & explanations';
   productTab?.classList.toggle('active', !open);
   guideTab?.classList.toggle('active', open);
-  productTab?.setAttribute('aria-selected', String(!open));
-  guideTab?.setAttribute('aria-selected', String(open));
+  productTab?.setAttribute('aria-pressed', String(!open));
+  guideTab?.setAttribute('aria-pressed', String(open));
+  dashboardSyncBenchmarkTabs();
 }
 
 function dashboardXeonFrameUrl() {
@@ -1019,7 +1057,7 @@ function dashboardGh200GuideEligible() {
   return currentVendor === 'nvidia' && n2Tab === 'cpu';
 }
 
-/** Show the GH200 atlas beside the NVIDIA CPU products without replacing their state. */
+/** Show the GH200 guide entry throughout NVIDIA; the diagram itself stays on CPU. */
 function dashboardSyncGh200Guide() {
   const nav = document.getElementById('gh200ModeNav');
   const panel = document.getElementById('gh200GuidePanel');
@@ -1027,15 +1065,76 @@ function dashboardSyncGh200Guide() {
   const eligible = dashboardGh200GuideEligible();
   if (!eligible) dashboardGh200GuideOpen = false;
   const open = eligible && dashboardGh200GuideOpen;
-  nav.hidden = !eligible;
+  nav.hidden = currentVendor !== 'nvidia';
+  nav.setAttribute('aria-label', 'NVIDIA products and GH200 architecture guide');
   panel.hidden = !open;
   document.body.classList.toggle('gh200-guide-open', open);
   const productTab = document.getElementById('gh200ProductsTab');
   const guideTab = document.getElementById('gh200GuideTab');
+  const productHelper = productTab?.querySelector('.epyc-mode-helper');
+  if (productHelper) productHelper.textContent = {
+    datacenter: 'Data Center GPUs & platforms',
+    geforce: 'GeForce GPUs & specifications',
+    cpu: 'NVIDIA CPUs & superchips'
+  }[n2Tab] || 'NVIDIA products & specifications';
+  const guideHelper = guideTab?.querySelector('.epyc-mode-helper');
+  if (guideHelper) guideHelper.textContent = 'GH200 Grace Hopper diagrams & definitions';
   productTab?.classList.toggle('active', !open);
   guideTab?.classList.toggle('active', open);
-  productTab?.setAttribute('aria-selected', String(!open));
-  guideTab?.setAttribute('aria-selected', String(open));
+  productTab?.setAttribute('aria-pressed', String(!open));
+  guideTab?.setAttribute('aria-pressed', String(open));
+  dashboardSyncBenchmarkTabs();
+}
+
+function dashboardSyncAmpereGuide() {
+  const nav = document.getElementById('ampereModeNav');
+  const panel = document.getElementById('ampereGuidePanel');
+  if (!nav || !panel) return;
+  const open = currentVendor === 'ampere' && dashboardAmpereGuideOpen;
+  nav.hidden = currentVendor !== 'ampere';
+  panel.hidden = !open;
+  document.body.classList.toggle('ampere-guide-open', open);
+  const productTab = document.getElementById('ampereProductsTab');
+  const guideTab = document.getElementById('ampereGuideTab');
+  productTab?.classList.toggle('active', !open);
+  guideTab?.classList.toggle('active', open);
+  productTab?.setAttribute('aria-pressed', String(!open));
+  guideTab?.setAttribute('aria-pressed', String(open));
+  dashboardSyncBenchmarkTabs();
+}
+
+function dashboardOpenAmpereGuide() {
+  if (currentVendor !== 'ampere') return false;
+  if (!dashboardAmpereGuideOpen) dashboardAmpereGuidePreviousScroll = window.scrollY;
+  dashboardAmpereGuideOpen = true;
+  dashboardSyncAmpereGuide();
+  const frame = document.getElementById('ampereGuideFrame');
+  if (frame && !frame.hasAttribute('src')) frame.src = 'architecture/ampere/index.html?embedded=1';
+  dashboardStateChanged();
+  const nav = document.getElementById('ampereModeNav');
+  if (nav && nav.getBoundingClientRect().top < -80) nav.scrollIntoView({block: 'start'});
+  return true;
+}
+
+function dashboardCloseAmpereGuide() {
+  if (!dashboardAmpereGuideOpen) return;
+  dashboardAmpereGuideOpen = false;
+  dashboardSyncAmpereGuide();
+  dashboardStateChanged();
+  requestAnimationFrame(() => window.scrollTo({top: dashboardAmpereGuidePreviousScroll}));
+}
+
+function dashboardAmpereGuideReceiveMessage(event) {
+  const frame = document.getElementById('ampereGuideFrame');
+  if (!frame || event.source !== frame.contentWindow) return;
+  if (location.protocol === 'file:') {
+    if (event.origin !== 'null' && event.origin !== location.origin) return;
+  } else if (event.origin !== location.origin) return;
+  if (event.data?.type !== 'ampere-atlas:height') return;
+  const height = Number(event.data.height);
+  if (Number.isFinite(height) && height >= 300 && height <= 20000) {
+    frame.style.height = `${Math.ceil(height)}px`;
+  }
 }
 
 function dashboardOpenGh200Guide(requestedView = null) {
@@ -1124,7 +1223,8 @@ function dashboardReadUrlState() {
     xeonRoute: dashboardXeonRoute(params.get('diagram'), params.get('mode')),
     gh200Guide: params.get('panel') === 'guide' && params.get('guide') === 'gh200',
     gh200View: DASHBOARD_GH200_VIEWS.has(params.get('diagram'))
-      ? params.get('diagram') : 'superchip'
+      ? params.get('diagram') : 'superchip',
+    ampereGuide: params.get('panel') === 'guide' && params.get('guide') === 'ampere'
   };
 }
 
@@ -1163,6 +1263,9 @@ function dashboardWriteUrl() {
     params.set('panel', 'guide');
     params.set('guide', 'gh200');
     params.set('diagram', dashboardGh200GuideView);
+  } else if (dashboardAmpereGuideOpen && currentVendor === 'ampere') {
+    params.set('panel', 'guide');
+    params.set('guide', 'ampere');
   }
   const next = `${window.location.pathname}?${params.toString()}`;
   window.history.replaceState(null, '', next);
@@ -1187,12 +1290,15 @@ async function dashboardApplyUrlState(state) {
   dashboardSyncEpycGuide();
   dashboardSyncXeonGuide();
   dashboardSyncGh200Guide();
+  dashboardSyncAmpereGuide();
   if (state.guide && dashboardEpycGuideEligible()) {
     dashboardOpenEpycGuide(state.diagram);
   } else if (state.xeonGuide && dashboardXeonGuideEligible()) {
     dashboardOpenXeonGuide(state.xeonRoute.view, state.xeonRoute.mode);
   } else if (state.gh200Guide && dashboardGh200GuideEligible()) {
     dashboardOpenGh200Guide(state.gh200View);
+  } else if (state.ampereGuide && currentVendor === 'ampere') {
+    dashboardOpenAmpereGuide();
   }
 }
 
@@ -2024,6 +2130,7 @@ function dashboardRestoreSelectedRows() {
 
 function setupRowSelectionHandlers() {
   document.addEventListener('click', event => {
+    if (event.target.closest('.bt-cell a')) return;
     const row = event.target.closest('.cpu-spec-table tbody tr[data-search]');
     if (!row) return;
     const record = dashboardRowRecord(row);
@@ -2606,20 +2713,35 @@ initDomCache();
 
 (function wireEpycGuide() {
   document.getElementById('epycProductsTab')?.addEventListener('click', dashboardCloseEpycGuide);
-  document.getElementById('epycGuideTab')?.addEventListener('click', () => dashboardOpenEpycGuide());
+  document.getElementById('epycGuideTab')?.addEventListener('click', () => {
+    if (a2Tab !== 'epyc') a2Switch('epyc');
+    dashboardOpenEpycGuide();
+  });
   window.addEventListener('message', dashboardGuideReceiveMessage);
 })();
 
 (function wireXeonGuide() {
   document.getElementById('xeonProductsTab')?.addEventListener('click', dashboardCloseXeonGuide);
-  document.getElementById('xeonGuideTab')?.addEventListener('click', () => dashboardOpenXeonGuide());
+  document.getElementById('xeonGuideTab')?.addEventListener('click', async () => {
+    if (v2Tab !== 'xeon') await v2Switch('xeon');
+    dashboardOpenXeonGuide();
+  });
   window.addEventListener('message', dashboardXeonGuideReceiveMessage);
 })();
 
 (function wireGh200Guide() {
   document.getElementById('gh200ProductsTab')?.addEventListener('click', dashboardCloseGh200Guide);
-  document.getElementById('gh200GuideTab')?.addEventListener('click', () => dashboardOpenGh200Guide());
+  document.getElementById('gh200GuideTab')?.addEventListener('click', () => {
+    if (n2Tab !== 'cpu') n2Switch('cpu');
+    dashboardOpenGh200Guide();
+  });
   window.addEventListener('message', dashboardGh200GuideReceiveMessage);
+})();
+
+(function wireAmpereGuide() {
+  document.getElementById('ampereProductsTab')?.addEventListener('click', dashboardCloseAmpereGuide);
+  document.getElementById('ampereGuideTab')?.addEventListener('click', dashboardOpenAmpereGuide);
+  window.addEventListener('message', dashboardAmpereGuideReceiveMessage);
 })();
 
 // Narrow screens collapse the filter sidebar behind a disclosure button.

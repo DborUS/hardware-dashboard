@@ -3,11 +3,323 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-09-30 (GH200 guide and public beta 0.0.4 preparation)
+**Last updated:** 2026-10-07 (compact benchmark score column)
 **Current version:** Public beta 0.0.4
 **Previous release:** Public beta 0.0.3 (`fdf51f1`)
-**Health:** Good — full dashboard smoke test, GH200 browser and responsive review,
-and JavaScript syntax checks pass without errors.
+**Health:** October 7 captures hold 3,862 linked public results for 697 of
+2,393 catalog products. SPEC contributes 3,642 system reports across reviewed
+CPU2017/CPU2026 rate cohorts; MLPerf contributes 46 SUT results; Blender
+contributes 174 medians. Offline source replay, catalog and registry checks,
+46 importer/refresh regression tests, benchmark browser smoke, full dashboard
+smoke and layout audit pass locally. Benchmark previews show no JavaScript
+errors or horizontal overflow at 1440, 1024, 390 and 320px. Local validation does not establish the hosted workflow outcome.
+Existing dashboard small controls and sidebar clipping were observed in the
+layout audit. The benchmark page now also shows catalog CPU specifications
+for all 645 scored CPU models; the latest benchmark and dashboard smoke tests
+pass after this addition.
+
+## 2026-10-07 — Add benchmark update to What's new
+
+The dashboard's visible What's new history now leads with an October 7 entry
+about the selected public benchmark results and the all-manufacturer entry
+links and the compact CPU table score. Public beta 0.0.4 remains the
+displayed version; this change does not claim the pending release is live.
+Visitor copy stays in the pending update queue until publication is confirmed.
+
+## 2026-10-07 — Integrate benchmarks into product views
+
+Products, Architecture guide, and Benchmarks now sit together in vendor-local
+navigation for AMD, Intel, NVIDIA, and Ampere. Every vendor Benchmarks tab
+opens the default explorer with all manufacturers and no preset product line,
+suite or CPU count. A CPU table score instead opens its exact model, test,
+build and tested CPU count. The benchmark page links back to the current
+product view, with a vendor/spec fallback for direct shared links. Ampere's architecture tab
+opens a clear coming-soon guide in the dashboard, without an invented diagram.
+
+CPU specification tables keep their original columns and append one compact
+Benchmark column. Server CPU rows show a shorthand SPEC test, exact build,
+tested CPU count and one score from a published system report; client CPU
+rows show the Blender 5.2.0 mixed-compute rendering median. The score link
+opens that model and test in the benchmark explorer. The generated index
+covers 645 exact catalog CPU models and does not imply that a SPEC system
+score is intrinsic to the CPU. Missing cells mean no result in the retained
+snapshots. Its builder is part of refresh rollback, read-only checks and CI
+validation. The dashboard smoke check verifies unfiltered vendor tabs and
+model-specific score links. Direct shareable explorer URLs still restore
+selected filters. The catalog builder now locates Product ID by its named
+header, so the appended Benchmark column does not alter catalog identity.
+
+Current checks passed: all 516 featured SPEC scores and source URLs match the
+selected lower-middle published system report; generated index `--check`;
+benchmark validation and refresh `--check`; dashboard browser smoke with no
+JavaScript errors. An EPYC 9755 score link opened its 2026 integer v0.902.0
+one-CPU model view at score 497. The new end column stays one line per row.
+Earlier release checks also passed: generated index `--check`, benchmark source/catalog validation,
+SKU order, benchmark browser smoke, dashboard browser smoke, refresh `--check`,
+12 refresh transaction tests, and layout audit (no page overflow at tested
+widths). Browser review confirmed the Ampere guide, a linked SPEC product
+coverage result, and the return to Ampere specifications. Changes remain local;
+no commit, PR, or deployment was made.
+
+---
+
+## 2026-10-07 — Audit enterprise benchmark score interpretation
+
+Verified the SPEC CPU2026 Integer Rate v1.0.1 two-CPU source cache against
+official report hashes and live ASUS, Compal, and Supermicro disclosures.
+The 90 imported system reports represent 48 exact catalog CPU models in
+this cohort. Linked Base scores match their disclosures. The chart ranks
+one lower-middle report per model, so its order is a ChipIndex editorial
+view rather than SPEC's system-report order or intrinsic CPU performance.
+The page now labels the model chart and imported report list accordingly.
+Benchmark validation, raw-cache replay, benchmark browser smoke, and full
+dashboard smoke pass. Three importer unit cases that create temporary
+workspace directories could not complete under the restricted runner
+because that tmp directory denied writes.
+
+---
+
+## 2026-10-07 — Clarify SPEC Rate versus Speed
+
+The enterprise workload choices now name Integer Rate and Floating-point Rate and display the exact SPECrate metric. The chart summary uses the metric key, and the workload description notes that SPECspeed is a separate single-task test on a different scale. This addresses confusion caused by comparing the dashboard throughput chart with the official SPEC Integer Speed search table. No scores or source rows changed. Benchmark and dashboard smoke checks passed locally.
+
+---
+
+## 2026-10-07 — Catalog CPU specs beside benchmark scores
+
+The generated benchmark catalog projects CPU core, clock and applicable power
+labels from each product's exact dashboard source record. It covers 1,988 CPU
+products, including all 645 scored CPU models. Every scored CPU has a core
+label; 644 have clock information. GPU records carry no CPU specs.
+
+The benchmark page displays these as Catalog CPU specs in ranked results,
+model tables, focus and peer cards, selected comparisons, and product coverage.
+Chart labels stay short; accessible chart names include the specs. Links open
+the matching product dashboard entry. Published model specifications remain
+separate from SPEC system CPU count and enabled cores, which may differ from
+nominal model cores. Intel client P/E clocks and base/max turbo power stay
+distinct. Ampere frequency is not mislabeled base/boost; measured usage power
+is not TDP. NVIDIA GB10 shows CPU-component cores without inventing a CPU
+clock or assigning whole-package power to the CPU.
+
+Checks passed: regenerated catalog and offline source replay, benchmark browser
+smoke with exact source-backed AMD/Intel/NVIDIA examples and 320px layout,
+full dashboard smoke, SKU ordering, and layout audit. The owner still handles
+commit and publication under CLAUDE.md.
+
+---
+
+## 2026-10-07 — Benchmark production release candidate
+
+The source import now searches available SPEC rate-result archives for exact
+enterprise catalog CPUs. CPU2017 keeps two latest system disclosures per
+model/CPU count plus prior verified reports; CPU2026 imports all reviewed
+matched reports. 2017 uses SPEC-supported v1.0/v1.1 compatibility. 2026's
+four test builds are separate filters, URL states and score scales. A narrowly
+verified NVIDIA GB10 alias imports CPU-component reports for DGX Spark only.
+Page rankings load 100 reports at a time; the chart shows top 25 model
+representatives with Show all, search, table and source access preserved.
+The workbench stays inactive until the snapshot and shared URL have loaded, so
+an early click cannot replace a saved view.
+
+MLPerf v6.0 now has 23 system submissions in each Server/Offline scenario,
+seven catalog accelerators. Blender 5.2.0 has 129 CPU and 45 GPU medians.
+Three importers support source-hashed retained input replay and explicit
+online fetch; the coordinator backs up the snapshots and evidence before an
+update and restores them if catalog or validation fails. `--check` works
+without the large ignored SPEC HTML cache or network. The source directory
+shows per-dataset count, scope and capture date; the retained registry also
+records byte sizes and SHA-256 hashes. A visible coverage notice links to the
+directory, and stale dates are called out.
+
+The owner confirmed no PassMark public-display grant. Its standard subscription
+restricts public benchmark ranking sites. OpenBenchmarking access/reuse remain
+unverified (public requests returned 403), so both stay disconnected and their
+status is disclosed. Source policy and comparison rules are in
+`docs/BENCHMARK-PROGRAM.md`; schema and maintenance commands are in
+`docs/DATA-SCHEMA.md` and `README.md`. `.github/workflows/benchmark-validation.yml`
+provides read-only PR/push/manual gates, never a scheduled feed or publisher.
+Do not commit or push from the sandbox; the owner reviews these files before
+publication. Pending visitor copy remains in `docs/UPDATE-QUEUE.md`.
+
+---
+
+
+## 2026-10-07 — Benchmark review: client segments, labels and compact filters
+
+Client CPU results offer All client, Desktop and Laptop views. All 112 CPU
+records now carry `deviceSegments` and `deviceSegmentSource` from retained AMD
+Form Factor / Intel ARK Vertical Segment fields. The counts are 82 desktop and
+49 laptop, with 19 AMD models explicitly listed for both; 63 desktop-only and
+30 laptop-only. The UI explains the overlap and that Blender medians pool
+submitted systems, rather than distinguishing actual laptop/desktop test runs.
+Future unknown or conflicting classifications remain under All with an explicit
+unavailable source status. Import replay and snapshot validation re-read official
+fields. Segments scope the chart, table, reports, core/vendor filters, comparison
+and share URL (`segment=desktop|laptop`); changing segment clears old selections
+and filters. Single-option Blender settings are hidden, with the version and
+compute grouping retained beside the score.
+
+Client and graphics descriptions now sit above a horizontal filter toolbar,
+removing the empty column beside a tall stack of controls. AI scenario choices
+use Request stream / Batch processing with official Server / Offline names below;
+scenario identities, result attribution and URLs retain the official names.
+Manufacturer options include disabled catalog vendors without imported results,
+with a note explaining the selected snapshot's coverage. There are public NVIDIA
+CPU reports, including an Arm-sponsored one-CPU GB10 SPEC2026 report
+(`https://ftp.spec.org/cpu2026/results/res2026q2/cpu2026-20260210-00020.html`),
+but the current exact-name-matched SPEC snapshots contain no NVIDIA CPU results.
+This pass does not import that report or add scores. All 932 records, 277 scored
+catalog products, and September 30 capture dates are unchanged.
+
+Validation: Blender replay, snapshot and registry checks pass. Catalog output is
+byte-identical (2,393 products / 2,414 placements / 277 scored); verification used
+an in-memory threaded server because the stock single-thread catalog harness
+intermittently refuses concurrent script requests. Full dashboard smoke passes
+on rerun; layout audit completes with existing root-dashboard small controls and
+sidebar clipping. Desktop, 1024px, 390px and 320px benchmark previews show no page
+errors or horizontal overflow. Expanded benchmark smoke passes: segment counts,
+source score/link identity, chart/table cohorts, combined filters, comparison,
+URL reload/reset, invalid segment fallback, new scenario/vendor explanations,
+and existing malformed-data states, with no JavaScript errors. Publication
+remains pending in `docs/UPDATE-QUEUE.md`.
+
+---
+
+## 2026-10-07 — Benchmark explorer structure and source directory
+
+The benchmark page now uses the AMD page’s black/charcoal surfaces and dark red
+selection states. Its main flow is hardware type → workload → benchmark version.
+Workload choices explain general compute, scientific compute, AI inference, or
+rendering. The active score’s unit, direction, tested-system boundary, matched
+model/report counts, and Last updated date remain near the controls. Filters sit
+beside workload choices on desktop; 320–390px layouts stack without overflow.
+
+Explore results, Product coverage, and Benchmarks & sources are separate keyboard
+accessible sections. The collapsible model overview switches between a bar chart
+with actual score units and a table of the same source-linked representatives,
+report/submission counts, score ranges, and source links. Comparisons start empty;
+up to three selections can be inspected via View comparison. Filters, comparisons,
+baseline, display mode, and catalog selection survive URL sharing and reload.
+The preexisting two-model CPU evidence view and scrollable system reports remain
+available, with detailed conditions after the primary model chart.
+
+The generated `js/data/benchmark-sources.json` directory identifies SPEC, MLPerf,
+and Blender imported snapshots, and separately explains OpenBenchmarking/Phoronix
+and PassMark access status. Neither additional source is connected. The new
+`tools/refresh-benchmarks.py` provides status, registry generation/checks, existing
+SPEC online import replay, retained-export Blender rebuild, and MLPerf source
+audits. Validation failure restores the prior files. This pass leaves all 932
+records, 277 matched catalog products, and September 30 capture dates unchanged;
+it does not add a background updater or claim complete source coverage.
+
+Validation: snapshot validation, generated registry checks, importer replay,
+source-refresh rollback, and full dashboard smoke pass. The dashboard layout audit
+completed; existing small root-dashboard controls remain outside this change.
+The expanded benchmark smoke passes across all modes, chart/table source identity,
+keyboard interactions, section/source navigation, URL/clipboard round trips,
+attribution, malformed data, and 320px layouts. The test server now handles
+parallel requests to avoid intermittent missing snapshot loads. The comparison
+shortcut passed a focused check. Desktop/table/source screenshots and phone
+layouts were inspected, with no page errors or horizontal overflow. Visitor-facing publication remains pending in `docs/UPDATE-QUEUE.md`.
+
+---
+
+## 2026-10-05 — Architecture guide discovery across product tabs
+
+The Products / Architecture guide navigation is now visible on every AMD,
+Intel, and NVIDIA product-line tab. The guide label names its scope: EPYC 9005,
+selected Xeon 6, or GH200. Selecting a guide from another product line switches
+to EPYC, Xeon, or NVIDIA CPU first, then opens the existing embedded atlas.
+The guide panel and shareable route remain scoped to the corresponding product
+line. The Products helper follows the active product line. The updated script
+cache key ensures the change appears after deployment. Focused browser checks
+passed for six cross-tab guide entries at 1440, 390, and 320px, including URL
+reload and Products navigation. Full dashboard smoke and layout audit pass;
+the layout audit still reports existing small controls and clipped sidebar
+labels. Changes are local and pending publication in `docs/UPDATE-QUEUE.md`.
+
+---
+
+## 2026-09-30 — Expanded OEM platform compatibility
+
+The local compatibility snapshot now has 224 distinct catalog CPU identities,
+43 named systems, 749 exact CPU-to-system links, and 68 official source records
+across Lenovo, HPE, Dell, Cisco, GIGABYTE, and HP Inc. The added systems span
+rack servers, a multi-node compute sled, GPU servers, laptops, desktops, and
+workstations. The compact 14px server icon stays beside the CPU model in the
+existing spec table; table font and row dimensions are unchanged. Platform
+details show socket and memory layout, physical form/size where sourced,
+market or product code for fixed client configurations, and prominent OEM
+configuration limits.
+
+`docs/platforms/COVERAGE.md` and `ELIGIBILITY.json` define the current server
+generation set: 272 catalog CPU identities, of which 208 have at least one
+exact OEM system edge in this selected snapshot (AMD EPYC 77/115, Intel Xeon
+124/140, AmpereOne 7/13, NVIDIA CPU modules 0/4). The 64 remaining identities
+are unverified here, not known to be incompatible. Client and workstation
+queues still need an OEM-inventory-based eligibility denominator. The
+snapshot is a selective research index, not a complete compatibility matrix.
+
+Four pinned research candidates feed `tools/build-platform-snapshot.py` under
+`docs/platforms/PUBLICATION-MANIFEST.json`. Independent second-review notes
+cover Lenovo, HPE, Dell, and client examples. Lenovo's 182 Intel rows retain
+their exact SKU/system edge but do not assert CPU-count availability while the
+configuration context is unresolved. Fourteen Dell candidate edges remain
+held, including cooling and source-access questions; only 22 reviewed Dell
+expansion edges enter the snapshot. HP's fixed regional client product codes
+remain labelled as fixed configurations. Candidate rows are never published
+automatically after a source file changes: the manifest pins their hashes.
+
+`tools/build-platform-snapshot.py --check`, `tools/build-platform-coverage.py
+--check`, and `tools/check-platforms.py` pass. The focused platform browser
+check, full dashboard smoke, and general layout audit pass with no JavaScript
+errors or document overflow. The platform browser check also verifies 9575F,
+the newer HPE cooling note, an HP fixed laptop configuration, icon and table
+row dimensions, phone dialogs, and comparison isolation. Screenshots were
+visually reviewed at desktop and 390px phone widths. The layout audit still
+reports existing clipped desktop sidebar text and small controls; at 320px,
+the spec table correctly scrolls inside its container. Changes are local,
+uncommitted, and pending publication; the visitor note remains in
+`docs/UPDATE-QUEUE.md`.
+
+Next: verify more OEM system lists for the 64 unmapped contemporary server
+identities, adjudicate held thermal and quantity cases, expand current client
+and workstation families beyond the initial nine added systems, and establish
+an OEM source-refresh cadence.
+
+---
+
+## 2026-09-30 — Client CPU and graphics benchmark expansion
+
+The Blender Open Data 5.2.0 snapshot now has 156 exact catalog matches from
+its official grouped device-name export: 112 client CPUs and 44 graphics
+products, up from 4 and 10. The CPU results include laptop-class models such
+as Ryzen 9 9955HX and Core Ultra 9 290HX Plus. The importer requires at least
+five submissions, a unique model match, and an exact catalog core count for
+CPUs. It retains the 858-row source export and an exclusion audit. Nineteen
+qualifying laptop GPU labels remain excluded because ChipIndex's GeForce
+catalog does not list corresponding laptop SKUs; ambiguous memory variants
+also remain unscored. The score means Blender rendering throughput, not an
+overall CPU, gaming, or AI performance rating.
+
+The benchmark page now says which workload each product view uses, links the
+client and graphics test guide to Blender, and explains selected snapshot
+coverage and laptop system variation. For the larger Blender cohorts, the
+horizontal bar chart starts with the top 25 models and can expand to all;
+search and the full scrollable ranking still expose every matched result.
+The catalog now reports 277 products with any selected result out of 2,393.
+
+`tools/import-blender-benchmarks.py --check`, `tools/check-benchmarks.py`,
+`tools/build-benchmark-catalog.py --check`, `tools/smoke-benchmarks.py`, and
+the full `tools/smoke-test.py` pass. The catalog builder now waits for the
+asynchronous AMD renderer before reading its rows. The general layout audit
+still reports dashboard clipping and small controls, then times out on an
+Ampere card; the benchmark smoke check verifies the 320px layout and finds no
+page overflow or JavaScript errors. Changes are local and pending publication;
+the visitor update remains in `docs/UPDATE-QUEUE.md`.
+
+---
 
 ## 2026-09-30 — GH200 guide and dated public beta history
 
@@ -26,6 +338,385 @@ Browser review covered desktop and 320–390px widths, diagram navigation,
 definitions, source links, product return, and the update history. The full
 dashboard smoke test passed without JavaScript errors. Benchmark and OEM
 platform work is still local and outside this release.
+
+---
+
+## 2026-09-30 — Model-first benchmark evidence expansion
+
+The enterprise benchmark view now starts with a searchable CPU model picker.
+For the selected SPEC release, metric, and one- or two-CPU system cohort, it
+shows the lower-middle source-linked system result among that model's listed
+reports, the report count and score range, the tested configuration, and a
+peer ratio linked to both official disclosures. That number is one published
+server result, not a processor average. The collapsible model chart uses the
+same selected report; the scrollable ranking keeps every system disclosure.
+The page asks what workload the user wants to compare and explains the test in
+plain language. It retains the datacenter accelerator, client CPU, and
+graphics views.
+
+`tools/import-spec-benchmarks.py` imports fixed official publication windows:
+CPU 2026 Q2 2026 and CPU 2017 Q4 2025, plus previously verified disclosures
+outside those windows. Each accepted score is checked against its own official
+report. The 2026 integer and floating-point snapshots each contain 49 reports
+across 18 models, with 21 one-CPU and 28 two-CPU reports. CPU 2017 integer
+contains 336 reports across 108 models (147 one-CPU, 189 two-CPU); floating
+point has 310 across 106 (141, 169). The generated catalog now has 115 scored
+enterprise CPUs and 135 scored products overall. CPU 2026 v0.902.0 is kept
+separate from newer builds; CPU 2017 uses the reviewed v1.1.8/v1.1.9 group.
+The 96 exclusions in `tools/spec-import-review.json` are 59 four-CPU rows,
+35 CPU 2026 build mismatches, and two ambiguous model matches. The page
+labels this as a selected ChipIndex snapshot and links to the full SPEC
+indexes; missing results never imply zero performance.
+
+The official-source import replay, benchmark validator, catalog rebuild
+check, benchmark browser smoke, full dashboard smoke, and responsive layout
+audit pass. UI checks cover model search, linked representative and peer
+reports, score range, chart, filters, failure states, and 320px phone layout.
+The pending visitor update is
+in `docs/UPDATE-QUEUE.md`. Changes are local and not committed or published.
+The layout audit still notes existing clipped sidebar text and a few undersized
+dashboard controls at some widths, with no page overflow.
+
+---
+
+## 2026-09-30 — OEM platform compatibility pilot
+
+Added a separate source-backed CPU-to-OEM-platform dataset and a compact server
+icon beside model names in CPU spec tables. Search for `9575F`, open its
+spec table, then choose the icon for an OEM summary and expandable named
+system cards. Each card shows available chassis socket count, memory channels
+per CPU, physical form, size, exact CPU-count/option restrictions, and the
+official evidence. The icon does not select the CPU for comparison. CPU
+rows without a researched match say so explicitly rather than implying
+incompatibility.
+
+The local seed has 12 catalog CPU identities, 14 platform models, 22 exact
+links, and 17 official sources across Lenovo, HPE, Dell, Cisco, GIGABYTE,
+and HP. EPYC 9575F has eight sourced systems across four OEMs. Other examples
+include EPYC 9554, Xeon 6787P, seven AmpereOne X SKUs on one Gigabyte
+system, an HP Ryzen AI laptop configuration, and a Lenovo Core Ultra tiny
+desktop. Cisco and HP links are labelled as OEM-published fixed
+configurations rather than interchangeable CPU options. The seven Gigabyte
+QVL CPU rows were directly verified in an interactive browser on 2026-09-30;
+the dynamic table is not exposed by a plain-text page fetch. The source's
+displayed update date is June 28, 2026. The check is recorded in
+`docs/platforms/AMPERE-RESEARCH.md`.
+
+`docs/PLATFORM-COMPATIBILITY-PLAN.md` sets the Genoa-era server floor,
+contemporary Intel/Ampere/NVIDIA and client scope, evidence gates, OEM
+research workflow, and coverage metrics. `tools/check-platforms.py` validates
+catalog identity joins, exact edges, references, and source domains. The
+pilot remains deliberately sparse: an eligible-CPU denominator and broad OEM
+inventory still need the next research phase. `docs/platforms/SOURCES.md`
+is the source ledger. The visitor update is pending in
+`docs/UPDATE-QUEUE.md`; no changes have been committed or published.
+
+Validation so far: platform validator, JavaScript syntax checks, SKU order,
+full dashboard smoke, and responsive layout audit pass. The layout audit
+still reports pre-existing small filter touch targets and clipped sidebar
+copy on some desktop views, with no page overflow. A focused platform browser
+check covers the exact CPU path, comparison isolation, source expansion,
+client/Ampere examples, and 390/320px dialog width.
+
+After review of the first UI pass, the text action was replaced by a 14px
+server icon. Browser measurements show the original model font and the same
+31px desktop / 27px phone spec-row heights with the icon present; it adds only
+18px to the model column. The focused browser test passes with explicit
+row-height and width regression checks. A later full dashboard smoke run had
+no JavaScript errors but failed three release-copy assertions that still
+expect public beta 0.0.3 while the page now identifies 0.0.4.
+
+---
+
+## 2026-09-30 — GH200 inline term definitions
+
+Final standalone-guide review: NVIDIA architecture sources support the GH200,
+Grace, and full GH100 claims. Citation locators now cover the Grace core/cache
+table and the H100 NVLink discussion; the superchip diagram says "processor
+dies" to distinguish the CPU and GPU from their DRAM packages. Keyboard view
+switches retain focus, keyboard selection moves focus to the selected-part
+explanation, and the Hopper inset's SM targets are 56 × 44 px. The three
+views render at phone through desktop widths without script errors or page
+overflow. The guide remains an untracked local directory and has no entry
+point from the dashboard's NVIDIA section; publishing it within ChipIndex
+requires including that directory and adding a dashboard link. The broader
+dashboard smoke flow still has the unrelated hidden-EPYC-subtab issue below.
+
+The standalone `architecture/gh200/` guide now underlines defined technical
+terms in the introduction, model notes, connection paths, scope text, source
+notes, and both selected-part explanation columns. Each link opens its short
+definition in the existing top-right notification style; SVG diagram labels
+remain component controls. Added terms for the Grace and Hopper hierarchy,
+cache levels, memory variants, GPU math units, and coherent interconnects.
+The per-view acronym keys now expose the same accessible controls.
+
+Term notifications stack without discarding earlier clicks. The newest card
+shows its explanation, older cards compact, and an earlier-term control can
+retrieve hidden cards. Each card has an independent 15-second progress ring,
+countdown, close control, and keyboard dismissal. The stack fits phone
+screens and can follow the visible portion of an embedded iframe. Inline
+links and selected-part notes were checked in all three views, including a
+390px phone viewport; the guide reported no browser errors. The visitor
+update remains pending in `docs/UPDATE-QUEUE.md`. The full dashboard smoke
+run did not complete: it timed out clicking a hidden EPYC subtab in the
+dashboard flow, outside this standalone guide. Changes are local.
+
+---
+
+## 2026-09-30 — SPEC snapshot scope clarification
+
+The enterprise CPU rankings now label their row count as ChipIndex results
+and display a selected-sample note above the model chart. The note follows
+the SPEC suite, integer or floating-point test, and one- or two-CPU cohort;
+it links to the matching official full-results listing. It also explains
+that filters narrow the local sample and the same CPU can have multiple
+published system submissions. The model coverage label explicitly refers to
+distinct CPU models in the ChipIndex snapshot cohort.
+
+The four one-CPU CPU 2026 integer reports and six one-CPU CPU 2017 integer
+reports are curated ChipIndex selections, not the entire SPEC archives.
+[SPEC reports](https://www.spec.org/cpu2026/Docs/credits.html) over 51,000
+published CPU 2017 results across the suite as of April 2026; that number
+must not be described as an integer-rate total.
+Expand official-result coverage through the reviewed import path in
+`docs/BENCHMARK-PROGRAM.md`, counting submissions and matched chip models
+separately. The focused benchmark browser smoke passes across both suites,
+both metrics, one- and two-CPU cohorts, filters, official links, and phone
+width. The full dashboard smoke and layout audit pass. The visitor update
+remains pending in `docs/UPDATE-QUEUE.md`;
+changes are local for Daniel's review.
+
+---
+
+## 2026-09-30 — GH200 component explanations
+
+Expanded all 17 distinct selected-part definitions in the standalone
+`architecture/gh200/` field guide. They now explain the Grace core →
+SCF/cache → LPDDR5X route, Hopper SM → L2/controller → HBM route, and
+Grace ↔ Hopper coherent NVLink-C2C path. The copy distinguishes the full
+GH100 design from enabled H100 and GH200 products, and separates on-module
+C2C from optional peer-GPU NVLink. The component panel can show multiple
+targeted NVIDIA sources. Added a Grace memory-interface source, corrected
+the GH200 architecture article year to 2022, and added GH100/H100 to the
+Hopper acronym key.
+
+The current and launch-era NVIDIA documents give different memory-capacity
+figures, and their Grace L3 capacities conflict, so no unqualified capacity
+was added. All selectable concepts rendered their definitions and source
+links in the live three-view atlas. Desktop and 390px detail layouts showed
+no overflow. JavaScript syntax and the full dashboard smoke test passed with
+no browser errors. The visitor update remains pending in
+`docs/UPDATE-QUEUE.md`. Changes are local for Daniel's review.
+
+---
+
+## 2026-09-30 — Model score chart and core-range grips
+
+The benchmark page now opens with a collapsible, full-width vertical bar chart
+above Ranked results. It uses the current test, manufacturer, core range, and
+search filters. Each bar is the highest listed source-linked system or
+submission result for one distinct vendor/model; the 0–100% scale is relative
+to the highest model shown, and labels show actual scores. This does not turn
+system results into chip-only scores. Angled model names and horizontal
+scrolling keep the chart usable on phones. Activating a bar selects its exact
+underlying result for the existing comparison, while the ranking retains all
+individual records. The chart is expanded initially and can be collapsed.
+
+The CPU core-range control now uses slim squared grip handles in place of
+circles. The native 34px hit areas, endpoint alignment, keyboard control, and
+sourced core stops remain in place. The visitor update remains pending in
+`docs/UPDATE-QUEUE.md`. Focused browser checks cover chart data across SPEC,
+MLPerf, and Blender, collapse/reopen, score-axis alignment, selection and
+capacity feedback, 320px scrolling, and pointer/keyboard slider input. The
+full dashboard smoke and layout audit pass. Changes are local for Daniel's
+review.
+
+---
+
+## 2026-09-30 — Scrollable rankings and chart polish
+
+Long Ranked results lists now scroll inside their chart panel, keeping the
+title, update date, result count, explanation, and percentage axis visible.
+An overflow cue appears only when scrolling is needed; the scroll region is
+keyboard focusable in that state. Search and cohort changes return the list
+to its top, while comparison actions preserve its position and focus. Short
+result lists retain their natural height.
+
+The core-range slider now matches the dashboard's flat track and knob style:
+the rail and thumb centers align, the extra cyan glow is gone, and each knob
+keeps a 34px interaction area with a visible keyboard focus state. Ranked
+bars use flat fills without colored glow. A shared desktop score-column width
+aligns the chart's 0–100% axis with the bars, including a mobile adjustment.
+Focused browser checks covered the 16-row MLPerf Offline list, scrolling by
+keyboard, comparison selection, filters, short two-result cohorts, and phone
+overflow. The full dashboard smoke and layout audit also pass. The visitor
+update remains pending in `docs/UPDATE-QUEUE.md`.
+Changes are local for Daniel's review.
+
+---
+
+## 2026-09-30 — Benchmark manufacturer, core, and CPU-count filters
+
+The benchmark page now filters the selected test by chip manufacturer. The
+enterprise and client CPU views have a two-thumb core range that snaps to
+sourced counts. SPEC uses enabled cores per CPU from each tested system's
+disclosure; Blender client CPU rows use official product-specification counts
+from the matching dashboard models. The range is hidden in accelerator and
+graphics views. Filtering updates the coverage readout, ranked results,
+chart scale, and selected comparison together.
+
+Every SPEC 2026 and 2017 integer and floating-point snapshot now includes
+two exact, official two-CPU disclosures: one AMD and one Intel. The CPU-count
+selector offers 1 and 2, with separate cohorts and scales. Eight records were
+added, raising the curated snapshot total from 65 to 73 without changing the
+29 matched catalog products. The SPEC validator checks the source identities,
+version compatibility, CPU counts, enabled-core arithmetic, and exact model
+matches; the Blender core counts are checked against dashboard source specs.
+
+`tools/check-benchmarks.py`, `tools/build-benchmark-catalog.py --check`, and
+`tools/smoke-benchmarks.py` pass. The browser check covers both CPU counts,
+manufacturer and core filtering, all workload views, comparisons, source
+links, failure states, and 320px layout. Visual checks at 320px, 390px,
+768px, and 1440px found no overflow. The visitor update remains pending in
+`docs/UPDATE-QUEUE.md`; changes are local for Daniel's review.
+
+---
+
+## 2026-09-30 — Benchmark result recency and spacing
+
+The Ranked results heading now shows **Last updated** for the selected
+benchmark snapshot. It follows the current SPEC, MLPerf, or Blender view and
+uses that dataset's retrieval or capture date. Invalid snapshots show
+**Unavailable**. Its accessible description distinguishes ChipIndex's snapshot
+date from the publication date of an individual benchmark report.
+
+Spacing is moderately tighter across the benchmark hero, workload choices,
+filters, chart panels, catalog, and method section. At 320px the four workload
+choices use a two-column grid. Text sizes for scores and chart rows and control
+hit areas were preserved. The Ranked results panel begins about 115px sooner
+at 1440px and 286px sooner at 320px. Focused browser checks verified all eight
+test views and the unavailable state. The benchmark and full dashboard smoke
+tests passed. Desktop and phone visual checks found no horizontal overflow.
+An earlier full layout audit passed, while two reruns after the final badge
+type adjustment timed out waiting for the 320px Ampere architecture panel on
+the main dashboard. The audit also notes pre-existing small controls and
+clipped sidebar copy in some main-dashboard views.
+
+The visitor update remains pending in `docs/UPDATE-QUEUE.md`. Changes are
+local for Daniel's review; nothing was committed or published.
+
+---
+
+## 2026-09-30 — Datacenter benchmark expansion and catalog coverage
+
+The dedicated benchmark page now starts with datacenter CPUs and accelerators.
+Datacenter CPUs can switch between SPEC CPU 2026 and 2017, then integer and
+floating-point base-rate tests. Each test explains its workload; suites and
+metrics keep separate rankings, scales, and comparisons. The new CPU 2026
+snapshots contain four exact one-CPU system disclosures for each metric.
+Datacenter accelerators can switch between MLPerf® Inference v6.0 Server and
+Offline scenarios for a fixed Closed/Available Llama 2 70B 99% cohort. Each
+scenario retains 16 published whole-system, eight-accelerator SUT records
+across six exact ChipIndex SKUs, with result IDs, submitters, configurations,
+and official links. B300 awaits a separate catalog alias review. Client CPUs
+and graphics retain the selected Blender rendering views.
+
+The generated `js/data/benchmark-catalog.json` indexes every displayed
+non-roadmap specification row: 2,414 placements but 2,393 distinct source SKU
+identities. It collapses 15 repeat EPYC placements and six AMD SKUs shared
+between EPYC and Ryzen tabs, while preserving distinct product IDs for four
+same-name Ryzen variants. Its all-product lookup shows 29 products with a
+result in the current seven snapshots, search and product-type filters, exact
+score drilldowns, source links, and an explicit no-selected-result state.
+Commercial release status remains unverified. The 2,393-product denominator
+describes the dashboard index, not eligibility for any one benchmark.
+
+`tools/build-benchmark-catalog.py --check` rebuilds the index from rendered
+dashboard rows and verifies every source pointer. `tools/check-benchmarks.py`
+validates the seven snapshots, 65 records, exact catalog matches, cohort
+rules, and index counts. `tools/smoke-benchmarks.py` covers all benchmark
+switches, catalog counts and search, source links, ratios, malformed-data
+states, and 320px layout. These checks passed, as did the full dashboard
+smoke test, JavaScript syntax check, and responsive layout audit. The audit
+still notes pre-existing small touch targets and clipped sidebar copy on
+some dashboard views, with no horizontal overflow. Desktop and phone
+screenshots were reviewed; the catalog attribution spacing was corrected.
+
+The [benchmark program plan](BENCHMARK-PROGRAM.md) records source policy,
+coverage gaps, and the next milestones: broader official datacenter result
+ingestion, reviewed test-specific denominators, and deeper client/graphics
+coverage. The visitor update remains pending in `docs/UPDATE-QUEUE.md`.
+Changes are local and ready for Daniel's review; nothing was committed or
+published.
+
+---
+
+## 2026-09-30 — Enterprise benchmark metric selector
+
+The Enterprise CPUs view adds visible Integer throughput and Floating-point
+throughput buttons. Each has a brief explanation of its SPEC CPU 2017 workload:
+integer rate runs concurrent copies of 10 programs such as compilation,
+compression, and route planning; floating-point rate runs concurrent copies of
+13 programs such as fluid dynamics, molecular dynamics, and weather modeling.
+Higher scores mean more work completed per unit time. The views use separate
+scales and result lists; switching clears the current search and comparison.
+Client CPU and graphics views still show Blender rendering only, with an
+explanation of that test.
+
+`js/data/enterprise-benchmark-sample.json` has six one-CPU system results for
+`SPECrate2017_int_base`. The new
+`js/data/enterprise-benchmark-fp-sample.json` has five one-CPU system results
+for `SPECrate2017_fp_base`: two EPYC, two Xeon, and one Altra Max. No exact,
+source-verified floating-point result was found for AmpereOne A192-32X, so it
+remains unscored in that view. Integer and floating-point results for the same
+CPU can come from separate SPEC disclosures and different configurations,
+including SMT or memory changes. Each metric is compared only within its own
+CPU-count cohort; the chart describes tested systems, not intrinsic chip speed.
+
+The visitor update remains pending in `docs/UPDATE-QUEUE.md`. Browser checks
+confirmed six integer and five floating-point results, metric-specific source
+links and charts, comparison reset on metric change, the Blender views, and no
+horizontal overflow at 390px or 320px. The full `tools/smoke-test.py` passed
+with no JavaScript errors; `tools/audit-layout.py` completed. The latter
+continues to report existing small touch targets and clipped sidebar copy on
+some main-dashboard views, while reporting no horizontal overflow. Changes
+are ready for Daniel's review; nothing has been committed or published.
+
+---
+
+## 2026-09-29 — Public benchmarking prototype
+
+Added a dedicated `benchmarks/` page, linked from the product dashboard header.
+It follows the ChipIndex dark visual system and offers interactive, source-linked
+rankings and three-model comparisons with a selectable baseline. The follow-up
+adds an enterprise CPU view for published SPEC CPU 2017
+SPECrate2017_int_base system results beside the original client CPU and GPU
+Blender views. Visitors can search within each group. Returning to Products
+restores the previous dashboard URL, including vendor, tab, and filter state.
+
+Enterprise scores are tested-system throughput results, not isolated processor
+performance claims. The sample contains one-CPU systems and shows the original
+result page, system, CPU count, and test configuration. Only results with the
+same metric and socket count belong in a direct chart comparison. Platform,
+memory, compiler, and test settings still differ between published systems.
+The enterprise sample is deliberately limited; an unlisted ChipIndex model has
+no assigned benchmark score.
+
+The rendering views read `js/data/benchmark-sample.json`, a dated snapshot of 14
+Blender Open Data 5.2.0 grouped median scores. Every entry is mapped to an exact
+ChipIndex model name, has at least five public submissions, and links to a
+version- and device-filtered source query. The source groups operating systems
+and compute backends, so the page labels ratios as exploratory comparisons of
+community medians. Models absent from the sample are not assigned scores.
+
+Browser checks now cover enterprise/client/graphics switching, six enterprise
+source links, dated disclosures, system-configuration expansion, search,
+selection, baseline ratios, and 390/320 px enterprise layouts without
+horizontal overflow or JavaScript errors. The full dashboard smoke test passed
+on its traced rerun after an initial timing-only home-page visibility timeout;
+the responsive layout audit passed. The audit waits for an Ampere card before
+measuring narrow views. Changes remain local; no commit or push. The visitor
+update is pending in `docs/UPDATE-QUEUE.md`.
 
 ---
 

@@ -1,0 +1,52 @@
+{
+    "schemaVersion": 1,
+    "source": "Blender Open Data",
+    "captureMethod": "official-public-query-json",
+    "captureDate": "2026-10-07",
+    "retrievedAt": "2026-10-07T17:02:21Z",
+    "sourceQueryUrl": "https://opendata.blender.org/benchmarks/query/?group_by=device_name&blender_version=5.2.0",
+    "requestUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&group_by=device_name&response_type=datatables",
+    "responseUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&group_by=device_name&response_type=datatables",
+    "httpStatus": 200,
+    "httpDate": "Wed, 07 Oct 2026 17:02:22 GMT",
+    "contentType": "application/json",
+    "etag": null,
+    "lastModified": null,
+    "sourceExportFile": "blender-5.2.0-grouped-export.json",
+    "sourceExportSha256": "c32e221b40c0ea668676df0e87eff0cf76a6595664a8072b445c4093d4076dd7",
+    "sourceExportBytes": 50215,
+    "blenderVersion": "5.2.0",
+    "groupBy": [
+        "device_name"
+    ],
+    "operatingSystems": "all",
+    "computeTypes": "all",
+    "sourceRows": 894,
+    "minimumSamples": 5,
+    "scorePrecision": "Raw API medians retained; imported scores rounded to two decimals, matching Blender's public table.",
+    "dataPolicyUrl": "https://opendata.blender.org/about/",
+    "archiveLicense": "CC0-1.0",
+    "archiveLicenseUrl": "https://opendata.blender.org/download/",
+    "importSummary": {
+        "acceptedRows": 174,
+        "excludedRows": 720,
+        "acceptedByDeviceType": {
+            "CPU": 129,
+            "GPU": 45
+        },
+        "acceptedByClientDeviceSegment": {
+            "desktop": 93,
+            "laptop": 56
+        },
+        "dualUseClientModels": 20,
+        "unclassifiedClientModels": 0,
+        "excludedByReason": {
+            "below-minimum-samples": 571,
+            "laptop-gpu-not-in-catalog": 21,
+            "no-exact-catalog-model": 73,
+            "unspecified-memory-variant": 11,
+            "unsupported-or-unidentified-vendor": 44
+        },
+        "matchingPolicy": "Exact unique catalog model after vendor prefix, CPU core-count/clock descriptor, Intel generation prefix, Intel Core i-series hyphen/space typography, Intel Arc Graphics suffix, or AMD M (Mobile) catalog descriptor removal. Memory variants and laptop GPUs are never merged with desktop labels."
+    }
+}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore source-linked enterprise CPU and datacenter accelerator system benchmarks alongside client and graphics rendering results.">
+  <title>Benchmarks · ChipIndex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css?v=20260929-benchmarks-prototype-2">
+  <link rel="stylesheet" href="benchmarks.css?v=20261007-cpu-specs-2">
+  <script src="benchmarks.js?v=20261007-product-return-2" defer></script>
+</head>
+<body class="benchmark-page">
+  <a class="benchmark-skip" href="#mainContent">Skip to benchmark results</a>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="container benchmark-shell">
+    <div class="benchmark-masthead">
+      <a class="brand-lockup benchmark-brand" href="../index.html" aria-label="ChipIndex home">
+        <span class="brand-lockup-title" aria-hidden="true">
+          <span class="brand-lockup-name">ChipIndex</span>
+          <span class="brand-lockup-by">by Dan Bor</span>
+        </span>
+        <span class="brand-lockup-rule" aria-hidden="true">
+          <span class="brand-lockup-rule-start"></span>
+          <span class="brand-lockup-rule-end"></span>
+        </span>
+        <span class="brand-lockup-version" aria-hidden="true">Public beta 0.0.4</span>
+      </a>
+      <nav class="benchmark-site-nav" aria-label="ChipIndex sections">
+        <a id="productsLink" href="../index.html">Products <span aria-hidden="true">↗</span></a>
+        <a href="./" aria-current="page">Benchmarks <span class="benchmark-nav-dot" aria-hidden="true"></span></a>
+      </nav>
+    </div>
+
+    <main id="mainContent">
+      <div class="benchmark-page-heading"><div><h1>Benchmarks</h1><p>Compare hardware by workload. See the test, the score, and the system behind it.</p></div><button id="shareView" class="benchmark-text-button" type="button">Copy view link</button><span id="shareStatus" class="sr-only" role="status"></span></div>
+      <div class="benchmark-section-tabs" role="tablist" aria-label="Benchmark explorer sections">
+        <button id="resultsTab" type="button" data-section="results" role="tab" aria-controls="resultsPanel" aria-selected="true" tabindex="0">Explore results</button>
+        <button id="coverageTab" type="button" data-section="coverage" role="tab" aria-controls="coveragePanel" aria-selected="false" tabindex="-1">Product coverage</button>
+        <button id="sourcesTab" type="button" data-section="sources" role="tab" aria-controls="sourcesPanel" aria-selected="false" tabindex="-1">Benchmarks &amp; sources</button>
+      </div>
+      <section id="resultsPanel" class="benchmark-workbench" role="tabpanel" aria-labelledby="resultsTab">
+        <div class="benchmark-selection-label">HARDWARE TYPE</div>
+        <div class="benchmark-mode-switch" role="group" aria-label="Benchmark workload">
+          <button id="enterpriseButton" class="benchmark-mode-button active" type="button" data-mode="enterprise" aria-pressed="true"><strong>Enterprise CPUs</strong><span>Server compute</span></button>
+          <button id="acceleratorButton" class="benchmark-mode-button" type="button" data-mode="accelerator" aria-pressed="false"><strong>Datacenter accelerators</strong><span>AI inference</span></button>
+          <button id="clientButton" class="benchmark-mode-button" type="button" data-mode="client" aria-pressed="false"><strong>Client CPUs</strong><span>3D rendering</span></button>
+          <button id="graphicsButton" class="benchmark-mode-button" type="button" data-mode="graphics" aria-pressed="false"><strong>Graphics</strong><span>3D rendering</span></button>
+        </div>
+        <div class="benchmark-section-heading">
+          <div>
+            <div class="benchmark-eyebrow">RESULTS</div>
+            <h2 id="workbenchTitle">Enterprise CPU systems</h2>
+          </div>
+          <div id="metricNote" class="benchmark-section-note">SPEC CPU 2026 <span aria-hidden="true">/</span> SPECrate2026_int_base</div>
+        </div>
+
+        <div class="benchmark-coverage-notice"><p><strong>Imported public results</strong> <span id="coverageScopeSummary">Coverage varies by source, test and product. This is not every publicly available benchmark.</span></p><button id="reviewSources" type="button" class="benchmark-text-button">Coverage &amp; sources ↗</button></div>
+        <div class="benchmark-config">
+        <div class="benchmark-test-area" aria-labelledby="benchmarkPickerTitle">
+          <div class="benchmark-test-heading"><div class="benchmark-eyebrow">WORKLOAD</div><h3 id="benchmarkPickerTitle">Choose the work you want to compare</h3></div>
+          <div id="clientSegmentControls" role="group" aria-label="Client CPU form factor" hidden>
+            <button class="benchmark-segment-button active" type="button" data-segment="all" aria-pressed="true"><strong>All client</strong><span>— models</span></button>
+            <button class="benchmark-segment-button" type="button" data-segment="desktop" aria-pressed="false"><strong>Desktop</strong><span>— models</span></button>
+            <button class="benchmark-segment-button" type="button" data-segment="laptop" aria-pressed="false"><strong>Laptop</strong><span>— models</span></button>
+          </div>
+          <div id="enterpriseTestControls" class="benchmark-test-controls">
+
+            <div id="enterpriseMetricSwitch" class="benchmark-test-switch" role="group" aria-label="SPEC CPU 2026 benchmark test">
+              <button id="integerMetricButton" class="benchmark-test-button active" type="button" data-metric="integer" aria-pressed="true" aria-describedby="integerMetricDescription"><strong>Integer Rate</strong><span>SPECrate2026_int_base</span></button>
+              <button id="floatingMetricButton" class="benchmark-test-button" type="button" data-metric="floating" aria-pressed="false" aria-describedby="floatingMetricDescription"><strong>Floating-point Rate</strong><span>SPECrate2026_fp_base</span></button>
+            </div>
+            <div class="benchmark-suite-control">
+              <span class="benchmark-control-label">BENCHMARK VERSION</span>
+              <div class="benchmark-suite-switch" role="group" aria-label="SPEC CPU suite">
+                <button id="cpu2026SuiteButton" class="benchmark-suite-button active" type="button" data-suite="2026" aria-pressed="true">SPEC CPU 2026</button>
+                <button id="cpu2017SuiteButton" class="benchmark-suite-button" type="button" data-suite="2017" aria-pressed="false">SPEC CPU 2017</button>
+              </div>
+              <label id="specBuildField" class="benchmark-field" hidden><span>TEST BUILD</span><select id="specBuildSelect" aria-label="SPEC CPU 2026 test build"></select></label>
+            </div>
+          </div>
+          <div id="acceleratorTestControls" class="benchmark-test-controls" hidden>
+            <div class="benchmark-control-label">MLPerf® Inference v6.0 / Llama 2 70B 99%</div>
+            <div class="benchmark-test-switch" role="group" aria-label="Datacenter accelerator benchmark scenario">
+              <button id="serverScenarioButton" class="benchmark-test-button benchmark-accelerator-test-button active" type="button" data-scenario="server" aria-pressed="true" aria-describedby="serverScenarioDescription"><strong>Request stream</strong><span>MLPerf Server · Tokens/s</span></button>
+              <button id="offlineScenarioButton" class="benchmark-test-button benchmark-accelerator-test-button" type="button" data-scenario="offline" aria-pressed="false" aria-describedby="offlineScenarioDescription"><strong>Batch processing</strong><span>MLPerf Offline · Tokens/s</span></button>
+            </div>
+          </div>
+          <p id="integerMetricDescription" class="sr-only">Runs concurrent copies of 14 compute-intensive integer programs, including chess search, language compilers, and database work. A higher score means more throughput from the tested system.</p>
+          <p id="floatingMetricDescription" class="sr-only">Runs concurrent copies of 12 compute-intensive floating-point programs, including fluid dynamics, ocean modeling, and astrophysics. A higher score means more throughput from the tested system.</p>
+          <p id="serverScenarioDescription" class="sr-only">Requests arrive over time; throughput must meet MLPerf response-time limits. Official scenario: Server. Eight-accelerator whole-system Tokens/s at the 99% quality target.</p>
+          <p id="offlineScenarioDescription" class="sr-only">All requests are available at the start; batch throughput without a per-request latency limit. Official scenario: Offline. Eight-accelerator whole-system Tokens/s at the 99% quality target.</p>
+          <div class="benchmark-test-description"><div><span class="benchmark-workload-label">WHAT THIS HELPS ANSWER</span><strong id="workloadQuestion" class="benchmark-workload-question">How much integer-heavy work can this server handle at once?</strong><p id="testDescription" aria-live="polite">Runs concurrent copies of 14 compute-intensive integer programs, including chess search, language compilers, and database work. A higher score means more throughput from the tested system.</p></div><a id="testGuideLink" href="https://www.spec.org/cpu2026/docs/overview.html" target="_blank" rel="noopener noreferrer">How SPEC defines this test <span aria-hidden="true">↗</span></a></div>
+          <p id="clientSegmentNote" class="benchmark-filter-hint" hidden></p>
+        </div>
+
+        <div class="benchmark-controls" aria-label="Benchmark filters">
+          <label id="socketField" class="benchmark-field">CPU COUNT
+            <select id="socketSelect" aria-label="Number of CPUs in tested system"><option>Loading…</option></select>
+          </label>
+          <div id="manufacturerField" class="benchmark-field"><label for="manufacturerSelect">MANUFACTURER</label>
+            <select id="manufacturerSelect" aria-label="Chip manufacturer" aria-describedby="manufacturerHelp"><option value="">All</option></select>
+            <span id="manufacturerHelp" class="benchmark-filter-hint" hidden></span>
+          </div>
+          <div id="coreField" class="benchmark-field benchmark-core-field" hidden>
+            <span id="coreFieldLabel">CORES PER CPU</span>
+            <div class="benchmark-core-control" role="group" aria-labelledby="coreFieldLabel" aria-describedby="coreFieldHelp">
+              <div class="benchmark-core-values" aria-hidden="true"><span>MIN <strong id="coreMinValue">—</strong></span><span>MAX <strong id="coreMaxValue">—</strong></span></div>
+              <div class="benchmark-core-track">
+                <span class="benchmark-core-fill" aria-hidden="true"></span>
+                <input id="coreMin" type="range" min="0" max="0" step="1" value="0" aria-label="Minimum cores per CPU" aria-describedby="coreFieldHelp">
+                <input id="coreMax" type="range" min="0" max="0" step="1" value="0" aria-label="Maximum cores per CPU" aria-describedby="coreFieldHelp">
+              </div>
+            </div>
+            <span id="coreFieldHint" class="benchmark-core-hint">SPEC enabled cores ÷ CPUs</span>
+            <span id="coreFieldHelp" class="sr-only">Choose a range of cores per CPU. Slider stops follow the core counts in this result set.</span>
+          </div>
+          <label id="versionField" class="benchmark-field benchmark-blender-field" hidden>BLENDER VERSION
+            <select id="versionSelect" aria-label="Blender version"><option>Loading…</option></select>
+          </label>
+          <label id="computeField" class="benchmark-field benchmark-blender-field" hidden>COMPUTE GROUPING
+            <select id="computeSelect" aria-label="Compute grouping"><option>Loading…</option></select>
+          </label>
+          <div class="benchmark-field benchmark-search-field"><label for="modelSearch">SEARCH RESULTS</label>
+            <div class="benchmark-search-actions"><input id="modelSearch" type="search" placeholder="Model, system, or submitter" autocomplete="off"><button id="resetFilters" class="benchmark-text-button benchmark-reset-filters" type="button">Reset</button></div>
+          </div>
+        </div>
+        </div>
+        <div class="benchmark-result-summary">
+        <aside class="benchmark-readout" aria-label="Current result set">
+          <div class="benchmark-readout-head"><span>IN THIS VIEW</span><span class="benchmark-snapshot-status">IMPORTED RESULTS</span></div>
+          <div class="benchmark-readout-number" id="coverageCount">—</div>
+          <div class="benchmark-readout-label" id="coverageLabel">distinct scored models in selected test</div>
+          <div class="benchmark-readout-rule"></div>
+          <div class="benchmark-readout-line"><span>Source</span><strong id="sourceName">Loading…</strong></div>
+          <div class="benchmark-readout-line"><span id="snapshotLabel">Last updated</span><strong id="snapshotDate">Loading…</strong></div><div id="freshnessNotice" class="benchmark-freshness" hidden></div>
+          <div class="benchmark-readout-line"><span>Coverage</span><strong id="coverageMix">Loading…</strong></div>
+        </aside>
+          <div class="benchmark-score-guide"><span class="benchmark-control-label">HOW TO READ THE SCORE</span><strong id="scoreUnit">SPEC base rate · higher is better</strong><p id="scoreMeaning">The score measures throughput of the complete tested server, relative to SPEC's reference system.</p><span id="activeConfiguration" class="benchmark-active-configuration">1 CPU per system</span></div>
+        </div>
+        <details id="modelChartDisclosure" class="benchmark-panel benchmark-model-chart" open>
+          <summary class="benchmark-model-chart-summary">
+            <span><span class="benchmark-eyebrow">MODELS</span><span id="modelChartTitle" class="benchmark-model-chart-title">Server scores by CPU model</span></span>
+            <span class="benchmark-model-chart-toggle"><span class="benchmark-model-chart-collapse">Hide overview</span><span class="benchmark-model-chart-expand">Show overview</span><span class="benchmark-model-chart-chevron" aria-hidden="true"></span></span>
+          </summary>
+          <div class="benchmark-model-chart-content">
+            <p id="modelChartDescription" class="benchmark-panel-intro">Each bar uses one linked server report for a CPU model: the lower middle Base score among imported reports in this view. This is ChipIndex's model order, not a SPEC processor ranking or a CPU-only score. All imported reports appear below.</p>
+            <div class="benchmark-model-chart-meta">
+              <div id="modelChartMetric" class="benchmark-model-chart-metric">CURRENT TEST</div>
+              <div id="modelChartSelectionLegend" class="benchmark-model-chart-legend">Select up to 3 results to compare</div><button id="viewComparison" class="benchmark-text-button" type="button" hidden>View comparison</button><div class="benchmark-chart-view-switch" role="group" aria-label="Results display"><button type="button" data-display="chart" aria-pressed="true">Chart</button><button type="button" data-display="table" aria-pressed="false">Table</button></div>
+              <button id="modelChartRangeButton" class="benchmark-text-button benchmark-model-chart-range" type="button" hidden>Show all models</button>
+            </div>
+            <div class="benchmark-model-chart-body">
+              <div class="benchmark-model-chart-y-axis" aria-hidden="true"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0</span></div>
+              <div id="modelChartViewport" class="benchmark-model-chart-viewport" role="region" aria-label="Model score bar chart" aria-describedby="modelChartDescription" tabindex="-1">
+                <div id="modelChartPlot" class="benchmark-model-chart-plot" role="list"></div>
+              </div>
+            </div>
+            <div id="modelTableViewport" class="benchmark-model-table-wrap" role="region" aria-label="Model scores table" tabindex="0" hidden><table class="benchmark-model-table"><caption class="sr-only">Model scores from the selected benchmark and filters</caption><thead><tr><th scope="col">Rank</th><th scope="col">Processor</th><th scope="col">Score</th><th scope="col">Reports</th><th scope="col">Score range</th><th scope="col">Source</th><th scope="col">Compare</th></tr></thead><tbody id="modelTableBody"></tbody></table></div>
+            <p id="modelChartScrollHint" class="benchmark-model-chart-scroll-hint" hidden>SCROLL TO VIEW ALL MODELS <span aria-hidden="true">↔</span></p>
+            <p id="modelChartStatus" class="benchmark-model-chart-status" role="status" aria-live="polite" hidden></p>
+          </div>
+        </details>
+
+        <details id="testConditionsDisclosure" class="benchmark-evidence-details">
+          <summary>Test conditions &amp; source coverage</summary>
+        <p id="cohortNote" class="benchmark-cohort-note"><span aria-hidden="true">◎</span> Published one-CPU systems using SPECrate2026_int_base. Scores describe tested systems, including memory and compiler choices.</p>
+        <aside id="benchmarkScope" class="benchmark-scope-note" aria-label="Benchmark result coverage">
+          <span id="benchmarkScopeLabel" class="benchmark-scope-label">SELECTED SPEC SNAPSHOT</span>
+          <p id="benchmarkScopeText" class="benchmark-scope-text">ChipIndex shows selected SPEC CPU 2026 integer throughput, one-CPU system disclosures, not SPEC's full results database. The same CPU can have multiple published system submissions.</p>
+          <a id="benchmarkScopeLink" class="benchmark-scope-link" href="https://www.spec.org/cpu2026/results/rint2026/" target="_blank" rel="noopener noreferrer">View all SPEC 2026 integer rate results ↗</a>
+        </aside>
+        <p id="filterStatus" class="sr-only" role="status" aria-live="polite"></p>
+
+        </details>
+        <section id="enterpriseFocus" class="benchmark-panel benchmark-focus" aria-labelledby="focusTitle">
+          <div class="benchmark-focus-heading">
+            <div><div class="benchmark-eyebrow">CPU COMPARISON</div><h3 id="focusTitle">Compare two CPU models</h3></div>
+            <p>Compare one published server result per model within the selected SPEC test and CPU count.</p>
+          </div>
+          <div class="benchmark-focus-pickers">
+            <label class="benchmark-field">SEARCH CPU MODELS
+              <input id="focusModelQuery" type="search" placeholder="Type a manufacturer or model" autocomplete="off" aria-label="Search CPU models in this benchmark view">
+            </label>
+            <label class="benchmark-field">CPU MODEL
+              <select id="focusModelSelect" aria-label="CPU model to inspect"><option>Loading…</option></select>
+            </label>
+            <label class="benchmark-field">COMPARE WITH
+              <select id="focusPeerSelect" aria-label="CPU model to compare"><option>Loading…</option></select>
+            </label>
+          </div>
+          <div id="focusOverview" class="benchmark-focus-overview"></div>
+          <p id="focusStatus" class="sr-only" role="status" aria-live="polite"></p>
+          <p class="benchmark-focus-policy">For each model, ChipIndex orders its listed system reports by score and displays the lower middle report. The number is a tested server score, not a processor average. The full range and every listed report remain available below.</p>
+        </section>
+
+        <div class="benchmark-chart-grid">
+          <section class="benchmark-panel benchmark-ranking" aria-labelledby="rankingTitle">
+            <div class="benchmark-panel-heading">
+              <div><div class="benchmark-eyebrow">PUBLISHED REPORTS</div><h3 id="rankingTitle">Imported system reports</h3></div>
+              <div class="benchmark-ranking-meta">
+                <div id="rankingUpdated" class="benchmark-last-updated" role="note" aria-describedby="rankingUpdatedDescription" title="Date the selected results were retrieved or captured for ChipIndex; individual result publication dates may differ.">
+                  <span class="benchmark-last-updated-label">LAST UPDATED</span>
+                  <span id="rankingUpdatedDate" class="benchmark-last-updated-date" aria-live="polite">Loading…</span>
+                </div>
+                <span id="rankingCount" class="benchmark-count">— CHIPINDEX RESULTS</span>
+              </div>
+              <span id="rankingUpdatedDescription" class="sr-only">This is when the selected result snapshot was retrieved or captured for ChipIndex. Individual benchmark results may have been published earlier.</span>
+            </div>
+            <p id="rankingIntro" class="benchmark-panel-intro">Inspect the individual submissions behind the model chart. Choose up to three results to compare.</p>
+
+            <div id="rankedResultsViewport" class="benchmark-rank-viewport" role="region" aria-label="Ranked benchmark results" tabindex="-1">
+              <ol id="rankedResults" class="benchmark-rank-list"></ol>
+            </div>
+            <div id="rankingPagination" class="benchmark-ranking-pagination" hidden><span id="rankingPageStatus" role="status"></span><button id="rankingMore" class="benchmark-text-button" type="button">Show more results</button></div>
+            <p id="rankingScrollHint" class="benchmark-scroll-hint" hidden>SCROLL TO VIEW ALL <span id="rankingScrollCount">0</span> RESULTS <span aria-hidden="true">↕</span></p>
+          </section>
+
+          <section class="benchmark-panel benchmark-comparison" aria-labelledby="comparisonTitle">
+            <div class="benchmark-panel-heading">
+              <div><div class="benchmark-eyebrow">COMPARE</div><h3 id="comparisonTitle">Selected comparison</h3></div>
+              <button id="clearComparison" class="benchmark-text-button" type="button">Clear selection</button>
+            </div>
+            <p id="comparisonIntro" class="benchmark-panel-intro">The markers use the same SPEC system-score scale as the ranking. Ratios use the displayed published results.</p>
+            <label class="benchmark-baseline"><span id="baselineLabelText">BASELINE MODEL</span>
+              <select id="baselineSelect" aria-label="Comparison baseline model"></select>
+            </label>
+            <div id="comparisonDiagram" class="benchmark-compare-diagram" aria-label="Selected benchmark score diagram"></div>
+            <p id="comparisonInsight" class="benchmark-insight"></p>
+          </section>
+        </div>
+        <p id="specAttribution" class="benchmark-spec-attribution">SPEC CPU® and SPECrate® are registered trademarks of the Standard Performance Evaluation Corporation. See the <a id="specBenchmarkLink" href="https://www.spec.org/cpu2026/" target="_blank" rel="noopener noreferrer">SPEC CPU 2026 benchmark</a> and <a href="https://www.spec.org/products/fairuse/" target="_blank" rel="noopener noreferrer">fair use rules</a> for context. This independent ChipIndex site is not endorsed by SPEC.</p>
+        <p id="mlperfAttribution" class="benchmark-spec-attribution" hidden><span id="mlperfTrademarkNotice">The MLPerf name and logo are registered and unregistered trademarks of MLCommons Association in the United States and other countries. All rights reserved. Unauthorized use strictly prohibited. See https://www.mlcommons.org for more information.</span> <span id="mlperfFootnoteContext">MLPerf® Inference v6.0 · Closed division · Available · Llama 2 70B 99% · Server · 8 accelerators.</span> Official <a id="mlperfOfficialLink" href="https://mlcommons.org/working-groups/benchmarks/inference/" target="_blank" rel="noopener noreferrer">published results</a> retrieved <span id="mlperfRetrievedDate">2026-09-30</span>. Each row gives its result ID and links to the system disclosure. See the <a id="mlperfGuidelinesLink" href="https://github.com/mlcommons/policies/blob/master/MLPerf_Results_Messaging_Guidelines.adoc" target="_blank" rel="noopener noreferrer">results messaging guidelines</a>. This independent ChipIndex site is not endorsed by MLCommons.</p>
+      </section>
+
+      <section id="coveragePanel" class="benchmark-catalog" role="tabpanel" aria-labelledby="coverageTab" hidden>
+        <div class="benchmark-section-heading">
+          <div><div class="benchmark-eyebrow">CATALOG COVERAGE</div><h2 id="catalogTitle">Find benchmarked products</h2></div>
+          <div class="benchmark-section-note">CURRENT SNAPSHOTS <span aria-hidden="true">/</span> ALL CATALOG TYPES</div>
+        </div>
+        <div class="benchmark-catalog-overview">
+          <div class="benchmark-catalog-ratio"><strong id="catalogMatchedCount">—</strong><span>/</span><strong id="catalogTotalCount">—</strong></div>
+          <div><h3>Catalog products with imported results</h3><p id="catalogCoverageNote">Loading the catalog index…</p></div>
+        </div>
+        <div class="benchmark-catalog-type-heading"><span class="benchmark-control-label">PRODUCT TYPE</span><button id="catalogAllButton" class="benchmark-text-button active" type="button" aria-pressed="true">All products</button></div>
+        <div class="benchmark-catalog-types" role="group" aria-label="Catalog product type">
+          <button class="benchmark-catalog-type-button" type="button" data-catalog-type="enterprise" aria-pressed="false"><strong>Enterprise CPUs</strong><span>— matched / — indexed</span></button>
+          <button class="benchmark-catalog-type-button" type="button" data-catalog-type="accelerator" aria-pressed="false"><strong>Datacenter accelerators</strong><span>— matched / — indexed</span></button>
+          <button class="benchmark-catalog-type-button" type="button" data-catalog-type="client" aria-pressed="false"><strong>Client CPUs</strong><span>— matched / — indexed</span></button>
+          <button class="benchmark-catalog-type-button" type="button" data-catalog-type="graphics" aria-pressed="false"><strong>Graphics</strong><span>— matched / — indexed</span></button>
+        </div>
+        <div class="benchmark-catalog-toolbar">
+          <label class="benchmark-field benchmark-search-field">FIND A PRODUCT
+            <input id="catalogSearch" type="search" placeholder="Model, vendor, or product ID" autocomplete="off">
+          </label>
+          <label class="benchmark-field">SNAPSHOT STATUS
+            <select id="catalogStatus" aria-label="Snapshot result status"><option value="all">All products</option><option value="matched">With selected result</option><option value="unscored">No selected result</option></select>
+          </label>
+        </div>
+        <p class="benchmark-catalog-caveat">The denominator counts distinct products shown in dashboard specification tables, regardless of benchmark eligibility or verified release status. A product shown in more than one dashboard type appears in each relevant type filter but only once in All products. No result in these selected snapshots does not mean no public result or a score of zero.</p>
+        <div class="benchmark-catalog-result-heading"><span id="catalogResultStatus" role="status" aria-live="polite">Loading products…</span><span id="catalogPageStatus"></span></div>
+        <ul id="catalogResults" class="benchmark-catalog-results" aria-label="Catalog product benchmark coverage"></ul>
+        <button id="catalogMore" class="benchmark-text-button benchmark-catalog-more" type="button" hidden>Show more products</button>
+        <p id="catalogSpecAttribution" class="benchmark-spec-attribution benchmark-catalog-attribution" hidden>SPEC CPU® and SPECrate® are registered trademarks of the Standard Performance Evaluation Corporation. Each selected score links to its published system disclosure, with the test sponsor and snapshot retrieval date shown beside it. See the <a href="https://www.spec.org/cpu2026/" target="_blank" rel="noopener noreferrer">SPEC CPU 2026</a> and <a href="https://www.spec.org/cpu2017/" target="_blank" rel="noopener noreferrer">SPEC CPU 2017</a> sources and <a href="https://www.spec.org/products/fairuse/" target="_blank" rel="noopener noreferrer">fair use rules</a>. This independent ChipIndex site is not endorsed by SPEC.</p>
+        <p id="catalogMlperfAttribution" class="benchmark-spec-attribution benchmark-catalog-attribution" hidden></p>
+      </section>
+
+      <section id="sourcesPanel" role="tabpanel" aria-labelledby="sourcesTab" hidden>
+        <div class="benchmark-source-overview"><div class="benchmark-eyebrow">BENCHMARK DIRECTORY</div><h2>Choose a test that fits the work.</h2><p>Every benchmark measures a specific workload. Results available here are imported, dated snapshots with links to their public sources. Additional sources are listed with their access status.</p></div>
+        <div id="sourceDirectory" class="benchmark-source-list" aria-live="polite"><p>Loading benchmark sources…</p></div>
+      <section class="benchmark-method" aria-labelledby="methodTitle">
+        <div class="benchmark-method-intro"><div class="benchmark-eyebrow">READING RESULTS</div><h2 id="methodTitle">About the selected test</h2><p id="methodIntro">This view makes the source and test conditions visible alongside each chart. It covers selected public results only.</p></div>
+        <div class="benchmark-method-cards">
+          <div class="benchmark-method-card"><span class="benchmark-method-index">01 / SOURCE</span><h3>Trace every result</h3><p id="methodSource">Each enterprise result links to its full SPEC disclosure, including the tested system and test sponsor.</p></div>
+          <div class="benchmark-method-card"><span class="benchmark-method-index">02 / COHORT</span><h3>Read the grouping</h3><p id="methodCohort">The chart compares the same SPEC CPU 2026 base integer rate metric and CPU count. System configuration still varies.</p></div>
+          <div class="benchmark-method-card"><span class="benchmark-method-index">03 / COVERAGE</span><h3>Missing is unknown</h3><p id="methodCoverage">Only selected public systems are included. A model absent here has no selected result, not a score of zero.</p></div>
+        </div>
+        <div class="benchmark-method-footer"><span>PUBLIC BENCHMARK SOURCE</span><a id="datasetLink" href="https://www.spec.org/cpu2026/results/cpu2026/" target="_blank" rel="noopener noreferrer">Visit SPEC CPU 2026 results <span aria-hidden="true">↗</span></a></div>
+      </section>
+      </section>
+    </main>
+    <footer class="benchmark-footer"><span>CHIPINDEX / BENCHMARKS</span><span>Published results · source links · dated snapshots</span></footer>
+  </div>
+</body>
+</html>

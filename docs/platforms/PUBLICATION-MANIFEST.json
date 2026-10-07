@@ -1,0 +1,46 @@
+{
+    "schemaVersion": 1,
+    "snapshotDate": "2026-09-30",
+    "meaning": "Only these pinned research artifacts and selected exact rows may enter the local dashboard snapshot. A changed candidate hash requires renewed review.",
+    "reviews": {
+        "lenovo": {
+            "candidateFile": "lenovo-expansion-candidates.json",
+            "sha256": "f1ff80aee23e962b481d4923bc13164fb196ab3c356917f1a0eb3cb97bf3ff52",
+            "reviewFile": "lenovo-second-review.md",
+            "approvedStatuses": [
+                "source_row_verified_pending_second_review",
+                "source_row_verified_quantity_pending"
+            ],
+            "approvedEdgeCount": 485,
+            "excludedEdges": []
+        },
+        "hpe": {
+            "candidateFile": "hpe-expansion-candidates.json",
+            "sha256": "23ed19ff0134739f929d0f93dee334a1d4fa86dc39fdf0169774bd502e58ca6f",
+            "reviewFile": "hpe-second-review.md",
+            "approvedStatuses": [
+                "source_row_verified"
+            ],
+            "approvedEdgeCount": 200,
+            "excludedEdges": []
+        },
+        "dell": {
+            "candidateFile": "dell-expansion-candidates.json",
+            "sha256": "38aca7d9b95cea390188a938669815c68f6dd930ca25222171ba01d9408284b8",
+            "reviewFile": "dell-second-review.md",
+            "usePublishRecommendation": true,
+            "approvedEdgeCount": 22,
+            "excludedEdges": []
+        },
+        "client": {
+            "candidateFile": "client-expansion-candidates.json",
+            "sha256": "05d8443c596f8f23782cb66e9324993e09e430b7d50f3291b136a728551af8b0",
+            "reviewFile": "client-second-review.md",
+            "approvedStatuses": [
+                "source_row_verified"
+            ],
+            "approvedEdgeCount": 24,
+            "excludedEdges": []
+        }
+    }
+}

@@ -354,6 +354,20 @@
   .cpu-spec-table .cpu-model-name { color: var(--text-primary); font-weight: 600; }
   .cpu-spec-table .cpu-val-highlight { color: #4ade80; }
   .cpu-spec-table .cpu-val-gpu { color: #38bdf8; }
+  .cpu-spec-table .bt-cell { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .cpu-spec-table .bt-entry { display: inline; }
+  .cpu-spec-table .bt-cell a {
+    display: inline-flex; align-items: baseline; gap: 0.4em;
+    color: var(--vendor-accent-text, #fb8c80);
+    font-weight: 600; text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+  }
+  .cpu-spec-table .bt-cell a:hover { border-bottom-color: currentColor; }
+  .cpu-spec-table .bt-cell a:focus-visible { outline: 2px solid var(--vendor-accent, #ef4444); outline-offset: 3px; }
+  .cpu-spec-table .bt-test { color: var(--text-muted); font-weight: 500; }
+  .cpu-spec-table .bt-score { color: var(--vendor-accent-text, #fb8c80); font-weight: 700; }
+  .cpu-spec-table .bt-cell .bt-empty { color: var(--text-muted); }
+  .bt-legend { margin-top: 8px; line-height: 1.5; }
   .collapse-specs-btn { visibility: hidden; opacity: 0; margin: 4px 0 2px auto; padding: 3px 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.69rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); border-radius: 4px; cursor: pointer; transition: all 0.15s ease; pointer-events: none; }
   .collapse-specs-btn:hover { color: var(--text-primary); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
   .collapse-specs-btn.visible { visibility: visible; opacity: 1; pointer-events: auto; }
@@ -858,10 +872,10 @@
     text-overflow: ellipsis; white-space: nowrap;
   }
   .topbar-tools {
-    display: flex; align-items: center; justify-content: flex-end;
-    gap: 15px; min-width: 0;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end;
+    width: 240px; gap: 6px; min-width: 0;
   }
-  .topbar .v2-status { margin: 0; min-width: 0; text-align: right; }
+  .topbar .v2-status { flex: 0 0 100%; margin: 0; min-width: 0; text-align: right; white-space: nowrap; }
   .whats-new-trigger {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     flex: 0 0 auto; min-height: 36px; padding: 7px 11px;
@@ -881,7 +895,6 @@
     color: #e5fbff;
   }
   .whats-new-trigger:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
-
   /* Row 2 — product line, search, controls */
   .navrow {
     display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
@@ -987,7 +1000,7 @@
     .topbar header { gap: 8px; }
     .topbar header h1 { font-size: 1rem; }
     .topbar header p { display: none; }
-    .topbar-tools { grid-column: 1 / -1; justify-content: space-between; }
+    .topbar-tools { grid-column: 1 / -1; width: 100%; justify-content: space-between; }
     .topbar .v2-status { margin-right: auto; text-align: left; }
     .navrow { gap: 8px; padding-bottom: 12px; }
     .navrow .search-wrap { flex: 1 1 100%; max-width: 100%; order: 3; }
@@ -1574,6 +1587,16 @@
     border-bottom-color: #85dc70;
     background: linear-gradient(180deg, rgba(133,220,112,0.11), rgba(133,220,112,0.035));
   }
+  .ampere-mode-nav .epyc-mode-tab.active {
+    border-color: rgba(254,73,67,0.28);
+    border-bottom-color: var(--ampere-accent, #fe4943);
+    background: linear-gradient(180deg, rgba(254,73,67,0.11), rgba(254,73,67,0.035));
+  }
+  .benchmark-mode-tab { text-decoration: none; }
+  .benchmark-mode-tab .epyc-mode-label [aria-hidden] {
+    color: var(--vendor-accent, #ef4444);
+    font-size: 0.8em;
+  }
   .epyc-mode-tab:focus-visible {
     outline: 2px solid #60a5fa; outline-offset: -4px;
   }
@@ -1593,6 +1616,7 @@
   .epyc-guide-open .epyc-mode-availability { display: none; }
   .xeon-guide-open .xeon-mode-nav .epyc-mode-availability { display: none; }
   .gh200-guide-open .gh200-mode-nav .epyc-mode-availability { display: none; }
+  .ampere-guide-open .ampere-mode-nav .epyc-mode-availability { display: none; }
 
   /* The product renderer remains mounted while the guide is open. */
   body.epyc-guide-open .navrow .search-wrap,
@@ -1610,6 +1634,11 @@
   body.gh200-guide-open .global-search-routes,
   body.gh200-guide-open .layout,
   body.gh200-guide-open .compare-tray { display: none !important; }
+  body.ampere-guide-open .navrow .search-wrap,
+  body.ampere-guide-open .navrow .toolbar,
+  body.ampere-guide-open .global-search-routes,
+  body.ampere-guide-open .layout,
+  body.ampere-guide-open .compare-tray { display: none !important; }
   .epyc-guide-panel { min-width: 0; }
   .epyc-guide-intro {
     display: flex; align-items: end; justify-content: space-between; gap: 24px;
@@ -1682,6 +1711,7 @@
   .epyc-guide-panel:not([hidden]) + .layout { display: none; }
   .xeon-guide-panel:not([hidden]) + .layout { display: none; }
   .gh200-guide-panel:not([hidden]) + .layout { display: none; }
+  .ampere-guide-panel .epyc-guide-frame { height: 620px; }
 
   .v2-architecture-entry {
     display: flex; align-items: center; flex-wrap: wrap; gap: 4px 10px;
@@ -1723,8 +1753,10 @@
   .a2-architecture-link:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
   .a2-architecture-link [aria-hidden] { color: #59d5ed; }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     .epyc-mode-availability { display: none; }
+  }
+  @media (max-width: 900px) {
     .epyc-guide-intro { flex-direction: column; align-items: flex-start; gap: 12px; }
     .epyc-guide-reference { align-items: flex-start; }
     .epyc-guide-reference-label { text-align: left; }
@@ -1743,6 +1775,12 @@
     .a2-architecture-link { margin-inline: 14px; min-height: 44px; }
     .v2-architecture-link { margin-inline: 14px; min-height: 44px; }
     .v2-architecture-entry > span { margin-left: 14px; }
+  }
+  @media (max-width: 480px) {
+    .epyc-mode-nav { gap: 4px; min-height: 54px; }
+    .epyc-mode-tab { align-items: center; min-height: 52px; padding: 6px 5px; text-align: center; }
+    .epyc-mode-label { font-size: 0.67rem; line-height: 1.2; }
+    .epyc-mode-helper { display: none; }
   }
   @media (max-width: 375px) {
     body.epyc-guide-open .v2-subtab { padding-inline: 8px; font-size: 0.7rem; }

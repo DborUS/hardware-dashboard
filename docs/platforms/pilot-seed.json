@@ -1,0 +1,674 @@
+{
+    "schemaVersion": 1,
+    "snapshotDate": "2026-09-30",
+    "products": [
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "vendor": "AMD",
+            "dashboardTab": "amd/epyc",
+            "model": "EPYC 9575F",
+            "productId": "100-000001554"
+        },
+        {
+            "catalogId": "amd-4e2482a19422a82087d2",
+            "vendor": "AMD",
+            "dashboardTab": "amd/epyc",
+            "model": "EPYC 9554",
+            "productId": "100-000000790"
+        },
+        {
+            "catalogId": "intel-ef124b107763422cd947",
+            "vendor": "INTEL",
+            "dashboardTab": "intel/xeon",
+            "model": "Xeon 6787P"
+        },
+        {
+            "catalogId": "ampere-ddf09a7adf702bfc4c68",
+            "vendor": "AMPERE",
+            "dashboardTab": "ampere/processors",
+            "model": "AmpereOne A192-32X"
+        },
+        {
+            "catalogId": "ampere-9840699508ffbcc657e0",
+            "vendor": "AMPERE",
+            "dashboardTab": "ampere/processors",
+            "model": "AmpereOne A192-26X"
+        },
+        {
+            "catalogId": "ampere-7d98b6fff1222bf00733",
+            "vendor": "AMPERE",
+            "dashboardTab": "ampere/processors",
+            "model": "AmpereOne A160-28X"
+        },
+        {
+            "catalogId": "ampere-ead3f5a16b87d50f6803",
+            "vendor": "AMPERE",
+            "dashboardTab": "ampere/processors",
+            "model": "AmpereOne A144-27X"
+        },
+        {
+            "catalogId": "ampere-e1e0dc8d96e011c5cda9",
+            "vendor": "AMPERE",
+            "dashboardTab": "ampere/processors",
+            "model": "AmpereOne A144-24X"
+        },
+        {
+            "catalogId": "ampere-0c9f76a894454d335f9d",
+            "vendor": "AMPERE",
+            "dashboardTab": "ampere/processors",
+            "model": "AmpereOne A128-34X"
+        },
+        {
+            "catalogId": "ampere-36433c5a0850d9a2d94c",
+            "vendor": "AMPERE",
+            "dashboardTab": "ampere/processors",
+            "model": "AmpereOne A96-36X"
+        },
+        {
+            "catalogId": "amd-3f428b671616a85fc874",
+            "vendor": "AMD",
+            "dashboardTab": "amd/ryzen",
+            "model": "Ryzen AI 7 PRO 350",
+            "productId": "100-000000713"
+        },
+        {
+            "catalogId": "intel-a0811159e55b6874e352",
+            "vendor": "INTEL",
+            "dashboardTab": "intel/client",
+            "model": "Core Ultra 7 265"
+        }
+    ],
+    "platforms": [
+        {
+            "id": "lenovo-thinksystem-sr655-v3",
+            "oem": "Lenovo",
+            "model": "ThinkSystem SR655 V3",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 1,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 12,
+            "sourceIds": [
+                "lenovo-sr655-v3"
+            ]
+        },
+        {
+            "id": "lenovo-thinksystem-sr665-v3",
+            "oem": "Lenovo",
+            "model": "ThinkSystem SR665 V3",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "lenovo-sr665-v3"
+            ]
+        },
+        {
+            "id": "lenovo-thinksystem-sr675-v3",
+            "oem": "Lenovo",
+            "model": "ThinkSystem SR675 V3",
+            "category": "gpu_server",
+            "formFactor": "rack",
+            "rackUnits": 3,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "lenovo-sr675-v3"
+            ]
+        },
+        {
+            "id": "hpe-proliant-compute-dl325-gen12",
+            "oem": "HPE",
+            "model": "ProLiant Compute DL325 Gen12",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 1,
+            "socketCount": 1,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "hpe-dl325-gen12"
+            ]
+        },
+        {
+            "id": "hpe-proliant-compute-dl345-gen12",
+            "oem": "HPE",
+            "model": "ProLiant Compute DL345 Gen12",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 1,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "hpe-dl345-gen12"
+            ]
+        },
+        {
+            "id": "dell-poweredge-r6715",
+            "oem": "Dell",
+            "model": "PowerEdge R6715",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 1,
+            "socketCount": 1,
+            "memoryChannelsPerSocket": 12,
+            "sourceIds": [
+                "dell-r6715-guide"
+            ]
+        },
+        {
+            "id": "dell-poweredge-r7725",
+            "oem": "Dell",
+            "model": "PowerEdge R7725",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 12,
+            "sourceIds": [
+                "dell-r7725-guide",
+                "dell-r7725-spec"
+            ]
+        },
+        {
+            "id": "cisco-ucs-c885a-m8",
+            "oem": "Cisco",
+            "model": "UCS C885A M8",
+            "category": "gpu_server",
+            "formFactor": "rack",
+            "rackUnits": 8,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 12,
+            "dimmSlots": 24,
+            "sourceIds": [
+                "cisco-c885a-datasheet",
+                "cisco-c885a-service"
+            ]
+        },
+        {
+            "id": "lenovo-thinksystem-sr650-v4",
+            "oem": "Lenovo",
+            "model": "ThinkSystem SR650 V4",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 8,
+            "dimmSlots": 32,
+            "sourceIds": [
+                "lenovo-sr650-v4"
+            ]
+        },
+        {
+            "id": "hpe-proliant-compute-dl380-gen12",
+            "oem": "HPE",
+            "model": "ProLiant Compute DL380 Gen12",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 8,
+            "dimmSlots": 32,
+            "sourceIds": [
+                "hpe-dl380-gen12"
+            ]
+        },
+        {
+            "id": "dell-poweredge-r770",
+            "oem": "Dell",
+            "model": "PowerEdge R770",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 2,
+            "socketCount": 2,
+            "memoryChannelsPerSocket": 8,
+            "dimmSlots": 32,
+            "sourceIds": [
+                "dell-r770-guide"
+            ]
+        },
+        {
+            "id": "gigabyte-r163-p32-aah1",
+            "oem": "GIGABYTE",
+            "model": "R163-P32-AAH1",
+            "category": "rack_server",
+            "formFactor": "rack",
+            "rackUnits": 1,
+            "socketCount": 1,
+            "memoryChannelsPerSocket": 8,
+            "dimmSlots": 16,
+            "sourceIds": [
+                "gigabyte-r163-p32-product"
+            ]
+        },
+        {
+            "id": "hp-elitebook-8-g1a-14-d6cv5ua-aba",
+            "oem": "HP",
+            "model": "EliteBook 8 G1a 14",
+            "category": "laptop",
+            "formFactor": "notebook",
+            "displaySizeInches": 14,
+            "dimensions": "12.43 \u00d7 8.74 \u00d7 0.46 in (front) / 0.61 in (rear)",
+            "sourceIds": [
+                "hp-elitebook-8-g1a-14-d6cv5ua"
+            ]
+        },
+        {
+            "id": "lenovo-thinkcentre-m90q-gen-6",
+            "oem": "Lenovo",
+            "model": "ThinkCentre M90q Gen 6",
+            "category": "desktop",
+            "formFactor": "tiny",
+            "volumeLiters": 1,
+            "dimensions": "179 \u00d7 182.9 \u00d7 36.5 mm",
+            "sourceIds": [
+                "lenovo-m90q-gen-6"
+            ]
+        }
+    ],
+    "compatibility": [
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "lenovo-thinksystem-sr655-v3",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "oemOptionCode": "C4H8",
+            "sourceIds": [
+                "lenovo-sr655-v3"
+            ]
+        },
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "lenovo-thinksystem-sr665-v3",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "supportedCpuQuantities": [
+                1,
+                2
+            ],
+            "oemOptionCode": "4XG7B02136",
+            "sourceIds": [
+                "lenovo-sr665-v3"
+            ]
+        },
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "lenovo-thinksystem-sr675-v3",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "supportedCpuQuantities": [
+                1,
+                2
+            ],
+            "oemOptionCode": "C4H8",
+            "sourceIds": [
+                "lenovo-sr675-v3"
+            ]
+        },
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "hpe-proliant-compute-dl325-gen12",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceIds": [
+                "hpe-dl325-gen12"
+            ]
+        },
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "hpe-proliant-compute-dl345-gen12",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceIds": [
+                "hpe-dl345-gen12"
+            ]
+        },
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "dell-poweredge-r6715",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceIds": [
+                "dell-r6715-guide"
+            ]
+        },
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "dell-poweredge-r7725",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-r7725-guide"
+            ]
+        },
+        {
+            "catalogId": "amd-533ef46f46e792a53597",
+            "platformId": "cisco-ucs-c885a-m8",
+            "supportLevel": "confirmed",
+            "evidenceType": "fixed_configuration",
+            "supportedCpuQuantities": [
+                2
+            ],
+            "oemOptionCode": "UCSC-885A-M8-M352",
+            "sourceIds": [
+                "cisco-c885a-datasheet"
+            ]
+        },
+        {
+            "catalogId": "amd-4e2482a19422a82087d2",
+            "platformId": "lenovo-thinksystem-sr665-v3",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "supportedCpuQuantities": [
+                1,
+                2
+            ],
+            "oemOptionCode": "4XG7A85816",
+            "sourceIds": [
+                "lenovo-sr665-v3"
+            ]
+        },
+        {
+            "catalogId": "amd-4e2482a19422a82087d2",
+            "platformId": "lenovo-thinksystem-sr675-v3",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "supportedCpuQuantities": [
+                1,
+                2
+            ],
+            "oemOptionCode": "BPVJ",
+            "sourceIds": [
+                "lenovo-sr675-v3"
+            ]
+        },
+        {
+            "catalogId": "intel-ef124b107763422cd947",
+            "platformId": "lenovo-thinksystem-sr650-v4",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "oemOptionCode": "4XG7B03694",
+            "sourceIds": [
+                "lenovo-sr650-v4"
+            ]
+        },
+        {
+            "catalogId": "intel-ef124b107763422cd947",
+            "platformId": "hpe-proliant-compute-dl380-gen12",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "oemOptionCode": "P73837-B21",
+            "sourceIds": [
+                "hpe-dl380-gen12"
+            ]
+        },
+        {
+            "catalogId": "intel-ef124b107763422cd947",
+            "platformId": "dell-poweredge-r770",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "dell-r770-guide"
+            ]
+        },
+        {
+            "catalogId": "ampere-ddf09a7adf702bfc4c68",
+            "platformId": "gigabyte-r163-p32-aah1",
+            "supportLevel": "confirmed",
+            "evidenceType": "qualified_vendor_list",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceIds": [
+                "gigabyte-r163-p32-qvl"
+            ]
+        },
+        {
+            "catalogId": "ampere-9840699508ffbcc657e0",
+            "platformId": "gigabyte-r163-p32-aah1",
+            "supportLevel": "confirmed",
+            "evidenceType": "qualified_vendor_list",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceIds": [
+                "gigabyte-r163-p32-qvl"
+            ]
+        },
+        {
+            "catalogId": "ampere-7d98b6fff1222bf00733",
+            "platformId": "gigabyte-r163-p32-aah1",
+            "supportLevel": "confirmed",
+            "evidenceType": "qualified_vendor_list",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceIds": [
+                "gigabyte-r163-p32-qvl"
+            ]
+        },
+        {
+            "catalogId": "ampere-ead3f5a16b87d50f6803",
+            "platformId": "gigabyte-r163-p32-aah1",
+            "supportLevel": "confirmed",
+            "evidenceType": "qualified_vendor_list",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceIds": [
+                "gigabyte-r163-p32-qvl"
+            ]
+        },
+        {
+            "catalogId": "ampere-e1e0dc8d96e011c5cda9",
+            "platformId": "gigabyte-r163-p32-aah1",
+            "supportLevel": "confirmed",
+            "evidenceType": "qualified_vendor_list",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceIds": [
+                "gigabyte-r163-p32-qvl"
+            ]
+        },
+        {
+            "catalogId": "ampere-0c9f76a894454d335f9d",
+            "platformId": "gigabyte-r163-p32-aah1",
+            "supportLevel": "confirmed",
+            "evidenceType": "qualified_vendor_list",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceIds": [
+                "gigabyte-r163-p32-qvl"
+            ]
+        },
+        {
+            "catalogId": "ampere-36433c5a0850d9a2d94c",
+            "platformId": "gigabyte-r163-p32-aah1",
+            "supportLevel": "confirmed",
+            "evidenceType": "qualified_vendor_list",
+            "supportedCpuQuantities": [
+                1
+            ],
+            "sourceIds": [
+                "gigabyte-r163-p32-qvl"
+            ]
+        },
+        {
+            "catalogId": "amd-3f428b671616a85fc874",
+            "platformId": "hp-elitebook-8-g1a-14-d6cv5ua-aba",
+            "supportLevel": "confirmed",
+            "evidenceType": "fixed_configuration",
+            "oemOptionCode": "D6CV5UA#ABA",
+            "sourceIds": [
+                "hp-elitebook-8-g1a-14-d6cv5ua"
+            ]
+        },
+        {
+            "catalogId": "intel-a0811159e55b6874e352",
+            "platformId": "lenovo-thinkcentre-m90q-gen-6",
+            "supportLevel": "confirmed",
+            "evidenceType": "supported_processor_table",
+            "sourceIds": [
+                "lenovo-m90q-gen-6"
+            ]
+        }
+    ],
+    "sources": [
+        {
+            "id": "lenovo-sr655-v3",
+            "publisher": "Lenovo Press",
+            "title": "ThinkSystem SR655 V3 Server Product Guide",
+            "url": "https://lenovopress.lenovo.com/lp1610-thinksystem-sr655-v3-server",
+            "locator": "Abstract; Key features; 5th Gen AMD EPYC processor support table; Memory options",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "lenovo-sr665-v3",
+            "publisher": "Lenovo Press",
+            "title": "ThinkSystem SR665 V3 Server Product Guide",
+            "url": "https://lenovopress.lenovo.com/lp1608-thinksystem-sr665-v3-server",
+            "locator": "Abstract; Tables 14 and 15, processor support; Memory options",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "lenovo-sr675-v3",
+            "publisher": "Lenovo Press",
+            "title": "ThinkSystem SR675 V3 and SR675i V3 Servers Product Guide",
+            "url": "https://lenovopress.lenovo.com/lp1611-thinksystem-sr675-v3-server",
+            "locator": "SR675 V3 introduction; Tables 10 and 11, processor support; Memory options",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "hpe-dl325-gen12",
+            "publisher": "HPE",
+            "title": "ProLiant Compute DL325 Gen12 QuickSpecs",
+            "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20ProLiant%20Compute%20DL325%20Gen12%20QuickSpecs-a50009232enw.pdf?contentDisposition=attachment&form=false&hf=regular&id=a50009232enw.pdf&isFutureVersion=true&isLinearized=false&preview=false&ver=2",
+            "locator": "PDF pp. 1, 10-11: 1U single socket, processor list, memory channels and DIMM slots",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "hpe-dl345-gen12",
+            "publisher": "HPE",
+            "title": "ProLiant Compute DL345 Gen12 QuickSpecs",
+            "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20ProLiant%20Compute%20DL345%20Gen12%20QuickSpecs-a50009233enw.pdf?contentDisposition=attachment&form=false&hf=regular&id=a50009233enw.pdf&isFutureVersion=true&isLinearized=false&preview=false&ver=1",
+            "locator": "PDF pp. 1, 5-6: 2U 1P, processor list, memory channels and DIMM slots",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "dell-r6715-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R6715 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/poweredge-r6715-technical-guide.pdf",
+            "locator": "Product comparison; Supported processors table; Processor features; Memory",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "dell-r7725-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R7725 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-in/products/servers/technical-support/poweredge-r7725-technical-guide.pdf",
+            "locator": "Supported processors table; Processor features; Memory",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "dell-r7725-spec",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R7725 Specification Sheet",
+            "url": "https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/poweredge-r7725-spec-sheet.pdf",
+            "locator": "Technical specifications: processors and 2U form factor",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "cisco-c885a-datasheet",
+            "publisher": "Cisco",
+            "title": "UCS C885A M8 Rack Server Data Sheet",
+            "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c885a-m8-ds.pdf",
+            "locator": "PDF pp. 4-5: specifications and fixed-configuration ordering table",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "cisco-c885a-service",
+            "publisher": "Cisco",
+            "title": "UCS C885A M8 Server Installation and Service Guide",
+            "url": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/c885A/install/b_c885a-m8-server-hig/m_overview.html",
+            "locator": "DIMM Slot Locations: 12 channels and DIMMs per CPU",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "lenovo-sr650-v4",
+            "publisher": "Lenovo Press",
+            "title": "ThinkSystem SR650 V4 Server Product Guide",
+            "url": "https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server",
+            "locator": "Standard specifications; Intel Xeon 6 processor options table, 6787P row",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "hpe-dl380-gen12",
+            "publisher": "HPE",
+            "title": "ProLiant Compute DL380 Gen12 QuickSpecs",
+            "url": "https://www.hpe.com/nl/en/collaterals/collateral.a00073551enw.html",
+            "locator": "Overview; processor list and Step 1 processor options, 6787P row; Memory",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "dell-r770-guide",
+            "publisher": "Dell Technologies",
+            "title": "PowerEdge R770 Technical Guide",
+            "url": "https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/poweredge-r770-technical-guide.pdf",
+            "locator": "Product comparison; Intel Xeon 6 P-core supported processors table; Memory",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "gigabyte-r163-p32-product",
+            "publisher": "GIGABYTE",
+            "title": "R163-P32-AAH1 Rack Server",
+            "url": "https://www.gigabyte.com/ie/Enterprise/Rack-Server/R163-P32-AAH1",
+            "locator": "Specifications: 1U chassis, single AmpereOne socket, 8 memory channels, 16 DIMM slots",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "gigabyte-r163-p32-qvl",
+            "publisher": "GIGABYTE",
+            "title": "R163-P32-AAH1 QVL Support List",
+            "url": "https://www.gigabyte.com/ie/Enterprise/Rack-Server/R163-P32-AAH1/Support-QVL",
+            "locator": "Processor QVL, AmpereOne section; last updated June 28, 2026",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "hp-elitebook-8-g1a-14-d6cv5ua",
+            "publisher": "HP",
+            "title": "HP EliteBook 8 G1a 14 Notebook Next-Gen AI PC, product D6CV5UA#ABA",
+            "url": "https://www.hp.com/us-en/shop/pdp/hp-elitebook-8-g1a-14-inch-notebook-next-gen-ai-pc-wolf-pro-security-edition-p-d6cv5ua-aba-1",
+            "locator": "Product # D6CV5UA#ABA; Technical Specs: Processor, Memory slots, Display, Dimensions",
+            "retrievedAt": "2026-09-30"
+        },
+        {
+            "id": "lenovo-m90q-gen-6",
+            "publisher": "Lenovo PSREF",
+            "title": "ThinkCentre M90q Gen 6 Product Specifications Reference",
+            "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M90q_Gen_6/ThinkCentre_M90q_Gen_6_Spec.PDF",
+            "locator": "PDF pp. 2, 3, 5: Core Ultra 7 265 processor option; memory slots; Tiny 1L mechanical dimensions",
+            "retrievedAt": "2026-09-30"
+        }
+    ]
+}
