@@ -46,12 +46,17 @@ def main():
              encoding='utf-8', newline='\n').write('[]\n')
         print('nothing unplaced'); return
 
+    # A client codename does not cover the embedded products sharing its die.
+    # Preserve entire source families with NPU ratings in their own embedded block.
+    npu_embedded = {(r['family'], r['codename']) for r in rows
+                    if r.get('npu_tops') and r['segment'] == 'embedded'}
+
     # Group unplaced codenames by AMD's own `family`, then by `series` for EPYC/Opteron
     # where the series IS the product generation and is the meaningful divider.
     blocks = collections.OrderedDict()
     for r in rows:
         cd = r['codename']
-        if cd not in unplaced:
+        if cd not in unplaced and (r['family'], cd) not in npu_embedded:
             continue
         fam = r['family']
         # For EPYC and Opteron, AMD's `series` IS the product generation
@@ -94,7 +99,10 @@ def main():
 
     path = os.path.join(ROOT, 'tools/derived-blocks.json')
     txt = json.dumps(out_blocks, indent=2, ensure_ascii=False) + '\n'
-    open(path, 'w', encoding='utf-8', newline='\n').write(txt)
+    with open(path, 'w', encoding='utf-8', newline='\n') as f:
+        f.write(txt)
+    with open(path, encoding='utf-8') as f:
+        assert f.read() == txt
     print(f'{len(out_blocks)} blocks covering '
           f'{sum(b["models"] for b in out_blocks)} models, '
           f'{len({c for b in out_blocks for c in b["codenames"]})} codenames')

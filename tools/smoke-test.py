@@ -48,8 +48,8 @@ EXPECT = {
     "amd_epyc_cards": 27,
     "amd_epyc_models": 350,
     "amd_ryzen_groups": 32,
-    "amd_ryzen_cards": 79,
-    "amd_ryzen_models": 736,
+    "amd_ryzen_cards": 84,
+    "amd_ryzen_models": 774,
     "amd_gpu_groups": 43,
     "amd_gpu_cards": 43,
     "amd_gpu_models": 303,
@@ -186,6 +186,45 @@ def main():
                 return page.eval_on_selector_all(
                     sel, "e => e.filter(x => !x.classList.contains('hidden')).length"
                 )
+
+            def check_npu_tables(vendor, tab):
+                report = page.evaluate("""({vendor, tab}) => {
+                  const source = vendor === 'amd' ? (a2Specs.cpu || {}) : (V2_SPECS[tab] || {});
+                  const models = new Map(Object.values(source).flat().map(model => [model.n, model]));
+                  const seen = new Set(), errors = [];
+                  for (const table of document.querySelectorAll('.cpu-spec-table')) {
+                    const headers = [...table.querySelectorAll('thead th')].map(th => th.textContent.trim());
+                    const rows = [...table.querySelectorAll('tbody tr')].filter(row => row.cells.length > 1);
+                    const rated = rows.some(row => models.get(row.cells[0].textContent.trim())?.npu);
+                    const npu = headers.indexOf('NPU TOPS');
+                    if (!rated) {
+                      if (npu !== -1) errors.push('NPU column shown on an unrated table');
+                      continue;
+                    }
+                    if (npu < 0 || headers[npu + 1] !== 'L3 Cache')
+                      errors.push('NPU TOPS must immediately precede L3 Cache');
+                    for (const row of rows) {
+                      const name = row.cells[0].textContent.trim(), model = models.get(name);
+                      if (!model) continue;
+                      const expected = model.npu ? String(model.npu).replace(/\\s*TOPS$/i, '') : '—';
+                      if (row.cells[npu]?.textContent.trim() !== expected ||
+                          row.cells.length !== headers.length)
+                        errors.push(name + ': NPU value or column alignment differs');
+                      if (model.npu) {
+                        seen.add(name);
+                        const link = row.cells[npu]?.querySelector('a.npu-source');
+                        if (link?.getAttribute('href') !== model.npuSource)
+                          errors.push(name + ': NPU source link missing');
+                      }
+                    }
+                  }
+                  return {errors, count: seen.size};
+                }""", {"vendor": vendor, "tab": tab})
+                failures.extend(report["errors"])
+                expected = {("amd", "ryzen"): 126, ("intel", "client"): 84}.get((vendor, tab), 0)
+                if report["count"] != expected:
+                    failures.append(f"{vendor}-{tab} NPU coverage: {report['count']} != {expected}")
+                results[f"{vendor}_{tab}_npu_models"] = report["count"]
 
             def check_benchmark_nav(vendor, tab):
                 nav_id = {"amd": "epycModeNav", "intel": "xeonModeNav",
@@ -447,6 +486,60 @@ def main():
                     count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
                 if tab in ("epyc", "ryzen"):
                     check_benchmark_table_links("amd", tab)
+                    check_npu_tables("amd", tab)
+                if tab == "ryzen":
+                    ai_errors = page.evaluate("""async () => {
+                      const errors = [];
+                      const allRows = [...document.querySelectorAll('.cpu-spec-table tbody tr')];
+                      const find = name => allRows.find(row => row.cells[0]?.textContent.trim() === name);
+                      const expected = {
+                        'Ryzen AI 9 HX 475': 'Up to 60', 'Ryzen AI 9 HX 470': 'Up to 55',
+                        'Ryzen AI 9 HX PRO 475': 'Up to 60', 'Ryzen AI 9 HX PRO 470': 'Up to 55',
+                        'Ryzen AI 9 HX 375': 'Up to 55', 'Ryzen AI 9 HX 370': 'Up to 50',
+                        'Ryzen AI 9 HX PRO 375': 'Up to 55', 'Ryzen AI 9 HX PRO 370': 'Up to 50'
+                      };
+                      for (const [name, npu] of Object.entries(expected)) {
+                        const row = find(name);
+                        const headers = [...(row?.closest('table').querySelectorAll('thead th') || [])]
+                          .map(th => th.textContent.trim());
+                        const npuIndex = headers.indexOf('NPU TOPS');
+                        if (!row || npuIndex !== 5 || headers[npuIndex + 1] !== 'L3 Cache' ||
+                            headers.length !== 13 || row.cells[npuIndex]?.textContent.trim() !== npu ||
+                            !row.cells[npuIndex]?.querySelector('a[href^="https://www.amd.com/"]')) {
+                          errors.push(`${name}: NPU value, source or table width changed`);
+                        }
+                      }
+                      for (const [higher, lower] of [
+                        ['Ryzen AI 9 HX 475', 'Ryzen AI 9 HX 470'],
+                        ['Ryzen AI 9 HX PRO 475', 'Ryzen AI 9 HX PRO 470'],
+                        ['Ryzen AI 9 HX 375', 'Ryzen AI 9 HX 370'],
+                        ['Ryzen AI 9 HX PRO 375', 'Ryzen AI 9 HX PRO 370'],
+                        ['Ryzen AI 7 445', 'Ryzen AI 5 435']
+                      ]) {
+                        const a = find(higher), b = find(lower);
+                        if (!a || !b || a.parentElement !== b.parentElement || a.rowIndex >= b.rowIndex)
+                          errors.push(`${higher} must precede ${lower}`);
+                      }
+                      const selected = [find('Ryzen AI 9 HX 475'), find('Ryzen AI 9 HX 470')];
+                      if (selected.every(Boolean)) {
+                        const details = await dashboardLoadCompareDetails();
+                        dashboardPaintComparison(selected.map(dashboardRowRecord), details);
+                        const compareRows = [...dom.compareContent.querySelectorAll('tbody tr')];
+                        for (const [label, values] of [
+                          ['NPU TOPS', ['Up to 60 TOPS', 'Up to 55 TOPS']],
+                          ['Overall AI TOPS', ['Up to 91 TOPS', 'Up to 86 TOPS']],
+                          ['Socket', ['FP8', 'FP8']]
+                        ]) {
+                          const row = compareRows.find(r => r.querySelector('th')?.textContent === label);
+                          const actual = [...(row?.querySelectorAll('td') || [])].map(td => td.textContent);
+                          if (JSON.stringify(actual) !== JSON.stringify(values)) errors.push(`${label}: comparison mismatch`);
+                        }
+                        if (dom.compareContent.querySelectorAll('.compare-sources a[href^="https://www.amd.com/"]').length !== 2)
+                          errors.push('AI comparison must link both official AMD product pages');
+                      }
+                      return errors;
+                    }""")
+                    failures.extend(ai_errors)
                 if tab == "epyc":
                     price_check = page.eval_on_selector_all(
                         ".cpu-spec-table", """tables => ({
@@ -582,6 +675,7 @@ def main():
                     count(".cpu-spec-table tbody tr") - count(".v2-empty-row"))
                 if tab in ("xeon", "client"):
                     check_benchmark_table_links("intel", tab)
+                    check_npu_tables("intel", tab)
                 page.click("#collapseAllBtn")
                 page.wait_for_timeout(500)
                 if args.shots:

@@ -483,19 +483,31 @@
     "subtab": "ryzen",
     "segment": "embedded",
     "years": "",
-    "models": 16,
+    "models": 38,
     "codenames": [
       "Granite Ridge",
+      "Strix Halo",
+      "Strix Point",
+      "Krackan Point",
       "Great Horned Owl",
+      "Hawk Point",
       "Raphael"
     ],
     "tier_of": {
+      "Strix Halo": "Ryzen Embedded",
+      "Strix Point": "Ryzen Embedded",
+      "Krackan Point": "Ryzen Embedded",
       "Granite Ridge": "Ryzen Embedded",
+      "Hawk Point": "Ryzen Embedded",
       "Raphael": "Ryzen Embedded",
       "Great Horned Owl": "Ryzen Embedded"
     },
     "seg_of": {
+      "Strix Halo": "embedded",
+      "Strix Point": "embedded",
+      "Krackan Point": "embedded",
       "Granite Ridge": "embedded",
+      "Hawk Point": "embedded",
       "Raphael": "embedded",
       "Great Horned Owl": "embedded"
     }

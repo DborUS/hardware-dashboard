@@ -1,0 +1,594 @@
+{
+    "verified_date": "2026-10-07",
+    "scope": "Supplemental NPU ratings for existing AMD CSV products. Values are transcribed from each exact model's official AMD specification; Performance means the AI Engine Capabilities field, never total platform TOPS.",
+    "products": [
+        {
+            "model": "RyzenAI Max+ PRO 495",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/ai-max-pro-400-series/amd-ryzen-ai-max-plus-pro-495.html",
+            "source_name": "AMD Ryzen\u2122AI Max+ PRO 495",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 55 TOPS",
+            "overall_tops": "Up to 132 TOPS"
+        },
+        {
+            "model": "Ryzen AI Max PRO 490",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/ai-max-pro-400-series/amd-ryzen-ai-max-pro-490.html",
+            "source_name": "AMD Ryzen\u2122 AI Max PRO 490",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS",
+            "overall_tops": "Up to 110 TOPS"
+        },
+        {
+            "model": "Ryzen AI Max PRO 485",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/ai-max-pro-400-series/amd-ryzen-ai-max-pro-485.html",
+            "source_name": "AMD Ryzen\u2122 AI Max PRO 485",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS",
+            "overall_tops": "Up to 106 TOPS"
+        },
+        {
+            "model": "Ryzen AI 7 PRO 450GE",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/ai-400-series/amd-ryzen-ai-7-pro-450ge.html",
+            "source_name": "AMD Ryzen\u2122 AI 7 PRO 450GE",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI 7 PRO 450G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/ai-400-series/amd-ryzen-ai-7-pro-450g.html",
+            "source_name": "AMD Ryzen\u2122 AI 7 PRO 450G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI 5 PRO 440GE",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/ai-400-series/amd-ryzen-ai-5-pro-440ge.html",
+            "source_name": "AMD Ryzen\u2122 AI 5 PRO 440GE",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI 5 PRO 440G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/ai-400-series/amd-ryzen-ai-5-pro-440g.html",
+            "source_name": "AMD Ryzen\u2122 AI 5 PRO 440G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI 5 PRO 435GE",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/ai-400-series/amd-ryzen-ai-5-pro-435ge.html",
+            "source_name": "AMD Ryzen\u2122 AI 5 PRO 435GE",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI 5 PRO 435G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/ai-400-series/amd-ryzen-ai-5-pro-435g.html",
+            "source_name": "AMD Ryzen\u2122 AI 5 PRO 435G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI 7 450GE",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen/ai-400-series/amd-ryzen-ai-7-450ge.html",
+            "source_name": "AMD Ryzen\u2122 AI 7 450GE",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI 7 450G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen/ai-400-series/amd-ryzen-ai-7-450g.html",
+            "source_name": "AMD Ryzen\u2122 AI 7 450G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI 5 440GE",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen/ai-400-series/amd-ryzen-ai-5-440ge.html",
+            "source_name": "AMD Ryzen\u2122 AI 5 440GE",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI 5 440G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen/ai-400-series/amd-ryzen-ai-5-440g.html",
+            "source_name": "AMD Ryzen\u2122 AI 5 440G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI 5 435GE",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen/ai-400-series/amd-ryzen-ai-5-435ge.html",
+            "source_name": "AMD Ryzen\u2122 AI 5 435GE",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI 5 435G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen/ai-400-series/amd-ryzen-ai-5-435g.html",
+            "source_name": "AMD Ryzen\u2122 AI 5 435G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen AI Max+ PRO 395",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/ai-max-pro-300-series/amd-ryzen-ai-max-plus-pro-395.html",
+            "source_name": "AMD Ryzen\u2122 AI Max+ PRO 395",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS",
+            "overall_tops": "Up to 126 TOPS"
+        },
+        {
+            "model": "Ryzen AI Max PRO 390",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/ai-max-pro-300-series/amd-ryzen-ai-max-pro-390.html",
+            "source_name": "AMD Ryzen\u2122 AI Max PRO 390",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS",
+            "overall_tops": "Up to 110 TOPS"
+        },
+        {
+            "model": "Ryzen AI Max PRO 385",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/ai-max-pro-300-series/amd-ryzen-ai-max-pro-385.html",
+            "source_name": "AMD Ryzen\u2122 AI Max PRO 385",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS",
+            "overall_tops": "Up to 106 TOPS"
+        },
+        {
+            "model": "Ryzen AI Max PRO 380",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/ai-max-pro-300-series/amd-ryzen-ai-max-pro-380.html",
+            "source_name": "AMD Ryzen\u2122 AI Max PRO 380",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS",
+            "overall_tops": "Up to 80 TOPS"
+        },
+        {
+            "model": "Ryzen AI Max+ 395",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-max-plus-395.html",
+            "source_name": "AMD Ryzen\u2122 AI Max+ 395",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS",
+            "overall_tops": "Up to 126 TOPS"
+        },
+        {
+            "model": "Ryzen AI Max+ 392",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-max-plus-392.html",
+            "source_name": "AMD Ryzen\u2122 AI Max+ 392",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS",
+            "overall_tops": "Up to 122 TOPS"
+        },
+        {
+            "model": "Ryzen AI Max 390",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-max-390.html",
+            "source_name": "AMD Ryzen\u2122 AI Max 390",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS",
+            "overall_tops": "Up to 110 TOPS"
+        },
+        {
+            "model": "Ryzen AI Max+ 388",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-max-plus-388.html",
+            "source_name": "AMD Ryzen\u2122 AI Max+ 388",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS",
+            "overall_tops": "Up to 118 TOPS"
+        },
+        {
+            "model": "Ryzen AI Max 385",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-max-385.html",
+            "source_name": "AMD Ryzen\u2122 AI Max 385",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS",
+            "overall_tops": "Up to 106 TOPS"
+        },
+        {
+            "model": "Ryzen AI Z2 Extreme",
+            "source_url": "https://www.amd.com/en/products/processors/handhelds/ryzen-z-series/z2-series/ai-z2-extreme.html",
+            "source_name": "AMD Ryzen\u2122 AI Z2 Extreme",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 50 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 250",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/200-series/amd-ryzen-7-pro-250.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 250",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 38 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 230",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/200-series/amd-ryzen-5-pro-230.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 230",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 31 TOPS"
+        },
+        {
+            "model": "Ryzen 9 270",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/200-series/amd-ryzen-9-270.html",
+            "source_name": "AMD Ryzen\u2122 9 270",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 39 TOPS"
+        },
+        {
+            "model": "Ryzen 7 260",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/200-series/amd-ryzen-7-260.html",
+            "source_name": "AMD Ryzen\u2122 7 260",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 38 TOPS"
+        },
+        {
+            "model": "Ryzen 7 253",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/200-series/amd-ryzen-7-253.html",
+            "source_name": "AMD Ryzen\u2122 7 253",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 7 250",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/200-series/amd-ryzen-7-250.html",
+            "source_name": "AMD Ryzen\u2122 7 250",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 38 TOPS"
+        },
+        {
+            "model": "Ryzen 7 249",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/200-series/amd-ryzen-7-249.html",
+            "source_name": "AMD Ryzen\u2122 7 249",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 5 240",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/200-series/amd-ryzen-5-240.html",
+            "source_name": "AMD Ryzen\u2122 5 240",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 31 TOPS"
+        },
+        {
+            "model": "Ryzen 5 230",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/200-series/amd-ryzen-5-230.html",
+            "source_name": "AMD Ryzen\u2122 5 230",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 31 TOPS"
+        },
+        {
+            "model": "Ryzen 5 225",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/200-series/amd-ryzen-5-225.html",
+            "source_name": "AMD Ryzen\u2122 5 225",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 5 224",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/200-series/amd-ryzen-5-224.html",
+            "source_name": "AMD Ryzen\u2122 5 224",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 9 180",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/100-series/amd-ryzen-9-180.html",
+            "source_name": "AMD Ryzen\u2122 9 180",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 7 165",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/100-series/amd-ryzen-7-165.html",
+            "source_name": "AMD Ryzen\u2122 7 165",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 9 PRO 8945HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/8000-series/amd-ryzen-9-pro-8945hs.html",
+            "source_name": "AMD Ryzen\u2122 9 PRO 8945HS",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 39 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 8845HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/8000-series/amd-ryzen-7-pro-8845hs.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 8845HS",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 38 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 8840U",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/8000-series/amd-ryzen-7-pro-8840u.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 8840U",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 38 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 8840HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/8000-series/amd-ryzen-7-pro-8840hs.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 8840HS",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 39 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 8705GE",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-7-pro-8705ge.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 8705GE",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 8705G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-7-pro-8705g.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 8705G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 8700GE",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-7-pro-8700ge.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 8700GE",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 8700G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-7-pro-8700g.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 8700G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 8640U",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/8000-series/amd-ryzen-5-pro-8640u.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 8640U",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 31 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 8645HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/8000-series/amd-ryzen-5-pro-8645hs.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 8645HS",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 31 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 8640HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/8000-series/amd-ryzen-5-pro-8640hs.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 8640HS",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 31 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 8605GE",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-5-pro-8605ge.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 8605GE",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 8605G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-5-pro-8605g.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 8605G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 8600GE",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-5-pro-8600ge.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 8600GE",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 8600G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-5-pro-8600g.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 8600G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 9 8945HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8945hs.html",
+            "source_name": "AMD Ryzen\u2122 9 8945HS",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 39 TOPS"
+        },
+        {
+            "model": "Ryzen 7 8845HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-7-8845hs.html",
+            "source_name": "AMD Ryzen\u2122 7 8845HS",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 38 TOPS"
+        },
+        {
+            "model": "Ryzen 7 8840U",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-7-8840u.html",
+            "source_name": "AMD Ryzen\u2122 7 8840U",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 38 TOPS"
+        },
+        {
+            "model": "Ryzen 7 8840HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-7-8840hs.html",
+            "source_name": "AMD Ryzen\u2122 7 8840HS",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 39 TOPS"
+        },
+        {
+            "model": "Ryzen 7 8705G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8705g.html",
+            "source_name": "AMD Ryzen\u2122 7 8705G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 7 8700G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html",
+            "source_name": "AMD Ryzen\u2122 7 8700G",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 7 8700F",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700f.html",
+            "source_name": "AMD Ryzen\u2122 7 8700F",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 5 8645HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-5-8645hs.html",
+            "source_name": "AMD Ryzen\u2122 5 8645HS",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 31 TOPS"
+        },
+        {
+            "model": "Ryzen 5 8640U",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-5-8640u.html",
+            "source_name": "AMD Ryzen\u2122 5 8640U",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 31 TOPS"
+        },
+        {
+            "model": "Ryzen 5 8640HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-5-8640hs.html",
+            "source_name": "AMD Ryzen\u2122 5 8640HS",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS",
+            "overall_tops": "Up to 31 TOPS"
+        },
+        {
+            "model": "Ryzen 5 8605G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8605g.html",
+            "source_name": "AMD Ryzen\u2122 5 8605G",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 5 8600G",
+            "source_url": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8600g.html",
+            "source_name": "AMD Ryzen\u2122 5 8600G",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 9 PRO 7940HS",
+            "source_url": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen-pro/ryzen-pro-7000-series/amd-ryzen-9-pro-7940hs.html",
+            "source_name": "AMD Ryzen\u2122 9 PRO 7940HS",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 10 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 7840U",
+            "source_url": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen-pro/ryzen-pro-7000-series/amd-ryzen-7-pro-7840u.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 7840U",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 10 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 7840HS",
+            "source_url": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen-pro/ryzen-pro-7000-series/amd-ryzen-7-pro-7840hs.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 7840HS",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 10 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 7640U",
+            "source_url": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen-pro/ryzen-pro-7000-series/amd-ryzen-5-pro-7640u.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 7640U",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 10 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 7640HS",
+            "source_url": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen-pro/ryzen-pro-7000-series/amd-ryzen-5-pro-7640hs.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 7640HS",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 10 TOPS"
+        },
+        {
+            "model": "Ryzen 9 7940HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/7000-series/amd-ryzen-9-7940hs.html",
+            "source_name": "AMD Ryzen\u2122 9 7940HS",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 10 TOPS"
+        },
+        {
+            "model": "Ryzen 7 7840U",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/7000-series/amd-ryzen-7-7840u.html",
+            "source_name": "AMD Ryzen\u2122 7 7840U",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 10 TOPS",
+            "overall_tops": "Up to 32 TOPS"
+        },
+        {
+            "model": "Ryzen 7 7840HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/7000-series/amd-ryzen-7-7840hs.html",
+            "source_name": "AMD Ryzen\u2122 7 7840HS",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 10 TOPS"
+        },
+        {
+            "model": "Ryzen 5 7640U",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/7000-series/amd-ryzen-5-7640u.html",
+            "source_name": "AMD Ryzen\u2122 5 7640U",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 10 TOPS",
+            "overall_tops": "Up to 25 TOPS"
+        },
+        {
+            "model": "Ryzen 5 7640HS",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen/7000-series/amd-ryzen-5-7640hs.html",
+            "source_name": "AMD Ryzen\u2122 5 7640HS",
+            "source_field": "AI Engine Capabilities / Performance",
+            "npu_tops": "Up to 10 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 224",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/200-series/amd-ryzen-5-pro-224.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 224",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 249",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/200-series/amd-ryzen-7-pro-249.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 249",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 5 PRO 225",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/200-series/amd-ryzen-5-pro-225.html",
+            "source_name": "AMD Ryzen\u2122 5 PRO 225",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        },
+        {
+            "model": "Ryzen 7 PRO 253",
+            "source_url": "https://www.amd.com/en/products/processors/laptop/ryzen-pro/200-series/amd-ryzen-7-pro-253.html",
+            "source_name": "AMD Ryzen\u2122 7 PRO 253",
+            "source_field": "NPU TOPS",
+            "npu_tops": "Up to 16 TOPS"
+        }
+    ]
+}

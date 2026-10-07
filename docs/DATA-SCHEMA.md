@@ -20,7 +20,7 @@ field names here are real, not aspirational.
 | `enterprise-benchmark-2026-fp-sample.json` | object | 177 results | Dated SPEC CPU 2026 floating-point base-rate disclosures, separated by test build |
 | `enterprise-benchmark-mlperf-v6-server-sample.json` | object | 23 results | Official MLPerf® Inference v6.0 Closed/Available Server results for one-node, eight-accelerator Llama 2 70B 99% systems |
 | `enterprise-benchmark-mlperf-v6-offline-sample.json` | object | 23 results | The matching Offline scenario as a separate score scale and result snapshot |
-| `benchmark-catalog.json` | object | 2,393 products, 2,414 display placements | Generated identity index of every displayed non-roadmap specification row, with exact snapshot metric matches and explicit unverified release status |
+| `benchmark-catalog.json` | object | 2,431 products, 2,452 display placements | Generated identity index of every displayed non-roadmap specification row, with exact snapshot metric matches and explicit unverified release status |
 | `benchmark-table-index.js` | JavaScript object | 645 scored CPU models | Generated compact lookup for one source-linked SPEC system score or Blender CPU median per model, keyed by exact catalog vendor/model |
 
 The product catalog files are loaded at runtime by `loadVendorData()` and cached
@@ -32,6 +32,52 @@ the product dashboard.
 `compare-details.json` is also loaded on demand: `dashboardRenderComparison()` loads it on
 demand so the normal dashboard stays light. Regenerate it with
 `python3 tools/build-compare-details.py`; never hand-edit it.
+
+## NPU capability fields and model ordering
+
+NPU TOPS is a shared CPU-table feature. `dashboardNpuTableSchema()` places it
+immediately before L3 Cache whenever a table contains a published NPU rating.
+Tables without rated NPUs retain their normal columns. Unrated rows show a dash,
+never zero. GPU or total-system AI throughput is not relabeled as NPU performance.
+AMD retains the existing table width by keeping Socket in Compare; Intel keeps
+all existing columns. Both have 13 columns including Benchmark when NPU is shown.
+
+`docs/specs/amd-master.csv` is the AMD factual source. `npu_tops` and
+`overall_tops` preserve the published qualifier and unit. The October 7
+enrichment now covers 104 exact models from official AMD product/support pages,
+plus 22 retained embedded ratings: 126 NPU ratings and 60 overall ratings.
+This includes Ryzen AI 300/400, AI Max, desktop AI, 100/200, 7040/8040,
+8000 desktop, PRO and AI Z2 models already present in the source CSVs.
+The 79 additions after the original mobile fix are recorded in
+`docs/specs/amd-ai-verification.json`, with exact source model, URL and field.
+Some older pages call NPU throughput `Performance` under
+`AI Engine Capabilities`. Their source field is retained explicitly.
+Other hardware fields and the official source roster are unchanged. Restored
+Phoenix mobile and shared-codename embedded families expose 38 previously
+omitted dashboard models, including 32 with NPU ratings. Ryzen now has 774 rows
+across 84 cards. Generation fails if a sourced NPU model has no placement.
+The older combined master is not used as a factual fallback; its AI ratings
+can be incorrect.
+
+AMD's builder emits `npu`, `aiTotal` and `npuSource`.
+`import-client-specs.py` independently collects Intel ARK's
+`NPU Peak TOPS (Int8)` and `Overall Peak TOPS (Int8)` across retained exports,
+so CPU-row deduplication cannot discard a later export's AI field.
+Conflicting ratings fail the import. The current client runtime carries 84 NPU
+ratings and 61 overall ratings, plus `npuPrecision: Int8` and a link to the exact
+retained official export. All 340 existing client models remain in scope.
+
+Compare preserves separate NPU/overall rows, shows Intel's NPU precision,
+and retains full hardware details. Source URLs are excluded from table search
+text so export filenames cannot create false product matches.
+Future rated models follow the same table rule automatically after import.
+
+AMD CPU rows retain segment/core priorities, with descending numeric model
+tokens breaking ties; this is catalog ordering, not a universal performance
+ranking. `tools/test-amd-ai.py` and `tools/test-intel-npu.py` verify source
+preservation, identity, regeneration and missing-value behavior. The smoke suite
+checks every rated row, source link and NPU/L3 alignment, plus unrated/server
+tables and the original HX model-order/comparison regressions.
 
 ## Benchmark snapshots and provenance
 
@@ -71,8 +117,8 @@ Segment. The live grouped export and capture manifest are retained in `tools/`;
 `tools/blender-import-review.json` accounts for every source label. Median
 scores are community summaries across submitted hardware and software setups.
 
-`benchmark-catalog.json` is generated from 2,414 dashboard placements and
-2,393 distinct product identities. `snapshotMetrics` means an exact result
+`benchmark-catalog.json` is generated from 2,452 dashboard placements and
+2,431 distinct product identities. `snapshotMetrics` means an exact result
 in the checked snapshots. It does not establish product eligibility, release
 status or absence from public sources. CPU `productSpecs` are display-ready
 `coreLabel`, `clockLabel` and `powerLabel` values derived from each exact

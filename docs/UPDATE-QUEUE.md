@@ -6,6 +6,11 @@ short and plain; the technical details belong in `CHANGELOG.md`.
 
 ## Pending publication
 
+### Compare NPU capabilities across AMD and Intel
+- Changed: 2026-10-07
+- Live: Pending
+- Update: NPU TOPS is now standard before L3 Cache wherever ratings are available, covering 126 AMD and 84 Intel processors. Select a value to view its official specification source. Compare keeps NPU and overall AI performance separate and includes the full hardware details. Coverage includes desktop, mobile, PRO, embedded and handheld parts, with previously hidden mobile and embedded models restored to their families. Comparable AMD models also list higher model numbers first within their segment and core-count tier.
+
 ### Find architecture guides from any product line
 - Changed: 2026-10-05
 - Live: Pending

@@ -258,6 +258,7 @@ const A2_DATA = {
       { id: 'r7000', name: "Ryzen 7000 Series", years: '2022 – 2023', color: '#a3e635',
         note: "Raphael · Dragon Range · Phoenix · Rembrandt-R · Barceló-R · Zen 4 / Zen 3+", families: [
         { name: "Raphael AM5", key: "Raphael AM5", series: ["Ryzen 7000 Series", "Ryzen PRO 7000 Series"], desc: " — 17 models", tier: 'Ryzen', seg: 'Desktop', si: "", n: 17, cmin: 6, cmax: 16 },
+        { name: "Phoenix", key: "Phoenix", series: ["Ryzen 7000 Series", "Ryzen PRO 7000 Series"], desc: "Zen 4 — 16 models", tier: 'Ryzen', seg: 'Mobile', si: "Zen 4", n: 16, cmin: 4, cmax: 8 },
         { name: "Rembrandt R", key: "Rembrandt R", series: ["Ryzen 7000 Series", "Ryzen PRO 7000 Series"], desc: " — 12 models", tier: 'Ryzen', seg: 'Mobile', si: "", n: 12, cmin: 4, cmax: 8 },
         { name: "Barcelo R", key: "Barcelo R", series: ["Ryzen 7000 Series", "Ryzen PRO 7000 Series"], desc: " — 7 models", tier: 'Ryzen', seg: 'Mobile', si: "", n: 7, cmin: 4, cmax: 8 },
         { name: "Mendocino", key: "Mendocino", series: ["Ryzen 7000 Series"], desc: "Zen 2 — 4 models", tier: 'Ryzen', seg: 'Mobile', si: "Zen 2", n: 4, cmin: 4, cmax: 4 },
@@ -385,9 +386,13 @@ const A2_DATA = {
         { name: "Mullins", key: "Mullins", series: ["E1-Series APU for Laptops"], desc: " — 1 models", tier: 'E-Series', seg: 'Mobile', si: "", n: 1, cmin: 2, cmax: 2 },
       ]},
       { id: 'ryzenembedded', name: "Ryzen Embedded", years: '', color: '#e7654f',
-        note: "Ryzen Embedded — 16 models", families: [
+        note: "Ryzen Embedded — 38 models", families: [
         { name: "Granite Ridge", key: "Granite Ridge", series: ["Ryzen Embedded 9000 Series"], desc: "Zen 5 — 7 models", tier: 'Ryzen Embedded', seg: 'Mobile', si: "Zen 5", n: 7, cmin: 6, cmax: 16 },
+        { name: "Strix Halo", key: "Strix Halo", series: ["Ryzen AI Embedded X100 Series"], desc: "Zen 5 — 6 models", tier: 'Ryzen Embedded', seg: 'Mobile', si: "Zen 5", n: 6, cmin: 8, cmax: 16 },
+        { name: "Strix Point", key: "Strix Point", series: ["Ryzen AI Embedded P100 Series"], desc: "Zen 5 — 6 models", tier: 'Ryzen Embedded', seg: 'Mobile', si: "Zen 5", n: 6, cmin: 8, cmax: 12 },
+        { name: "Krackan Point", key: "Krackan Point", series: ["Ryzen AI Embedded P100 Series"], desc: " — 6 models", tier: 'Ryzen Embedded', seg: 'Mobile', si: "", n: 6, cmin: 4, cmax: 6 },
         { name: "Great Horned Owl", key: "Great Horned Owl", series: ["Ryzen Embedded V1000 Series"], desc: " — 6 models", tier: 'Ryzen Embedded', seg: 'Mobile', si: "", n: 6, cmin: 2, cmax: 4 },
+        { name: "Hawk Point", key: "Hawk Point", series: ["Ryzen Embedded 8000 Series"], desc: "Zen 4 — 4 models", tier: 'Ryzen Embedded', seg: 'Mobile', si: "Zen 4", n: 4, cmin: 6, cmax: 8 },
         { name: "Raphael", key: "Raphael", series: ["Ryzen Embedded 7000 Series"], desc: "Zen 4 — 3 models", tier: 'Ryzen Embedded', seg: 'Mobile', si: "Zen 4", n: 3, cmin: 6, cmax: 12 },
       ]},
       { id: 'embeddedrseries', name: "Embedded R-Series", years: '', color: '#e7654f',
@@ -691,17 +696,26 @@ function a2Count(family) {
   return n ? `${n} model${n === 1 ? '' : 's'}` : 'awaiting data';
 }
 
+/** Surface AI capability without widening the table; Socket remains in Compare. */
+function a2TableSchema(family) {
+  return dashboardNpuTableSchema(A2_COLUMNS[a2Tab], A2_FIELDS[a2Tab],
+    a2Models(family), a2Tab === 'ryzen' ? 'sk' : null);
+}
+
 function a2Rows(family, colspan) {
   const models = a2Models(family);
-  const fields = A2_FIELDS[a2Tab];
+  const { fields } = a2TableSchema(family);
   if (!models.length || !fields) {
     return `<tr class="v2-empty-row"><td colspan="${colspan}">No spec data yet</td></tr>`;
   }
   return models.map(m => {
-    const cells = fields.map((f, i) =>
-      `<td class="${i === 0 ? 'cpu-model-name' : ''}">${escHtml(m[f] ?? '—')}</td>`);
+    const cells = fields.map((f, i) => {
+      let value = escHtml(m[f] || '—');
+      if (f === 'npu') value = dashboardNpuCell(m);
+      return `<td class="${i === 0 ? 'cpu-model-name' : ''}">${value}</td>`;
+    });
     if (a2Tab !== 'gpu') cells.push(benchmarkTableCells('AMD', `amd/${a2Tab}`, m.n));
-    return `<tr data-search="${escHtml(Object.values(m).filter(v => v != null).join(' ').toLowerCase())}">` +
+    return `<tr data-search="${escHtml(Object.entries(m).filter(([key, v]) => key !== 'npuSource' && v != null).map(([, v]) => v).join(' ').toLowerCase())}">` +
       cells.join('') + '</tr>';
   }).join('');
 }
@@ -889,9 +903,9 @@ function a2Gen(g, cfg) {
 /** One codename card plus its spec table. */
 function a2Card(f, g, i, cfg) {
   const id = `a2t-${g.id}-${a2Slug(f.name)}`;
-  const cols = A2_COLUMNS[a2Tab];
+  const { columns: cols, hasNpu } = a2TableSchema(f);
   const benchmarkCols = benchmarkTableColumns(`amd/${a2Tab}`);
-  const headers = cols.map(c => `<th>${escHtml(c)}</th>`);
+  const headers = cols.map(dashboardSpecHeader);
   if (benchmarkCols.length) headers.push(benchmarkTableHeaders(`amd/${a2Tab}`));
   const tags = [...a2Tiers(f), f.seg].filter(Boolean).map(t =>
     `<span class="sku-tag">${escHtml(t)}</span>`).join('');
@@ -917,7 +931,7 @@ function a2Card(f, g, i, cfg) {
           <div>
             <span class="cpu-spec-header-title">${escHtml(f.name)}</span>
             <div class="identity-path">AMD › ${escHtml(stripVendor(cfg.title))} › ${escHtml(g.name)} › ${escHtml(f.name)}</div>
-            <div class="source-line">Source: AMD official Product Specifications CSV</div>
+            <div class="source-line">Source: AMD official Product Specifications CSV${hasNpu ? ' and linked NPU specifications' : ''}</div>
             ${benchmarkTableLegend(`amd/${a2Tab}`)}
           </div>
           <span class="cpu-spec-header-title v2-await">${a2Count(f)}</span>

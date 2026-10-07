@@ -354,6 +354,20 @@
   .cpu-spec-table .cpu-model-name { color: var(--text-primary); font-weight: 600; }
   .cpu-spec-table .cpu-val-highlight { color: #4ade80; }
   .cpu-spec-table .cpu-val-gpu { color: #38bdf8; }
+  .cpu-spec-table .npu-source, .compare-sources a {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-decoration-color: var(--text-muted);
+    text-underline-offset: 3px;
+  }
+  .cpu-spec-table .npu-source:hover, .compare-sources a:hover {
+    text-decoration-color: currentColor;
+  }
+  .cpu-spec-table .npu-source:focus-visible, .compare-sources a:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 3px;
+  }
+  .compare-sources a { overflow-wrap: anywhere; }
   .cpu-spec-table .bt-cell { white-space: nowrap; font-variant-numeric: tabular-nums; }
   .cpu-spec-table .bt-entry { display: inline; }
   .cpu-spec-table .bt-cell a {

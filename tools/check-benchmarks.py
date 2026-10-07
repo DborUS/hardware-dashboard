@@ -82,7 +82,7 @@ CATALOG_CPU_TABS = {
 CATALOG_SPEC_FIELDS = {"coreLabel", "clockLabel", "powerLabel"}
 
 CATALOG_TAB_ROWS = {
-    "amd/epyc": 350, "amd/ryzen": 736, "amd/gpu": 303,
+    "amd/epyc": 350, "amd/ryzen": 774, "amd/gpu": 303,
     "intel/xeon": 553, "intel/client": 340, "intel/graphics": 35,
     "nvidia/datacenter": 20, "nvidia/geforce": 47, "nvidia/cpu": 4,
     "ampere/processors": 26,
@@ -510,10 +510,10 @@ def validate_catalog_index(coverage, errors):
     if not isinstance(meta, dict) or not isinstance(products, list):
         errors.append(f"{filename}: meta must be an object and products an array")
         return
-    if len(products) != 2393 or meta.get("uniqueCatalogProducts") != 2393:
-        errors.append(f"{filename}: expected exactly 2,393 unique catalog products")
-    if meta.get("displayedPlacements") != 2414 or meta.get("dashboardTabRows") != CATALOG_TAB_ROWS:
-        errors.append(f"{filename}: expected exactly 2,414 displayed rows with the reviewed tab counts")
+    if len(products) != 2431 or meta.get("uniqueCatalogProducts") != 2431:
+        errors.append(f"{filename}: expected exactly 2,431 unique catalog products")
+    if meta.get("displayedPlacements") != 2452 or meta.get("dashboardTabRows") != CATALOG_TAB_ROWS:
+        errors.append(f"{filename}: expected exactly 2,452 displayed rows with the reviewed tab counts")
     ids, tab_products = set(), Counter()
     placements = 0
     shared = 0
@@ -561,11 +561,11 @@ def validate_catalog_index(coverage, errors):
         shared += len(tabs) > 1
         tab_products.update(tabs)
         actual_metrics[catalog_id] = set(metrics)
-    if placements != 2414 or shared != 6:
-        errors.append(f"{filename}: expected 2,414 placements and six cross-tab products; found {placements} and {shared}")
+    if placements != 2452 or shared != 6:
+        errors.append(f"{filename}: expected 2,452 placements and six cross-tab products; found {placements} and {shared}")
     expected_tab_products = meta.get("dashboardTabProducts")
-    if expected_tab_products != dict(tab_products) or sum(tab_products.values()) != 2399:
-        errors.append(f"{filename}: per-tab product counts are inconsistent with 2,399 tab identities")
+    if expected_tab_products != dict(tab_products) or sum(tab_products.values()) != 2437:
+        errors.append(f"{filename}: per-tab product counts are inconsistent with 2,437 tab identities")
     type_counts = Counter()
     for product in products:
         if not isinstance(product, dict) or not isinstance(product.get("dashboardTabs"), list):
@@ -580,7 +580,7 @@ def validate_catalog_index(coverage, errors):
             type_counts["accelerator"] += 1
         if tabs & {"intel/graphics", "nvidia/geforce"} or ("amd/gpu" in tabs and segment != "datacenter"):
             type_counts["graphics"] += 1
-    if dict(type_counts) != {"enterprise": 918, "accelerator": 53, "client": 1076, "graphics": 352}:
+    if dict(type_counts) != {"enterprise": 918, "accelerator": 53, "client": 1114, "graphics": 352}:
         errors.append(f"{filename}: product-type denominators changed: {dict(type_counts)}")
 
     expected_metrics = defaultdict(set)

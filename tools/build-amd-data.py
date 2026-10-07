@@ -97,6 +97,19 @@ def validate_gpu_presentation(pres):
                 f"but labeled {label}"
             )
 
+def cpu_order_key(row):
+    """Keep segment/core tiers; order model numbers descending within each tier.
+
+    This is product ordering, not a claim about workload performance. Numeric
+    tokens avoid alphabetic 470-before-475 and 435-before-445 inversions.
+    Text breaks ties between suffix variants without inventing performance.
+    """
+    numbers = tuple(-int(n) for n in re.findall(r'\d+', clean(row['model'])))
+    return (SEG_ORDER.get(row['segment'], 9),
+            -(int(row['cores']) if row['cores'].isdigit() else 0),
+            numbers, clean(row['model']))
+
+
 def build_cpu(rows):
     """dict keyed by codename -> list of spec records, in datacenter-first order."""
     by = collections.defaultdict(list)
@@ -113,6 +126,11 @@ def build_cpu(rows):
                'l3': clean(r['l3_cache']),
                'tdp': clean(r['tdp']),
                'sk': clean(r['socket'])}
+        if clean(r.get('npu_tops')):
+            rec['npu'] = clean(r['npu_tops'])
+            rec['npuSource'] = clean(r['source_url'])
+        if clean(r.get('overall_tops')):
+            rec['aiTotal'] = clean(r['overall_tops'])
         if clean(r['igpu_model']):
             rec['gm'] = clean(r['igpu_model'])
             rec['gc'] = clean(r['igpu_cores'])
@@ -129,9 +147,7 @@ def build_cpu(rows):
         by[clean(r['codename'])].append((r, rec))
     out = {}
     for cn, pairs in by.items():
-        pairs.sort(key=lambda p: (SEG_ORDER.get(p[0]['segment'], 9),
-                                  -(int(p[0]['cores']) if p[0]['cores'].isdigit() else 0),
-                                  p[0]['model']))
+        pairs.sort(key=lambda p: cpu_order_key(p[0]))
         out[cn] = [rec for _, rec in pairs]
     return out
 

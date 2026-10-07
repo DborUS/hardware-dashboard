@@ -11,7 +11,11 @@
             "tdp": "45W / 115W",
             "gpu": "Arc graphics",
             "xe": "8",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "11",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "35"
         },
         {
             "n": "Core Ultra 7 165H",
@@ -24,7 +28,11 @@
             "tdp": "28W / 115W",
             "gpu": "Arc graphics",
             "xe": "8",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "11",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "34"
         },
         {
             "n": "Core Ultra 7 165HL",
@@ -50,7 +58,11 @@
             "tdp": "28W / 115W",
             "gpu": "Arc graphics",
             "xe": "8",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "11",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "33"
         },
         {
             "n": "Core Ultra 7 155HL",
@@ -76,7 +88,11 @@
             "tdp": "28W / 115W",
             "gpu": "Arc graphics",
             "xe": "8",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "11",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "33"
         },
         {
             "n": "Core Ultra 5 135HL",
@@ -102,7 +118,11 @@
             "tdp": "28W / 115W",
             "gpu": "Arc graphics",
             "xe": "7",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "11",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "33"
         },
         {
             "n": "Core Ultra 5 125HL",
@@ -130,7 +150,11 @@
             "tdp": "15W / 57W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "11",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "22"
         },
         {
             "n": "Core Ultra 7 165UL",
@@ -156,7 +180,11 @@
             "tdp": "15W / 57W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "11",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "22"
         },
         {
             "n": "Core Ultra 7 164U",
@@ -169,7 +197,11 @@
             "tdp": "9W / 30W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-6400"
+            "mem": "LPDDR5-6400",
+            "npu": "11",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "21"
         },
         {
             "n": "Core Ultra 7 155UL",
@@ -195,7 +227,11 @@
             "tdp": "15W / 57W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "11",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "22"
         },
         {
             "n": "Core Ultra 5 134U",
@@ -208,7 +244,11 @@
             "tdp": "9W / 30W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-6400"
+            "mem": "LPDDR5-6400",
+            "npu": "11",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "21"
         },
         {
             "n": "Core Ultra 5 135UL",
@@ -234,7 +274,11 @@
             "tdp": "15W / 57W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "11",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "21"
         },
         {
             "n": "Core Ultra 5 125UL",
@@ -275,7 +319,11 @@
             "tdp": "30W / 37W",
             "gpu": "Arc 140V",
             "xe": "8",
-            "mem": "LPDDR5-8533"
+            "mem": "LPDDR5-8533",
+            "npu": "48",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "120"
         },
         {
             "n": "Core Ultra 7 266V",
@@ -288,7 +336,11 @@
             "tdp": "17W / 37W",
             "gpu": "Arc 140V",
             "xe": "8",
-            "mem": "LPDDR5-8533"
+            "mem": "LPDDR5-8533",
+            "npu": "48",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "118"
         },
         {
             "n": "Core Ultra 7 268V",
@@ -301,7 +353,11 @@
             "tdp": "17W / 37W",
             "gpu": "Arc 140V",
             "xe": "8",
-            "mem": "LPDDR5-8533"
+            "mem": "LPDDR5-8533",
+            "npu": "48",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "118"
         },
         {
             "n": "Core Ultra 7 256V",
@@ -314,7 +370,11 @@
             "tdp": "17W / 37W",
             "gpu": "Arc 140V",
             "xe": "8",
-            "mem": "LPDDR5-8533"
+            "mem": "LPDDR5-8533",
+            "npu": "47",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "115"
         },
         {
             "n": "Core Ultra 7 258V",
@@ -327,7 +387,11 @@
             "tdp": "17W / 37W",
             "gpu": "Arc 140V",
             "xe": "8",
-            "mem": "LPDDR5-8533"
+            "mem": "LPDDR5-8533",
+            "npu": "47",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "115"
         },
         {
             "n": "Core Ultra 5 238V",
@@ -340,7 +404,11 @@
             "tdp": "17W / 37W",
             "gpu": "Arc 130V",
             "xe": "7",
-            "mem": "LPDDR5-8533"
+            "mem": "LPDDR5-8533",
+            "npu": "40",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "97"
         },
         {
             "n": "Core Ultra 5 236V",
@@ -353,7 +421,11 @@
             "tdp": "17W / 37W",
             "gpu": "Arc 130V",
             "xe": "7",
-            "mem": "LPDDR5-8533"
+            "mem": "LPDDR5-8533",
+            "npu": "40",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "97"
         },
         {
             "n": "Core Ultra 5 228V",
@@ -366,7 +438,11 @@
             "tdp": "17W / 37W",
             "gpu": "Arc 130V",
             "xe": "7",
-            "mem": "LPDDR5-8533"
+            "mem": "LPDDR5-8533",
+            "npu": "40",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "97"
         },
         {
             "n": "Core Ultra 5 226V",
@@ -379,7 +455,11 @@
             "tdp": "17W / 37W",
             "gpu": "Arc 130V",
             "xe": "7",
-            "mem": "LPDDR5-8533"
+            "mem": "LPDDR5-8533",
+            "npu": "40",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "97"
         }
     ],
     "Arrow Lake-S": [
@@ -394,7 +474,11 @@
             "tdp": "125W / 250W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "36"
         },
         {
             "n": "Core Ultra 9 285",
@@ -407,7 +491,11 @@
             "tdp": "65W / 182W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "36"
         },
         {
             "n": "Core Ultra 9 285T",
@@ -420,7 +508,11 @@
             "tdp": "35W / 112W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "35"
         },
         {
             "n": "Core Ultra 7 265KF",
@@ -433,7 +525,11 @@
             "tdp": "125W / 250W",
             "gpu": "\u2014",
             "xe": "0",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "25"
         },
         {
             "n": "Core Ultra 7 265K",
@@ -446,7 +542,11 @@
             "tdp": "125W / 250W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "33"
         },
         {
             "n": "Core Ultra 7 265F",
@@ -459,7 +559,11 @@
             "tdp": "65W / 182W",
             "gpu": "\u2014",
             "xe": "0",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "25"
         },
         {
             "n": "Core Ultra 7 265T",
@@ -472,7 +576,11 @@
             "tdp": "35W / 112W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "33"
         },
         {
             "n": "Core Ultra 7 265",
@@ -485,7 +593,11 @@
             "tdp": "65W / 182W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "33"
         },
         {
             "n": "Core Ultra 5 245KF",
@@ -498,7 +610,11 @@
             "tdp": "125W / 159W",
             "gpu": "\u2014",
             "xe": "0",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "22"
         },
         {
             "n": "Core Ultra 5 245K",
@@ -511,7 +627,11 @@
             "tdp": "125W / 159W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "30"
         },
         {
             "n": "Core Ultra 5 245T",
@@ -524,7 +644,11 @@
             "tdp": "35W / 114W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "29"
         },
         {
             "n": "Core Ultra 5 245",
@@ -537,7 +661,11 @@
             "tdp": "65W / 121W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "29"
         },
         {
             "n": "Core Ultra 5 235",
@@ -550,7 +678,11 @@
             "tdp": "65W / 121W",
             "gpu": "Graphics",
             "xe": "3",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "27"
         },
         {
             "n": "Core Ultra 5 235T",
@@ -563,7 +695,11 @@
             "tdp": "35W / 114W",
             "gpu": "Graphics",
             "xe": "3",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "27"
         },
         {
             "n": "Core Ultra 5 235TA",
@@ -576,7 +712,11 @@
             "tdp": "35W / 114W",
             "gpu": "Graphics",
             "xe": "3",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "27"
         },
         {
             "n": "Core Ultra 5 235A",
@@ -589,7 +729,11 @@
             "tdp": "65W / 121W",
             "gpu": "Graphics",
             "xe": "3",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "27"
         },
         {
             "n": "Core Ultra 5 225F",
@@ -602,7 +746,11 @@
             "tdp": "65W / 121W",
             "gpu": "\u2014",
             "xe": "0",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "19"
         },
         {
             "n": "Core Ultra 5 225",
@@ -615,7 +763,11 @@
             "tdp": "65W / 121W",
             "gpu": "Graphics",
             "xe": "2",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "23"
         },
         {
             "n": "Core Ultra 5 225T",
@@ -628,7 +780,11 @@
             "tdp": "35W / 114W",
             "gpu": "Graphics",
             "xe": "2",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "23"
         },
         {
             "n": "Core Ultra 5 235UA",
@@ -641,7 +797,11 @@
             "tdp": "15W / 57W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-8400"
+            "mem": "LPDDR5-8400",
+            "npu": "12",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "24"
         }
     ],
     "Arrow Lake-H": [
@@ -656,7 +816,11 @@
             "tdp": "45W / 115W",
             "gpu": "Arc 140T",
             "xe": "8",
-            "mem": "LPDDR5-8400"
+            "mem": "LPDDR5-8400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "99"
         },
         {
             "n": "Core Ultra 7 265H",
@@ -669,7 +833,11 @@
             "tdp": "28W / 115W",
             "gpu": "Arc 140T",
             "xe": "8",
-            "mem": "LPDDR5-8400"
+            "mem": "LPDDR5-8400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "97"
         },
         {
             "n": "Core Ultra 7 255H",
@@ -682,7 +850,11 @@
             "tdp": "28W / 115W",
             "gpu": "Arc 140T",
             "xe": "8",
-            "mem": "LPDDR5-8400"
+            "mem": "LPDDR5-8400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "96"
         },
         {
             "n": "Core Ultra 5 235H",
@@ -695,7 +867,11 @@
             "tdp": "28W / 115W",
             "gpu": "Arc 140T",
             "xe": "8",
-            "mem": "LPDDR5-8400"
+            "mem": "LPDDR5-8400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "94"
         },
         {
             "n": "Core Ultra 5 225H",
@@ -708,7 +884,11 @@
             "tdp": "28W / 115W",
             "gpu": "Arc 130T",
             "xe": "7",
-            "mem": "LPDDR5-8400"
+            "mem": "LPDDR5-8400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "83"
         }
     ],
     "Arrow Lake-U": [
@@ -723,7 +903,11 @@
             "tdp": "15W / 57W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-8400"
+            "mem": "LPDDR5-8400",
+            "npu": "12",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "24"
         },
         {
             "n": "Core Ultra 7 255U",
@@ -736,7 +920,11 @@
             "tdp": "15W / 57W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-8400"
+            "mem": "LPDDR5-8400",
+            "npu": "12",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "24"
         },
         {
             "n": "Core Ultra 5 235U",
@@ -749,7 +937,11 @@
             "tdp": "15W / 57W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-8400"
+            "mem": "LPDDR5-8400",
+            "npu": "12",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "24"
         },
         {
             "n": "Core Ultra 5 225U",
@@ -762,7 +954,11 @@
             "tdp": "15W / 57W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-8400"
+            "mem": "LPDDR5-8400",
+            "npu": "12",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "24"
         }
     ],
     "Arrow Lake-HX": [
@@ -777,7 +973,11 @@
             "tdp": "55W / 160W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "36"
         },
         {
             "n": "Core Ultra 9 275HX",
@@ -790,7 +990,11 @@
             "tdp": "55W / 160W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "36"
         },
         {
             "n": "Core Ultra 7 265HX",
@@ -803,7 +1007,11 @@
             "tdp": "55W / 160W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "33"
         },
         {
             "n": "Core Ultra 7 255HX",
@@ -816,7 +1024,11 @@
             "tdp": "55W / 160W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "33"
         },
         {
             "n": "Core Ultra 7 251HX",
@@ -829,7 +1041,11 @@
             "tdp": "55W / 160W",
             "gpu": "Graphics",
             "xe": "3",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "30"
         },
         {
             "n": "Core Ultra 5 245HX",
@@ -842,7 +1058,11 @@
             "tdp": "55W / 160W",
             "gpu": "Graphics",
             "xe": "3",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "27"
         },
         {
             "n": "Core Ultra 5 235HX",
@@ -855,7 +1075,11 @@
             "tdp": "55W / 160W",
             "gpu": "Graphics",
             "xe": "3",
-            "mem": "DDR5-6400"
+            "mem": "DDR5-6400",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "27"
         }
     ],
     "Panther Lake-H": [
@@ -870,7 +1094,10 @@
             "tdp": "25W / 80W",
             "gpu": "Arc B390",
             "xe": "12",
-            "mem": "LPDDR5-9600"
+            "mem": "LPDDR5-9600",
+            "npu": "50",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra X7 368H",
@@ -883,7 +1110,10 @@
             "tdp": "25W / 80W",
             "gpu": "Arc B390",
             "xe": "12",
-            "mem": "LPDDR5-9600"
+            "mem": "LPDDR5-9600",
+            "npu": "50",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra 9 386H",
@@ -896,7 +1126,10 @@
             "tdp": "25W / 80W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "LPDDR5-9600"
+            "mem": "LPDDR5-9600",
+            "npu": "50",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra X7 358H",
@@ -909,7 +1142,10 @@
             "tdp": "25W / 80W",
             "gpu": "Arc B390",
             "xe": "12",
-            "mem": "LPDDR5-9600"
+            "mem": "LPDDR5-9600",
+            "npu": "50",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra 7 366H",
@@ -922,7 +1158,10 @@
             "tdp": "25W / 80W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "50",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra 7 356H",
@@ -935,7 +1174,10 @@
             "tdp": "25W / 80W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "50",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra 5 338H",
@@ -948,7 +1190,10 @@
             "tdp": "25W / 65W",
             "gpu": "Arc B370",
             "xe": "10",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "47",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra 5 336H",
@@ -961,7 +1206,10 @@
             "tdp": "25W / 65W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "47",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         }
     ],
     "Arrow Lake-S Refresh": [
@@ -976,7 +1224,11 @@
             "tdp": "125W / 250W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "36"
         },
         {
             "n": "Core Ultra 5 250KF Plus",
@@ -989,7 +1241,11 @@
             "tdp": "125W / 159W",
             "gpu": "\u2014",
             "xe": "0",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "22"
         },
         {
             "n": "Core Ultra 5 250K Plus",
@@ -1002,7 +1258,11 @@
             "tdp": "125W / 159W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "30"
         }
     ],
     "Panther Lake-U": [
@@ -1017,7 +1277,10 @@
             "tdp": "25W / 80W",
             "gpu": "Arc B390",
             "xe": "12",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "50",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Arc G3 Extreme",
@@ -1030,7 +1293,10 @@
             "tdp": "25W / 80W",
             "gpu": "Arc B390",
             "xe": "12",
-            "mem": "LPDDR5-8533"
+            "mem": "LPDDR5-8533",
+            "npu": "46",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20%27processor%27%20org%20unkown.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Arc G3",
@@ -1043,7 +1309,10 @@
             "tdp": "25W / 80W",
             "gpu": "Arc B370",
             "xe": "10",
-            "mem": "LPDDR5-8533"
+            "mem": "LPDDR5-8533",
+            "npu": "46",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20%27processor%27%20org%20unkown.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra 7 365",
@@ -1056,7 +1325,10 @@
             "tdp": "25W / 55W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "49",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra 7 355",
@@ -1069,7 +1341,10 @@
             "tdp": "25W / 55W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "49",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra 5 335",
@@ -1082,7 +1357,10 @@
             "tdp": "25W / 55W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "47",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra 5 325",
@@ -1095,7 +1373,10 @@
             "tdp": "25W / 55W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "47",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra 5 322",
@@ -1108,7 +1389,10 @@
             "tdp": "25W / 55W",
             "gpu": "Graphics",
             "xe": "2",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "46",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core Ultra 5 332",
@@ -1121,7 +1405,10 @@
             "tdp": "25W / 55W",
             "gpu": "Graphics",
             "xe": "2",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "46",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8"
         }
     ],
     "Arrow Lake-HX Refresh": [
@@ -1136,7 +1423,11 @@
             "tdp": "55W / 160W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "36"
         },
         {
             "n": "Core Ultra 7 270HX Plus",
@@ -1149,7 +1440,11 @@
             "tdp": "55W / 160W",
             "gpu": "Graphics",
             "xe": "4",
-            "mem": "\u2014"
+            "mem": "\u2014",
+            "npu": "13",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20Core%20Ultra%20CSV.csv",
+            "npuPrecision": "Int8",
+            "aiTotal": "33"
         }
     ],
     "Raptor Lake-HX Refresh": [
@@ -2155,7 +2450,10 @@
             "tdp": "15W / 35W",
             "gpu": "Graphics",
             "xe": "2",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "17",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20core%2014th%20to%20modern%20gen.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core 7 350",
@@ -2168,7 +2466,10 @@
             "tdp": "15W / 35W",
             "gpu": "Graphics",
             "xe": "2",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "17",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20core%2014th%20to%20modern%20gen.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core 5 330",
@@ -2181,7 +2482,10 @@
             "tdp": "15W / 35W",
             "gpu": "Graphics",
             "xe": "2",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "16",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20core%2014th%20to%20modern%20gen.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core 5 320",
@@ -2194,7 +2498,10 @@
             "tdp": "15W / 35W",
             "gpu": "Graphics",
             "xe": "2",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "16",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20core%2014th%20to%20modern%20gen.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core 5 315",
@@ -2207,7 +2514,10 @@
             "tdp": "15W / 35W",
             "gpu": "Graphics",
             "xe": "2",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "15",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20core%2014th%20to%20modern%20gen.csv",
+            "npuPrecision": "Int8"
         },
         {
             "n": "Core 3 305",
@@ -2233,7 +2543,10 @@
             "tdp": "15W / 35W",
             "gpu": "Graphics",
             "xe": "1",
-            "mem": "LPDDR5-7467"
+            "mem": "LPDDR5-7467",
+            "npu": "15",
+            "npuSource": "docs/specs/source-csv-intel/Intel%20core%2014th%20to%20modern%20gen.csv",
+            "npuPrecision": "Int8"
         }
     ],
     "Alder Lake-H": [

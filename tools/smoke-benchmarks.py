@@ -42,7 +42,7 @@ MLPERF_CASES = (
 CATALOG_TYPES = {
     "enterprise": ({"amd/epyc", "intel/xeon", "nvidia/cpu", "ampere/processors"}, 918),
     "accelerator": ({"nvidia/datacenter"}, 53),
-    "client": ({"amd/ryzen", "intel/client"}, 1076),
+    "client": ({"amd/ryzen", "intel/client"}, 1114),
     "graphics": ({"intel/graphics", "nvidia/geforce"}, 352),
 }
 
@@ -94,7 +94,7 @@ def catalog_expected_counts():
     """Count matched catalog identities independently of the rendered badges."""
     payload = snapshot("benchmark-catalog.json")
     products = payload["products"]
-    check(len(products) == 2393, "catalog lost distinct dashboard products")
+    check(len(products) == 2431, "catalog lost distinct dashboard products")
     matched = sum(bool(product["snapshotMetrics"]) for product in products)
     check(payload["meta"]["productsInCurrentSnapshots"] == matched,
           "catalog metadata does not match products with snapshot results")
@@ -723,13 +723,13 @@ def check_catalog(page):
     select_section(page, "coverage")
     matched, categories = catalog_expected_counts()
     page.wait_for_function(
-        "count => document.querySelector('#catalogTotalCount').textContent.trim() === '2,393' "
+        "count => document.querySelector('#catalogTotalCount').textContent.trim() === '2,431' "
         "&& document.querySelector('#catalogMatchedCount').textContent.trim() === String(count)",
         arg=matched,
     )
     check(page.locator("#catalogMatchedCount").inner_text().strip() == str(matched),
           "catalog global match count differs from checked snapshots")
-    check("2,414" in page.locator("#catalogCoverageNote").inner_text(),
+    check("2,452" in page.locator("#catalogCoverageNote").inner_text(),
           "catalog does not explain displayed placements")
     for product_type, (type_matched, total) in categories.items():
         page.locator(f'[data-catalog-type="{product_type}"]').click()
@@ -740,7 +740,7 @@ def check_catalog(page):
         check(page.locator(f'[data-catalog-type="{product_type}"]').get_attribute("aria-pressed") == "true",
               f"catalog {product_type}: type filter did not activate")
     page.locator("#catalogAllButton").click()
-    check(page.locator("#catalogTotalCount").inner_text().strip() == "2,393",
+    check(page.locator("#catalogTotalCount").inner_text().strip() == "2,431",
           "catalog All filter did not restore distinct-product denominator")
 
     # A Ryzen source SKU appears on both EPYC and Ryzen dashboard tabs, but

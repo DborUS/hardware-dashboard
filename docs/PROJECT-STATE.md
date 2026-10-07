@@ -3,11 +3,11 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-10-07 (shared site shell alignment)
+**Last updated:** 2026-10-07 (dashboard-wide NPU specification coverage)
 **Current version:** Public beta 0.0.4
 **Previous release:** Public beta 0.0.3 (`fdf51f1`)
 **Health:** October 7 captures hold 3,862 linked public results for 697 of
-2,393 catalog products. SPEC contributes 3,642 system reports across reviewed
+2,431 catalog products. SPEC contributes 3,642 system reports across reviewed
 CPU2017/CPU2026 rate cohorts; MLPerf contributes 46 SUT results; Blender
 contributes 174 medians. Offline source replay, catalog and registry checks,
 46 importer/refresh regression tests, benchmark browser smoke, full dashboard
@@ -17,6 +17,137 @@ Existing dashboard small controls and sidebar clipping were observed in the
 layout audit. The benchmark page now also shows catalog CPU specifications
 for all 645 scored CPU models; the latest benchmark and dashboard smoke tests
 pass after this addition.
+
+## 2026-10-07 — Standardize NPU TOPS across the dashboard
+
+NPU TOPS is now a shared table policy for every CPU family with published NPU
+data, immediately before L3 Cache. AMD and Intel use the same schema, header
+and source-link renderer. Intel keeps its CPU, GPU and memory columns; AMD
+keeps Socket in Compare as before. Tables with no ratings have no NPU column,
+and individual missing values remain dashes.
+
+Verified and imported 79 additional exact AMD models from their official
+product/support specifications. The master now carries 126 NPU ratings
+(104 page-verified client/PRO/handheld models plus 22 existing embedded values)
+and 60 overall ratings. The new evidence manifest records model identity, source
+URL, source field and published qualifiers. Coverage includes AI Max/Max PRO
+300/400, desktop AI 400, older 100/200, 7040/8040, 8000 desktops and AI Z2.
+The official source roster and unrelated CSV fields were retained. Coverage
+testing found 32 rated AMD records hidden by codename-only grouping: 10 Phoenix
+mobile and 22 embedded parts. Restoring their full source families exposes 38
+previously omitted models (including six unrated Phoenix siblings). Ryzen now
+shows 774 rows across 84 cards. The generator refuses to omit any sourced NPU
+record from the dashboard.
+
+Intel's client importer now preserves all 84 ARK NPU ratings and 61 total-AI
+ratings, along with Int8 precision and exact retained-export source links.
+AI fields are collected independently of duplicate CPU rows; conflicting
+export values fail explicitly. Compare uses distinct shared NPU and overall
+rows, while source filenames no longer enter table search text.
+The maintained older cross-vendor master was not trusted for AMD backfill:
+it includes incorrect values and some non-official/wrong-model source URLs.
+
+Validation: five AMD source/order tests and three Intel source/regeneration
+tests pass; AMD compilation, legacy order and JavaScript syntax checks pass.
+The regenerated benchmark catalog contains 2,431 products and 2,452 placements;
+its 697 covered identities and 645-model CPU score index remain unchanged.
+The full dashboard smoke suite passes, including all 210 NPU rows, source links,
+column order, missing-value behavior, Compare and model ordering.
+Benchmark browser smoke also passes against the expanded catalog, including
+320px layout and failure-state coverage; neither browser suite reports JS errors.
+Layout audit has no page overflow (existing small controls/sidebar clipping
+remain). Intel Panther Lake was visually checked at 1440, 390 and 320px;
+horizontal table scrolling stays within the page. Browser viewport restored.
+
+Updated schema, pending visitor announcement and Unreleased changelog.
+Cache revision: `20261007-npu-all-2`.
+Daniel subsequently requested committing and pushing these validated changes to origin/main.
+Remote main matched the local base; final source review confirmed all 1,480 AMD
+records retained with only AI ratings, source URLs and notes changed. The visitor
+announcement remains pending until the hosted change is confirmed live.
+
+## 2026-10-07 — Fix AMD model ordering and Ryzen AI specifications
+
+Equal-core AMD CPU rows now use descending numeric model tokens after the
+existing segment/core priorities. This corrects HX 475/470, HX 375/370,
+their PRO variants, and AI 7 445 versus AI 5 435 without using the model
+number as a universal performance score.
+
+The master now holds separately qualified `npu_tops` and `overall_tops`
+ratings for 25 mobile Ryzen AI 300/400 and PRO models, checked against their
+individual AMD product pages on October 7. URLs and verification notes stay
+with each source row. Existing embedded NPU ratings also survive compilation;
+missing values remain blank. Max-series and desktop AI enrichment is outside
+this change; those values have not been inferred from the mobile models.
+
+Ryzen cards with NPU data show NPU TOPS immediately before L3 Cache, with each
+value linked to its official source. Socket moves to the full comparison for
+these cards to keep the same table column count. Compare shows NPU and
+Overall AI TOPS separately, keeps Socket, and links the product sources.
+NPU links have readable dark-theme colors and keyboard focus outlines.
+
+Regenerated AMD CPU data, derived taxonomy/renderer, comparison data and the
+benchmark catalog; its source pointers must change when rows reorder.
+Catalog counts remain 2,393 products / 2,414 placements and the benchmark
+score lookup still matches the retained snapshots. Cache versions were bumped
+for source data, renderer/shared scripts and CSS.
+
+Validation: four new data/order tests pass, AMD generated-data check and
+legacy ordering check pass, JavaScript syntax checks pass, and full dashboard
+smoke passes with the new model order, NPU source-link, table-column-count and
+comparison regressions. Layout audit reports no page overflow; its existing
+small controls and clipped sidebar descriptions remain. Visual review in the
+in-app browser confirms the 475/470 distinction and readable links, including
+390px and 320px widths, without page overflow. NPU TOPS now follows Boost
+and precedes L3 Cache at the user's request.
+The follow-up column-order regression, full smoke suite and layout audit pass. The user's tab was refreshed to the corrected Gorgon Point
+table and its normal viewport restored.
+
+Files: master CSV, AMD data builder, renderer source/generated JS, comparison
+builder/data, benchmark catalog, shared script/CSS, index cache keys,
+`tools/test-amd-ai.py`, smoke suite, schema, and pending visitor update queue.
+No commit, push, or deployment. The visitor announcement remains pending.
+
+## 2026-10-07 — Investigate Ryzen AI 475/470 ordering and missing AI specifications
+
+Investigation only; application behavior and datasets are unchanged. AMD's
+individual product pages confirm HX 475 versus HX 470: NPU up to 60 versus
+55 TOPS, and overall up to 91 versus 86 TOPS. CPU core/thread counts, CPU
+clocks, L2/L3 cache, Radeon 890M / 16 CUs / 3.1 GHz, and power ratings match.
+This is an NPU capability distinction, not evidence of higher CPU throughput.
+
+Sources checked on October 7:
+- https://www.amd.com/en/products/processors/laptop/ryzen/ai-400-series/amd-ryzen-ai-9-hx-475.html
+- https://www.amd.com/en/products/processors/laptop/ryzen/ai-400-series/amd-ryzen-ai-9-hx-470.html
+
+Root causes:
+- `tools/build-amd-data.py` orders CPU rows by segment, descending core count,
+  then ascending model text. `a2Models` preserves that order. This places 470
+  before 475, 370 before 375, and six-core AI 5 435 before AI 7 445.
+- `AMD desktop laptop workstation.csv` has no NPU/overall TOPS columns.
+  Both target master rows have blank `npu_tops`; their only stored differences
+  are names and part numbers. All 22 populated AMD master NPU values belong
+  to Ryzen Embedded products.
+- The CPU builder omits `npu_tops` even where populated. Ryzen's table fields
+  omit it too. The comparison UI supports NPU TOPS but lacks values for these
+  two client products. Updating only the table or only the master is insufficient.
+- The existing `check-order.py` examines legacy architecture arrays and cannot
+  catch current CPU spec-row ordering within a tier.
+
+Recommended follow-up: retain segment/series boundaries, use a descending
+numeric-aware model order within comparable product tiers, enrich Ryzen AI
+specs from AMD product pages with per-field sources (NPU and overall TOPS
+kept separate), and carry NPU values into the table and comparison view.
+Keep the table's width budget; expose detailed memory speed, core composition,
+and configurable power in comparison/details as appropriate. Add checks for
+475 before 470, 375 before 370, and populated sourced NPU values surviving
+both build and rendering. Higher model number is a product-tier ordering
+convention, not a universal benchmark ranking. No user-visible update-queue
+entry is needed for this investigation.
+
+Validation: the existing full dashboard smoke test passed with no JavaScript
+errors. This suite does not currently assert the affected model ordering or
+client NPU completeness; passing it does not resolve these findings.
 
 ## 2026-10-07 — Shared Products and Benchmarks shell
 
@@ -1260,23 +1391,23 @@ wrong — he's usually right, so re-check rather than defend.
 
 ## Verified baseline
 
-Intel measured 2026-09-10; AMD rebuilt from official CSV exports 2026-09-21.
+Full dashboard smoke measured 2026-10-07 after NPU coverage and family restoration.
 **Model counts are the load-bearing assertions** — they are what catches a
 restructure silently dropping data.
 
 | Check | Value |
 |---|---|
 | AMD EPYC series / cards / models | 20 · 27 · **350** |
-| AMD Ryzen series / cards / models | 32 · 79 · **736** |
+| AMD Ryzen series / cards / models | 32 · 84 · **774** |
 | AMD GPU series / cards / models | 45 · 45 · **303** |
-| Intel Xeon generations / cards / models | 11 · 33 · **553** |
-| Intel Client generations / cards / models | 11 · 49 · **340** |
+| Intel Xeon generations / cards / models | 10 · 31 · **553** |
+| Intel Client generations / cards / models | 10 · 50 · **340** |
 | Intel Graphics generations / cards / models | 4 · 8 · **35** |
 | NVIDIA Data Center groups / models | 9 · **20** |
 | NVIDIA GeForce series / models | 5 · **47** |
 | NVIDIA CPU groups / models | 2 · **4** |
-| Core-slider stops — AMD EPYC / Intel Xeon | 20 / 36 |
-| Filter chips exercised | 52 Intel (23 · 18 · 11) + 40 AMD |
+| Core-slider stops — AMD EPYC / Intel Xeon | 22 / 36 |
+| Filter chips exercised | 72 Intel (22 · 38 · 12) + 133 AMD (25 · 100 · 8) |
 | Dead chips | **0** — `KNOWN_DEAD_CHIPS` is empty and enforced |
 | JS errors | none |
 

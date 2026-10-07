@@ -4,7 +4,7 @@
 
 // Bump when any js/data/*.json changes, so browsers refetch instead of serving a
 // stale copy. Mirrors the ?v= on the script tag in index.html.
-const DATA_VERSION = '20261007-benchmark-integration-2';
+const DATA_VERSION = '20261007-npu-all-2';
 
 // Cache for loaded data to avoid redundant fetches
 const dataCache = {};
@@ -2060,12 +2060,48 @@ function dashboardImportedRecord(details, record) {
   return details?.[record.vendor.toLowerCase()]?.[dashboardCompareKey(record.model)] || null;
 }
 
+/** Rated NPUs sit directly before L3 in every vendor's CPU tables. */
+function dashboardNpuTableSchema(baseColumns, baseFields, models, replacement = null) {
+  const columns = [...baseColumns];
+  const fields = [...baseFields];
+  const hasNpu = fields.includes('l3') && models.some(model => model.npu);
+  if (hasNpu) {
+    const displaced = replacement ? fields.indexOf(replacement) : -1;
+    if (displaced >= 0) {
+      columns.splice(displaced, 1);
+      fields.splice(displaced, 1);
+    }
+    const l3 = fields.indexOf('l3');
+    columns.splice(l3, 0, 'NPU TOPS');
+    fields.splice(l3, 0, 'npu');
+  }
+  return { columns, fields, hasNpu };
+}
+
+function dashboardSpecHeader(label) {
+  const title = label === 'NPU TOPS'
+    ? ' title="Published peak NPU-only trillions of operations per second; Intel ratings use Int8. Separate from overall AI TOPS. A dash means no published rating in the source."' : '';
+  return `<th${title}>${escHtml(label)}</th>`;
+}
+
+function dashboardNpuCell(model) {
+  if (!model.npu) return '\u2014';
+  const value = escHtml(String(model.npu).replace(/\s*TOPS$/i, ''));
+  const source = model.npuSource || '';
+  const officialPage = /^https:\/\/(?:www\.)?(?:amd|intel)\.com\//.test(source);
+  const retainedArk = /^docs\/specs\/source-csv-intel\/[^/]+\.csv$/.test(source);
+  if (!officialPage && !retainedArk) return value;
+  const precision = model.npuPrecision ? ` (${model.npuPrecision})` : '';
+  return `<a class="npu-source" href="${escHtml(source)}" target="_blank" rel="noopener noreferrer" title="NPU specification${escHtml(precision)} for ${escHtml(model.n)}">${value}</a>`;
+}
+
 const DASHBOARD_COMMON_SPECS = [
   ['series', 'Series'], ['codename', 'Codename'], ['arch', 'Architecture'],
   ['p_cores', 'Performance cores'], ['e_cores', 'Efficiency cores'],
   ['threads', 'Threads'], ['base_clock', 'Base clock'], ['boost_clock', 'Boost clock'],
   ['frequency', 'Published frequency'],
-  ['all_core_boost', 'All-core boost'], ['l2_cache', 'L2 cache'], ['l3_cache', 'L3 cache'],
+  ['all_core_boost', 'All-core boost'], ['l2_cache', 'L2 cache'],
+  ['npu_tops', 'NPU TOPS'], ['npu_precision', 'NPU precision'], ['l3_cache', 'L3 cache'],
   ['system_level_cache', 'System level cache'],
   ['tdp', 'Power'], ['usage_power', 'Usage power (measured)'],
   ['tdp_config_up', 'Maximum configured power'], ['process', 'Process'],
@@ -2076,7 +2112,8 @@ const DASHBOARD_COMMON_SPECS = [
   ['ecc', 'ECC'], ['cxl', 'CXL'],
   ['upi_links', 'UPI links'], ['igpu_model', 'Integrated graphics'],
   ['igpu_cores', 'Integrated GPU cores'], ['igpu_clock', 'Integrated GPU clock'],
-  ['npu_tops', 'NPU TOPS'], ['launch_date', 'Launch date'],
+  ['overall_tops', 'Overall AI TOPS'],
+  ['launch_date', 'Launch date'],
   ['launch_price_usd', 'Launch price (USD)'], ['part_number', 'Part number']
 ];
 
@@ -2092,7 +2129,8 @@ const DASHBOARD_SOURCE_SPEC_ALIASES = new Set([
   'system memory specification', '1ku pricing', 'product id tray',
   'total cores', 'total threads', 'processor base frequency',
   'max turbo frequency', 'cache', 'tdp', 'sockets supported',
-  'memory types', 'max memory size', 'max memory bandwidth'
+  'memory types', 'max memory size', 'max memory bandwidth',
+  'npu tops', 'npu peak tops int8', 'overall tops', 'overall peak tops int8'
 ].map(dashboardSourceSpecKey));
 
 function dashboardSourceSpecKey(label) {
@@ -2196,8 +2234,11 @@ function dashboardPaintComparison(records, details = null) {
   }
   rows += labels.map(label => paintRow(label, comparisonFields.map(fields => fields[label] || '—'))).join('');
   const sources = records.map((record, index) => {
-    const source = imported[index]?.sources?.join(', ') || record.source;
-    return `<li><strong>${escHtml(record.model)}</strong> — ${escHtml(source)}</li>`;
+    const sources = imported[index]?.sources || [record.source];
+    const source = sources.map(value => /^https?:\/\//i.test(value)
+      ? `<a href="${escHtml(value)}" target="_blank" rel="noopener noreferrer">${escHtml(value)}</a>`
+      : escHtml(value)).join(', ');
+    return `<li><strong>${escHtml(record.model)}</strong> — ${source}</li>`;
   }).join('');
   dom.compareContent.innerHTML = `
     <p class="compare-scroll-hint">Scroll sideways to see more products →</p>
@@ -2227,7 +2268,7 @@ function dashboardRenderComparison() {
 const DASHBOARD_SOURCE_INFO = {
   amd: {
     epyc: ['AMD EPYC', 'AMD official Product Specifications CSV', 'Official vendor data', 'Unknown values are left blank rather than inferred.'],
-    ryzen: ['AMD Ryzen', 'AMD official Product Specifications CSV', 'Official vendor data', 'Product series and codename presentation are layered over the official SKU records.'],
+    ryzen: ['AMD Ryzen', 'AMD official Product Specifications CSV and product pages', 'Official vendor data', 'NPU and overall AI TOPS are separate published ratings. Product series and codename presentation are layered over the official SKU records.'],
     gpu: ['AMD GPU', 'AMD official accelerator, professional, desktop, and laptop graphics CSVs', 'Official vendor data', 'GPU fields are joined directly from AMD’s original exports.']
   },
   intel: {

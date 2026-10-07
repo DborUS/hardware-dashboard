@@ -23,7 +23,7 @@ intel-master.csv; they just do not render.
 
 Client column set (V2_COLUMNS.client in js/intel-v2.js):
     Model | P-cores | E-cores | Threads | P Base/Boost | E Base/Boost |
-    L3 Cache | TDP (base/turbo) | iGPU | Xe-cores | Memory
+    NPU TOPS (when rated) | L3 Cache | TDP (base/turbo) | iGPU | Xe-cores | Memory
 
 LP E-cores are the trap. ARK is inconsistent about whether they are already
 counted in Total Cores:
@@ -38,6 +38,7 @@ Usage
     python3 tools/import-client-specs.py -o js/data/intel-client-specs.json
 """
 import argparse, csv, json, re, sys, collections
+from urllib.parse import quote
 from pathlib import Path
 
 DASH = "—"
@@ -357,7 +358,7 @@ def build():
     # 'Ultra 7 155H'). Derived from model, which the master CSV writes as
     # 'Core i9-14900HX' / 'Core Ultra 7 155H'.
     codenames = {}
-    for r in csv.DictReader(open(MASTER, encoding="utf-8")):
+    for r in csv.DictReader(MASTER.read_text(encoding="utf-8").splitlines()):
         # 'embedded' is IN scope: the Client tab has an Embedded filter chip and
         # 138 embedded rows are client silicon (Raptor Lake-U/H/P, Bartlett
         # Lake-S). Excluding them drops parts the sidebar advertises.
@@ -442,6 +443,31 @@ def build():
             }
             out.setdefault(cn, []).append(rec)
             stats["kept"] += 1
+
+    # Read AI fields independently of CPU-row deduplication. Another official
+    # export may supply a rating omitted by the export that supplied the CPU row.
+    ai = {}
+    for fname in ARK_FILES:
+        path = ARK_DIR / fname
+        if not path.exists():
+            continue
+        for product in read_ark(path):
+            key = sku(clean_name(product['__name']))
+            ratings = ai.setdefault(key, {})
+            for field, label in [('npu', 'NPU Peak TOPS (Int8)'),
+                                 ('aiTotal', 'Overall Peak TOPS (Int8)')]:
+                value = get(product, label)
+                if not value:
+                    continue
+                if field in ratings and ratings[field] != value:
+                    raise ValueError(f'Conflicting {label} for {key}: {ratings[field]} / {value}')
+                ratings[field] = value
+                if field == 'npu':
+                    ratings.setdefault('npuSource', 'docs/specs/source-csv-intel/' + quote(fname))
+                    ratings['npuPrecision'] = 'Int8'
+    for models in out.values():
+        for model in models:
+            model.update(ai.get(sku(model['n']), {}))
 
     # Flagship first within a card: most cores, then highest boost.
     def sortkey(m):

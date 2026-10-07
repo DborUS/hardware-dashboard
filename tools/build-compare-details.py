@@ -93,6 +93,12 @@ def read_common_specs(path, data, only_vendor=None, missing_only=False):
                 if common.get(power_field):
                     common[power_field] += " W"
         record["common"] = common
+        # Client AI ratings are enriched from each AMD product page, outside
+        # the original CSV export. Preserve the exact page in visible sources.
+        if vendor == "amd" and common.get("npu_tops"):
+            source = common.get("source_url", "")
+            if source and source not in record["sources"]:
+                record["sources"].append(source)
         if not record["sources"]:
             record["sources"].append(clean(row.get("source_url")) or path.name)
 
@@ -168,8 +174,22 @@ def main():
     read_common_specs(SPECS / "hardware-specs-master.csv", data,
                       only_vendor="intel", missing_only=True)
 
+    # Keep ARK NPU-only and total throughput in separate shared comparison rows.
+    # This also covers products absent from the older master.
+    for record in data['intel'].values():
+        fields = record['fields']
+        if not (fields.get('NPU Peak TOPS (Int8)') or fields.get('Overall Peak TOPS (Int8)')):
+            continue
+        common = record.setdefault('common', {})
+        if fields.get('NPU Peak TOPS (Int8)'):
+            common['npu_tops'] = fields['NPU Peak TOPS (Int8)']
+            common['npu_precision'] = 'Int8'
+        if fields.get('Overall Peak TOPS (Int8)'):
+            common['overall_tops'] = fields['Overall Peak TOPS (Int8)']
+
     text = json.dumps(data, ensure_ascii=True, separators=(",", ":")) + "\n"
     OUT.write_text(text, encoding="utf-8", newline="")
+    assert OUT.read_text(encoding="utf-8") == text
     print(f"wrote {OUT.relative_to(ROOT)} ({len(text):,} bytes)")
     print(f"Intel: {len(data['intel']):,} products; AMD: {len(data['amd']):,} products; "
           f"NVIDIA: {len(data['nvidia']):,} products; "

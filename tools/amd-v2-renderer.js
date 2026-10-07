@@ -59,17 +59,26 @@ function a2Count(family) {
   return n ? `${n} model${n === 1 ? '' : 's'}` : 'awaiting data';
 }
 
+/** Surface AI capability without widening the table; Socket remains in Compare. */
+function a2TableSchema(family) {
+  return dashboardNpuTableSchema(A2_COLUMNS[a2Tab], A2_FIELDS[a2Tab],
+    a2Models(family), a2Tab === 'ryzen' ? 'sk' : null);
+}
+
 function a2Rows(family, colspan) {
   const models = a2Models(family);
-  const fields = A2_FIELDS[a2Tab];
+  const { fields } = a2TableSchema(family);
   if (!models.length || !fields) {
     return `<tr class="v2-empty-row"><td colspan="${colspan}">No spec data yet</td></tr>`;
   }
   return models.map(m => {
-    const cells = fields.map((f, i) =>
-      `<td class="${i === 0 ? 'cpu-model-name' : ''}">${escHtml(m[f] ?? '—')}</td>`);
+    const cells = fields.map((f, i) => {
+      let value = escHtml(m[f] || '—');
+      if (f === 'npu') value = dashboardNpuCell(m);
+      return `<td class="${i === 0 ? 'cpu-model-name' : ''}">${value}</td>`;
+    });
     if (a2Tab !== 'gpu') cells.push(benchmarkTableCells('AMD', `amd/${a2Tab}`, m.n));
-    return `<tr data-search="${escHtml(Object.values(m).filter(v => v != null).join(' ').toLowerCase())}">` +
+    return `<tr data-search="${escHtml(Object.entries(m).filter(([key, v]) => key !== 'npuSource' && v != null).map(([, v]) => v).join(' ').toLowerCase())}">` +
       cells.join('') + '</tr>';
   }).join('');
 }
@@ -257,9 +266,9 @@ function a2Gen(g, cfg) {
 /** One codename card plus its spec table. */
 function a2Card(f, g, i, cfg) {
   const id = `a2t-${g.id}-${a2Slug(f.name)}`;
-  const cols = A2_COLUMNS[a2Tab];
+  const { columns: cols, hasNpu } = a2TableSchema(f);
   const benchmarkCols = benchmarkTableColumns(`amd/${a2Tab}`);
-  const headers = cols.map(c => `<th>${escHtml(c)}</th>`);
+  const headers = cols.map(dashboardSpecHeader);
   if (benchmarkCols.length) headers.push(benchmarkTableHeaders(`amd/${a2Tab}`));
   const tags = [...a2Tiers(f), f.seg].filter(Boolean).map(t =>
     `<span class="sku-tag">${escHtml(t)}</span>`).join('');
@@ -285,7 +294,7 @@ function a2Card(f, g, i, cfg) {
           <div>
             <span class="cpu-spec-header-title">${escHtml(f.name)}</span>
             <div class="identity-path">AMD › ${escHtml(stripVendor(cfg.title))} › ${escHtml(g.name)} › ${escHtml(f.name)}</div>
-            <div class="source-line">Source: AMD official Product Specifications CSV</div>
+            <div class="source-line">Source: AMD official Product Specifications CSV${hasNpu ? ' and linked NPU specifications' : ''}</div>
             ${benchmarkTableLegend(`amd/${a2Tab}`)}
           </div>
           <span class="cpu-spec-header-title v2-await">${a2Count(f)}</span>

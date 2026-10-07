@@ -112,6 +112,7 @@ RYZEN_SERIES = [
     ('r7000', 'Ryzen 7000 Series', '2022 – 2023', '#a3e635',
      'Raphael · Dragon Range · Phoenix · Rembrandt-R · Barceló-R · Zen 4 / Zen 3+', [
          ('Raphael AM5', 'Ryzen', 'Desktop'),
+         ('Phoenix', 'Ryzen', 'Mobile'),
          ('Rembrandt R', 'Ryzen', 'Mobile'),
          ('Barcelo R', 'Ryzen', 'Mobile'),
          ('Mendocino', 'Ryzen', 'Mobile')]),
@@ -402,6 +403,25 @@ def ryzen_series_for(rid, cd):
         raise SystemExit('no source series selected for %s / %s (available: %s)'
                          % (rid, cd, available))
     return wanted
+
+
+# A shared codename must never make a sourced NPU product unreachable.
+placed_model_ids = {
+    id(model)
+    for rid, _label, _yr, _col, _note, codenames in RYZEN_SERIES
+    for cd, _tier, _segment in codenames
+    for model in models_for(cd, ryzen_series_for(rid, cd))
+}
+placed_model_ids.update(
+    id(model) for _sid, _label, _yr, _col, _note, codenames in EPYC_SERIES
+    for cd in codenames for model in specs.get(cd, [])
+)
+missing_npu = [
+    model['n'] for models in specs.values() for model in models
+    if model.get('npu') and id(model) not in placed_model_ids
+]
+if missing_npu:
+    raise SystemExit('NPU models missing dashboard placement: %s' % missing_npu)
 
 
 def socket_of(cd):

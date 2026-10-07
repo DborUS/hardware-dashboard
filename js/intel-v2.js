@@ -102,9 +102,16 @@ async function v2LoadSpecs(tab) {
   }
 }
 
-function v2Columns(tier) {
+function v2TableSchema(tier, name) {
   const c = V2_COLUMNS[v2Tab];
-  return Array.isArray(c) ? c : (c[tier] || Object.values(c)[0]);
+  const f = V2_FIELDS[v2Tab];
+  const columns = Array.isArray(c) ? c : (c[tier] || Object.values(c)[0]);
+  const fields = Array.isArray(f) ? f : (f[tier] || Object.values(f)[0]);
+  return dashboardNpuTableSchema(columns, fields, (V2_SPECS[v2Tab] || {})[name] || []);
+}
+
+function v2Columns(tier, name) {
+  return v2TableSchema(tier, name).columns;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -696,15 +703,14 @@ function v2Gen(g, cfg) {
  * must resolve identically -- if they disagree, values render under the wrong
  * column headers, which looks like bad data rather than a bug.
  */
-function v2Fields(tier) {
-  const f = V2_FIELDS[v2Tab];
-  if (!f) return null;
-  return Array.isArray(f) ? f : (f[tier] || Object.values(f)[0]);
+function v2Fields(tier, name) {
+  return v2TableSchema(tier, name).fields;
 }
 
 /** Search text for one spec row, including every displayed field. */
 function v2ModelSearch(model) {
-  return Object.values(model || {}).filter(v => v != null).join(' ').toLowerCase();
+  return Object.entries(model || {}).filter(([key, value]) => key !== 'npuSource' && value != null)
+    .map(([, value]) => value).join(' ').toLowerCase();
 }
 
 /** Match both normal text and punctuation-free forms (14900K / i9-14900K). */
@@ -724,14 +730,14 @@ function v2Count(name) {
  */
 function v2Rows(name, colspan, tier) {
   const models = (V2_SPECS[v2Tab] || {})[name];
-  const fields = v2Fields(tier);
+  const fields = v2Fields(tier, name);
   if (!models || !models.length || !fields) {
     return `<tr class="v2-empty-row"><td colspan="${colspan}">` +
            'No spec data yet</td></tr>';
   }
   return models.map(m => {
     const cells = fields.map((f, i) =>
-      `<td class="${i === 0 ? 'cpu-model-name' : ''}">${escHtml(m[f] ?? '\u2014')}</td>`);
+      `<td class="${i === 0 ? 'cpu-model-name' : ''}">${f === 'npu' ? dashboardNpuCell(m) : escHtml(m[f] ?? '\u2014')}</td>`);
     if (v2Tab !== 'graphics') cells.push(benchmarkTableCells('Intel', `intel/${v2Tab}`, m.n));
     return `<tr data-search="${escHtml(v2ModelSearch(m))}">` + cells.join('') + '</tr>';
   }).join('');
@@ -761,9 +767,9 @@ function v2CardTiers(f) {
 /** One codename card plus its spec table. */
 function v2Card(f, g, i, cfg) {
   const id = `v2t-${g.id}-${v2Slug(f.name)}`;
-  const cols = v2Columns(f.tier);
+  const cols = v2Columns(f.tier, f.name);
   const benchmarkCols = benchmarkTableColumns(`intel/${v2Tab}`);
-  const headers = cols.map(c => `<th>${escHtml(c)}</th>`);
+  const headers = cols.map(dashboardSpecHeader);
   if (benchmarkCols.length) headers.push(benchmarkTableHeaders(`intel/${v2Tab}`));
   const tags = [f.tier, f.seg].filter(Boolean).map(t =>
     `<span class="sku-tag">${escHtml(t)}</span>`).join('');

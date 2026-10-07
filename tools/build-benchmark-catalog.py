@@ -32,7 +32,7 @@ OUTPUT = DATA / "benchmark-catalog.json"
 ARGS = ["--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage"]
 TAB_COUNTS = {
     "amd/epyc": 350,
-    "amd/ryzen": 736,
+    "amd/ryzen": 774,
     "amd/gpu": 303,
     "intel/xeon": 553,
     "intel/client": 340,
@@ -462,11 +462,11 @@ def build_payload(page):
             tab_products[tab].add(key)
         require(len(rows) == count, f"{tab}: unexpected displayed row count")
 
-    require(sum(TAB_COUNTS.values()) == 2414, "displayed row total drifted from 2,414")
-    require(len(products_by_key) == 2393,
-            f"catalog identity count {len(products_by_key)} differs from 2,393")
-    require(sum(len(keys) for keys in tab_products.values()) == 2399,
-            "the per-tab identities must total 2,399 before cross-tab deduplication")
+    require(sum(TAB_COUNTS.values()) == 2452, "displayed row total drifted from 2,452")
+    require(len(products_by_key) == 2431,
+            f"catalog identity count {len(products_by_key)} differs from 2,431")
+    require(sum(len(keys) for keys in tab_products.values()) == 2437,
+            "the per-tab identities must total 2,437 before cross-tab deduplication")
     shared = [product for product in products_by_key.values()
               if len(product["dashboardTabs"]) > 1]
     require(len(shared) == 6 and all(product["dashboardTabs"] == ["amd/epyc", "amd/ryzen"]
@@ -474,7 +474,7 @@ def build_payload(page):
             "the six reviewed AMD EPYC/Ryzen source overlaps changed")
     require(len(tab_products["amd/epyc"]) == 335,
             "the 15 repeated EPYC placements no longer resolve to 335 source SKUs")
-    require(len(tab_products["amd/ryzen"]) == 736,
+    require(len(tab_products["amd/ryzen"]) == 774,
             "Ryzen identities must retain product-ID variants with the same name")
     name_groups = defaultdict(set)
     for vendor, model, product_id in products_by_key:
@@ -514,7 +514,7 @@ def build_payload(page):
         list(TAB_COUNTS).index(p["dashboardTabs"][0]), p["model"].casefold(), p["productId"] or ""))
     for product in products:
         product["snapshotMetrics"].sort()
-    require(sum(len(product["placements"]) for product in products) == 2414,
+    require(sum(len(product["placements"]) for product in products) == 2452,
             "catalog placements do not reproduce all displayed rows")
     return {
         "meta": {
@@ -523,9 +523,9 @@ def build_payload(page):
             "catalogEligibilityMeaning": "displayed-spec-row records a model in a dashboard spec table; roadmap cards without model rows are excluded.",
             "commercialReleaseStatusMeaning": "unverified means the catalog data does not provide a consistent release or availability field across vendors.",
             "snapshotCoverageMeaning": "A metric in snapshotMetrics has a result in this site's fixed checked snapshot. An empty array does not establish that no public benchmark exists.",
-            "displayedPlacements": 2414,
-            "uniqueCatalogProducts": 2393,
-            "perTabProductIdentities": 2399,
+            "displayedPlacements": 2452,
+            "uniqueCatalogProducts": 2431,
+            "perTabProductIdentities": 2437,
             "crossTabSharedProducts": 6,
             "productsInCurrentSnapshots": len(matched),
             "dashboardTabRows": TAB_COUNTS,
