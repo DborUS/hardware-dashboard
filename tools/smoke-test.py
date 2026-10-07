@@ -36,6 +36,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 REPO = Path(__file__).resolve().parent.parent
+SITE_REVISION = "20261007-shared-shell-2"
 
 # Expected minimums. These are lower bounds, not exact values -- adding data
 # should never fail the test, but losing data or breaking a render will.
@@ -136,7 +137,7 @@ def main():
         shots_dir.mkdir(parents=True, exist_ok=True)
 
     httpd = serve(args.port, REPO)
-    base = f"http://127.0.0.1:{args.port}/index.html"
+    base = f"http://127.0.0.1:{args.port}/"
 
     failures = []
     js_errors = []
@@ -197,7 +198,7 @@ def main():
                 if link.count() != 1:
                     failures.append(f"{vendor}-{tab} has no single Benchmarks tab")
                     return
-                if link.get_attribute("href") != "benchmarks/":
+                if link.get_attribute("href") != f"benchmarks/?site={SITE_REVISION}":
                     failures.append(f"{vendor}-{tab} benchmark link is not the unfiltered explorer: {link.get_attribute('href')}")
                 if link.get_attribute("role") == "tab":
                     failures.append(f"{vendor}-{tab} page link incorrectly uses an in-page tab role")
@@ -270,7 +271,9 @@ def main():
                         break
                     url = urlparse(score["href"] or "")
                     params = parse_qs(url.query)
-                    if url.path != "benchmarks/" or params.get("mode") != [mode]:
+                    if (url.path != "benchmarks/" or
+                            params.get("site") != [SITE_REVISION] or
+                            params.get("mode") != [mode]):
                         failures.append(f"{vendor}-{tab} score does not link into its benchmark mode: {score['href']}")
                         break
                     if params.get("q", [""])[0].casefold() != (score["model"] or "").casefold():
@@ -381,6 +384,22 @@ def main():
 
             page.goto(base, wait_until="networkidle")
             page.wait_for_timeout(900)
+
+            site_nav = page.locator(".topbar > .site-primary-nav")
+            if site_nav.count() != 1 or not site_nav.is_visible():
+                failures.append("Products page is missing the shared site navigation")
+            else:
+                products_link = site_nav.locator(f'a[href="./?site={SITE_REVISION}"]')
+                benchmarks_link = site_nav.locator(f'a[href="benchmarks/?site={SITE_REVISION}"]')
+                if (site_nav.locator("a").count() != 2 or products_link.count() != 1 or
+                        benchmarks_link.count() != 1 or
+                        products_link.get_attribute("aria-current") != "page" or
+                        benchmarks_link.get_attribute("aria-current") is not None):
+                    failures.append("Products page has incorrect Products/Benchmarks site navigation")
+            if count(".topbar .brand-lockup") != 1 or count(".topbar-tools #whatsNewBtn") != 1:
+                failures.append("Products page is missing the shared logo or What's new trigger")
+            if count(".navrow .product-context #vendorPill") != 1:
+                failures.append("Products vendor switcher is outside its product controls")
 
             if page.locator(".brand-lockup-version").inner_text().strip().lower() != "public beta 0.0.4":
                 failures.append("header does not show public beta 0.0.4")

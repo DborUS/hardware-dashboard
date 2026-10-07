@@ -3,7 +3,7 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-10-07 (compact benchmark score column)
+**Last updated:** 2026-10-07 (shared site shell alignment)
 **Current version:** Public beta 0.0.4
 **Previous release:** Public beta 0.0.3 (`fdf51f1`)
 **Health:** October 7 captures hold 3,862 linked public results for 697 of
@@ -17,6 +17,46 @@ Existing dashboard small controls and sidebar clipping were observed in the
 layout audit. The benchmark page now also shows catalog CPU specifications
 for all 645 scored CPU models; the latest benchmark and dashboard smoke tests
 pass after this addition.
+
+## 2026-10-07 — Shared Products and Benchmarks shell
+
+Products and Benchmarks now share the same top navigation, centered ChipIndex
+identity, background grid, and What's new control. The vendor selector and
+product-line tabs remain local to Products; benchmark manufacturer and workload
+controls remain local to Benchmarks. The Benchmarks page keeps its wide charts.
+Its global Products navigation is a plain site link, while a separate contextual
+link beside the page heading returns to the relevant product view.
+
+The dated release-history dialog comes from one shared `js/site-updates.js`
+module on both pages, so its content and behavior cannot diverge. Direct
+benchmark entry still starts with All manufacturers; CPU table score links
+still open the corresponding model, test, build, and tested CPU count.
+Dashboard and benchmark browser smoke plus the layout audit pass; visual review
+confirmed the shared header and dialog on both pages at desktop width. The audit
+still notes the pre-existing small controls and clipped sidebar descriptions. No commit,
+push, or deployment was made. Visitor copy remains pending in
+`docs/UPDATE-QUEUE.md`.
+
+Follow-up: the browser could return from Benchmarks to an older cached
+`/index.html` even though Products had started at `/`. Both paths served the
+same current file, but had separate browser cache entries. Products navigation
+now uses canonical `/` throughout and versioned entry links on both sides;
+contextual returns preserve vendor and product-line query parameters. The
+Products → Benchmarks → Products loop was verified in the existing in-app
+browser: the title is current, the path is `/`, and the AMD Benchmarks tab is
+visible beside Architecture guide. Both browser smoke suites pass after the
+route fix, including the new round-trip regression check; JavaScript syntax
+and `git diff --check` pass. No commit, push, or deployment was made.
+
+Header alignment follow-up: the benchmark shell is wider than Products, but
+the benchmark top bar had a second, narrower max width. Removed that cap so
+the Products/Benchmarks toggle and What's new control align with the benchmark
+content edges while the ChipIndex mark remains centered. The benchmark CSS URL
+has a new version key so browsers load the spacing change. Chromium measurements
+show zero left-edge offset on both pages at 320–1548px, with no benchmark page
+overflow. Full dashboard and benchmark smoke, the dashboard layout audit, and
+`git diff --check` pass. The audit still lists existing small dashboard controls
+and clipped sidebar labels. No commit, push, or deployment was made.
 
 ## 2026-10-07 — Add benchmark update to What's new
 

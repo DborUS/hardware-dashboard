@@ -763,18 +763,39 @@
   body.intel-v2 .core-range { --cr-ac: #60a5fa; }
 
   /* ══════════════════════════════════════════════════════════════════════
-     COMPACT HEADER  —  sliding vendor pill + inline title, product row below
+     SHARED SITE HEADER — navigation, centred identity, and page tools
      ──────────────────────────────────────────────────────────────────────
-     Replaces four stacked centred blocks that cost 403px before any content.
-     Row 1 is vendor + title; row 2 is product line + search + controls.
+     The same shell is used by Products and Benchmarks. Vendor selection stays
+     in the local product controls beneath it.
      ══════════════════════════════════════════════════════════════════════ */
 
   .topbar {
     display: grid;
-    grid-template-columns: max-content minmax(0, 1fr) max-content;
-    align-items: center; gap: 18px;
+    grid-template-columns: minmax(240px, 1fr) minmax(0, 520px) minmax(240px, 1fr);
+    align-items: center; column-gap: 18px; row-gap: 12px;
     padding: 4px 0 14px;
   }
+  .site-primary-nav {
+    display: inline-flex; align-items: center; justify-self: start;
+    gap: 2px; min-width: 0; padding: 3px;
+    border: 1px solid var(--border-subtle); border-radius: 7px;
+    background: var(--bg-card);
+  }
+  .site-primary-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 36px; padding: 7px 12px;
+    border: 1px solid transparent; border-radius: 5px;
+    color: var(--text-secondary); text-decoration: none; white-space: nowrap;
+    font: 600 0.73rem 'JetBrains Mono', monospace; letter-spacing: 0.35px;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  .site-primary-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+  .site-primary-link.active,
+  .site-primary-link[aria-current="page"] {
+    border-color: rgba(237,28,36,0.35); background: rgba(237,28,36,0.16);
+    color: var(--text-primary);
+  }
+  .site-primary-link:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
 
   /* Sliding pill. Four equal tracks keep the thumb aligned even though the
      vendor labels have different lengths. */
@@ -819,7 +840,7 @@
      across vendors so the product has one stable identity while the vendor
      pill and surrounding data retain their contextual colour system. */
   .brand-lockup {
-    width: min(100%, 520px); min-width: 0;
+    width: min(100%, 520px); min-width: 0; justify-self: center;
     color: #fff;
   }
   .brand-lockup-title {
@@ -873,7 +894,7 @@
   }
   .topbar-tools {
     display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end;
-    width: 240px; gap: 6px; min-width: 0;
+    justify-self: end; width: 240px; gap: 6px; min-width: 0;
   }
   .topbar .v2-status { flex: 0 0 100%; margin: 0; min-width: 0; text-align: right; white-space: nowrap; }
   .whats-new-trigger {
@@ -895,11 +916,15 @@
     color: #e5fbff;
   }
   .whats-new-trigger:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
-  /* Row 2 — product line, search, controls */
+  /* Local product controls sit beneath the site-wide shell. */
   .navrow {
     display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
     padding-bottom: 16px; margin-bottom: 4px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .product-context {
+    display: flex; align-items: center; flex-wrap: wrap;
+    gap: 12px; width: 100%; min-width: 0;
   }
   /* min-width:0 lets the field shrink inside the flex row instead of
      overflowing its wrapper and clipping the placeholder. */
@@ -992,26 +1017,24 @@
   .v2-nodata { margin: 10px 0 0; }
 
   @media (max-width: 980px) {
-    .topbar { grid-template-columns: max-content minmax(0, 1fr); gap: 12px; padding-bottom: 10px; }
-    .brand-lockup { width: min(100%, 400px); }
+    .topbar { grid-template-columns: minmax(0, 1fr) max-content; column-gap: 12px; padding-bottom: 10px; }
+    .brand-lockup { grid-column: 1 / -1; grid-row: 1; width: min(100%, 520px); justify-self: center; }
+    .site-primary-nav { grid-column: 1; grid-row: 2; }
+    .topbar-tools { grid-column: 2; grid-row: 2; width: 240px; min-height: 36px; }
     .brand-lockup-title { gap: 11px; }
     .brand-lockup-name { font-size: clamp(1.5rem, 4.7vw, 2.1rem); letter-spacing: -2px; }
     .brand-lockup-by { font-size: clamp(0.56rem, 1.7vw, 0.72rem); }
     .topbar header { gap: 8px; }
     .topbar header h1 { font-size: 1rem; }
     .topbar header p { display: none; }
-    .topbar-tools { grid-column: 1 / -1; width: 100%; justify-content: space-between; }
-    .topbar .v2-status { margin-right: auto; text-align: left; }
+    .topbar .v2-status { overflow: hidden; text-overflow: ellipsis; }
     .navrow { gap: 8px; padding-bottom: 12px; }
-    .navrow .search-wrap { flex: 1 1 100%; max-width: 100%; order: 3; }
-    .navrow .toolbar { order: 2; margin-left: auto; }
+    .navrow .toolbar { margin-left: auto; }
     .global-search-routes { margin-left: 0; }
   }
   @media (max-width: 780px) {
-    .topbar { grid-template-columns: 1fr; gap: 12px; }
-    .brand-lockup { grid-row: 1; width: 100%; }
-    .topbar-tools { grid-row: 2; min-height: 36px; }
-    .vendor-pill { grid-row: 3; width: 100%; }
+    .brand-lockup { justify-self: start; }
+    .navrow .search-wrap { flex: 1 1 100%; max-width: 100%; }
     .navrow .toolbar {
       display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
       width: 100%; margin-left: 0;
@@ -1019,10 +1042,12 @@
     .navrow .toolbar .expand-all-btn { width: 100%; white-space: nowrap; }
   }
   @media (max-width: 640px) {
-    .topbar { grid-template-columns: 1fr; gap: 12px; }
-    .brand-lockup { grid-row: 1; width: 100%; }
-    .topbar-tools { grid-row: 2; min-height: 36px; }
-    .vendor-pill { grid-row: 3; width: 100%; }
+    .topbar { grid-template-columns: 1fr; }
+    .brand-lockup { grid-column: 1; grid-row: 1; width: 100%; }
+    .site-primary-nav { grid-column: 1; grid-row: 2; width: 100%; justify-self: stretch; }
+    .site-primary-link { flex: 1; }
+    .topbar-tools { grid-column: 1; grid-row: 3; width: 100%; min-height: 36px; justify-content: space-between; }
+    .navrow .vendor-pill { width: 100%; }
     .brand-lockup-title { gap: 10px; }
     .brand-lockup-name { font-size: clamp(1.85rem, 9.5vw, 2.45rem); }
     .brand-lockup-by { font-size: clamp(0.58rem, 3.1vw, 0.78rem); }

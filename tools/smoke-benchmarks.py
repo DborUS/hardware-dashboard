@@ -15,13 +15,14 @@ import re
 import socketserver
 import threading
 from pathlib import Path
-from urllib.parse import parse_qsl, urlencode, urlsplit
+from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit
 
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "js" / "data"
 ARGS = ["--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage"]
+SITE_REVISION = "20261007-shared-shell-2"
 SPEC_CASES = (
     ("2026", "integer", "enterprise-benchmark-2026-int-sample.json", 20),
     ("2026", "floating", "enterprise-benchmark-2026-fp-sample.json", 20),
@@ -119,6 +120,43 @@ def source_key(url):
 def check(condition, message):
     if not condition:
         raise AssertionError(message)
+
+
+def check_shared_shell(page, active_section):
+    """Both routes expose the same site identity, navigation, and release history."""
+    nav = page.locator(".topbar .site-primary-nav")
+    check(nav.count() == 1 and nav.is_visible(),
+          f"{active_section}: shared site navigation is missing")
+    links = nav.locator("a")
+    check(links.count() == 2 and links.all_inner_texts() == ["Products", "Benchmarks"],
+          f"{active_section}: global navigation labels changed")
+    active = links.nth(0 if active_section == "Products" else 1)
+    inactive = links.nth(1 if active_section == "Products" else 0)
+    check(active.get_attribute("aria-current") == "page" and
+          inactive.get_attribute("aria-current") is None,
+          f"{active_section}: global navigation marks the wrong page active")
+    brand = page.locator(".topbar .brand-lockup")
+    check(brand.count() == 1 and brand.is_visible(),
+          f"{active_section}: shared ChipIndex brand is missing")
+    trigger = page.locator(".topbar-tools #whatsNewBtn")
+    check(trigger.count() == 1 and trigger.is_visible(),
+          f"{active_section}: shared What's new button is missing")
+    trigger.click()
+    dialog = page.locator("#whatsNewDialog")
+    check(dialog.count() == 1 and dialog.get_attribute("open") is not None and
+          trigger.get_attribute("aria-expanded") == "true",
+          f"{active_section}: What's new did not open")
+    dates = dialog.locator("#releaseHistory .release-version time").evaluate_all(
+        "items => items.map(item => item.getAttribute('datetime'))"
+    )
+    check(len(dates) == 5 and dates[0] == "2026-10-07" and all(dates),
+          f"{active_section}: dated release history is incomplete")
+    page.keyboard.press("Escape")
+    page.wait_for_function(
+        "() => !document.querySelector('#whatsNewDialog').open && "
+        "document.querySelector('#whatsNewBtn').getAttribute('aria-expanded') === 'false'"
+    )
+    return brand.inner_text().strip(), dates
 
 
 def select_section(page, section):
@@ -782,6 +820,12 @@ def check_cpu_product_specs(page):
             {"cores": "20", "threads": "20", "tdp": "140 W"},
         ),
     }
+    product_views = {
+        ("AMD", "EPYC 9965"): ("amd", "epyc"),
+        ("INTEL", "Xeon 6990E+"): ("intel", "xeon"),
+        ("INTEL", "Core Ultra 9 285H"): ("intel", "client"),
+        ("NVIDIA", "GB10 Grace Blackwell Superchip"): ("nvidia", "cpu"),
+    }
     catalog = snapshot("benchmark-catalog.json")["products"]
     products = {}
     for identity, (labels, raw_fields) in expected.items():
@@ -821,9 +865,13 @@ def check_cpu_product_specs(page):
             link = line.locator(".benchmark-product-spec-link")
             check(link.count() == 1 and "Product specs" in link.inner_text(),
                   f"{label}: no route to the product spec record")
-            target = urlsplit(link.get_attribute("href"))
+            target = urlsplit(urljoin(page.url, link.get_attribute("href")))
             query = dict(parse_qsl(target.query))
-            check(target.path.endswith("/index.html") and query.get("q") == identity[1],
+            vendor, tab = product_views[identity]
+            check(target.path == urlsplit(urljoin(base_url, "../")).path and
+                  query.get("site") == SITE_REVISION and
+                  query.get("vendor") == vendor and query.get("tab") == tab and
+                  query.get("q") == identity[1],
                   f"{label}: product spec link points to another model")
 
     def verify_chart_and_table(identity, label):
@@ -1478,6 +1526,34 @@ def check_view_roundtrip(page):
 def exercise(page):
     errors = []
     page.on("pageerror", lambda error: errors.append(str(error)))
+    products_root = urljoin(base_url, "../")
+    page.goto(products_root, wait_until="domcontentloaded")
+    products_brand, products_dates = check_shared_shell(page, "Products")
+    check(page.locator(".navrow .product-context #vendorPill").count() == 1,
+          "Products page lost its vendor switcher")
+    check(page.locator(".site-primary-nav a[aria-current='page']").get_attribute("href") ==
+          f"./?site={SITE_REVISION}",
+          "Products self-navigation does not use the versioned canonical root")
+    page.locator(f".site-primary-nav a[href='benchmarks/?site={SITE_REVISION}']").click()
+    check(page.title() == "Benchmarks · ChipIndex", "Products navigation did not open Benchmarks")
+    benchmarks_brand, benchmarks_dates = check_shared_shell(page, "Benchmarks")
+    check((products_brand, products_dates) == (benchmarks_brand, benchmarks_dates),
+          "Products and Benchmarks show different ChipIndex branding or release history")
+    check(page.locator("#vendorPill").count() == 0,
+          "Benchmarks incorrectly shows the Products-only vendor switcher")
+    check(page.locator("#productsLink").get_attribute("href") == f"../?site={SITE_REVISION}" and
+          page.locator("#productsLink").inner_text().strip() == "Products",
+          "Benchmarks global Products link does not use the versioned canonical root")
+    check(page.locator(".site-primary-nav a[aria-current='page']").get_attribute("href") == "./",
+          "Benchmarks navigation does not identify the current page")
+    page.locator("#productsLink").click()
+    check(urlsplit(page.url).path == urlsplit(products_root).path and
+          page.title() == "Products · ChipIndex",
+          "Benchmarks top Products link returned to a different product page")
+    page.locator("#epycBenchmarkTab").wait_for(state="visible")
+    check(page.locator("#epycBenchmarkTab").count() == 1,
+          "AMD Products lost its Benchmarks tab after the round trip")
+    page.goto(base_url, wait_until="domcontentloaded")
     # A shared benchmark URL must lead back to the matching product line even
     # when opened directly, without relying on a previous dashboard visit.
     for query, vendor, tab, label in (
@@ -1487,15 +1563,24 @@ def exercise(page):
         ({"mode": "enterprise", "manufacturer": "Ampere", "suite": "2017"}, "ampere", "processors", "Ampere CPU specs"),
     ):
         page.goto(base_url + "?" + urlencode(query), wait_until="domcontentloaded")
-        link = page.locator("#productsLink")
-        target = urlsplit(link.get_attribute("href"))
+        check(page.locator("#productsLink").get_attribute("href") == f"../?site={SITE_REVISION}" and
+              page.locator("#productsLink").inner_text().strip() == "Products",
+              f"benchmark view {query} changed the global Products navigation")
+        link = page.locator("#returnProductsLink")
+        target = urlsplit(urljoin(page.url, link.get_attribute("href")))
         target_query = dict(parse_qsl(target.query))
-        check(target.path.endswith("/index.html") and
+        check(target.path == urlsplit(products_root).path and
+              target_query.get("site") == SITE_REVISION and
               target_query.get("vendor") == vendor and target_query.get("tab") == tab and
               label in link.inner_text(),
               f"benchmark view {query} does not return to {label}")
     page.goto(base_url, wait_until="domcontentloaded")
     page.locator("#rankedResults .benchmark-rank-row").first.wait_for()
+    check(page.locator("#manufacturerSelect").input_value() == "" and
+          page.locator("#manufacturerSelect option:checked").inner_text() == "All" and
+          not {"manufacturer", "q"}.intersection(
+              dict(parse_qsl(urlsplit(page.url).query))),
+          "bare Benchmarks entry did not reset to All manufacturers")
     check_catalog(page)
 
     # The newest enterprise suite is the initial view. Every selection stays

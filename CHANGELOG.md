@@ -25,6 +25,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
+- **Shared site shell (2026-10-07)** — Products and Benchmarks use the same centered ChipIndex header, signature signal line, site navigation, background grid, and What's new history. The product vendor selector stays in Products; the benchmark explorer retains its wider results area and all-manufacturers default. The Products/Benchmarks toggle now follows each page's content edge instead of floating inward on the wider benchmark page. All return links now use the canonical Products address and a versioned HTML entry, avoiding an older cached `/index.html` page on the round trip.
+
 - **Benchmark entry links and CPU scores (2026-10-07)** — Vendor Benchmarks tabs open the all-manufacturer explorer. CPU specification tables preserve their original column order and compact rows, then append one rightmost Benchmark column with a shorthand test name and sourced score rather than report counts; selecting it opens the exact model and test cohort. The site's What's new history leads with an October 7 benchmark update.
 
 ## [Public beta 0.0.4] - 2026-09-30

@@ -12,27 +12,15 @@
   --bench-line: rgba(255,255,255,.10);
   color-scheme: dark;
 }
-.benchmark-page .benchmark-shell { max-width: 1440px; padding-top: 16px; padding-bottom: 40px; }
+.benchmark-page .benchmark-shell { max-width: 1440px; padding-top: 40px; padding-bottom: 40px; }
 .benchmark-page button, .benchmark-page input, .benchmark-page select { font-family: 'JetBrains Mono', monospace; }
-.benchmark-page button:focus-visible, .benchmark-page select:focus-visible,
-.benchmark-page input:focus-visible, .benchmark-page a:focus-visible {
+.benchmark-page main button:focus-visible, .benchmark-page main select:focus-visible,
+.benchmark-page main input:focus-visible, .benchmark-page main a:focus-visible {
   outline: 2px solid var(--bench-accent); outline-offset: 3px;
 }
-.benchmark-page a { color: inherit; }
+:where(.benchmark-page main, .benchmark-page .benchmark-footer) a { color: inherit; }
 .benchmark-skip { position: absolute; left: 16px; top: -60px; z-index: 5; padding: 10px 14px; background: var(--bg-card); color: #fff; border-radius: 5px; font-family: 'JetBrains Mono', monospace; }
 .benchmark-skip:focus { top: 8px; }
-
-.benchmark-masthead { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 0 0 12px; border-bottom: 1px solid var(--bench-line); }
-.benchmark-brand { display: block; flex: 0 1 275px; text-decoration: none; }
-.benchmark-brand .brand-lockup-name { font-size: clamp(1.75rem, 2.8vw, 2.25rem); }
-.benchmark-brand .brand-lockup-rule { margin-block: 8px 6px; }
-.benchmark-brand .brand-lockup-version { font-size: 0.56rem; }
-.benchmark-site-nav { display: inline-flex; align-items: center; gap: 3px; padding: 3px; border: 1px solid var(--bench-line); border-radius: 6px; background: var(--bench-panel); }
-.benchmark-site-nav a { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 8px 18px; border-radius: 4px; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: .76rem; font-weight: 600; color: var(--text-secondary); transition: color .2s ease, background .2s ease; }
-.benchmark-site-nav a:hover { color: var(--text-primary); background: rgba(255,255,255,.05); }
-.benchmark-site-nav a[aria-current="page"] { color: var(--text-primary); background: rgba(237,28,36,.18); box-shadow: inset 0 0 0 1px rgba(237,28,36,.35); }
-.benchmark-site-nav a > span:first-child:not(.benchmark-nav-dot) { font-size: .95rem; color: var(--text-muted); }
-.benchmark-nav-dot { display: inline-block; width: 5px; height: 5px; background: var(--bench-accent); border-radius: 1px; }
 
 .benchmark-eyebrow, .benchmark-section-note, .benchmark-readout-head,
 .benchmark-readout-line, .benchmark-count, .benchmark-axis,
@@ -396,16 +384,15 @@
 .benchmark-controls .benchmark-search-field { grid-column: 1 / -1; }
 .benchmark-config .benchmark-controls .benchmark-blender-field { grid-column: 1 / -1; }
 
-/* Benchmark explorer: AMD-inspired chrome and task-oriented sections. */
-.benchmark-page .bg-grid { display: none; }
-.benchmark-page .brand-lockup-rule-start { color: var(--bench-accent); box-shadow: none; width: 30%; }
-.benchmark-page .brand-lockup-rule-end { color: var(--text-muted); box-shadow: none; width: 8%; }
-.benchmark-page .brand-lockup-version { color: var(--text-secondary); letter-spacing: 1.5px; }
+/* Benchmark explorer: AMD-inspired data surfaces beneath the shared ChipIndex shell. */
 .benchmark-page [role="tabpanel"][hidden] { display: none !important; }
 .benchmark-page-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 0 15px; }
 .benchmark-page-heading h1 { margin: 0; color: var(--text-primary); font: 600 clamp(1.75rem, 3vw, 2rem)/1.2 'JetBrains Mono', monospace; letter-spacing: -.06em; }
 .benchmark-page-heading p { max-width: 760px; margin-top: 5px; color: var(--text-secondary); font-size: .86rem; line-height: 1.5; }
-.benchmark-page-heading .benchmark-text-button { flex: 0 0 auto; }
+.benchmark-page-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px; }
+.benchmark-page-actions .benchmark-text-button { flex: 0 0 auto; }
+.benchmark-return-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--text-secondary); font: 600 .68rem 'JetBrains Mono', monospace; text-decoration: none; white-space: nowrap; }
+.benchmark-return-link:hover { color: var(--text-primary); text-decoration: underline; text-underline-offset: 3px; }
 .benchmark-section-tabs { display: flex; align-items: stretch; gap: 6px; margin-bottom: 14px; border-bottom: 1px solid var(--bench-line); }
 .benchmark-section-tabs button { min-height: 46px; padding: 10px 17px; border: 0; border-bottom: 2px solid transparent; border-radius: 4px 4px 0 0; background: transparent; color: var(--text-secondary); font-size: .76rem; font-weight: 600; cursor: pointer; }
 .benchmark-section-tabs button:hover { color: var(--text-primary); background: rgba(255,255,255,.025); }
@@ -481,7 +468,7 @@
   .benchmark-method-intro { max-width: 620px; }
 }
 @media (max-width: 768px) {
-  .benchmark-page .benchmark-shell { padding-top: 18px; }
+  .benchmark-page .benchmark-shell { padding-top: 32px; padding-inline: 16px; }
   .benchmark-readout { max-width: 460px; }
   .benchmark-readout-number { margin-top: 10px; }
   .benchmark-method-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -503,10 +490,8 @@
   .benchmark-focus-peer { grid-column: auto; }
   .benchmark-scope-note { grid-template-columns: 1fr; gap: 6px; }
   .benchmark-scope-link { grid-column: 1; white-space: normal; }
-  .benchmark-page .benchmark-shell { padding-inline: 17px; }
-  .benchmark-masthead { flex-direction: column; align-items: stretch; gap: 14px; padding-bottom: 15px; }
-  .benchmark-brand { flex-basis: auto; width: min(100%, 320px); }
-  .benchmark-site-nav { align-self: start; }
+  .benchmark-page .benchmark-shell { padding-top: 20px; padding-inline: 12px; }
+  .benchmark-page-actions { justify-content: flex-start; }
   .benchmark-readout { padding: 14px 16px; }
   .benchmark-section-heading { align-items: start; flex-direction: column; gap: 9px; }
   .benchmark-section-note { max-width: 100%; text-align: left; }
@@ -549,6 +534,7 @@
   .benchmark-footer { flex-direction: column; }
 }
 @media (max-width: 375px) {
+  .benchmark-page .benchmark-shell { padding-top: 16px; padding-inline: 10px; }
   .benchmark-model-chart-summary { align-items: start; gap: 7px; }
   .benchmark-model-chart-title { font-size: 1rem; }
   .benchmark-model-chart-toggle { font-size: .6rem; padding-inline: 7px; }
@@ -557,8 +543,6 @@
 
   .benchmark-mode-button { justify-content: center; min-height: 58px; }
   .benchmark-mode-button span { display: none; }
-  .benchmark-site-nav { width: 100%; }
-  .benchmark-site-nav a { flex: 1; padding-inline: 11px; }
   .benchmark-last-updated { flex-direction: column; align-items: start; gap: 1px; }
   .benchmark-rank-title { font-size: .74rem; }
   .benchmark-rank-score { font-size: .77rem; }

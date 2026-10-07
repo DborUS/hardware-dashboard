@@ -106,7 +106,7 @@
   mainContent.inert = true;
   mainContent.setAttribute('aria-busy', 'true');
   const elements = {
-    productsLink: document.getElementById('productsLink'),
+    returnProductsLink: document.getElementById('returnProductsLink'),
     modeButtons: [...document.querySelectorAll('.benchmark-mode-button')],
     suiteButtons: [...document.querySelectorAll('.benchmark-suite-button')],
     metricButtons: [...document.querySelectorAll('#enterpriseMetricSwitch .benchmark-test-button')],
@@ -255,8 +255,8 @@
   }
 
   function restoreProductsLink() {
-    const home = new URL('../index.html', location.href);
-    const homeRoot = new URL('../', location.href);
+    const home = new URL('../', location.href);
+    const homeFile = new URL('../index.html', location.href);
     const storageKey = 'chipindex-last-product-url';
     const productViews = {
       'amd/enterprise': ['amd', 'epyc', 'AMD EPYC specs'],
@@ -275,7 +275,7 @@
       try {
         const url = new URL(value);
         return url.origin === home.origin &&
-          (url.pathname === home.pathname || url.pathname === homeRoot.pathname) ? url : null;
+          (url.pathname === home.pathname || url.pathname === homeFile.pathname) ? url : null;
       } catch { return null; }
     }
     const recent = validHome(document.referrer);
@@ -290,14 +290,16 @@
       fallback.searchParams.set('vendor', requestedView[0]);
       fallback.searchParams.set('tab', requestedView[1]);
     }
-    const destination = recent || (requestedView ? fallback : remembered) || home;
-    elements.productsLink.href = destination.href;
+    const destination = new URL((recent || (requestedView ? fallback : remembered) || home).href);
+    destination.pathname = home.pathname;
+    destination.searchParams.set('site', '20261007-shared-shell-2');
+    elements.returnProductsLink.href = destination.href;
     const vendor = destination.searchParams.get('vendor');
     const tab = destination.searchParams.get('tab');
     const matchedView = Object.values(productViews).find(view => view[0] === vendor && view[1] === tab);
     const label = matchedView?.[2] || 'Products';
-    elements.productsLink.firstChild.nodeValue = `${label} `;
-    elements.productsLink.setAttribute('aria-label', `Open ${label.toLowerCase()} in ChipIndex`);
+    elements.returnProductsLink.textContent = `← ${label}`;
+    elements.returnProductsLink.setAttribute('aria-label', `Open ${label.toLowerCase()} in ChipIndex`);
   }
 
   function canonicalResultId(prefix, sourceUrl) {
@@ -484,7 +486,8 @@
 
   function dashboardProductUrl(product) {
     const [vendor, tab] = product.dashboardTabs[0].split('/');
-    const url = new URL('../index.html', location.href);
+    const url = new URL('../', location.href);
+    url.searchParams.set('site', '20261007-shared-shell-2');
     url.searchParams.set('vendor', vendor);
     url.searchParams.set('tab', tab);
     url.searchParams.set('q', product.model);

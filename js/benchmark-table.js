@@ -39,6 +39,7 @@ function benchmarkTableSpecCell(vendor, model, data) {
   const result = data?.featuredSpec;
   if (!result) return benchmarkTableEmpty();
   const params = new URLSearchParams({
+    site: '20261007-shared-shell-2',
     mode: 'enterprise',
     suite: result.suite,
     metric: result.metric,
@@ -61,6 +62,7 @@ function benchmarkTableRenderCell(vendor, model, data) {
   if (!result) return benchmarkTableEmpty();
   const [rawScore, samples] = result;
   const params = new URLSearchParams({
+    site: '20261007-shared-shell-2',
     mode: 'client', version: '5.2.0', compute: 'mixed', manufacturer: vendor, q: model
   });
   const href = `benchmarks/?${params}`;

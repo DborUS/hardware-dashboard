@@ -3,32 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CPU Architecture Roadmap</title>
+<title>Products · ChipIndex</title>
 <!-- Performance: Preconnect to font CDN -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20261007-benchmark-score-column-1">
+  <link rel="stylesheet" href="css/styles.css?v=20261007-shared-shell-1">
   <link rel="stylesheet" href="css/platforms.css?v=20260930-platforms-4">
 </head>
 <body>
 <div class="bg-grid"></div>
 <div class="container">
-  <!-- Row 1: vendor pill + ChipIndex identity. #pageHeader remains available
+  <!-- Shared site navigation and ChipIndex identity. #pageHeader remains available
        to assistive technology and is updated by whichever renderer is active. -->
   <div class="topbar">
-    <div class="vendor-pill" id="vendorPill" data-active="amd" role="tablist"
-         aria-label="Vendor">
-      <span class="vendor-pill-thumb" aria-hidden="true"></span>
-      <button class="vendor-tab active-amd" id="tabAmd" role="tab"
-              aria-selected="true" onclick="switchVendor('amd')">AMD</button>
-      <button class="vendor-tab" id="tabIntel" role="tab"
-              aria-selected="false" onclick="switchVendor('intel')">Intel</button>
-      <button class="vendor-tab" id="tabNvidia" role="tab"
-              aria-selected="false" onclick="switchVendor('nvidia')">NVIDIA</button>
-      <button class="vendor-tab" id="tabAmpere" role="tab"
-              aria-selected="false" onclick="switchVendor('ampere')">AMPERE</button>
-    </div>
+    <nav class="site-primary-nav" aria-label="Main navigation">
+      <a class="site-primary-link active" href="./?site=20261007-shared-shell-2" aria-current="page">Products</a>
+      <a class="site-primary-link" href="benchmarks/?site=20261007-shared-shell-2">Benchmarks</a>
+    </nav>
     <div class="brand-lockup" aria-label="ChipIndex by Dan Bor, public beta 0.0.4">
       <div class="brand-lockup-title" aria-hidden="true">
         <span class="brand-lockup-name">ChipIndex</span>
@@ -54,25 +46,39 @@
     </div>
   </div>
 
-  <!-- Row 2: product line, search and the expand/collapse controls together. -->
+  <!-- Local product controls: vendor and product line, then search and tools. -->
   <div class="navrow">
-    <!-- AMD only: product-line sub-tabs, shown by a2Activate() -->
-    <div class="v2-subtabs a2-subtabs" id="a2Subtabs" role="tablist" aria-label="AMD product line">
-      <button class="v2-subtab a2-subtab active" data-tab="epyc" role="tab">EPYC</button>
-      <button class="v2-subtab a2-subtab" data-tab="ryzen" role="tab">RYZEN</button>
-      <button class="v2-subtab a2-subtab" data-tab="gpu" role="tab">GPU</button>
-    </div>
-    <!-- Intel only: product-line sub-tabs, shown by v2Activate() -->
-    <div class="v2-subtabs" id="v2Subtabs" role="tablist" aria-label="Intel product line">
-      <button class="v2-subtab active" data-tab="xeon" role="tab">XEON</button>
-      <button class="v2-subtab" data-tab="client" role="tab">CLIENT</button>
-      <button class="v2-subtab" data-tab="graphics" role="tab">GRAPHICS</button>
-    </div>
-    <!-- NVIDIA: data-center-first product lines. -->
-    <div class="v2-subtabs n2-subtabs" id="n2Subtabs" role="tablist" aria-label="NVIDIA product line">
-      <button class="v2-subtab n2-subtab active" data-tab="datacenter" role="tab">DATA CENTER</button>
-      <button class="v2-subtab n2-subtab" data-tab="geforce" role="tab">GEFORCE</button>
-      <button class="v2-subtab n2-subtab" data-tab="cpu" role="tab">CPU</button>
+    <div class="product-context">
+      <div class="vendor-pill" id="vendorPill" data-active="amd" role="tablist"
+           aria-label="Vendor">
+        <span class="vendor-pill-thumb" aria-hidden="true"></span>
+        <button class="vendor-tab active-amd" id="tabAmd" role="tab"
+                aria-selected="true" onclick="switchVendor('amd')">AMD</button>
+        <button class="vendor-tab" id="tabIntel" role="tab"
+                aria-selected="false" onclick="switchVendor('intel')">Intel</button>
+        <button class="vendor-tab" id="tabNvidia" role="tab"
+                aria-selected="false" onclick="switchVendor('nvidia')">NVIDIA</button>
+        <button class="vendor-tab" id="tabAmpere" role="tab"
+                aria-selected="false" onclick="switchVendor('ampere')">AMPERE</button>
+      </div>
+      <!-- AMD only: product-line sub-tabs, shown by a2Activate() -->
+      <div class="v2-subtabs a2-subtabs" id="a2Subtabs" role="tablist" aria-label="AMD product line">
+        <button class="v2-subtab a2-subtab active" data-tab="epyc" role="tab">EPYC</button>
+        <button class="v2-subtab a2-subtab" data-tab="ryzen" role="tab">RYZEN</button>
+        <button class="v2-subtab a2-subtab" data-tab="gpu" role="tab">GPU</button>
+      </div>
+      <!-- Intel only: product-line sub-tabs, shown by v2Activate() -->
+      <div class="v2-subtabs" id="v2Subtabs" role="tablist" aria-label="Intel product line">
+        <button class="v2-subtab active" data-tab="xeon" role="tab">XEON</button>
+        <button class="v2-subtab" data-tab="client" role="tab">CLIENT</button>
+        <button class="v2-subtab" data-tab="graphics" role="tab">GRAPHICS</button>
+      </div>
+      <!-- NVIDIA: data-center-first product lines. -->
+      <div class="v2-subtabs n2-subtabs" id="n2Subtabs" role="tablist" aria-label="NVIDIA product line">
+        <button class="v2-subtab n2-subtab active" data-tab="datacenter" role="tab">DATA CENTER</button>
+        <button class="v2-subtab n2-subtab" data-tab="geforce" role="tab">GEFORCE</button>
+        <button class="v2-subtab n2-subtab" data-tab="cpu" role="tab">CPU</button>
+      </div>
     </div>
     <div class="search-wrap">
       <span class="search-icon">⌕</span>
@@ -98,7 +104,7 @@
       <span class="epyc-mode-helper">Interactive diagrams &amp; explanations</span>
     </button>
     <a class="epyc-mode-tab benchmark-mode-tab" id="epycBenchmarkTab"
-       href="benchmarks/" aria-label="Open all benchmark results">
+       href="benchmarks/?site=20261007-shared-shell-2" aria-label="Open all benchmark results">
       <span class="epyc-mode-label">Benchmarks <span aria-hidden="true">↗</span></span>
       <span class="epyc-mode-helper">All public benchmark results</span>
     </a>
@@ -116,7 +122,7 @@
       <span class="epyc-mode-helper">Interactive diagrams &amp; explanations</span>
     </button>
     <a class="epyc-mode-tab benchmark-mode-tab" id="xeonBenchmarkTab"
-       href="benchmarks/" aria-label="Open all benchmark results">
+       href="benchmarks/?site=20261007-shared-shell-2" aria-label="Open all benchmark results">
       <span class="epyc-mode-label">Benchmarks <span aria-hidden="true">↗</span></span>
       <span class="epyc-mode-helper">All public benchmark results</span>
     </a>
@@ -134,7 +140,7 @@
       <span class="epyc-mode-helper">Interactive GH200 diagrams &amp; definitions</span>
     </button>
     <a class="epyc-mode-tab benchmark-mode-tab" id="gh200BenchmarkTab"
-       href="benchmarks/" aria-label="Open all benchmark results">
+       href="benchmarks/?site=20261007-shared-shell-2" aria-label="Open all benchmark results">
       <span class="epyc-mode-label">Benchmarks <span aria-hidden="true">↗</span></span>
       <span class="epyc-mode-helper">All public benchmark results</span>
     </a>
@@ -152,7 +158,7 @@
       <span class="epyc-mode-helper">Ampere architecture · coming soon</span>
     </button>
     <a class="epyc-mode-tab benchmark-mode-tab" id="ampereBenchmarkTab"
-       href="benchmarks/" aria-label="Open all benchmark results">
+       href="benchmarks/?site=20261007-shared-shell-2" aria-label="Open all benchmark results">
       <span class="epyc-mode-label">Benchmarks <span aria-hidden="true">↗</span></span>
       <span class="epyc-mode-helper">All public benchmark results</span>
     </a>
@@ -293,56 +299,6 @@
   <div class="platform-dialog-body" id="platformContent"></div>
 </dialog>
 
-<dialog class="dashboard-dialog whats-new-dialog" id="whatsNewDialog" aria-labelledby="whatsNewTitle">
-  <div class="dialog-head">
-    <div>
-      <div class="dialog-kicker">CHIPINDEX / PUBLIC BETA 0.0.4</div>
-      <h2 id="whatsNewTitle">What's new</h2>
-      <p class="release-period">Current update first · scroll for earlier upgrades ↓</p>
-    </div>
-    <button class="dialog-close" type="button" data-close-dialog="whatsNewDialog" aria-label="Close what's new">✕</button>
-  </div>
-  <div class="release-history" id="releaseHistory" role="region" aria-label="Dated public beta update history" tabindex="0">
-    <section class="release-version" aria-labelledby="release20261007">
-      <div class="release-version-head"><h3 id="release20261007">October 7 update</h3><time datetime="2026-10-07">Updated October 7, 2026</time></div>
-      <div class="release-notes">
-        <section class="release-note"><span class="release-note-label">BENCHMARKS</span><div><h4>Compare public benchmark results</h4><p>Explore selected SPEC CPU, MLPerf Inference, and Blender results by workload. Scores show their units, test conditions, capture dates, and original sources. CPU specification tables now end with one compact benchmark score.</p></div></section>
-        <section class="release-note"><span class="release-note-label">DISCOVERY</span><div><h4>Start with all manufacturers</h4><p>Vendor Benchmarks tabs open the explorer with All manufacturers. Select a CPU table score to open that model and its exact test in Benchmarks.</p></div></section>
-      </div>
-    </section>
-    <section class="release-version" aria-labelledby="release004">
-      <div class="release-version-head"><h3 id="release004">Public beta 0.0.4</h3><time datetime="2026-09-30">Updated September 30, 2026</time></div>
-      <div class="release-notes">
-        <section class="release-note"><span class="release-note-label">GH200</span><div><h4>Explore Grace Hopper from the inside</h4><p>Three sourced diagrams show the GH200 superchip, Grace CPU, and Hopper GPU. Select a part to trace cache, memory, and NVLink-C2C connections; underlined terms open short definitions.</p></div></section>
-        <section class="release-note"><span class="release-note-label">UPDATES</span><div><h4>Browse earlier upgrades</h4><p>The dated history below keeps previous public beta changes available in one place.</p></div></section>
-      </div>
-    </section>
-    <section class="release-version" aria-labelledby="release003">
-      <div class="release-version-head"><h3 id="release003">Public beta 0.0.3</h3><time datetime="2026-09-28">Updated September 28, 2026</time></div>
-      <div class="release-notes">
-        <section class="release-note"><span class="release-note-label">XEON 6</span><div><h4>Explore selected Xeon 6 designs</h4><p>A new architecture guide diagrams P-core and E-core layouts, package dies, memory locality, and platform links. Xeon 6300P also has its own Raptor Lake-E Refresh card; search can find Redwood Cove and Crestmont.</p></div></section>
-        <section class="release-note"><span class="release-note-label">EPYC 9005</span><div><h4>Explore the EPYC 9005 architecture</h4><p>Eight sourced diagrams now have plain definitions, an acronym key, and a source library. Compare Zen 5 and Zen 5c NUMA layouts, then trace I/O lanes, sockets, validated boot, and error handling.</p></div></section>
-      </div>
-    </section>
-    <section class="release-version" aria-labelledby="release002">
-      <div class="release-version-head"><h3 id="release002">Public beta 0.0.2</h3><time datetime="2026-09-28">Updated September 28, 2026</time></div>
-      <div class="release-notes">
-        <section class="release-note"><span class="release-note-label">AMPERE</span><div><h4>Find Ampere processors</h4><p>Five families and 26 models joined the dashboard with sourced specifications, filters, search, and comparisons.</p></div></section>
-        <section class="release-note"><span class="release-note-label">ROADMAPS</span><div><h4>Separate announced products from released models</h4><p>Manufacturer-sourced roadmap groups now sit above the product timelines without changing released-model counts.</p></div></section>
-        <section class="release-note"><span class="release-note-label">XEON / EPYC</span><div><h4>Clarify families and platform links</h4><p>Xeon 6300P moved to its Raptor Lake-E Refresh family. The EPYC 9005 guide gained clearer G/P SERDES and socket-link explanations.</p></div></section>
-      </div>
-    </section>
-    <section class="release-version" aria-labelledby="release001">
-      <div class="release-version-head"><h3 id="release001">Public beta 0.0.1</h3><time datetime="2026-09-25">Updated September 25, 2026</time></div>
-      <div class="release-notes">
-        <section class="release-note"><span class="release-note-label">EPYC 9005</span><div><h4>See the first architecture guide</h4><p>Interactive diagrams and plain definitions explain the chiplets, cores, memory, I/O, and connections.</p></div></section>
-        <section class="release-note"><span class="release-note-label">DISCOVERY</span><div><h4>Find and compare products more easily</h4><p>Search expanded across AMD, Intel, and NVIDIA; comparison details became clearer and small text easier to read.</p></div></section>
-        <section class="release-note"><span class="release-note-label">DETAILS</span><div><h4>More source context</h4><p>Intel gained a refreshed dark theme, and EPYC tables began showing AMD's published 1,000-unit pricing where available.</p></div></section>
-      </div>
-    </section>
-  </div>
-</dialog>
-
 <div class="dashboard-toast" id="dashboardToast" role="status" aria-live="polite" hidden></div>
 <div class="epyc-term-stack" id="epycTermStack" role="region" aria-label="EPYC architecture term definitions" hidden>
   <button class="epyc-term-more" id="epycTermMore" type="button" hidden></button>
@@ -351,12 +307,13 @@
 
   <script src="js/roadmap.js?v=20260928-xeon-guide-1"></script>
   <script src="js/data/benchmark-table-index.js?v=20261007-benchmark-score-column-1"></script>
-  <script src="js/benchmark-table.js?v=20261007-benchmark-score-column-1"></script>
+  <script src="js/benchmark-table.js?v=20261007-shared-shell-2"></script>
   <script src="js/intel-v2.js?v=20261007-benchmark-score-column-1"></script>
 <script src="js/amd-v2.js?v=20261007-benchmark-score-column-1"></script>
 <script src="js/nvidia-v2.js?v=20261007-benchmark-score-column-1"></script>
 <script src="js/ampere-v2.js?v=20261007-benchmark-score-column-1"></script>
-<script src="js/script.js?v=20261007-benchmark-all-entry-1"></script>
+<script src="js/site-updates.js?v=20261007-shared-shell-1"></script>
+<script src="js/script.js?v=20261007-shared-shell-2"></script>
 <script src="js/platforms.js?v=20260930-platforms-4"></script>
 </body>
 </html>

@@ -40,6 +40,7 @@ families represented in their official specification exports.
 ## Benchmark explorer
 
 Open **Benchmarks** from any vendor product page or visit `benchmarks/`.
+Products and Benchmarks share the same site header, navigation and What's new history; the vendor selector remains in Products.
 Vendor Benchmarks tabs start with all manufacturers; linked CPU table scores open their matching model and test. Choose hardware,
 workload and source version, then read the score unit, tested-system boundary,
 capture date and published result. The AMD-inspired red and black explorer

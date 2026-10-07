@@ -538,8 +538,6 @@ function initDomCache() {
     collapseAllBtn: document.getElementById('collapseAllBtn'),
     clearSelectionsBtn: document.getElementById('clearSelectionsBtn'),
     dataSourcesBtn: document.getElementById('dataSourcesBtn'),
-    whatsNewBtn: document.getElementById('whatsNewBtn'),
-    whatsNewDialog: document.getElementById('whatsNewDialog'),
     compareTray: document.getElementById('compareTray'),
     compareCount: document.getElementById('compareCount'),
     compareNames: document.getElementById('compareNames'),
@@ -734,7 +732,7 @@ function dashboardSyncBenchmarkTabs() {
   for (const id of ['epycBenchmarkTab', 'xeonBenchmarkTab', 'gh200BenchmarkTab', 'ampereBenchmarkTab']) {
     const link = document.getElementById(id);
     if (!link) continue;
-    link.href = 'benchmarks/';
+    link.href = 'benchmarks/?site=20261007-shared-shell-2';
     link.setAttribute('aria-label', 'Open all benchmark results');
     const helper = link.querySelector('.epyc-mode-helper');
     if (helper) helper.textContent = 'All public benchmark results';
@@ -2759,14 +2757,6 @@ setupRowSelectionHandlers();
 setupKeyboardHandlers();
 
 dom.dataSourcesBtn.addEventListener('click', dashboardShowSources);
-dom.whatsNewBtn.addEventListener('click', () => {
-  dom.whatsNewDialog.showModal();
-  document.getElementById('releaseHistory').scrollTop = 0;
-  dom.whatsNewBtn.setAttribute('aria-expanded', 'true');
-});
-dom.whatsNewDialog.addEventListener('close', () => {
-  dom.whatsNewBtn.setAttribute('aria-expanded', 'false');
-});
 dom.compareOpenBtn.addEventListener('click', dashboardRenderComparison);
 dom.compareClearBtn.addEventListener('click', clearAllSelections);
 document.querySelectorAll('[data-close-dialog]').forEach(button =>

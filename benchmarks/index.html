@@ -8,34 +8,46 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css?v=20260929-benchmarks-prototype-2">
-  <link rel="stylesheet" href="benchmarks.css?v=20261007-cpu-specs-2">
-  <script src="benchmarks.js?v=20261007-product-return-2" defer></script>
+  <link rel="stylesheet" href="../css/styles.css?v=20261007-shared-shell-1">
+  <link rel="stylesheet" href="benchmarks.css?v=20261007-header-alignment-1">
+  <script src="../js/site-updates.js?v=20261007-shared-shell-1" defer></script>
+  <script src="benchmarks.js?v=20261007-shared-shell-2" defer></script>
 </head>
 <body class="benchmark-page">
   <a class="benchmark-skip" href="#mainContent">Skip to benchmark results</a>
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="container benchmark-shell">
-    <div class="benchmark-masthead">
-      <a class="brand-lockup benchmark-brand" href="../index.html" aria-label="ChipIndex home">
-        <span class="brand-lockup-title" aria-hidden="true">
+    <div class="topbar">
+      <nav class="site-primary-nav" aria-label="Main navigation">
+        <a class="site-primary-link" id="productsLink" href="../?site=20261007-shared-shell-2">Products</a>
+        <a class="site-primary-link active" href="./" aria-current="page">Benchmarks</a>
+      </nav>
+      <div class="brand-lockup" aria-label="ChipIndex by Dan Bor, public beta 0.0.4">
+        <div class="brand-lockup-title" aria-hidden="true">
           <span class="brand-lockup-name">ChipIndex</span>
           <span class="brand-lockup-by">by Dan Bor</span>
-        </span>
-        <span class="brand-lockup-rule" aria-hidden="true">
+        </div>
+        <div class="brand-lockup-rule" aria-hidden="true">
           <span class="brand-lockup-rule-start"></span>
           <span class="brand-lockup-rule-end"></span>
-        </span>
+        </div>
         <span class="brand-lockup-version" aria-hidden="true">Public beta 0.0.4</span>
-      </a>
-      <nav class="benchmark-site-nav" aria-label="ChipIndex sections">
-        <a id="productsLink" href="../index.html">Products <span aria-hidden="true">↗</span></a>
-        <a href="./" aria-current="page">Benchmarks <span class="benchmark-nav-dot" aria-hidden="true"></span></a>
-      </nav>
+      </div>
+      <div class="topbar-tools">
+        <button class="whats-new-trigger" id="whatsNewBtn" type="button"
+                aria-haspopup="dialog" aria-controls="whatsNewDialog" aria-expanded="false">What's new</button>
+      </div>
     </div>
 
     <main id="mainContent">
-      <div class="benchmark-page-heading"><div><h1>Benchmarks</h1><p>Compare hardware by workload. See the test, the score, and the system behind it.</p></div><button id="shareView" class="benchmark-text-button" type="button">Copy view link</button><span id="shareStatus" class="sr-only" role="status"></span></div>
+      <div class="benchmark-page-heading">
+        <div><h1>Benchmarks</h1><p>Compare hardware by workload. See the test, the score, and the system behind it.</p></div>
+        <div class="benchmark-page-actions">
+          <a id="returnProductsLink" class="benchmark-return-link" href="../?site=20261007-shared-shell-2">← Products</a>
+          <button id="shareView" class="benchmark-text-button" type="button">Copy view link</button>
+          <span id="shareStatus" class="sr-only" role="status"></span>
+        </div>
+      </div>
       <div class="benchmark-section-tabs" role="tablist" aria-label="Benchmark explorer sections">
         <button id="resultsTab" type="button" data-section="results" role="tab" aria-controls="resultsPanel" aria-selected="true" tabindex="0">Explore results</button>
         <button id="coverageTab" type="button" data-section="coverage" role="tab" aria-controls="coveragePanel" aria-selected="false" tabindex="-1">Product coverage</button>
