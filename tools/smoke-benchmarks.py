@@ -1613,8 +1613,13 @@ def exercise(page):
           "long ranking has no keyboard-scrollable region or scroll cue")
     viewport.focus()
     page.keyboard.press("End")
+    # Keyboard scrolling can animate. Wait for End to reach the bottom before
+    # testing unrelated comparison and search actions on the same scroller.
     page.wait_for_function(
-        "() => document.querySelector('#rankedResultsViewport').scrollTop > 0"
+        "() => { const region = document.querySelector('#rankedResultsViewport'); "
+        "return region.scrollTop > 0 && "
+        "Math.abs(region.scrollHeight - region.clientHeight - region.scrollTop) <= 1; }",
+        timeout=5000,
     )
     clear_comparison(page)
     viewport.evaluate("element => { element.scrollTop = element.scrollHeight; }")
@@ -1623,6 +1628,15 @@ def exercise(page):
     check(viewport.evaluate("element => element.scrollTop") >= before_compare - 5,
           "choosing a result unexpectedly reset ranking scroll position")
     page.locator("#modelSearch").fill("MI350X")
+    # Assert the completed user-visible state, including the filtered results;
+    # an immediate read can race Chromium's pending keyboard scroll/layout.
+    expected_matches = sum("mi350x" in row["model"].lower()
+                           for row in snapshot(MLPERF_CASES[1][1])["results"])
+    wait_rank_count(page, expected_matches)
+    page.wait_for_function(
+        "() => document.querySelector('#rankedResultsViewport').scrollTop === 0",
+        timeout=5000,
+    )
     check(viewport.evaluate("element => element.scrollTop") == 0,
           "searching a new ranking did not return the list to its top")
     check_accelerator(page, *MLPERF_CASES[0])

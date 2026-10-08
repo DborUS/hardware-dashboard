@@ -20,6 +20,28 @@ layout audit. The benchmark page now also shows catalog CPU specifications
 for all 646 scored CPU models; the latest benchmark and dashboard smoke tests
 pass after this addition.
 
+## 2026-10-08 — Complete hosted browser validation
+
+Repair commit `9edd363` deployed successfully and its live data, script revision
+and CPU score index were checked against the local artifacts. GitHub run
+37776987542 passed AMD compilation/order checks, every retained-source replay,
+catalog/registry/index consistency and all 55 regression tests, confirming both
+original failure fixes on Linux. It then exposed an additional ranking-scroll
+browser assertion failure.
+
+The scroll test proceeded when a keyboard End scroll had merely started and
+read the search reset immediately. It now waits for End to reach the bottom,
+verifies the exact filtered-result count, and waits at most five seconds for the
+scroll position to reach zero. It retains the zero-position requirement and the
+check that selecting a comparison preserves scroll position. Product code and
+benchmark data are unchanged by this test correction.
+
+The complete release command passed again after this adjustment: all 55
+regressions, benchmark interactions, the full dashboard and the layout audit.
+Local log: `tmp/release-validation-20261008-scroll.log`. Confirm the follow-up
+commit's hosted validation and Pages deployment in GitHub Actions before
+reporting completion; the earlier failed run remains historical.
+
 ## 2026-10-08 — Repair benchmark publication checks
 
 Replayed the retained Blender capture through the complete refresh transaction.
