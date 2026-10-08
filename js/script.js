@@ -4,7 +4,7 @@
 
 // Bump when any js/data/*.json changes, so browsers refetch instead of serving a
 // stale copy. Mirrors the ?v= on the script tag in index.html.
-const DATA_VERSION = '20261007-npu-all-2';
+const DATA_VERSION = '20261008-benchmark-replay-1';
 
 // Cache for loaded data to avoid redundant fetches
 const dataCache = {};

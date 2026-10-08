@@ -406,6 +406,14 @@ intel_cpu_groups 19 · intel_cpu_skus 44 · spec_tables 45 · JS errors none
 
 ## Handing off
 
+Before any user-authorized push, run `python tools/validate-release.py`. This is
+also the GitHub Actions entry point: retained-source replay, every generated
+benchmark dependency, importer/AI regressions, both browser suites and layout
+audit must pass together. If the product catalog changes, first replay the
+affected retained benchmark imports with `tools/refresh-benchmarks.py --refresh`
+so newly eligible source results reach the snapshot, registry and table index.
+A browser smoke pass alone is not a complete release check.
+
 Git commands fail from the sandbox on Daniel's mounted Windows folder, and he prefers to
 review before anything lands. So: **edit files, then hand over commands.**
 

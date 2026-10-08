@@ -10,22 +10,22 @@
         "sourceExportSha256": "c32e221b40c0ea668676df0e87eff0cf76a6595664a8072b445c4093d4076dd7",
         "sourceRows": 894,
         "minimumSamples": 5,
-        "acceptedRows": 174,
-        "excludedRows": 720,
+        "acceptedRows": 175,
+        "excludedRows": 719,
         "acceptedByDeviceType": {
-            "CPU": 129,
+            "CPU": 130,
             "GPU": 45
         },
         "acceptedByClientDeviceSegment": {
-            "desktop": 93,
-            "laptop": 56
+            "desktop": 94,
+            "laptop": 57
         },
-        "dualUseClientModels": 20,
+        "dualUseClientModels": 21,
         "unclassifiedClientModels": 0,
         "excludedByReason": {
             "below-minimum-samples": 571,
             "laptop-gpu-not-in-catalog": 21,
-            "no-exact-catalog-model": 73,
+            "no-exact-catalog-model": 72,
             "unspecified-memory-variant": 11,
             "unsupported-or-unidentified-vendor": 44
         },
@@ -1349,6 +1349,24 @@
                 "value": "Laptops, Desktops",
                 "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
                 "sourceProductName": "AMD Ryzen\u2122 7 250"
+            }
+        },
+        {
+            "sourceDeviceName": "AMD Ryzen 7 7840HS",
+            "model": "Ryzen 7 7840HS",
+            "vendor": "AMD",
+            "deviceType": "CPU",
+            "score": 216.55,
+            "samples": 5,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 7840HS"
             }
         },
         {
@@ -3638,12 +3656,6 @@
             "score": 189.99,
             "samples": 1,
             "reason": "below-minimum-samples"
-        },
-        {
-            "sourceDeviceName": "AMD Ryzen 7 7840HS",
-            "score": 216.55,
-            "samples": 5,
-            "reason": "no-exact-catalog-model"
         },
         {
             "sourceDeviceName": "AMD Ryzen 7 7840U",

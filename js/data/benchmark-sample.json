@@ -4,8 +4,8 @@
         "retrievedAt": "2026-10-07T17:02:21Z",
         "sourceCaptureMethod": "official-public-query-json",
         "sourceRows": 894,
-        "importedRows": 174,
-        "excludedRows": 720,
+        "importedRows": 175,
+        "excludedRows": 719,
         "source": "Blender Open Data",
         "sourceUrl": "https://opendata.blender.org/benchmarks/query/?group_by=device_name&blender_version=5.2.0",
         "metric": "median samples per minute",
@@ -1718,6 +1718,29 @@
                 "value": "Laptops, Desktops",
                 "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
                 "sourceProductName": "AMD Ryzen\u2122 7 250"
+            }
+        },
+        {
+            "model": "Ryzen 7 7840HS",
+            "vendor": "AMD",
+            "productLine": "Ryzen",
+            "deviceType": "CPU",
+            "score": 216.55,
+            "samples": 5,
+            "blenderVersion": "5.2.0",
+            "computeType": "mixed",
+            "sourceDeviceName": "AMD Ryzen 7 7840HS",
+            "sourceUrl": "https://opendata.blender.org/benchmarks/query/?blender_version=5.2.0&device_name=AMD+Ryzen+7+7840HS&group_by=device_name",
+            "coreCount": 8,
+            "deviceSegments": [
+                "desktop",
+                "laptop"
+            ],
+            "deviceSegmentSource": {
+                "field": "Form Factor",
+                "value": "Laptops, Desktops",
+                "sourceFile": "docs/specs/source-csv/AMD desktop laptop workstation.csv",
+                "sourceProductName": "AMD Ryzen\u2122 7 7840HS"
             }
         },
         {

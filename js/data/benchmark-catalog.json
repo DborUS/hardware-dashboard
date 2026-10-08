@@ -9,7 +9,7 @@
         "uniqueCatalogProducts": 2431,
         "perTabProductIdentities": 2437,
         "crossTabSharedProducts": 6,
-        "productsInCurrentSnapshots": 697,
+        "productsInCurrentSnapshots": 698,
         "dashboardTabRows": {
             "amd/epyc": 350,
             "amd/ryzen": 774,
@@ -68,7 +68,7 @@
             {
                 "filename": "benchmark-sample.json",
                 "metric": "median samples per minute",
-                "coveredProducts": 174
+                "coveredProducts": 175
             }
         ]
     },
@@ -24314,7 +24314,9 @@
             "sourceSegment": null,
             "catalogEligibility": "displayed-spec-row",
             "commercialReleaseStatus": "unverified",
-            "snapshotMetrics": [],
+            "snapshotMetrics": [
+                "median samples per minute"
+            ],
             "placements": [
                 {
                     "dashboardTab": "amd/ryzen",

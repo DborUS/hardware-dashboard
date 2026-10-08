@@ -439,6 +439,18 @@ after any change to segmentation.
 
 ## Workflow 7 — Handing off to Daniel
 
+Run `python tools/validate-release.py` before publication. GitHub Actions runs
+this same command, which fails at the first stale generated artifact or failed
+test. It includes retained-source replay, catalog/registry/index checks, AMD
+compilation and ordering, importer and NPU regression tests, both browser smoke
+suites and the layout audit.
+
+After changing the displayed product roster, replay the affected benchmarks:
+`python tools/refresh-benchmarks.py --refresh blender` (or the relevant source).
+This preserves source capture dates and regenerates all dependent artifacts.
+Keep raw checksum-bearing SPEC fixture CSVs exempt from Git line-ending
+conversion; never restamp evidence hashes to hide a checkout change.
+
 Summarise what changed, what you verified, then the commands:
 
 ````

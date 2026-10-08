@@ -13,7 +13,7 @@ field names here are real, not aspirational.
 | `intel-xeon-specs.json` | object | 30 keys | **553 Xeon models — live on the Xeon sub-tab** |
 | `nvidia-data.json` | object | 3 product-line keys | **71 audited models — 20 data center, 47 GeForce, 4 CPU/superchips** |
 | `compare-details.json` | object | 3 vendor keys | Full non-empty source-CSV fields plus shared master specifications, keyed by normalized product name and loaded only when Compare opens |
-| `benchmark-sample.json` | object | 174 results | Dated Blender Open Data snapshot; exact ChipIndex model names, grouped median scores, submission counts, and filtered source URLs |
+| `benchmark-sample.json` | object | 175 results | Dated Blender Open Data snapshot; exact ChipIndex model names, grouped median scores, submission counts, and filtered source URLs |
 | `enterprise-benchmark-sample.json` | object | 1,658 results | Dated SPEC CPU 2017 integer-rate system results for ChipIndex enterprise CPUs, with original result links and test configuration |
 | `enterprise-benchmark-fp-sample.json` | object | 1,629 results | Dated SPEC CPU 2017 floating-point-rate system results with the same disclosure and configuration fields |
 | `enterprise-benchmark-2026-int-sample.json` | object | 178 results | Dated SPEC CPU 2026 integer base-rate disclosures, separated by test build |
@@ -21,7 +21,7 @@ field names here are real, not aspirational.
 | `enterprise-benchmark-mlperf-v6-server-sample.json` | object | 23 results | Official MLPerf® Inference v6.0 Closed/Available Server results for one-node, eight-accelerator Llama 2 70B 99% systems |
 | `enterprise-benchmark-mlperf-v6-offline-sample.json` | object | 23 results | The matching Offline scenario as a separate score scale and result snapshot |
 | `benchmark-catalog.json` | object | 2,431 products, 2,452 display placements | Generated identity index of every displayed non-roadmap specification row, with exact snapshot metric matches and explicit unverified release status |
-| `benchmark-table-index.js` | JavaScript object | 645 scored CPU models | Generated compact lookup for one source-linked SPEC system score or Blender CPU median per model, keyed by exact catalog vendor/model |
+| `benchmark-table-index.js` | JavaScript object | 646 scored CPU models | Generated compact lookup for one source-linked SPEC system score or Blender CPU median per model, keyed by exact catalog vendor/model |
 
 The product catalog files are loaded at runtime by `loadVendorData()` and cached
 in `dataCache`. Their filenames follow `js/data/{vendor}-data.json`, where vendor
@@ -92,7 +92,7 @@ an official source. The October 7, 2026 reviewed captures contain:
 | `enterprise-benchmark-2026-fp-sample.json` | 177 | SPEC CPU 2026 floating-point base rate, four test builds |
 | `enterprise-benchmark-mlperf-v6-server-sample.json` | 23 | MLPerf® Inference v6.0 Llama 2 70B 99% Server |
 | `enterprise-benchmark-mlperf-v6-offline-sample.json` | 23 | Matching Offline scenario |
-| `benchmark-sample.json` | 174 | Blender 5.2.0 medians: 129 client CPUs, 45 GPUs |
+| `benchmark-sample.json` | 175 | Blender 5.2.0 medians: 130 client CPUs, 45 GPUs |
 
 SPEC rows retain exact catalog identity, numeric base-rate score, suite,
 `benchmarkVersion`, full system URL, tested CPU count, enabled cores,
@@ -125,7 +125,7 @@ status or absence from public sources. CPU `productSpecs` are display-ready
 `sourceRecordRef`; unavailable or inapplicable fields are omitted. They describe
 the catalog CPU model and stay separate from SPEC tested-system CPU count,
 enabled cores and observed performance. The generated
-`benchmark-table-index.js` projects 645 scored CPU models into product tables.
+`benchmark-table-index.js` projects 646 scored CPU models into product tables.
 SPEC entries retain suite, build, and one- or two-CPU report counts plus a
 featured published system result selected from one cohort. The table shows that
 result's test, build, CPU count and score in one end column; its link opens the

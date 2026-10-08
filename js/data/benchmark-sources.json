@@ -3,9 +3,9 @@
     "mode": "reviewed-snapshots",
     "dateMeaning": "Dates identify source snapshot capture, not this page visit or registry rebuild. Different tests may have different capture dates.",
     "coverageMeaning": "Counts describe results imported into ChipIndex. They do not measure the size or complete coverage of an external benchmark archive.",
-    "totalRecords": 3862,
-    "productsWithResults": 697,
-    "catalogProducts": 2393,
+    "totalRecords": 3863,
+    "productsWithResults": 698,
+    "catalogProducts": 2431,
     "sources": [
         {
             "id": "spec",
@@ -252,20 +252,20 @@
                     "path": "js/data/benchmark-sample.json",
                     "label": "CPU and GPU rendering \u00b7 Blender 5.2.0",
                     "metric": "median samples per minute",
-                    "recordCount": 174,
-                    "productCount": 174,
+                    "recordCount": 175,
+                    "productCount": 175,
                     "snapshotDate": "2026-10-07",
                     "sourceUrl": "https://opendata.blender.org/benchmarks/query/?group_by=device_name&blender_version=5.2.0",
                     "scope": "Blender 5.2.0; all operating systems and compute types",
-                    "sha256": "f4ee370db82bb548a2d853fb087f240da71bf6bdd308627dff20f9c7a8652e36",
-                    "byteSize": 142520,
+                    "sha256": "6732e5415754a738133d5f7243749bbd50ee398066c7aba70a640f835351d08c",
+                    "byteSize": 143429,
                     "benchmarkVersions": [
                         "5.2.0"
                     ]
                 }
             ],
-            "recordCount": 174,
-            "productCount": 174,
+            "recordCount": 175,
+            "productCount": 175,
             "lastRetrievedDate": "2026-10-07",
             "oldestSnapshotDate": "2026-10-07"
         },

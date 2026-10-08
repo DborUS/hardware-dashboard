@@ -3,6 +3,7 @@ name: Benchmark validation
 on:
   pull_request:
     paths:
+      - '.gitattributes'
       - 'benchmarks/**'
       - 'js/**'
       - 'css/**'
@@ -12,6 +13,7 @@ on:
       - '.github/workflows/benchmark-validation.yml'
   push:
     paths:
+      - '.gitattributes'
       - 'benchmarks/**'
       - 'js/**'
       - 'css/**'
@@ -48,22 +50,5 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check -r tools/requirements-benchmarks.txt
           python -m playwright install --with-deps chromium
-      - name: Validate retained snapshots, all importers, catalog, and registry
-        # --check runs check-benchmarks, all three importer --check commands,
-        # build-benchmark-catalog --check, registry reconciliation, and the
-        # generated product-table index check offline.
-        run: python tools/refresh-benchmarks.py --check
-      - name: Check generated product-table benchmark index
-        run: python tools/build-product-benchmark-index.py --check
-      - name: Exercise ingestion and refresh failure cases
-        run: |
-          python tools/test-spec-import.py
-          python tools/test-mlperf-import.py
-          python tools/test-blender-import.py
-          python tools/test-benchmark-refresh.py
-      - name: Benchmark browser checks
-        run: python tools/smoke-benchmarks.py
-      - name: Dashboard browser checks
-        run: python tools/smoke-test.py
-      - name: Dashboard layout audit
-        run: python tools/audit-layout.py
+      - name: Complete release validation
+        run: python tools/validate-release.py

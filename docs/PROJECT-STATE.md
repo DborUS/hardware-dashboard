@@ -3,20 +3,73 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-10-07 (dashboard-wide NPU specification coverage)
+**Last updated:** 2026-10-08 (complete benchmark publication repair)
 **Current version:** Public beta 0.0.4
 **Previous release:** Public beta 0.0.3 (`fdf51f1`)
-**Health:** October 7 captures hold 3,862 linked public results for 697 of
+**Publication context:** `0895a9a` deployed but failed validation. The October 8 repair below rebuilds its benchmark dependencies and corrects raw SPEC fixture checkout behavior.
+
+**Current data:** October 7 captures hold 3,863 linked public results for 698 of
 2,431 catalog products. SPEC contributes 3,642 system reports across reviewed
 CPU2017/CPU2026 rate cohorts; MLPerf contributes 46 SUT results; Blender
-contributes 174 medians. Offline source replay, catalog and registry checks,
-46 importer/refresh regression tests, benchmark browser smoke, full dashboard
+contributes 175 medians. Offline source replay, catalog and registry checks,
+55 importer/refresh/NPU regression tests, benchmark browser smoke, full dashboard
 smoke and layout audit pass locally. Benchmark previews show no JavaScript
 errors or horizontal overflow at 1440, 1024, 390 and 320px. Local validation does not establish the hosted workflow outcome.
 Existing dashboard small controls and sidebar clipping were observed in the
 layout audit. The benchmark page now also shows catalog CPU specifications
-for all 645 scored CPU models; the latest benchmark and dashboard smoke tests
+for all 646 scored CPU models; the latest benchmark and dashboard smoke tests
 pass after this addition.
+
+## 2026-10-08 — Repair benchmark publication checks
+
+Replayed the retained Blender capture through the complete refresh transaction.
+Ryzen 7 7840HS now has its exact source score (216.55, five samples); all 174
+existing result rows and the October 7 capture date/hash remain unchanged.
+Generated snapshot, review, capture summary, catalog, source registry and compact
+table index agree: 175 Blender results, 3,863 total results, 698 scored products
+and 646 scored CPUs. The catalog stays at 2,431 products / 2,452 placements.
+
+The earlier SPEC failure was caused by the broad CSV CRLF checkout rule, which
+changed the three raw official disclosure fixtures. Their actual retained bytes
+use LF. A narrow `-text` attribute exception preserves the evidence exactly;
+neither the original files nor their expected hashes were changed. Git checkout
+filter verification matches all three hashes with autocrlf both enabled and
+disabled, retaining strict byte integrity assertions.
+
+`tools/validate-release.py` is now the shared local and GitHub Actions entry
+point. It runs AMD compilation/order checks, every retained benchmark importer,
+catalog/registry/index checks, all 55 importer/refresh/NPU regression tests,
+both browser suites and the layout audit. CI also triggers on attribute changes.
+The publication instructions require this full command before a push.
+
+Updated the related pending visitor announcements, schema counts and changelog.
+Cache revision: `20261008-benchmark-replay-1`. The complete release command passes
+locally: retained-source/generation checks, all 55 regressions, both browser suites
+and the layout audit. No JavaScript errors or page overflow; the pre-existing
+small-control/sidebar-clipping audit observations remain. Strict fixture hashes
+also pass Git checkout filtering with autocrlf on and off. Commit and push are
+explicitly authorized by Daniel; verify the resulting GitHub validation and Pages
+deployment before reporting publication complete.
+
+## 2026-10-08 — Diagnose post-push validation email
+
+Commit `0895a9a` deployed successfully through GitHub Pages (run
+37701210221), but Benchmark validation (run 37701210705) failed in
+`refresh-benchmarks.py --check`, before browser tests ran. The exact failure
+is a stale `tools/blender-5.2.0-grouped-export.manifest.json`.
+
+Read-only replay reproduced the failure locally. Restoring Ryzen 7 7840HS to
+the product catalog makes one additional retained Blender source row eligible:
+175 accepted results instead of 174, with no removed or changed existing result
+rows. The snapshot, capture summary and review output were not regenerated
+when the NPU update restored those products. Follow-up must regenerate the
+related benchmark artifacts and run the complete validation pipeline.
+
+The preceding commit's workflow also failed, for a different reason: an
+importer regression test hash assertion in its failure-case test step. Its
+Blender replay passed at 174 results. Resolve/check this separate failure as
+part of the complete validation follow-up; do not label the new stale-output
+failure as pre-existing. Investigation changed no product data or source code.
 
 ## 2026-10-07 — Standardize NPU TOPS across the dashboard
 

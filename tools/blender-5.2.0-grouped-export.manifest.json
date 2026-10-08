@@ -28,22 +28,22 @@
     "archiveLicense": "CC0-1.0",
     "archiveLicenseUrl": "https://opendata.blender.org/download/",
     "importSummary": {
-        "acceptedRows": 174,
-        "excludedRows": 720,
+        "acceptedRows": 175,
+        "excludedRows": 719,
         "acceptedByDeviceType": {
-            "CPU": 129,
+            "CPU": 130,
             "GPU": 45
         },
         "acceptedByClientDeviceSegment": {
-            "desktop": 93,
-            "laptop": 56
+            "desktop": 94,
+            "laptop": 57
         },
-        "dualUseClientModels": 20,
+        "dualUseClientModels": 21,
         "unclassifiedClientModels": 0,
         "excludedByReason": {
             "below-minimum-samples": 571,
             "laptop-gpu-not-in-catalog": 21,
-            "no-exact-catalog-model": 73,
+            "no-exact-catalog-model": 72,
             "unspecified-memory-variant": 11,
             "unsupported-or-unidentified-vendor": 44
         },
