@@ -6,7 +6,7 @@ This is how a new session picks up without re-deriving everything.
 **Last updated:** 2026-10-08 (complete benchmark publication repair)
 **Current version:** Public beta 0.0.4
 **Previous release:** Public beta 0.0.3 (`fdf51f1`)
-**Publication context:** `0895a9a` deployed but failed validation. The October 8 repair below rebuilds its benchmark dependencies and corrects raw SPEC fixture checkout behavior.
+**Publication context:** Repair commits `9edd363` and `1933860` are pushed to `main`. Complete hosted validation passed for `1933860` ([run 37779447987](https://github.com/DborUS/hardware-dashboard/actions/runs/37779447987)), and Pages deployment succeeded ([run 37779446951](https://github.com/DborUS/hardware-dashboard/actions/runs/37779446951)). Live benchmark data and scripts match the repaired local files.
 
 **Current data:** October 7 captures hold 3,863 linked public results for 698 of
 2,431 catalog products. SPEC contributes 3,642 system reports across reviewed
@@ -14,7 +14,8 @@ CPU2017/CPU2026 rate cohorts; MLPerf contributes 46 SUT results; Blender
 contributes 175 medians. Offline source replay, catalog and registry checks,
 55 importer/refresh/NPU regression tests, benchmark browser smoke, full dashboard
 smoke and layout audit pass locally. Benchmark previews show no JavaScript
-errors or horizontal overflow at 1440, 1024, 390 and 320px. Local validation does not establish the hosted workflow outcome.
+errors or horizontal overflow at 1440, 1024, 390 and 320px. The same complete
+release command also passed on GitHub's Linux runner for `1933860`.
 Existing dashboard small controls and sidebar clipping were observed in the
 layout audit. The benchmark page now also shows catalog CPU specifications
 for all 646 scored CPU models; the latest benchmark and dashboard smoke tests
@@ -38,9 +39,12 @@ benchmark data are unchanged by this test correction.
 
 The complete release command passed again after this adjustment: all 55
 regressions, benchmark interactions, the full dashboard and the layout audit.
-Local log: `tmp/release-validation-20261008-scroll.log`. Confirm the follow-up
-commit's hosted validation and Pages deployment in GitHub Actions before
-reporting completion; the earlier failed run remains historical.
+Local log: `tmp/release-validation-20261008-scroll.log`. Follow-up commit
+`1933860` also passed complete hosted validation (run 37779447987) and Pages
+deployment (run 37779446951). Live snapshot, catalog, source registry, main
+script and CPU score index were compared with the local files and match.
+The earlier failed runs remain historical; visitor announcements stay pending
+in `docs/UPDATE-QUEUE.md` until Daniel confirms their live/posting status.
 
 ## 2026-10-08 — Repair benchmark publication checks
 
