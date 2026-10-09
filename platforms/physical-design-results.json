@@ -1,0 +1,37 @@
+{
+  "models": 102,
+  "result": "PASS",
+  "coverage": {
+    "ucs": {
+      "total": 14,
+      "verified": 14,
+      "schematic": 0
+    },
+    "hpe": {
+      "total": 23,
+      "verified": 21,
+      "schematic": 2
+    },
+    "dell": {
+      "total": 21,
+      "verified": 21,
+      "schematic": 0
+    },
+    "lenovo": {
+      "total": 19,
+      "verified": 19,
+      "schematic": 0
+    },
+    "supermicro": {
+      "total": 25,
+      "verified": 24,
+      "schematic": 1
+    }
+  },
+  "version": "1.2.0",
+  "catalogHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
+  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "generatedBy": "tools/build-platform-guides.py",
+  "exitCode": 0,
+  "failed": 0
+}

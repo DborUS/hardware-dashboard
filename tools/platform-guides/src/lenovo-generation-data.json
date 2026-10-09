@@ -1,0 +1,473 @@
+{
+  "vendor": "Lenovo",
+  "reviewed": "2026-10-09",
+  "intro": "ThinkSystem versions roll out over several years. A V3 badge is a platform-family label, not proof the particular server launched in 2022. Use the model’s dated announcement or first public guide below to separate its own age from the wider generation.",
+  "sources": {
+    "ageLenovoOriginal": {
+      "title": "ThinkSystem launch: June 20, 2017",
+      "url": "https://lenovopress.lenovo.com/lp0690-future-defined-data-center-june-20-announcement",
+      "scope": "Original ThinkSystem family launch; many first-wave models have no V suffix.",
+      "loc": "ThinkSystem launch; ThinkSystem Servers",
+      "date": "20 Jun 2017 announcement; updated 27 Jun 2017"
+    },
+    "ageLenovoV2First": {
+      "title": "Lenovo announces SR860 V2 and SR850 V2",
+      "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-delivers-business-intelligence-with-solutions-purpose-built-for-analytics-and-ai-workloads/",
+      "scope": "The V2 label was already used for scale-up platforms in 2020.",
+      "loc": "ThinkSystem SR860 V2 and SR850 V2",
+      "date": "18 Jun 2020"
+    },
+    "ageLenovoV2Rack": {
+      "title": "Next-generation ThinkSystem servers: broad V2 rollout",
+      "url": "https://news.lenovo.com/pressroom/press-releases/next-generation-lenovo-thinksystem-servers-accelerate-a-broader-range-of-business-critical-applications/",
+      "scope": "SR630 V2, SR650 V2, ST650 V2 and SN550 V2 announcement.",
+      "loc": "Lenovo puts the smarter into infrastructure",
+      "date": "6 Apr 2021"
+    },
+    "ageLenovoV3": {
+      "title": "Lenovo introduces Infrastructure Solutions V3",
+      "url": "https://news.lenovo.com/pressroom/press-releases/30th-anniversary-thinksystem-innovation-broadest-portfolio-enhancement/",
+      "scope": "V3 portfolio announcement, preceding staggered individual model introductions.",
+      "loc": "Opening announcement and portfolio highlights",
+      "date": "21 Sep 2022"
+    },
+    "ageLenovoV4": {
+      "title": "Lenovo announces ThinkSystem V4 portfolio",
+      "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-delivers-next-gen-of-intel-based-infrastructure-solutions-to-simplify-ai-journey/",
+      "scope": "Intel Xeon 6-based V4 portfolio announcement. Model rollouts continued afterward.",
+      "loc": "Opening announcement; Workloads Optimized for Every Business Need",
+      "date": "4 Jun 2024"
+    },
+    "ageLenovoV4P": {
+      "title": "Lenovo expands ThinkSystem V4 with P-core models",
+      "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-delivers-new-thinksystem-servers-powered-by-intel-xeon-6-processors/",
+      "scope": "SR650 V4 and SR650a V4 announcement; SR630 V4 P-core expansion.",
+      "loc": "Flexibility and Performance without Compromise",
+      "date": "24 Feb 2025"
+    },
+    "ageLenovoNeptuneV4": {
+      "title": "Lenovo announces SC750 V4 Neptune",
+      "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-neptune-liquid-cooling-ecosystem-expands-delivering-massive-efficiency-for-hpc-and-ai-workloads/",
+      "scope": "SC750 V4 model announcement, not the original launch of Neptune cooling technology.",
+      "loc": "Opening announcement",
+      "date": "24 Sep 2024"
+    },
+    "ageLenovoEdge455": {
+      "title": "Lenovo unveils ThinkEdge SE455 V3",
+      "url": "https://news.lenovo.com/lenovo-delivers-next-generation-ai-at-the-edge-with-industrys-most-powerful-edge-server/",
+      "scope": "SE455 V3 model announcement with EPYC 8004.",
+      "loc": "Opening announcement",
+      "date": "18 Sep 2023"
+    },
+    "ageLenovoEdge100": {
+      "title": "Lenovo unveils ThinkEdge SE100",
+      "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-unveils-first-ai-inferencing-server-compact-enough-to-bring-enterprise-level-ai-anywhere/",
+      "scope": "SE100 model announcement. This model has no ThinkSystem V3/V4 suffix.",
+      "loc": "Opening announcement (body dated 3 March 2025)",
+      "date": "March 2025"
+    },
+    "ageLenovoEPYCRefresh": {
+      "title": "Lenovo adds EPYC 9005 support",
+      "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-provides-unmatched-performance-with-new-thinksystem-support-for-amd-processors/",
+      "scope": "2024 processor refresh context for the AMD ThinkSystem portfolio.",
+      "loc": "Opening announcement and supported ThinkSystem platforms",
+      "date": "10 Oct 2024"
+    },
+    "ageLenovoGuide_sr630": {
+      "title": "ThinkSystem SR630 V4 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 3 September 2024",
+      "date": "First published 3 September 2024; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sr650": {
+      "title": "ThinkSystem SR650 V4 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 24 February 2025",
+      "date": "First published 24 February 2025; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sr635": {
+      "title": "ThinkSystem SR635 V3 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1609-thinksystem-sr635-v3-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 21 February 2023",
+      "date": "First published 21 February 2023; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sr655": {
+      "title": "ThinkSystem SR655 V3 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1610-thinksystem-sr655-v3-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 21 February 2023",
+      "date": "First published 21 February 2023; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sr645": {
+      "title": "ThinkSystem SR645 V3 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1607-thinksystem-sr645-v3-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 11 November 2022",
+      "date": "First published 11 November 2022; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sr665": {
+      "title": "ThinkSystem SR665 V3 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1608-thinksystem-sr665-v3-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 11 November 2022",
+      "date": "First published 11 November 2022; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sr860": {
+      "title": "ThinkSystem SR860 V4 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp2231-thinksystem-sr860-v4-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 1 July 2025",
+      "date": "First published 1 July 2025; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_st45": {
+      "title": "ThinkSystem ST45 V3 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1994-thinksystem-st45-v3-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 3 December 2024; 28 October 2025 processor additions",
+      "date": "First published 3 December 2024; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_st650": {
+      "title": "ThinkSystem ST650 V3 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1604-thinksystem-st650-v3-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 2 May 2023",
+      "date": "First published 2 May 2023; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_se455": {
+      "title": "ThinkEdge SE455 V3 / SE455i V3 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1724-thinkedge-se455-v3-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 24 October 2023",
+      "date": "First published 24 October 2023; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_se100": {
+      "title": "ThinkEdge SE100 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1995-lenovo-thinkedge-se100-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 22 April 2025",
+      "date": "First published 22 April 2025; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sd535": {
+      "title": "ThinkSystem SD535 V3 and D3 Chassis Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1892-thinksystem-sd535-v3-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 16 April 2024; 10 October 2024 EPYC 9005 addition",
+      "date": "First published 16 April 2024; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sc750": {
+      "title": "ThinkSystem SC750 V4 Neptune Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp2009-thinksystem-sc750-v4-neptune-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 15 October 2024",
+      "date": "First published 15 October 2024; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sr650a": {
+      "title": "ThinkSystem SR650a V4 / SR650i V4 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp2128-thinksystem-sr650a-v4-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 24 February 2025",
+      "date": "First published 24 February 2025; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sr675": {
+      "title": "ThinkSystem SR675 V3 / SR675i V3 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1611-thinksystem-sr675-v3-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 10 November 2022",
+      "date": "First published 10 November 2022; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sr685a": {
+      "title": "ThinkSystem SR685a V3 Product Guide — withdrawn — publication history",
+      "url": "https://lenovopress.lenovo.com/lp1910-thinksystem-sr685a-v3-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 23 April 2024",
+      "date": "First published 23 April 2024; reviewed 08 Oct 2026"
+    },
+    "ageLenovoGuide_sr680a": {
+      "title": "ThinkSystem SR680a V4 Product Guide — publication history",
+      "url": "https://lenovopress.lenovo.com/lp2264-thinksystem-sr680a-v4-server",
+      "scope": "Earliest publication date explicitly recorded by Lenovo Press; this establishes documented-by timing, not necessarily first shipment.",
+      "loc": "Full change history: First published 2 September 2025",
+      "date": "First published 2 September 2025; reviewed 08 Oct 2026"
+    },
+    "faeSD665History": {
+      "title": "ThinkSystem SD665 V3: publication and CPU-refresh history",
+      "url": "https://lenovopress.lenovo.com/lp1612-thinksystem-sd665-v3-server",
+      "scope": "First documented in November 2022; EPYC 9005 support added October 2024.",
+      "loc": "Full change history: First published 10 November 2022; 10 October 2024 update",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "auditSR665History": {
+      "title": "ThinkSystem SR665: model and CPU refresh history",
+      "url": "https://lenovopress.lenovo.com/lp1269-thinksystem-sr665-server",
+      "loc": "Full Change History: first published 5 May 2020; 16 March 2021 EPYC 7003 update",
+      "scope": "Original model documentation date and later processor addition.",
+      "date": "Historical entries: 5 May 2020 / 16 Mar 2021",
+      "publicationDate": "2020-05-05",
+      "reviewed": "2026-10-09",
+      "revision": "Historical entries: 5 May 2020 / 16 Mar 2021"
+    }
+  },
+  "generations": [
+    {
+      "id": "lenovoOriginal",
+      "label": "Original ThinkSystem",
+      "year": 2017,
+      "summary": "The ThinkSystem brand launched in June 2017. Original SR630/SR650-era names often omit “V1”; an unsuffixed name does not establish the launch year of every model.",
+      "sourceIds": [
+        "ageLenovoOriginal"
+      ],
+      "dateLabel": "Brand introduced"
+    },
+    {
+      "id": "lenovoV2",
+      "label": "ThinkSystem V2",
+      "year": 2020,
+      "summary": "Scale-up SR850 V2/SR860 V2 were announced in June 2020. The broader SR630 V2/SR650 V2 rack and ST650 V2 tower wave followed in April 2021.",
+      "sourceIds": [
+        "ageLenovoV2First",
+        "ageLenovoV2Rack"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "lenovoV3",
+      "label": "ThinkSystem V3",
+      "year": 2022,
+      "summary": "V3 was announced as a portfolio in September 2022. Individual models followed in 2022–2024; qualified EPYC 9005 refreshes arrived in 2024 without changing V3 to V4.",
+      "sourceIds": [
+        "ageLenovoV3",
+        "ageLenovoEPYCRefresh"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "lenovoEdge455",
+      "label": "ThinkEdge SE455 V3",
+      "year": 2023,
+      "summary": "This edge model was unveiled in September 2023. Its own introduction is later than the 2022 V3 portfolio milestone.",
+      "sourceIds": [
+        "ageLenovoEdge455"
+      ],
+      "dateLabel": "Model announced"
+    },
+    {
+      "id": "lenovoV4",
+      "label": "ThinkSystem V4",
+      "year": 2024,
+      "summary": "V4 began with a June 2024 portfolio announcement. SR630 V4 documentation followed that year; SR650 V4 and SR650a V4 were announced in February 2025.",
+      "sourceIds": [
+        "ageLenovoV4",
+        "ageLenovoV4P",
+        "ageLenovoGuide_sr630"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "lenovoNeptuneV4",
+      "label": "SC750 V4 Neptune",
+      "year": 2024,
+      "summary": "SC750 V4 was announced in September 2024. Neptune cooling predates this model; V4 and Neptune technology generations are different labels.",
+      "sourceIds": [
+        "ageLenovoNeptuneV4"
+      ],
+      "dateLabel": "Model announced"
+    },
+    {
+      "id": "lenovoEdge100",
+      "label": "ThinkEdge SE100",
+      "year": 2025,
+      "summary": "SE100 was announced in March 2025. Its model name does not use the ThinkSystem V3/V4 version sequence.",
+      "sourceIds": [
+        "ageLenovoEdge100"
+      ],
+      "dateLabel": "Model announced"
+    }
+  ],
+  "models": {
+    "sr630": {
+      "generationId": "lenovoV4",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "First public product guide: September 2024. The February 2025 announcement added P-core configurations; the V4 model already existed with E-core options.",
+      "sourceIds": [
+        "ageLenovoGuide_sr630",
+        "ageLenovoV4P"
+      ]
+    },
+    "sr650": {
+      "generationId": "lenovoV4",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced February 2025, after the V4 portfolio’s June 2024 debut. The first product guide carries the same February date.",
+      "sourceIds": [
+        "ageLenovoV4P",
+        "ageLenovoGuide_sr650"
+      ]
+    },
+    "sr650a": {
+      "generationId": "lenovoV4",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced February 2025, after the V4 portfolio’s June 2024 debut. The first product guide carries the same February date.",
+      "sourceIds": [
+        "ageLenovoV4P",
+        "ageLenovoGuide_sr650a"
+      ]
+    },
+    "sr635": {
+      "generationId": "lenovoV3",
+      "modelYear": 2023,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: February 2023. The later EPYC 9005 qualification refresh does not change the server name from V3.",
+      "sourceIds": [
+        "ageLenovoGuide_sr635",
+        "ageLenovoEPYCRefresh"
+      ]
+    },
+    "sr655": {
+      "generationId": "lenovoV3",
+      "modelYear": 2023,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: February 2023. The later EPYC 9005 qualification refresh does not change the server name from V3.",
+      "sourceIds": [
+        "ageLenovoGuide_sr655",
+        "ageLenovoEPYCRefresh"
+      ]
+    },
+    "sr645": {
+      "generationId": "lenovoV3",
+      "modelYear": 2022,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: November 2022. EPYC 9005 support is a later CPU refresh within this V3 platform.",
+      "sourceIds": [
+        "ageLenovoGuide_sr645",
+        "ageLenovoEPYCRefresh"
+      ]
+    },
+    "sr665": {
+      "generationId": "lenovoV3",
+      "modelYear": 2022,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: November 2022. EPYC 9005 support is a later CPU refresh within this V3 platform.",
+      "sourceIds": [
+        "ageLenovoGuide_sr665",
+        "ageLenovoEPYCRefresh"
+      ]
+    },
+    "sr860": {
+      "generationId": "lenovoV4",
+      "modelYear": 2025,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: July 2025. This four-socket model followed the initial 2024 V4 portfolio announcement.",
+      "sourceIds": [
+        "ageLenovoGuide_sr860"
+      ]
+    },
+    "st45": {
+      "generationId": "lenovoV3",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: December 2024 with EPYC 4004. The October 2025 change history adds EPYC 4005 CPUs; V3 does not mean this tower launched in 2022.",
+      "sourceIds": [
+        "ageLenovoGuide_st45"
+      ]
+    },
+    "st650": {
+      "generationId": "lenovoV3",
+      "modelYear": 2023,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: May 2023. Qualified 5th Gen Xeon options are a later refresh of the same V3 tower.",
+      "sourceIds": [
+        "ageLenovoGuide_st650"
+      ]
+    },
+    "se455": {
+      "generationId": "lenovoEdge455",
+      "modelYear": 2023,
+      "modelDateKind": "Announced",
+      "note": "Unveiled September 2023; its first product guide followed in October. The later SE455i inference configuration is distinct from the original model introduction.",
+      "sourceIds": [
+        "ageLenovoEdge455",
+        "ageLenovoGuide_se455"
+      ]
+    },
+    "se100": {
+      "generationId": "lenovoEdge100",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced March 2025; first full product guide published April 2025. It has its own model timeline without a V3/V4 suffix.",
+      "sourceIds": [
+        "ageLenovoEdge100",
+        "ageLenovoGuide_se100"
+      ]
+    },
+    "sd535": {
+      "generationId": "lenovoV3",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: April 2024. The October 2024 update added EPYC 9005 support; this V3 dense node is newer than the first 2022 V3 models.",
+      "sourceIds": [
+        "ageLenovoGuide_sd535"
+      ]
+    },
+    "sc750": {
+      "generationId": "lenovoNeptuneV4",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Announced September 2024; the full product guide followed in October. This dates SC750 V4, not the first use of Neptune liquid cooling.",
+      "sourceIds": [
+        "ageLenovoNeptuneV4",
+        "ageLenovoGuide_sc750"
+      ]
+    },
+    "sr675": {
+      "generationId": "lenovoV3",
+      "modelYear": 2022,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: November 2022. GPU shuttles, EPYC 9005 support and named inference configurations were expanded later.",
+      "sourceIds": [
+        "ageLenovoGuide_sr675"
+      ]
+    },
+    "sr685a": {
+      "generationId": "lenovoV3",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: April 2024. Its September 2026 withdrawal notice is a lifecycle event, not its introduction date.",
+      "sourceIds": [
+        "ageLenovoGuide_sr685a"
+      ]
+    },
+    "sr680a": {
+      "generationId": "lenovoV4",
+      "modelYear": 2025,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: September 2025. This eight-GPU V4 model followed the initial 2024 V4 portfolio rollout.",
+      "sourceIds": [
+        "ageLenovoGuide_sr680a"
+      ]
+    },
+    "sd665": {
+      "generationId": "lenovoV3",
+      "modelYear": 2022,
+      "modelDateKind": "Documented by",
+      "note": "First public guide: 10 November 2022. EPYC 9005 qualification was added 10 October 2024 within V3; this dates the model, not the first use of Neptune cooling.",
+      "sourceIds": [
+        "faeSD665History"
+      ]
+    },
+    "sr665original": {
+      "generationId": "lenovoOriginal",
+      "modelYear": 2020,
+      "modelDateKind": "Documented by",
+      "note": "The SR665 guide was first published 5 May 2020. Original ThinkSystem family launch in 2017 is not this model’s introduction year.",
+      "sourceIds": [
+        "auditSR665History"
+      ]
+    }
+  },
+  "defaultGeneration": "lenovoV4"
+}

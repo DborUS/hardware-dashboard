@@ -1,0 +1,97 @@
+{
+  "version": "1.2.0",
+  "testedAt": "2026-10-09T18:23:49.622Z",
+  "catalogHash": "3c9c7dcf3716d2a4df87ccb570ca9518341d63c8339d41bbc962b0cadc8214ef",
+  "buildHash": "0223347363ce1fe419ed96240e869de62d40d5c072c959bde03ed01775b1bc13",
+  "passed": 16,
+  "failed": 0,
+  "results": [
+    {
+      "name": "SR630 layout selector changes the diagram to 16 physical DIMMs, two processors and 1DPC only",
+      "status": "PASS"
+    },
+    {
+      "name": "Decoder search C245 updates the count to its two visible results",
+      "status": "PASS"
+    },
+    {
+      "name": "Free-text MI355X and accelerator selection both expose 102 platforms with gaps enabled",
+      "status": "PASS"
+    },
+    {
+      "name": "SR630 16-slot variant rejects one CPU and marks requested L4 explicitly unsupported",
+      "status": "PASS"
+    },
+    {
+      "name": "390px responsive layout: filters and server cards fit the viewport without horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "HPE DL380 search excludes unestablished one-CPU liquid builds and retains documented two-CPU liquid builds",
+      "status": "PASS"
+    },
+    {
+      "name": "ucs guide: model deep link, CPU/DIMM essentials and evidence render",
+      "status": "PASS",
+      "detail": "AMD CPU\nCisco UCS C225 M6\nInstalled base · one or two sockets\n×\nMAX PROCESSORS\n2\nDIMM SLOTS\n32\nDPC SUPPORT\n1DPC\n2DPC\n\nPer server · slots with all processors\n8 memory channels / pro"
+    },
+    {
+      "name": "hpe guide: model deep link, CPU/DIMM essentials and evidence render",
+      "status": "PASS",
+      "detail": "AMD CPU\nHPE Cray XD675\nRetired platform · eight MI300X\n×\nMAX PROCESSORS\n2\nDIMM SLOTS\n24\nDPC SUPPORT\n—\n\nPer server · slots with all processors\nDPC not confirmed\n\nHPE · 8U RACK\nFORM-"
+    },
+    {
+      "name": "dell guide: model deep link, CPU/DIMM essentials and evidence render",
+      "status": "PASS",
+      "detail": "AMD CPU\nDell PowerEdge R7515\n15G · EPYC 7002 / 7003 installed base\n×\nMAX PROCESSORS\n1\nDIMM SLOTS\n16\nDPC SUPPORT\n1DPC\n2DPC\n\nPer server · slots with all processors\n8 memory channels "
+    },
+    {
+      "name": "lenovo guide: model deep link, CPU/DIMM essentials and evidence render",
+      "status": "PASS",
+      "detail": "Intel CPU\nLenovo ST650 V3\nThinkSystem · expandable dual-socket tower\n×\nMAX PROCESSORS\n2\nDIMM SLOTS\n32\nDPC SUPPORT\n1DPC\n2DPC\n\nPer server · slots with all processors\n8 memory channel"
+    },
+    {
+      "name": "supermicro guide: model deep link, CPU/DIMM essentials and evidence render",
+      "status": "PASS",
+      "detail": "AMD CPU\nSupermicro AS-8125GS-TNMR2\nH13 · eight AMD Instinct MI300X GPUs\n×\nMAX PROCESSORS\n2\nDIMM SLOTS\n24\nDPC SUPPORT\n1DPC\n\nPer server · slots with all processors\n12 memory channels"
+    },
+    {
+      "name": "Final SR630 note restricts P-core requirement to MRDIMM and retains the GPU prohibition",
+      "status": "PASS"
+    },
+    {
+      "name": "XD675 shows historical MI300X support, 24 confirmed DIMMs and unconfirmed DPC",
+      "status": "PASS"
+    },
+    {
+      "name": "HPE DL325 Gen12 versus Gen11 comparison shows 24 versus 12 DIMMs and 1/2DPC versus 1DPC",
+      "status": "PASS"
+    },
+    {
+      "name": "No browser console errors during exercised Finder and five-guide workflows",
+      "status": "PASS"
+    },
+    {
+      "name": "Source-verification report renders 102 profiles, 68 correction groups, ten additions and review links",
+      "status": "PASS"
+    }
+  ],
+  "evaluation": {
+    "verdict": "Validated for learning and FAE shortlisting",
+    "summary": "The corrected dashboard is a good implementation for learning OEM generations and finding documented AMD platform relationships. Source-reviewed corrections, correlated configuration filters and expanded installed-base coverage address the broad audit findings. Every logged correction and added profile has independent source review, with unresolved document conflicts visible.",
+    "strengths": [
+      "102 profiles across five OEMs, including ten source-linked additions for legacy EPYC and MI300X discovery.",
+      "Processors, DIMM counts and DPC remain prominent. Documented cooling and memory variants constrain combined searches.",
+      "68 logged correction and clarification groups, reviewed by three OEM specialists with independent peer review; HPE QuickSpecs prioritized.",
+      "All 92 earlier server illustrations preserved; new schematics explicitly labeled.",
+      "Automated checks and 16 live browser checks pass, including the five OEM guides, source report, memory selector, comparison, search parity and mobile layout."
+    ],
+    "limitations": [
+      "Coverage remains curated and partial; absence from this guide does not establish incompatibility.",
+      "HPE XD675 memory topology, Cisco C225 M6N CPU-count wording and Lenovo ST650 one-CPU wording contain documented conflicts. These are disclosed rather than silently resolved.",
+      "Source-review logs disclose indexed-PDF fallbacks and direct retrieval limits. The review covers this release’s changes, not a fresh certification of every older specification.",
+      "Exact processor SKU, GPU quantity, DIMM population, risers, thermal build, firmware, OS/ROCm support and current orderability still require the linked OEM configuration evidence.",
+      "Ten new profiles use form-factor schematics; their exact exteriors have not been newly illustrated."
+    ]
+  }
+}

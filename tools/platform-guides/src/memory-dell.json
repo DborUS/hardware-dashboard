@@ -1,0 +1,790 @@
+{
+  "r470": {
+    "maxProcessors": 1,
+    "dimmSlots": 16,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "One CPU and 16 RDIMM slots. 1DPC / 2DPC availability depends on P-core or E-core CPU and DIMM capacity; consult the population matrix.",
+    "sources": [
+      {
+        "title": "PowerEdge R470: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-re/poweredge-r470/r470_ism/system-memory-guidelines?guid=guid-0f3c9aff-1560-4705-9f46-1ce9b76661d6&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "r570": {
+    "maxProcessors": 1,
+    "dimmSlots": 16,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "One CPU and 16 RDIMM slots. 1DPC / 2DPC availability depends on P-core or E-core CPU and DIMM capacity; up to 6400 / 5200 MT/s respectively.",
+    "sources": [
+      {
+        "title": "PowerEdge R570: memory specifications",
+        "url": "https://www.dell.com/support/manuals/en-us/poweredge-r570/r570_ism_pub/memory-specifications?guid=guid-23e47419-0ac3-48df-a913-fed0dbb0c211&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "Dell DDR5 Memory Bandwidth with Intel Xeon 6",
+        "url": "https://infohub.delltechnologies.com/sv-se/p/ddr5-memory-bandwidth-in-dell-poweredge-servers-with-intel-xeon-6/",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "r670": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 RDIMM slots across two CPUs, 16 per CPU. 1DPC / 2DPC and memory speeds depend on CPU and DIMM qualification.",
+    "sources": [
+      {
+        "title": "PowerEdge R670 Technical Guide: memory subsystem",
+        "url": "https://www.delltechnologies.com/asset/zh-tw/products/servers/technical-support/poweredge-r670-technical-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "PowerEdge R670: general memory installation guidelines",
+        "url": "https://www.dell.com/support/manuals/en-ae/poweredge-r670/r670_ism_pub/general-memory-module-installation-guidelines?guid=guid-81bea8b0-7940-44f3-91dc-c4017981540c&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "r770": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 RDIMM slots across two CPUs, 16 per CPU. 1DPC / 2DPC and memory speeds depend on CPU and DIMM qualification.",
+    "sources": [
+      {
+        "title": "PowerEdge R770 Technical Guide: memory subsystem",
+        "url": "https://www.delltechnologies.com/asset/en-my/products/servers/technical-support/poweredge-r770-technical-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "r6715": {
+    "maxProcessors": 1,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "24 RDIMM slots on one CPU. 1DPC runs up to 5200 MT/s; 2DPC is 4000 or 4400 MT/s depending on DIMM rank/capacity.",
+    "sources": [
+      {
+        "title": "PowerEdge R6715: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-mp/poweredge-r6715/per6715_ism_pub/system-memory-guidelines?guid=guid-be955306-a058-4a28-a34b-b69a581f60c5&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "r7715": {
+    "maxProcessors": 1,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "24 RDIMM slots on one CPU. 1DPC runs up to 5200 MT/s; 2DPC is 4000 or 4400 MT/s depending on DIMM rank/capacity.",
+    "sources": [
+      {
+        "title": "PowerEdge R7715: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-kg/oth-xlr7715/r7715_ism_pub/system-memory-guidelines?guid=guid-90e70256-d182-48c4-92e3-7f28fdd23f91&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "r6725": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 RDIMM slots with two CPUs, 12 per CPU. One slot per memory channel; this dual-socket platform is 1DPC.",
+    "sources": [
+      {
+        "title": "PowerEdge R6725: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-us/poweredge-r6725/r6725_ism/system-memory-guidelines?guid=guid-889c376c-ba42-4745-a49f-1934e5132fc0&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "r7725": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 RDIMM slots with two CPUs, 12 per CPU. One slot per memory channel; this dual-socket platform is 1DPC.",
+    "sources": [
+      {
+        "title": "PowerEdge R7725: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-us/poweredge-r7725/per7725_ism/system-memory-guidelines?guid=guid-dcbf8b14-c05b-431b-b003-3cbf62538bfc&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "mx760": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "blade",
+    "note": "Per compute sled: 32 RDIMM slots with two CPUs. High-performance CPU / HPR heatsink configurations can limit the usable total to 24 DIMMs; verify the specific thermal rules.",
+    "sources": [
+      {
+        "title": "PowerEdge MX760c: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-ca/poweredge-mx760c/pemx760c_ism_pub/system-memory-guidelines?guid=guid-eee7dccf-96d8-4c74-b3b7-6be94b47b800&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "PowerEdge MX760c: installed CPU and DIMM population",
+        "url": "https://www.dell.com/support/manuals/en-ca/poweredge-mx760c/pemx760c_ism_pub/general-memory-module-installation-guidelines?guid=guid-a1253cf5-8468-4eb3-991b-b6854dd07ae9&lang=en-us",
+        "loc": "General memory module installation guidelines; Table 1 Memory population rules",
+        "revision": null,
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Explicit single-processor and dual-processor memory populations, not inferred from maximum sockets.",
+        "date": "Undated live document; reviewed 9 Oct 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "HPR heatsink configurations: up to 24 usable slots.",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsNote": "One or two CPUs per sled; one CPU activates A1–A16. Existing HPR heatsink restrictions on usable DIMMs still apply.",
+    "installedCPUCountsComplete": true
+  },
+  "t560": {
+    "maxProcessors": 2,
+    "dimmSlots": 16,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "16 RDIMM slots with two CPUs, eight per CPU. One slot per channel; this tower supports 1DPC only.",
+    "sources": [
+      {
+        "title": "PowerEdge T560: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-us/oth-t560/t560_ism_pub/system-memory-guidelines?guid=guid-05487ba8-3fab-462d-b00d-0ca541ee497e&msockid=1d95b7d2d1266feb10d2a167d01e6e0e",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "PowerEdge T560: installed CPU and DIMM population",
+        "url": "https://www.dell.com/support/manuals/en-gb/oth-t560/t560_ism_pub/General-memory-module-installation-guidelines?guid=guid-6d897c96-c17c-4ee1-85d0-8ee278630606&lang=en-us&lwp=rt",
+        "loc": "General memory module installation guidelines; Table 1 Memory population rules",
+        "revision": null,
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Explicit single-processor and dual-processor memory populations, not inferred from maximum sockets.",
+        "date": "Undated live document; reviewed 9 Oct 2026"
+      },
+      {
+        "title": "PowerEdge T560 with eight NVMe drives, HW RAID, and one processor",
+        "url": "https://infohub.delltechnologies.com/en-uk/l/nvme-and-i-o-topologies-for-16g-and-legacy-dell-poweredge-servers/poweredge-t560-with-eight-nvme-drives-hw-raid-and-one-processor-1/",
+        "loc": "Figure 57 and configuration paragraph",
+        "revision": null,
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Named production-oriented one-CPU I/O layout, independent corroboration of installed-count support.",
+        "date": "Undated live document; reviewed 9 Oct 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsNote": "One or two CPUs; one CPU activates A1–A8 (eight DIMM slots). Drive and GPU routing must match the one-CPU layout.",
+    "installedCPUCountsComplete": true
+  },
+  "xr8720": {
+    "maxProcessors": 1,
+    "dimmSlots": null,
+    "channelsPerCpu": null,
+    "dpc": [
+      1
+    ],
+    "scope": "node",
+    "note": "Per sled: HCC exposes four channels / four DIMM slots; XCC exposes eight / eight. Both are 1DPC. XCC availability is configuration-dependent; requires XR8000r chassis.",
+    "sources": [
+      {
+        "title": "PowerEdge XR8720t: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-in/poweredge-xr8720t/xr8720t_ism/system-memory-guidelines?guid=guid-1dc8a847-1734-4f75-8e68-dec1e3a1f7ab&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "System memory guidelines; Tables 1–2; HCC/XCC notes"
+      }
+    ],
+    "verified": "2026-10-09",
+    "dimmLabel": "4 / 8",
+    "dpcNote": "HCC: 4 slots; XCC: 8 slots, configuration-dependent.",
+    "dimmSlotOptions": [
+      4,
+      8
+    ],
+    "installedCPUCounts": [
+      1
+    ],
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    }
+  },
+  "xe7740": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 RDIMM slots with two CPUs, 16 per CPU. Supported balanced populations are 16 or 32 DIMMs per system; 1DPC and 2DPC have different speeds.",
+    "sources": [
+      {
+        "title": "PowerEdge XE7740 Technical Guide: memory subsystem",
+        "url": "https://www.delltechnologies.com/asset/en-nz/products/servers/technical-support/poweredge-xe7740-technical-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "PowerEdge XE7740: general memory installation guidelines",
+        "url": "https://www.dell.com/support/manuals/en-bj/poweredge-xe7740/pexe7740_ism_pub/general-memory-module-installation-guidelines?guid=guid-50127e35-6d53-4a64-9ff6-1808f006f7b3&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "Balanced populations: 16 or 32 DIMMs.",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "xe7745": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 RDIMM slots with two CPUs, 12 per CPU. GPU configurations impose additional host-memory capacity and population requirements.",
+    "sources": [
+      {
+        "title": "PowerEdge XE7745: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/zh-cn/poweredge-xe7745/pexe7745_ism_pub/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AD%98%E6%8C%87%E5%8D%97?guid=guid-280a5252-2ad1-4810-831e-0c7284666150&lang=zh-cn",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "xe9680": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 RDIMM slots with two CPUs, 16 per CPU. MI300X and Gaudi3 exclude 32GB DIMMs; follow accelerator-specific host-memory requirements.",
+    "sources": [
+      {
+        "title": "PowerEdge XE9680: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-ed/poweredge-xe9680/xe9680_ism_pub/system-memory-guidelines?guid=guid-84adc244-ab21-4848-911b-2395b15cedc7&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "xe9780": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 RDIMM slots with two CPUs, 16 per CPU. Memory type, capacity and populated-channel rules remain configuration-specific.",
+    "sources": [
+      {
+        "title": "PowerEdge XE9780: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-hk/poweredge-xe9780/xe9780_ism_pub/system-memory-guidelines?guid=guid-5e47e6cc-29b5-411d-b150-0893252743d2&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "xe9785": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 RDIMM slots with two CPUs, 12 per CPU. Qualified 256GB DIMMs require the B300 GPU configuration; MI355X has a lower qualified capacity ceiling.",
+    "sources": [
+      {
+        "title": "PowerEdge XE9785: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-tm/poweredge-xe9785/xe9785_ism/system-memory-guidelines?guid=guid-312d7462-714f-4454-87fa-60f952a78795&lang=en-us",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "xe9785l": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "node",
+    "note": "Per 3-OU compute node: two CPUs and 24 RDIMM slots. The technical guide marks 256GB DIMMs as planned; confirm current availability before promising 6TB.",
+    "sources": [
+      {
+        "title": "PowerEdge XE9785L Technical Guide: memory subsystem",
+        "url": "https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/poweredge-xe9785l-technical-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "PowerEdge XE9785L specifications",
+        "url": "https://www.dell.com/en-us/shop/ipovw/poweredge-xe9785l?hve=shop+now",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "r7625": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "note": "One CPU exposes 12 DIMM slots; two expose all 24. Use matching memory populations per processor.",
+    "sources": [
+      {
+        "title": "PowerEdge R7625 memory specifications",
+        "url": "https://www.dell.com/support/manuals/en-us/oth-r7625/per7625_ism_pub/system-memory-guidelines?guid=guid-4bbbd1fb-42ff-43b5-b333-b345fc568b76&lang=en-us",
+        "loc": "Memory module sockets; system memory channels; 1DPC table",
+        "scope": "DDR5 RDIMM topology; installed modules must follow the population rules.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      },
+      {
+        "title": "PowerEdge R7625 memory population guidelines",
+        "url": "https://www.dell.com/support/manuals/en-ki/oth-xlr7625/per7625_ism_pub/general-memory-module-installation-guidelines?guid=guid-160eba95-0d45-4ad5-8729-7c091d074671&lang=en-us",
+        "loc": "Single-processor A1–A12; dual-processor A1–A12 and B1–B12",
+        "scope": "One- and two-CPU configurations are documented; only CPU-local slots are usable.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      }
+    ],
+    "verified": "2026-10-09"
+  },
+  "r7615": {
+    "maxProcessors": 1,
+    "dimmSlots": 12,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "installedCPUCounts": [
+      1
+    ],
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "note": "Twelve slots on one CPU. DIMMs run at the CPU-qualified rate; a faster DIMM rating does not raise the 9004 memory ceiling.",
+    "sources": [
+      {
+        "title": "PowerEdge R7615 memory specifications",
+        "url": "https://www.dell.com/support/manuals/en-us/poweredge-r7615/per7615_ism_pub/memory-specifications?guid=guid-9d04ba79-2941-479f-860f-cd37bc585cef&lang=en-us",
+        "loc": "Memory module sockets; system memory channels; 1DPC table",
+        "scope": "DDR5 RDIMM topology; installed modules must follow the population rules.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      }
+    ],
+    "verified": "2026-10-09"
+  },
+  "r7515": {
+    "maxProcessors": 1,
+    "dimmSlots": 16,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "installedCPUCounts": [
+      1
+    ],
+    "installedCPUCountsComplete": true,
+    "memoryTypes": [
+      "DDR4 RDIMM",
+      "DDR4 LRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR4 RDIMM": [
+        1,
+        2
+      ],
+      "DDR4 LRDIMM": [
+        1,
+        2
+      ]
+    },
+    "note": "Sixteen local slots per installed CPU across eight channels; one or two DIMMs per channel. RDIMM/LRDIMM type and rank affect speed; do not mix types.",
+    "sources": [
+      {
+        "title": "PowerEdge R7515: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-fm/oth-r7515/per7515_ism_pub/system-memory-guidelines?guid=guid-0534e253-8b5d-4116-b27d-78b133fdd07a&lang=en-us",
+        "loc": "System memory guidelines; Tables 1–2",
+        "scope": "Eight channels, 16 slots, DDR4 RDIMM/LRDIMM; 1DPC and 2DPC.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      },
+      {
+        "title": "PowerEdge R7515 Technical Guide",
+        "url": "https://i.dell.com/sites/csdocuments/product_docs/en/poweredge-r7515-technical-guide.pdf",
+        "loc": "Processor; Memory; Storage; OpenManage; front-view figures",
+        "scope": "Model architecture and illustrated rack form; exact parts remain configuration-specific.",
+        "date": "November 2022 · Rev A12",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "revision": "November 2022 · Rev A12"
+      }
+    ],
+    "verified": "2026-10-09"
+  },
+  "r7525": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsComplete": true,
+    "memoryTypes": [
+      "DDR4 RDIMM",
+      "DDR4 LRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR4 RDIMM": [
+        1,
+        2
+      ],
+      "DDR4 LRDIMM": [
+        1,
+        2
+      ]
+    },
+    "note": "Sixteen local slots per installed CPU across eight channels; one or two DIMMs per channel. RDIMM/LRDIMM type and rank affect speed; do not mix types. One CPU activates 16 of the 32 physical slots.",
+    "sources": [
+      {
+        "title": "PowerEdge R7525: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-hr/poweredge-r7525/r7525_ism_pub/system-memory-guidelines?guid=guid-8665c17a-2613-45b2-9204-c02a89225024&lang=en-us",
+        "loc": "System memory guidelines; Tables 1–2",
+        "scope": "Eight channels and 16 local DIMM slots per CPU; DDR4 RDIMM/LRDIMM 1DPC and 2DPC.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      },
+      {
+        "title": "PowerEdge R7525 Technical Guide",
+        "url": "https://i.dell.com/sites/csdocuments/Product_Docs/en/dell-emc-poweredge-r7525-technical-guide.pdf",
+        "loc": "p.15: processor and single-processor configuration; p.27 Table 17: GPU risers; Memory; Storage; front-view figures",
+        "scope": "Model, CPU count, DDR4 topology and documented GPU configurations.",
+        "date": "August 2022 · Rev A10",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "revision": "August 2022 · Rev A10"
+      }
+    ],
+    "verified": "2026-10-09"
+  }
+}

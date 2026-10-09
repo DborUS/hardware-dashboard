@@ -1,0 +1,398 @@
+[
+  {
+    "id": "dl320",
+    "shape": "hpe-dl320",
+    "view": "1U SFF chassis with eight SFF drives and optional media bay",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50004283enw.html",
+    "sourceTitle": "HPE ProLiant Compute DL320 Gen12 QuickSpecs",
+    "locator": "Overview, IMAGE 1: SFF Front View with optional Universal Media Bay",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50004283enw_block1img2?$crimg$",
+    "features": [
+      "Wide 1U face",
+      "Horizontal SFF carriers in two tiers",
+      "Optional media bay above right drive pair",
+      "Status and service controls at right ear"
+    ],
+    "caveat": "Simplified published SFF configuration; other drive and GPU chassis have different fronts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl325",
+    "shape": "hpe-dl325",
+    "view": "1U hybrid SFF/EDSFF chassis, EDSFF example with central boot cage",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50009232enw.html",
+    "sourceTitle": "HPE ProLiant Compute DL325 Gen12 QuickSpecs",
+    "locator": "Overview, IMAGE 1: Front View – SFF/EDSFF CTO Server; PDF p. 2",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50009232enw_block1img2?$crimg$",
+    "features": [
+      "Wide 1U face",
+      "Five front multipurpose cage positions",
+      "Horizontal EDSFF carriers in four stacks around center cage",
+      "Center NS204i-u boot option"
+    ],
+    "caveat": "Shows the photographed EDSFF and boot-cage arrangement; not all supported bays or front options simultaneously.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl340",
+    "shape": "hpe-dl340",
+    "view": "2U SFF chassis with left SFF cage, middle EDSFF/OCP options, right blank",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50004261enw.html",
+    "sourceTitle": "HPE ProLiant Compute DL340 Gen12 QuickSpecs",
+    "locator": "Overview, IMAGE 1: Front View – SFF chassis with optional EDSFF blank, OCP, and Drive Bay blank shown",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50004261enw_block1img2?$crimg$",
+    "features": [
+      "Three front cage sections",
+      "Eight upright SFF carriers at left",
+      "Middle EDSFF and OCP section",
+      "Large blank airflow panel at right"
+    ],
+    "caveat": "One illustrated modular-front configuration; cage options can replace the blanks.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl345",
+    "shape": "hpe-dl345",
+    "view": "2U hybrid SFF/EDSFF front with central boot and OCP options",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50009233enw.html",
+    "sourceTitle": "HPE ProLiant Compute DL345 Gen12 QuickSpecs",
+    "locator": "Overview, IMAGE 1: Front View – SFF/EDSFF CTO Server",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50009233enw_block1img?$crimg$",
+    "features": [
+      "Three front multipurpose cages",
+      "Upright EDSFF carriers at left",
+      "Boot device and silver OCP section in center",
+      "Eight upright SFF carriers at right"
+    ],
+    "caveat": "Represents the published mixed-cage example; GPU chassis and all-LFF builds differ.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl360",
+    "shape": "hpe-dl360",
+    "view": "1U hybrid front with SFF, EDSFF, OCP and boot options",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50006984enw.html",
+    "sourceTitle": "HPE ProLiant Compute DL360 Gen12 QuickSpecs",
+    "locator": "Overview, IMAGE 1: Front View – 10SFF/20EDSFF Hybrid CTO Server – Multi-purpose Front Cages",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50006984enw_block1img2?$crimg$",
+    "features": [
+      "Five front cage positions",
+      "Left pair of horizontal SFF carriers",
+      "Four-high E3.S stacks",
+      "Two horizontal silver front OCP bays at center",
+      "Boot cage at right"
+    ],
+    "caveat": "Front options are simplified from the specific published hybrid example.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl365",
+    "shape": "hpe-dl365",
+    "view": "1U eight-SFF front with blank media section",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50004299enw.html",
+    "sourceTitle": "HPE ProLiant DL365 Gen11 QuickSpecs",
+    "locator": "Overview, IMAGE 1: 8 SFF Front View – 8 SFF and No Media Option Shown",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50004299enw_block1img2?$crimg$",
+    "features": [
+      "1U rack face",
+      "Horizontal SFF carriers in two tiers",
+      "Optional media section at right",
+      "Right-side service ports and status controls"
+    ],
+    "caveat": "Right section is shown blank; optional extra drives, media, EDSFF and GPU configurations differ.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl380",
+    "shape": "hpe-dl380",
+    "view": "2U SFF front with optional multipurpose center cage",
+    "sourceUrl": "https://www.hpe.com/psnow/doc/a00073551enw.pdf",
+    "sourceTitle": "HPE ProLiant Compute DL380 Gen12 QuickSpecs, Version 20, 5 October 2026",
+    "locator": "PDF p. 3: Front View – SFF CTO Server with optional multipurpose cage",
+    "features": [
+      "Three front cage sections",
+      "Left airflow blank",
+      "Center four EDSFF positions, boot and two OCP slots",
+      "Eight upright SFF carriers in right cage"
+    ],
+    "caveat": "Illustrates the QuickSpecs mixed front; different storage builds have different cage populations.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl385",
+    "shape": "hpe-dl385",
+    "view": "2U SFF CTO server with three eight-SFF front cages",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50004300enw.html",
+    "sourceTitle": "HPE ProLiant DL385 Gen11 QuickSpecs",
+    "locator": "Overview, IMAGE 1: HPE ProLiant DL385 Gen11 SFF CTO Server – Front View",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50004300enw_block1img2?$crimg$",
+    "features": [
+      "Three equal front drive cages",
+      "Eight upright carriers per cage",
+      "Right status and service strip",
+      "Broad 2U rack face"
+    ],
+    "caveat": "24 front SFF positions shown; EDSFF, LFF, media and expansion builds differ.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl580",
+    "shape": "hpe-dl580",
+    "view": "4U front with six modular cage positions",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50009226enw.html",
+    "sourceTitle": "HPE ProLiant Compute DL580 Gen12 QuickSpecs",
+    "locator": "Overview, IMAGE 1: Front View – 8SFF chassis with optional multi-purpose cage",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50009226enw_block1img2?$crimg$",
+    "features": [
+      "4U face with two rows of three cages",
+      "Eight SFF positions at upper right",
+      "Twelve EDSFF positions at lower right",
+      "Left media and boot options amid vent blanks"
+    ],
+    "caveat": "Represents the published six-box front arrangement; population and port details simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl380a",
+    "shape": "hpe-dl380a",
+    "view": "4U GPU chassis with lower EDSFF storage band",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a00047453enw.html",
+    "sourceTitle": "HPE ProLiant Compute DL380a Gen12 QuickSpecs",
+    "locator": "Overview, IMAGE 1: Front View; drive cage callout allows 8 SFF or 16 EDSFF",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a00047453enw_block1img2?$crimg$",
+    "features": [
+      "Large upper GPU-cage grille",
+      "Narrow lower storage band",
+      "Central boot cage separates drive groups",
+      "4U rack height"
+    ],
+    "caveat": "Shows an EDSFF arrangement using documented cage options; GPU cards are behind the airflow panel.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xd685",
+    "shape": "hpe-xd685",
+    "view": "5U direct-liquid-cooled front with 12 E3.S example cage",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a00073553enw.html",
+    "sourceTitle": "HPE ProLiant Compute XD685 QuickSpecs",
+    "locator": "Overview, IMAGE 1: Front View; footnote: DLC Chassis Shown",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a00073553enw_block1img2?$crimg$",
+    "features": [
+      "Silver modular front structure",
+      "Horizontal E3.S drive bank in upper-middle section",
+      "Multiple front PCIe and IO groups",
+      "Lower central airflow grille with flanking GPU-attached PCIe slots"
+    ],
+    "caveat": "DLC chassis shown; 6U air-cooled variant differs. Twelve illustrated E3.S positions require the applicable storage configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xd690",
+    "shape": "hpe-xd690",
+    "view": "10U front with PSU bank, GPU sled and lower CPU-sled IO",
+    "sourceUrl": "https://support.hpe.com/hpesc/public/docDisplay?docId=sd00007673en_us&docLocale=en_US&page=GUID-609FF5F4-7357-4658-B804-84D735A8D3EF.html",
+    "sourceTitle": "HPE Compute XD690 System Maintenance and Service Guide",
+    "locator": "Component identification → Front panel components",
+    "sourceImageUrl": "https://support.hpe.com/hpesc/public/api/document/sd00007673en_us/GUID-2945B90D-FC11-4CFA-AC7D-5BDA124D6A32-high.png?v=2",
+    "features": [
+      "Twelve PSU fan faces in two rows across top",
+      "Large central GPU-sled grille",
+      "OSFP module below GPU sled",
+      "Lower IO bays and center eight E1.S carriers",
+      "Almost square 10U rack face"
+    ],
+    "caveat": "Front layout is simplified from the service diagram; internal fans, rear panels and detailed connector geometry omitted.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sy480",
+    "shape": "hpe-sy480",
+    "view": "Upright extracted half-height blade, four-SFF NVMe cage; small frame context",
+    "sourceUrl": "https://www.hpe.com/ca/en/collaterals/collateral.a50009201enw.html",
+    "sourceTitle": "HPE Synergy 480 Gen12 Compute Module QuickSpecs, Version 14, 5 October 2026",
+    "locator": "Overview, IMAGE 2: Front View – 4SFF NVMe Direct Connect Drive Cage Kit; Synergy 12000 Frame QuickSpecs Overview for inset",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50009201enw_block1img3?$crimg$",
+    "features": [
+      "Upright narrow front in installed orientation",
+      "Four vertical SFF carriers in two pairs separated by a central vent",
+      "Full-height status and release-handle rail on left",
+      "Long silver access-cover side",
+      "Fits one of twelve half-height Synergy 12000 bays"
+    ],
+    "caveat": "Blade is drawn outside its required frame. Four-SFF option shown; eight-EDSFF and drive-less cages differ. Frame inset is a scale-independent installation cue.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "ml350",
+    "shape": "hpe-ml350",
+    "view": "Tower without bezel, mixed LFF/SFF/EDSFF cages",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50006995enw.html",
+    "sourceTitle": "HPE ProLiant Compute ML350 Gen12 QuickSpecs",
+    "locator": "Overview, IMAGE 1: Front View – Chassis with optional 12 EDSFF / 8 SFF / 4 LFF Drive Cage Kits and front NS204i-u shown",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50006995enw_block1img?$crimg$",
+    "features": [
+      "Three vertically stacked drive cages",
+      "Four LFF top, eight SFF middle, twelve EDSFF bottom",
+      "Top media/control band and intervening boot/vent strips"
+    ],
+    "caveat": "Bezel removed to expose the source's mixed drive-cage example; rack conversion and other cages alter appearance. Stabilizing feet are omitted from this simplified illustration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl145",
+    "shape": "hpe-dl145",
+    "view": "Compact 2U edge server with fitted filter bezel",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50009217enw.html",
+    "sourceTitle": "HPE ProLiant DL145 Gen11 QuickSpecs",
+    "locator": "Overview, IMAGE 1: HPE ProLiant DL145 Gen11 Server – Front View (Bezel)",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50009217enw_block1img2?$crimg$",
+    "features": [
+      "Short compact chassis",
+      "Vertical filtered-bezel ribs",
+      "Centered HPE outline badge",
+      "Handles at left and right"
+    ],
+    "caveat": "Fitted filter bezel conceals drive and IO details; perspective and depth simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl525",
+    "shape": "hpe-dl525",
+    "view": "1U EDSFF front with center boot and OCP options",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50014669enw.html",
+    "sourceTitle": "HPE ProLiant DL525 Gen13 Server QuickSpecs, Version 1, 7 October 2026",
+    "locator": "Overview, IMAGE 1: Front View – EDSFF CTO Server",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50014669enw_block1img?$crimg$",
+    "features": [
+      "1U front with horizontal EDSFF stacks",
+      "Center NS204mff boot device above optional OCP slot",
+      "Drive groups on both sides",
+      "Right status and service controls"
+    ],
+    "caveat": "Published launch rendering; front options and final ordered configuration may differ. Physical review does not change availability status.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "dl585a",
+    "shape": "hpe-dl585a",
+    "view": "10U front with upper storage/IO and lower GPU cage",
+    "sourceUrl": "https://www.hpe.com/no/en/collaterals/collateral.a50014668enw.html",
+    "sourceTitle": "HPE ProLiant DL585a Gen13 Server QuickSpecs, Version 1, 7 October 2026",
+    "locator": "Overview, IMAGE 1: Front View",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50014668enw_block1img?$crimg$",
+    "features": [
+      "10U near-square rack face",
+      "Four upper drive cages",
+      "Upper front PCIe/IO zones with boot device",
+      "Broad central dark shroud",
+      "Lower eight-double-width GPU cage above bottom ventilation"
+    ],
+    "caveat": "Launch front rendering simplified; exact GPUs, drives and populated slots depend on the configured topology.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xd245",
+    "shape": "hpe-xd245",
+    "view": "Four half-width nodes in shared OCP chassis; layout schematic",
+    "sourceUrl": "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922",
+    "sourceTitle": "New HPE ProLiant Gen13 Servers – built to protect, designed to automate, proven to deliver",
+    "locator": "At a glance: HPE ProLiant XD245",
+    "features": [
+      "Four half-width dual-socket nodes",
+      "Shared 21-inch ORV3 system",
+      "Direct liquid cooling"
+    ],
+    "caveat": "No exact front-panel image verified. Diagram shows only the documented node arrangement, with no invented drive or connector pattern. HPE launch sources disagree on chassis height, so no U dimension is drawn.",
+    "reviewStatus": "schematic"
+  },
+  {
+    "id": "xd285",
+    "shape": "hpe-xd285",
+    "view": "Two half-width nodes in shared OCP chassis; layout schematic",
+    "sourceUrl": "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922",
+    "sourceTitle": "New HPE ProLiant Gen13 Servers – built to protect, designed to automate, proven to deliver",
+    "locator": "At a glance: HPE ProLiant XD285",
+    "features": [
+      "Two half-width dual-socket nodes",
+      "2OU shared 21-inch ORV3 system",
+      "Air cooling"
+    ],
+    "caveat": "No exact front-panel image verified. Diagram shows only the documented two-node arrangement, with no invented drive or connector pattern.",
+    "reviewStatus": "schematic"
+  },
+  {
+    "id": "dl325g11",
+    "shape": "installed-hpe-dl325g11",
+    "features": [
+      "Ten horizontal SFF carriers arranged in five columns and two rows",
+      "Narrow 1U body with dark rack ears",
+      "Right-hand service ports and stacked status lights",
+      "Optional cage configuration shown in the OEM front view"
+    ],
+    "view": "1U front - 8 SFF plus optional 2 SFF cage",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50004297enw.html",
+    "sourceTitle": "HPE ProLiant DL325 Gen11 QuickSpecs",
+    "locator": "Overview, IMAGE 1; PDF page 2: Front View - 8 SFF + optional 2 SFF Drive Bay shown",
+    "caveat": "The documented 8 SFF plus optional 2 SFF front is shown. LFF, EDSFF, GPU and optical-drive configurations differ. Perspective and connector detail are simplified; the picture is not a drive-support matrix.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50004297enw_block1img2?$crimg$",
+    "reviewedAt": "2026-10-09",
+    "reviewMethod": "Opened and visually inspected the official QuickSpecs front-view image in a dedicated browser tab; reproduced carrier orientation, cage divisions, controls and chassis proportions."
+  },
+  {
+    "id": "dl345g11",
+    "shape": "installed-hpe-dl345g11",
+    "features": [
+      "Three equal front cages, each with eight upright SFF carriers",
+      "Right-hand narrow ventilation column",
+      "Right-hand control and service-port strip",
+      "Black front with silver access cover"
+    ],
+    "view": "2U front - 24 SFF in three eight-carrier cages",
+    "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50004298enw.html",
+    "sourceTitle": "HPE ProLiant DL345 Gen11 QuickSpecs",
+    "locator": "Overview, IMAGE 1: Front View - 24 SFF chassis shown",
+    "caveat": "The photographed 24 SFF front configuration is shown. LFF, EDSFF, GPU, media-bay and other options change the front; no maximum capacity is implied by this illustration.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50004298enw_block1img?$crimg$",
+    "reviewedAt": "2026-10-09",
+    "reviewMethod": "Opened and visually inspected the official QuickSpecs front-view image in a dedicated browser tab; reproduced carrier orientation, cage divisions, controls and chassis proportions."
+  },
+  {
+    "id": "dl385g10pv2",
+    "shape": "installed-hpe-dl385g10pv2",
+    "features": [
+      "Two large square-mesh blank cages occupy left and center",
+      "Eight upright basic-carrier SFF positions in the right cage",
+      "Right-hand status LEDs and iLO/USB service ports",
+      "Silver removable top cover with dark rack ears"
+    ],
+    "view": "2U front - eight SFF right, two blank cages left",
+    "sourceUrl": "https://www.hpe.com/psnow/doc/a50002560enw",
+    "sourceTitle": "HPE ProLiant DL385 Gen10 Plus v2 QuickSpecs, version 30, 28 July 2025 - retired",
+    "locator": "PDF page 1: HPE ProLiant DL385 Gen10 Plus v2 8 SFF Server - Front View",
+    "caveat": "The official eight-SFF example is shown, with two optional cages blank. Other supported chassis and drive configurations differ. The retired QuickSpecs is used as historical visual evidence only.",
+    "reviewStatus": "verified",
+    "reviewedAt": "2026-10-09",
+    "reviewMethod": "Downloaded the official QuickSpecs using its visible HPE Download link, rendered the specified PDF page with Poppler, and visually inspected the front-view photograph before drawing."
+  },
+  {
+    "id": "xd675",
+    "shape": "installed-hpe-xd675",
+    "features": [
+      "Twelve rectangular front fan modules in four columns and three rows",
+      "Large mesh fan apertures with vertical release handles",
+      "Lower row of three eight-drive cages; NVMe at sides, SAS/SATA center in the referenced configuration",
+      "Silver rack ears and narrow right-side control strip",
+      "Tall 8U rack body with a continuous closed top and side"
+    ],
+    "view": "8U front - twelve fan modules above three SFF cages",
+    "sourceUrl": "https://www.hpe.com/psnow/doc/a50009207enw",
+    "sourceTitle": "HPE Cray XD675 QuickSpecs, version 7, 28 July 2025 - retired",
+    "locator": "PDF page 4: HPE Cray XD675 Server Front View",
+    "caveat": "Shows the published front configuration, not the rear PCIe and power-supply view. Internal GPUs and rear connectors are hidden. The retired QuickSpecs is used as historical visual evidence; source configuration limits remain authoritative.",
+    "reviewStatus": "verified",
+    "reviewedAt": "2026-10-09",
+    "reviewMethod": "Downloaded the official QuickSpecs using its visible HPE Download link, rendered the specified PDF page with Poppler, and visually inspected the front-view photograph before drawing."
+  }
+]

@@ -1,0 +1,66 @@
+{
+  "version": "1.2.0",
+  "integrationAsOf": "2026-10-09",
+  "catalogHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
+  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "status": "PASS",
+  "verdict": "Reviewed server drawings integrated",
+  "summary": "Fourteen generic drawings were replaced with original illustrations based on inspected OEM photos and front-view diagrams. All 102 profiles retain their hardware facts and FAE distinctions. Current integrated card, source-disclosure, comparison, redirect and responsive checks passed.",
+  "strengths": [
+    "The ten new profiles and four older generic illustrations now show source-inspected example configurations.",
+    "All 102 cards retain prominent processor counts, DIMM slots, DPC and per-server or per-node scope.",
+    "The earlier blade, tower and formatting corrections remain intact. Every non-art catalog field is protected against unintended edits.",
+    "The Finder and all five OEM learning guides use the same reviewed artwork; reference details and configuration limits remain accessible."
+  ],
+  "limitations": [
+    "HPE ProLiant XD245/XD285 and Supermicro SBA-817V7-1N remain explicitly labeled contextual schematics because exact isolated-model exteriors were not established.",
+    "Drawings represent documented example configurations, not simultaneous storage/CPU/GPU maxima.",
+    "This is a fresh physical-reference review of 14 illustrations and a layout/preservation review across 102 profiles; it is not a fresh source audit of every hardware specification.",
+    "Coverage is curated and partial. Exact configuration and orderability require OEM confirmation; HPE QuickSpecs remain primary HPE configuration evidence.",
+    "Public publication remains a separate owner action."
+  ],
+  "suites": [
+    {
+      "name": "Finder workflows",
+      "file": "acceptance-results.json",
+      "status": "PASS",
+      "passed": 50
+    },
+    {
+      "name": "Generation chronology",
+      "file": "generation-results.json",
+      "status": "PASS",
+      "passed": null
+    },
+    {
+      "name": "Illustration structure",
+      "file": "physical-design-results.json",
+      "status": "PASS",
+      "passed": null
+    },
+    {
+      "name": "Release integrity",
+      "file": "release-quality-results.json",
+      "status": "PASS",
+      "passed": 6
+    },
+    {
+      "name": "Independent specification review",
+      "file": "spec-verification-results.json",
+      "status": "PASS",
+      "passed": 5
+    },
+    {
+      "name": "Integrated browser review",
+      "file": "integration-browser-results.json",
+      "status": "PASS",
+      "passed": 14
+    }
+  ],
+  "upstream": {
+    "version": "1.2.0",
+    "catalogBuildDate": "2026-10-09T18:20:55.503Z",
+    "buildHash": "0223347363ce1fe419ed96240e869de62d40d5c072c959bde03ed01775b1bc13",
+    "scope": "The prior browser results apply to the separate v1.2 source release. They are retained in the build inputs and are not evidence of this integrated interface."
+  }
+}

@@ -1,0 +1,485 @@
+{
+  "vendor": "HPE",
+  "reviewed": "2026-10-09",
+  "intro": "HPE generation names roll out across different models over time. Gen11 began in 2022; early Gen12 AI systems were announced in 2024, followed by the broad Intel and AMD rollout in 2025. A later CPU or GPU refresh can keep the same server-generation name. Gen13 was announced in October 2026, with availability planned across late 2026 and 2027.",
+  "sources": {
+    "hpeGen10": {
+      "title": "HPE Discover Las Vegas 2017 announcements",
+      "url": "https://www.hpe.com/us/en/newsroom/press-kit/2017/06/discover-las-vegas-2017.html",
+      "scope": "June 2017 introduction of the next-generation ProLiant portfolio.",
+      "loc": "5 June 2017 · next-generation ProLiant announcement",
+      "date": "05 Jun 2017"
+    },
+    "hpeGenHistory": {
+      "title": "HPE IT equipment efficiency: lifecycle strategies",
+      "url": "https://www.hpe.com/psnow/doc/a50002031enw",
+      "scope": "HPE's historical chart dates Gen10 to 2017 and the later mainstream Gen10 Plus wave to 2021.",
+      "loc": "Figure 1 · Server generation and launch year",
+      "date": "Reviewed 08 Oct 2026"
+    },
+    "hpeGen10Plus": {
+      "title": "HPE ProLiant Gen10 Plus: The power of EPYC fully unleashed",
+      "url": "https://community.hpe.com/t5/servers-systems-the-right/hpe-proliant-gen10-plus-the-power-of-epyc-fully-unleashed/ba-p/7069874",
+      "scope": "HPE introduction of redesigned DL325 and DL385 Gen10 Plus in November 2019.",
+      "loc": "Opening paragraphs · DL325 and DL385 Gen10 Plus",
+      "date": "18 Nov 2019"
+    },
+    "hpeGen11": {
+      "title": "HPE introduces next-generation compute for a hybrid world",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2022/11/hewlett-packard-enterprise-introduces-next-generation-compute-engineered-for-a-hybrid-world.html",
+      "scope": "Gen11 portfolio launch and earlier June 2022 RL300 announcement.",
+      "loc": "Opening announcement; RL300 paragraph; Availability",
+      "date": "01 Nov 2022"
+    },
+    "hpeGen12Early": {
+      "title": "HPE and NVIDIA announce NVIDIA AI Computing by HPE",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2024/06/hewlett-packard-enterprise-and-nvidia-announce-nvidia-ai-computing-by-hpe-to-accelerate-generative-ai-industrial-revolution.html",
+      "scope": "Gen12 branding used for DL384 and DL380a AI systems in June 2024.",
+      "loc": "Expanded compute portfolio; Availability",
+      "date": "18 Jun 2024"
+    },
+    "hpeGen12Intel": {
+      "title": "HPE introduces eight new ProLiant Compute Gen12 servers",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2025/02/hpe-introduces-next-generation-proliant-servers-engineered-for-advanced-security-ai-automation-and-greater-performance.html",
+      "scope": "Broad Intel Gen12 rollout, including rack, tower and Synergy models.",
+      "loc": "Opening announcement; Availability",
+      "date": "12 Feb 2025"
+    },
+    "hpeGen12AMD": {
+      "title": "HPE expands the ProLiant Gen12 portfolio with AMD models",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2025/06/hpe-expands-proliant-gen12-server-portfolio-helps-customers-modernize-virtualization-and-edge-computing-with-ai-driven-management.html",
+      "scope": "DL325 and DL345 Gen12 announced June 2025; planned shipment in July.",
+      "loc": "HPE delivers double the memory; Availability",
+      "date": "25 Jun 2025"
+    },
+    "hpeGen11Refresh": {
+      "title": "HPE ProLiant Gen11 adds AMD EPYC 9005 processors",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2024/10/hpe-proliant-delivers-48-world-records-in-performance-and-energy-efficiency-for-enterprise-workloads.html",
+      "scope": "2024 CPU refresh retained the Gen11 name.",
+      "loc": "Opening announcement and availability",
+      "date": "10 Oct 2024"
+    },
+    "hpeGenDL145": {
+      "title": "HPE launches the ProLiant DL145 Gen11 edge server",
+      "url": "https://www.hpe.com/us/en/newsroom/blog-post/2024/09/new-hpe-proliant-dl145-gen-11-server-engineered-for-diverse-edge-locations-ensures-high-performance-for-demanding-workloads.html",
+      "scope": "Model-specific DL145 Gen11 launch, later than the Gen11 family debut.",
+      "loc": "Opening launch announcement",
+      "date": "18 Sep 2024"
+    },
+    "hpeGenXD685": {
+      "title": "HPE announces ProLiant Compute XD685",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2024/10/hpe-launches-new-purpose-built-solutions-powered-by-amd-to-accelerate-training-for-large-complex-ai-models.html",
+      "scope": "XD685 announcement, initial ordering and planned general availability.",
+      "loc": "Opening announcement; Availability",
+      "date": "10 Oct 2024"
+    },
+    "hpeGenXD690": {
+      "title": "HPE introduces XD690 in its NVIDIA AI factory portfolio",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2025/06/hpe-unveils-new-ai-factory-solutions-built-with-nvidia-to-accelerate-ai-adoption-at-global-scale.html",
+      "scope": "XD690 announcement and planned later-2025 availability.",
+      "loc": "HPE Compute XD690 joins the portfolio; Availability",
+      "date": "24 Jun 2025"
+    },
+    "hpeGenSynergy": {
+      "title": "First step with programming the HPE Composable API",
+      "url": "https://developer.hpe.com/blog/first-step-with-programming-the-hpe-composable-api/",
+      "scope": "HPE dates the Synergy platform announcement to December 2015.",
+      "loc": "A bit of history · December 2015 Synergy announcement",
+      "date": "08 Sep 2017 · retrospective"
+    },
+    "hpeGen13": {
+      "title": "HPE accelerates enterprise AI innovation with next-generation AMD CPU-powered servers",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2026/10/hpe-accelerates-enterprise-ai-innovation-with-next-generation-amd-cpu-powered-servers.html",
+      "date": "07 Oct 2026",
+      "scope": "Gen13 announcement and expected availability; not shipping confirmation.",
+      "loc": "AI-ready performance across enterprise workloads; Availability"
+    },
+    "hpeGen13Details": {
+      "title": "New HPE ProLiant Gen13 Servers - built to protect, designed to automate, proven to deliver",
+      "url": "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922",
+      "date": "07 Oct 2026 · reviewed 09 Oct 2026",
+      "scope": "HPE ComputeExperts launch detail: EPYC 9006 SP7, 10U DL585a and per-node socket counts; XD245 height conflicts with press release.",
+      "loc": "At a glance; HPE ProLiant DL525 / DL585a; XD245 / XD285"
+    },
+    "auditDL365History": {
+      "title": "HPE DL365 Gen11 QuickSpecs publication history",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004299enw.html",
+      "loc": "Summary of Changes: 10-Nov-2022, Version 1, New QuickSpecs",
+      "scope": "First published model-specific QuickSpecs; not a guarantee of initial shipment.",
+      "date": "Historical first QuickSpecs · 10 Nov 2022",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "eventDate": "2022-11-10"
+    },
+    "auditDL385History": {
+      "title": "HPE DL385 Gen11 QuickSpecs publication history",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004300enw.html",
+      "loc": "Summary of Changes: 10-Nov-2022, Version 1, New QuickSpecs",
+      "scope": "First published model-specific QuickSpecs; not a guarantee of initial shipment.",
+      "date": "Historical first QuickSpecs · 10 Nov 2022",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "eventDate": "2022-11-10"
+    },
+    "verifyDL325G11": {
+      "title": "HPE ProLiant DL325 Gen11 QuickSpecs",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004297enw.html",
+      "loc": "Platform Information; Processors; Memory; Accelerators; Direct Liquid Cooling; Summary of Changes",
+      "revision": "V41 · 5 October 2026",
+      "date": "V41 · 5 October 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model hardware/configuration evidence; availability is separate."
+    },
+    "verifyDL345G11": {
+      "title": "HPE ProLiant DL345 Gen11 QuickSpecs",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004298enw.html",
+      "loc": "Platform Information; Processors; Memory; Accelerators; Direct Liquid Cooling; Summary of Changes",
+      "revision": "V41 · 5 October 2026",
+      "date": "V41 · 5 October 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model hardware/configuration evidence; availability is separate."
+    },
+    "verifyDL385G10Pv2": {
+      "title": "HPE ProLiant DL385 Gen10 Plus v2 QuickSpecs — retired",
+      "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20ProLiant%20DL385%20Gen10%20Plus%20v2%20server%20QuickSpecs-a50002560enw.pdf?contentDisposition=attachment&deepLink=&form=false&hf=regular&id=a50002560enw.pdf&isFutureVersion=true&isLinearized=false&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&utm_campaign=&utm_content=&utm_medium=&utm_source=&utm_term=&ver=30",
+      "loc": "Retired notice p1; processors/memory pp4–6; 1P model p20; GPU table p48 and cables p49; population p58; first revision p66",
+      "revision": "V30 · 28 July 2025",
+      "date": "V30 · 28 July 2025",
+      "publicationDate": "2025-07-28",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model hardware/configuration evidence; availability is separate."
+    },
+    "verifyXD675": {
+      "title": "HPE Cray XD675 QuickSpecs — retired",
+      "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20Cray%20XD675%20QuickSpecs-a50009207enw.pdf?deepLink=&form=false&hf=regular&id=a50009207enw.pdf&isFutureVersion=true&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&ver=7",
+      "loc": "Retired notice/8U air system p1; CPU and MI300X options/memory p6; storage p7; BMC p8; first revision p18",
+      "revision": "V7 · 28 July 2025",
+      "date": "V7 · 28 July 2025",
+      "publicationDate": "2025-07-28",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model hardware/configuration evidence; availability is separate."
+    }
+  },
+  "generations": [
+    {
+      "id": "hpe-synergy",
+      "label": "Synergy family",
+      "year": 2015,
+      "summary": "Synergy was announced in December 2015. Later compute modules, including 480 Gen12, have their own generation dates.",
+      "sourceIds": [
+        "hpeGenSynergy"
+      ],
+      "dateLabel": "Family announced"
+    },
+    {
+      "id": "hpe-gen10",
+      "label": "ProLiant Gen10",
+      "year": 2017,
+      "summary": "The Gen10 portfolio debuted in 2017, introducing the era of HPE silicon-based server security.",
+      "sourceIds": [
+        "hpeGen10",
+        "hpeGenHistory"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "hpe-gen10plus",
+      "label": "Gen10 Plus · first AMD models",
+      "year": 2019,
+      "summary": "DL325 and DL385 Gen10 Plus appeared in November 2019. Other Gen10 Plus models followed, including a major 2021 wave.",
+      "sourceIds": [
+        "hpeGen10Plus",
+        "hpeGenHistory"
+      ],
+      "dateLabel": "First AMD models"
+    },
+    {
+      "id": "hpe-gen11",
+      "label": "ProLiant Gen11",
+      "year": 2022,
+      "summary": "RL300 was announced in June; the broader Gen11 portfolio followed in November. Later CPU updates retained Gen11.",
+      "sourceIds": [
+        "hpeGen11",
+        "hpeGen11Refresh"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "hpe-gen12early",
+      "label": "Gen12 · early AI systems",
+      "year": 2024,
+      "summary": "HPE announced DL384 and DL380a Gen12 AI systems in June 2024, before the broader Gen12 rollout.",
+      "sourceIds": [
+        "hpeGen12Early"
+      ],
+      "dateLabel": "Early AI announcement"
+    },
+    {
+      "id": "hpe-xd685",
+      "label": "Compute XD685",
+      "year": 2024,
+      "summary": "Announced in October 2024; general availability was planned for Q1 2025. XD uses model names rather than ProLiant Gen numbers.",
+      "sourceIds": [
+        "hpeGenXD685"
+      ],
+      "dateLabel": "Model announced"
+    },
+    {
+      "id": "hpe-gen12",
+      "label": "Gen12 · broad rollout",
+      "year": 2025,
+      "summary": "Eight Intel models were announced in February 2025; AMD DL325 and DL345 Gen12 joined in June.",
+      "sourceIds": [
+        "hpeGen12Intel",
+        "hpeGen12AMD"
+      ],
+      "dateLabel": "Broad rollout"
+    },
+    {
+      "id": "hpe-xd690",
+      "label": "Compute XD690",
+      "year": 2025,
+      "summary": "Announced in June 2025 as an eight-GPU Blackwell Ultra system, with availability planned later that year.",
+      "sourceIds": [
+        "hpeGenXD690"
+      ],
+      "dateLabel": "Model announced"
+    },
+    {
+      "id": "hpe-gen13",
+      "label": "Gen13 · announced platforms",
+      "year": 2026,
+      "dateLabel": "ANNOUNCED",
+      "summary": "Announced 7 October 2026. DL525 planned for late 2026; DL585a and XD245 / XD285 for 2027. Announcement is not shipping confirmation.",
+      "sourceIds": [
+        "hpeGen13"
+      ]
+    },
+    {
+      "id": "hpe-xd675",
+      "label": "Cray XD675",
+      "year": 2024,
+      "dateLabel": "Model documented",
+      "summary": "Eight-MI300X system documented by July 2024; now retired. XD numbering is separate from ProLiant generation names.",
+      "sourceIds": [
+        "verifyXD675"
+      ]
+    }
+  ],
+  "models": {
+    "dl320": {
+      "generationId": "hpe-gen12",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Part of the 12 February 2025 Intel Gen12 announcement.",
+      "sourceIds": [
+        "hpeGen12Intel"
+      ]
+    },
+    "dl325": {
+      "generationId": "hpe-gen12",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced 25 June 2025; the announcement scheduled shipping for July.",
+      "sourceIds": [
+        "hpeGen12AMD"
+      ]
+    },
+    "dl340": {
+      "generationId": "hpe-gen12",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Part of the 12 February 2025 Intel Gen12 announcement.",
+      "sourceIds": [
+        "hpeGen12Intel"
+      ]
+    },
+    "dl345": {
+      "generationId": "hpe-gen12",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced 25 June 2025 alongside DL325 Gen12.",
+      "sourceIds": [
+        "hpeGen12AMD"
+      ]
+    },
+    "dl360": {
+      "generationId": "hpe-gen12",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Part of the 12 February 2025 Intel Gen12 announcement.",
+      "sourceIds": [
+        "hpeGen12Intel"
+      ]
+    },
+    "dl365": {
+      "generationId": "hpe-gen11",
+      "note": "Model-specific QuickSpecs first published 10 November 2022; later CPU support additions remain separate milestones.",
+      "sourceIds": [
+        "auditDL365History",
+        "hpeGen11Refresh"
+      ],
+      "modelYear": 2022,
+      "modelDateKind": "Documented by"
+    },
+    "dl380": {
+      "generationId": "hpe-gen12",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Part of the 12 February 2025 Intel Gen12 announcement.",
+      "sourceIds": [
+        "hpeGen12Intel"
+      ]
+    },
+    "dl385": {
+      "generationId": "hpe-gen11",
+      "note": "Model-specific QuickSpecs first published 10 November 2022; later CPU support additions remain separate milestones.",
+      "sourceIds": [
+        "auditDL385History",
+        "hpeGen11Refresh"
+      ],
+      "modelYear": 2022,
+      "modelDateKind": "Documented by"
+    },
+    "dl580": {
+      "generationId": "hpe-gen12",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced in February 2025 with availability expected that summer.",
+      "sourceIds": [
+        "hpeGen12Intel"
+      ]
+    },
+    "dl380a": {
+      "generationId": "hpe-gen12early",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "The DL380a Gen12 name appeared in the June 2024 AI announcement; it also featured in the broader February 2025 Intel rollout. Current configurations reflect later updates.",
+      "sourceIds": [
+        "hpeGen12Early",
+        "hpeGen12Intel"
+      ]
+    },
+    "xd685": {
+      "generationId": "hpe-xd685",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Announced and orderable 10 October 2024; general availability was scheduled for Q1 2025. Later accelerator options have separate dates.",
+      "sourceIds": [
+        "hpeGenXD685"
+      ]
+    },
+    "xd690": {
+      "generationId": "hpe-xd690",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced 24 June 2025; first availability was planned later in 2025.",
+      "sourceIds": [
+        "hpeGenXD690"
+      ]
+    },
+    "sy480": {
+      "generationId": "hpe-gen12",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "480 Gen12 was announced in February 2025, with availability expected that summer. The Synergy family dates to 2015.",
+      "sourceIds": [
+        "hpeGen12Intel",
+        "hpeGenSynergy"
+      ]
+    },
+    "ml350": {
+      "generationId": "hpe-gen12",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Part of the 12 February 2025 Intel Gen12 announcement.",
+      "sourceIds": [
+        "hpeGen12Intel"
+      ]
+    },
+    "dl145": {
+      "generationId": "hpe-gen11",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "DL145 Gen11 launched on 18 September 2024, two years after the Gen11 family began.",
+      "sourceIds": [
+        "hpeGenDL145"
+      ]
+    },
+    "dl525": {
+      "generationId": "hpe-gen13",
+      "modelYear": 2026,
+      "modelDateKind": "Announced",
+      "note": "Announced 7 October 2026; expected availability later in 2026.",
+      "sourceIds": [
+        "hpeGen13"
+      ]
+    },
+    "dl585a": {
+      "generationId": "hpe-gen13",
+      "modelYear": 2026,
+      "modelDateKind": "Announced",
+      "note": "Announced 7 October 2026; expected availability in 2027.",
+      "sourceIds": [
+        "hpeGen13"
+      ]
+    },
+    "xd245": {
+      "generationId": "hpe-gen13",
+      "modelYear": 2026,
+      "modelDateKind": "Announced",
+      "note": "Announced 7 October 2026; expected availability in 2027.",
+      "sourceIds": [
+        "hpeGen13"
+      ]
+    },
+    "xd285": {
+      "generationId": "hpe-gen13",
+      "modelYear": 2026,
+      "modelDateKind": "Announced",
+      "note": "Announced 7 October 2026; expected availability in 2027.",
+      "sourceIds": [
+        "hpeGen13"
+      ]
+    },
+    "dl325g11": {
+      "generationId": "hpe-gen11",
+      "modelYear": 2022,
+      "modelDateKind": "Documented by",
+      "note": "First model QuickSpecs dated 10 November 2022. This dates the model, not every later CPU option.",
+      "sourceIds": [
+        "verifyDL325G11"
+      ]
+    },
+    "dl345g11": {
+      "generationId": "hpe-gen11",
+      "modelYear": 2022,
+      "modelDateKind": "Documented by",
+      "note": "First model QuickSpecs dated 10 November 2022. This dates the model, not every later CPU option.",
+      "sourceIds": [
+        "verifyDL345G11"
+      ]
+    },
+    "dl385g10pv2": {
+      "generationId": "hpe-gen10plus",
+      "modelYear": 2021,
+      "modelDateKind": "Documented by",
+      "note": "First v2 model QuickSpecs dated 19 April 2021; not the 2019 Gen10 Plus family debut.",
+      "sourceIds": [
+        "verifyDL385G10Pv2"
+      ]
+    },
+    "xd675": {
+      "generationId": "hpe-xd675",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "First XD675 QuickSpecs dated 1 July 2024; exact announcement date is not established.",
+      "sourceIds": [
+        "verifyXD675"
+      ]
+    }
+  },
+  "defaultGeneration": "hpe-gen12"
+}

@@ -1,0 +1,56 @@
+const fs=require('fs'),path=require('path'),vm=require('vm');
+const root=__dirname,out=path.join(root,'../outputs'),preview=process.argv.includes('--preview');
+const evidence=require('./release-evidence.cjs');
+const release=JSON.parse(fs.readFileSync(path.join(root,'release-metadata.json'),'utf8'));
+const aliasData=JSON.parse(fs.readFileSync(path.join(root,'cpu-aliases.json'),'utf8'));
+const vendors={ucs:'Cisco UCS',hpe:'HPE',dell:'Dell',lenovo:'Lenovo',supermicro:'Supermicro'};
+const catalog={reviewed:release.snapshotDate,version:release.version,vendors,cpuAliases:aliasData.aliases,cpuAliasScope:aliasData.scope,sources:{},models:[],milestones:[]};
+for(const [id,source] of Object.entries(aliasData.sources))catalog.sources['amd:alias_'+id]={...evidence.normalizeSource(source),vendor:'amd'};
+for(const [vendor,label] of Object.entries(vendors)){
+ const data=fs.readFileSync(path.join(root,vendor==='ucs'?'data.js':vendor+'-data.js'),'utf8');
+ const base=JSON.parse(vm.runInNewContext(data+'\nJSON.stringify({models,sources})'));
+ const chronology=JSON.parse(fs.readFileSync(path.join(root,vendor+'-generation-data.json'),'utf8').replace(/^\uFEFF/,''));
+ const metaFile=path.join(root,'fae-'+vendor+'.json');
+ if(!fs.existsSync(metaFile)&&!preview)throw Error('Missing '+metaFile);
+ const meta=fs.existsSync(metaFile)?JSON.parse(fs.readFileSync(metaFile,'utf8').replace(/^\uFEFF/,'')):{models:{},sources:{}};
+ const physical=JSON.parse(fs.readFileSync(path.join(root,'physical-'+vendor+'.json'),'utf8').replace(/^\uFEFF/,''));
+ const physicalById=Object.fromEntries(physical.map(p=>[p.id,p]));
+ const memory=JSON.parse(fs.readFileSync(path.join(root,'memory-'+vendor+'.json'),'utf8').replace(/^\uFEFF/,''));
+ const localSources={...base.sources,...meta.sources};
+ for(const [id,s] of Object.entries(chronology.sources))localSources['generation_'+id]=s;
+ for(const [id,s] of Object.entries(localSources))catalog.sources[vendor+':'+id]={...evidence.normalizeSource(s,{reviewedAt:id.startsWith('generation_')?chronology.reviewed:meta.reviewed}),vendor};
+ const refs=(ids=[])=>ids.map(id=>{const local=localSources[id]?id:localSources['generation_'+id]?'generation_'+id:id;const key=vendor+':'+local;if(!catalog.sources[key])throw Error('Missing source '+key);return key;});
+ for(const g of chronology.generations)catalog.milestones.push({...g,vendor,sourceIds:refs(g.sourceIds.map(id=>'generation_'+id))});
+ const code=vendor==='ucs'?fs.readFileSync(path.join(root,'app.js'),'utf8').split('function hardware')[1].split('function node')[0]:fs.readFileSync(path.join(root,vendor+'-views.js'),'utf8').split('// BEGIN hardware')[1].split('// END hardware')[0];
+ const reviewedArt=['hpe','cisco-dell','supermicro','lenovo'].map(name=>fs.readFileSync(path.join(root,'reviewed-art-'+name+'.js'),'utf8')).join('\n');
+ const ctx=vm.createContext({});vm.runInContext('let artSerial=0;'+(vendor==='ucs'?'function hardware'+code:code)+reviewedArt+fs.readFileSync(path.join(root,'installed-base-art.js'),'utf8'),ctx);
+ for(const m of base.models){
+  const f=meta.models[m.id];if(!f&&!preview)throw Error('Missing FAE metadata '+vendor+':'+m.id);
+  const d=chronology.models[m.id];if(!d)throw Error('Missing chronology '+vendor+':'+m.id);
+  const g=chronology.generations.find(x=>x.id===d.generationId);if(!g)throw Error('Missing generation '+d.generationId);
+  const fallback={cpuFamilies:[],aliases:[],cooling:'Configuration-dependent',gpuOptions:[],restrictions:['Preview: support metadata is being reviewed.'],decoder:[],lifecycle:{status:'unverified',note:'Not reviewed',sourceIds:m.sources},sourceIds:m.sources,verified:'Not reviewed'};
+  const fm={...fallback,...f};
+  const illustration=physicalById[m.id];if(!illustration||illustration.shape!==m.shape)throw Error('Missing or stale physical design reference '+vendor+':'+m.id);
+  const row={...m,...fm,id:vendor+':'+m.id,localId:m.id,oem:vendor,oemName:label,cpuVendor:m.vendor,sourceIds:refs([...new Set([...m.sources,...(fm.sourceIds||[])])]),guide:vendor+'-field-guide.html#lineup/'+m.id,art:vm.runInContext((m.shape.startsWith('installed-')?'installedBaseArt':'hardware')+'('+JSON.stringify(m.shape)+')',ctx)};
+  row.gpuOptions=(fm.gpuOptions||[]).map(option=>({...option,sourceIds:refs(option.sourceIds)}));
+  row.gpuExclusions=(fm.gpuExclusions||[]).map(exclusion=>({...exclusion,sourceIds:refs(exclusion.sourceIds)}));
+  row.illustration=illustration;
+  row.computeMemory=memory[m.id];if(!row.computeMemory)throw Error('Missing CPU/memory topology '+row.id);
+  row.computeMemory.sources=row.computeMemory.sources.map(source=>evidence.memorySource(source,row.computeMemory));
+  if(row.computeMemory.memoryConfigurations)row.computeMemory.memoryConfigurations=row.computeMemory.memoryConfigurations.map(layout=>({...layout,sourceIds:refs(layout.sourceIds||[])}));
+  row.computeMemory.sources.forEach((source,i)=>{const key=vendor+':memory_'+m.id+'_'+i;catalog.sources[key]={...source,vendor};row.sourceIds.push(key);});
+  row.lifecycle={...fm.lifecycle,sourceIds:refs(fm.lifecycle.sourceIds||[])};
+  row.generation={...g,...d,sourceIds:refs([...new Set([...(g.sourceIds||[]),...(d.sourceIds||[])])].map(id=>'generation_'+id))};
+  row.events=[{year:g.year,label:g.label+' · '+(g.dateLabel||'Generation introduced'),type:'introduction',sourceIds:refs(g.sourceIds.map(id=>'generation_'+id))},...(d.modelYear?[{year:d.modelYear,label:'This model: '+(d.modelDateKind||'announced').toLowerCase(),type:'introduction',sourceIds:refs((d.sourceIds||[]).map(id=>'generation_'+id))}]:[]),...(fm.events||[]).map(e=>({...e,sourceIds:refs(e.sourceIds)}))].sort((a,b)=>a.year-b.year);
+  catalog.models.push(row);
+ }
+}
+catalog.supportResources=Object.fromEntries(Object.entries({ucs:['hcl'],hpe:['os'],dell:['os'],lenovo:['os','proven'],supermicro:['os','gpu','resources']}).map(([oem,ids])=>[oem,ids.map(id=>{const key=oem+':'+id,source=catalog.sources[key];return source?{id:key,title:source.title,url:source.url,note:'Look up the exact model, system revision and software version. This is a verification route, not a qualification claim.'}:null;}).filter(Boolean)]));
+catalog.coverage=evidence.coverage(catalog.models,vendors,catalog.cpuAliases);
+catalog.manifest=evidence.manifest(catalog,release);
+const json=JSON.stringify(catalog).replace(/</g,'\\u003c');
+fs.writeFileSync(path.join(out,'platform-catalog.json'),JSON.stringify(catalog,null,2));
+fs.writeFileSync(path.join(out,'build-manifest.json'),JSON.stringify(catalog.manifest,null,2));
+const html=fs.readFileSync(path.join(root,'finder-template.html'),'utf8').replace('/*__CSS__*/',()=>fs.readFileSync(path.join(root,'finder.css'),'utf8')+'\n'+fs.readFileSync(path.join(root,'memory-ui.css'),'utf8')+'\n'+fs.readFileSync(path.join(root,'finder-release.css'),'utf8')).replace('/*__DATA__*/',()=>'const catalog='+json+';').replace('/*__APP__*/',()=>fs.readFileSync(path.join(root,'memory-ui.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'finder.js'),'utf8')).replace('Evidence reviewed 9 Oct 2026',`Catalog snapshot ${release.snapshotDate} · v${release.version}`);
+fs.writeFileSync(path.join(out,'index.html'),html);
+console.log('Finder: '+catalog.models.length+' models, '+Object.keys(catalog.sources).length+' source records'+(preview?' (preview)':''));

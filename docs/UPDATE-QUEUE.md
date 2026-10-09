@@ -6,6 +6,11 @@ short and plain; the technical details belong in `CHANGELOG.md`.
 
 ## Pending publication
 
+### Explore OEM server families in Platforms
+- Changed: 2026-10-09
+- Live: Pending
+- Update: Platforms now sits beside Products and Benchmarks. Explore 102 selected Cisco, HPE, Dell, Lenovo and Supermicro systems, compare generations, and filter by AMD processor family, accelerator, processor count, DIMM slots and DPC. Server illustrations, configuration limits and primary-source links stay together. Fourteen generic server pictures have been replaced with drawings checked against official OEM photos and diagrams, including all ten newly added models. Each drawing identifies the configuration shown, and remaining contextual schematics stay labeled. The existing CPU compatibility dialog also links to the broader guide, while keeping its exact-CPU evidence separate.
+
 ### Compare NPU capabilities across AMD and Intel
 - Changed: 2026-10-08
 - Live: Pending

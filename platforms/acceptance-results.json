@@ -1,0 +1,212 @@
+{
+  "version": "1.2.0",
+  "catalogHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
+  "models": 102,
+  "passed": 50,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Builder includes complete metadata and chronological evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "Structured EPYC 9005 excludes ST45 and the 8005 edge model",
+      "status": "PASS"
+    },
+    {
+      "name": "MI350P lookup spans Cisco, HPE, Dell and Supermicro",
+      "status": "PASS"
+    },
+    {
+      "name": "Intel CPU host can qualify AMD MI300X",
+      "status": "PASS"
+    },
+    {
+      "name": "Current CPU refresh does not imply the old L4 pairing on 8005",
+      "status": "PASS"
+    },
+    {
+      "name": "Explicit gaps control exposes the unestablished pairing",
+      "status": "PASS"
+    },
+    {
+      "name": "HPE MI350P conditions preserve planned shipping and power cap",
+      "status": "PASS"
+    },
+    {
+      "name": "H15 AMD blade keeps its announced lifecycle",
+      "status": "PASS"
+    },
+    {
+      "name": "SR675 actual H200 variants preserve status with positive9005 and negative9004 pairing",
+      "status": "PASS"
+    },
+    {
+      "name": "XD685 MI355X is found with Liquid and excluded with Air",
+      "status": "PASS"
+    },
+    {
+      "name": "Historical MI210 evidence remains distinguishable",
+      "status": "PASS"
+    },
+    {
+      "name": "Unspecified joint CPU/GPU pairing preserves historical and announced status",
+      "status": "PASS"
+    },
+    {
+      "name": "URL restores exact filters, four unique comparisons, and dialog",
+      "status": "PASS"
+    },
+    {
+      "name": "URL restores model details",
+      "status": "PASS"
+    },
+    {
+      "name": "Comparison cannot grow beyond four",
+      "status": "PASS"
+    },
+    {
+      "name": "Model and platform dates stay distinct for refreshed tower",
+      "status": "PASS"
+    },
+    {
+      "name": "All decoder parts have real, nonempty meanings",
+      "status": "PASS"
+    },
+    {
+      "name": "Generated sections, all model details, milestones contain no undefined",
+      "status": "PASS"
+    },
+    {
+      "name": "Removed Field Exercises links return to the Finder and preserve filters",
+      "status": "PASS"
+    },
+    {
+      "name": "Every model has scoped, sourced processor and memory facts",
+      "status": "PASS"
+    },
+    {
+      "name": "Equal DIMM totals retain different single and dual-processor DPC layouts",
+      "status": "PASS"
+    },
+    {
+      "name": "Multi-node counts remain per node and unknown DIMMs are not inferred from channels",
+      "status": "PASS"
+    },
+    {
+      "name": "Configuration exceptions remain visible on cards and in comparisons",
+      "status": "PASS"
+    },
+    {
+      "name": "Dell EPYC 9005 air-cooled configurations remain discoverable",
+      "status": "PASS"
+    },
+    {
+      "name": "Unsupported requested accelerator is not presented as supported card hardware",
+      "status": "PASS"
+    },
+    {
+      "name": "MI210 free-text lookup uses the same historical relationship as the GPU selector",
+      "status": "PASS"
+    },
+    {
+      "name": "Shared CPU aliases produce the same set as CPU-family filters",
+      "status": "PASS"
+    },
+    {
+      "name": "Model introduction years participate in search and model-date sorting",
+      "status": "PASS"
+    },
+    {
+      "name": "Coverage counts describe curated profiles and empty cells stay unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "DPC and memory-capacity filtering uses positive structured facts",
+      "status": "PASS"
+    },
+    {
+      "name": "Installed processor filtering does not infer one-CPU support from max sockets",
+      "status": "PASS"
+    },
+    {
+      "name": "Memory-type plus DPC filtering requires the documented combination",
+      "status": "PASS"
+    },
+    {
+      "name": "Publication, revision and review metadata never invent a publication date",
+      "status": "PASS"
+    },
+    {
+      "name": "Manifest reports actual model, claim-record and independent URL counts",
+      "status": "PASS"
+    },
+    {
+      "name": "C885 MI350X qualification prominently retains the near-term last-order date",
+      "status": "PASS"
+    },
+    {
+      "name": "EPYC 9005 refreshes use documented 2024 support additions, not 2026 review dates",
+      "status": "PASS"
+    },
+    {
+      "name": "Comparison retains requested CPU, GPU, cooling and scoped relationship",
+      "status": "PASS"
+    },
+    {
+      "name": "OEM support routes point to actual evidence and preserve model context",
+      "status": "PASS"
+    },
+    {
+      "name": "All 102 cards retain prominent processor, DIMM and DPC facts ahead of CPU and GPU detail",
+      "status": "PASS"
+    },
+    {
+      "name": "All 102 cards and details preserve generation dates, support limits and primary source links",
+      "status": "PASS"
+    },
+    {
+      "name": "Recognized accelerator text and selector expose identical evidence gaps",
+      "status": "PASS"
+    },
+    {
+      "name": "Cisco MI210 paths retain chassis and paired-CPU restrictions",
+      "status": "PASS"
+    },
+    {
+      "name": "Verified cooling additions are discoverable without inventing GPU joint qualification",
+      "status": "PASS"
+    },
+    {
+      "name": "One-CPU support is recorded only where the model documentation establishes it",
+      "status": "PASS"
+    },
+    {
+      "name": "Cooling, processors, DIMMs and DPC match one documented layout together",
+      "status": "PASS"
+    },
+    {
+      "name": "General GPU prohibitions apply to NVIDIA as well as AMD",
+      "status": "PASS"
+    },
+    {
+      "name": "Model dates show evidence type rather than claiming a launch from any dated document",
+      "status": "PASS"
+    },
+    {
+      "name": "Installed-base AMD coverage spans every OEM without masking unknown dates",
+      "status": "PASS"
+    },
+    {
+      "name": "Conflicting HPE XD675 topology remains unknown and retired GPUs remain historical",
+      "status": "PASS"
+    },
+    {
+      "name": "Announced Gen13 options remain announced and do not imply AMD GPU support",
+      "status": "PASS"
+    }
+  ],
+  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "generatedBy": "tools/build-platform-guides.py",
+  "exitCode": 0
+}

@@ -1,0 +1,486 @@
+{
+  "reviewed": "2026-10-09",
+  "reviewer": "Cisco/HPE specialist independent of Dell/Lenovo implementation",
+  "target": "work/verified-fixes-dell-lenovo.json",
+  "method": "Independent official-source review of all 34 logged Dell/Lenovo phase-one changes, both new Dell coverage profiles, and all nine Supermicro phase-one groups. Full configuration qualification is not inferred from separate model capabilities.",
+  "reviewedChangeCount": 34,
+  "results": [
+    {
+      "changeIndices": [
+        0
+      ],
+      "models": [
+        "lenovo:sr635"
+      ],
+      "status": "PASS",
+      "locator": "SR635 V3 processor cooling / Neptune Core configuration notes",
+      "conclusion": "Air and internal L2A are distinguished from facility-water Neptune Core; CTO, facility water and unavailable slot 2 verified.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp1609-thinksystem-sr635-v3-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        1,
+        16
+      ],
+      "models": [
+        "lenovo:sr645"
+      ],
+      "status": "PASS",
+      "locator": "SR645 V3 Processor Neptune Core Module; one-processor configurations; standard memory specifications",
+      "conclusion": "Open-loop requires two CPUs and uses slot 2; separate air one/two-CPU configurations and 24 slots / 12 channels / 1DPC verified.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp1607-thinksystem-sr645-v3-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        2
+      ],
+      "models": [
+        "lenovo:sr655"
+      ],
+      "status": "PASS",
+      "locator": "SR655 V3 Processor Neptune Core Module, configuration notes",
+      "conclusion": "Facility water / CTO-only module and occupied slot 6 verified; no universal GPU qualification inferred.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp1610-thinksystem-sr655-v3-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        3,
+        17
+      ],
+      "models": [
+        "lenovo:sr665"
+      ],
+      "status": "PASS",
+      "locator": "SR665 V3 Processor Neptune Core Module; GPU adapters configuration notes; one-processor configurations",
+      "conclusion": "Two CPUs for open-loop, slot 6, and 3 GPUs >=300 W with CPU TDP >=320 W requiring water cooling all verified. Air branch and memory topology correctly separate.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp1608-thinksystem-sr665-v3-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        4,
+        8,
+        14,
+        27,
+        29,
+        32
+      ],
+      "models": [
+        "lenovo:sr630"
+      ],
+      "status": "PASS_AFTER_CORRECTION",
+      "locator": "SR630 V4 Models; one-processor configurations; Neptune Core variants; Memory; GPU adapters",
+      "conclusion": "32-slot conventional vs 16-slot 7DK1, two CPUs for 7DK1, 1DPC, MRDIMM 1DPC/P-core constraint, and 7DK1 GPU exclusion verified. Unsupported P-core-only inference for the entire cooling layout was removed in change32.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        5,
+        9,
+        15,
+        28,
+        30,
+        33
+      ],
+      "models": [
+        "lenovo:sr650"
+      ],
+      "status": "PASS_AFTER_CORRECTION",
+      "locator": "SR650 V4 Models; one-processor configurations; Neptune Core variants; Memory; GPU adapters",
+      "conclusion": "32-slot conventional vs 16-slot 7DK2, two CPUs for 7DK2, 1DPC, slot8, MRDIMM constraint and 7DK2 GPU exclusion verified. Unsupported P-core-only inference for the entire cooling layout was removed in change33.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        6,
+        10
+      ],
+      "models": [
+        "lenovo:sr650a"
+      ],
+      "status": "PASS",
+      "locator": "SR650a V4 one-processor configurations; Processor Neptune Core configuration notes",
+      "conclusion": "One/two CPUs supported with open-loop; 16 DIMMs, front riser7/rear riser2/OCP1 for one CPU, slot8 cooling routing and OCP2 x8 limit verified.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp2128-thinksystem-sr650a-v4-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        7,
+        11
+      ],
+      "models": [
+        "lenovo:sr675"
+      ],
+      "status": "PASS",
+      "locator": "SR675 V3 Key features; processor tables; Standard specifications; L2A description",
+      "conclusion": "One/two CPUs explicitly listed; 12 local DIMMs/CPU. HGX internal closed-loop liquid-to-air requires no facility plumbing. Facility Air classification retains this distinction.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp1611-thinksystem-sr675-v3-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        12,
+        31
+      ],
+      "models": [
+        "lenovo:st650"
+      ],
+      "status": "PASS_WITH_OEM_AMBIGUITY",
+      "locator": "ST650 V3 preconfigured 1P SKUs; Processor configuration notes; One-processor configurations",
+      "conclusion": "Positive one-CPU configurations with16DIMMs and slots1-4,9 are explicit. Separate processor note contradicts general1P support. Added caveat correctly preserves both and requires exact CPU/machine-type validation.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp1604-thinksystem-st650-v3-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        13
+      ],
+      "models": [
+        "lenovo:se455"
+      ],
+      "status": "PASS",
+      "locator": "SE455 V3 Standard specifications",
+      "conclusion": "Exactly one EPYC8004, six slots, six channels and1DPC directly documented.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp1724-thinkedge-se455-v3-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        18
+      ],
+      "models": [
+        "lenovo:st45"
+      ],
+      "status": "PASS",
+      "locator": "ST45 V3 GPU adapters",
+      "conclusion": "Explicit no-GPU statement supports all-GPU exclusion.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp1994-thinksystem-st45-v3-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        19
+      ],
+      "models": [
+        "lenovo:sd665"
+      ],
+      "status": "PASS",
+      "locator": "SD665 V3 GPU accelerators and Standard specifications",
+      "conclusion": "Explicit no-GPU statement; separate SD665-N V3 not conflated.",
+      "officialUrls": [
+        "https://lenovopress.lenovo.com/lp1612-thinksystem-sd665-v3-server"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        20
+      ],
+      "models": [
+        "dell:chronology"
+      ],
+      "status": "PASS",
+      "locator": "Dell 14 May2024 release dateline, story highlights, CSP section",
+      "conclusion": "Correct title and May14,2024 date; names R670/R770 CSP Edition with Xeon6 E-cores. Later enterprise rollout remains separate.",
+      "officialUrls": [
+        "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2024~05~20240514-new-dell-poweredge-servers-support-workloads-from-the-data-center-to-the-edge.htm"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        21
+      ],
+      "models": [
+        "dell:chronology"
+      ],
+      "status": "PASS",
+      "locator": "Dell 8 April2025 release dateline and PowerEdge section",
+      "conclusion": "R470/R570/R670/R770 P-core expansion matches exact dated release.",
+      "officialUrls": [
+        "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2025~04~dell-technologies-unveils-infrastructure-innovations-built-to-power-modern-ai-ready-data-centers.htm"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        22
+      ],
+      "models": [
+        "dell:chronology"
+      ],
+      "status": "PASS",
+      "locator": "Dell 19 May2025 release dateline, AMD GPU servers and Availability",
+      "conclusion": "XE9785/XE9785L MI350-series announcement and planned2H2025 availability verified; announcement not treated as present shipping proof.",
+      "officialUrls": [
+        "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2025~05~dell-technologies-fuels-enterprise-ai-innovation-with-infrastructure-solutions-and-services.htm"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        23,
+        24
+      ],
+      "models": [
+        "dell:r670",
+        "dell:r770"
+      ],
+      "status": "PASS",
+      "locator": "Dell PowerEdge accelerated-compute portfolio PDF p8, R670/R770 features",
+      "conclusion": "Both exact models explicitly list Air and DLC; this is a platform cooling choice, not proof of every component/cooling pairing.",
+      "officialUrls": [
+        "https://www.delltechnologies.com/asset/no-no/products/servers/briefs-summaries/poweredge-acceleration-innovate-faster-for-ai.pdf?HVE=explore+gpu+accelerated+ai"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        25
+      ],
+      "models": [
+        "dell:t560"
+      ],
+      "status": "PASS",
+      "locator": "Dell T560 service manual, General memory module installation guidelines",
+      "conclusion": "Explicit single-processor A1-A8 and dual-processor A1-A8/B1-B8 rules confirm1/2 CPU populations. en-uk mirror used after en-gb failed to load.",
+      "officialUrls": [
+        "https://www.dell.com/support/manuals/en-gb/oth-t560/t560_ism_pub/General-memory-module-installation-guidelines?guid=guid-6d897c96-c17c-4ee1-85d0-8ee278630606&lang=en-us&lwp=rt",
+        "https://www.dell.com/support/manuals/en-uk/oth-t560/t560_ism_pub/General-memory-module-installation-guidelines?guid=guid-6d897c96-c17c-4ee1-85d0-8ee278630606&lang=en-us"
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "changeIndices": [
+        26
+      ],
+      "models": [
+        "dell:mx760"
+      ],
+      "status": "PASS",
+      "locator": "Dell MX760c service manual, General memory module installation guidelines",
+      "conclusion": "Explicit single-processor A1-A16 and dual-processor A/B rules confirm1/2CPU per sled; no change to HPR limitations.",
+      "officialUrls": [
+        "https://www.dell.com/support/manuals/en-ca/poweredge-mx760c/pemx760c_ism_pub/general-memory-module-installation-guidelines?guid=guid-a1253cf5-8468-4eb3-991b-b6854dd07ae9&lang=en-us"
+      ],
+      "reviewed": "2026-10-09"
+    }
+  ],
+  "blockingUnverifiedClaims": [],
+  "resolvedFindings": [
+    "P-core-only inference for entire Neptune Compute Complex layout removed; only MRDIMM has qualified P-core constraint.",
+    "ST650 inconsistent one-CPU language now explicitly disclosed; positive exact1P evidence retained."
+  ],
+  "remainingAmbiguities": [
+    "ST650 OEM document has conflicting one-CPU language. Exact CPU/machine type must be confirmed.",
+    "Full component/cooling/riser/firmware/OS configuration is outside these platform-summary positive claims."
+  ],
+  "notCovered": [
+    "Runtime UI/qualification integration requires root validation.",
+    "This source review does not certify arbitrary configured bills of materials or every specification in the entire pre-existing catalog."
+  ],
+  "coverageReview": [
+    {
+      "model": "dell:r7515",
+      "id": "r7515",
+      "status": "PASS",
+      "reviewed": "2026-10-09",
+      "conclusion": "15G, 2U and one EPYC 7002/7003; 16 DDR4 RDIMM/LRDIMM slots across eight channels with 1DPC/2DPC independently verified. Front NVMe is Gen3; iDRAC9/OpenManage documented. MI210 is one card in Riser 1B slot 3, restricted to the 24x2.5-inch / 2LP+2FH configuration, HPR fans, 1U HPR heatsink and ambient up to 30C. Dell explicitly listed R7515 available on 17 September 2019; the 17 March 2021 release establishes the later 7003 refresh.",
+      "boundaries": [
+        "GPU CPU-family/cooling joint scope remains unasserted.",
+        "Current orderability and lifecycle dates remain unverified.",
+        "Schematic only verifies documented 2U rack form; no exact exterior configuration certification."
+      ],
+      "sources": [
+        {
+          "url": "https://i.dell.com/sites/csdocuments/product_docs/en/poweredge-r7515-technical-guide.pdf",
+          "locator": "Processor; Memory; Storage; OpenManage; front-view figures"
+        },
+        {
+          "url": "https://www.dell.com/support/manuals/en-fm/oth-r7515/per7515_ism_pub/system-memory-guidelines?guid=guid-0534e253-8b5d-4116-b27d-78b133fdd07a&lang=en-us",
+          "locator": "System memory guidelines; Tables 1–2"
+        },
+        {
+          "url": "https://www.dell.com/support/manuals/en-us/poweredge-r7515/r7515_information_update_techsheet_ism/expansion-card-installation-guidelines?guid=guid-cf4ae8c3-ba25-4ed7-9f5e-5266bcf31fda&lang=en-us",
+          "locator": "Table 4: Riser 1B, AMD MI210 64GB 300W FH row"
+        },
+        {
+          "url": "https://www.dell.com/support/manuals/en-us/poweredge-r7515/per7515_ts_pub/thermal-restriction-matrix?guid=guid-b5796e6d-e739-4e98-b193-3aa647f08dba&lang=en-us",
+          "locator": "Table 4: MI210, A16 and V100S restrictions"
+        },
+        {
+          "url": "https://www.dell.com/support/manuals/en-au/poweredge-r7515/per7515_ism_pub/system-overview?guid=guid-ea6a65f5-9bc5-4aaa-8269-98a073063568&lang=en-us",
+          "locator": "System overview; supported drive layouts; NVMe note"
+        },
+        {
+          "locator": "Dell Rack Quick Reference Guide, 15th generation table",
+          "url": "https://i.dell.com/sites/csdocuments/Product_Docs/en/dell-emc-poweredge-rack-quick-reference-guide.pdf"
+        },
+        {
+          "locator": "17 September 2019 dateline and Availability; NZ mirror of the US release",
+          "url": "https://www.dell.com/en-nz/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2019~09~20190917-dt-unveils-groundbreaking-servers-and-solutions-for-modern-data-centers.htm"
+        },
+        {
+          "locator": "17 March 2021 Availability: third-generation EPYC refresh",
+          "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2021~03~20210317-dell-technologies-powers-ai-and-edge-computing-with-next-generation-poweredge-servers.htm"
+        }
+      ],
+      "revision": "Technical Guide Rev A12 / November 2022; current model-specific service pages reviewed 9 October 2026."
+    },
+    {
+      "model": "dell:r7525",
+      "id": "r7525",
+      "status": "PASS",
+      "reviewed": "2026-10-09",
+      "conclusion": "15G, 2U, one/two EPYC 7002/7003; 32 DDR4 RDIMM/LRDIMM slots across eight channels per CPU with 1DPC/2DPC independently verified. One-CPU build requires CPU1, 16 local memory slots, CPU2/memory blanks and only Riser 1. Table 17 names MI100/MI210, up to three in slots 2/5/7 with R1A+R2A+R3A+R4A. Thermal matrix limits liquid builds to two double-width GPUs and excludes 12x3.5 or 24x2.5 NVMe GPU layouts; heatsink/shroud requirements confirmed. Factory DLC and external coolant infrastructure independently documented. September 2019 announcement specified planned early-2020 availability, correctly distinct from its 2021 7003 refresh.",
+      "boundaries": [
+        "Model-level air/DLC choice is not universal CPU/GPU/cooling qualification.",
+        "GPU CPU-family/cooling joint scope remains unasserted.",
+        "Current orderability and lifecycle dates remain unverified.",
+        "Schematic only verifies documented 2U rack form; no exact exterior configuration certification."
+      ],
+      "sources": [
+        {
+          "url": "https://i.dell.com/sites/csdocuments/Product_Docs/en/dell-emc-poweredge-r7525-technical-guide.pdf",
+          "locator": "p.15: processor and single-processor configuration; p.27 Table 17: GPU risers; Memory; Storage; front-view figures"
+        },
+        {
+          "url": "https://www.dell.com/support/manuals/en-hr/poweredge-r7525/r7525_ism_pub/system-memory-guidelines?guid=guid-8665c17a-2613-45b2-9204-c02a89225024&lang=en-us",
+          "locator": "System memory guidelines; Tables 1–2"
+        },
+        {
+          "url": "https://www.dell.com/support/manuals/en-ca/poweredge-r7525/r7525_ts_pub/thermal-restriction-matrix?guid=guid-895d723e-1613-4960-96c5-75f339486036&lang=en-us",
+          "locator": "Tables 1–2 and 5–6; GPU notes"
+        },
+        {
+          "url": "https://infohub.delltechnologies.com/en-us/p/dell-technologies-direct-liquid-cooling-support-for-new-poweredge-servers/",
+          "locator": "New PowerEdge Server Support; Direct Liquid Cooling Technology"
+        },
+        {
+          "locator": "Dell Rack Quick Reference Guide, 15th generation table",
+          "url": "https://i.dell.com/sites/csdocuments/Product_Docs/en/dell-emc-poweredge-rack-quick-reference-guide.pdf"
+        },
+        {
+          "locator": "17 September 2019 dateline and Availability; NZ mirror of the US release",
+          "url": "https://www.dell.com/en-nz/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2019~09~20190917-dt-unveils-groundbreaking-servers-and-solutions-for-modern-data-centers.htm"
+        },
+        {
+          "locator": "17 March 2021 Availability: third-generation EPYC refresh",
+          "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2021~03~20210317-dell-technologies-powers-ai-and-edge-computing-with-next-generation-poweredge-servers.htm"
+        }
+      ],
+      "revision": "Technical Guide Rev A10 / August 2022: pp15,18-19,27,73-75; current model-specific service pages reviewed 9 October 2026."
+    }
+  ],
+  "supermicroReview": [
+    {
+      "id": "intelhyper-cooling",
+      "model": "SYS-222H-TN",
+      "status": "PASS",
+      "reviewed": "2026-10-09",
+      "locator": "Processor > Note; System Cooling > Liquid Cooling",
+      "url": "https://www.supermicro.com/en/products/system/hyper/2u/sys-222h-tn",
+      "conclusion": "Exact SYS-222H-TN page confirms air/liquid CPU cooling through 350W and optional direct-to-chip cold plate. No GPU scope added."
+    },
+    {
+      "id": "blade-cooling",
+      "model": "SBI-622B-1NE34",
+      "status": "PASS",
+      "reviewed": "2026-10-09",
+      "locator": "Key Features > item 8; Processor > Note",
+      "url": "https://www.supermicro.com/en/products/superblade/module/sbi-622b-1ne34.php",
+      "conclusion": "Exact SBI-622B-1NE34 Processor Note confirms air limit of 250W and separately offers direct liquid cooling. Broad 350W headline is not transferred to air."
+    },
+    {
+      "id": "amdblade-cooling",
+      "model": "SBA-817V7-1N",
+      "status": "PASS",
+      "reviewed": "2026-10-09",
+      "locator": "Key Features > item 2; Processor > Note; Coming Soon status",
+      "url": "https://www.supermicro.com/en/aplus/superblade/module/sba-817v7-1n.php",
+      "conclusion": "SBA-817V7-1N page explicitly lists air/liquid and maximum 600W CPU TDP with OEM conditions and Coming Soon status preserved."
+    },
+    {
+      "id": "amd1-thermal",
+      "model": "AS-1126HS-TN",
+      "status": "PASS",
+      "reviewed": "2026-10-09",
+      "locator": "Processor > Note",
+      "url": "https://www.supermicro.com/en/products/system/hyper/1u/as-1126hs-tn",
+      "conclusion": "AS-1126HS-TN Processor Note explicitly states maximum 500W and OEM-specific conditions for air-cooled CPUs above 290W. No liquid option inferred."
+    },
+    {
+      "id": "amdcloud-thermal",
+      "model": "AS-2015CS-TNR",
+      "status": "PASS",
+      "reviewed": "2026-10-09",
+      "locator": "Processor > Note",
+      "url": "https://www.supermicro.com/en/products/system/clouddc/2u/as-2015cs-tnr",
+      "conclusion": "AS-2015CS-TNR Processor Note explicitly states maximum 400W and OEM-specific conditions for air-cooled CPUs above 360W. No liquid option inferred."
+    },
+    {
+      "id": "amdtwin-thermal",
+      "model": "AS-2115GT-HNTR",
+      "status": "PASS",
+      "reviewed": "2026-10-09",
+      "locator": "Processor > Note",
+      "url": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2115gt-hntr",
+      "conclusion": "AS-2115GT-HNTR per-node Processor Note explicitly states maximum 400W and OEM-specific conditions for air-cooled CPUs above 300W. No liquid option inferred."
+    },
+    {
+      "id": "amdcloud-memory-revision",
+      "model": "AS-2015CS-TNR",
+      "status": "PASS",
+      "reviewed": "2026-10-09",
+      "locator": "Processor > CPU board revision note; System Memory > Memory (per Node for GrandTwin)",
+      "url": "https://www.supermicro.com/en/products/system/clouddc/2u/as-2015cs-tnr",
+      "conclusion": "CPU note requires revision 2.x for 9005. System Memory explicitly lists 12 RDIMM slots/1DPC: 9005 R2.0 up to 6000MT/s, R2.01 up to 6400MT/s, 9004 up to 4800MT/s. Qualified CPU/DIMM caveat retained."
+    },
+    {
+      "id": "amdtwin-memory-revision",
+      "model": "AS-2115GT-HNTR",
+      "status": "PASS",
+      "reviewed": "2026-10-09",
+      "locator": "Processor > CPU board revision note; System Memory > Memory (per Node for GrandTwin)",
+      "url": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2115gt-hntr",
+      "conclusion": "Per-node CPU note requires revision 2.x for 9005. Per-node memory lists 12 RDIMM slots/1DPC: 9005 R2.0 up to 6000MT/s, R2.01 up to 6400MT/s, 9004 up to 4800MT/s. Node scope retained."
+    },
+    {
+      "id": "amdentry-model-date",
+      "model": "AS-3015A-I",
+      "status": "PASS",
+      "reviewed": "2026-10-09",
+      "locator": "21 May 2024 dateline; Tower Servers exact product link",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-introduces-high-density-efficient-and-cost-optimized-solutions-powered-amd",
+      "conclusion": "Official 21 May 2024 EPYC 4004 release links exact AS-3015A-I under Tower Servers. Documented-by 2024 is supported; 13 May 2025 EPYC 4005 refresh remains distinct."
+    }
+  ]
+}

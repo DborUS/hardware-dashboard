@@ -1,0 +1,421 @@
+{
+  "vendor": "Dell",
+  "reviewed": "2026-10-09",
+  "intro": "PowerEdge generations arrived in waves. The year below marks the first documented launch wave; individual Intel, AMD, modular, edge and GPU models can follow later. Announcement dates do not guarantee that every configuration shipped that year.",
+  "sources": {
+    "ageDellGroups": {
+      "title": "Dell PowerEdge: Servers by generation",
+      "url": "https://www.dell.com/support/kbdoc/en-us/000137343/how-to-identify-which-generation-your-dell-poweredge-server-belongs-to",
+      "scope": "Official model-to-generation classification. This page does not itself establish launch dates.",
+      "loc": "Table of 17th, 16th, 15th and 14th Generation PowerEdge servers",
+      "date": "Reviewed 08 Oct 2026"
+    },
+    "ageDell14": {
+      "title": "Dell: 14G with Skylake — how much better for HPC?",
+      "url": "https://dl.dell.com/manuals/common/14g_with_skylake_how_much_better_for_hpc_wp_en-us.pdf",
+      "scope": "Contemporaneous introduction of 14G including R640 and R740.",
+      "loc": "Page 1: New servers and Skylake",
+      "date": "September 2017"
+    },
+    "ageDell15Early": {
+      "title": "Dell unveils servers with second-generation AMD EPYC",
+      "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2019~09~20190917-dt-unveils-groundbreaking-servers-and-solutions-for-modern-data-centers.htm",
+      "scope": "Early AMD systems later classified as 15G; R6515 and R7515 already available, with further models following.",
+      "loc": "Availability",
+      "date": "17 Sep 2019"
+    },
+    "ageDell15Broad": {
+      "title": "Dell launches next-generation PowerEdge portfolio",
+      "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2021~03~20210317-dell-technologies-powers-ai-and-edge-computing-with-next-generation-poweredge-servers.htm",
+      "scope": "Broad 15G rollout, including R650/R750/MX750c and AMD processor refreshes.",
+      "loc": "Availability; footnote 1 identifies PowerEdge 15G",
+      "date": "17 Mar 2021"
+    },
+    "ageDell16AMD": {
+      "title": "Dell next-generation PowerEdge AMD launch",
+      "url": "https://investors.delltechnologies.com/news-releases/news-release-details/next-generation-dell-poweredge-servers-dramatically-improve",
+      "scope": "R6615/R7615/R6625/R7625 launch; limited R7625 configurations in November 2022, broader availability planned February 2023.",
+      "loc": "More performance and storage options; Availability",
+      "date": "10 Nov 2022"
+    },
+    "ageDell16Intel": {
+      "title": "Dell expands next-generation PowerEdge portfolio",
+      "url": "https://investors.delltechnologies.com/news-releases/news-release-details/next-generation-dell-poweredge-servers-deliver-advanced",
+      "scope": "Intel 16G rollout, including R760 availability in February 2023; explicitly dates 14G to 2017.",
+      "loc": "Full story; Designed for sustainability; Availability",
+      "date": "17 Jan 2023"
+    },
+    "ageDell17AMD": {
+      "title": "Dell expands AI Factory with AMD-based PowerEdge servers",
+      "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2024~10~amd-advancing-ai.htm",
+      "scope": "Announcement of R6715/R7715/R6725/R7725 and XE7745.",
+      "loc": "New PowerEdge models; Availability",
+      "date": "10 Oct 2024"
+    },
+    "ageDell17Intel": {
+      "title": "Dell Technologies Unveils Infrastructure Innovations Built to Power Modern AI-Ready Data Centers",
+      "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2025~04~dell-technologies-unveils-infrastructure-innovations-built-to-power-modern-ai-ready-data-centers.htm",
+      "scope": "April 2025 expansion of R470/R570/R670/R770 with Xeon 6 P-core processors; not their first use of these model names.",
+      "loc": "April 08, 2025 dateline; Dell PowerEdge servers deliver advanced performance, energy efficiency and scalability; Availability",
+      "date": "8 Apr 2025",
+      "publicationDate": "2025-04-08",
+      "reviewed": "2026-10-09",
+      "revision": "Original press release 2025-04-08",
+      "destinationChecked": "2026-10-09",
+      "destinationTitle": "Dell Technologies Unveils Infrastructure Innovations Built to Power Modern AI-Ready Data Centers"
+    },
+    "ageDellMX760": {
+      "title": "Dell PowerEdge MX760c: generational comparison",
+      "url": "https://infohub.delltechnologies.com/en-us/p/dell-poweredge-mx760c-servers-handle-19-7-more-sql-server-work-and-support-25-more-vms/",
+      "scope": "Contemporaneous publication identifies the new MX760c as 16G.",
+      "loc": "Opening paragraphs",
+      "date": "16 Mar 2023"
+    },
+    "ageDellT560": {
+      "title": "PowerEdge T560 manuals and documents",
+      "url": "https://www.dell.com/support/product-details/en-us/product/poweredge-t560/resources/manuals",
+      "scope": "Earliest cited model documentation, not a verified launch-day announcement.",
+      "loc": "Statement of Volatility dated 24 May 2023; initial service documentation",
+      "date": "Model documents dated May 2023; reviewed 08 Oct 2026"
+    },
+    "ageDellXE9680": {
+      "title": "Dell advances HPC and AI with new PowerEdge servers",
+      "url": "https://www.dell.com/en-my/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2022~11~20221114-dell-technologies-advances-high-performance-computing--and--ai-with-dell-poweredge-servers-and-dell-apex-innovation.htm",
+      "scope": "XE9680 announcement; planned availability in first half of 2023.",
+      "loc": "PowerEdge XE family; Availability",
+      "date": "14 Nov 2022"
+    },
+    "ageDellXE7740": {
+      "title": "Dell announces new AI servers and integrated racks",
+      "url": "https://www.dell.com/en-us/blog/accelerating-ai-innovation-with-new-servers-and-racksolutions/",
+      "scope": "XE7740 announcement; planned first-half 2025 availability.",
+      "loc": "Product details; final availability paragraph",
+      "date": "18 Nov 2024"
+    },
+    "ageDellXE9780": {
+      "title": "Dell unveils enterprise AI solutions with NVIDIA",
+      "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2025~05~dell-technologies-and-nvidia-unveil-next-generation-enterprise-ai-solutions.htm",
+      "scope": "XE9780/XE9785 and liquid-cooled variants announced.",
+      "loc": "Dell infrastructure advances enterprise AI innovation",
+      "date": "19 May 2025"
+    },
+    "ageDellXE9785": {
+      "title": "Dell Technologies Fuels Enterprise AI Innovation with Infrastructure, Solutions and Services",
+      "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2025~05~dell-technologies-fuels-enterprise-ai-innovation-with-infrastructure-solutions-and-services.htm",
+      "scope": "XE9785 and XE9785L announced with AMD MI350-series support.",
+      "loc": "May 19, 2025 dateline; Availability: XE9785 and XE9785L with AMD Instinct MI350 Series planned for 2H 2025",
+      "date": "19 May 2025",
+      "publicationDate": "2025-05-19",
+      "reviewed": "2026-10-09",
+      "revision": "Original press release 2025-05-19",
+      "destinationChecked": "2026-10-09",
+      "destinationTitle": "Dell Technologies Fuels Enterprise AI Innovation with Infrastructure, Solutions and Services"
+    },
+    "ageDellXR8720": {
+      "title": "Dell announces XR8720t for telecom and edge",
+      "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2025~09~new-dell-poweredge-server-delivers-breakthrough-performance-and-lowers-costs-for-telecom-and-enterprise-edge-deployments.html",
+      "scope": "Model announcement; planned global availability in Q1 2026.",
+      "loc": "Opening paragraphs; Availability",
+      "date": "30 Sep 2025"
+    },
+    "ageDell17CSP": {
+      "title": "New Dell PowerEdge Servers Support Workloads from the Data Center to the Edge",
+      "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2024~05~20240514-new-dell-poweredge-servers-support-workloads-from-the-data-center-to-the-edge.htm",
+      "scope": "Early R670/R770 E-core CSP Edition announcement. Later enterprise configurations and P-core options are separate rollout milestones.",
+      "loc": "May 14, 2024 dateline; Enhanced performance and efficiency for cloud service providers; Availability",
+      "date": "14 May 2024",
+      "publicationDate": "2024-05-14",
+      "reviewed": "2026-10-09",
+      "revision": "Original press release 2024-05-14",
+      "destinationChecked": "2026-10-09",
+      "destinationTitle": "New Dell PowerEdge Servers Support Workloads from the Data Center to the Edge"
+    },
+    "ageDell17E": {
+      "title": "Dell introduces E-core R470 and R570 servers",
+      "url": "https://www.dell.com/en-us/blog/dell-poweredge-servers-unmatched-performance-and-energy-efficiency/",
+      "scope": "R470 available and R570 introduced with launch planned early 2025; describes existing R670/R770 E-core models.",
+      "loc": "Introducing Dell PowerEdge R470 and R570 Servers",
+      "date": "December 2024"
+    },
+    "faeXE9785Launch": {
+      "title": "Dell Technologies Accelerates Enterprise AI with Powerful, Automated Solutions",
+      "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2025~11~dell-technologies-accelerates-enterprise-ai-with-powerful-automated-solutions.htm",
+      "scope": "SC25 announcement of air-cooled XE9785; then-targeted global availability in December 2025.",
+      "loc": "PowerEdge Innovations; Availability",
+      "date": "17 Nov 2025"
+    },
+    "coverageDell2019": {
+      "title": "Dell introduces second-generation EPYC PowerEdge servers",
+      "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2019~09~20190917-dt-unveils-groundbreaking-servers-and-solutions-for-modern-data-centers.htm",
+      "loc": "17 September 2019 dateline; Availability",
+      "scope": "R7515 was available; R7525 planned for early 2020. Dates describe the 7002 wave.",
+      "date": "17 September 2019",
+      "publicationDate": "2019-09-17",
+      "reviewed": "2026-10-09",
+      "revision": "17 September 2019"
+    },
+    "coverageDellMilan2021": {
+      "title": "Dell launches next-generation PowerEdge portfolio",
+      "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2021~03~20210317-dell-technologies-powers-ai-and-edge-computing-with-next-generation-poweredge-servers.htm",
+      "loc": "Availability: 3rd Generation AMD EPYC models",
+      "scope": "R7515 and R7525 EPYC 7003 configurations available at March 2021 announcement.",
+      "date": "17 March 2021",
+      "publicationDate": "2021-03-17",
+      "reviewed": "2026-10-09",
+      "revision": "17 March 2021"
+    }
+  },
+  "generations": [
+    {
+      "id": "dell14",
+      "label": "PowerEdge 14G",
+      "year": 2017,
+      "summary": "R640/R740-era platforms began in 2017. Individual models and later CPU refreshes arrived across the generation.",
+      "sourceIds": [
+        "ageDell14",
+        "ageDell16Intel",
+        "ageDellGroups"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "dell15",
+      "label": "PowerEdge 15G",
+      "year": 2019,
+      "summary": "Early AMD models such as R6515/R7515 arrived in 2019. The broad 15G launch, including Intel R650/R750, followed in March 2021.",
+      "sourceIds": [
+        "ageDell15Early",
+        "ageDell15Broad",
+        "ageDellGroups"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "dell16",
+      "label": "PowerEdge 16G",
+      "year": 2022,
+      "summary": "AMD R66x5/R76x5 platforms were announced in November 2022; the Intel R660/R760-era expansion followed in 2023. MX760c and T560 are also 16G.",
+      "sourceIds": [
+        "ageDell16AMD",
+        "ageDell16Intel",
+        "ageDellGroups"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "dell17",
+      "label": "PowerEdge 17G",
+      "year": 2024,
+      "summary": "R670/R770 CSP Editions were announced in May 2024; AMD racks followed in October. Intel E-core and P-core configurations rolled out across 2024–2025, with AI and edge models continuing afterward.",
+      "sourceIds": [
+        "ageDell17CSP",
+        "ageDell17AMD",
+        "ageDell17E",
+        "ageDell17Intel",
+        "ageDellGroups"
+      ],
+      "dateLabel": "Generation introduced"
+    }
+  ],
+  "models": {
+    "r470": {
+      "generationId": "dell17",
+      "modelYear": 2024,
+      "modelDateKind": "Available",
+      "note": "Dell’s December 2024 announcement lists R470 as available with Xeon 6 E-cores. P-core configurations were highlighted in the April 2025 expansion.",
+      "sourceIds": [
+        "ageDell17E",
+        "ageDell17Intel"
+      ]
+    },
+    "r570": {
+      "generationId": "dell17",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Introduced in December 2024 with launch planned for early 2025. P-core configurations were highlighted in April 2025.",
+      "sourceIds": [
+        "ageDell17E",
+        "ageDell17Intel"
+      ]
+    },
+    "r670": {
+      "generationId": "dell17",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "The CSP Edition was announced in May 2024 with Xeon 6 E-cores. The broader P-core configuration wave followed in April 2025; not every current build was available at the first announcement.",
+      "sourceIds": [
+        "ageDell17CSP",
+        "ageDell17Intel"
+      ]
+    },
+    "r770": {
+      "generationId": "dell17",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "The CSP Edition was announced in May 2024 with Xeon 6 E-cores. The broader P-core configuration wave followed in April 2025; not every current build was available at the first announcement.",
+      "sourceIds": [
+        "ageDell17CSP",
+        "ageDell17Intel"
+      ]
+    },
+    "r6715": {
+      "generationId": "dell17",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Announced 10 October 2024; the launch release targeted global availability from November 2024.",
+      "sourceIds": [
+        "ageDell17AMD"
+      ]
+    },
+    "r7715": {
+      "generationId": "dell17",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Announced 10 October 2024; the launch release targeted global availability from November 2024.",
+      "sourceIds": [
+        "ageDell17AMD"
+      ]
+    },
+    "r6725": {
+      "generationId": "dell17",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Announced 10 October 2024; the launch release targeted global availability from November 2024.",
+      "sourceIds": [
+        "ageDell17AMD"
+      ]
+    },
+    "r7725": {
+      "generationId": "dell17",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Announced 10 October 2024; the launch release targeted global availability from November 2024.",
+      "sourceIds": [
+        "ageDell17AMD"
+      ]
+    },
+    "mx760": {
+      "generationId": "dell16",
+      "modelYear": 2023,
+      "modelDateKind": "Documented by",
+      "note": "Dell published this model as a new 16G compute sled in March 2023. The MX7000 enclosure is an older platform that spans several sled generations.",
+      "sourceIds": [
+        "ageDellMX760",
+        "ageDellGroups"
+      ]
+    },
+    "t560": {
+      "generationId": "dell16",
+      "modelYear": 2023,
+      "modelDateKind": "Documented by",
+      "note": "Model-specific Dell documents date to May 2023. Later processor support does not restart the model’s age; an exact launch day is not asserted.",
+      "sourceIds": [
+        "ageDellT560",
+        "ageDellGroups"
+      ]
+    },
+    "xr8720": {
+      "generationId": "dell17",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced September 2025 with global availability planned for Q1 2026. The compute sled’s date differs from the older XR8000 chassis.",
+      "sourceIds": [
+        "ageDellXR8720"
+      ]
+    },
+    "xe7740": {
+      "generationId": "dell17",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Announced November 2024, with availability then planned for the first half of 2025. Later GPU qualifications are separate milestones.",
+      "sourceIds": [
+        "ageDellXE7740"
+      ]
+    },
+    "xe7745": {
+      "generationId": "dell17",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Announced October 2024, with availability then planned from January 2025. This is the model announcement year, not a claim that every GPU option shipped in 2024.",
+      "sourceIds": [
+        "ageDell17AMD"
+      ]
+    },
+    "xe9680": {
+      "generationId": "dell16",
+      "modelYear": 2022,
+      "modelDateKind": "Announced",
+      "note": "Announced November 2022; the release planned availability in the first half of 2023. Later CPU and accelerator configurations do not make it a new server generation.",
+      "sourceIds": [
+        "ageDellXE9680"
+      ]
+    },
+    "xe9780": {
+      "generationId": "dell17",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced May 2025 in the next wave of eight-GPU platforms. Check configuration-specific accelerator and cooling qualifications.",
+      "sourceIds": [
+        "ageDellXE9780"
+      ]
+    },
+    "xe9785l": {
+      "generationId": "dell17",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced May 2025; AMD MI350-series configurations were part of this announcement. Shipping milestones and GPU options vary by build.",
+      "sourceIds": [
+        "ageDellXE9785"
+      ]
+    },
+    "xe9785": {
+      "generationId": "dell17",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "The air-cooled XE9785 was announced in the 2025 platform wave; November 2025 SC25 materials described the MI355X build and targeted global availability in December. GPU refreshes are separate from model age.",
+      "sourceIds": [
+        "ageDellXE9780",
+        "faeXE9785Launch"
+      ]
+    },
+    "r7625": {
+      "generationId": "dell16",
+      "modelYear": 2022,
+      "modelDateKind": "Announced",
+      "note": "Named in the 10 November 2022 AMD launch. Wider availability was planned for February 2023; model introduction is not an availability guarantee.",
+      "sourceIds": [
+        "ageDell16AMD"
+      ]
+    },
+    "r7615": {
+      "generationId": "dell16",
+      "modelYear": 2022,
+      "modelDateKind": "Announced",
+      "note": "Named in the 10 November 2022 AMD launch. Wider availability was planned for February 2023; model introduction is not an availability guarantee.",
+      "sourceIds": [
+        "ageDell16AMD"
+      ]
+    },
+    "r7515": {
+      "generationId": "dell15",
+      "modelYear": 2019,
+      "modelDateKind": "Available by",
+      "note": "R7515 was available at the 17 September 2019 EPYC 7002 announcement. EPYC 7003 configurations were available by March 2021.",
+      "sourceIds": [
+        "coverageDell2019",
+        "coverageDellMilan2021"
+      ]
+    },
+    "r7525": {
+      "generationId": "dell15",
+      "modelYear": 2019,
+      "modelDateKind": "Announced",
+      "note": "Named in the 17 September 2019 announcement; availability was then planned for early 2020, so 2019 is not a shipment date. EPYC 7003 configurations were available by March 2021.",
+      "sourceIds": [
+        "coverageDell2019",
+        "coverageDellMilan2021"
+      ]
+    }
+  },
+  "defaultGeneration": "dell17"
+}

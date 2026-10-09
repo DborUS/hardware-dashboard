@@ -7,6 +7,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- **Integrated OEM platform guides (2026-10-09)** — Added the verified 102-profile
+  AMD Platform Finder and five OEM learning guides under `platforms/`, with shared
+  Products / Benchmarks / Platforms navigation, local evidence reports, portable
+  generation inputs, deterministic rebuild checks and GitHub Pages subpath checks.
+  Legacy guide links preserve their query/hash state. Existing exact-CPU platform
+  compatibility data and all imported hardware specifications remain intact; the
+  subsequent illustration review is recorded separately below.
+
 - **Benchmark explorer redesign (2026-10-07)** — AMD-inspired red/black styling,
   hardware/workload/version selection, plain-language score context, separate
   results/coverage/source tabs, and actual-score chart axes. Chart and table share
@@ -24,6 +32,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   access reasons.
 
 ### Changed
+
+- **OEM server illustration review (2026-10-09)** — Replaced fourteen generic
+  drawings, covering all ten recently added platforms and four older installed-base
+  profiles, with illustrations based on visually inspected official OEM images
+  and front-panel diagrams. Added `platforms/illustration-review.html` with the
+  pictured configuration and exact reference locators. The review carries forward
+  accurate chassis/form distinctions, joined geometry, removal of tower feet and
+  accessible image descriptions. HPE Cray XD245/XD285 and Supermicro SBA-817V7-1N
+  remain explicitly labeled contextual schematics. All 102 hardware, support,
+  memory and date records remain protected by `art-review-baseline.json`,
+  `art_revision.py` and `src/approved-art-revision.json`; original
+  `import-provenance.json` remains unchanged. Prior UI/browser PASS results apply
+  only to their recorded hashes; revised-build validation is recorded separately.
 
 - **Complete publication validation (2026-10-08)** — Replayed Blender imports after catalog restoration to include the existing Ryzen 7 7840HS result, regenerating its snapshot, review, capture summary, catalog, source registry and CPU table lookup together. Coverage is now 3,863 results / 698 products, including 175 Blender medians. Preserve raw SPEC fixture CSV bytes during Git checkout so strict hashes match on Windows and Linux. Local and hosted release checks now share one complete entry point, including all importer and NPU regressions. Ranking scroll checks wait for completed keyboard scrolling and the filtered list's final position.
 

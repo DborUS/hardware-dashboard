@@ -1,0 +1,32 @@
+{
+  "passed": 5,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Each of 22 Cisco/HPE correction groups has an independent source review",
+      "status": "PASS"
+    },
+    {
+      "name": "Every Dell/Lenovo logged correction is independently covered",
+      "status": "PASS"
+    },
+    {
+      "name": "Each of nine Supermicro correction groups has an independent source review",
+      "status": "PASS"
+    },
+    {
+      "name": "All ten added platform profiles have independent coverage review",
+      "status": "PASS"
+    },
+    {
+      "name": "Peer-review corrections survive into the catalog",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Review completeness and integrated caveats; source-review methods and limitations remain in the peer logs.",
+  "version": "1.2.0",
+  "catalogHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
+  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "generatedBy": "tools/build-platform-guides.py",
+  "exitCode": 0
+}

@@ -1,0 +1,36 @@
+{
+  "models": 102,
+  "passed": 6,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Original models keep their art unless a source-inspected revision is recorded",
+      "status": "PASS"
+    },
+    {
+      "name": "Installed-base additions have complete evidence without replacing existing models",
+      "status": "PASS"
+    },
+    {
+      "name": "Unknown announced memory remains explicitly unconfirmed",
+      "status": "PASS"
+    },
+    {
+      "name": "Every represented source resolves and dates retain their meanings",
+      "status": "PASS"
+    },
+    {
+      "name": "Newer memory facts replace stale omission prose",
+      "status": "PASS"
+    },
+    {
+      "name": "All generated OEM guides have valid scripts and evidence surfaces",
+      "status": "PASS"
+    }
+  ],
+  "version": "1.2.0",
+  "catalogHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
+  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "generatedBy": "tools/build-platform-guides.py",
+  "exitCode": 0
+}

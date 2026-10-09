@@ -1,0 +1,147 @@
+{
+  "reviewedAt": "2026-10-09",
+  "scope": "14 original exterior drawings based on visually inspected official OEM references; all hardware, support, source, memory, generation and lifecycle facts unchanged. Integrated browser review is recorded separately.",
+  "baseline": "../art-review-baseline.json",
+  "changes": {
+    "ucs:c245m6": {
+      "name": "C245 M6",
+      "previousArtSha256": "8d2ee3807748cee77348f06f4605d7f5a27873f07a297e2d0d44a36696829a93",
+      "artSha256": "f4d6bc35c4d3f11f9aad8e392f9117321b08651957897e69ceb99a52a8184523",
+      "illustrationSha256": "6a096aac531ef41297240ff09184e2e2b48a9e66a7e57d11e2d90c006dc17db8",
+      "sourceUrl": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/C245m6/install/c245m6/m_overview.html",
+      "locator": "External Features · Figure 1, Cisco UCS C245 M6 (SFF Drives, 24-Drive) Front Panel",
+      "reviewMethod": "Visually inspected official Figure 1 image in the browser; corroborated configuration against the C245 M6 SFF Spec Sheet p7.",
+      "reviewedAt": "2026-10-09"
+    },
+    "ucs:c225m6": {
+      "name": "C225 M6",
+      "previousArtSha256": "2f8f17ee350d61ec9c45a3b2dd9c705bc957f4e409ea7cdc9f5f89fa1e40c263",
+      "artSha256": "f5c1035a9b5663a209bbc2ebac4ca7f0bdf565490eb2d2abf56e41e897e6f3fd",
+      "illustrationSha256": "b52b3e2ea6a205e0bf1c31c6101096bdd2453d125b941dc910083bf43e2a4fe4",
+      "sourceUrl": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/c225m6/install/c225m6/m_overview.html",
+      "locator": "External Features · Figure 1, Cisco UCS C225 M6 Server Front Panel",
+      "reviewMethod": "Visually inspected official Figure 1 image in the browser; corroborated configuration against the C225 M6 SFF Spec Sheet p7.",
+      "reviewedAt": "2026-10-09"
+    },
+    "hpe:dl325g11": {
+      "name": "DL325 Gen11",
+      "previousArtSha256": "ebd5b0f64620e7099a92e9f7f1539c55e6fa58afb1413e09f029959d2ce0667f",
+      "artSha256": "f71e3ce6e2012514c74c451f58187b4128b01c0607c2364d4eb804c2a918404c",
+      "illustrationSha256": "0b03296c51b967f5c0e6f207afdf8421f40b42c08ca6613bd64814819a5fd486",
+      "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50004297enw.html",
+      "locator": "Overview, IMAGE 1; PDF page 2: Front View - 8 SFF + optional 2 SFF Drive Bay shown",
+      "reviewMethod": "Opened and visually inspected the official QuickSpecs front-view image in a dedicated browser tab; reproduced carrier orientation, cage divisions, controls and chassis proportions.",
+      "reviewedAt": "2026-10-09"
+    },
+    "hpe:dl345g11": {
+      "name": "DL345 Gen11",
+      "previousArtSha256": "13407a04def2041a65b85ec40024d67fae41ac2df3318b8d587c3e9e5a799b96",
+      "artSha256": "b1f9b4a79a731c76253eaa7849cde145ab2578dedc34dc576d6d2c873ee9dc19",
+      "illustrationSha256": "848bec88b4f256c960af0709a7b5eb149cb43a87c1afefafe4cd45f18ca68f67",
+      "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50004298enw.html",
+      "locator": "Overview, IMAGE 1: Front View - 24 SFF chassis shown",
+      "reviewMethod": "Opened and visually inspected the official QuickSpecs front-view image in a dedicated browser tab; reproduced carrier orientation, cage divisions, controls and chassis proportions.",
+      "reviewedAt": "2026-10-09"
+    },
+    "hpe:dl385g10pv2": {
+      "name": "DL385 Gen10 Plus v2",
+      "previousArtSha256": "b9e0755dbb4ff8cfc2f75ac490d14b06f4cce09370ede874e0b460dc18414a93",
+      "artSha256": "ac37342b7183839056e7744b5af1e6c5a3bdf67415b126492f7a75a99c6dcc28",
+      "illustrationSha256": "ea99dbfc99baed0f73d10e5b4acf4ba3b448413a96d0cb8c173b732ea10223cf",
+      "sourceUrl": "https://www.hpe.com/psnow/doc/a50002560enw",
+      "locator": "PDF page 1: HPE ProLiant DL385 Gen10 Plus v2 8 SFF Server - Front View",
+      "reviewMethod": "Downloaded the official QuickSpecs using its visible HPE Download link, rendered the specified PDF page with Poppler, and visually inspected the front-view photograph before drawing.",
+      "reviewedAt": "2026-10-09"
+    },
+    "hpe:xd675": {
+      "name": "Cray XD675",
+      "previousArtSha256": "adfd28973879e31556fda514cc3ffa0bcc5116b9dc48e1b139846f86ea1d990f",
+      "artSha256": "f2e522f9e54f56c9780a5e61a8762268cfba741044a08ee3daa071eb92330adf",
+      "illustrationSha256": "48991a4e3433c0ec1fa4fadc4feee7ae4d8277278e60c51d625cb01d80c18237",
+      "sourceUrl": "https://www.hpe.com/psnow/doc/a50009207enw",
+      "locator": "PDF page 4: HPE Cray XD675 Server Front View",
+      "reviewMethod": "Downloaded the official QuickSpecs using its visible HPE Download link, rendered the specified PDF page with Poppler, and visually inspected the front-view photograph before drawing.",
+      "reviewedAt": "2026-10-09"
+    },
+    "dell:r7625": {
+      "name": "PowerEdge R7625",
+      "previousArtSha256": "27a4c67ae4b993a89b13c6048ee89545cd2a9533af550f7579b4400570104a3c",
+      "artSha256": "0a2bea3cfaba0861de08787b075e7775c7b403b506ba8018a57ab5e40f98f2fd",
+      "illustrationSha256": "324a675a9fef310719fa297951a7c1f94d3b82408a897536bceef60b443ee0ab",
+      "sourceUrl": "https://www.dell.com/support/manuals/en-in/oth-xlr7625/per7625_ism_pub/front-view-of-the-system?guid=guid-dee70ecf-dc1c-439b-824e-d6f4a3cd3477&lang=en-us",
+      "locator": "Front view of the system · Figure 2, Front view of 16 × 2.5-inch drive system",
+      "reviewMethod": "Opened the official manual, followed its front-view image source, and visually inspected the browser-rendered Figure 2.",
+      "reviewedAt": "2026-10-09"
+    },
+    "dell:r7615": {
+      "name": "PowerEdge R7615",
+      "previousArtSha256": "f224af5c2368e773296025763f07c190f2c4c1d5556b59ac232eff061c6abeb8",
+      "artSha256": "d581380ad6ded5cf96b1036a7af01a33b58cd83ed6aa473a1e506d14aae4793f",
+      "illustrationSha256": "742138f0035dd3d11d35019b3622e85e3de42ab89ab127d9d979b94fb67fea13",
+      "sourceUrl": "https://www.dell.com/support/manuals/en-us/oth-r7615/per7615_ism_pub/front-view-of-the-system?guid=guid-48915c14-dab6-4d5b-a446-80bfb9ea4580&lang=en-us",
+      "locator": "Front view of the system · Figure 1, Front view of 24 × 2.5-inch drive system",
+      "reviewMethod": "Opened the official manual, followed its front-view image source, and visually inspected the browser-rendered Figure 1.",
+      "reviewedAt": "2026-10-09"
+    },
+    "dell:r7515": {
+      "name": "PowerEdge R7515",
+      "previousArtSha256": "7d2efb53d364bd6f9846712190eddf244291c9bb9f51f7be6af4519f6a13b16e",
+      "artSha256": "3bcbbbdbbaeafc66ed9892d8b0be0b07a67a9934afbaf73193b78c2891c0f5af",
+      "illustrationSha256": "364185758217b9a04d8268b1f44ccc8bf3b651adfa561be9aaa9c83ac6027f87",
+      "sourceUrl": "https://i.dell.com/sites/csdocuments/product_docs/en/poweredge-r7515-technical-guide.pdf",
+      "locator": "Page 9 · Figure 2, Front view of the 12 × 3.5-inch drive system",
+      "reviewMethod": "Downloaded the official technical guide, rendered page 9 with Poppler, and visually inspected Figure 2.",
+      "reviewedAt": "2026-10-09"
+    },
+    "dell:r7525": {
+      "name": "PowerEdge R7525",
+      "previousArtSha256": "90edf3d61f33ee3206dce33c83ae1b7c715cc0f0d0c12b4293f8eaf319b537ea",
+      "artSha256": "ca38f485a2c2fe83d9452cc9df34d14a99424349e4caba30d082ebdeebda809d",
+      "illustrationSha256": "2809eed82bbb09c752723f165815bdd9ce875d39887fd21c1988ff5f7930accd",
+      "sourceUrl": "https://i.dell.com/sites/csdocuments/Product_Docs/en/dell-emc-poweredge-r7525-technical-guide.pdf",
+      "locator": "Page 9 · Figure 1, Front view of the 24 × 2.5-inch drive system",
+      "reviewMethod": "Downloaded the official technical guide, rendered page 9 with Poppler, and visually inspected Figure 1.",
+      "reviewedAt": "2026-10-09"
+    },
+    "lenovo:sr665original": {
+      "name": "SR665 (original)",
+      "previousArtSha256": "60c39a1c4bc29615380011f53702db79dc698a2e6efa08b79a07adb66f9a2c71",
+      "artSha256": "83dbc73b17dc7ff0aee0cadca10b63324beae02b2fa426c115a3d141a9d505ca",
+      "illustrationSha256": "baf88493663eb25376dea2af362443cd92f75d144ac00130960ad4eb71d9e0e2",
+      "sourceUrl": "https://lenovopress.lenovo.com/lp1269-thinksystem-sr665-server",
+      "locator": "Components and connectors, Figure 2",
+      "reviewMethod": "Official front-view image visually inspected; simplified SVG redrawn to match visible carrier and control layout.",
+      "reviewedAt": "2026-10-09"
+    },
+    "supermicro:amdlegacy": {
+      "name": "AS-2024US-TRT",
+      "previousArtSha256": "73ecf2f7a83054d684481b03c4fd8b890c4fb21448ea142d5dc1a4f93ed41039",
+      "artSha256": "915546973317e7a2ac3ebab1bed2f100f7a011361dd4c85ecc7182cbf9d88879",
+      "illustrationSha256": "10a6acf35225e4bece97f28854ab8503e8de4171c337d94f99cd6499c266964c",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt",
+      "locator": "Product gallery main image: front face of the open-cover chassis",
+      "reviewMethod": "Opened and visually inspected the actual official product photograph in the browser; identified carrier orientation, grille arrangement, controls, handles and chassis proportions.",
+      "reviewedAt": "2026-10-09"
+    },
+    "supermicro:mi300x": {
+      "name": "AS-8125GS-TNMR2",
+      "previousArtSha256": "13cef45b86fbb562704ddca151463d968664d5112af5a85815401dcfba5e55bd",
+      "artSha256": "6af357fe059d0a8f6ddb3e5705d690fcde7e5099fd1e467944bff9e77326358a",
+      "illustrationSha256": "e4d0284f41ceff23e33165856dc3ffc7359a09a5d593a88a0a5e419ae040719b",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2",
+      "locator": "Product gallery main image: complete closed chassis and front face",
+      "reviewMethod": "Opened and visually inspected the actual official product photograph in the browser; identified carrier orientation, grille arrangement, controls, handles and chassis proportions.",
+      "reviewedAt": "2026-10-09"
+    },
+    "supermicro:h15hyper": {
+      "name": "AS-2127H7-N",
+      "previousArtSha256": "bb6ec0a359f5e7378b935b34f98006b50dceb0138c85473e64feeb16159827c8",
+      "artSha256": "c3426d9dae5a851e72b937343b912c68431e4a5eb835bce36a4703d9318fc44e",
+      "illustrationSha256": "4523619afd253fca0aa8c6669f794b9b6579d6d01eae67e7a82c5dcf7d2f6080",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n",
+      "locator": "Front View - System: drive positions 0-7 and left power/UID/status controls",
+      "reviewMethod": "Opened and visually inspected both the official front-view callout (positions 0-7) and the product gallery photograph in the browser.",
+      "reviewedAt": "2026-10-09"
+    }
+  }
+}

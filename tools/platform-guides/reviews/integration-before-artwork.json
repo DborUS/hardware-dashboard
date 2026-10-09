@@ -1,0 +1,80 @@
+{
+  "version": "1.2.0",
+  "buildHash": "2f3da376b8b546029b4966ad22edbef8f22f0af27228e58789c110cc07aa3b59",
+  "catalogHash": "3c9c7dcf3716d2a4df87ccb570ca9518341d63c8339d41bbc962b0cadc8214ef",
+  "reviewedAt": "2026-10-09T18:43:26.340301+00:00",
+  "method": "Manual integrated browser review through the Codex in-app browser; desktop and explicit 1024px/320px responsive views.",
+  "routeScope": "Project deployment prefix /hardware-dashboard/",
+  "passed": 13,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Products navigation fits 320px, with all three links at 44px height and no page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "Products and Benchmarks retain all three section links and fit at 1024px",
+      "status": "PASS"
+    },
+    {
+      "name": "Benchmarks navigation fits 320px and returns to Products under the same project prefix",
+      "status": "PASS"
+    },
+    {
+      "name": "Existing EPYC 9575F exact-CPU dialog retains its 15 verified platforms and adds a broad family-learning link",
+      "status": "PASS"
+    },
+    {
+      "name": "Existing exact-CPU dialog opens the canonical integrated Finder with all 102 profiles",
+      "status": "PASS"
+    },
+    {
+      "name": "DL325 Gen11/Gen12 comparison retains processor, DIMM and DPC differences, QuickSpecs links and a reloadable deep link",
+      "status": "PASS"
+    },
+    {
+      "name": "Platform Finder and comparison fit 320px without page overflow; the comparison table scrolls within its labeled region",
+      "status": "PASS"
+    },
+    {
+      "name": "All five OEM guides load through the vendor switcher beneath the project path and fit at 320px",
+      "status": "PASS"
+    },
+    {
+      "name": "OEM guide return applies its own filter; Supermicro returns 25 profiles; verified-change report loads locally",
+      "status": "PASS"
+    },
+    {
+      "name": "Specification-review model links open matching detail dialogs with primary evidence and schematic labels",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy finder redirect retains query string, OEM filter and model search; browser console has no errors",
+      "status": "PASS"
+    },
+    {
+      "name": "Platforms to Benchmarks and back retains the project prefix and loads the correct sections",
+      "status": "PASS"
+    },
+    {
+      "name": "Integrated Finder header, navigation and filters fit 1024px without horizontal overflow",
+      "status": "PASS"
+    }
+  ],
+  "evaluation": {
+    "verdict": "ChipIndex integration verified",
+    "summary": "The platform learning section is integrated with Products and Benchmarks. Navigation, OEM switching, model details, comparisons, saved links and responsive layouts passed the current browser review. The package rebuilds from retained ChipIndex sources and preserves all 102 reviewed records and illustrations.",
+    "strengths": [
+      "Products, Benchmarks and Platforms provide reciprocal navigation under a project deployment path.",
+      "The existing exact-CPU compatibility dialog remains distinct and links to the broader family guide.",
+      "The integrated package preserves the reviewed catalog and art exactly, with automatic checks for unexpected changes.",
+      "All five OEM learning guides and supporting evidence remain available locally."
+    ],
+    "limitations": [
+      "Coverage is curated and partial; a missing profile does not establish incompatibility.",
+      "System configuration and orderability still require OEM confirmation. HPE QuickSpecs remain the primary HPE configuration source.",
+      "This review validates integration and sampled workflows, not a fresh review of every hardware specification or every possible configuration.",
+      "Publishing to the public ChipIndex site remains a separate owner action."
+    ]
+  }
+}

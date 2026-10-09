@@ -1,0 +1,54 @@
+{
+  "aliases": {
+    "EPYC 7002": ["Rome"],
+    "EPYC 7003": ["Milan"],
+    "EPYC 8004": ["Siena"],
+    "EPYC 8005": ["Sorano"],
+    "EPYC 9004": ["Genoa"],
+    "EPYC 9005": ["Turin"],
+    "EPYC 9006": ["Venice"]
+  },
+  "scope": "Shared discovery aliases identify CPU families. They do not establish support for every CPU SKU, Genoa-X, Milan-X, Bergamo, or other family variants.",
+  "sources": {
+    "romeMilan": {
+      "title": "AMD EPYC processor security bulletin — product and codename table",
+      "url": "https://www.amd.com/en/resources/product-security/bulletin/amd-sb-3023.html",
+      "loc": "Affected products table: EPYC 7002 Rome and EPYC 7003 Milan",
+      "scope": "CPU family names and discovery aliases only; does not qualify an OEM system.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null
+    },
+    "genoaSiena": {
+      "title": "AMD AOCL performance tuning guide — architecture overview",
+      "url": "https://docs.amd.com/r/en-US/63859-AOCL-performance-tuning-guide/Introduction",
+      "loc": "Zen 4 CPU generation table: EPYC 9004 Genoa and EPYC 8004 Siena",
+      "scope": "CPU family names only. Bergamo and Genoa-X are not automatically applied to every EPYC 9004 OEM model.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null
+    },
+    "sorano": {
+      "title": "AMD: Advancing vRAN economics with EPYC 8005 server CPUs",
+      "url": "https://www.amd.com/en/blogs/2026/advancing-vran-economics-with-amd-epyctm-8005-server-cpus.html",
+      "loc": "Opening description of EPYC 8005, codenamed Sorano",
+      "scope": "EPYC 8005 / Sorano discovery alias.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": "2026-02-25"
+    },
+    "turin": {
+      "title": "AMD launches fifth-generation EPYC CPUs",
+      "url": "https://www.amd.com/en/newsroom/press-releases/2024-10-10-amd-launches-5th-gen-amd-epyc-cpus-maintaining-le.html",
+      "loc": "Opening announcement: EPYC 9005, formerly codenamed Turin",
+      "scope": "EPYC 9005 / Turin discovery alias.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": "2024-10-10"
+    },
+    "venice": {
+      "title": "AMD: EPYC 9006, formerly codenamed Venice",
+      "url": "https://www.amd.com/en/blogs/2026/agentic-ai-amd-epyc-9005-cpus-wins-today-epyc-9006.html",
+      "loc": "Title and EPYC 9006 product discussion",
+      "scope": "EPYC 9006 / Venice discovery alias.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null
+    }
+  }
+}

@@ -128,13 +128,19 @@ def check_shared_shell(page, active_section):
     check(nav.count() == 1 and nav.is_visible(),
           f"{active_section}: shared site navigation is missing")
     links = nav.locator("a")
-    check(links.count() == 2 and links.all_inner_texts() == ["Products", "Benchmarks"],
+    check(links.count() == 3 and links.all_inner_texts() == ["Products", "Benchmarks", "Platforms"],
           f"{active_section}: global navigation labels changed")
     active = links.nth(0 if active_section == "Products" else 1)
     inactive = links.nth(1 if active_section == "Products" else 0)
     check(active.get_attribute("aria-current") == "page" and
           inactive.get_attribute("aria-current") is None,
           f"{active_section}: global navigation marks the wrong page active")
+    platforms = links.nth(2)
+    expected_platforms = ("platforms/index.html#finder" if active_section == "Products"
+                          else "../platforms/index.html#finder")
+    check(platforms.get_attribute("href") == expected_platforms and
+          platforms.get_attribute("aria-current") is None,
+          f"{active_section}: Platforms link loses the deployment base path")
     brand = page.locator(".topbar .brand-lockup")
     check(brand.count() == 1 and brand.is_visible(),
           f"{active_section}: shared ChipIndex brand is missing")

@@ -1,0 +1,1125 @@
+{
+  "reviewed": "2026-10-09",
+  "reviewer": "Dell/Lenovo source verification and implementation agent",
+  "method": "Fresh official OEM HTML/PDF reads; positive support is recorded only when the exact model and configuration are named. No artwork changed. Independent review remains pending.",
+  "changes": [
+    {
+      "model": "lenovo:sr635",
+      "field": "cooling",
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air-cooled builds include optional internal L2A; no facility water is needed for L2A. CTO Neptune Core open-loop CPU cooling requires facility water and uses PCIe slot 2. Match the CPU, storage and ambient limits."
+      },
+      "source": {
+        "title": "ThinkSystem SR635 V3: cooling configuration evidence",
+        "url": "https://lenovopress.lenovo.com/lp1609-thinksystem-sr635-v3-server",
+        "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes",
+        "revision": "Updated 6 Oct 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+        "date": "Updated 6 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr645",
+      "field": "cooling",
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air builds can use internal L2A; L2A needs no facility water. CTO Neptune Core open-loop cooling requires facility water, two CPUs and PCIe slot 2. Check thermal and storage rules."
+      },
+      "source": {
+        "title": "ThinkSystem SR645 V3: cooling configuration evidence",
+        "url": "https://lenovopress.lenovo.com/lp1607-thinksystem-sr645-v3-server",
+        "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes",
+        "revision": "Updated 6 Oct 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+        "date": "Updated 6 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr655",
+      "field": "cooling",
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air cooling or CTO Neptune Core open-loop CPU cooling. The latter requires facility water and occupies PCIe slot 6. Exact GPU, drive and ambient limits still apply."
+      },
+      "source": {
+        "title": "ThinkSystem SR655 V3: cooling configuration evidence",
+        "url": "https://lenovopress.lenovo.com/lp1610-thinksystem-sr655-v3-server",
+        "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes",
+        "revision": "Updated 6 Oct 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+        "date": "Updated 6 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr665",
+      "field": "cooling",
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air cooling or CTO Neptune Core open-loop CPU cooling. DWC requires facility water, two CPUs and slot 6. Three GPUs rated at least 300 W with CPUs at least 320 W require DWC; do not assume every GPU quantity supports Air."
+      },
+      "source": {
+        "title": "ThinkSystem SR665 V3: cooling configuration evidence",
+        "url": "https://lenovopress.lenovo.com/lp1608-thinksystem-sr665-v3-server",
+        "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes; GPU configuration rules",
+        "revision": "Updated 6 Oct 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+        "date": "Updated 6 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr630",
+      "field": "cooling",
+      "before": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air heatsinks or internal L2A; L2A needs no facility water. CTO Neptune Core requires facility water and uses slot 2. The 7DK1 CPU+memory-cooled variant requires two CPUs and has 16 DIMM slots / 1DPC."
+      },
+      "source": {
+        "title": "ThinkSystem SR630 V4: cooling configuration evidence",
+        "url": "https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server",
+        "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes; Compute Complex Neptune Core Module; Memory options table",
+        "revision": "Updated 7 Oct 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+        "date": "Updated 7 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr650",
+      "field": "cooling",
+      "before": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air heatsinks or CTO Neptune Core CPU cooling with facility water, using slot 8. The 7DK2 CPU+memory-cooled variant requires two CPUs and has 16 DIMM slots / 1DPC. Verify the selected I/O and thermal layout."
+      },
+      "source": {
+        "title": "ThinkSystem SR650 V4: cooling configuration evidence",
+        "url": "https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server",
+        "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes; Compute Complex Neptune Core Module; Memory options table",
+        "revision": "Updated 24 Sep 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+        "date": "Updated 24 Sep 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr650a",
+      "field": "cooling",
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air heatsinks or CTO Neptune Core CPU cooling requiring facility water. Open-loop cooling uses slot 8 and limits OCP 2 to x8. Match the GPU/riser, CPU, drive and thermal configuration."
+      },
+      "source": {
+        "title": "ThinkSystem SR650A V4: cooling configuration evidence",
+        "url": "https://lenovopress.lenovo.com/lp2128-thinksystem-sr650a-v4-server",
+        "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes",
+        "revision": "Updated 5 Oct 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+        "date": "Updated 5 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr675",
+      "field": "cooling",
+      "before": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Air",
+        "supportedCooling": [
+          "Air"
+        ],
+        "coolingNote": "Facility-air platform. HGX configurations can use a closed internal liquid-to-air loop; this does not require facility-water plumbing. GPU shuttle and fan requirements remain configuration-specific."
+      },
+      "source": {
+        "title": "ThinkSystem SR675 V3: cooling boundary",
+        "url": "https://lenovopress.lenovo.com/lp1611-thinksystem-sr675-v3-server",
+        "loc": "Did you know; Key features; Cooling",
+        "revision": "Updated 8 Oct 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "PCIe air-cooled and HGX internal liquid-to-air variants use facility air; does not establish an open-loop facility-water build.",
+        "date": "Updated 8 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr630",
+      "field": "installedCPUCounts",
+      "before": {
+        "installedCPUCounts": [
+          2
+        ],
+        "installedCPUCountsNote": null
+      },
+      "after": {
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "installedCPUCountsNote": "One or two CPUs in conventional variants; one CPU activates 16 local DIMMs with reduced PCIe/OCP I/O. CPU+memory Neptune variant 7DK1 requires two CPUs."
+      },
+      "source": {
+        "title": "ThinkSystem SR630 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; One-processor configurations; Memory options",
+        "revision": "Updated 7 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr650",
+      "field": "installedCPUCounts",
+      "before": {
+        "installedCPUCounts": [
+          2
+        ],
+        "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+      },
+      "after": {
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "installedCPUCountsNote": "One or two CPUs in conventional variants; one CPU activates 16 local DIMMs, risers 1/2 and OCP 1. CPU+memory Neptune variant 7DK2 requires two CPUs."
+      },
+      "source": {
+        "title": "ThinkSystem SR650 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; One-processor configurations; Memory options",
+        "revision": "Updated 24 Sep 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr650a",
+      "field": "installedCPUCounts",
+      "before": {
+        "installedCPUCounts": [
+          2
+        ],
+        "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+      },
+      "after": {
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "installedCPUCountsNote": "One or two CPUs; one CPU activates 16 DIMMs, front riser 7, rear riser 2 and OCP 1. GPU and drive choices follow the selected riser/CPU layout."
+      },
+      "source": {
+        "title": "ThinkSystem SR650a V4 / SR650i V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp2128-thinksystem-sr650a-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; One-processor configurations; Memory options",
+        "revision": "Updated 5 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr675",
+      "field": "installedCPUCounts",
+      "before": {
+        "installedCPUCounts": [
+          2
+        ],
+        "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+      },
+      "after": {
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "installedCPUCountsNote": "One or two CPUs are documented. One CPU provides 12 local DIMM slots; GPU shuttle and minimum-memory requirements still apply."
+      },
+      "source": {
+        "title": "ThinkSystem SR675 V3 / SR675i V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1611-thinksystem-sr675-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; Memory options; SXM5 minimum-memory rules",
+        "revision": "Updated 8 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:st650",
+      "field": "installedCPUCounts",
+      "before": {
+        "installedCPUCounts": [
+          2
+        ],
+        "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+      },
+      "after": {
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "installedCPUCountsNote": "One or two CPUs; one CPU activates 16 DIMMs and slots 1-4 plus 9. Slots 5–8 require the second CPU."
+      },
+      "source": {
+        "title": "ThinkSystem ST650 V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1604-thinksystem-st650-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; One-processor configurations; Memory options",
+        "revision": "Updated 4 Aug 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:se455",
+      "field": "installedCPUCounts",
+      "before": {
+        "installedCPUCounts": null,
+        "installedCPUCountsNote": null
+      },
+      "after": {
+        "installedCPUCounts": [
+          1
+        ],
+        "installedCPUCountsNote": "Exactly one installed EPYC 8004 CPU; six local DIMM slots and six channels."
+      },
+      "source": {
+        "title": "ThinkEdge SE455 V3 / SE455i V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1724-thinkedge-se455-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; Processor options, Table 11; Memory options",
+        "revision": "Updated 25 Aug 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr630",
+      "field": "memoryConfigurations",
+      "before": {
+        "dimmSlotOptions": null,
+        "dimmLabel": null,
+        "memoryConfigurations": null
+      },
+      "after": {
+        "dimmSlotOptions": [
+          16,
+          32
+        ],
+        "dimmLabel": "16 / 32",
+        "memoryConfigurations": [
+          {
+            "id": "conventional",
+            "label": "32-slot conventional / CPU-only cooling",
+            "installedCPUCounts": [
+              1,
+              2
+            ],
+            "dimmSlots": 32,
+            "channelsPerCpu": 8,
+            "dpc": [
+              1,
+              2
+            ],
+            "memoryTypes": [
+              "DDR5 RDIMM",
+              "DDR5 MRDIMM"
+            ],
+            "memoryTypeDpc": {
+              "DDR5 RDIMM": [
+                1,
+                2
+              ],
+              "DDR5 MRDIMM": [
+                1
+              ]
+            },
+            "supportedCooling": [
+              "Air",
+              "Liquid"
+            ],
+            "note": "One CPU activates 16 local slots. RDIMM allows 1DPC/2DPC; qualified P-core MRDIMM is 1DPC. CPU-only Neptune requires facility water and the model I/O layout."
+          },
+          {
+            "id": "neptune-compute",
+            "label": "7DK1 Neptune CPU + memory cooling",
+            "installedCPUCounts": [
+              2
+            ],
+            "dimmSlots": 16,
+            "channelsPerCpu": 8,
+            "dpc": [
+              1
+            ],
+            "memoryTypes": [
+              "DDR5 RDIMM",
+              "DDR5 MRDIMM"
+            ],
+            "memoryTypeDpc": {
+              "DDR5 RDIMM": [
+                1
+              ],
+              "DDR5 MRDIMM": [
+                1
+              ]
+            },
+            "supportedCooling": [
+              "Liquid"
+            ],
+            "note": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM and this memory-cooled layout require qualified P-core processors."
+          }
+        ]
+      },
+      "source": {
+        "title": "ThinkSystem SR630 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; One-processor configurations; Memory options; Compute Complex Neptune Core Module configuration notes; Memory options table 25",
+        "revision": "Updated 7 Oct 2026"
+      },
+      "uncertainty": "Exact DIMM capacities and supported P-core SKUs remain table-specific; 16 physical slots must not be mixed with conventional 1-CPU/2DPC options.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr650",
+      "field": "memoryConfigurations",
+      "before": {
+        "dimmSlotOptions": null,
+        "dimmLabel": null,
+        "memoryConfigurations": null
+      },
+      "after": {
+        "dimmSlotOptions": [
+          16,
+          32
+        ],
+        "dimmLabel": "16 / 32",
+        "memoryConfigurations": [
+          {
+            "id": "conventional",
+            "label": "32-slot conventional / CPU-only cooling",
+            "installedCPUCounts": [
+              1,
+              2
+            ],
+            "dimmSlots": 32,
+            "channelsPerCpu": 8,
+            "dpc": [
+              1,
+              2
+            ],
+            "memoryTypes": [
+              "DDR5 RDIMM",
+              "DDR5 MRDIMM"
+            ],
+            "memoryTypeDpc": {
+              "DDR5 RDIMM": [
+                1,
+                2
+              ],
+              "DDR5 MRDIMM": [
+                1
+              ]
+            },
+            "supportedCooling": [
+              "Air",
+              "Liquid"
+            ],
+            "note": "One CPU activates 16 local slots. RDIMM allows 1DPC/2DPC; qualified P-core MRDIMM is 1DPC. CPU-only Neptune requires facility water and the model I/O layout."
+          },
+          {
+            "id": "neptune-compute",
+            "label": "7DK2 Neptune CPU + memory cooling",
+            "installedCPUCounts": [
+              2
+            ],
+            "dimmSlots": 16,
+            "channelsPerCpu": 8,
+            "dpc": [
+              1
+            ],
+            "memoryTypes": [
+              "DDR5 RDIMM",
+              "DDR5 MRDIMM"
+            ],
+            "memoryTypeDpc": {
+              "DDR5 RDIMM": [
+                1
+              ],
+              "DDR5 MRDIMM": [
+                1
+              ]
+            },
+            "supportedCooling": [
+              "Liquid"
+            ],
+            "note": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM and this memory-cooled layout require qualified P-core processors."
+          }
+        ]
+      },
+      "source": {
+        "title": "ThinkSystem SR650 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; One-processor configurations; Memory options; Compute Complex Neptune Core Module configuration notes; Memory options table 20",
+        "revision": "Updated 24 Sep 2026"
+      },
+      "uncertainty": "Exact DIMM capacities and supported P-core SKUs remain table-specific; 16 physical slots must not be mixed with conventional 1-CPU/2DPC options.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr645",
+      "field": "memoryConfigurations",
+      "before": null,
+      "after": [
+        {
+          "dimmSlots": 24,
+          "channelsPerCpu": 12,
+          "dpc": [
+            1
+          ],
+          "memoryTypes": [
+            "DDR5 RDIMM"
+          ],
+          "memoryTypeDpc": {
+            "DDR5 RDIMM": [
+              1
+            ]
+          },
+          "id": "air",
+          "label": "Facility-air configuration",
+          "installedCPUCounts": [
+            1,
+            2
+          ],
+          "supportedCooling": [
+            "Air"
+          ],
+          "note": "One CPU activates 12 local slots. CPU, heatsink, GPU and ambient restrictions still apply."
+        },
+        {
+          "dimmSlots": 24,
+          "channelsPerCpu": 12,
+          "dpc": [
+            1
+          ],
+          "memoryTypes": [
+            "DDR5 RDIMM"
+          ],
+          "memoryTypeDpc": {
+            "DDR5 RDIMM": [
+              1
+            ]
+          },
+          "id": "neptune-core",
+          "label": "Neptune Core open-loop CPU cooling",
+          "installedCPUCounts": [
+            2
+          ],
+          "supportedCooling": [
+            "Liquid"
+          ],
+          "note": "Two CPUs and facility water required; one-CPU open-loop builds are unsupported. Check the model thermal and I/O rules."
+        }
+      ],
+      "source": {
+        "title": "ThinkSystem SR645 V3: cooling configuration evidence",
+        "url": "https://lenovopress.lenovo.com/lp1607-thinksystem-sr645-v3-server",
+        "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes",
+        "revision": "Updated 6 Oct 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+        "date": "Updated 6 Oct 2026"
+      },
+      "uncertainty": "The one-CPU restriction is specific to the open-loop option; internal L2A and air have their own CPU/thermal rules.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr665",
+      "field": "memoryConfigurations",
+      "before": null,
+      "after": [
+        {
+          "dimmSlots": 24,
+          "channelsPerCpu": 12,
+          "dpc": [
+            1
+          ],
+          "memoryTypes": [
+            "DDR5 RDIMM"
+          ],
+          "memoryTypeDpc": {
+            "DDR5 RDIMM": [
+              1
+            ]
+          },
+          "id": "air",
+          "label": "Facility-air configuration",
+          "installedCPUCounts": [
+            1,
+            2
+          ],
+          "supportedCooling": [
+            "Air"
+          ],
+          "note": "One CPU activates 12 local slots. CPU, heatsink, GPU and ambient restrictions still apply."
+        },
+        {
+          "dimmSlots": 24,
+          "channelsPerCpu": 12,
+          "dpc": [
+            1
+          ],
+          "memoryTypes": [
+            "DDR5 RDIMM"
+          ],
+          "memoryTypeDpc": {
+            "DDR5 RDIMM": [
+              1
+            ]
+          },
+          "id": "neptune-core",
+          "label": "Neptune Core open-loop CPU cooling",
+          "installedCPUCounts": [
+            2
+          ],
+          "supportedCooling": [
+            "Liquid"
+          ],
+          "note": "Two CPUs and facility water required; one-CPU open-loop builds are unsupported. Check the model thermal and I/O rules."
+        }
+      ],
+      "source": {
+        "title": "ThinkSystem SR665 V3: cooling configuration evidence",
+        "url": "https://lenovopress.lenovo.com/lp1608-thinksystem-sr665-v3-server",
+        "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes; GPU configuration rules",
+        "revision": "Updated 6 Oct 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+        "date": "Updated 6 Oct 2026"
+      },
+      "uncertainty": "The one-CPU restriction is specific to the open-loop option; internal L2A and air have their own CPU/thermal rules.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:st45",
+      "field": "gpuExclusions",
+      "before": null,
+      "after": [
+        {
+          "scope": "all",
+          "reason": "The OEM guide explicitly states that GPUs are not supported in this model.",
+          "sourceIds": [
+            "fixNoGpu_st45"
+          ]
+        }
+      ],
+      "source": {
+        "title": "Lenovo ST45 V3: GPU exclusion",
+        "url": "https://lenovopress.lenovo.com/lp1994-thinksystem-st45-v3-server",
+        "loc": "GPU adapters",
+        "revision": "Updated 28 Jul 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "General GPU exclusion for this exact model, independent of accelerator vendor.",
+        "date": "Updated 28 Jul 2026"
+      },
+      "uncertainty": "Applies to add-in/compute GPUs; integrated display hardware is not a supported accelerator option.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sd665",
+      "field": "gpuExclusions",
+      "before": null,
+      "after": [
+        {
+          "scope": "all",
+          "reason": "The OEM guide explicitly states that GPUs are not supported in this model. SD665-N V3 is a separate GPU model.",
+          "sourceIds": [
+            "fixNoGpu_sd665"
+          ]
+        }
+      ],
+      "source": {
+        "title": "Lenovo SD665 V3: GPU exclusion",
+        "url": "https://lenovopress.lenovo.com/lp1612-thinksystem-sd665-v3-server",
+        "loc": "Standard specifications > GPUs; GPU accelerators",
+        "revision": "Updated 18 Aug 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "General GPU exclusion for this exact model, independent of accelerator vendor.",
+        "date": "Updated 18 Aug 2026"
+      },
+      "uncertainty": "Applies to add-in/compute GPUs; integrated display hardware is not a supported accelerator option.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "dell:chronology",
+      "field": "ageDell17CSP",
+      "before": {
+        "title": "Dell introduces R670 and R770 CSP Editions",
+        "url": "https://investors.delltechnologies.com/news-releases/news-release-details/new-dell-poweredge-servers-support-workloads-data-center-edge",
+        "scope": "Early R670/R770 E-core CSP Edition announcement. Later enterprise configurations and P-core options are separate rollout milestones.",
+        "loc": "News summary; Cloud service provider section; Availability",
+        "date": "14 May 2024"
+      },
+      "after": {
+        "title": "New Dell PowerEdge Servers Support Workloads from the Data Center to the Edge",
+        "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2024~05~20240514-new-dell-poweredge-servers-support-workloads-from-the-data-center-to-the-edge.htm",
+        "scope": "Early R670/R770 E-core CSP Edition announcement. Later enterprise configurations and P-core options are separate rollout milestones.",
+        "loc": "May 14, 2024 dateline; Enhanced performance and efficiency for cloud service providers; Availability",
+        "date": "14 May 2024",
+        "publicationDate": "2024-05-14",
+        "reviewed": "2026-10-09",
+        "revision": "Original press release 2024-05-14",
+        "destinationChecked": "2026-10-09",
+        "destinationTitle": "New Dell PowerEdge Servers Support Workloads from the Data Center to the Edge"
+      },
+      "source": {
+        "title": "New Dell PowerEdge Servers Support Workloads from the Data Center to the Edge",
+        "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2024~05~20240514-new-dell-poweredge-servers-support-workloads-from-the-data-center-to-the-edge.htm",
+        "scope": "Early R670/R770 E-core CSP Edition announcement. Later enterprise configurations and P-core options are separate rollout milestones.",
+        "loc": "May 14, 2024 dateline; Enhanced performance and efficiency for cloud service providers; Availability",
+        "date": "14 May 2024",
+        "publicationDate": "2024-05-14",
+        "reviewed": "2026-10-09",
+        "revision": "Original press release 2024-05-14",
+        "destinationChecked": "2026-10-09",
+        "destinationTitle": "New Dell PowerEdge Servers Support Workloads from the Data Center to the Edge"
+      },
+      "uncertainty": "Original announcement dates retained; then-planned availability is not present-day stock or shipping confirmation.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "dell:chronology",
+      "field": "ageDell17Intel",
+      "before": {
+        "title": "Dell unveils infrastructure innovations for AI-ready data centers",
+        "url": "https://investors.delltechnologies.com/news-releases/news-release-details/dell-technologies-unveils-infrastructure-innovations-built-power",
+        "scope": "April 2025 expansion of R470/R570/R670/R770 with Xeon 6 P-core processors; not their first use of these model names.",
+        "loc": "PowerEdge server section; Availability",
+        "date": "8 Apr 2025"
+      },
+      "after": {
+        "title": "Dell Technologies Unveils Infrastructure Innovations Built to Power Modern AI-Ready Data Centers",
+        "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2025~04~dell-technologies-unveils-infrastructure-innovations-built-to-power-modern-ai-ready-data-centers.htm",
+        "scope": "April 2025 expansion of R470/R570/R670/R770 with Xeon 6 P-core processors; not their first use of these model names.",
+        "loc": "April 08, 2025 dateline; Dell PowerEdge servers deliver advanced performance, energy efficiency and scalability; Availability",
+        "date": "8 Apr 2025",
+        "publicationDate": "2025-04-08",
+        "reviewed": "2026-10-09",
+        "revision": "Original press release 2025-04-08",
+        "destinationChecked": "2026-10-09",
+        "destinationTitle": "Dell Technologies Unveils Infrastructure Innovations Built to Power Modern AI-Ready Data Centers"
+      },
+      "source": {
+        "title": "Dell Technologies Unveils Infrastructure Innovations Built to Power Modern AI-Ready Data Centers",
+        "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2025~04~dell-technologies-unveils-infrastructure-innovations-built-to-power-modern-ai-ready-data-centers.htm",
+        "scope": "April 2025 expansion of R470/R570/R670/R770 with Xeon 6 P-core processors; not their first use of these model names.",
+        "loc": "April 08, 2025 dateline; Dell PowerEdge servers deliver advanced performance, energy efficiency and scalability; Availability",
+        "date": "8 Apr 2025",
+        "publicationDate": "2025-04-08",
+        "reviewed": "2026-10-09",
+        "revision": "Original press release 2025-04-08",
+        "destinationChecked": "2026-10-09",
+        "destinationTitle": "Dell Technologies Unveils Infrastructure Innovations Built to Power Modern AI-Ready Data Centers"
+      },
+      "uncertainty": "Original announcement dates retained; then-planned availability is not present-day stock or shipping confirmation.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "dell:chronology",
+      "field": "ageDellXE9785",
+      "before": {
+        "title": "Dell fuels AI with infrastructure and services",
+        "url": "https://investors.delltechnologies.com/news-releases/news-release-details/dell-technologies-fuels-enterprise-ai-innovation-infrastructure",
+        "scope": "XE9785 and XE9785L announced with AMD MI350-series support.",
+        "loc": "Dell PowerEdge servers with AMD GPUs",
+        "date": "19 May 2025"
+      },
+      "after": {
+        "title": "Dell Technologies Fuels Enterprise AI Innovation with Infrastructure, Solutions and Services",
+        "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2025~05~dell-technologies-fuels-enterprise-ai-innovation-with-infrastructure-solutions-and-services.htm",
+        "scope": "XE9785 and XE9785L announced with AMD MI350-series support.",
+        "loc": "May 19, 2025 dateline; Availability: XE9785 and XE9785L with AMD Instinct MI350 Series planned for 2H 2025",
+        "date": "19 May 2025",
+        "publicationDate": "2025-05-19",
+        "reviewed": "2026-10-09",
+        "revision": "Original press release 2025-05-19",
+        "destinationChecked": "2026-10-09",
+        "destinationTitle": "Dell Technologies Fuels Enterprise AI Innovation with Infrastructure, Solutions and Services"
+      },
+      "source": {
+        "title": "Dell Technologies Fuels Enterprise AI Innovation with Infrastructure, Solutions and Services",
+        "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2025~05~dell-technologies-fuels-enterprise-ai-innovation-with-infrastructure-solutions-and-services.htm",
+        "scope": "XE9785 and XE9785L announced with AMD MI350-series support.",
+        "loc": "May 19, 2025 dateline; Availability: XE9785 and XE9785L with AMD Instinct MI350 Series planned for 2H 2025",
+        "date": "19 May 2025",
+        "publicationDate": "2025-05-19",
+        "reviewed": "2026-10-09",
+        "revision": "Original press release 2025-05-19",
+        "destinationChecked": "2026-10-09",
+        "destinationTitle": "Dell Technologies Fuels Enterprise AI Innovation with Infrastructure, Solutions and Services"
+      },
+      "uncertainty": "Original announcement dates retained; then-planned availability is not present-day stock or shipping confirmation.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "dell:r670",
+      "field": "cooling",
+      "before": {
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air and direct liquid cooling are documented. Confirm the selected CPU, GPU, storage and thermal configuration; this is a platform option, not universal component-pairing approval."
+      },
+      "source": {
+        "title": "Dell PowerEdge acceleration: innovate faster for AI",
+        "url": "https://www.delltechnologies.com/asset/no-no/products/servers/briefs-summaries/poweredge-acceleration-innovate-faster-for-ai.pdf?HVE=explore+gpu+accelerated+ai",
+        "loc": "PDF page 8: PowerEdge rack servers, R670 and R770 Features rows",
+        "revision": null,
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Named R670/R770 air and direct-liquid cooling choices; not R770AP and not blanket GPU pairing.",
+        "date": "Undated live document; reviewed 9 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "dell:r770",
+      "field": "cooling",
+      "before": {
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air and direct liquid cooling are documented. Confirm the selected CPU, GPU, storage and thermal configuration; this is a platform option, not universal component-pairing approval."
+      },
+      "source": {
+        "title": "Dell PowerEdge acceleration: innovate faster for AI",
+        "url": "https://www.delltechnologies.com/asset/no-no/products/servers/briefs-summaries/poweredge-acceleration-innovate-faster-for-ai.pdf?HVE=explore+gpu+accelerated+ai",
+        "loc": "PDF page 8: PowerEdge rack servers, R670 and R770 Features rows",
+        "revision": null,
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Named R670/R770 air and direct-liquid cooling choices; not R770AP and not blanket GPU pairing.",
+        "date": "Undated live document; reviewed 9 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "dell:t560",
+      "field": "installedCPUCounts",
+      "before": {
+        "installedCPUCounts": [
+          2
+        ],
+        "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+      },
+      "after": {
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "installedCPUCountsNote": "One or two CPUs; one CPU activates A1–A8 (eight DIMM slots). Drive and GPU routing must match the one-CPU layout."
+      },
+      "source": {
+        "title": "PowerEdge T560: installed CPU and DIMM population",
+        "url": "https://www.dell.com/support/manuals/en-gb/oth-t560/t560_ism_pub/General-memory-module-installation-guidelines?guid=guid-6d897c96-c17c-4ee1-85d0-8ee278630606&lang=en-us&lwp=rt",
+        "loc": "General memory module installation guidelines; Table 1 Memory population rules",
+        "revision": null,
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Explicit single-processor and dual-processor memory populations, not inferred from maximum sockets.",
+        "date": "Undated live document; reviewed 9 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "dell:mx760",
+      "field": "installedCPUCounts",
+      "before": {
+        "installedCPUCounts": [
+          2
+        ],
+        "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+      },
+      "after": {
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "installedCPUCountsNote": "One or two CPUs per sled; one CPU activates A1–A16. Existing HPR heatsink restrictions on usable DIMMs still apply."
+      },
+      "source": {
+        "title": "PowerEdge MX760c: installed CPU and DIMM population",
+        "url": "https://www.dell.com/support/manuals/en-ca/poweredge-mx760c/pemx760c_ism_pub/general-memory-module-installation-guidelines?guid=guid-a1253cf5-8468-4eb3-991b-b6854dd07ae9&lang=en-us",
+        "loc": "General memory module installation guidelines; Table 1 Memory population rules",
+        "revision": null,
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Explicit single-processor and dual-processor memory populations, not inferred from maximum sockets.",
+        "date": "Undated live document; reviewed 9 Oct 2026"
+      },
+      "uncertainty": "Exact parts, firmware, availability and full thermal build still require the model configurator/manual.",
+      "verification": "Fresh official document body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr630",
+      "field": "memoryConfigurations.neptune-compute.note",
+      "before": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM and this memory-cooled layout require qualified P-core processors.",
+      "after": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM and this memory-cooled layout require qualified P-core processors. GPUs are not supported in this Compute Complex Neptune configuration.",
+      "source": {
+        "title": "ThinkSystem SR630 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "GPU adapters > Configuration rules; Compute Complex Neptune Core Module",
+        "revision": "Updated 7 Oct 2026"
+      },
+      "uncertainty": "This GPU exclusion applies only to the named Compute Complex Neptune variant; do not apply it to all conventional or CPU-only-water-cooled builds.",
+      "verification": "Fresh official guide body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr650",
+      "field": "memoryConfigurations.neptune-compute.note",
+      "before": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM and this memory-cooled layout require qualified P-core processors.",
+      "after": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM and this memory-cooled layout require qualified P-core processors. GPUs are not supported in this Compute Complex Neptune configuration.",
+      "source": {
+        "title": "ThinkSystem SR650 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "GPU adapters > Configuration rules; Compute Complex Neptune Core Module",
+        "revision": "Updated 24 Sep 2026"
+      },
+      "uncertainty": "This GPU exclusion applies only to the named Compute Complex Neptune variant; do not apply it to all conventional or CPU-only-water-cooled builds.",
+      "verification": "Fresh official guide body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr630",
+      "field": "memoryConfigurations.neptune-compute.gpuSupport",
+      "before": null,
+      "after": {
+        "gpuSupport": "unsupported",
+        "gpuExclusionNote": "Lenovo prohibits GPUs with Compute Complex Neptune Core 7DK1; other chassis/cooling variants have their own GPU rules."
+      },
+      "source": {
+        "title": "ThinkSystem SR630 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "GPU adapters > Configuration rules",
+        "revision": "Updated 7 Oct 2026"
+      },
+      "uncertainty": "Only this positively identified layout is excluded, not the entire model.",
+      "verification": "Fresh official guide body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:sr650",
+      "field": "memoryConfigurations.neptune-compute.gpuSupport",
+      "before": null,
+      "after": {
+        "gpuSupport": "unsupported",
+        "gpuExclusionNote": "Lenovo prohibits GPUs with Compute Complex Neptune Core 7DK2; other chassis/cooling variants have their own GPU rules."
+      },
+      "source": {
+        "title": "ThinkSystem SR650 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "GPU adapters > Configuration rules",
+        "revision": "Updated 24 Sep 2026"
+      },
+      "uncertainty": "Only this positively identified layout is excluded, not the entire model.",
+      "verification": "Fresh official guide body checked 2026-10-09"
+    },
+    {
+      "model": "lenovo:st650",
+      "field": "installedCPUCountsNote; restrictions[0]",
+      "before": "One or two CPUs; one CPU activates 16 DIMMs and slots 1-4 plus 9. Slots 5–8 require the second CPU.",
+      "after": "Selected one-CPU SKUs and the one-processor section explicitly document 16 active DIMMs and slots 1-4 plus 9, but the same guide contains a conflicting single-processor restriction. Confirm the selected CPU and machine type in the Lenovo configurator; [1,2] records positive configurations, not every CPU SKU.",
+      "source": {
+        "title": "ThinkSystem ST650 V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1604-thinksystem-st650-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors > Configuration notes; One-processor configurations; preconfigured one-processor SKUs",
+        "revision": "Updated 4 Aug 2026"
+      },
+      "uncertainty": "The OEM guide contradicts itself; chosen CPU and machine type need configurator confirmation. Positive one-CPU evidence is retained with this conflict disclosed.",
+      "verification": "Independent Cisco/HPE reviewer checked conflicting OEM sections on 2026-10-09; author retained original positive one-CPU evidence."
+    },
+    {
+      "model": "lenovo:sr630",
+      "field": "memoryConfigurations.neptune-compute.note",
+      "before": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM and this memory-cooled layout require qualified P-core processors. GPUs are not supported in this Compute Complex Neptune configuration.",
+      "after": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM requires a qualified P-core processor. The layout requires two CPUs and excludes processor SKUs limited to one-socket builds. GPUs are not supported in this Compute Complex Neptune configuration.",
+      "source": {
+        "title": "ThinkSystem SR630 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Compute Complex Neptune Core Module > Configuration notes; Memory rules",
+        "revision": "Updated 7 Oct 2026"
+      },
+      "uncertainty": "No E-core exclusion is inferred for the Compute Complex layout; the P-core restriction applies to MRDIMM only.",
+      "verification": "Independent review corrected unsupported extension of MRDIMM CPU restriction to chassis layout."
+    },
+    {
+      "model": "lenovo:sr650",
+      "field": "memoryConfigurations.neptune-compute.note",
+      "before": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM and this memory-cooled layout require qualified P-core processors. GPUs are not supported in this Compute Complex Neptune configuration.",
+      "after": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM requires a qualified P-core processor. The layout requires two CPUs and excludes processor SKUs limited to one-socket builds. GPUs are not supported in this Compute Complex Neptune configuration.",
+      "source": {
+        "title": "ThinkSystem SR650 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Compute Complex Neptune Core Module > Configuration notes; Memory rules",
+        "revision": "Updated 24 Sep 2026"
+      },
+      "uncertainty": "No E-core exclusion is inferred for the Compute Complex layout; the P-core restriction applies to MRDIMM only.",
+      "verification": "Independent review corrected unsupported extension of MRDIMM CPU restriction to chassis layout."
+    }
+  ],
+  "unresolved": [
+    {
+      "model": "dell:r670 / r770 / r6725 / r7725",
+      "claim": "Additional one-CPU configurations",
+      "reason": "Not added. A minimum-to-POST reference does not establish a supported deployable build; R670 memory rules explicitly describe only dual-CPU populations. Other exact build combinations remain unestablished."
+    },
+    {
+      "model": "lenovo:sr665original",
+      "claim": "Historical MI210 exact build",
+      "reason": "Not changed in this fix set; prior guide history identifies the option, but exact historical pairing/kit scope needs separate extraction before qualification is promoted."
+    },
+    {
+      "model": "Dell and Lenovo portfolio",
+      "claim": "Completeness",
+      "reason": "All existing 38 records were screened for missing processor/cooling fields, but this targeted fix pass is not recertification of every SKU or missing market model."
+    }
+  ],
+  "integration": [
+    "Root must apply memoryConfigurations correlation to simultaneous cooling, processor count, slots, memory type and DPC filters.",
+    "Root must map gpuExclusions sourceIds and apply scope all consistently across AMD and NVIDIA requests.",
+    "SR650a base CPU prose should say one or two; check T560 and MX760c base prose for the same issue.",
+    "Original model artwork untouched. No generated outputs written by this agent."
+  ]
+}

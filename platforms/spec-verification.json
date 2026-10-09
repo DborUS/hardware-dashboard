@@ -1,0 +1,93 @@
+{
+  "version": "1.2.0",
+  "reviewedAt": "2026-10-09",
+  "catalogHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
+  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "changedClaimGroups": 68,
+  "addedProfiles": [
+    "ucs:c225m6",
+    "hpe:dl325g11",
+    "hpe:dl345g11",
+    "hpe:dl385g10pv2",
+    "hpe:xd675",
+    "dell:r7515",
+    "dell:r7525",
+    "supermicro:amdlegacy",
+    "supermicro:mi300x",
+    "supermicro:h15hyper"
+  ],
+  "reviewFiles": [
+    "verification-review-cisco-hpe.json",
+    "verification-review-dell-lenovo.json",
+    "verification-review-supermicro.json"
+  ],
+  "findings": [
+    {
+      "id": "F01",
+      "issue": "Cisco AMD accelerator omissions",
+      "status": "Corrected",
+      "result": "C245 M8 and X215c M8 / X440p now expose MI210 evidence, card limits, risers and firmware conditions. CPU-family combinations are not inferred."
+    },
+    {
+      "id": "F02",
+      "issue": "Cooling discovery and configuration scope",
+      "status": "Corrected",
+      "result": "Verified Air / Liquid choices are recorded. Combined CPU, memory and cooling filters now match a single documented layout. HPE DLC processor restrictions and Lenovo Neptune variants are enforced."
+    },
+    {
+      "id": "F03",
+      "issue": "Installed processor omissions",
+      "status": "Corrected",
+      "result": "Added source-established one-CPU populations; retained CPU-local memory and I/O caveats. ST650 and C225 source contradictions remain visible."
+    },
+    {
+      "id": "F04",
+      "issue": "Typed GPU search hid evidence gaps",
+      "status": "Corrected",
+      "result": "Recognized accelerator text now follows the same relationship filtering as the accelerator selector, including unknown and explicitly unsupported pairings."
+    },
+    {
+      "id": "F05",
+      "issue": "Model dates blurred evidence type",
+      "status": "Corrected",
+      "result": "Cards distinguish announced, documented-by and unknown model dates. AS-3015A-I is documented by 2024; the 2025 EPYC refresh remains a separate event."
+    },
+    {
+      "id": "F06",
+      "issue": "Dell chronology links redirected to archives",
+      "status": "Corrected",
+      "result": "Replaced three archive links with exact OEM articles and preserved date, section and availability scope."
+    },
+    {
+      "id": "F07",
+      "issue": "Installed-base and AMD coverage gaps",
+      "status": "Expanded; remains partial",
+      "result": "Added ten named profiles across Cisco, HPE, Dell and Supermicro. Every OEM now has represented EPYC 7003 platforms; missing profiles still mean unresearched, not unsupported."
+    },
+    {
+      "id": "F08",
+      "issue": "No-GPU restrictions applied only to AMD",
+      "status": "Corrected",
+      "result": "Explicit platform-wide restrictions apply to NVIDIA and AMD. Lenovo memory-cooled Neptune prohibitions apply only when the selected facts identify that variant."
+    },
+    {
+      "id": "F09",
+      "issue": "Stale result and guide counts",
+      "status": "Corrected",
+      "result": "Decoder results update their count while typing. OEM guide coverage copy uses the actual model list."
+    },
+    {
+      "id": "F10",
+      "issue": "Announced Gen13 details missing",
+      "status": "Corrected",
+      "result": "Added published NVIDIA DL585a options and XD245/XD285 MRDIMM evidence; announcement status and unconfirmed physical slot/DPC values remain explicit."
+    }
+  ],
+  "limitations": [
+    "This review verifies the changed claim groups and new profile evidence. It does not certify every old specification or every possible configured bill of materials.",
+    "HPE QuickSpecs are the primary configuration source. XD675 QuickSpecs and another HPE document conflict on memory channels/DPC, so those structured fields remain unknown; two CPUs and 24 slots are confirmed.",
+    "Cisco C225 M6 all-NVMe CPU requirements conflict within the specification; Lenovo ST650 has inconsistent one-CPU wording. Both limitations are visible on the affected profiles.",
+    "Some primary PDF content was checked through indexed OEM excerpts where direct retrieval failed. Review logs state these limits. Current orderability, software qualification and exact SKU combinations require separate verification.",
+    "The new and older installed-base placeholders have been redrawn from inspected official OEM references. The separate illustration review records the depicted configuration and any remaining schematic-only platforms."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "reviewed": "2026-10-09",
+  "claims": [
+    {
+      "id": "HPE-dl365-DLC-two-CPU",
+      "model": "dl365",
+      "claim": "Direct liquid cooling requires two processors; one-CPU air-cooled support does not establish a one-CPU DLC configuration.",
+      "sources": [
+        {
+          "title": "HPE DL365 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004299enw.html",
+          "loc": "Core Options: Cooling Options; CPU/DIMM ambient matrices; P62032-B21/P62035-B21",
+          "revision": "V46 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V46 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ],
+      "reviewer": "Independent Supermicro verification specialist",
+      "result": "Confirmed in exact model QuickSpecs DLC selection rules; enforced by correlated configurations."
+    },
+    {
+      "id": "HPE-dl385-DLC-two-CPU",
+      "model": "dl385",
+      "claim": "Direct liquid cooling requires two processors; one-CPU air-cooled support does not establish a one-CPU DLC configuration.",
+      "sources": [
+        {
+          "title": "HPE DL385 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004300enw.html",
+          "loc": "Core Options: Direct Liquid Cooling Solutions, P62032-B21/P62035-B21",
+          "revision": "V49 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V49 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ],
+      "reviewer": "Independent Supermicro verification specialist",
+      "result": "Confirmed in exact model QuickSpecs DLC selection rules; enforced by correlated configurations."
+    },
+    {
+      "id": "HPE-dl380-DLC-CPU-scope",
+      "model": "dl380",
+      "claim": "The PCIe DLC module needs the secondary riser, which requires CPU 2. One-CPU support with other DLC choices is not established here; Liquid + one CPU is excluded from positive matches, not classified as incompatible.",
+      "sources": [
+        {
+          "title": "DL380 Gen12 QuickSpecs — DLC and CPU-connected risers",
+          "url": "https://www.hpe.com/psnow/doc/a00073551enw.pdf",
+          "loc": "V20 / 5 October 2026: p16 secondary-riser CPU2 requirement; pp32–33 DLC module choices",
+          "revision": "V20 / 05 Oct 2026",
+          "reviewed": "2026-10-09",
+          "publicationDate": "2026-10-05"
+        }
+      ],
+      "reviewer": "Independent Supermicro verification specialist",
+      "result": "Positive two-CPU PCIe DLC path retained; unresolved one-CPU DLC omitted from matching combinations."
+    }
+  ]
+}

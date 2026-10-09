@@ -1,0 +1,901 @@
+{
+  "intelhyper": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "With both CPUs: 16 RDIMMs at 1DPC or 32 at 2DPC. MRDIMMs are 1DPC only and require P-core CPUs.",
+    "sources": [
+      {
+        "title": "SYS-222H-TN specifications",
+        "url": "https://www.supermicro.com/en/products/system/hyper/2u/sys-222h-tn",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "MRDIMM: 1DPC only, P-core CPUs required.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "amd1": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 total RDIMM slots with both CPUs, 12 per CPU. This board is 1DPC only; speed depends on EPYC generation.",
+    "sources": [
+      {
+        "title": "AS-1126HS-TN specifications",
+        "url": "https://www.supermicro.com/en/products/system/hyper/1u/as-1126hs-tn",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "amd2": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 total RDIMM slots with both CPUs, 12 per CPU. This board is 1DPC only; speed depends on EPYC generation.",
+    "sources": [
+      {
+        "title": "AS-2126HS-TN specifications",
+        "url": "https://www.supermicro.com/en/products/system/hyper/2u/as-2126hs-tn",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "amdcloud": {
+    "maxProcessors": 1,
+    "dimmSlots": 12,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "12 RDIMM slots on one CPU, 1DPC only. EPYC 9005 requires board revision 2.x: the OEM lists up to 6000 MT/s on R2.0 and 6400 MT/s on R2.01. EPYC 9004 is listed up to 4800 MT/s. Actual speed also depends on the qualified CPU and DIMMs.",
+    "sources": [
+      {
+        "title": "AS-2015CS-TNR specifications",
+        "url": "https://www.supermicro.com/en/products/system/clouddc/2u/as-2015cs-tnr",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processor > CPU board revision note; System Memory > Memory (per Node for GrandTwin)"
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "intelcloud": {
+    "maxProcessors": 1,
+    "dimmSlots": 16,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "One CPU: 8 RDIMMs at 1DPC or 16 at 2DPC. MRDIMMs are 1DPC only and require P-core CPUs.",
+    "sources": [
+      {
+        "title": "SYS-112C-TN specifications",
+        "url": "https://www.supermicro.com/en/products/system/clouddc/1u/sys-112c-tn",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "MRDIMM: 1DPC only, P-core CPUs required.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "inteltwin": {
+    "maxProcessors": 1,
+    "dimmSlots": 16,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "node",
+    "nodesPerChassis": 4,
+    "note": "Per node: 8 RDIMMs at 1DPC or 16 at 2DPC. MRDIMMs are 1DPC only with P-core CPUs. The board manual identifies channels A–H; the system page's '2 Channels' is inconsistent.",
+    "sources": [
+      {
+        "title": "SYS-212GT-HNF specifications",
+        "url": "https://www.supermicro.com/en/products/system/grandtwin/2u/sys-212gt-hnf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "X14SBT-G memory support and population tables",
+        "url": "https://www.supermicro.com/support/manuals/product/motherboard/X14SBT-G/Content/component-installation/memory-support-installation/memory-support-x14sbt-g.htm",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "MRDIMM: 1DPC only, P-core CPUs required.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "amdtwin": {
+    "maxProcessors": 1,
+    "dimmSlots": 12,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "node",
+    "nodesPerChassis": 4,
+    "note": "Per node: 12 RDIMM slots on one CPU, 1DPC only. EPYC 9005 requires board revision 2.x: the OEM lists up to 6000 MT/s on R2.0 and 6400 MT/s on R2.01. EPYC 9004 is listed up to 4800 MT/s. Actual speed also depends on the qualified CPU and DIMMs.",
+    "sources": [
+      {
+        "title": "AS-2115GT-HNTR specifications",
+        "url": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2115gt-hntr",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processor > CPU board revision note; System Memory > Memory (per Node for GrandTwin)"
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "h15twin": {
+    "maxProcessors": 1,
+    "dimmSlots": 16,
+    "channelsPerCpu": 16,
+    "dpc": [
+      1
+    ],
+    "scope": "node",
+    "nodesPerChassis": 2,
+    "note": "Per node: 16 slots on one CPU, 1DPC only for qualified RDIMM or MRDIMM configurations.",
+    "sources": [
+      {
+        "title": "AS-2117GT7-DNF specifications",
+        "url": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2117gt7-dnf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "blade": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "blade",
+    "note": "Per blade with both CPUs: 16 RDIMMs at 1DPC or 32 at 2DPC. MRDIMMs are 1DPC only and require P-core CPUs.",
+    "sources": [
+      {
+        "title": "SBI-622B-1NE34 specifications",
+        "url": "https://www.supermicro.com/en/products/superblade/module/sbi-622b-1ne34.php",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "MRDIMM: 1DPC only, P-core CPUs required.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "amdblade": {
+    "maxProcessors": 1,
+    "dimmSlots": 16,
+    "channelsPerCpu": 16,
+    "dpc": [
+      1
+    ],
+    "scope": "blade",
+    "note": "Per blade: 16 slots on one CPU, 1DPC only for qualified RDIMM or MRDIMM configurations.",
+    "sources": [
+      {
+        "title": "SBA-817V7-1N specifications",
+        "url": "https://www.supermicro.com/en/aplus/superblade/module/sba-817v7-1n.php",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "tower": {
+    "maxProcessors": 1,
+    "dimmSlots": 4,
+    "channelsPerCpu": 2,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "One CPU: 2 UDIMMs at 1DPC or 4 at 2DPC. ECC UDIMM only; speed depends on rank and population.",
+    "sources": [
+      {
+        "title": "SYS-531R-I specifications",
+        "url": "https://www.supermicro.com/en/products/system/up%20workstation/mini-tower/sys-531r-i",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "X13SCL-F manual — memory population",
+        "url": "https://www.supermicro.com/manuals/motherboard/X13/MNL-2561.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 UDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 UDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "edge": {
+    "maxProcessors": 1,
+    "dimmSlots": 6,
+    "channelsPerCpu": 6,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "6 RDIMM slots on one CPU, 1DPC only. Memory speed and capacity remain specific to the qualified CPU and system configuration.",
+    "sources": [
+      {
+        "title": "AS-1115S-FWTRT specifications",
+        "url": "https://www.supermicro.com/en/products/system/wio/1u/as-1115s-fwtrt",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "amdentry": {
+    "maxProcessors": 1,
+    "dimmSlots": 4,
+    "channelsPerCpu": 2,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "One CPU: 2 UDIMMs at 1DPC or 4 at 2DPC. ECC/non-ECC UDIMM; supported speed depends on CPU and DIMM population. Do not apply the system-page peak speed to every 2DPC build.",
+    "sources": [
+      {
+        "title": "AS-3015A-I specifications",
+        "url": "https://www.supermicro.com/en/products/system/mainstream/tower/as-3015a-i",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "H13SAE-MF EPYC 4004 memory frequency by DPC",
+        "url": "https://www.supermicro.com/ja-jp/support/faqs/faq.php?faq=45813",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "H13SAE-MF motherboard specifications",
+        "url": "https://www.supermicro.com/en/products/motherboard/h13sae-mf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 UDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 UDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "petascale": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "With both CPUs: 16 RDIMMs at 1DPC or 32 at 2DPC; MRDIMMs are 1DPC only. The system manual identifies channels A–H per CPU; the product page's '2 Channels' is inconsistent.",
+    "sources": [
+      {
+        "title": "SSG-122B-NE316R specifications",
+        "url": "https://www.supermicro.com/en/products/system/storage/1u/ssg-122b-ne316r",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "SSG-122B-NE316R manual — memory slots",
+        "url": "https://www.supermicro.com/en/support/manuals/product/system/ssg-122b-ne316r/Content/introduction/quick-reference/memory-slots-x14dbhm.htm",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "MRDIMM: 1DPC only.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "capacity": {
+    "maxProcessors": 1,
+    "dimmSlots": 16,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "One CPU: 8 RDIMMs at 1DPC or 16 at 2DPC. This is one storage server, not a multi-node enclosure.",
+    "sources": [
+      {
+        "title": "SSG-542B-E1CR90 specifications",
+        "url": "https://www.supermicro.com/en/products/system/storage/4u/ssg-542b-e1cr90",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "pciegpu": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "With both CPUs: 16 RDIMMs at 1DPC or 32 at 2DPC. Memory speed depends on CPU generation and population.",
+    "sources": [
+      {
+        "title": "SYS-421GE-TNRT specifications",
+        "url": "https://www.supermicro.com/en/products/system/gpu/4u/sys-421ge-tnrt",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "amdpcie": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 total host RDIMM slots with both CPUs, 12 per CPU. This board is 1DPC only; GPU memory is separate.",
+    "sources": [
+      {
+        "title": "AS-5126GS-TNRT specifications",
+        "url": "https://www.supermicro.com/en/products/system/gpu/5u/as%20-5126gs-tnrt",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "instinctair": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 total host RDIMM slots with both CPUs, 12 per CPU. This board is 1DPC only; GPU memory is separate.",
+    "sources": [
+      {
+        "title": "AS-8126GS-TNMR specifications",
+        "url": "https://www.supermicro.com/en/products/system/gpu/8u/as-8126gs-tnmr",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "instinctliquid": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 total host RDIMM slots with both CPUs, 12 per CPU. This board is 1DPC only; GPU memory is separate.",
+    "sources": [
+      {
+        "title": "AS-4126GS-NMR-LCC specifications",
+        "url": "https://www.supermicro.com/en/products/system/gpu/4u/as-4126gs-nmr-lcc",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "hgx": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "With both CPUs: 16 host RDIMMs at 1DPC or 32 at 2DPC. GPU memory is separate.",
+    "sources": [
+      {
+        "title": "SYS-822GS-NB3RT specifications",
+        "url": "https://www.supermicro.com/en/products/system/gpu/8u/sys-822gs-nb3rt",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "amdhgx": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 total host RDIMM slots with both CPUs, 12 per CPU. This board is 1DPC only; GPU memory is separate.",
+    "sources": [
+      {
+        "title": "AS-8126GS-NB3RT specifications",
+        "url": "https://www.supermicro.com/en/products/system/gpu/8u/as-8126gs-nb3rt",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "gaudi": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 total host memory slots with both CPUs, 12 per CPU. RDIMM and MRDIMM configurations are 1DPC only; accelerator memory is separate.",
+    "sources": [
+      {
+        "title": "SYS-822GA-NGR3 specifications",
+        "url": "https://www.supermicro.com/en/products/system/gpu/8u/sys-822ga-ngr3",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "amdlegacy": {
+    "maxProcessors": 2,
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Two-processor configuration documented; other processor populations are not established by this field.",
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "memoryTypes": [
+      "DDR4 RDIMM",
+      "DDR4 LRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR4 RDIMM": [
+        1,
+        2
+      ],
+      "DDR4 LRDIMM": [
+        1,
+        2
+      ]
+    },
+    "note": "With two CPUs, the QRG lists 16-DIMM and 32-DIMM populations: eight channels per CPU at 1DPC or 2DPC. Use qualified DDR4 modules and population order.",
+    "sources": [
+      {
+        "title": "AS-2024US-TRT specifications",
+        "url": "https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt",
+        "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "AS-2024US-TRT Quick Reference Guide",
+        "url": "https://www.supermicro.com/QuickRefs/superserver/2U/QRG-2315.pdf",
+        "loc": "Page 1, Memory table: CPU1/CPU2 channels 1-8, 16-DIMM and 32-DIMM populations",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "H12DSU-iN motherboard specifications",
+        "url": "https://www.supermicro.com/en/products/motherboard/h12dsu-in",
+        "loc": "System Memory; Processor/Chipset",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09"
+  },
+  "mi300x": {
+    "maxProcessors": 2,
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Two-processor configuration documented; other processor populations are not established by this field.",
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "note": "Two CPUs, 12 channels each, one DIMM per channel. OEM memory table lists EPYC 9004 up to 4800 MT/s and 9005 up to 6000 MT/s; 9005 requires board revision 2.x.",
+    "sources": [
+      {
+        "title": "AS-8125GS-TNMR2 specifications",
+        "url": "https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2",
+        "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "AS-8125GS-TNMR2 system manual MNL-2671",
+        "url": "https://www.supermicro.com/manuals/superserver/8U/MNL-2671.pdf",
+        "loc": "Section 3.4 Memory Support; Appendix B System Specifications",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09"
+  },
+  "h15hyper": {
+    "maxProcessors": 2,
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Two-processor configuration documented; other processor populations are not established by this field.",
+    "dimmSlots": 32,
+    "channelsPerCpu": 16,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "note": "32 slots across two CPUs at 1DPC: 16 channels per CPU. RDIMM and MRDIMM are alternative qualified configurations.",
+    "sources": [
+      {
+        "title": "AS-2127H7-N specifications",
+        "url": "https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n",
+        "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "H15DPH motherboard specifications",
+        "url": "https://www.supermicro.com/en/products/motherboard/h15dph",
+        "loc": "Key Features; System Memory; Optimized Servers links",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09"
+  }
+}

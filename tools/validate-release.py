@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CHECKS = (
     ("build-amd-data.py", "--check"),
     ("check-order.py",),
+    ("check-platform-guides-integration.py",),
     ("refresh-benchmarks.py", "--check"),
     ("test-spec-import.py",),
     ("test-mlperf-import.py",),

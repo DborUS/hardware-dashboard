@@ -1,0 +1,410 @@
+[
+  {
+    "id": "intelhyper",
+    "shape": "sm-intelhyper",
+    "view": "2U front · standard 8-SFF configuration",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/hyper/2u/sys-222h-tn",
+    "sourceTitle": "Supermicro SYS-222H-TN product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/SYS-222H-TN_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Central bank of eight vertical SFF carriers",
+      "Large mesh blanks on both sides",
+      "Silver rack ears and yellow carrier releases"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "amd1",
+    "shape": "sm-amd1",
+    "view": "1U front · standard 8-SFF configuration",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/hyper/1u/as-1126hs-tn",
+    "sourceTitle": "Supermicro AS-1126HS-TN product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-1126HS-TN_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Eight horizontal SFF carriers in four columns and two rows",
+      "Two mesh blank sections at the right",
+      "Thin 1U face and rack ears"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "amd2",
+    "shape": "sm-amd2",
+    "view": "2U front · standard 8-SFF configuration",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/hyper/2u/as-2126hs-tn",
+    "sourceTitle": "Supermicro AS-2126HS-TN product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-2126HS-TN_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Eight vertical SFF carriers in the center",
+      "Ventilated blank sections at left and right",
+      "Silver rack ears"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "amdcloud",
+    "shape": "sm-amdcloud",
+    "view": "2U front · twelve LFF carriers",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/clouddc/2u/as-2015cs-tnr",
+    "sourceTitle": "Supermicro AS-2015CS-TNR product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-2015CS-TNR_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Twelve horizontal LFF carriers, four columns by three rows",
+      "Dark carrier releases",
+      "Large side pull handles"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "intelcloud",
+    "shape": "sm-intelcloud",
+    "view": "1U front · standard 8-SFF configuration",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/clouddc/1u/sys-112c-tn",
+    "sourceTitle": "Supermicro SYS-112C-TN product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/SYS-112C-TN_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Eight horizontal carriers, four columns by two rows",
+      "Right-hand mesh blanks",
+      "Front control and USB elements on the rack ears"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "inteltwin",
+    "shape": "sm-inteltwin",
+    "view": "2U chassis · four nodes with 8-E1.S fronts",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/grandtwin/2u/sys-212gt-hnf",
+    "sourceTitle": "Supermicro SYS-212GT-HNF product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/SYS-212GT-HNF_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Four independent front modules in a two-by-two grid",
+      "Eight vertical E1.S carriers on each node",
+      "Front I/O to the right of each node drive bank"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "amdtwin",
+    "shape": "sm-amdtwin",
+    "view": "2U chassis · four nodes with 6-SFF fronts",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2115gt-hntr",
+    "sourceTitle": "Supermicro AS-2115GT-HNTR product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-2115GT-HNTR_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Four front-accessible modules in a two-by-two grid",
+      "Six horizontal carriers per node, three across by two high",
+      "Pull handles at each node edge"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "h15twin",
+    "shape": "sm-h15twin",
+    "view": "2U chassis · two nodes, optional 8-SFF front",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2117gt7-dnf",
+    "sourceTitle": "Supermicro AS-2117GT7-DNF product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-2117GT7-DNF_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Two side-by-side full-height node fronts",
+      "Upper front expansion and I/O sections",
+      "Eight horizontal carriers per node in two columns and four rows"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "tower",
+    "shape": "sm-tower",
+    "view": "Mini-tower front · closed side panel",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/up%20workstation/mini-tower/sys-531r-i",
+    "sourceTitle": "Supermicro SYS-531R-I product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/SYS-531R-I_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Black horizontal front louvers",
+      "Control strip about one-third of the way down",
+      "Two front USB positions and round power control"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "edge",
+    "shape": "sm-edge",
+    "view": "Short-depth 1U · front I/O",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/wio/1u/as-1115s-fwtrt",
+    "sourceTitle": "Supermicro AS-1115S-FWTRT product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-1115S-FWTRT_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Two front power-supply modules at the left",
+      "Central motherboard I/O and front expansion blanks",
+      "No external front drive bank in the pictured build"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "amdentry",
+    "shape": "sm-amdentry",
+    "view": "Mini-tower front · closed side panel",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/mainstream/tower/as-3015a-i",
+    "sourceTitle": "Supermicro AS-3015A-I product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-3015A-I_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Black horizontal front louvers",
+      "Central USB and power strip",
+      "Front matches the shared tower chassis style, not a rack or exposed-drive tower"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "petascale",
+    "shape": "sm-petascale",
+    "view": "1U Petascale · sixteen horizontal E3.S carriers",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/storage/1u/ssg-122b-ne316r",
+    "sourceTitle": "Supermicro SSG-122B-NE316R product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/SSG-122B-NE316R_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Four stacks of four horizontal E3.S carriers",
+      "Ventilated sections between carrier stacks",
+      "Silver thin rack chassis"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "capacity",
+    "shape": "sm-capacity",
+    "view": "4U top-loading storage · partly exposed drive field",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/storage/4u/ssg-542b-e1cr90",
+    "sourceTitle": "Supermicro SSG-542B-E1CR90 product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/SSG-542B-E1CR90_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Deep chassis with drives serviced from above",
+      "Only the forward portion of the ninety-drive field is exposed",
+      "Mesh front, central badge and large side pull handles"
+    ],
+    "caveat": "Only the exposed forward part of the top-loading field is shown; the drawing does not represent all ninety positions. Cover, depth and service travel are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "pciegpu",
+    "shape": "sm-pciegpu",
+    "view": "4U PCIe GPU chassis · photographed 24-position front",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/4u/sys-421ge-tnrt",
+    "sourceTitle": "Supermicro SYS-421GE-TNRT product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/SYS-421GE-TNRT_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Three wide upper black-mesh sections",
+      "Lower bank of 24 vertical SFF positions",
+      "Yellow and burgundy carrier releases in the vendor photo"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "amdpcie",
+    "shape": "sm-amdpcie",
+    "view": "5U PCIe GPU chassis · photographed front",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/5u/as%20-5126gs-tnrt",
+    "sourceTitle": "Supermicro AS-5126GS-TNRT product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-5126GS-TNRT_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Five upper fan-grille sections",
+      "A separate horizontal ventilation strip",
+      "Lower bank of 24 vertical SFF positions"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "instinctair",
+    "shape": "sm-instinctair",
+    "view": "8U Instinct · air-cooled front",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/8u/as-8126gs-tnmr",
+    "sourceTitle": "Supermicro AS-8126GS-TNMR product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-8126GS-TNMR_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Large upper accelerator-section mesh",
+      "Middle service tray over eight SFF plus two SATA positions",
+      "Five lower fan modules"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "instinctliquid",
+    "shape": "sm-instinctliquid",
+    "view": "4U Instinct · front coolant connections",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/4u/as-4126gs-nmr-lcc",
+    "sourceTitle": "Supermicro AS-4126GS-NMR-LCC product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-4126GS-NMR-LCC_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Coolant hoses leave the front mesh and service section",
+      "Eight horizontal SFF carriers in the lower drive section",
+      "Silver service face, with no invented blue and red coolant ports"
+    ],
+    "caveat": "Hoses are shortened to keep connections visible. This is an exterior schematic, not a plumbing or installation diagram.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "hgx",
+    "shape": "sm-hgx",
+    "view": "8U HGX B300 · Intel-host front",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/8u/sys-822gs-nb3rt",
+    "sourceTitle": "Supermicro SYS-822GS-NB3RT product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/SYS-822GS-NB3RT_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Eight rectangular network apertures across the upper grille",
+      "Large central accelerator mesh",
+      "Two groups of lower E1.S carriers around the host service panel"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "amdhgx",
+    "shape": "sm-amdhgx",
+    "view": "8U HGX B300 · AMD-host front",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/8u/as-8126gs-nb3rt",
+    "sourceTitle": "Supermicro AS-8126GS-NB3RT product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-8126GS-NB3RT_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Eight rectangular upper network apertures",
+      "Large central accelerator mesh",
+      "Split lower E1.S banks and host service panel; same external family as Intel model"
+    ],
+    "caveat": "Original simplified illustration; the photographed configuration is not every orderable configuration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "gaudi",
+    "shape": "sm-gaudi",
+    "view": "8U Gaudi 3 · accelerator tray closed",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/8u/sys-822ga-ngr3",
+    "sourceTitle": "Supermicro SYS-822GA-NGR3 product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/SYS-822GA-NGR3_main.jpg",
+    "locator": "Product gallery, main system photograph",
+    "features": [
+      "Upper mesh accelerator tray with six network apertures",
+      "Middle host service and I/O strip",
+      "Central lower eight-SFF bank flanked by ventilated sections"
+    ],
+    "caveat": "Gallery photograph has its upper tray pulled forward. Illustration closes the tray to compare front proportions; hidden internals are omitted.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "blade",
+    "shape": "sm-blade",
+    "view": "Single-width blade · upright installed orientation",
+    "sourceUrl": "https://www.supermicro.com/en/products/superblade/module/sbi-622b-1ne34.php",
+    "sourceTitle": "Supermicro SBI-622B-1NE34 product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/a_images/products/views/SBI-622B-1NE34_callout_front.jpg",
+    "locator": "Views: Front View — System callout, blade drive bays 1–4; angled module photograph",
+    "features": [
+      "Tall narrow module face from the official six-U enclosure callout",
+      "Four vertical E3.S carriers at the foot of the blade",
+      "Upper ventilated expansion section and burgundy extraction latch"
+    ],
+    "caveat": "The front follows the official enclosure callout. The long side casing is simplified and shown upright as installed; internal parts are omitted.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "amdblade",
+    "shape": "sm-amdblade",
+    "view": "8U SuperBlade context · one position highlighted",
+    "sourceUrl": "https://www.supermicro.com/en/aplus/superblade/module/sba-817v7-1n.php",
+    "sourceTitle": "Supermicro SBA-817V7-1N product gallery",
+    "sourceImageUrl": "https://www.supermicro.com/a_images/products/Aplus/SuperBlade/SBA-817V7-1N_spec.jpg",
+    "locator": "SBA-817V7-1N: View Larger — supplied enclosure photograph",
+    "features": [
+      "Official product image shows ten slender blade positions in an enclosure",
+      "Silver ventilated fronts and burgundy latches",
+      "The enclosure provides the physical context for the module"
+    ],
+    "caveat": "The model page provides an enclosure-family photo rather than an isolated sled view. Highlight identifies one blade position; pictured front population is representative and does not verify a specific SBA-817V7-1N drive option.",
+    "reviewStatus": "schematic"
+  },
+  {
+    "id": "amdlegacy",
+    "shape": "installed-supermicro-amdlegacy",
+    "features": [
+      "Twelve horizontal LFF carrier faces in four columns and three rows",
+      "Black ventilated carriers with burgundy release ends",
+      "Large silver side pull handles and left status/control strip"
+    ],
+    "view": "2U front - twelve horizontal LFF carriers",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt",
+    "sourceTitle": "Supermicro AS-2024US-TRT product gallery",
+    "locator": "Product gallery main image: front face of the open-cover chassis",
+    "caveat": "Original simplified drawing of the photographed front. The source has its top cover open; the illustration closes it and omits hidden internals. Alternative drive interfaces and kits are not distinguished by this exterior.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-2024US-TRT_main.jpg",
+    "reviewedAt": "2026-10-09",
+    "reviewMethod": "Opened and visually inspected the actual official product photograph in the browser; identified carrier orientation, grille arrangement, controls, handles and chassis proportions."
+  },
+  {
+    "id": "mi300x",
+    "shape": "installed-supermicro-mi300x",
+    "features": [
+      "Broad silver upper mesh panel",
+      "Five separate fan grilles in a horizontal middle row",
+      "Lower vertical carrier/blank bank with yellow then burgundy release accents",
+      "Silver rack handles attached to the sides"
+    ],
+    "view": "8U front - upper mesh, middle fans, lower carrier bank",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2",
+    "sourceTitle": "Supermicro AS-8125GS-TNMR2 product gallery",
+    "locator": "Product gallery main image: complete closed chassis and front face",
+    "caveat": "Original simplified drawing of the OEM gallery chassis face, including carrier/blank positions. Their count is not a drive-support claim: the model specifies 12 standard plus 4 optional NVMe drives and 2 SATA drives. Configuration text remains authoritative; the exterior does not show internal GPUs or all ten system fans.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-8125GS-TNMR2_main.jpg",
+    "reviewedAt": "2026-10-09",
+    "reviewMethod": "Opened and visually inspected the actual official product photograph in the browser; identified carrier orientation, grille arrangement, controls, handles and chassis proportions."
+  },
+  {
+    "id": "h15hyper",
+    "shape": "installed-supermicro-h15hyper",
+    "features": [
+      "Eight vertical SFF carriers in the center, numbered 0-7 in the official callout",
+      "Yellow carrier releases at the bottom of the central bank",
+      "Wide black ventilated blank sections on both sides",
+      "Thin silver rack ears and left control strip"
+    ],
+    "view": "2U front - pictured eight-carrier configuration",
+    "sourceUrl": "https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n",
+    "sourceTitle": "Supermicro AS-2127H7-N front-view callout",
+    "locator": "Front View - System: drive positions 0-7 and left power/UID/status controls",
+    "caveat": "Original simplified drawing of the official eight-bay front callout. Other backplanes and drive formats are alternative configurations; the drawing does not establish their support or exact part selection. Cover and depth are simplified.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-2127H7-N_callout_front.jpg",
+    "reviewedAt": "2026-10-09",
+    "reviewMethod": "Opened and visually inspected both the official front-view callout (positions 0-7) and the product gallery photograph in the browser."
+  }
+]

@@ -1,0 +1,236 @@
+{
+  "reviewed": "2026-10-09",
+  "reviewer": "fix_dell_lenovo",
+  "method": "Fresh official Dell manuals, technical guides, thermal/riser matrices and dated announcements. Unproven SKU/CPU-GPU pairings and live availability are excluded.",
+  "claims": [
+    {
+      "model": "r7515",
+      "claim": "1 CPU; EPYC 7002/7003; 2U",
+      "status": "verified",
+      "source": {
+        "title": "PowerEdge R7515: system overview",
+        "url": "https://www.dell.com/support/manuals/en-au/poweredge-r7515/per7515_ism_pub/system-overview?guid=guid-ea6a65f5-9bc5-4aaa-8269-98a073063568&lang=en-us",
+        "loc": "System overview; supported drive layouts; NVMe note",
+        "scope": "One CPU, 16 DIMMs, 2U, storage options and front NVMe PCIe generation.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      },
+      "uncertainty": "Confirmed model overview. CPU SKU support is narrower than family membership."
+    },
+    {
+      "model": "r7515",
+      "claim": "16 DDR4 slots, 8 channels; RDIMM/LRDIMM 1DPC and 2DPC",
+      "status": "verified",
+      "source": {
+        "title": "PowerEdge R7515: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-fm/oth-r7515/per7515_ism_pub/system-memory-guidelines?guid=guid-0534e253-8b5d-4116-b27d-78b133fdd07a&lang=en-us",
+        "loc": "System memory guidelines; Tables 1–2",
+        "scope": "Eight channels, 16 slots, DDR4 RDIMM/LRDIMM; 1DPC and 2DPC.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      },
+      "uncertainty": "Positive topology and populations; capacities/speeds are type/rank-specific."
+    },
+    {
+      "model": "r7515",
+      "claim": "MI210, max 1, Riser 1B slot 3",
+      "status": "verified",
+      "source": {
+        "title": "PowerEdge R7515: expansion-card installation guidelines",
+        "url": "https://www.dell.com/support/manuals/en-us/poweredge-r7515/r7515_information_update_techsheet_ism/expansion-card-installation-guidelines?guid=guid-cf4ae8c3-ba25-4ed7-9f5e-5266bcf31fda&lang=en-us",
+        "loc": "Table 4: Riser 1B, AMD MI210 64GB 300W FH row",
+        "scope": "One MI210 in slot 3; model-specific riser evidence.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      },
+      "uncertainty": "Documented option, not current availability; CPU-family pairing omitted."
+    },
+    {
+      "model": "r7515",
+      "claim": "MI210: 24×2.5-inch / 2LP+2FH; HPR fans/1U HPR heatsink; 30°C",
+      "status": "verified",
+      "source": {
+        "title": "PowerEdge R7515: thermal restriction matrix",
+        "url": "https://www.dell.com/support/manuals/en-us/poweredge-r7515/per7515_ts_pub/thermal-restriction-matrix?guid=guid-b5796e6d-e739-4e98-b193-3aa647f08dba&lang=en-us",
+        "loc": "Table 4: MI210, A16 and V100S restrictions",
+        "scope": "MI210 chassis, fan, heatsink and ambient limits.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      },
+      "uncertainty": "No blanket GPU support across chassis."
+    },
+    {
+      "model": "r7515",
+      "claim": "Front NVMe PCIe Gen3",
+      "status": "verified",
+      "source": {
+        "title": "PowerEdge R7515: system overview",
+        "url": "https://www.dell.com/support/manuals/en-au/poweredge-r7515/per7515_ism_pub/system-overview?guid=guid-ea6a65f5-9bc5-4aaa-8269-98a073063568&lang=en-us",
+        "loc": "System overview; supported drive layouts; NVMe note",
+        "scope": "One CPU, 16 DIMMs, 2U, storage options and front NVMe PCIe generation.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      },
+      "uncertainty": "Expansion Gen4 is not drive-link Gen4."
+    },
+    {
+      "model": "r7525",
+      "claim": "One or two EPYC 7002/7003; one CPU requires CPU1 and only Riser 1",
+      "status": "verified",
+      "source": {
+        "title": "PowerEdge R7525 Technical Guide",
+        "url": "https://i.dell.com/sites/csdocuments/Product_Docs/en/dell-emc-poweredge-r7525-technical-guide.pdf",
+        "loc": "p.15: processor and single-processor configuration; p.27 Table 17: GPU risers; Memory; Storage; front-view figures",
+        "scope": "Model, CPU count, DDR4 topology and documented GPU configurations.",
+        "date": "August 2022 · Rev A10",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "revision": "August 2022 · Rev A10"
+      },
+      "uncertainty": "p.15 explicit functional single-CPU configuration, not minimum POST inference."
+    },
+    {
+      "model": "r7525",
+      "claim": "32 physical DDR4 slots; 16 local per CPU; 8 channels; 1DPC/2DPC RDIMM/LRDIMM",
+      "status": "verified",
+      "source": {
+        "title": "PowerEdge R7525: system memory guidelines",
+        "url": "https://www.dell.com/support/manuals/en-hr/poweredge-r7525/r7525_ism_pub/system-memory-guidelines?guid=guid-8665c17a-2613-45b2-9204-c02a89225024&lang=en-us",
+        "loc": "System memory guidelines; Tables 1–2",
+        "scope": "Eight channels and 16 local DIMM slots per CPU; DDR4 RDIMM/LRDIMM 1DPC and 2DPC.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      },
+      "uncertainty": "One CPU enables only its half of memory."
+    },
+    {
+      "model": "r7525",
+      "claim": "MI100 and MI210, up to three in specified full-length riser configuration",
+      "status": "verified",
+      "source": {
+        "title": "PowerEdge R7525 Technical Guide",
+        "url": "https://i.dell.com/sites/csdocuments/Product_Docs/en/dell-emc-poweredge-r7525-technical-guide.pdf",
+        "loc": "p.15: processor and single-processor configuration; p.27 Table 17: GPU risers; Memory; Storage; front-view figures",
+        "scope": "Model, CPU count, DDR4 topology and documented GPU configurations.",
+        "date": "August 2022 · Rev A10",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "revision": "August 2022 · Rev A10"
+      },
+      "uncertainty": "p.27 Table 17; air max3 is not a universal quantity; option kept documented."
+    },
+    {
+      "model": "r7525",
+      "claim": "Liquid max2 double-width GPUs; no GPUs with 12LFF or 24SFF NVMe; model thermal limits",
+      "status": "verified",
+      "source": {
+        "title": "PowerEdge R7525: thermal restriction matrix",
+        "url": "https://www.dell.com/support/manuals/en-ca/poweredge-r7525/r7525_ts_pub/thermal-restriction-matrix?guid=guid-895d723e-1613-4960-96c5-75f339486036&lang=en-us",
+        "loc": "Tables 1–2 and 5–6; GPU notes",
+        "scope": "Air/liquid choices; liquid builds capped at two double-width GPUs; drive, shroud and ambient restrictions.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      },
+      "uncertainty": "Table 2 and notes override broad GPU maximum."
+    },
+    {
+      "model": "r7525",
+      "claim": "Air and direct liquid CPU cooling",
+      "status": "verified",
+      "source": {
+        "title": "Dell direct liquid cooling support for PowerEdge",
+        "url": "https://infohub.delltechnologies.com/en-us/p/dell-technologies-direct-liquid-cooling-support-for-new-poweredge-servers/",
+        "loc": "New PowerEdge Server Support; Direct Liquid Cooling Technology",
+        "scope": "Names R7525 for factory DLC; describes external coolant and heat-exchanger infrastructure.",
+        "date": "16 January 2023",
+        "publicationDate": "2023-01-16",
+        "reviewed": "2026-10-09",
+        "revision": "16 January 2023"
+      },
+      "uncertainty": "Factory DLC needs external liquid infrastructure; exact site implementation still unverified."
+    },
+    {
+      "model": "both",
+      "claim": "iDRAC9 and OpenManage; SFF/LFF/NVMe; illustrated 2U rack form",
+      "status": "verified",
+      "source": {
+        "title": "PowerEdge R7525 Technical Guide",
+        "url": "https://i.dell.com/sites/csdocuments/Product_Docs/en/dell-emc-poweredge-r7525-technical-guide.pdf",
+        "loc": "p.15: processor and single-processor configuration; p.27 Table 17: GPU risers; Memory; Storage; front-view figures",
+        "scope": "Model, CPU count, DDR4 topology and documented GPU configurations.",
+        "date": "August 2022 · Rev A10",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "revision": "August 2022 · Rev A10"
+      },
+      "uncertainty": "See respective model guide for exact I/O and bezel/drive variation."
+    },
+    {
+      "model": "r7515",
+      "claim": "Available by 17 September 2019",
+      "status": "verified",
+      "source": {
+        "title": "Dell introduces second-generation EPYC PowerEdge servers",
+        "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2019~09~20190917-dt-unveils-groundbreaking-servers-and-solutions-for-modern-data-centers.htm",
+        "loc": "17 September 2019 dateline; Availability",
+        "scope": "R7515 was available; R7525 planned for early 2020. Dates describe the 7002 wave.",
+        "date": "17 September 2019",
+        "publicationDate": "2019-09-17",
+        "reviewed": "2026-10-09",
+        "revision": "17 September 2019"
+      },
+      "uncertainty": "Official Dell indexed full text retrieved freshly; direct page open returned 403. Not a claimed exact first-shipment date."
+    },
+    {
+      "model": "r7525",
+      "claim": "Announced 17 September 2019, early-2020 planned availability",
+      "status": "verified",
+      "source": {
+        "title": "Dell introduces second-generation EPYC PowerEdge servers",
+        "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2019~09~20190917-dt-unveils-groundbreaking-servers-and-solutions-for-modern-data-centers.htm",
+        "loc": "17 September 2019 dateline; Availability",
+        "scope": "R7515 was available; R7525 planned for early 2020. Dates describe the 7002 wave.",
+        "date": "17 September 2019",
+        "publicationDate": "2019-09-17",
+        "reviewed": "2026-10-09",
+        "revision": "17 September 2019"
+      },
+      "uncertainty": "Actual first-shipment date not established. Official indexed text retrieved; direct page open returned 403."
+    },
+    {
+      "model": "both",
+      "claim": "EPYC 7003 refresh available by 17 March 2021",
+      "status": "verified",
+      "source": {
+        "title": "Dell launches next-generation PowerEdge portfolio",
+        "url": "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2021~03~20210317-dell-technologies-powers-ai-and-edge-computing-with-next-generation-poweredge-servers.htm",
+        "loc": "Availability: 3rd Generation AMD EPYC models",
+        "scope": "R7515 and R7525 EPYC 7003 configurations available at March 2021 announcement.",
+        "date": "17 March 2021",
+        "publicationDate": "2021-03-17",
+        "reviewed": "2026-10-09",
+        "revision": "17 March 2021"
+      },
+      "uncertainty": "No blanket field upgrade or all-SKU guarantee."
+    }
+  ],
+  "unresolved": [
+    "Dell 2019 announcement is currently indexed with full Availability text, but direct web open returns 403.",
+    "Current global orderability and end-of-sale/support dates not established.",
+    "GPU options are documented model options; exact host CPU family, firmware, cables/PSU and current option supply are not universally established.",
+    "R7525's planned early-2020 release is not proof of an exact shipping day."
+  ],
+  "integration": [
+    "Merge new model objects and source IDs into existing dell15 generation.",
+    "Add generic 2U schematics under installed-dell-r7515 and installed-dell-r7525; keep caveat visible.",
+    "Do not promote documented GPU evidence into exact CPU/GPU pairing qualification.",
+    "Preserve R7525 single-CPU active-memory and riser limitations."
+  ]
+}

@@ -430,11 +430,65 @@ def main():
             else:
                 products_link = site_nav.locator(f'a[href="./?site={SITE_REVISION}"]')
                 benchmarks_link = site_nav.locator(f'a[href="benchmarks/?site={SITE_REVISION}"]')
-                if (site_nav.locator("a").count() != 2 or products_link.count() != 1 or
-                        benchmarks_link.count() != 1 or
+                platforms_link = site_nav.locator('a[href="platforms/index.html#finder"]')
+                if (site_nav.locator("a").count() != 3 or products_link.count() != 1 or
+                        benchmarks_link.count() != 1 or platforms_link.count() != 1 or
                         products_link.get_attribute("aria-current") != "page" or
-                        benchmarks_link.get_attribute("aria-current") is not None):
-                    failures.append("Products page has incorrect Products/Benchmarks site navigation")
+                        benchmarks_link.get_attribute("aria-current") is not None or
+                        platforms_link.get_attribute("aria-current") is not None):
+                    failures.append("Products page has incorrect Products/Benchmarks/Platforms site navigation")
+            # Exercise the maintained guide through the same links visitors use.
+            # Keep its reviewed catalog separate from exact-SKU compatibility data.
+            expected_platforms = json.loads(
+                (REPO / "platforms" / "build-manifest.json").read_text(encoding="utf-8")
+            )["modelCount"]
+            page.locator('.site-primary-nav a[href="platforms/index.html#finder"]').click()
+            page.wait_for_url("**/platforms/index.html#finder")
+            page.locator("#resultsRegion .platform-card").first.wait_for(state="visible")
+            platform_nav = page.locator(".site-primary-nav")
+            platform_links = platform_nav.locator("a")
+            if (platform_links.all_inner_texts() != ["Products", "Benchmarks", "Platforms"] or
+                    platform_nav.locator('a[aria-current="page"]').inner_text() != "Platforms"):
+                failures.append("Platforms page has incorrect shared navigation")
+            platform_count = page.locator("#resultsRegion .platform-card").count()
+            results["platform_finder_profiles"] = platform_count
+            if platform_count != expected_platforms or platform_count < 102:
+                failures.append(f"Platform Finder lost reviewed profiles: {platform_count}/{expected_platforms}")
+            page.locator("#platformSearch").fill("C245 M8")
+            page.wait_for_function("document.querySelectorAll('#resultsRegion .platform-card').length === 1")
+            if page.locator("#resultsRegion .platform-card").get_attribute("data-platform") != "ucs:c245":
+                failures.append("Platform Finder search no longer finds the reviewed C245 M8 profile")
+
+            # Old local bookmarks must survive the hosted directory move, including
+            # search/hash state. Merely keeping a second copy can hide stale guides.
+            page.goto(base + "platforms/amd-platform-finder.html?integration=1#finder?oem=hpe&cpu=EPYC+9005")
+            page.wait_for_url("**/platforms/index.html?integration=1#finder?oem=hpe&cpu=EPYC+9005")
+            page.locator("#resultsRegion .platform-card").first.wait_for(state="visible")
+            if (page.locator("#filter-oem").input_value() != "hpe" or
+                    page.locator("#filter-cpu").input_value() != "EPYC 9005"):
+                failures.append("Legacy Platform Finder redirect lost filter state")
+            profile_ids = page.locator("#resultsRegion .platform-card").evaluate_all(
+                "cards => cards.map(card => card.dataset.platform)")
+            if not profile_ids or not all(model.startswith("hpe:") for model in profile_ids):
+                failures.append("Platform Finder OEM deep link failed")
+            page.locator("#resultsRegion [data-model]").first.click()
+            page.locator("#detailDialog[open]").wait_for(state="visible")
+            page.reload()
+            page.locator("#detailDialog[open]").wait_for(state="visible")
+            if "model=" not in page.url:
+                failures.append("Platform Finder model detail lost its shareable deep link")
+            page.locator("#detailDialog [data-close]").click()
+
+            platform_nav.get_by_role("link", name="Benchmarks", exact=True).click()
+            page.wait_for_url("**/benchmarks/**")
+            page.locator('.site-primary-nav a[aria-current="page"]').wait_for(state="visible")
+            if page.locator('.site-primary-nav a[aria-current="page"]').inner_text() != "Benchmarks":
+                failures.append("Platforms to Benchmarks navigation failed")
+            page.locator(".site-primary-nav").get_by_role("link", name="Products", exact=True).click()
+            page.locator("#a2Subtabs.visible").wait_for(state="visible")
+            if page.locator('.site-primary-nav a[aria-current="page"]').inner_text() != "Products":
+                failures.append("Platforms roundtrip did not restore Products")
+
             if count(".topbar .brand-lockup") != 1 or count(".topbar-tools #whatsNewBtn") != 1:
                 failures.append("Products page is missing the shared logo or What's new trigger")
             if count(".navrow .product-context #vendorPill") != 1:

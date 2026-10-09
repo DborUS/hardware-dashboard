@@ -1,0 +1,1813 @@
+{
+  "models": [
+    {
+      "id": "ucs:c220",
+      "shape": "ucs-c220",
+      "artSha256": "387d020538e8d6d05f3b014dc39c21bbcc4be0e123664c2c267e39573ecf7519"
+    },
+    {
+      "id": "ucs:c240",
+      "shape": "ucs-c240",
+      "artSha256": "1601348ffef8c2584247b0f15fe85babd923b0ab729724b8d73819e7da3358b9"
+    },
+    {
+      "id": "ucs:c225",
+      "shape": "ucs-c225",
+      "artSha256": "d0bb9c5e35576c0af02eb94b9cd153ea3f668878872cea91d85e22f992f38999"
+    },
+    {
+      "id": "ucs:c245",
+      "shape": "ucs-c245",
+      "artSha256": "9c9494c5483ae4757d0b679d4e3978c38ee0d1e00fb1d19755f3afae0b452181"
+    },
+    {
+      "id": "ucs:c845",
+      "shape": "ucs-c845",
+      "artSha256": "81269e873d6dfc01dcc34dc02b9eac44593359d437c703c6d955cbe06263b995"
+    },
+    {
+      "id": "ucs:c880",
+      "shape": "ucs-c880",
+      "artSha256": "6d208e8dfc5efe7a59382380aa4a1b15e60e25abdfdf6eddf301903f4cff27e5"
+    },
+    {
+      "id": "ucs:c885",
+      "shape": "ucs-c885",
+      "artSha256": "a0dc9d209939f73c5a36477619ac5d053c58b6b3e9c5289a1091516ff511a21c"
+    },
+    {
+      "id": "ucs:x210",
+      "shape": "ucs-x210",
+      "artSha256": "f39255c8d11ce21f6f613dd0b2dea55f90b9627deac3a7e1c54dff1f8ec36d68"
+    },
+    {
+      "id": "ucs:x215",
+      "shape": "ucs-x215",
+      "artSha256": "eae40e37c905bfdb8530bf9cb28ecac951a8a316e41f5d6ad778f36226ff0b7a"
+    },
+    {
+      "id": "ucs:x410",
+      "shape": "ucs-x410",
+      "artSha256": "4f3fd0a3e7c17259ac3a3286eb3a8e206d75e9a8417ad16df604bf9ba7b94bff"
+    },
+    {
+      "id": "ucs:xe130",
+      "shape": "ucs-xe130",
+      "artSha256": "2ce8bf5bccc47ac2e72d24832d1816c00d46d539d35c86a9f9718ae085483f6a"
+    },
+    {
+      "id": "ucs:xe150",
+      "shape": "ucs-xe150",
+      "artSha256": "1e4bb0b114d555dd5fd6c78f842e800ed56ed8290b046d54c77a8c688b148c95"
+    },
+    {
+      "id": "ucs:c245m6",
+      "shape": "installed-c245m6",
+      "artSha256": "8d2ee3807748cee77348f06f4605d7f5a27873f07a297e2d0d44a36696829a93"
+    },
+    {
+      "id": "hpe:dl320",
+      "shape": "hpe-dl320",
+      "artSha256": "6fe9255a7e16cc019fca2c93749f8008896323e2cce6d1dc57662466150dc6be"
+    },
+    {
+      "id": "hpe:dl325",
+      "shape": "hpe-dl325",
+      "artSha256": "e1d65ce4854e119d61cf5449d1f83c396ea68f90f4bbef6e87c7de4a85e5deb9"
+    },
+    {
+      "id": "hpe:dl340",
+      "shape": "hpe-dl340",
+      "artSha256": "e2ab380879652dd50312c33f4bbe8eedbcbbc9d7e1840f9fd06775136b96be76"
+    },
+    {
+      "id": "hpe:dl345",
+      "shape": "hpe-dl345",
+      "artSha256": "dc17129aa716d17523821eff3eb7252fcc8af4ea68b7d509cec19756f609aed9"
+    },
+    {
+      "id": "hpe:dl360",
+      "shape": "hpe-dl360",
+      "artSha256": "f55421585d04b5d040a291bb954de91e57a12f59e2f1c28970f35671a86eb1ab"
+    },
+    {
+      "id": "hpe:dl365",
+      "shape": "hpe-dl365",
+      "artSha256": "47f7b8afc892f3cad590f10c05863826e695e5cdbf3407e9676ae5059f9e9c25"
+    },
+    {
+      "id": "hpe:dl380",
+      "shape": "hpe-dl380",
+      "artSha256": "33d22959d8c61a67964ffe0823e039c76cf9d33b54c27f5a566ce81152be9cfc"
+    },
+    {
+      "id": "hpe:dl385",
+      "shape": "hpe-dl385",
+      "artSha256": "ed92aec0d4c26125a61930d137ecbe35a641b3aaa7d602772a7b571ff86bb534"
+    },
+    {
+      "id": "hpe:dl580",
+      "shape": "hpe-dl580",
+      "artSha256": "69962a45e65ddd9ea3e5c3742ba472f96bff10d809fedd1de86f199babd70841"
+    },
+    {
+      "id": "hpe:dl380a",
+      "shape": "hpe-dl380a",
+      "artSha256": "cf5c1bb1a3a5a8178b72623c94ee049a552a3bf3f906b82569a52647fb88e2c3"
+    },
+    {
+      "id": "hpe:xd685",
+      "shape": "hpe-xd685",
+      "artSha256": "e3bb58ddb49c6ecc39c80ac4ef3a5e30da5be747643d1981e4aa581fc77a5d8d"
+    },
+    {
+      "id": "hpe:xd690",
+      "shape": "hpe-xd690",
+      "artSha256": "e2d420eab4c68074ba7eb900df4a21e4189ca9823390e5f4865a88dbbaded443"
+    },
+    {
+      "id": "hpe:sy480",
+      "shape": "hpe-sy480",
+      "artSha256": "25fa593c336bd90b340a39c26a126e0effcd316837cc9fce585688981cad913e"
+    },
+    {
+      "id": "hpe:ml350",
+      "shape": "hpe-ml350",
+      "artSha256": "b89330bd76c5a17efd690e4892b1d6321c9c33e12f102a2edbfb545241902cae"
+    },
+    {
+      "id": "hpe:dl145",
+      "shape": "hpe-dl145",
+      "artSha256": "02926ab1c1ac349258399d43eef0a564eec67fafbd2f8653ae5aec68f8f7325c"
+    },
+    {
+      "id": "hpe:dl525",
+      "shape": "hpe-dl525",
+      "artSha256": "de74634d8bc52e2f3dd1bd8ca2cb2147374301e8be979c400fabde2069e14055"
+    },
+    {
+      "id": "hpe:dl585a",
+      "shape": "hpe-dl585a",
+      "artSha256": "0cfd3ee2ed3c9a84f47bd8bf54f648dfde4106e5eb345de25ef942d6577154ed"
+    },
+    {
+      "id": "hpe:xd245",
+      "shape": "hpe-xd245",
+      "artSha256": "c008ce339c9d400f51eaae2e0d0135cf1bba124acd8321a428f18f4977e96532"
+    },
+    {
+      "id": "hpe:xd285",
+      "shape": "hpe-xd285",
+      "artSha256": "77fa60c026502cf632167ce142349ada176ca945cd415ba4c805f2b154f2cbd0"
+    },
+    {
+      "id": "dell:r470",
+      "shape": "physical-r470",
+      "artSha256": "b29bb41d522bce4fe4c8e09b9dae7fa435ca2c4f71c4207992edc9ea057cc42d"
+    },
+    {
+      "id": "dell:r570",
+      "shape": "physical-r570",
+      "artSha256": "1f0ed37021a4e5c693a650b3c01727ee3362c1cae9d71abcb235df96a651dc2d"
+    },
+    {
+      "id": "dell:r670",
+      "shape": "physical-r670",
+      "artSha256": "aff765433d5e9ba6a15bc56abcaa16dd46eae26d47b5987ed9b2d3f0cf44e201"
+    },
+    {
+      "id": "dell:r770",
+      "shape": "physical-r770",
+      "artSha256": "9131540af448c5fd245aefe1baa9195abcd1ba4c9408dd44ea8bee303be86fca"
+    },
+    {
+      "id": "dell:r6715",
+      "shape": "physical-r6715",
+      "artSha256": "79de86512e6f9032d55afb6dbef81e58f3fe125edeb89f08dc9874e3537dbe55"
+    },
+    {
+      "id": "dell:r7715",
+      "shape": "physical-r7715",
+      "artSha256": "29deff98d77adf2cb74d27b2e4afdacf8afc82a40e2ecf777fded047bcffe8a7"
+    },
+    {
+      "id": "dell:r6725",
+      "shape": "physical-r6725",
+      "artSha256": "daba3b92d649d2c65ccdde4410818939c144d1b86fd993a4a1012ddcf835c4d2"
+    },
+    {
+      "id": "dell:r7725",
+      "shape": "physical-r7725",
+      "artSha256": "f79244b3d038a0f7cbfe3aaa47c9631cdc38b02269763cd716226465c8b9a0ba"
+    },
+    {
+      "id": "dell:mx760",
+      "shape": "physical-mx760",
+      "artSha256": "3c6569c4c3463628befd96232e5988c9538b39ff272e99d57e16ee22e7852b8e"
+    },
+    {
+      "id": "dell:t560",
+      "shape": "physical-t560",
+      "artSha256": "611d3efafa3ba94ef1d75baa327ef0265bffe5cf67435d6dfef1ceb5ffdcd499"
+    },
+    {
+      "id": "dell:xr8720",
+      "shape": "physical-xr8720",
+      "artSha256": "913557adf2788f824c8fa1041c708b8c517f7303e325eaeed67cc6990ca00a31"
+    },
+    {
+      "id": "dell:xe7740",
+      "shape": "physical-xe7740",
+      "artSha256": "306993d9685d107ec0226f31b7b81e6e48183008e4d9e2325c123f5502da29ac"
+    },
+    {
+      "id": "dell:xe7745",
+      "shape": "physical-xe7745",
+      "artSha256": "6db72b94e9cf29374e526cfd6ea5cba3e414a20cdbc484beae463bed6609a861"
+    },
+    {
+      "id": "dell:xe9680",
+      "shape": "physical-xe9680",
+      "artSha256": "010f77d5ae49915c8ac609650c4e45364ea3835eff7e9d71ad10c566b0291b1e"
+    },
+    {
+      "id": "dell:xe9780",
+      "shape": "physical-xe9780",
+      "artSha256": "f17052a3ba7444b1fd56b29e7ee201849e9781c39024c81c6012c53485f041dc"
+    },
+    {
+      "id": "dell:xe9785",
+      "shape": "physical-xe9785",
+      "artSha256": "c4ebc2c3fc24ba4533a4d22dfd4182ad3e0c645054b2ae6b4ff0ed4122b1e6e0"
+    },
+    {
+      "id": "dell:xe9785l",
+      "shape": "physical-xe9785l",
+      "artSha256": "8c93896480619e5f06de038ebda755bcd8908de48631b89579f8026deb47f8e5"
+    },
+    {
+      "id": "dell:r7625",
+      "shape": "installed-r7625",
+      "artSha256": "27a4c67ae4b993a89b13c6048ee89545cd2a9533af550f7579b4400570104a3c"
+    },
+    {
+      "id": "dell:r7615",
+      "shape": "installed-r7615",
+      "artSha256": "f224af5c2368e773296025763f07c190f2c4c1d5556b59ac232eff061c6abeb8"
+    },
+    {
+      "id": "lenovo:sr630",
+      "shape": "physical-sr630",
+      "artSha256": "c82a83144da62faf0dbe57d16ccf9c41bc8d6c213ea517fa6f1d65d1ab426024"
+    },
+    {
+      "id": "lenovo:sr650",
+      "shape": "physical-sr650",
+      "artSha256": "ff3413fb57931954da2e499353d5a4a14f1ea6dc7a96c0bb6876d0044e6d33c0"
+    },
+    {
+      "id": "lenovo:sr635",
+      "shape": "physical-sr635",
+      "artSha256": "93cf535137f1c8252e18cfbf4158a715f114487b70e0394c26c5e2e8bd0a0767"
+    },
+    {
+      "id": "lenovo:sr655",
+      "shape": "physical-sr655",
+      "artSha256": "97e21b2102bc4a54add2f4d26823c2a14566efe5ea093610e0eaa7a6a7c39efb"
+    },
+    {
+      "id": "lenovo:sr645",
+      "shape": "physical-sr645",
+      "artSha256": "76d358796cb8757132d3bef1b44cc655ceb134a72ec1323930eea8f22cc3c854"
+    },
+    {
+      "id": "lenovo:sr665",
+      "shape": "physical-sr665",
+      "artSha256": "151dae4827c442644ca5fff43533a7252144e305cf470feb2e58ed3e20f05915"
+    },
+    {
+      "id": "lenovo:sr860",
+      "shape": "physical-sr860",
+      "artSha256": "068760acd21f566e6654d3b178b68fd0ce4dd13f4884f5d2002e8cd0646006e8"
+    },
+    {
+      "id": "lenovo:st45",
+      "shape": "physical-st45",
+      "artSha256": "fd4b5effaf9a4d5887265e734989708f7a429631ea77b2cdf13aafb2124a044a"
+    },
+    {
+      "id": "lenovo:st650",
+      "shape": "physical-st650",
+      "artSha256": "12794ac47edb27b930b70c5ea3fdb5841364c4453445d488a16388e498205e70"
+    },
+    {
+      "id": "lenovo:se455",
+      "shape": "physical-se455",
+      "artSha256": "1ac8ec7317edf57098154580c8b7edcc576c5f91033768ae24a5b6d60ecd6c71"
+    },
+    {
+      "id": "lenovo:se100",
+      "shape": "physical-se100",
+      "artSha256": "8f80e85a9909002411099d772f25a2e0914374c2883f4a72e7223807a0893fc4"
+    },
+    {
+      "id": "lenovo:sd535",
+      "shape": "physical-sd535",
+      "artSha256": "5863cfe452efcf1f649c71b290c60c0fd8ff8b5de9ac0da54f0456154e94c0cc"
+    },
+    {
+      "id": "lenovo:sd665",
+      "shape": "physical-sd665",
+      "artSha256": "91ec5c13053ec37830352ead6a8b08360a1c3a90ab91d86a245c6a854d82d856"
+    },
+    {
+      "id": "lenovo:sc750",
+      "shape": "physical-sc750",
+      "artSha256": "ad29b5636b0dafb1821c8816613b40232f9f97ae4bddaa1ed8172dfb0ba1f1dd"
+    },
+    {
+      "id": "lenovo:sr650a",
+      "shape": "physical-sr650a",
+      "artSha256": "e453e2a1d57981065d4ae25fcec44ddfd6691c121ee6ea2cf98ca4ec044f0fcc"
+    },
+    {
+      "id": "lenovo:sr675",
+      "shape": "physical-sr675",
+      "artSha256": "01c25786fb6cb3a79921bd91d7a23ca4f745aab3d47e881fb0ad252dc832123b"
+    },
+    {
+      "id": "lenovo:sr680a",
+      "shape": "physical-sr680a",
+      "artSha256": "bcad799a0d3c4b3a2f747fecde02d6ff31372874808d24115aa605d054cadbf4"
+    },
+    {
+      "id": "lenovo:sr685a",
+      "shape": "physical-sr685a",
+      "artSha256": "d6d13be564ae10fea82b6bfb429218c91d88e786e5c1af0663693cc865341740"
+    },
+    {
+      "id": "lenovo:sr665original",
+      "shape": "installed-sr665original",
+      "artSha256": "60c39a1c4bc29615380011f53702db79dc698a2e6efa08b79a07adb66f9a2c71"
+    },
+    {
+      "id": "supermicro:intelhyper",
+      "shape": "sm-intelhyper",
+      "artSha256": "da0d3cb868c6587f1811c8874fbed1222bc1f5e5862c235c76217b0c76e202e8"
+    },
+    {
+      "id": "supermicro:amd1",
+      "shape": "sm-amd1",
+      "artSha256": "ed71a9e0d83128d5d711d9c85b9b9782092bee031797b9444728271b1b492cb7"
+    },
+    {
+      "id": "supermicro:amd2",
+      "shape": "sm-amd2",
+      "artSha256": "848727c95993d05136f4f2402f66fa87d660cc58bcc13520fc3ff2d06d0d6698"
+    },
+    {
+      "id": "supermicro:amdcloud",
+      "shape": "sm-amdcloud",
+      "artSha256": "c8c5c5d1ca87a64afa88ed9b6a1bc622ae483e039a6117840c0eabff613302d1"
+    },
+    {
+      "id": "supermicro:intelcloud",
+      "shape": "sm-intelcloud",
+      "artSha256": "e1bbafbb4af7bf8689531de1c3816e955ac2c528dc437d0680f46708fd0378a5"
+    },
+    {
+      "id": "supermicro:inteltwin",
+      "shape": "sm-inteltwin",
+      "artSha256": "87528b60c8860efe37062f40cf864b354dee0a99fcbceb993764329cd537780f"
+    },
+    {
+      "id": "supermicro:amdtwin",
+      "shape": "sm-amdtwin",
+      "artSha256": "9d0f3cdeb3d1cc8994b2b1639a38721561ef9017e32dd4924223c83d0577580f"
+    },
+    {
+      "id": "supermicro:h15twin",
+      "shape": "sm-h15twin",
+      "artSha256": "d4f004d76ff833f5fa333a17309061e914237e6b0d30eb5867f3ab49c62698b2"
+    },
+    {
+      "id": "supermicro:blade",
+      "shape": "sm-blade",
+      "artSha256": "80c706ac75b5a5641ec266580e5e38a92ba84fe652affcd233be8394927441f9"
+    },
+    {
+      "id": "supermicro:amdblade",
+      "shape": "sm-amdblade",
+      "artSha256": "1607ab3bdc11d588d1f2d3c282860cdc0de02efb9706cedf9042f95e4486d858"
+    },
+    {
+      "id": "supermicro:tower",
+      "shape": "sm-tower",
+      "artSha256": "b83d88f93878526e87a70e57161e4db4a1ff491996ba38b8f59d6d39e68609a8"
+    },
+    {
+      "id": "supermicro:edge",
+      "shape": "sm-edge",
+      "artSha256": "a4f15ca8b9b3cc2a0555b32993a4926f0038d06408f7edbba2dbc2919b5657e2"
+    },
+    {
+      "id": "supermicro:amdentry",
+      "shape": "sm-amdentry",
+      "artSha256": "6dcbec38dd27c3081dacd95f6563295666a947a3f441d70fe3c3a9ba80210e4a"
+    },
+    {
+      "id": "supermicro:petascale",
+      "shape": "sm-petascale",
+      "artSha256": "2ca4fb58e8976ab5e82520662b348a7d84b2545982874fb992285baff41427da"
+    },
+    {
+      "id": "supermicro:capacity",
+      "shape": "sm-capacity",
+      "artSha256": "4b4d2b72653c2b8a21f84aae30fafa6067eadcdb7e08ceea6cfeb6fd39a8a94f"
+    },
+    {
+      "id": "supermicro:pciegpu",
+      "shape": "sm-pciegpu",
+      "artSha256": "684ee0c295943552ad25454030af2fc397b3d23e611b8760b6b2320ccc819f96"
+    },
+    {
+      "id": "supermicro:amdpcie",
+      "shape": "sm-amdpcie",
+      "artSha256": "764dea56ff62a61c62204279b4c4e4863792642b5bf6db9298333d81554e103b"
+    },
+    {
+      "id": "supermicro:instinctair",
+      "shape": "sm-instinctair",
+      "artSha256": "37f18e2e5ca4605849b830dacb92032cb94a1329fd0b73372c3d1feb84cfb908"
+    },
+    {
+      "id": "supermicro:instinctliquid",
+      "shape": "sm-instinctliquid",
+      "artSha256": "6777134325976e0423d70b289ba376ac82c669a3afab8760f9a1a0d480c6a36a"
+    },
+    {
+      "id": "supermicro:hgx",
+      "shape": "sm-hgx",
+      "artSha256": "a8dec945f94976d1ef8126b3215411684fdd42fc8a1deff7cfded0cc832c54aa"
+    },
+    {
+      "id": "supermicro:amdhgx",
+      "shape": "sm-amdhgx",
+      "artSha256": "7e560a8f7a747707e26ef6084163c698c82550d54e9a2374e82716939a8045e6"
+    },
+    {
+      "id": "supermicro:gaudi",
+      "shape": "sm-gaudi",
+      "artSha256": "1adf452a088cb17343fee3575dae982290c6a23e1a9626efe6e1b51d0413c2ba"
+    }
+  ],
+  "sources": {
+    "amd:alias_romeMilan": {
+      "loc": "Affected products table: EPYC 7002 Rome and EPYC 7003 Milan"
+    },
+    "amd:alias_genoaSiena": {
+      "loc": "Zen 4 CPU generation table: EPYC 9004 Genoa and EPYC 8004 Siena"
+    },
+    "amd:alias_sorano": {
+      "loc": "Opening description of EPYC 8005, codenamed Sorano"
+    },
+    "amd:alias_turin": {
+      "loc": "Opening announcement: EPYC 9005, formerly codenamed Turin"
+    },
+    "amd:alias_venice": {
+      "loc": "Title and EPYC 9006 product discussion"
+    },
+    "ucs:catalog": {
+      "loc": "Models; Frequently asked questions"
+    },
+    "ucs:c220": {
+      "loc": "Table 2 · Product specifications"
+    },
+    "ucs:c240": {
+      "loc": "Table 2 · Product specifications"
+    },
+    "ucs:c225": {
+      "loc": "Product overview; Product specifications"
+    },
+    "ucs:c245": {
+      "loc": "Product overview; Table 1"
+    },
+    "ucs:c845": {
+      "loc": "Product overview; Product specifications"
+    },
+    "ucs:c845hw": {
+      "loc": "Summary of Features"
+    },
+    "ucs:c880": {
+      "loc": "Specifications"
+    },
+    "ucs:c885": {
+      "loc": "Product specifications"
+    },
+    "ucs:c220gpu": {
+      "loc": "Server Firmware Requirements; GPU Card Configuration Rules"
+    },
+    "ucs:c225gpu": {
+      "loc": "GPU Card Configuration Rules"
+    },
+    "ucs:c885eol": {
+      "loc": "Tables 1–2 · EOL15967"
+    },
+    "ucs:c885old": {
+      "loc": "Tables 1–2 · EOL15913"
+    },
+    "ucs:x210": {
+      "loc": "Main features; Tables 1–2"
+    },
+    "ucs:x215": {
+      "loc": "Main features; Table 1"
+    },
+    "ucs:x410": {
+      "loc": "Main features; Tables 1–2"
+    },
+    "ucs:chassis": {
+      "loc": "Figures 1–2; Table 1"
+    },
+    "ucs:chassisSpec": {
+      "loc": "Overview · Intelligent Fabric Modules"
+    },
+    "ucs:direct": {
+      "loc": "Figure 1; Tables 2, 4"
+    },
+    "ucs:x580": {
+      "loc": "Product overview; Tables 1–2"
+    },
+    "ucs:xe130": {
+      "loc": "Models and specifications · Table 1"
+    },
+    "ucs:xe150": {
+      "loc": "Models and specifications · Table 1"
+    },
+    "ucs:bladeEol": {
+      "loc": "Tables 1–2 · EOL15630"
+    },
+    "ucs:storageEol": {
+      "loc": "Tables 1–2 · EOL15459"
+    },
+    "ucs:hcl": {
+      "loc": "Interoperability documentation"
+    },
+    "ucs:nutanix": {
+      "loc": "Server Data Sheets"
+    },
+    "ucs:x440": {
+      "loc": "Tables 1–2; Product overview"
+    },
+    "ucs:policies": {
+      "loc": "Executive summary; Policy definitions"
+    },
+    "ucs:auditC245M6": {
+      "loc": "Table 5 pp16–17; approved CPU configurations p18; memory pp19–23; front view p7"
+    },
+    "ucs:auditC245M6EOS": {
+      "loc": "Table 1 milestones; Table 2 C245-M6SX PIDs"
+    },
+    "ucs:ucsGenM5": {
+      "loc": "Opening announcement and M5 model list"
+    },
+    "ucs:ucsGenM6": {
+      "loc": "General · What did Cisco announce on April 6, 2021?"
+    },
+    "ucs:ucsGenM7": {
+      "loc": "Opening paragraphs · UCS with 4th Gen Intel Xeon Scalable Processors"
+    },
+    "ucs:ucsGenM8AMD": {
+      "loc": "Overview · What did Cisco announce on June 4, 2024?"
+    },
+    "ucs:ucsGenM8Intel": {
+      "loc": "Overview · What did Cisco announce on February 24, 2025?"
+    },
+    "ucs:ucsGenC845": {
+      "loc": "Simplicity, Security and AI Readiness · Expansion of AI Server Family"
+    },
+    "ucs:ucsGenC885": {
+      "loc": "AI server family; availability"
+    },
+    "ucs:ucsGenRackRelease": {
+      "loc": "Models · C880A M8 · Release Date 25-Aug-2025"
+    },
+    "ucs:ucsGenX410": {
+      "loc": "Updated December 4, 2025; Product overview"
+    },
+    "ucs:ucsGenEdge": {
+      "loc": "Page 1 · November 3, 2025 announcement; key components"
+    },
+    "ucs:ucsGenXE150": {
+      "loc": "What did Cisco previously announce on March 16, 2026?"
+    },
+    "ucs:rocm": {
+      "loc": "System requirements and information; per-GPU OS / driver / firmware compatibility"
+    },
+    "ucs:c885hw": {
+      "loc": "Summary of Features; fixed configuration PIDs; System Software"
+    },
+    "ucs:c845aag": {
+      "loc": "Configurations"
+    },
+    "ucs:auditC2259005": {
+      "loc": "Updated October 10, 2024; processor description and What it does"
+    },
+    "ucs:auditC2459005": {
+      "loc": "Updated October 10, 2024; processor description and What it does"
+    },
+    "ucs:generation_ucsGenM5": {
+      "loc": "Opening announcement and M5 model list"
+    },
+    "ucs:generation_ucsGenM6": {
+      "loc": "General · What did Cisco announce on April 6, 2021?"
+    },
+    "ucs:generation_ucsGenM7": {
+      "loc": "Opening paragraphs · UCS with 4th Gen Intel Xeon Scalable Processors"
+    },
+    "ucs:generation_ucsGenM8AMD": {
+      "loc": "Overview · What did Cisco announce on June 4, 2024?"
+    },
+    "ucs:generation_ucsGenM8Intel": {
+      "loc": "Overview · What did Cisco announce on February 24, 2025?"
+    },
+    "ucs:generation_ucsGenC845": {
+      "loc": "Simplicity, Security and AI Readiness · Expansion of AI Server Family"
+    },
+    "ucs:generation_ucsGenC885": {
+      "loc": "AI server family; availability"
+    },
+    "ucs:generation_ucsGenRackRelease": {
+      "loc": "Models · C880A M8 · Release Date 25-Aug-2025"
+    },
+    "ucs:generation_ucsGenX410": {
+      "loc": "Updated December 4, 2025; Product overview"
+    },
+    "ucs:generation_ucsGenEdge": {
+      "loc": "Page 1 · November 3, 2025 announcement; key components"
+    },
+    "ucs:generation_ucsGenXE150": {
+      "loc": "What did Cisco previously announce on March 16, 2026?"
+    },
+    "ucs:generation_auditC245M6Launch": {
+      "loc": "15 March 2021 announcement; named server models"
+    },
+    "ucs:memory_c220_0": {
+      "loc": "tables 1.0, 1.1 and population rules"
+    },
+    "ucs:memory_c240_0": {
+      "loc": "tables 1.0, 1.1 and population rules"
+    },
+    "ucs:memory_c225_0": {
+      "loc": "Table 1 Main Memory Features, p4; Table 5 allowed CPU/DIMM counts, p8"
+    },
+    "ucs:memory_c245_0": {
+      "loc": "Table 1 Main Memory Features, p4; Table 5 allowed CPU/DIMM counts, p8"
+    },
+    "ucs:memory_c845_0": {
+      "loc": "tables 1, 4, 5 and 6"
+    },
+    "ucs:memory_c880_0": {
+      "loc": "server features"
+    },
+    "ucs:memory_c880_1": {
+      "loc": "ordering information"
+    },
+    "ucs:memory_c885_0": {
+      "loc": "DIMM Slot Locations; Summary of Features"
+    },
+    "ucs:memory_x210_0": {
+      "loc": "tables 1.0, 1.1 and population rules"
+    },
+    "ucs:memory_x215_0": {
+      "loc": "Table 1 Main Memory Features, p4; Table 5 allowed CPU/DIMM counts, p8"
+    },
+    "ucs:memory_x410_0": {
+      "loc": "tables 1.0, 1.1 and population rules"
+    },
+    "ucs:memory_xe130_0": {
+      "loc": "product specifications"
+    },
+    "ucs:memory_xe130_1": {
+      "loc": "tables 1, 3, 4, 6 and 7"
+    },
+    "ucs:memory_xe150_0": {
+      "loc": "product specifications"
+    },
+    "ucs:memory_xe150_1": {
+      "loc": "tables 1, 3, 4, 6 and 7"
+    },
+    "ucs:memory_c245m6_0": {
+      "loc": "Table 5 pp16–17; approved CPU configurations p18; memory pp19–23; front view p7"
+    },
+    "hpe:dl320": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:dl340": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:dl360": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:dl380": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:dl325": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:dl345": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:dl365": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:dl385": {
+      "loc": "HPE Computation and Graphics Accelerator; S8A40C notes; power capping"
+    },
+    "hpe:dl580": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:dl380a": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:xd685": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:xd690": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:sy480": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:ml350": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:dl145": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:frame": {
+      "loc": "Overview; Standard Features; frame / interconnect configuration"
+    },
+    "hpe:com": {
+      "loc": "Overview; capabilities; supported platforms"
+    },
+    "hpe:boot": {
+      "loc": "Overview; Standard Features; Configuration Information; Core / Additional Options"
+    },
+    "hpe:os": {
+      "loc": "Partner operating-system and virtualization matrices"
+    },
+    "hpe:catalog": {
+      "loc": "Explore the HPE ProLiant Compute portfolio"
+    },
+    "hpe:ai": {
+      "loc": "AI server portfolio"
+    },
+    "hpe:hpeGen13": {
+      "loc": "AI-ready performance across enterprise workloads; Availability"
+    },
+    "hpe:hpeGen13Details": {
+      "loc": "At a glance; HPE ProLiant DL525 / DL585a; XD245 / XD285"
+    },
+    "hpe:hpeGen10": {
+      "loc": "5 June 2017 · next-generation ProLiant announcement"
+    },
+    "hpe:hpeGenHistory": {
+      "loc": "Figure 1 · Server generation and launch year"
+    },
+    "hpe:hpeGen10Plus": {
+      "loc": "Opening paragraphs · DL325 and DL385 Gen10 Plus"
+    },
+    "hpe:hpeGen11": {
+      "loc": "Opening announcement; RL300 paragraph; Availability"
+    },
+    "hpe:hpeGen12Early": {
+      "loc": "Expanded compute portfolio; Availability"
+    },
+    "hpe:hpeGen12Intel": {
+      "loc": "Opening announcement; Availability"
+    },
+    "hpe:hpeGen12AMD": {
+      "loc": "HPE delivers double the memory; Availability"
+    },
+    "hpe:hpeGen11Refresh": {
+      "loc": "Opening announcement and availability"
+    },
+    "hpe:hpeGenDL145": {
+      "loc": "Opening launch announcement"
+    },
+    "hpe:hpeGenXD685": {
+      "loc": "Opening announcement; Availability"
+    },
+    "hpe:hpeGenXD690": {
+      "loc": "HPE Compute XD690 joins the portfolio; Availability"
+    },
+    "hpe:hpeGenSynergy": {
+      "loc": "A bit of history · December 2015 Synergy announcement"
+    },
+    "hpe:rocm": {
+      "loc": "System requirements and information; per-GPU OS / driver / firmware compatibility"
+    },
+    "hpe:auditDL3659005": {
+      "loc": "Summary of Changes: Version 23 (2024-11-04)"
+    },
+    "hpe:auditDL3859005": {
+      "loc": "Summary of Changes: Version 25 (2024-10-10)"
+    },
+    "hpe:generation_hpeGen10": {
+      "loc": "5 June 2017 · next-generation ProLiant announcement"
+    },
+    "hpe:generation_hpeGenHistory": {
+      "loc": "Figure 1 · Server generation and launch year"
+    },
+    "hpe:generation_hpeGen10Plus": {
+      "loc": "Opening paragraphs · DL325 and DL385 Gen10 Plus"
+    },
+    "hpe:generation_hpeGen11": {
+      "loc": "Opening announcement; RL300 paragraph; Availability"
+    },
+    "hpe:generation_hpeGen12Early": {
+      "loc": "Expanded compute portfolio; Availability"
+    },
+    "hpe:generation_hpeGen12Intel": {
+      "loc": "Opening announcement; Availability"
+    },
+    "hpe:generation_hpeGen12AMD": {
+      "loc": "HPE delivers double the memory; Availability"
+    },
+    "hpe:generation_hpeGen11Refresh": {
+      "loc": "Opening announcement and availability"
+    },
+    "hpe:generation_hpeGenDL145": {
+      "loc": "Opening launch announcement"
+    },
+    "hpe:generation_hpeGenXD685": {
+      "loc": "Opening announcement; Availability"
+    },
+    "hpe:generation_hpeGenXD690": {
+      "loc": "HPE Compute XD690 joins the portfolio; Availability"
+    },
+    "hpe:generation_hpeGenSynergy": {
+      "loc": "A bit of history · December 2015 Synergy announcement"
+    },
+    "hpe:generation_hpeGen13": {
+      "loc": "AI-ready performance across enterprise workloads; Availability"
+    },
+    "hpe:generation_hpeGen13Details": {
+      "loc": "At a glance; HPE ProLiant DL525 / DL585a; XD245 / XD285"
+    },
+    "hpe:generation_auditDL365History": {
+      "loc": "Summary of Changes: 10-Nov-2022, Version 1, New QuickSpecs"
+    },
+    "hpe:generation_auditDL385History": {
+      "loc": "Summary of Changes: 10-Nov-2022, Version 1, New QuickSpecs"
+    },
+    "hpe:memory_dl320_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_dl325_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_dl340_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_dl345_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_dl360_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_dl365_0": {
+      "loc": "Memory; DIMM slots; memory options and population rules"
+    },
+    "hpe:memory_dl380_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_dl385_0": {
+      "loc": "Memory; DIMM slots; memory options and population rules"
+    },
+    "hpe:memory_dl580_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_dl380a_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_xd685_0": {
+      "loc": "Memory; DIMM slots; memory options and population rules"
+    },
+    "hpe:memory_xd690_0": {
+      "loc": "Memory; DIMM slots; memory options and population rules"
+    },
+    "hpe:memory_sy480_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_ml350_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_dl145_0": {
+      "loc": "Memory; DIMM slots; memory options and population rules"
+    },
+    "hpe:memory_dl525_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_dl585a_0": {
+      "loc": "memory topology and population"
+    },
+    "hpe:memory_xd245_0": {
+      "loc": "XD245 and XD285 node specifications"
+    },
+    "hpe:memory_xd285_0": {
+      "loc": "XD245 and XD285 node specifications"
+    },
+    "dell:catalog": {
+      "loc": "Server comparison tables"
+    },
+    "dell:rack": {
+      "loc": "Model columns: processor, DIMMs, drive bays, GPU options"
+    },
+    "dell:portfolio": {
+      "loc": "Overview; Design innovations; Tables 2–5"
+    },
+    "dell:r470": {
+      "loc": "System overview; chassis views; CPU, memory, storage, expansion and thermal rules"
+    },
+    "dell:r670": {
+      "loc": "System overview; chassis views; CPU, memory, storage, expansion and thermal rules"
+    },
+    "dell:r770": {
+      "loc": "System overview; chassis views; CPU, memory, storage, expansion and thermal rules"
+    },
+    "dell:r6715": {
+      "loc": "System overview; chassis views; CPU, memory, storage, expansion and thermal rules"
+    },
+    "dell:r7715": {
+      "loc": "System overview; chassis views; CPU, memory, storage, expansion and thermal rules"
+    },
+    "dell:r570": {
+      "loc": "Technical specifications; processor, memory, storage and accelerator tables"
+    },
+    "dell:amd": {
+      "loc": "Two-Socket Server comparison"
+    },
+    "dell:mx760": {
+      "loc": "Technical specifications; processor, memory, storage and accelerator tables"
+    },
+    "dell:mxfront": {
+      "loc": "Figure 2: MX7000 front; MX760c compute sled; Figure 4"
+    },
+    "dell:frame": {
+      "loc": "Chassis dimensions; embedded management; networking options"
+    },
+    "dell:omem": {
+      "loc": "Overview"
+    },
+    "dell:ome": {
+      "loc": "OpenManage Enterprise 4.x.x; links to each release matrix"
+    },
+    "dell:t560": {
+      "loc": "Technical specifications; processor, memory, storage and accelerator tables"
+    },
+    "dell:tmem": {
+      "loc": "Table 3: 5th Gen Intel Xeon memory specifications"
+    },
+    "dell:xr": {
+      "loc": "Technical specifications; processor, memory, storage and accelerator tables"
+    },
+    "dell:xe7740": {
+      "loc": "Technical specifications; processor, memory, storage and accelerator tables"
+    },
+    "dell:xe7745": {
+      "loc": "Technical specifications; processor, memory, storage and accelerator tables"
+    },
+    "dell:xe9680": {
+      "loc": "System overview; accelerator configurations; memory and storage"
+    },
+    "dell:xe9680spec": {
+      "loc": "Technical specifications; processor, memory, storage and accelerator tables"
+    },
+    "dell:xe9780": {
+      "loc": "Technical specifications; processor, memory, storage and accelerator tables"
+    },
+    "dell:xe9785l": {
+      "loc": "Processor; accelerators; memory; cooling; Form Factor (3 OU)"
+    },
+    "dell:xeai": {
+      "loc": "XE9785L / XE9780L table; asterisk / future-release notes"
+    },
+    "dell:mi350p": {
+      "loc": "The Dell PowerEdge platform; Table 4: system under test"
+    },
+    "dell:os": {
+      "loc": "OS support matrices"
+    },
+    "dell:faeXE7745Memory": {
+      "loc": "Memory specifications, Tables 1–3"
+    },
+    "dell:faeXE7745GPU": {
+      "loc": "Expansion-card configurations, RC0 tables"
+    },
+    "dell:faeXE7745Power": {
+      "loc": "Tables 1–2: PSU-GPU matrix"
+    },
+    "dell:faeR7725GPU": {
+      "loc": "Expansion-card tables and MI350P 450 W note"
+    },
+    "dell:faeMI350PLaunch": {
+      "loc": "Key takeaways; platform support"
+    },
+    "dell:faeXRChassis": {
+      "loc": "2U server sled for XR8000 chassis; Chassis; Form factor"
+    },
+    "dell:xe9785": {
+      "loc": "Processor; accelerators; storage; form factor"
+    },
+    "dell:faeXE9785Memory": {
+      "loc": "Supported DIMMs; 256 GB B300-only note"
+    },
+    "dell:faeXE9785Launch": {
+      "loc": "PowerEdge Innovations; Availability"
+    },
+    "dell:faeXE9680Memory": {
+      "loc": "MI300X note; Minimum System Memory Requirements; memory module table"
+    },
+    "dell:faeXE9680Boot": {
+      "loc": "Boot Settings; configuration notes"
+    },
+    "dell:auditr7625": {
+      "loc": "Processor; chassis configuration; memory; storage"
+    },
+    "dell:auditr7625Memory": {
+      "loc": "Memory module sockets; system memory channels; 1DPC table"
+    },
+    "dell:auditr7625Population": {
+      "loc": "Single-processor A1–A12; dual-processor A1–A12 and B1–B12"
+    },
+    "dell:auditr7615": {
+      "loc": "Processor; chassis configuration; memory; storage"
+    },
+    "dell:auditr7615Memory": {
+      "loc": "Memory module sockets; system memory channels; 1DPC table"
+    },
+    "dell:faeXE9680GPU": {
+      "loc": "GPU specifications"
+    },
+    "dell:auditDellCooling": {
+      "loc": "Cooling options by server model, Table 1"
+    },
+    "dell:auditR7725Thermal": {
+      "loc": "Thermal restriction matrix: GPU, storage, CPU and cooling configuration rows"
+    },
+    "dell:generation_ageDellGroups": {
+      "loc": "Table of 17th, 16th, 15th and 14th Generation PowerEdge servers"
+    },
+    "dell:generation_ageDell14": {
+      "loc": "Page 1: New servers and Skylake"
+    },
+    "dell:generation_ageDell15Early": {
+      "loc": "Availability"
+    },
+    "dell:generation_ageDell15Broad": {
+      "loc": "Availability; footnote 1 identifies PowerEdge 15G"
+    },
+    "dell:generation_ageDell16AMD": {
+      "loc": "More performance and storage options; Availability"
+    },
+    "dell:generation_ageDell16Intel": {
+      "loc": "Full story; Designed for sustainability; Availability"
+    },
+    "dell:generation_ageDell17AMD": {
+      "loc": "New PowerEdge models; Availability"
+    },
+    "dell:generation_ageDell17Intel": {
+      "loc": "PowerEdge server section; Availability"
+    },
+    "dell:generation_ageDellMX760": {
+      "loc": "Opening paragraphs"
+    },
+    "dell:generation_ageDellT560": {
+      "loc": "Statement of Volatility dated 24 May 2023; initial service documentation"
+    },
+    "dell:generation_ageDellXE9680": {
+      "loc": "PowerEdge XE family; Availability"
+    },
+    "dell:generation_ageDellXE7740": {
+      "loc": "Product details; final availability paragraph"
+    },
+    "dell:generation_ageDellXE9780": {
+      "loc": "Dell infrastructure advances enterprise AI innovation"
+    },
+    "dell:generation_ageDellXE9785": {
+      "loc": "Dell PowerEdge servers with AMD GPUs"
+    },
+    "dell:generation_ageDellXR8720": {
+      "loc": "Opening paragraphs; Availability"
+    },
+    "dell:generation_ageDell17CSP": {
+      "loc": "News summary; Cloud service provider section; Availability"
+    },
+    "dell:generation_ageDell17E": {
+      "loc": "Introducing Dell PowerEdge R470 and R570 Servers"
+    },
+    "dell:generation_faeXE9785Launch": {
+      "loc": "PowerEdge Innovations; Availability"
+    },
+    "dell:memory_r470_0": {
+      "loc": null
+    },
+    "dell:memory_r570_0": {
+      "loc": null
+    },
+    "dell:memory_r570_1": {
+      "loc": null
+    },
+    "dell:memory_r670_0": {
+      "loc": null
+    },
+    "dell:memory_r670_1": {
+      "loc": null
+    },
+    "dell:memory_r770_0": {
+      "loc": null
+    },
+    "dell:memory_r6715_0": {
+      "loc": null
+    },
+    "dell:memory_r7715_0": {
+      "loc": null
+    },
+    "dell:memory_r6725_0": {
+      "loc": null
+    },
+    "dell:memory_r7725_0": {
+      "loc": null
+    },
+    "dell:memory_mx760_0": {
+      "loc": null
+    },
+    "dell:memory_t560_0": {
+      "loc": null
+    },
+    "dell:memory_xr8720_0": {
+      "loc": "System memory guidelines; Tables 1–2; HCC/XCC notes"
+    },
+    "dell:memory_xe7740_0": {
+      "loc": null
+    },
+    "dell:memory_xe7740_1": {
+      "loc": null
+    },
+    "dell:memory_xe7745_0": {
+      "loc": null
+    },
+    "dell:memory_xe9680_0": {
+      "loc": null
+    },
+    "dell:memory_xe9780_0": {
+      "loc": null
+    },
+    "dell:memory_xe9785_0": {
+      "loc": null
+    },
+    "dell:memory_xe9785l_0": {
+      "loc": null
+    },
+    "dell:memory_xe9785l_1": {
+      "loc": null
+    },
+    "dell:memory_r7625_0": {
+      "loc": "Memory module sockets; system memory channels; 1DPC table"
+    },
+    "dell:memory_r7625_1": {
+      "loc": "Single-processor A1–A12; dual-processor A1–A12 and B1–B12"
+    },
+    "dell:memory_r7615_0": {
+      "loc": "Memory module sockets; system memory channels; 1DPC table"
+    },
+    "lenovo:portfolio": {
+      "loc": "Rack, tower, edge, AI and solution portfolio sections"
+    },
+    "lenovo:comparison": {
+      "loc": "Model columns; change history"
+    },
+    "lenovo:sr630": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:sr650": {
+      "loc": "Figures 2–8; standard specifications; GPU adapters; cooling"
+    },
+    "lenovo:sr635": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:sr655": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:sr645": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:sr665": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:sr860": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:st45": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:st650": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:se455": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:se100": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:sd535": {
+      "loc": "Figures 1–6; SD535 and D3 standard specifications; memory options"
+    },
+    "lenovo:sc750": {
+      "loc": "Standard specifications: SC750 tray / N1380 enclosure; internal storage; cooling"
+    },
+    "lenovo:sr650a": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:sr675": {
+      "loc": "Standard specifications; storage configurations; GPU adapters; systems management"
+    },
+    "lenovo:sr685a": {
+      "loc": "Withdrawal notice / 26 Sep 2026 change history; standard specifications; GPU accelerators"
+    },
+    "lenovo:sr680a": {
+      "loc": "Figures 2–4; standard specifications; GPU accelerators; networking"
+    },
+    "lenovo:gpu": {
+      "loc": "GPU specifications and server support tables"
+    },
+    "lenovo:xc1": {
+      "loc": "Components; implementation options; supported endpoints"
+    },
+    "lenovo:os": {
+      "loc": "Server and OS filters; configuration notes"
+    },
+    "lenovo:proven": {
+      "loc": "Server, adapter and software compatibility"
+    },
+    "lenovo:sc777": {
+      "loc": "Introduction; standard specifications; N1380 enclosure"
+    },
+    "lenovo:mx": {
+      "loc": "Solution overview; specifications"
+    },
+    "lenovo:faeMI210": {
+      "loc": "May 15 2026 change history; server support; auxiliary power cables"
+    },
+    "lenovo:faeSR675Rules": {
+      "loc": "GPU adapters; configuration rules and field-upgrade requirements"
+    },
+    "lenovo:sd665": {
+      "loc": "Standard specifications; processors; GPU accelerators; internal storage; cooling"
+    },
+    "lenovo:faeSD665History": {
+      "loc": "Full change history: First published 10 November 2022; 10 October 2024 update"
+    },
+    "lenovo:faeST45CPU": {
+      "loc": "Table 14 Supported processors; GPU adapters; OS support"
+    },
+    "lenovo:auditSR665": {
+      "loc": "Standard specifications; processor options; full change history"
+    },
+    "lenovo:auditSR665Memory": {
+      "loc": "Memory population table: processor count, DIMM quantity and slots"
+    },
+    "lenovo:faeSR675Lifecycle": {
+      "loc": "GPU adapters Table 36; full change history: 24 Jul 2024, 12 Feb, 24 Mar and 28 Jul 2026"
+    },
+    "lenovo:generation_ageLenovoOriginal": {
+      "loc": "ThinkSystem launch; ThinkSystem Servers"
+    },
+    "lenovo:generation_ageLenovoV2First": {
+      "loc": "ThinkSystem SR860 V2 and SR850 V2"
+    },
+    "lenovo:generation_ageLenovoV2Rack": {
+      "loc": "Lenovo puts the smarter into infrastructure"
+    },
+    "lenovo:generation_ageLenovoV3": {
+      "loc": "Opening announcement and portfolio highlights"
+    },
+    "lenovo:generation_ageLenovoV4": {
+      "loc": "Opening announcement; Workloads Optimized for Every Business Need"
+    },
+    "lenovo:generation_ageLenovoV4P": {
+      "loc": "Flexibility and Performance without Compromise"
+    },
+    "lenovo:generation_ageLenovoNeptuneV4": {
+      "loc": "Opening announcement"
+    },
+    "lenovo:generation_ageLenovoEdge455": {
+      "loc": "Opening announcement"
+    },
+    "lenovo:generation_ageLenovoEdge100": {
+      "loc": "Opening announcement (body dated 3 March 2025)"
+    },
+    "lenovo:generation_ageLenovoEPYCRefresh": {
+      "loc": "Opening announcement and supported ThinkSystem platforms"
+    },
+    "lenovo:generation_ageLenovoGuide_sr630": {
+      "loc": "Full change history: First published 3 September 2024"
+    },
+    "lenovo:generation_ageLenovoGuide_sr650": {
+      "loc": "Full change history: First published 24 February 2025"
+    },
+    "lenovo:generation_ageLenovoGuide_sr635": {
+      "loc": "Full change history: First published 21 February 2023"
+    },
+    "lenovo:generation_ageLenovoGuide_sr655": {
+      "loc": "Full change history: First published 21 February 2023"
+    },
+    "lenovo:generation_ageLenovoGuide_sr645": {
+      "loc": "Full change history: First published 11 November 2022"
+    },
+    "lenovo:generation_ageLenovoGuide_sr665": {
+      "loc": "Full change history: First published 11 November 2022"
+    },
+    "lenovo:generation_ageLenovoGuide_sr860": {
+      "loc": "Full change history: First published 1 July 2025"
+    },
+    "lenovo:generation_ageLenovoGuide_st45": {
+      "loc": "Full change history: First published 3 December 2024; 28 October 2025 processor additions"
+    },
+    "lenovo:generation_ageLenovoGuide_st650": {
+      "loc": "Full change history: First published 2 May 2023"
+    },
+    "lenovo:generation_ageLenovoGuide_se455": {
+      "loc": "Full change history: First published 24 October 2023"
+    },
+    "lenovo:generation_ageLenovoGuide_se100": {
+      "loc": "Full change history: First published 22 April 2025"
+    },
+    "lenovo:generation_ageLenovoGuide_sd535": {
+      "loc": "Full change history: First published 16 April 2024; 10 October 2024 EPYC 9005 addition"
+    },
+    "lenovo:generation_ageLenovoGuide_sc750": {
+      "loc": "Full change history: First published 15 October 2024"
+    },
+    "lenovo:generation_ageLenovoGuide_sr650a": {
+      "loc": "Full change history: First published 24 February 2025"
+    },
+    "lenovo:generation_ageLenovoGuide_sr675": {
+      "loc": "Full change history: First published 10 November 2022"
+    },
+    "lenovo:generation_ageLenovoGuide_sr685a": {
+      "loc": "Full change history: First published 23 April 2024"
+    },
+    "lenovo:generation_ageLenovoGuide_sr680a": {
+      "loc": "Full change history: First published 2 September 2025"
+    },
+    "lenovo:generation_faeSD665History": {
+      "loc": "Full change history: First published 10 November 2022; 10 October 2024 update"
+    },
+    "lenovo:generation_auditSR665History": {
+      "loc": "Full Change History: first published 5 May 2020; 16 March 2021 EPYC 7003 update"
+    },
+    "lenovo:memory_sr630_0": {
+      "loc": null
+    },
+    "lenovo:memory_sr650_0": {
+      "loc": null
+    },
+    "lenovo:memory_sr635_0": {
+      "loc": null
+    },
+    "lenovo:memory_sr655_0": {
+      "loc": null
+    },
+    "lenovo:memory_sr645_0": {
+      "loc": null
+    },
+    "lenovo:memory_sr665_0": {
+      "loc": null
+    },
+    "lenovo:memory_sr860_0": {
+      "loc": null
+    },
+    "lenovo:memory_st45_0": {
+      "loc": null
+    },
+    "lenovo:memory_st650_0": {
+      "loc": null
+    },
+    "lenovo:memory_se455_0": {
+      "loc": null
+    },
+    "lenovo:memory_se100_0": {
+      "loc": null
+    },
+    "lenovo:memory_sd535_0": {
+      "loc": null
+    },
+    "lenovo:memory_sd665_0": {
+      "loc": null
+    },
+    "lenovo:memory_sc750_0": {
+      "loc": null
+    },
+    "lenovo:memory_sr650a_0": {
+      "loc": null
+    },
+    "lenovo:memory_sr675_0": {
+      "loc": null
+    },
+    "lenovo:memory_sr680a_0": {
+      "loc": null
+    },
+    "lenovo:memory_sr685a_0": {
+      "loc": "withdrawn"
+    },
+    "lenovo:memory_sr665original_0": {
+      "loc": "Memory population table: processor count, DIMM quantity and slots"
+    },
+    "lenovo:memory_sr665original_1": {
+      "loc": "Standard specifications; processor options; full change history"
+    },
+    "supermicro:portfolio": {
+      "loc": "Family overview and product tables"
+    },
+    "supermicro:h15": {
+      "loc": "H15 portfolio and CPU announcement"
+    },
+    "supermicro:naming": {
+      "loc": "AS AMD system naming fields"
+    },
+    "supermicro:intelhyper": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:amd1": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:amd2": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:hypermanual": {
+      "loc": "Introduction; system features; front and rear views"
+    },
+    "supermicro:amdcloud": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:intelcloud": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:inteltwin": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:amdtwin": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:h15twin": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:blade": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:bladechassis": {
+      "loc": "6U enclosure table; switch / CMM options; SBI-622B table"
+    },
+    "supermicro:bladefamily": {
+      "loc": "6U product image; enclosure and module families"
+    },
+    "supermicro:tower": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:edge": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:edgemanual": {
+      "loc": "System overview; motherboard; storage and PCIe layout"
+    },
+    "supermicro:petascale": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:capacity": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:storagefamily": {
+      "loc": "Storage platform families"
+    },
+    "supermicro:pciegpu": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:instinctair": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:instinctliquid": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:instinctdesign": {
+      "loc": "System diagrams and specification table"
+    },
+    "supermicro:hgx": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:gaudi": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:gaudidesign": {
+      "loc": "System architecture; Figure 1; network topology"
+    },
+    "supermicro:ssm": {
+      "loc": "Management; monitoring; system architecture"
+    },
+    "supermicro:composer": {
+      "loc": "Overview and supported resource functions"
+    },
+    "supermicro:bmc": {
+      "loc": "BMC management resources"
+    },
+    "supermicro:os": {
+      "loc": "Compatibility and certification lookup"
+    },
+    "supermicro:gpu": {
+      "loc": "GPU support tables"
+    },
+    "supermicro:aiom": {
+      "loc": "Adapter and supported platform tables"
+    },
+    "supermicro:resources": {
+      "loc": "Tested memory / storage / adapter resources"
+    },
+    "supermicro:edgeCurrent": {
+      "loc": "Processor; System Memory; GPU; Drive Bays / Storage"
+    },
+    "supermicro:edgeRefresh": {
+      "loc": "EPYC 8005 discussion; AS-1115S-FWTRT at MWC Barcelona 2026"
+    },
+    "supermicro:amdentry": {
+      "loc": "Processor; GPU; Memory; Storage; PCIe Configuration"
+    },
+    "supermicro:amdpcie": {
+      "loc": "Processor; GPU; PCIe Configuration; Drive Bays; Power Supply"
+    },
+    "supermicro:amdhgx": {
+      "loc": "Detailed Processor; GPU; Memory; Storage; Networking"
+    },
+    "supermicro:amdblade": {
+      "loc": "Coming Soon label; Processor; GPU; Memory; PCIe Configuration; Drive Bays"
+    },
+    "supermicro:amdbladeFamily": {
+      "loc": "8U enclosure CPU support; Blade Servers table, SBA-817V7-1N row"
+    },
+    "supermicro:h15board": {
+      "loc": "Coming Soon label; CPU; DIMM and expansion specifications"
+    },
+    "supermicro:genSm4004": {
+      "loc": "21 May 2024 dateline; H13 entry portfolio, including tower family"
+    },
+    "supermicro:genSm4005": {
+      "loc": "13 May 2025 dateline; systems list and Tower Servers link"
+    },
+    "supermicro:genSmH13Launch": {
+      "loc": "10 November 2022 date and opening announcement; H13 JumpStart reference"
+    },
+    "supermicro:genSmX13Preview": {
+      "loc": "15 November 2022 dateline; X13 portfolio and early-access paragraphs"
+    },
+    "supermicro:genSmX13Launch": {
+      "loc": "10 January 2023 dateline; availability headline and opening paragraph"
+    },
+    "supermicro:genSmX13Refresh": {
+      "loc": "14 December 2023 dateline; X13 refresh opening; paragraph beginning 'Supermicro is also launching several new servers'"
+    },
+    "supermicro:genSmEdgeLaunch": {
+      "loc": "18 September 2023 dateline and H13 WIO / short-depth system introduction"
+    },
+    "supermicro:genSmEdgeSheet": {
+      "loc": "Page 1: AS-1115S-FWTRT (AC) model name and September 2023 footer"
+    },
+    "supermicro:genSmX14Preview": {
+      "loc": "9 April 2024 dateline; opening announcement and early-access program"
+    },
+    "supermicro:genSmX14Launch": {
+      "loc": "3 June 2024 dateline and opening launch paragraph"
+    },
+    "supermicro:genSmX14Training": {
+      "loc": "Slide 1: 31 July 2024; slides 18–19: X14 DP/MP and UP 6700-series product portfolios"
+    },
+    "supermicro:genSmH14Launch": {
+      "loc": "10 October 2024 dateline; H14 introduction; 4U and 8U GPU family descriptions"
+    },
+    "supermicro:genSmH14Hyper": {
+      "loc": "Page 1: October 2024 footer and both model names; page 2: H14 model table"
+    },
+    "supermicro:genSmH14Brochure": {
+      "loc": "Page 5: H14 8-GPU systems, AS-8126GS-TNMR (Coming soon), October 2024 footer"
+    },
+    "supermicro:genSmMI350": {
+      "loc": "12 June 2025 dateline; final 'available to order' list with exact product links"
+    },
+    "supermicro:genSmGaudi": {
+      "loc": "Page 1: executive summary names SYS-822GA-NGR3; September 2024 footer"
+    },
+    "supermicro:genSmB300": {
+      "loc": "11 September 2025 dateline; opening availability statement; 8U air-cooled HGX B300 paragraph"
+    },
+    "supermicro:genSmH15Launch": {
+      "loc": "23 July 2026 dateline; opening H15 announcement and portfolio descriptions"
+    },
+    "supermicro:amdVenice": {
+      "loc": "Title and EPYC 9006 introduction"
+    },
+    "supermicro:amdTurin": {
+      "loc": "Opening paragraph and product family"
+    },
+    "supermicro:amdSiena": {
+      "loc": "EPYC 8004 introduction"
+    },
+    "supermicro:amdSorano": {
+      "loc": "EPYC 8005 Sorano introduction"
+    },
+    "supermicro:smGpuMatrix": {
+      "loc": "AS-2126HS-TN / MI210; AS-5126GS-TNRT / MI350P; AS-4126GS-NMR-LCC / MI325X and MI355X; AS-8126GS-NB3RT / HGX B300 rows"
+    },
+    "supermicro:amdGenoa": {
+      "loc": "AMD EPYC 9004 general-purpose processors"
+    },
+    "supermicro:generation_genSmH13Launch": {
+      "loc": "10 November 2022 date and opening announcement; H13 JumpStart reference"
+    },
+    "supermicro:generation_genSmX13Preview": {
+      "loc": "15 November 2022 dateline; X13 portfolio and early-access paragraphs"
+    },
+    "supermicro:generation_genSmX13Launch": {
+      "loc": "10 January 2023 dateline; availability headline and opening paragraph"
+    },
+    "supermicro:generation_genSmX13Refresh": {
+      "loc": "14 December 2023 dateline; X13 refresh opening; paragraph beginning 'Supermicro is also launching several new servers'"
+    },
+    "supermicro:generation_genSmEdgeLaunch": {
+      "loc": "18 September 2023 dateline and H13 WIO / short-depth system introduction"
+    },
+    "supermicro:generation_genSmEdgeSheet": {
+      "loc": "Page 1: AS-1115S-FWTRT (AC) model name and September 2023 footer"
+    },
+    "supermicro:generation_genSmX14Preview": {
+      "loc": "9 April 2024 dateline; opening announcement and early-access program"
+    },
+    "supermicro:generation_genSmX14Launch": {
+      "loc": "3 June 2024 dateline and opening launch paragraph"
+    },
+    "supermicro:generation_genSmX14Training": {
+      "loc": "Slide 1: 31 July 2024; slides 18–19: X14 DP/MP and UP 6700-series product portfolios"
+    },
+    "supermicro:generation_genSmH14Launch": {
+      "loc": "10 October 2024 dateline; H14 introduction; 4U and 8U GPU family descriptions"
+    },
+    "supermicro:generation_genSmH14Hyper": {
+      "loc": "Page 1: October 2024 footer and both model names; page 2: H14 model table"
+    },
+    "supermicro:generation_genSmH14Brochure": {
+      "loc": "Page 5: H14 8-GPU systems, AS-8126GS-TNMR (Coming soon), October 2024 footer"
+    },
+    "supermicro:generation_genSmMI350": {
+      "loc": "12 June 2025 dateline; final 'available to order' list with exact product links"
+    },
+    "supermicro:generation_genSmGaudi": {
+      "loc": "Page 1: executive summary names SYS-822GA-NGR3; September 2024 footer"
+    },
+    "supermicro:generation_genSmB300": {
+      "loc": "11 September 2025 dateline; opening availability statement; 8U air-cooled HGX B300 paragraph"
+    },
+    "supermicro:generation_genSmH15Launch": {
+      "loc": "23 July 2026 dateline; opening H15 announcement and portfolio descriptions"
+    },
+    "supermicro:generation_amdcloud": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:generation_amdtwin": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:generation_h15twin": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:generation_tower": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:generation_capacity": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:generation_pciegpu": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:generation_hgx": {
+      "loc": "Key features; processor; memory; storage; GPU and management specifications"
+    },
+    "supermicro:generation_edgeCurrent": {
+      "loc": "Processor; System Memory; GPU; Drive Bays / Storage"
+    },
+    "supermicro:generation_edgeRefresh": {
+      "loc": "EPYC 8005 discussion; AS-1115S-FWTRT at MWC Barcelona 2026"
+    },
+    "supermicro:generation_amdentry": {
+      "loc": "Processor; GPU; Memory; Storage; PCIe Configuration"
+    },
+    "supermicro:generation_amdpcie": {
+      "loc": "Processor; GPU; PCIe Configuration; Drive Bays; Power Supply"
+    },
+    "supermicro:generation_amdhgx": {
+      "loc": "Detailed Processor; GPU; Memory; Storage; Networking"
+    },
+    "supermicro:generation_amdblade": {
+      "loc": "Coming Soon label; Processor; GPU; Memory; PCIe Configuration; Drive Bays"
+    },
+    "supermicro:generation_amdbladeFamily": {
+      "loc": "8U enclosure CPU support; Blade Servers table, SBA-817V7-1N row"
+    },
+    "supermicro:generation_h15board": {
+      "loc": "Coming Soon label; CPU; DIMM and expansion specifications"
+    },
+    "supermicro:generation_genSm4004": {
+      "loc": "21 May 2024 dateline; H13 entry portfolio, including tower family"
+    },
+    "supermicro:generation_genSm4005": {
+      "loc": "13 May 2025 dateline; systems list and Tower Servers link"
+    },
+    "supermicro:memory_intelhyper_0": {
+      "loc": null
+    },
+    "supermicro:memory_amd1_0": {
+      "loc": null
+    },
+    "supermicro:memory_amd2_0": {
+      "loc": null
+    },
+    "supermicro:memory_amdcloud_0": {
+      "loc": null
+    },
+    "supermicro:memory_intelcloud_0": {
+      "loc": null
+    },
+    "supermicro:memory_inteltwin_0": {
+      "loc": null
+    },
+    "supermicro:memory_inteltwin_1": {
+      "loc": null
+    },
+    "supermicro:memory_amdtwin_0": {
+      "loc": null
+    },
+    "supermicro:memory_h15twin_0": {
+      "loc": null
+    },
+    "supermicro:memory_blade_0": {
+      "loc": null
+    },
+    "supermicro:memory_amdblade_0": {
+      "loc": null
+    },
+    "supermicro:memory_tower_0": {
+      "loc": null
+    },
+    "supermicro:memory_tower_1": {
+      "loc": "memory population"
+    },
+    "supermicro:memory_edge_0": {
+      "loc": null
+    },
+    "supermicro:memory_amdentry_0": {
+      "loc": null
+    },
+    "supermicro:memory_amdentry_1": {
+      "loc": null
+    },
+    "supermicro:memory_amdentry_2": {
+      "loc": null
+    },
+    "supermicro:memory_petascale_0": {
+      "loc": null
+    },
+    "supermicro:memory_petascale_1": {
+      "loc": "memory slots"
+    },
+    "supermicro:memory_capacity_0": {
+      "loc": null
+    },
+    "supermicro:memory_pciegpu_0": {
+      "loc": null
+    },
+    "supermicro:memory_amdpcie_0": {
+      "loc": null
+    },
+    "supermicro:memory_instinctair_0": {
+      "loc": null
+    },
+    "supermicro:memory_instinctliquid_0": {
+      "loc": null
+    },
+    "supermicro:memory_hgx_0": {
+      "loc": null
+    },
+    "supermicro:memory_amdhgx_0": {
+      "loc": null
+    },
+    "supermicro:memory_gaudi_0": {
+      "loc": null
+    }
+  }
+}

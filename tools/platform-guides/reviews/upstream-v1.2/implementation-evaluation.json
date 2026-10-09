@@ -1,0 +1,61 @@
+{
+  "version": "1.2.0",
+  "evaluatedAt": "2026-10-09T18:23:51.307Z",
+  "catalogHash": "3c9c7dcf3716d2a4df87ccb570ca9518341d63c8339d41bbc962b0cadc8214ef",
+  "buildHash": "0223347363ce1fe419ed96240e869de62d40d5c072c959bde03ed01775b1bc13",
+  "status": "PASS",
+  "verdict": "Validated for learning and FAE shortlisting",
+  "summary": "The corrected dashboard is a good implementation for learning OEM generations and finding documented AMD platform relationships. Source-reviewed corrections, correlated configuration filters and expanded installed-base coverage address the broad audit findings. Every logged correction and added profile has independent source review, with unresolved document conflicts visible.",
+  "strengths": [
+    "102 profiles across five OEMs, including ten source-linked additions for legacy EPYC and MI300X discovery.",
+    "Processors, DIMM counts and DPC remain prominent. Documented cooling and memory variants constrain combined searches.",
+    "68 logged correction and clarification groups, reviewed by three OEM specialists with independent peer review; HPE QuickSpecs prioritized.",
+    "All 92 earlier server illustrations preserved; new schematics explicitly labeled.",
+    "Automated checks and 16 live browser checks pass, including the five OEM guides, source report, memory selector, comparison, search parity and mobile layout."
+  ],
+  "limitations": [
+    "Coverage remains curated and partial; absence from this guide does not establish incompatibility.",
+    "HPE XD675 memory topology, Cisco C225 M6N CPU-count wording and Lenovo ST650 one-CPU wording contain documented conflicts. These are disclosed rather than silently resolved.",
+    "Source-review logs disclose indexed-PDF fallbacks and direct retrieval limits. The review covers this release’s changes, not a fresh certification of every older specification.",
+    "Exact processor SKU, GPU quantity, DIMM population, risers, thermal build, firmware, OS/ROCm support and current orderability still require the linked OEM configuration evidence.",
+    "Ten new profiles use form-factor schematics; their exact exteriors have not been newly illustrated."
+  ],
+  "suites": [
+    {
+      "name": "Finder workflows",
+      "file": "acceptance-results.json",
+      "status": "PASS",
+      "message": "48 checks passed, 0 failed"
+    },
+    {
+      "name": "Generation chronology",
+      "file": "generation-results.json",
+      "status": "PASS",
+      "message": "All recorded checks passed."
+    },
+    {
+      "name": "Illustration structure",
+      "file": "physical-design-results.json",
+      "status": "PASS",
+      "message": "All recorded checks passed."
+    },
+    {
+      "name": "Release integrity",
+      "file": "release-quality-results.json",
+      "status": "PASS",
+      "message": "6 checks passed, 0 failed"
+    },
+    {
+      "name": "Independent specification review",
+      "file": "spec-verification-results.json",
+      "status": "PASS",
+      "message": "5 checks passed, 0 failed"
+    },
+    {
+      "name": "Live browser evaluation",
+      "file": "release-browser-results.json",
+      "status": "PASS",
+      "message": "16 checks passed, 0 failed"
+    }
+  ]
+}

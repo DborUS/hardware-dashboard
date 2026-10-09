@@ -1,0 +1,133 @@
+{
+  "reviewedAt": "2026-10-09",
+  "scope": "Six previously generic installed-base Cisco and Dell illustrations",
+  "method": "Each drawing was made from a visually inspected official OEM front-panel photograph or service-manual diagram. Colored schematic shading and compressed perspective are editorial; drive arrangement and service-panel positions follow the cited reference. Hardware facts were not edited.",
+  "models": [
+    {
+      "id": "c245m6",
+      "shape": "installed-c245m6",
+      "view": "2U rack · twenty-four-SFF front, bezel removed",
+      "sourceUrl": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/C245m6/install/c245m6/m_overview.html",
+      "sourceTitle": "Cisco UCS C245 M6 Installation and Service Guide — Overview",
+      "locator": "External Features · Figure 1, Cisco UCS C245 M6 (SFF Drives, 24-Drive) Front Panel",
+      "features": [
+        "Twenty-four vertical SFF carriers across the front",
+        "Power, identification and status indicators at the left",
+        "Vertical KVM connector and rack latch at the right"
+      ],
+      "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+      "reviewStatus": "verified",
+      "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/td/i/300001-400000/300001-310000/309001-310000/309481.jpg",
+      "reviewMethod": "Visually inspected official Figure 1 image in the browser; corroborated configuration against the C245 M6 SFF Spec Sheet p7.",
+      "reviewedAt": "2026-10-09"
+    },
+    {
+      "id": "c225m6",
+      "shape": "installed-ucs-c225m6",
+      "features": [
+        "Ten horizontal SFF drive carriers arranged in two rows of five",
+        "Controls and vertical KVM connector at the right of the drive bank",
+        "Cisco-branded left rack latch and matching right latch"
+      ],
+      "view": "1U rack · ten-SFF front, bezel removed",
+      "sourceUrl": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/c225m6/install/c225m6/m_overview.html",
+      "sourceTitle": "Cisco UCS C225 M6 Installation and Service Guide — Overview",
+      "locator": "External Features · Figure 1, Cisco UCS C225 M6 Server Front Panel",
+      "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+      "reviewStatus": "verified",
+      "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/td/i/300001-400000/300001-310000/309001-310000/309134.jpg",
+      "reviewMethod": "Visually inspected official Figure 1 image in the browser; corroborated configuration against the C225 M6 SFF Spec Sheet p7.",
+      "reviewedAt": "2026-10-09"
+    },
+    {
+      "id": "r7625",
+      "shape": "installed-r7625",
+      "view": "2U rack · sixteen-SFF front, bezel removed",
+      "sourceUrl": "https://www.dell.com/support/manuals/en-in/oth-xlr7625/per7625_ism_pub/front-view-of-the-system?guid=guid-dee70ecf-dc1c-439b-824e-d6f4a3cd3477&lang=en-us",
+      "sourceTitle": "Dell PowerEdge R7625 Installation and Service Manual",
+      "locator": "Front view of the system · Figure 2, Front view of 16 × 2.5-inch drive system",
+      "features": [
+        "Eight vertical SFF carriers on either side of a broad central airflow blank",
+        "Dark rack ears with lower recessed latches",
+        "Left status strip and right power, USB, VGA and iDRAC controls"
+      ],
+      "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+      "reviewStatus": "verified",
+      "sourceImageUrl": "https://dl.dell.com/content/guides/public/Html/per7625_ism_pub/images/GUID-D7160620-E12A-41A0-AE93-79324323D63D-low.jpg",
+      "reviewMethod": "Opened the official manual, followed its front-view image source, and visually inspected the browser-rendered Figure 2.",
+      "reviewedAt": "2026-10-09"
+    },
+    {
+      "id": "r7615",
+      "shape": "installed-r7615",
+      "view": "2U rack · twenty-four-SFF front, bezel removed",
+      "sourceUrl": "https://www.dell.com/support/manuals/en-us/oth-r7615/per7615_ism_pub/front-view-of-the-system?guid=guid-48915c14-dab6-4d5b-a446-80bfb9ea4580&lang=en-us",
+      "sourceTitle": "Dell PowerEdge R7615 Installation and Service Manual",
+      "locator": "Front view of the system · Figure 1, Front view of 24 × 2.5-inch drive system",
+      "features": [
+        "Twenty-four vertical SFF carriers with orange release details",
+        "Dark rack ears with lower recessed latches",
+        "Left status strip and right power, USB, VGA and iDRAC controls"
+      ],
+      "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+      "reviewStatus": "verified",
+      "sourceImageUrl": "https://dl.dell.com/content/guides/public/Html/per7615_ism_pub/images/GUID-BBE1D8F7-ED1A-4AD0-8994-E450B88C1613-low.jpg",
+      "reviewMethod": "Opened the official manual, followed its front-view image source, and visually inspected the browser-rendered Figure 1.",
+      "reviewedAt": "2026-10-09"
+    },
+    {
+      "id": "r7515",
+      "shape": "installed-dell-r7515",
+      "features": [
+        "Twelve horizontal LFF carriers in three rows of four",
+        "Dark rack ears with lower recessed latches",
+        "Left status strip and right power, USB, VGA and iDRAC controls"
+      ],
+      "view": "2U rack · twelve-LFF front, bezel removed",
+      "sourceUrl": "https://i.dell.com/sites/csdocuments/product_docs/en/poweredge-r7515-technical-guide.pdf",
+      "sourceTitle": "Dell EMC PowerEdge R7515 Technical Guide",
+      "locator": "Page 9 · Figure 2, Front view of the 12 × 3.5-inch drive system",
+      "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+      "reviewStatus": "verified",
+      "reviewMethod": "Downloaded the official technical guide, rendered page 9 with Poppler, and visually inspected Figure 2.",
+      "reviewedAt": "2026-10-09"
+    },
+    {
+      "id": "r7525",
+      "shape": "installed-dell-r7525",
+      "features": [
+        "Twenty-four vertical SFF carriers with orange release details",
+        "Dark rack ears with lower recessed latches",
+        "Left status strip and right power, USB, VGA and iDRAC controls"
+      ],
+      "view": "2U rack · twenty-four-SFF front, bezel removed",
+      "sourceUrl": "https://i.dell.com/sites/csdocuments/Product_Docs/en/dell-emc-poweredge-r7525-technical-guide.pdf",
+      "sourceTitle": "Dell EMC PowerEdge R7525 Technical Guide",
+      "locator": "Page 9 · Figure 1, Front view of the 24 × 2.5-inch drive system",
+      "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+      "reviewStatus": "verified",
+      "reviewMethod": "Downloaded the official technical guide, rendered page 9 with Poppler, and visually inspected Figure 1.",
+      "reviewedAt": "2026-10-09"
+    }
+  ],
+  "limits": [
+    "These are simplified exterior illustrations, not photographs or dimensioned engineering drawings.",
+    "Each card names the illustrated drive configuration; the same server may have other cages, bezels, rear drives and internal options.",
+    "The R7525 and R7615 share the same visible 24-SFF carrier layout in the cited figures; the illustration intentionally does not invent a cosmetic distinction between them."
+  ],
+  "validation": {
+    "javascriptSyntax": "pass",
+    "browserVisualReview": "All six illustrated fronts visually inspected at normal desktop viewport; joined top/side/front geometry, no stray base elements, no clipping or card overflow.",
+    "visibleCarrierCounts": {
+      "c225m6": 10,
+      "c245m6": 24,
+      "r7515": 12,
+      "r7525": 24,
+      "r7615": 24,
+      "r7625": 16
+    },
+    "browserConsoleErrors": 0,
+    "localReviewScreenshot": "tmp/art-cisco-dell/revised-art-review.png",
+    "scope": "Isolated illustration contact sheet; the parent task validates final integrated cards and responsive views."
+  }
+}

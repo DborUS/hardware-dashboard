@@ -1,0 +1,284 @@
+[
+  {
+    "id": "sr630",
+    "shape": "physical-sr630",
+    "view": "1U · 10 SFF front",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1971",
+    "sourceTitle": "Lenovo ThinkSystem SR630 V4 Server — Product Guide",
+    "locator": "Components and connectors, PDF page 9, Figure 2",
+    "features": [
+      "Two horizontal rows of five front carriers",
+      "Right-hand operator/USB area"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sr650",
+    "shape": "physical-sr650",
+    "view": "2U · 24 SFF front",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp2127",
+    "sourceTitle": "Lenovo ThinkSystem SR650 V4 Server — Product Guide",
+    "locator": "Components and connectors, PDF page 8, Figure 2",
+    "features": [
+      "One row of 24 vertical front carriers",
+      "I/O in narrow rack-ear regions"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sr635",
+    "shape": "physical-sr635",
+    "view": "1U · 10 SFF front",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1609",
+    "sourceTitle": "Lenovo ThinkSystem SR635 V3 Server — Product Guide",
+    "locator": "Components and connectors, PDF page 9, Figure 2",
+    "features": [
+      "Two horizontal rows of five front carriers",
+      "Right-hand operator/USB area"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sr655",
+    "shape": "physical-sr655",
+    "view": "2U · 24 SFF front",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1610",
+    "sourceTitle": "Lenovo ThinkSystem SR655 V3 Server — Product Guide",
+    "locator": "Components and connectors, PDF page 9, Figure 2",
+    "features": [
+      "One row of 24 vertical front carriers",
+      "Controls in side panels"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sr645",
+    "shape": "physical-sr645",
+    "view": "1U · 4 LFF front",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1607",
+    "sourceTitle": "Lenovo ThinkSystem SR645 V3 Server — Product Guide",
+    "locator": "Components and connectors, PDF page 9, Figure 2",
+    "features": [
+      "Four horizontal LFF carriers",
+      "Control and I/O strip above carriers"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sr665",
+    "shape": "physical-sr665",
+    "view": "2U · 24 SFF front",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1608",
+    "sourceTitle": "Lenovo ThinkSystem SR665 V3 Server — Product Guide",
+    "locator": "Components and connectors, PDF page 11, Figure 2, top configuration",
+    "features": [
+      "One row of 24 vertical front carriers",
+      "Other front configurations are separate alternatives"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sr860",
+    "shape": "physical-sr860",
+    "view": "4U · 32 E3.S + 24 SFF front",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp2231",
+    "sourceTitle": "Lenovo ThinkSystem SR860 V4 Server — Product Guide",
+    "locator": "Components and connectors, PDF page 10, Figure 2",
+    "features": [
+      "Four upper stacks of eight horizontal E3.S positions",
+      "One lower bank of 24 vertical SFF carriers"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "st45",
+    "shape": "physical-st45",
+    "view": "Compact tower · closed front",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1994",
+    "sourceTitle": "Lenovo ThinkSystem ST45 V3 Server — Product Guide",
+    "locator": "Components and connectors, PDF page 7, Figure 2",
+    "features": [
+      "Perforated black front",
+      "Upper-left media area",
+      "Upper-right I/O strip",
+      "No front hot-swap disk carriers"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "st650",
+    "shape": "physical-st650",
+    "view": "Tower · 32 SFF + media bays",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1604",
+    "sourceTitle": "Lenovo ThinkSystem ST650 V3 Server — Product Guide",
+    "locator": "Components and connectors, PDF page 7, Figure 2",
+    "features": [
+      "Two upper media bays",
+      "Four banks of eight vertical SFF carriers"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified. Stabilizing feet are omitted from this simplified illustration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "se455",
+    "shape": "physical-se455",
+    "view": "2U short-depth · front service",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1724",
+    "sourceTitle": "Lenovo ThinkEdge SE455 V3 and SE455i V3 Servers — Product Guide",
+    "locator": "Components and connectors, PDF page 7, Figures 2–4",
+    "features": [
+      "Two PCIe banks at left",
+      "Four SFF positions above two front-accessible PSUs at right",
+      "Bottom I/O strip"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "se100",
+    "shape": "physical-se100",
+    "view": "Compact node · passive cooling fins",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1995",
+    "sourceTitle": "Lenovo ThinkEdge SE100 Edge Server — Product Guide",
+    "locator": "Components and connectors, PDF page 5, Figures 2–3",
+    "features": [
+      "Prominent upper heatsink fins",
+      "Front HDMI/serial/USB interfaces",
+      "No front hot-swap drives or rack ears"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sd535",
+    "shape": "physical-sd535",
+    "view": "One half-width node · six SFF",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1892",
+    "sourceTitle": "Lenovo ThinkSystem SD535 V3 Server — Product Guide",
+    "locator": "Components and connectors, PDF page 7, Figure 2; enclosure Figure 7 on page 10",
+    "features": [
+      "Two rows of three front carriers",
+      "Slim removable node, no full-width rack ears",
+      "Four nodes share D3, right nodes are installed inverted"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sd665",
+    "shape": "physical-sd665",
+    "view": "Two-node 1U tray · front I/O",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1612",
+    "sourceTitle": "Lenovo ThinkSystem SD665 V3 Neptune DWC Server — Product Guide",
+    "locator": "Components and connectors, PDF page 6, Figures 2–4",
+    "features": [
+      "Two independent node fronts side by side",
+      "Front adapter openings and network/management I/O",
+      "Water connections are at rear"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sc750",
+    "shape": "physical-sc750",
+    "view": "One vertical two-node tray",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp2009",
+    "sourceTitle": "Lenovo ThinkSystem SC750 V4 Neptune Server — Product Guide",
+    "locator": "Components and connectors, PDF page 7, Figures 2–4; enclosure on page 8",
+    "features": [
+      "Two node I/O faces stacked when installed vertically",
+      "Long removable enclosure tray",
+      "Eight trays fit N1380 enclosure"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sr650a",
+    "shape": "physical-sr650a",
+    "view": "2U · eight SFF + front PCIe",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp2128",
+    "sourceTitle": "Lenovo ThinkSystem SR650a V4 and SR650i V4 Servers — Product Guide",
+    "locator": "Components and connectors, PDF page 5, Figures 2–3",
+    "features": [
+      "Eight central vertical SFF carriers",
+      "Four horizontal PCIe openings on either side of storage"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sr675",
+    "shape": "physical-sr675",
+    "view": "3U · eight double-wide PCIe GPU layout",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1611",
+    "sourceTitle": "Lenovo ThinkSystem SR675 V3 and SR675i V3 Servers — Product Guide",
+    "locator": "Components and connectors, PDF page 9, Figure 4",
+    "features": [
+      "Left stack of six E1.S front drives",
+      "Broad vertical GPU-slot bank",
+      "Front I/O slots at right"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sr680a",
+    "shape": "physical-sr680a",
+    "view": "8U · HGX B300 front",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp2264",
+    "sourceTitle": "Lenovo ThinkSystem SR680a V4 Server — Product Guide",
+    "locator": "Components and connectors, PDF page 7, Figure 2",
+    "features": [
+      "Six upper hot-swap front fan modules",
+      "Eight front NVMe bays at left",
+      "Four central vertical PCIe openings",
+      "Eight lower OSFP ports"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sr685a",
+    "shape": "physical-sr685a",
+    "view": "8U · historical eight-GPU chassis",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1910",
+    "sourceTitle": "Lenovo ThinkSystem SR685a V3 Server — Product Guide (withdrawn product)",
+    "locator": "Components and connectors, PDF page 6, Figure 2",
+    "features": [
+      "Five upper front fan modules",
+      "Two banks of eight NVMe carriers",
+      "Eight lower front networking PCIe openings"
+    ],
+    "caveat": "Reference-based exterior schematic. The shown drive/slot population is one documented layout; other configurations differ. Perspective depth, mesh and small controls are simplified.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "sr665original",
+    "shape": "installed-sr665original",
+    "view": "2U front · representative 24-SFF configuration",
+    "sourceUrl": "https://lenovopress.lenovo.com/lp1269-thinksystem-sr665-server",
+    "sourceTitle": "Lenovo Press LP1269 — Figure 2, front view of the original ThinkSystem SR665",
+    "locator": "Components and connectors, Figure 2",
+    "features": [
+      "Twenty-four narrow vertical SFF carriers across the front",
+      "Diagnostics and optional VGA on the left rack ear",
+      "Operator panel and two USB ports on the right rack ear",
+      "Dark carrier faces, thin red upper accents and lower pull handles"
+    ],
+    "caveat": "Simplified exterior illustration of the documented 24-SFF option. Other 8/16-SFF and 8/12-LFF arrangements differ; the illustration is not a claim that all options coexist.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://lenovopress.lenovo.com/assets/images/LP1269/SR665%20front%20view%20with%20callouts.png",
+    "reviewedAt": "2026-10-09",
+    "reviewMethod": "Official front-view image visually inspected; simplified SVG redrawn to match visible carrier and control layout."
+  }
+]

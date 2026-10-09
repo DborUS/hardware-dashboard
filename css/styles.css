@@ -779,13 +779,13 @@
   /* ══════════════════════════════════════════════════════════════════════
      SHARED SITE HEADER — navigation, centred identity, and page tools
      ──────────────────────────────────────────────────────────────────────
-     The same shell is used by Products and Benchmarks. Vendor selection stays
+     The same shell is used by Products, Benchmarks and Platforms. Vendor selection stays
      in the local product controls beneath it.
      ══════════════════════════════════════════════════════════════════════ */
 
   .topbar {
     display: grid;
-    grid-template-columns: minmax(240px, 1fr) minmax(0, 520px) minmax(240px, 1fr);
+    grid-template-columns: minmax(300px, 1fr) minmax(0, 520px) minmax(300px, 1fr);
     align-items: center; column-gap: 18px; row-gap: 12px;
     padding: 4px 0 14px;
   }
@@ -797,7 +797,7 @@
   }
   .site-primary-link {
     display: inline-flex; align-items: center; justify-content: center;
-    min-height: 36px; padding: 7px 12px;
+    min-height: 44px; padding: 7px 12px;
     border: 1px solid transparent; border-radius: 5px;
     color: var(--text-secondary); text-decoration: none; white-space: nowrap;
     font: 600 0.73rem 'JetBrains Mono', monospace; letter-spacing: 0.35px;
@@ -1059,7 +1059,7 @@
     .topbar { grid-template-columns: 1fr; }
     .brand-lockup { grid-column: 1; grid-row: 1; width: 100%; }
     .site-primary-nav { grid-column: 1; grid-row: 2; width: 100%; justify-self: stretch; }
-    .site-primary-link { flex: 1; }
+    .site-primary-link { flex: 1; min-width: 0; padding-inline: 8px; letter-spacing: 0; }
     .topbar-tools { grid-column: 1; grid-row: 3; width: 100%; min-height: 36px; justify-content: space-between; }
     .navrow .vendor-pill { width: 100%; }
     .brand-lockup-title { gap: 10px; }

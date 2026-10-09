@@ -1,0 +1,193 @@
+{
+  "vendor": "supermicro",
+  "verifiedAt": "2026-10-09",
+  "verificationMethod": "Fresh review of exact official Supermicro model pages and dated OEM announcements; data changes are limited to positively documented claims.",
+  "claims": [
+    {
+      "id": "intelhyper-cooling",
+      "model": "SYS-222H-TN",
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air or optional direct-to-chip liquid CPU cooling is documented, with up to 350 W CPUs. This does not establish a GPU and cooling combination; confirm the exact processor, cold plate, risers, GPU and power configuration."
+      },
+      "officialSource": "https://www.supermicro.com/en/products/system/hyper/2u/sys-222h-tn",
+      "locator": "Processor > Note; System Cooling > Liquid Cooling",
+      "basis": "The model page documents both air and liquid CPU cooling to 350 W and an optional D2C cold plate.",
+      "status": "verified"
+    },
+    {
+      "id": "blade-cooling",
+      "model": "SBI-622B-1NE34",
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air-cooled CPUs are documented up to 250 W. Direct liquid cooling is also available through Supermicro; confirm CPU TDP and enclosure configuration. The 350 W headline is not an air-cooled qualification."
+      },
+      "officialSource": "https://www.supermicro.com/en/products/superblade/module/sbi-622b-1ne34.php",
+      "locator": "Key Features > item 8; Processor > Note",
+      "basis": "The processor note specifies air cooling to 250 W and separately offers direct liquid cooling subject to OEM consultation. The 350 W feature headline is not an unconditional air-cooled limit.",
+      "status": "verified"
+    },
+    {
+      "id": "amdblade-cooling",
+      "model": "SBA-817V7-1N",
+      "before": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air and liquid CPU cooling are documented with CPU TDP up to 600 W, subject to Supermicro thermal conditions and the compatible 8U enclosure. Coming Soon remains the model status; this is not an orderability or GPU qualification."
+      },
+      "officialSource": "https://www.supermicro.com/en/aplus/superblade/module/sba-817v7-1n.php",
+      "locator": "Key Features > item 2; Processor > Note; Coming Soon status",
+      "basis": "Both cooling methods are explicitly listed, with CPU TDP up to 600 W and a vendor-specific-conditions caveat.",
+      "status": "verified"
+    },
+    {
+      "id": "amd1-thermal",
+      "model": "AS-1126HS-TN",
+      "before": [
+        "Confirm exact CPU TDP and model-qualified PCIe adapters; spare slots do not establish GPU qualification."
+      ],
+      "after": [
+        "Confirm exact CPU TDP and model-qualified PCIe adapters; spare slots do not establish GPU qualification.",
+        "CPU TDP is specified up to 500 W; air-cooled CPUs above 290 W require Supermicro-specific conditions. Confirm the exact thermal configuration with Supermicro."
+      ],
+      "officialSource": "https://www.supermicro.com/en/products/system/hyper/1u/as-1126hs-tn",
+      "locator": "Processor > Note",
+      "basis": "The official note states 500 W maximum CPU TDP and requires specific conditions for air-cooled CPUs above 290 W; it does not enumerate those conditions.",
+      "status": "verified"
+    },
+    {
+      "id": "amdcloud-thermal",
+      "model": "AS-2015CS-TNR",
+      "before": [
+        "EPYC 9005 requires motherboard revision 2.x.",
+        "Additional parts are required for optional SAS or NVMe paths; twelve base SATA bays do not imply simultaneous NVMe/SAS capability."
+      ],
+      "after": [
+        "EPYC 9005 requires motherboard revision 2.x.",
+        "Additional parts are required for optional SAS or NVMe paths; twelve base SATA bays do not imply simultaneous NVMe/SAS capability.",
+        "CPU TDP is specified up to 400 W; air-cooled CPUs above 360 W require Supermicro-specific conditions. Confirm the exact thermal configuration with Supermicro."
+      ],
+      "officialSource": "https://www.supermicro.com/en/products/system/clouddc/2u/as-2015cs-tnr",
+      "locator": "Processor > Note",
+      "basis": "The official note states 400 W maximum CPU TDP and requires specific conditions for air-cooled CPUs above 360 W; it does not enumerate those conditions.",
+      "status": "verified"
+    },
+    {
+      "id": "amdtwin-thermal",
+      "model": "AS-2115GT-HNTR",
+      "before": [
+        "EPYC 9005 requires motherboard revision 2.x.",
+        "CPU, memory, drives and networking are per node; four nodes remain four separate servers."
+      ],
+      "after": [
+        "EPYC 9005 requires motherboard revision 2.x.",
+        "CPU, memory, drives and networking are per node; four nodes remain four separate servers.",
+        "CPU TDP is specified up to 400 W; air-cooled CPUs above 300 W require Supermicro-specific conditions. Confirm the exact thermal configuration with Supermicro."
+      ],
+      "officialSource": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2115gt-hntr",
+      "locator": "Processor > Note",
+      "basis": "The official note states 400 W maximum CPU TDP and requires specific conditions for air-cooled CPUs above 300 W; it does not enumerate those conditions.",
+      "status": "verified"
+    },
+    {
+      "id": "amdcloud-memory-revision",
+      "model": "AS-2015CS-TNR",
+      "before": "12 RDIMM slots on one CPU, 1DPC only. EPYC 9005 requires board revision 2.x; memory speed also depends on board revision.",
+      "after": "12 RDIMM slots on one CPU, 1DPC only. EPYC 9005 requires board revision 2.x: the OEM lists up to 6000 MT/s on R2.0 and 6400 MT/s on R2.01. EPYC 9004 is listed up to 4800 MT/s. Actual speed also depends on the qualified CPU and DIMMs.",
+      "officialSource": "https://www.supermicro.com/en/products/system/clouddc/2u/as-2015cs-tnr",
+      "locator": "Processor > CPU board revision note; System Memory > Memory (per Node for GrandTwin)",
+      "basis": "Memory table explicitly separates the two EPYC 9005 board revisions and EPYC 9004 speed. Maxima remain conditional, not a guarantee for all DIMMs.",
+      "status": "verified"
+    },
+    {
+      "id": "amdtwin-memory-revision",
+      "model": "AS-2115GT-HNTR",
+      "before": "Per node: 12 RDIMM slots on one CPU, 1DPC only. EPYC 9005 requires board revision 2.x; memory speed depends on board revision.",
+      "after": "Per node: 12 RDIMM slots on one CPU, 1DPC only. EPYC 9005 requires board revision 2.x: the OEM lists up to 6000 MT/s on R2.0 and 6400 MT/s on R2.01. EPYC 9004 is listed up to 4800 MT/s. Actual speed also depends on the qualified CPU and DIMMs.",
+      "officialSource": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2115gt-hntr",
+      "locator": "Processor > CPU board revision note; System Memory > Memory (per Node for GrandTwin)",
+      "basis": "Memory table explicitly separates the two EPYC 9005 board revisions and EPYC 9004 speed. Maxima remain conditional, not a guarantee for all DIMMs.",
+      "status": "verified"
+    },
+    {
+      "id": "amdentry-model-date",
+      "model": "AS-3015A-I",
+      "before": {
+        "generationId": "sm-h13-entry",
+        "modelYear": 2025,
+        "modelDateKind": "Documented by",
+        "note": "The H13 EPYC 4004 entry branch began in May 2024. The May 2025 EPYC 4005 announcement explicitly links AS-3015A-I; the exact original SKU debut has not been independently established here.",
+        "sourceIds": [
+          "genSm4004",
+          "genSm4005",
+          "amdentry"
+        ]
+      },
+      "after": {
+        "generationId": "sm-h13-entry",
+        "modelYear": 2024,
+        "modelDateKind": "Documented by",
+        "note": "The 21 May 2024 EPYC 4004 announcement explicitly links AS-3015A-I under Tower Servers. This establishes the model by May 2024, not an exact first-sale date. The separate 13 May 2025 announcement documents its EPYC 4005 refresh.",
+        "sourceIds": [
+          "genSm4004",
+          "genSm4005",
+          "amdentry"
+        ]
+      },
+      "officialSource": "https://www.supermicro.com/en/pressreleases/supermicro-introduces-high-density-efficient-and-cost-optimized-solutions-powered-amd",
+      "locator": "21 May 2024 dateline; Tower Servers exact product link",
+      "basis": "The exact tower SKU is linked in the 2024 announcement. The 2025 EPYC 4005 refresh event remains unchanged and was freshly reconfirmed in its separate May 13, 2025 OEM announcement.",
+      "status": "verified"
+    }
+  ],
+  "unchangedBoundaries": [
+    "Model-level CPU cooling is not a GPU/cooling qualification; GPU option cooling scopes were not expanded.",
+    "SBA-817V7-1N remains announced/Coming Soon. No exact shipping date was added.",
+    "No liquid cooling was inferred for AS-1126HS-TN, AS-2015CS-TNR or AS-2115GT-HNTR from conditional air-cooled TDP language.",
+    "No single-CPU operation was inferred for the dual-socket Intel blade from the generic minimum complete-system order note."
+  ],
+  "validationChecks": [
+    "Every new source URL is official Supermicro and targets the exact model or exact dated announcement.",
+    "All three updated cooling lists contain Air and Liquid while gpuOptions and lifecycle remain unchanged.",
+    "Conditional TDP wording is retained, with no invented ambient limits or exact high-TDP CPU approvals.",
+    "AS-3015A-I remains Documented by 2024 and its EPYC 4005 refresh remains 2025.",
+    "CloudDC and GrandTwin memory notes retain per-server/per-node scopes and 1DPC."
+  ],
+  "independentSpotReview": {
+    "reviewer": "Cisco/HPE implementation specialist",
+    "status": "PASS",
+    "claims": [
+      "intelhyper-cooling",
+      "blade-cooling",
+      "amdblade-cooling",
+      "amdentry-model-date"
+    ],
+    "scope": "Fresh independent exact-source check of four change groups; not revalidation of the other five."
+  }
+}

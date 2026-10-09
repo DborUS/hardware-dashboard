@@ -1,0 +1,1908 @@
+{
+  "vendor": "hpe",
+  "reviewed": "2026-10-09",
+  "sources": {
+    "hpeGen10": {
+      "title": "HPE Discover Las Vegas 2017 announcements",
+      "url": "https://www.hpe.com/us/en/newsroom/press-kit/2017/06/discover-las-vegas-2017.html",
+      "scope": "June 2017 introduction of the next-generation ProLiant portfolio.",
+      "loc": "5 June 2017 · next-generation ProLiant announcement",
+      "date": "05 Jun 2017"
+    },
+    "hpeGenHistory": {
+      "title": "HPE IT equipment efficiency: lifecycle strategies",
+      "url": "https://www.hpe.com/psnow/doc/a50002031enw",
+      "scope": "HPE's historical chart dates Gen10 to 2017 and the later mainstream Gen10 Plus wave to 2021.",
+      "loc": "Figure 1 · Server generation and launch year",
+      "date": "Reviewed 08 Oct 2026"
+    },
+    "hpeGen10Plus": {
+      "title": "HPE ProLiant Gen10 Plus: The power of EPYC fully unleashed",
+      "url": "https://community.hpe.com/t5/servers-systems-the-right/hpe-proliant-gen10-plus-the-power-of-epyc-fully-unleashed/ba-p/7069874",
+      "scope": "HPE introduction of redesigned DL325 and DL385 Gen10 Plus in November 2019.",
+      "loc": "Opening paragraphs · DL325 and DL385 Gen10 Plus",
+      "date": "18 Nov 2019"
+    },
+    "hpeGen11": {
+      "title": "HPE introduces next-generation compute for a hybrid world",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2022/11/hewlett-packard-enterprise-introduces-next-generation-compute-engineered-for-a-hybrid-world.html",
+      "scope": "Gen11 portfolio launch and earlier June 2022 RL300 announcement.",
+      "loc": "Opening announcement; RL300 paragraph; Availability",
+      "date": "01 Nov 2022"
+    },
+    "hpeGen12Early": {
+      "title": "HPE and NVIDIA announce NVIDIA AI Computing by HPE",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2024/06/hewlett-packard-enterprise-and-nvidia-announce-nvidia-ai-computing-by-hpe-to-accelerate-generative-ai-industrial-revolution.html",
+      "scope": "Gen12 branding used for DL384 and DL380a AI systems in June 2024.",
+      "loc": "Expanded compute portfolio; Availability",
+      "date": "18 Jun 2024"
+    },
+    "hpeGen12Intel": {
+      "title": "HPE introduces eight new ProLiant Compute Gen12 servers",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2025/02/hpe-introduces-next-generation-proliant-servers-engineered-for-advanced-security-ai-automation-and-greater-performance.html",
+      "scope": "Broad Intel Gen12 rollout, including rack, tower and Synergy models.",
+      "loc": "Opening announcement; Availability",
+      "date": "12 Feb 2025"
+    },
+    "hpeGen12AMD": {
+      "title": "HPE expands the ProLiant Gen12 portfolio with AMD models",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2025/06/hpe-expands-proliant-gen12-server-portfolio-helps-customers-modernize-virtualization-and-edge-computing-with-ai-driven-management.html",
+      "scope": "DL325 and DL345 Gen12 announced June 2025; planned shipment in July.",
+      "loc": "HPE delivers double the memory; Availability",
+      "date": "25 Jun 2025"
+    },
+    "hpeGen11Refresh": {
+      "title": "HPE ProLiant Gen11 adds AMD EPYC 9005 processors",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2024/10/hpe-proliant-delivers-48-world-records-in-performance-and-energy-efficiency-for-enterprise-workloads.html",
+      "scope": "2024 CPU refresh retained the Gen11 name.",
+      "loc": "Opening announcement and availability",
+      "date": "10 Oct 2024"
+    },
+    "hpeGenDL145": {
+      "title": "HPE launches the ProLiant DL145 Gen11 edge server",
+      "url": "https://www.hpe.com/us/en/newsroom/blog-post/2024/09/new-hpe-proliant-dl145-gen-11-server-engineered-for-diverse-edge-locations-ensures-high-performance-for-demanding-workloads.html",
+      "scope": "Model-specific DL145 Gen11 launch, later than the Gen11 family debut.",
+      "loc": "Opening launch announcement",
+      "date": "18 Sep 2024"
+    },
+    "hpeGenXD685": {
+      "title": "HPE announces ProLiant Compute XD685",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2024/10/hpe-launches-new-purpose-built-solutions-powered-by-amd-to-accelerate-training-for-large-complex-ai-models.html",
+      "scope": "XD685 announcement, initial ordering and planned general availability.",
+      "loc": "Opening announcement; Availability",
+      "date": "10 Oct 2024"
+    },
+    "hpeGenXD690": {
+      "title": "HPE introduces XD690 in its NVIDIA AI factory portfolio",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2025/06/hpe-unveils-new-ai-factory-solutions-built-with-nvidia-to-accelerate-ai-adoption-at-global-scale.html",
+      "scope": "XD690 announcement and planned later-2025 availability.",
+      "loc": "HPE Compute XD690 joins the portfolio; Availability",
+      "date": "24 Jun 2025"
+    },
+    "hpeGenSynergy": {
+      "title": "First step with programming the HPE Composable API",
+      "url": "https://developer.hpe.com/blog/first-step-with-programming-the-hpe-composable-api/",
+      "scope": "HPE dates the Synergy platform announcement to December 2015.",
+      "loc": "A bit of history · December 2015 Synergy announcement",
+      "date": "08 Sep 2017 · retrospective"
+    },
+    "hpeGen13": {
+      "title": "HPE accelerates enterprise AI innovation with next-generation AMD CPU-powered servers",
+      "url": "https://www.hpe.com/us/en/newsroom/press-release/2026/10/hpe-accelerates-enterprise-ai-innovation-with-next-generation-amd-cpu-powered-servers.html",
+      "date": "07 Oct 2026",
+      "scope": "Gen13 announcement and expected availability; not shipping confirmation.",
+      "loc": "AI-ready performance across enterprise workloads; Availability"
+    },
+    "hpeGen13Details": {
+      "title": "New HPE ProLiant Gen13 Servers - built to protect, designed to automate, proven to deliver",
+      "url": "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922",
+      "date": "07 Oct 2026 · reviewed 09 Oct 2026",
+      "scope": "HPE ComputeExperts launch detail: EPYC 9006 SP7, 10U DL585a and per-node socket counts; XD245 height conflicts with press release.",
+      "loc": "At a glance; HPE ProLiant DL525 / DL585a; XD245 / XD285"
+    },
+    "rocm": {
+      "title": "AMD ROCm compatibility matrix",
+      "url": "https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html",
+      "date": "Reviewed 09 Oct 2026",
+      "loc": "System requirements and information; per-GPU OS / driver / firmware compatibility",
+      "scope": "AMD software-stack compatibility; does not replace OEM system qualification."
+    },
+    "auditDL3659005": {
+      "title": "HPE DL365 Gen11: EPYC 9005 change history",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004299enw.html",
+      "loc": "Summary of Changes: Version 23 (2024-11-04)",
+      "scope": "The model QuickSpecs recorded fifth-generation EPYC CPU additions in 2024; review in 2026 is separate.",
+      "date": "Historical change: Version 23 · 2024-11-04",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "revision": "Historical change: Version 23 · 2024-11-04",
+      "eventDate": "2024-11-04"
+    },
+    "auditDL3859005": {
+      "title": "HPE DL385 Gen11: EPYC 9005 change history",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004300enw.html",
+      "loc": "Summary of Changes: Version 25 (2024-10-10)",
+      "scope": "The model QuickSpecs recorded fifth-generation EPYC CPU additions in 2024; review in 2026 is separate.",
+      "date": "Historical change: Version 25 · 2024-10-10",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "revision": "Historical change: Version 25 · 2024-10-10",
+      "eventDate": "2024-10-10"
+    },
+    "verifyCoolingDL320": {
+      "title": "HPE DL320 QuickSpecs: cooling choices",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004283enw.html",
+      "loc": "Core Options: Power and Cooling, P84312-B21; CLC P76605-B21",
+      "revision": "V21 / 05 Oct 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "date": "V21 / 05 Oct 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyCoolingDL325": {
+      "title": "HPE DL325 QuickSpecs: cooling choices",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009232enw.html",
+      "loc": "Core Options: Power and Cooling; P80827-B21; closed-loop cooling rules",
+      "revision": "V13 / 05 Oct 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "date": "V13 / 05 Oct 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyCoolingDL340": {
+      "title": "HPE DL340 QuickSpecs: cooling choices",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004261enw.html",
+      "loc": "Core Options: Power and Cooling; P84592-B21",
+      "revision": "V16 / 05 Oct 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "date": "V16 / 05 Oct 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyCoolingDL345": {
+      "title": "HPE DL345 QuickSpecs: cooling choices",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009233enw.html",
+      "loc": "Core Options: Power and Cooling; P81123-B21",
+      "revision": "V13 / 05 Oct 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "date": "V13 / 05 Oct 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyCoolingDL360": {
+      "title": "HPE DL360 QuickSpecs: cooling choices",
+      "url": "https://www.hpe.com/ie/en/collaterals/collateral.a50006984enw.html",
+      "loc": "Core Options: cooling, P74208-B21/P79273-B21; Technical Specifications: minimum SFF/LFF",
+      "revision": "V20 / 05 Oct 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "date": "V20 / 05 Oct 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyCoolingDL365": {
+      "title": "HPE DL365 QuickSpecs: cooling choices",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004299enw.html",
+      "loc": "Core Options: Cooling Options; CPU/DIMM ambient matrices; P62032-B21/P62035-B21",
+      "revision": "V46 / 05 Oct 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "date": "V46 / 05 Oct 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyCoolingDL380": {
+      "title": "HPE DL380 QuickSpecs: cooling choices",
+      "url": "https://www.hpe.com/psnow/doc/a00073551enw.pdf",
+      "loc": "QuickSpecs PDF pp18,32-33: OCP one-processor case and DLC options",
+      "revision": "V20 / 05 Oct 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "date": "V20 / 05 Oct 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyCoolingDL385": {
+      "title": "HPE DL385 QuickSpecs: cooling choices",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004300enw.html",
+      "loc": "Core Options: Direct Liquid Cooling Solutions, P62032-B21/P62035-B21",
+      "revision": "V49 / 05 Oct 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "date": "V49 / 05 Oct 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyCoolingDL580": {
+      "title": "HPE DL580 QuickSpecs: cooling choices",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009226enw.html",
+      "loc": "Core Options: Heat Sinks; Direct Liquid Cooling Module, P78016-B21",
+      "revision": "V11 / 03 Aug 2026",
+      "publicationDate": "2026-08-03",
+      "reviewed": "2026-10-09",
+      "date": "V11 / 03 Aug 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyCoolingDL380A": {
+      "title": "HPE DL380A QuickSpecs: cooling choices",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a00047453enw.html",
+      "loc": "Core Options: P82520-B21 CPU Direct Liquid Cooling FIO Kit",
+      "revision": "V21 / 05 Oct 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "date": "V21 / 05 Oct 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyCoolingXD685": {
+      "title": "HPE XD685 QuickSpecs: cooling choices",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a00073553enw.html",
+      "loc": "Standard Features: Accelerators; Step 2: Choose Accelerator",
+      "revision": "V16 / 03 Aug 2026",
+      "publicationDate": "2026-08-03",
+      "reviewed": "2026-10-09",
+      "date": "V16 / 03 Aug 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyDL525Cooling": {
+      "title": "HPE DL525 Gen13 announced cooling choices",
+      "url": "https://buy.hpe.com/uk/en/compute/rack-servers/proliant-dl500-servers/hpe-proliant-dl525-gen13-server/p/1014975892",
+      "loc": "What is New: choice of air and direct liquid cooling",
+      "revision": null,
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "date": "Reviewed 09 Oct 2026",
+      "scope": "Announced design choices; no confirmed shipping status."
+    },
+    "verifyDL585Cooling": {
+      "title": "HPE DL585a Gen13 technical specifications",
+      "url": "https://www.hpe.com/sg/en/products/compute/proliant/dl585a-gen13.html",
+      "loc": "Technical specifications: Cooling",
+      "revision": null,
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "date": "Reviewed 09 Oct 2026",
+      "scope": "Announced air-cooled platform; not a live inventory or shipping assertion."
+    },
+    "verifyDL585Options": {
+      "title": "HPE DL585a Gen13 launch QuickSpecs: supported accelerators",
+      "url": "https://www.hpe.com/no/en/collaterals/collateral.a50014668enw.html",
+      "loc": "Supported Options: processors; Step 3 Choose GPUs; no mixing and population rules",
+      "revision": "V1 / 07 Oct 2026",
+      "publicationDate": "2026-10-07",
+      "reviewed": "2026-10-09",
+      "date": "V1 / 07 Oct 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyDL325G11": {
+      "title": "HPE ProLiant DL325 Gen11 QuickSpecs",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004297enw.html",
+      "loc": "Platform Information; Processors; Memory; Accelerators; Direct Liquid Cooling; Summary of Changes",
+      "revision": "V41 · 5 October 2026",
+      "date": "V41 · 5 October 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model hardware/configuration evidence; availability is separate."
+    },
+    "verifyDL345G11": {
+      "title": "HPE ProLiant DL345 Gen11 QuickSpecs",
+      "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004298enw.html",
+      "loc": "Platform Information; Processors; Memory; Accelerators; Direct Liquid Cooling; Summary of Changes",
+      "revision": "V41 · 5 October 2026",
+      "date": "V41 · 5 October 2026",
+      "publicationDate": "2026-10-05",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model hardware/configuration evidence; availability is separate."
+    },
+    "verifyDL385G10Pv2": {
+      "title": "HPE ProLiant DL385 Gen10 Plus v2 QuickSpecs — retired",
+      "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20ProLiant%20DL385%20Gen10%20Plus%20v2%20server%20QuickSpecs-a50002560enw.pdf?contentDisposition=attachment&deepLink=&form=false&hf=regular&id=a50002560enw.pdf&isFutureVersion=true&isLinearized=false&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&utm_campaign=&utm_content=&utm_medium=&utm_source=&utm_term=&ver=30",
+      "loc": "Retired notice p1; processors/memory pp4–6; 1P model p20; GPU table p48 and cables p49; population p58; first revision p66",
+      "revision": "V30 · 28 July 2025",
+      "date": "V30 · 28 July 2025",
+      "publicationDate": "2025-07-28",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model hardware/configuration evidence; availability is separate."
+    },
+    "verifyXD675": {
+      "title": "HPE Cray XD675 QuickSpecs — retired",
+      "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20Cray%20XD675%20QuickSpecs-a50009207enw.pdf?deepLink=&form=false&hf=regular&id=a50009207enw.pdf&isFutureVersion=true&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&ver=7",
+      "loc": "Retired notice/8U air system p1; CPU and MI300X options/memory p6; storage p7; BMC p8; first revision p18",
+      "revision": "V7 · 28 July 2025",
+      "date": "V7 · 28 July 2025",
+      "publicationDate": "2025-07-28",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model hardware/configuration evidence; availability is separate."
+    },
+    "verifyXD675TopologyConflict": {
+      "title": "HPE Cray XD675 data sheet",
+      "url": "https://www.hpe.com/psnow/generateDDS/HPE%20Cray%20XD675%20data%20sheet-PSN1014835198ZAEN.pdf?cc=ZA&contentDisposition=attachment&deepLink=&isLinearized=false&lc=EN&oid=1014835198&prelaunch=false&prelaunchSection=&print=&section=&softroll=0&softrollSection=",
+      "loc": "What is new / memory-channel statement on p1",
+      "revision": "Revision not established; reviewed 9 October 2026",
+      "date": "Revision not established; reviewed 9 October 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "scope": "Conflicting memory-channel evidence; does not override model QuickSpecs silently.",
+      "retrievalNote": "The ZA English official indexed PDF reproduces the 12-channel claim. The original ID English URL returned 404 during peer review. On 9 October 2026 the ZA URL was readable through indexed source text, but direct automated fetch returned a cache-miss error; live download availability was not established by this reviewer."
+    }
+  },
+  "models": {
+    "dl320": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "DL320 Gen12",
+        "HPE ProLiant DL320 Gen12",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Front GPUs require the GPU chassis; maximum storage and GPU counts are alternative configurations.",
+        "Xeon P-core and E-core options require model-specific qualification."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "320",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen12",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "dl320"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: DL320 Gen12",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen12Intel"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "dl320",
+        "verifyCoolingDL320"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyCoolingDL320"
+      ],
+      "coolingNote": "Air or facility DLC. P84312-B21 requires matching hoses and a complete rack shipment. Internal closed-loop P76605-B21 uses room air; it is distinct from facility DLC."
+    },
+    "dl325": {
+      "cpuFamilies": [
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "DL325 Gen12",
+        "HPE ProLiant DL325 Gen12",
+        "9005",
+        "5th Gen AMD EPYC",
+        "Turin"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "24 DIMM slots on one 12-channel CPU means up to two DIMMs per channel; memory speed changes with population.",
+        "GPU-chassis and storage-chassis maxima are not additive."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "325",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen12",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "dl325"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: DL325 Gen12",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen12AMD"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "dl325",
+        "verifyCoolingDL325"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyCoolingDL325"
+      ],
+      "coolingNote": "Air or facility DLC P80827-B21; DLC requires the complete rack/CDU/manifold/hose solution. Internal closed-loop liquid-to-air cooling is a separate option and excludes the GPU CTO chassis."
+    },
+    "dl340": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "DL340 Gen12",
+        "HPE ProLiant DL340 Gen12",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Front storage and GPU sections are alternative modular configurations.",
+        "Use the exact qualified Xeon option and its I/O configuration."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "340",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen12",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "dl340",
+          "catalog"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: DL340 Gen12",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen12Intel"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "dl340",
+        "catalog",
+        "verifyCoolingDL340"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyCoolingDL340"
+      ],
+      "coolingNote": "Air or facility DLC P84592-B21. DLC requires matching hoses, six performance fans and a complete rack/CDU/manifold solution."
+    },
+    "dl345": {
+      "cpuFamilies": [
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "DL345 Gen12",
+        "HPE ProLiant DL345 Gen12",
+        "9005",
+        "5th Gen AMD EPYC",
+        "Turin"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "GPU chassis front storage is limited to up to 8 SFF or 8 E3.S.",
+        "24 DIMM slots are not 24 memory channels; validate two-DIMM-per-channel speed."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "345",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen12",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "dl345"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: DL345 Gen12",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen12AMD"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "dl345",
+        "verifyCoolingDL345"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyCoolingDL345"
+      ],
+      "coolingNote": "Air or facility DLC P81123-B21. DLC requires six performance fans and a complete rack/CDU/manifold/hose solution; match the chassis configuration."
+    },
+    "dl360": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "DL360 Gen12",
+        "HPE ProLiant DL360 Gen12",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "One CPU does not enable every DIMM slot or CPU-attached PCIe resource.",
+        "Up to three single-wide GPUs remains subject to riser and thermal rules."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "360",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen12",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "dl360",
+          "catalog"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: DL360 Gen12",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen12Intel"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "dl360",
+        "catalog",
+        "verifyCoolingDL360"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyCoolingDL360"
+      ],
+      "coolingNote": "Air or facility DLC using P74208-B21 or P79273-B21 and compatible rack infrastructure. Internal closed-loop liquid-to-air cooling is separate; location and I/O rules differ."
+    },
+    "dl365": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "DL365 Gen11",
+        "HPE ProLiant DL365 Gen11",
+        "9004",
+        "4th Gen AMD EPYC",
+        "Genoa",
+        "9005",
+        "5th Gen AMD EPYC",
+        "Turin"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Direct liquid cooling requires two processors; one-CPU air-cooled support does not establish a one-CPU DLC configuration.",
+        "Selected EPYC 9005 parts are qualified in Gen11; this is not permission to use every 9005 CPU.",
+        "The documented maximum is 160 cores per CPU, unlike some Gen12 single-socket models."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "365",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen11",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "dl365"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "date": "2024-11-04",
+          "label": "EPYC 9005 CPU options added in QuickSpecs v23",
+          "type": "refresh",
+          "sourceIds": [
+            "auditDL3659005"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "dl365",
+        "auditDL3659005",
+        "verifyCoolingDL365"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyCoolingDL365"
+      ],
+      "coolingNote": "Air or facility DLC P62032-B21/P62035-B21. CPU, DIMMs, drives and ambient limits must match the thermal matrix; PCIe DLC reduces available PCIe card positions."
+    },
+    "dl380": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "DL380 Gen12",
+        "HPE ProLiant DL380 Gen12",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "The PCIe DLC module needs the secondary riser, which requires CPU 2. One-CPU support with other DLC choices is not established here; Liquid + one CPU is excluded from positive matches, not classified as incompatible.",
+        "DL380 and 4U DL380a are separate platforms.",
+        "Maximum drive and GPU populations may require incompatible chassis/riser choices."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "380",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen12",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "dl380",
+          "catalog"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: DL380 Gen12",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen12Intel"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "dl380",
+        "catalog",
+        "verifyCoolingDL380"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyCoolingDL380"
+      ],
+      "coolingNote": "Air or facility DLC P74204-B21/P74208-B21 with matching hoses/rack infrastructure. DLC excludes mid-tray storage; the PCIe option consumes slot 6 and requires the secondary riser."
+    },
+    "dl385": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "DL385 Gen11",
+        "HPE ProLiant DL385 Gen11",
+        "9004",
+        "4th Gen AMD EPYC",
+        "Genoa",
+        "9005",
+        "5th Gen AMD EPYC",
+        "Turin"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuNote": "AMD accelerator options below are scoped to exact configurations; evidence and availability are separate.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI350P",
+          "status": "announced",
+          "availability": "Configurable; planned shipping Dec 2026",
+          "conditions": "S8A40C, 1–4 PCIe cards. Required 450 W iLO GPU power cap, specified fan/power configuration and P94841-B21 cable kit.",
+          "sourceIds": [
+            "dl385"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "Direct liquid cooling requires two processors; one-CPU air-cooled support does not establish a one-CPU DLC configuration.",
+        "MI350P S8A40C: quantities 1–4 are quotable/configurable; planned shipment December 2026.",
+        "Every supported 1–4 MI350P build requires a 450 W iLO GPU power cap, specified fan/power arrangements and P94841-B21 GPU cable kit.",
+        "The generic four-double-wide / eight-single-wide maximum is not approval for arbitrary GPU combinations."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "385",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen11",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "dl385"
+        ]
+      },
+      "events": [
+        {
+          "year": 2026,
+          "label": "MI350P option listed for quotation; planned shipment December 2026",
+          "type": "refresh",
+          "sourceIds": [
+            "dl385"
+          ]
+        },
+        {
+          "year": 2024,
+          "date": "2024-10-10",
+          "label": "EPYC 9005 CPU options added in QuickSpecs v25",
+          "type": "refresh",
+          "sourceIds": [
+            "auditDL3859005"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "dl385",
+        "auditDL3859005",
+        "verifyCoolingDL385"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyCoolingDL385"
+      ],
+      "coolingNote": "Air or facility DLC P62032-B21/P62035-B21. Apply exact CPU/DIMM/storage thermal rules; this does not establish an MI350P-plus-DLC pairing."
+    },
+    "dl580": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "DL580 Gen12",
+        "HPE ProLiant DL580 Gen12",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Four-socket scale-up requires qualified Xeon P-core CPUs and correct memory population.",
+        "No qualified AMD GPU option is established by this guide."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "580",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen12",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "dl580"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: DL580 Gen12",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen12Intel"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "dl580",
+        "verifyCoolingDL580"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyCoolingDL580"
+      ],
+      "coolingNote": "Air or facility DLC P78016-B21 with P62042-B21 tubing. DLC cannot mix with other heatsinks; validate the processor configuration and rack solution."
+    },
+    "dl380a": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "DL380a Gen12",
+        "HPE ProLiant DL380a Gen12",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Up to ten double-wide GPUs is a chassis ceiling, not ten of every GPU.",
+        "GPU power, thermal requirements and expansion kits determine valid populations."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "380a",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen12",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "dl380a",
+          "catalog"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "Announced model milestone: DL380a Gen12",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen12Early",
+            "hpeGen12Intel"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "dl380a",
+        "catalog",
+        "verifyCoolingDL380A"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyCoolingDL380A"
+      ],
+      "coolingNote": "Air or CPU facility DLC P82520-B21 with P62042-B21 tubing. CPU DLC consumes rear slot 1 and excludes the 10DW FIO configuration and Front Cage Fan Kit; GPU cooling is separately qualified."
+    },
+    "xd685": {
+      "cpuFamilies": [
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "ProLiant Compute XD685",
+        "HPE ProLiant ProLiant Compute XD685",
+        "9005",
+        "5th Gen AMD EPYC",
+        "Turin"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuNote": "AMD accelerator options below are scoped to exact configurations; evidence and availability are separate.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI355X",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight GPUs, S6J64A accelerator and matching S6M06A DLC kit; two identical qualified EPYC 9005 CPUs.",
+          "sourceIds": [
+            "xd685"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9005"
+          ],
+          "cooling": [
+            "Liquid"
+          ]
+        },
+        {
+          "product": "NVIDIA HGX H200",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Separate eight-GPU air or direct-liquid-cooled configuration.",
+          "sourceIds": [
+            "xd685"
+          ],
+          "verified": "2026-10-09",
+          "cooling": [
+            "Air",
+            "Liquid"
+          ]
+        },
+        {
+          "product": "NVIDIA B200",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight GPUs; DLC chassis and cooling/power kits required.",
+          "sourceIds": [
+            "xd685"
+          ],
+          "verified": "2026-10-09",
+          "cooling": [
+            "Liquid"
+          ]
+        },
+        {
+          "product": "NVIDIA HGX B300",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight GPUs; DLC High Power chassis S6Y07A and matching cooling kit.",
+          "sourceIds": [
+            "xd685"
+          ],
+          "verified": "2026-10-09",
+          "cooling": [
+            "Liquid"
+          ]
+        }
+      ],
+      "restrictions": [
+        "H200 supports air or DLC; B200, B300 and MI355X require direct liquid cooling.",
+        "DLC accelerators require matching cooling kits; B300 uses the DLC High Power chassis.",
+        "Two identical qualified EPYC 9005 CPUs are mandatory; do not substitute the maximum-core part from the wider CPU family.",
+        "August 2026 QuickSpecs removes 256 GB DIMMs and limits the documented memory configuration to 3 TB."
+      ],
+      "decoder": [
+        {
+          "part": "XD",
+          "meaning": "Dense-compute family; node/chassis layout is model-specific"
+        },
+        {
+          "part": "685",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "xd685"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "Announced model milestone: ProLiant Compute XD685",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGenXD685"
+          ]
+        },
+        {
+          "year": 2025,
+          "label": "MI355X accelerator option added to October 2025 QuickSpecs",
+          "type": "refresh",
+          "sourceIds": [
+            "xd685"
+          ]
+        },
+        {
+          "year": 2026,
+          "label": "August QuickSpecs revised GPU cooling/power kits, Pollara adapters and memory limits",
+          "type": "refresh",
+          "sourceIds": [
+            "xd685"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "xd685",
+        "verifyCoolingXD685"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyCoolingXD685"
+      ],
+      "coolingNote": "H200 has air and DLC variants; B200/B300/MI355X require DLC. Accelerator-specific chassis, cooling and power kits control the actual choice."
+    },
+    "xd690": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "Compute XD690",
+        "HPE ProLiant Compute XD690",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Integrated eight-GPU HGX B300 configuration; use its dedicated BMC rather than assuming iLO.",
+        "No hardware RAID controller support; 4 TB theoretical memory ceiling has a DIMM availability qualification."
+      ],
+      "decoder": [
+        {
+          "part": "XD",
+          "meaning": "Dense-compute family; node/chassis layout is model-specific"
+        },
+        {
+          "part": "690",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "xd690"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: Compute XD690",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGenXD690"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "xd690"
+      ],
+      "verified": "2026-10-09"
+    },
+    "sy480": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "Synergy 480 Gen12",
+        "HPE ProLiant Synergy 480 Gen12",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Requires Synergy frame, Composer and qualified interconnect/firmware combinations.",
+        "A compute module is not an independently deployable rack server."
+      ],
+      "decoder": [
+        {
+          "part": "Synergy",
+          "meaning": "Composable modular family; compatible frame required"
+        },
+        {
+          "part": "480",
+          "meaning": "Compute-module model"
+        },
+        {
+          "part": "Gen12",
+          "meaning": "HPE compute-module generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "sy480",
+          "frame"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: Synergy 480 Gen12",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen12Intel",
+            "hpeGenSynergy"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sy480",
+        "frame"
+      ],
+      "verified": "2026-10-09"
+    },
+    "ml350": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "ML350 Gen12",
+        "HPE ProLiant ML350 Gen12",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Tower and rack-conversion forms use the same model-specific CPU/GPU qualification.",
+        "GPU maxima depend on exact width, power and expansion configuration."
+      ],
+      "decoder": [
+        {
+          "part": "ML",
+          "meaning": "ProLiant tower family"
+        },
+        {
+          "part": "350",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen12",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "ml350",
+          "catalog"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: ML350 Gen12",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen12Intel"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "ml350",
+        "catalog"
+      ],
+      "verified": "2026-10-09"
+    },
+    "dl145": {
+      "cpuFamilies": [
+        "EPYC 8004",
+        "EPYC 8005"
+      ],
+      "aliases": [
+        "DL145 Gen11",
+        "HPE ProLiant DL145 Gen11",
+        "8004",
+        "EPYC 8004 Series",
+        "8005",
+        "EPYC 8005 Series"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Extended operating temperature depends on CPU, storage and GPU configuration.",
+        "EPYC 8005 uses qualified DDR5-6400 memory options; do not assume an 8004 DIMM configuration transfers unchanged."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "145",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen11",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "dl145"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "Announced model milestone: DL145 Gen11",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGenDL145"
+          ]
+        },
+        {
+          "year": 2026,
+          "label": "EPYC 8005 qualification documented in current DL145 QuickSpecs",
+          "type": "refresh",
+          "sourceIds": [
+            "dl145"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "dl145"
+      ],
+      "verified": "2026-10-09"
+    },
+    "dl525": {
+      "cpuFamilies": [
+        "EPYC 9006"
+      ],
+      "aliases": [
+        "DL525 Gen13",
+        "HPE ProLiant DL525 Gen13",
+        "9006",
+        "6th Gen AMD EPYC",
+        "SP7"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Announced platform; planned availability later in 2026 is not verified shipment.",
+        "Air and direct liquid cooling are announced; exact GPU, drive and configuration-specific thermal qualification must be checked."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "525",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen13",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "announced",
+        "note": "Announced 7 October 2026; availability planned later in 2026.",
+        "date": "2026-10-07",
+        "sourceIds": [
+          "hpeGen13",
+          "hpeGen13Details"
+        ]
+      },
+      "events": [
+        {
+          "year": 2026,
+          "label": "Announced model milestone: DL525 Gen13",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen13"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "hpeGen13",
+        "hpeGen13Details",
+        "verifyDL525Cooling"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingSourceIds": [
+        "verifyDL525Cooling"
+      ],
+      "coolingNote": "Announced air and facility direct-liquid choices. Availability and exact thermal configurations require confirmation."
+    },
+    "dl585a": {
+      "cpuFamilies": [
+        "EPYC 9006"
+      ],
+      "aliases": [
+        "DL585a Gen13",
+        "HPE ProLiant DL585a Gen13",
+        "9006",
+        "6th Gen AMD EPYC",
+        "SP7"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+          "status": "announced",
+          "availability": "Platform planned for March 2027; shipment unverified",
+          "conditions": "S6A73C; launch QuickSpecs allow 0/1/2/4/8 GPUs, no mixing of models. Field GPU-cable upgrades use P97059-B21; validate the exact build.",
+          "sourceIds": [
+            "verifyDL585Options",
+            "hpeGen13Details"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9006"
+          ],
+          "cooling": [
+            "Air"
+          ]
+        },
+        {
+          "product": "NVIDIA RTX PRO 6000D",
+          "status": "announced",
+          "availability": "Platform planned for March 2027; shipment unverified",
+          "conditions": "S6W21C; launch QuickSpecs allow 0/1/2/4/8 GPUs, no mixing of models. Field GPU-cable upgrades use P97059-B21; validate the exact build.",
+          "sourceIds": [
+            "verifyDL585Options",
+            "hpeGen13Details"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9006"
+          ],
+          "cooling": [
+            "Air"
+          ]
+        }
+      ],
+      "restrictions": [
+        "Announced platform; planned availability early 2027 is not verified shipment.",
+        "Launch QuickSpecs name RTX PRO 6000 Blackwell Server Edition and RTX PRO 6000D. No AMD accelerator qualification is established; do not generalize from eight GPU positions."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "585a",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        },
+        {
+          "part": "Gen13",
+          "meaning": "HPE server generation, separate from CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "announced",
+        "note": "Announced 7 October 2026; availability planned early 2027.",
+        "date": "2026-10-07",
+        "sourceIds": [
+          "hpeGen13",
+          "hpeGen13Details"
+        ]
+      },
+      "events": [
+        {
+          "year": 2026,
+          "label": "Announced model milestone: DL585a Gen13",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen13"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "hpeGen13",
+        "hpeGen13Details",
+        "verifyDL585Cooling",
+        "verifyDL585Options"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air"
+      ],
+      "coolingSourceIds": [
+        "verifyDL585Cooling"
+      ],
+      "coolingNote": "Announced air-cooled design; expected availability is separate from documented options."
+    },
+    "xd245": {
+      "cpuFamilies": [
+        "EPYC 9006"
+      ],
+      "aliases": [
+        "ProLiant XD245",
+        "HPE ProLiant ProLiant XD245",
+        "9006",
+        "6th Gen AMD EPYC",
+        "SP7"
+      ],
+      "cooling": "Liquid",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Per-node socket count is two; the four-node system can contain eight CPUs in total.",
+        "HPE press release says 1OU; HPE launch detail says 2OU. Chassis height remains unresolved here.",
+        "Planned availability 2027; final CPU, memory, storage and GPU qualification must be checked."
+      ],
+      "decoder": [
+        {
+          "part": "XD",
+          "meaning": "Dense-compute family; node/chassis layout is model-specific"
+        },
+        {
+          "part": "245",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        }
+      ],
+      "lifecycle": {
+        "status": "announced",
+        "note": "Announced 7 October 2026; availability planned in 2027.",
+        "date": "2026-10-07",
+        "sourceIds": [
+          "hpeGen13",
+          "hpeGen13Details"
+        ]
+      },
+      "events": [
+        {
+          "year": 2026,
+          "label": "Announced model milestone: ProLiant XD245",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen13"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "hpeGen13",
+        "hpeGen13Details"
+      ],
+      "verified": "2026-10-09"
+    },
+    "xd285": {
+      "cpuFamilies": [
+        "EPYC 9006"
+      ],
+      "aliases": [
+        "ProLiant XD285",
+        "HPE ProLiant ProLiant XD285",
+        "9006",
+        "6th Gen AMD EPYC",
+        "SP7"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Per-node socket count is two; the chassis contains two independent compute nodes.",
+        "2OU denotes Open Rack units, not interchangeable conventional rack-U dimensions.",
+        "Planned availability 2027; no specific GPU qualification is established here."
+      ],
+      "decoder": [
+        {
+          "part": "XD",
+          "meaning": "Dense-compute family; node/chassis layout is model-specific"
+        },
+        {
+          "part": "285",
+          "meaning": "Exact model identifier; do not infer a CPU or GPU solely from digits"
+        }
+      ],
+      "lifecycle": {
+        "status": "announced",
+        "note": "Announced 7 October 2026; availability planned in 2027.",
+        "date": "2026-10-07",
+        "sourceIds": [
+          "hpeGen13",
+          "hpeGen13Details"
+        ]
+      },
+      "events": [
+        {
+          "year": 2026,
+          "label": "Announced model milestone: ProLiant XD285",
+          "type": "introduction",
+          "sourceIds": [
+            "hpeGen13"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "hpeGen13",
+        "hpeGen13Details"
+      ],
+      "verified": "2026-10-09"
+    },
+    "dl325g11": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "HPE ProLiant DL325 Gen11",
+        "DL325 G11",
+        "Genoa",
+        "Turin"
+      ],
+      "cooling": "Configuration-dependent",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No exact AMD accelerator qualification has been established for this profile; absence is not a prohibition.",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA L4",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "S0K89C; GPU CTO chassis required. No CPU-family or DLC pairing is inferred. Up to four cards (two front, two rear). Slot2 with P58462-B21 has 25°C recommended ambient; L4 is not supported in slots1/2 with P59668-B21 liquid-cooling fans.",
+          "sourceIds": [
+            "verifyDL325G11"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "Only listed CPU SKUs and thermal configurations are covered; GPU/storage maxima describe different builds.",
+        "DLC must be delivered as a complete rack solution with matching cold plate, hoses, manifold and CDU."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "325",
+          "meaning": "This exact model is single socket; use the model specification."
+        },
+        {
+          "part": "Gen11",
+          "meaning": "Server generation; EPYC 9004 and 9005 are distinct supported CPU generations."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference; orderability and shipping are unverified.",
+        "sourceIds": [
+          "verifyDL325G11"
+        ]
+      },
+      "events": [
+        {
+          "year": 2022,
+          "date": "2022-11-10",
+          "label": "First model QuickSpecs",
+          "type": "introduction",
+          "sourceIds": [
+            "verifyDL325G11"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "verifyDL325G11"
+      ],
+      "verified": "2026-10-09",
+      "coolingNote": "Air builds use the specified heat sink and fans. Facility DLC uses P80871-B21 or P80876-B21, matching QD hoses, and a complete supported rack/CDU/manifold solution. Internal closed-loop liquid-to-air cooling is separate from facility DLC.",
+      "coolingSourceIds": [
+        "verifyDL325G11"
+      ]
+    },
+    "dl345g11": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "HPE ProLiant DL345 Gen11",
+        "DL345 G11",
+        "Genoa",
+        "Turin"
+      ],
+      "cooling": "Configuration-dependent",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No exact AMD accelerator qualification has been established for this profile; absence is not a prohibition.",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA L4",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "S0K89C; GPU CTO chassis required. No CPU-family or DLC pairing is inferred.",
+          "sourceIds": [
+            "verifyDL345G11"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "Only listed CPU SKUs and thermal configurations are covered; GPU/storage maxima describe different builds.",
+        "DLC must be delivered as a complete rack solution with matching cold plate, hoses, manifold and CDU."
+      ],
+      "decoder": [
+        {
+          "part": "DL",
+          "meaning": "ProLiant rack family"
+        },
+        {
+          "part": "345",
+          "meaning": "This exact model is single socket; use the model specification."
+        },
+        {
+          "part": "Gen11",
+          "meaning": "Server generation; EPYC 9004 and 9005 are distinct supported CPU generations."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference; orderability and shipping are unverified.",
+        "sourceIds": [
+          "verifyDL345G11"
+        ]
+      },
+      "events": [
+        {
+          "year": 2022,
+          "date": "2022-11-10",
+          "label": "First model QuickSpecs",
+          "type": "introduction",
+          "sourceIds": [
+            "verifyDL345G11"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "verifyDL345G11"
+      ],
+      "verified": "2026-10-09",
+      "coolingNote": "Air builds use the specified heat sink and fans. Facility DLC uses P80871-B21 or P80876-B21, matching QD hoses, and a complete supported rack/CDU/manifold solution.",
+      "coolingSourceIds": [
+        "verifyDL345G11"
+      ]
+    },
+    "dl385g10pv2": {
+      "cpuFamilies": [
+        "EPYC 7002",
+        "EPYC 7003"
+      ],
+      "aliases": [
+        "HPE ProLiant DL385 Gen10 Plus v2",
+        "DL385 G10 Plus v2",
+        "Rome",
+        "Milan"
+      ],
+      "cooling": "Air",
+      "supportedCooling": [
+        "Air"
+      ],
+      "amdGpuStatus": "historical",
+      "amdGpuNote": "MI100 is explicitly listed in the retired model QuickSpecs; this is historical evidence, not a new-order recommendation.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI100",
+          "status": "historical",
+          "availability": "Historical platform; no longer for sale",
+          "conditions": "R4W72C, up to three double-wide cards; CPU ≤240 W. 8SFF SAS/SATA: 25°C; 16SFF SAS/SATA: 20°C. No 24SFF or 8/16SFF NVMe/SAS4, no 12LFF. 8LFF with power switch: 20°C and consult HPE. Requires P39100-B21 cable kit and GPU performance-fan configuration. Exact CPU/slot build must be checked.",
+          "sourceIds": [
+            "verifyDL385G10Pv2"
+          ],
+          "verified": "2026-10-09",
+          "cooling": [
+            "Air"
+          ]
+        }
+      ],
+      "restrictions": [
+        "One CPU exposes only half of the DIMM slots. CPU, memory speed and drive-cage rules still apply.",
+        "Historical MI100 is restricted to documented CPU power, chassis, ambient, cooling and cable configurations."
+      ],
+      "decoder": [
+        {
+          "part": "DL385",
+          "meaning": "Two-socket-capable ProLiant rack platform."
+        },
+        {
+          "part": "Gen10 Plus v2",
+          "meaning": "2021 model revision; separate from the first Gen10 Plus family introduction."
+        }
+      ],
+      "lifecycle": {
+        "status": "withdrawn",
+        "note": "HPE marks this QuickSpecs retired and the base products obsolete / no longer for sale. Exact withdrawal and support-end dates are unestablished.",
+        "sourceIds": [
+          "verifyDL385G10Pv2"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "verifyDL385G10Pv2"
+      ],
+      "verified": "2026-10-09"
+    },
+    "xd675": {
+      "cpuFamilies": [
+        "EPYC 9004"
+      ],
+      "aliases": [
+        "HPE Cray XD675",
+        "XD675",
+        "MI300X",
+        "Genoa"
+      ],
+      "cooling": "Air",
+      "supportedCooling": [
+        "Air"
+      ],
+      "amdGpuStatus": "historical",
+      "amdGpuNote": "Eight MI300X OAM GPUs are documented in this retired system; current orderability is not implied.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI300X",
+          "status": "historical",
+          "availability": "Historical platform; no longer for sale",
+          "conditions": "P69044-B21 eight-way OAM accelerator; air-cooled 8U system, two identical qualified EPYC 9004 CPUs from the five-SKU list. Current software compatibility must be checked separately.",
+          "sourceIds": [
+            "verifyXD675"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9004"
+          ],
+          "cooling": [
+            "Air"
+          ]
+        }
+      ],
+      "restrictions": [
+        "Two identical processors from the documented list: 9654, 9534, 9634, 9454 or 9334.",
+        "DDR5 DIMMs operate at up to 4800 MT/s; do not mix DIMM types.",
+        "QuickSpecs says six channels/CPU and 2DPC; the OEM datasheet says twelve channels/CPU. Channel count and DPC remain unresolved."
+      ],
+      "decoder": [
+        {
+          "part": "Cray XD",
+          "meaning": "HPE dense AI/HPC platform family."
+        },
+        {
+          "part": "675",
+          "meaning": "Exact 8U MI300X platform; not a ProLiant Gen11/Gen12 label."
+        }
+      ],
+      "lifecycle": {
+        "status": "withdrawn",
+        "note": "HPE marks the document retired and its base products obsolete / no longer for sale. Exact retirement and support-end dates are not established.",
+        "sourceIds": [
+          "verifyXD675",
+          "verifyXD675TopologyConflict"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "verifyXD675",
+        "verifyXD675TopologyConflict"
+      ],
+      "verified": "2026-10-09"
+    }
+  }
+}

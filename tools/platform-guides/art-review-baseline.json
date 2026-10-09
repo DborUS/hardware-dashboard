@@ -1,0 +1,518 @@
+{
+  "sourceCatalogHash": "3c9c7dcf3716d2a4df87ccb570ca9518341d63c8339d41bbc962b0cadc8214ef",
+  "sourceCatalogFileSha256": "4ca6ec96cd6ce5a74ba9db3c89692c4c3f109f8e0fd667fc6ea27c974233631a",
+  "protectedCatalogSha256": "96a5ca96401b92ade9a6392280da18bb193c692a4592b2c37ce6c508ea009d6c",
+  "scope": "Before the user-authorized physical illustration review. Every field except model.art, model.illustration and computed manifest is protected.",
+  "models": {
+    "ucs:c220": {
+      "artSha256": "387d020538e8d6d05f3b014dc39c21bbcc4be0e123664c2c267e39573ecf7519",
+      "illustrationSha256": "cf041fba1d2c0a33a25c3dbee7cf8c553dae595cc39c004dffcc4a8f233d5946",
+      "protectedRecordSha256": "32fdb0c2ee6e90faad588ec47a0a0e2ad409f82c67a0c18668fcd5d0f36b84d8"
+    },
+    "ucs:c240": {
+      "artSha256": "1601348ffef8c2584247b0f15fe85babd923b0ab729724b8d73819e7da3358b9",
+      "illustrationSha256": "4436e43b7445e8fcec10e25195cdd6aabb6e540260c3e19b1fe1c36d0e9f5137",
+      "protectedRecordSha256": "fcd4c5b468b6eb7e7824daf64c8f455b1d44cb4cd48124039bbaffb048d90105"
+    },
+    "ucs:c225": {
+      "artSha256": "d0bb9c5e35576c0af02eb94b9cd153ea3f668878872cea91d85e22f992f38999",
+      "illustrationSha256": "07c07b7b87ffc11c82286ad7d5277e47d82b20ec52af952a129219da35646786",
+      "protectedRecordSha256": "3788e382203de172c1679a45087fe1672b959f49bbd1da3cdcd559ce321f6a5f"
+    },
+    "ucs:c245": {
+      "artSha256": "9c9494c5483ae4757d0b679d4e3978c38ee0d1e00fb1d19755f3afae0b452181",
+      "illustrationSha256": "219b4fc4c659a6168ab7c8a0248f11adcc52c70ae9ca341342db9de8afcb9312",
+      "protectedRecordSha256": "142c04b912844133000bfdea24ef3f4f49fb223ef6e5329eb22b62d1251bc954"
+    },
+    "ucs:c845": {
+      "artSha256": "81269e873d6dfc01dcc34dc02b9eac44593359d437c703c6d955cbe06263b995",
+      "illustrationSha256": "74d951a81d8937d67459184e1c46a444626d1d0245af01c607782eb4bbe4739f",
+      "protectedRecordSha256": "ba7a5b7a827e49d1a155b33c81b4422fcfc78222f11564bb8eb5c1d94b3cf597"
+    },
+    "ucs:c880": {
+      "artSha256": "6d208e8dfc5efe7a59382380aa4a1b15e60e25abdfdf6eddf301903f4cff27e5",
+      "illustrationSha256": "f961b577a8547df5b173a48f3d797184dbe8900bb8c3444c6352325f1462d18f",
+      "protectedRecordSha256": "06eea68f0e2e54650094055fd8bdecc04ed40930a59c9631b6903e0af8ee086e"
+    },
+    "ucs:c885": {
+      "artSha256": "a0dc9d209939f73c5a36477619ac5d053c58b6b3e9c5289a1091516ff511a21c",
+      "illustrationSha256": "49123f05c464506196892eaf7ddb35269ce0d9a026ba01ace4ecc777feb82339",
+      "protectedRecordSha256": "fb0d1a76bbc2ad9dfd901baa14315ae0232b9acc13da858922d6daa013e32e75"
+    },
+    "ucs:x210": {
+      "artSha256": "f39255c8d11ce21f6f613dd0b2dea55f90b9627deac3a7e1c54dff1f8ec36d68",
+      "illustrationSha256": "ed19bbe82b3e10db73e4c85aa90f3fe107cac9bb5033fbf1873eb5e2156c9e47",
+      "protectedRecordSha256": "c45f189c2e9fd3d3b60a39a9275ed27cfe3df8206797f84004d4f7690108eec5"
+    },
+    "ucs:x215": {
+      "artSha256": "eae40e37c905bfdb8530bf9cb28ecac951a8a316e41f5d6ad778f36226ff0b7a",
+      "illustrationSha256": "c71c62bee318d2e8e0c3821ebc1057869a10ea3c66513508cab395261c352e7f",
+      "protectedRecordSha256": "6b1032474fcd5ce0d1e48f07ae10da6eeeda239c9562e708ec6ff855c2a30dcd"
+    },
+    "ucs:x410": {
+      "artSha256": "4f3fd0a3e7c17259ac3a3286eb3a8e206d75e9a8417ad16df604bf9ba7b94bff",
+      "illustrationSha256": "a2cf126ad8b5d8e5ccb6923c725dca3cd60a6e090b0973d792a606f3777170e3",
+      "protectedRecordSha256": "8a09a4c07580b0e00cce242ebb85ad0010bec43d6c2e268588cd472c01409200"
+    },
+    "ucs:xe130": {
+      "artSha256": "2ce8bf5bccc47ac2e72d24832d1816c00d46d539d35c86a9f9718ae085483f6a",
+      "illustrationSha256": "1c4bd9be884aacd111cb1c8066f15040cd23c168d9fc0077be4effa110fbc99b",
+      "protectedRecordSha256": "bef11f513cc5d5866d402b99d7beaa43c35b1996727e5795392e50a87faa2134"
+    },
+    "ucs:xe150": {
+      "artSha256": "1e4bb0b114d555dd5fd6c78f842e800ed56ed8290b046d54c77a8c688b148c95",
+      "illustrationSha256": "4e526d4d5b02ff3d98b3285419412ae17926cfc6a55069f3ecbaa2937cc11368",
+      "protectedRecordSha256": "a184bcb50cadb1cc4e1b3623290edbb96c994a7a46304cd213037f09bb489637"
+    },
+    "ucs:c245m6": {
+      "artSha256": "8d2ee3807748cee77348f06f4605d7f5a27873f07a297e2d0d44a36696829a93",
+      "illustrationSha256": "248580af68e9b7350e492d92535c7ba45f5b86aed87f8e01b60713c9d82caaf0",
+      "protectedRecordSha256": "37bee792856f1f2774f39aa0594322af526422eafccadc647c3dbc72a43a32ab"
+    },
+    "ucs:c225m6": {
+      "artSha256": "2f8f17ee350d61ec9c45a3b2dd9c705bc957f4e409ea7cdc9f5f89fa1e40c263",
+      "illustrationSha256": "176e11cf4a775216e541059afc9a012d779a37e1eb9d24e51cc19bf32add888b",
+      "protectedRecordSha256": "5b3dd75cefebb77893d00782afd90a45c641e514f704df765e4539a12df381b1"
+    },
+    "hpe:dl320": {
+      "artSha256": "6fe9255a7e16cc019fca2c93749f8008896323e2cce6d1dc57662466150dc6be",
+      "illustrationSha256": "74e8dd5d93d245a411ed016657e586c75462aaaada164ba7b71a615fbefd56d6",
+      "protectedRecordSha256": "66e6c4e6f04460bd083c1dd67eb82c9360268570c3e5cb1fdf04fbb06096346c"
+    },
+    "hpe:dl325": {
+      "artSha256": "e1d65ce4854e119d61cf5449d1f83c396ea68f90f4bbef6e87c7de4a85e5deb9",
+      "illustrationSha256": "c72edd01454c8f0a0661f13f62f2232d50009ee5b8af8ab23b05cc73a2c7f77f",
+      "protectedRecordSha256": "9dd446287874e512ed463f01dc941589d6ba12ad799dc1a03b5d3d17b8ad35f0"
+    },
+    "hpe:dl340": {
+      "artSha256": "e2ab380879652dd50312c33f4bbe8eedbcbbc9d7e1840f9fd06775136b96be76",
+      "illustrationSha256": "861f80c339d908da9eb7563e9079b71a0e5d0e3c1281efbf7c20677f2d863602",
+      "protectedRecordSha256": "3cbe383b7db072fdf037472065571cc8bdca4a37b7a3e997763ffd9fe6c9fbeb"
+    },
+    "hpe:dl345": {
+      "artSha256": "dc17129aa716d17523821eff3eb7252fcc8af4ea68b7d509cec19756f609aed9",
+      "illustrationSha256": "e0877b288807a8e4a751be9210771efb78444f5048b3d4d2ad74cfb719097ae7",
+      "protectedRecordSha256": "dc9c085bde87073d9f46558e6bfcfe56894bc7097a51cbae86608dc33c84caa7"
+    },
+    "hpe:dl360": {
+      "artSha256": "f55421585d04b5d040a291bb954de91e57a12f59e2f1c28970f35671a86eb1ab",
+      "illustrationSha256": "4ff8cb5050c6edebbaa1d9446ca2943a999a00a16f31de81ef99d2ac9b660ac1",
+      "protectedRecordSha256": "8c45bc64c2f412fac23c045aa80136739316d9361b7a231876f864583dbfc85f"
+    },
+    "hpe:dl365": {
+      "artSha256": "47f7b8afc892f3cad590f10c05863826e695e5cdbf3407e9676ae5059f9e9c25",
+      "illustrationSha256": "56c10d1923fe4624e2f835d415cd2093f488ea1e31290533e349261c74c7207c",
+      "protectedRecordSha256": "45c41d1c90ab639e00d37b5e4a1fae14b5109c4884062d24cbf6eee7b0b86026"
+    },
+    "hpe:dl380": {
+      "artSha256": "33d22959d8c61a67964ffe0823e039c76cf9d33b54c27f5a566ce81152be9cfc",
+      "illustrationSha256": "cb425a514b0416e714e17689b613c3b1b35f4116f69b411c40cf1abea43181d7",
+      "protectedRecordSha256": "64f6dfc935da8f45c2edfc71137f5511912864c503f8154d33e6c4e7d58bd19c"
+    },
+    "hpe:dl385": {
+      "artSha256": "ed92aec0d4c26125a61930d137ecbe35a641b3aaa7d602772a7b571ff86bb534",
+      "illustrationSha256": "40e6a1130775117ee7dc73f0d33539752b9d224f79377a0c057bbbd6fe6ed246",
+      "protectedRecordSha256": "d0c362363936639a6184fcf35a4b76cbf1b8697346893ac40a23953fb241078f"
+    },
+    "hpe:dl580": {
+      "artSha256": "69962a45e65ddd9ea3e5c3742ba472f96bff10d809fedd1de86f199babd70841",
+      "illustrationSha256": "81bb1a5fffe4c18c6a88ec6f26087c52d9a01c9d8283c3579a65ac9e45af268e",
+      "protectedRecordSha256": "8f92dd2bb2dd7d61bf2a85d84bb9ca550134d16b3bc127bcd20b03a511ea686a"
+    },
+    "hpe:dl380a": {
+      "artSha256": "cf5c1bb1a3a5a8178b72623c94ee049a552a3bf3f906b82569a52647fb88e2c3",
+      "illustrationSha256": "8c72339ceca48de8f1183a340f4806ad89472c58bf11063808db34e988d26ea9",
+      "protectedRecordSha256": "fc8e82d8c134f531298ecbdd7bbcae0218670bf59e350d0d134cd5cbcf2073ca"
+    },
+    "hpe:xd685": {
+      "artSha256": "e3bb58ddb49c6ecc39c80ac4ef3a5e30da5be747643d1981e4aa581fc77a5d8d",
+      "illustrationSha256": "eb90a91399fdca6691733763b5895df78ca028193b05f16233c9e1561ad954b8",
+      "protectedRecordSha256": "f9a85446010e21598b1c5766f6d02afc9631e495ab12717a393261e1010d071f"
+    },
+    "hpe:xd690": {
+      "artSha256": "e2d420eab4c68074ba7eb900df4a21e4189ca9823390e5f4865a88dbbaded443",
+      "illustrationSha256": "6cdcb20f4e1d43cb17e6fcb7b91cee9ae0884f8cf118596c5dfb134f978168f6",
+      "protectedRecordSha256": "fa218a3b6057c54056450f05c2473d8fba45488d9c25689b33271237e6813deb"
+    },
+    "hpe:sy480": {
+      "artSha256": "25fa593c336bd90b340a39c26a126e0effcd316837cc9fce585688981cad913e",
+      "illustrationSha256": "a015ca375dc61f3fca5e889e60c1b125934bc9a7ef807998aa7bad2e66ea6392",
+      "protectedRecordSha256": "a41b235c05898d2889d83fcdaf766bf5bd37985acb886fb43bc02c8d0a25bab4"
+    },
+    "hpe:ml350": {
+      "artSha256": "b89330bd76c5a17efd690e4892b1d6321c9c33e12f102a2edbfb545241902cae",
+      "illustrationSha256": "738c565486dc895af80fd8d9e898470030a3b0be47c391343bf8610e99636138",
+      "protectedRecordSha256": "b677029111617312cd2f9a0eff8882e44e35bbebca580b4983b85677ee6f4c72"
+    },
+    "hpe:dl145": {
+      "artSha256": "02926ab1c1ac349258399d43eef0a564eec67fafbd2f8653ae5aec68f8f7325c",
+      "illustrationSha256": "4ca64d6b988567571b3b4d2a2d394e9e99248e712df35f9fadb7d307464eb8f1",
+      "protectedRecordSha256": "18255cdb4f01bd3b622aaf3e2070685e857c38ece60f27d13473749388fb2925"
+    },
+    "hpe:dl525": {
+      "artSha256": "de74634d8bc52e2f3dd1bd8ca2cb2147374301e8be979c400fabde2069e14055",
+      "illustrationSha256": "3482e2f49e154f0805f381b01cf75bc501d60b66350fd4724f93afba1d0b1c4e",
+      "protectedRecordSha256": "a9780aebb6062071c1b53550bd3e135b64bcb3da71b42c948d61bc96d35435e9"
+    },
+    "hpe:dl585a": {
+      "artSha256": "0cfd3ee2ed3c9a84f47bd8bf54f648dfde4106e5eb345de25ef942d6577154ed",
+      "illustrationSha256": "24c7df534c81a32a2d0badad44e3322d330f4a39b76af4dd9c073ba5a177649d",
+      "protectedRecordSha256": "9f3d7df65898ab42d3a16da7912cbe74a25dbb5306e017d190502cc7fc3bb161"
+    },
+    "hpe:xd245": {
+      "artSha256": "c008ce339c9d400f51eaae2e0d0135cf1bba124acd8321a428f18f4977e96532",
+      "illustrationSha256": "50a0fd748d0ef719a7d16aeb841063c7708539a9cb07b380649215d172dede90",
+      "protectedRecordSha256": "412ce23f8505b44a5dacce87bc022dcb8efb794ee11ee25957369a53cd017066"
+    },
+    "hpe:xd285": {
+      "artSha256": "77fa60c026502cf632167ce142349ada176ca945cd415ba4c805f2b154f2cbd0",
+      "illustrationSha256": "825383fa59f4127e926c6b049cd10ed1bc2d5b7e27fb8d78bfe983a1576168fa",
+      "protectedRecordSha256": "cf3d016037720fb413982ba7008b4befdce87c196cbf5c70a46e807eed71981b"
+    },
+    "hpe:dl325g11": {
+      "artSha256": "ebd5b0f64620e7099a92e9f7f1539c55e6fa58afb1413e09f029959d2ce0667f",
+      "illustrationSha256": "174752134780810fbbf43b83c25be522e44a2d26bc7b47b5ec82abcf1b63052d",
+      "protectedRecordSha256": "dc5e9f304a51becd2d8adbe7e72f32cd9adec8174776addd67c55782f7657ccb"
+    },
+    "hpe:dl345g11": {
+      "artSha256": "13407a04def2041a65b85ec40024d67fae41ac2df3318b8d587c3e9e5a799b96",
+      "illustrationSha256": "f0f49f7bb4ca98fc05671b6f10ff7dcc4b5077028345bdd59a0e2dfb1f36e4b7",
+      "protectedRecordSha256": "e406899f10757b62d820f48d9d4a1bd2f868ca2ef3d6a8dadde9b7a8c46b23ca"
+    },
+    "hpe:dl385g10pv2": {
+      "artSha256": "b9e0755dbb4ff8cfc2f75ac490d14b06f4cce09370ede874e0b460dc18414a93",
+      "illustrationSha256": "98456c9599ef251d2f72b9af05379db72d177befa7850658ddcbb9e6d44913e7",
+      "protectedRecordSha256": "88a0fd0fcdefab15468dcc491a86030da1491c7a0435ec9d6ecfd4ce60d87d02"
+    },
+    "hpe:xd675": {
+      "artSha256": "adfd28973879e31556fda514cc3ffa0bcc5116b9dc48e1b139846f86ea1d990f",
+      "illustrationSha256": "a8a255fcd51f36cb7c1e9b07b8ff23a28959ff4ea8c748e4df3cc0fd503f3df7",
+      "protectedRecordSha256": "560873beeb0d0ca2e20492eec252884079cee3ee8c140b2a2a85d1d964f95e16"
+    },
+    "dell:r470": {
+      "artSha256": "b29bb41d522bce4fe4c8e09b9dae7fa435ca2c4f71c4207992edc9ea057cc42d",
+      "illustrationSha256": "5d2e046d11b763d752487bb567e4a4bfd189ec66fa4aa80c0de90042e0881f9b",
+      "protectedRecordSha256": "0698ece7d05f6f186776d8c486f0efc1af26f7a9c8f3a885d4041fb8a8781d8f"
+    },
+    "dell:r570": {
+      "artSha256": "1f0ed37021a4e5c693a650b3c01727ee3362c1cae9d71abcb235df96a651dc2d",
+      "illustrationSha256": "9f79419b67855693dfef9c3a4e9499a70f1e8a17cc6161f9d8b81c78c7267d5b",
+      "protectedRecordSha256": "b8245b36570cc3b42413f77b3e40a0df912dcc6636b22adacf8f2755bbf3e045"
+    },
+    "dell:r670": {
+      "artSha256": "aff765433d5e9ba6a15bc56abcaa16dd46eae26d47b5987ed9b2d3f0cf44e201",
+      "illustrationSha256": "b79bbf6e4231de0f2b9db5201eec4bfaa240b9d8148ccc2b8307440ff7fb9035",
+      "protectedRecordSha256": "b5fb3f091368384977efd802250ce58a0bfb30dbd27521c8ab9bce20e9335d0c"
+    },
+    "dell:r770": {
+      "artSha256": "9131540af448c5fd245aefe1baa9195abcd1ba4c9408dd44ea8bee303be86fca",
+      "illustrationSha256": "68d3afacb26c5b71bb06628d86addf26f693a6accf6eb4b4ff797b097824c216",
+      "protectedRecordSha256": "40376844d1431ba66ae92dcfdd349acf6ed40f51ee29dcc24aa945d5fb13f198"
+    },
+    "dell:r6715": {
+      "artSha256": "79de86512e6f9032d55afb6dbef81e58f3fe125edeb89f08dc9874e3537dbe55",
+      "illustrationSha256": "1e89431056b7225b1582b99e7f5f0b00f33d5defc354aad40f5a2960d117c1f1",
+      "protectedRecordSha256": "283d410d6dbd25c539f664a1fc807983f196bafbe5c03217738f8d4bcfcfd79a"
+    },
+    "dell:r7715": {
+      "artSha256": "29deff98d77adf2cb74d27b2e4afdacf8afc82a40e2ecf777fded047bcffe8a7",
+      "illustrationSha256": "bd07ef393784170490681a279595babb3e8fe18424b333361a5ede9794755dc9",
+      "protectedRecordSha256": "d94e26a3eed52d2d185875b7fa8b71bd39b8b9202bfcc701a7aa9c0ab325419c"
+    },
+    "dell:r6725": {
+      "artSha256": "daba3b92d649d2c65ccdde4410818939c144d1b86fd993a4a1012ddcf835c4d2",
+      "illustrationSha256": "5191395da8ca8a1e6cc4b185c93533d161550852b669738a65c823a0a40b44ea",
+      "protectedRecordSha256": "1efcb16866621eaf72e2f9df9cc6ea9d6fd4974554d70f73d3c61deb1824cab7"
+    },
+    "dell:r7725": {
+      "artSha256": "f79244b3d038a0f7cbfe3aaa47c9631cdc38b02269763cd716226465c8b9a0ba",
+      "illustrationSha256": "3ee02d73e64cf091510e0a91a49c63f11e827ccf75ee5e888d4d836edaf2e606",
+      "protectedRecordSha256": "5e36b8c24b146a0a6fcc1c15bfdd03de1ba8ac7b1cd17421d29d9521b91760c5"
+    },
+    "dell:mx760": {
+      "artSha256": "3c6569c4c3463628befd96232e5988c9538b39ff272e99d57e16ee22e7852b8e",
+      "illustrationSha256": "219bede81b5184f5555394dbd0a8e0a96da047fba6a1bd0f81050cee9d16bca7",
+      "protectedRecordSha256": "6a4f1fb6f22cb1e28d798427077d7d9cf741139559fd5c931af3197fab1d0c60"
+    },
+    "dell:t560": {
+      "artSha256": "611d3efafa3ba94ef1d75baa327ef0265bffe5cf67435d6dfef1ceb5ffdcd499",
+      "illustrationSha256": "64ce63bb020daeadf5a611a217ac786ef5fb1a55a62e50806600fdba0f82f25a",
+      "protectedRecordSha256": "3ba2e1c5183b805a1395c4a1e3e74a5e1efc52ac61c484f2a4757d52f21fcbc7"
+    },
+    "dell:xr8720": {
+      "artSha256": "913557adf2788f824c8fa1041c708b8c517f7303e325eaeed67cc6990ca00a31",
+      "illustrationSha256": "790e8486cd443cbd0abbea59615c114638e85279b31ed1566527d7517d0829d5",
+      "protectedRecordSha256": "31dd4fe8fc7a3aaddb40e19524432be7ec5f9fe25f86969056e9b5c0d5a1f211"
+    },
+    "dell:xe7740": {
+      "artSha256": "306993d9685d107ec0226f31b7b81e6e48183008e4d9e2325c123f5502da29ac",
+      "illustrationSha256": "903366ab534e13f659e7add2a34a1691619075e894610f6259d926362471b022",
+      "protectedRecordSha256": "d72012e35ee34a38bae4c31cbe719d4a0f14dd22661d453ee0da12c71c441ebe"
+    },
+    "dell:xe7745": {
+      "artSha256": "6db72b94e9cf29374e526cfd6ea5cba3e414a20cdbc484beae463bed6609a861",
+      "illustrationSha256": "a0844ddf3dd064d36d10eb94d73ea9264f2efeeaaf1c28b14395905ef021c0f2",
+      "protectedRecordSha256": "a25756e5c86235045b36ac69c13d1cf537c9588678a2a4b7dfa49d0b6328f50d"
+    },
+    "dell:xe9680": {
+      "artSha256": "010f77d5ae49915c8ac609650c4e45364ea3835eff7e9d71ad10c566b0291b1e",
+      "illustrationSha256": "0aa13df95af79bec70da497064c04647a565bf078f644cf36d56c206e6f472c3",
+      "protectedRecordSha256": "9a40a0bbab0f985aee995fcd610f566a9dbe36bfdaa26cfe700113dd0f7b5f7f"
+    },
+    "dell:xe9780": {
+      "artSha256": "f17052a3ba7444b1fd56b29e7ee201849e9781c39024c81c6012c53485f041dc",
+      "illustrationSha256": "50e6a543c6eb0e7d55df35c659e8b651252ebe00f26344a9d4a11424f9a37039",
+      "protectedRecordSha256": "cc0b7eee578539d3fbcf5a0a2500447a07511879a054308185020a176d2c91f0"
+    },
+    "dell:xe9785": {
+      "artSha256": "c4ebc2c3fc24ba4533a4d22dfd4182ad3e0c645054b2ae6b4ff0ed4122b1e6e0",
+      "illustrationSha256": "bb51dff5dd661c646d255ea30aba3a5bedff4a3e62ceedfdfe0d5a2c0c85bb10",
+      "protectedRecordSha256": "fb4fb2e31255175e9929a54fb561d0f7b0712c0874a5a2857f515e0becc22e0f"
+    },
+    "dell:xe9785l": {
+      "artSha256": "8c93896480619e5f06de038ebda755bcd8908de48631b89579f8026deb47f8e5",
+      "illustrationSha256": "515cb7bc75210db7574b0c463668eff9a5e64954854e035ff466af74bb5650df",
+      "protectedRecordSha256": "f719e05843174fbd04be2d82f7c53eef9d44c80daa6d5b9733deb166d0cb4886"
+    },
+    "dell:r7625": {
+      "artSha256": "27a4c67ae4b993a89b13c6048ee89545cd2a9533af550f7579b4400570104a3c",
+      "illustrationSha256": "5addf8cab8813a8a877f42fafa69e53a8f00dc33995f63918deadcc241093bae",
+      "protectedRecordSha256": "9221c65dd5f24ffbbc5164609dec2ad4ba45b5af397eb111520a0594b2ae9bfc"
+    },
+    "dell:r7615": {
+      "artSha256": "f224af5c2368e773296025763f07c190f2c4c1d5556b59ac232eff061c6abeb8",
+      "illustrationSha256": "5f52e51b8dcf35f00dfd3155519081444313ef53f5b7aa1e7786722fc1bc2985",
+      "protectedRecordSha256": "a72e2b33aba1d6a9253cd81593d943a396dc3a5c406d6bb4e71b812355e8d955"
+    },
+    "dell:r7515": {
+      "artSha256": "7d2efb53d364bd6f9846712190eddf244291c9bb9f51f7be6af4519f6a13b16e",
+      "illustrationSha256": "64da70a2ce7bae3144e7f79ccc7a6b03445d83bba55efb7c94e32838f397771b",
+      "protectedRecordSha256": "fdf74fb307d4ffc5fc659e601195f29d2b4064d5bd86bfadc3b505e8723fe89b"
+    },
+    "dell:r7525": {
+      "artSha256": "90edf3d61f33ee3206dce33c83ae1b7c715cc0f0d0c12b4293f8eaf319b537ea",
+      "illustrationSha256": "130d942f9a12b5a94c852b7315ce0e94594b4f1b3df87b2599227227acc2b1ff",
+      "protectedRecordSha256": "b96f2d4ffb080c60cfbc481ebeda2208fb2394323a62c0144c463297eff5497a"
+    },
+    "lenovo:sr630": {
+      "artSha256": "c82a83144da62faf0dbe57d16ccf9c41bc8d6c213ea517fa6f1d65d1ab426024",
+      "illustrationSha256": "2926a0ecfad24bdf8a81e62f4b95a4e2fe1d78e4c9b4075168c5825dfe721fc4",
+      "protectedRecordSha256": "bd7f34803fe66f9d601779c65377355bb22d00359da3b0d3918bc7ee9873a8bc"
+    },
+    "lenovo:sr650": {
+      "artSha256": "ff3413fb57931954da2e499353d5a4a14f1ea6dc7a96c0bb6876d0044e6d33c0",
+      "illustrationSha256": "9a97ed6555334e3b3fe0b0fa8503914ab1c443e18304aaee68541d01e8e66efd",
+      "protectedRecordSha256": "3dbb9f3c61b96b764534197c367a05376f108125fe54f9943b273b7eb7681012"
+    },
+    "lenovo:sr635": {
+      "artSha256": "93cf535137f1c8252e18cfbf4158a715f114487b70e0394c26c5e2e8bd0a0767",
+      "illustrationSha256": "d7b6c0166cd4dbffae70c6582f110c4fb024c96abd9592cb6461b2b4b1a827b1",
+      "protectedRecordSha256": "3ce41724f12f50763d573a77decd9bbc9d8630f9b7a88339d2f333527b89fdfc"
+    },
+    "lenovo:sr655": {
+      "artSha256": "97e21b2102bc4a54add2f4d26823c2a14566efe5ea093610e0eaa7a6a7c39efb",
+      "illustrationSha256": "c85ba3a144f7463b4c76524149114cf6b6bd3d2dec89b7c74753b6d8722cc48e",
+      "protectedRecordSha256": "8ad649e5ee63056abbce381dc35145e380667e88ad1c2ab9d537550647349b52"
+    },
+    "lenovo:sr645": {
+      "artSha256": "76d358796cb8757132d3bef1b44cc655ceb134a72ec1323930eea8f22cc3c854",
+      "illustrationSha256": "04438af8eed251d94a5dbb2a03a8de5cd679f4ee9ef71b7eb66148d012946d3d",
+      "protectedRecordSha256": "28b6b01b8a088d565aa20858260f17915b77ea99ba3d0828075165daec70592d"
+    },
+    "lenovo:sr665": {
+      "artSha256": "151dae4827c442644ca5fff43533a7252144e305cf470feb2e58ed3e20f05915",
+      "illustrationSha256": "80b6fe9d550f2b1cae69f7b04a40ba3b0fbefeebdfdf67b684a7f08b8ec4f238",
+      "protectedRecordSha256": "3ba86049f5e90ad34cc9962ce9b7bd9dfa9b11dc500fa9453e4ba2ecab286125"
+    },
+    "lenovo:sr860": {
+      "artSha256": "068760acd21f566e6654d3b178b68fd0ce4dd13f4884f5d2002e8cd0646006e8",
+      "illustrationSha256": "6a874a11a308cd6e962f7a36262faf171d4933fabd6dfd16a591d7edf64b1a6e",
+      "protectedRecordSha256": "5d23d7b97c067a45799a6f2217f6f4250262638cd1e009816e25d32ecd1d506d"
+    },
+    "lenovo:st45": {
+      "artSha256": "fd4b5effaf9a4d5887265e734989708f7a429631ea77b2cdf13aafb2124a044a",
+      "illustrationSha256": "795ac42a8a40491addf511aecf57267172cb5e7225c4fea7a12ba1144de4f653",
+      "protectedRecordSha256": "fe7bd58a2b18633837fa13d49269aef7db8181c1b13d582b0f03866c7674b803"
+    },
+    "lenovo:st650": {
+      "artSha256": "12794ac47edb27b930b70c5ea3fdb5841364c4453445d488a16388e498205e70",
+      "illustrationSha256": "8abaeb86c42f47612ad8e942a590eb98e1502303544311194f1182557bd904f5",
+      "protectedRecordSha256": "460261ab17a7e08c901efebc3f5a8fa152c4805e5fe357598e716294f47afc42"
+    },
+    "lenovo:se455": {
+      "artSha256": "1ac8ec7317edf57098154580c8b7edcc576c5f91033768ae24a5b6d60ecd6c71",
+      "illustrationSha256": "2191f8cb143036941005cf9f1e07a7bfba6c117951a635cf58467d09af607d84",
+      "protectedRecordSha256": "766a0e159a436c6c939d65604a5267083295f3f675417714ab199bc207f8e00b"
+    },
+    "lenovo:se100": {
+      "artSha256": "8f80e85a9909002411099d772f25a2e0914374c2883f4a72e7223807a0893fc4",
+      "illustrationSha256": "060d395dc35a45348c8cb8a0651101a1c6eb0d1c987fae3abe844c2bd4a43d0b",
+      "protectedRecordSha256": "c10a68fc478bcf87e79e2f823d3b08b7f6e693992a667dbf0e451e2462a76e42"
+    },
+    "lenovo:sd535": {
+      "artSha256": "5863cfe452efcf1f649c71b290c60c0fd8ff8b5de9ac0da54f0456154e94c0cc",
+      "illustrationSha256": "5202aa1319e9b0b9c2273d0a0f602471a668af982df772a20fb9a3c21e377321",
+      "protectedRecordSha256": "7384b6af764b1e8da25c3225f79de34fca10f52255027ee33d93805a1c441e0f"
+    },
+    "lenovo:sd665": {
+      "artSha256": "91ec5c13053ec37830352ead6a8b08360a1c3a90ab91d86a245c6a854d82d856",
+      "illustrationSha256": "0388e7a9e637d053c055112ab3f49c1866757a73959596689be08d8b9d8a7b36",
+      "protectedRecordSha256": "cba81f9a5e9bcf2ee9708aca50ca6b9bd670a6bdf3b3b694e36ab68bc3cb6064"
+    },
+    "lenovo:sc750": {
+      "artSha256": "ad29b5636b0dafb1821c8816613b40232f9f97ae4bddaa1ed8172dfb0ba1f1dd",
+      "illustrationSha256": "f62f02a8f7e4608fed925d507b643b47a7747e1ab1d859caeb558469be870c70",
+      "protectedRecordSha256": "7442529086ae98412f0351a2ff70c306e7ff427103791ce1174daa3b7a58c169"
+    },
+    "lenovo:sr650a": {
+      "artSha256": "e453e2a1d57981065d4ae25fcec44ddfd6691c121ee6ea2cf98ca4ec044f0fcc",
+      "illustrationSha256": "81681c23e04d7233cf56d74761215c31294eca5f14431633c9c02867d9759120",
+      "protectedRecordSha256": "3e961d813164e56885ab96bd79807f90fb1f7a598fbc04b4983cb3431bf7527a"
+    },
+    "lenovo:sr675": {
+      "artSha256": "01c25786fb6cb3a79921bd91d7a23ca4f745aab3d47e881fb0ad252dc832123b",
+      "illustrationSha256": "086e3af9974907b76d7e1c84b446a832826bf46f64fb533d11da868e945e6ef9",
+      "protectedRecordSha256": "7a4b137431dc850fb6e28f89675f98a6ff46aeb9f4a7e0529a4b81c8e0880800"
+    },
+    "lenovo:sr680a": {
+      "artSha256": "bcad799a0d3c4b3a2f747fecde02d6ff31372874808d24115aa605d054cadbf4",
+      "illustrationSha256": "bf7ca366d541c575b2c63cb7e4a35423181cd6c5d21476b3afc265534b6c4c23",
+      "protectedRecordSha256": "2b43bac94a92b3ffcd2d7b01ac889df138da92a47a35945169f65f9c1cb19044"
+    },
+    "lenovo:sr685a": {
+      "artSha256": "d6d13be564ae10fea82b6bfb429218c91d88e786e5c1af0663693cc865341740",
+      "illustrationSha256": "c653af867ee55e0f2c96ccf99b0a687d6162bc42cd6b3540ccd6a96fe897aab3",
+      "protectedRecordSha256": "570034acc13516ea0d543aefb9f0512c0cb66ab19b432d5b7a27a6c571a178bd"
+    },
+    "lenovo:sr665original": {
+      "artSha256": "60c39a1c4bc29615380011f53702db79dc698a2e6efa08b79a07adb66f9a2c71",
+      "illustrationSha256": "23fd0904fa103d58d7cd908c4cb529655085564d1f0e4d2b690608e7129b93fa",
+      "protectedRecordSha256": "5ee9993ea558b7970aeb8a4858d103e844f8fe49f028b4a69e6d86e6400c1afb"
+    },
+    "supermicro:intelhyper": {
+      "artSha256": "da0d3cb868c6587f1811c8874fbed1222bc1f5e5862c235c76217b0c76e202e8",
+      "illustrationSha256": "145efc7da1d7341042c38a8958e717ce1a4618d2daea897a4b9180254434b80e",
+      "protectedRecordSha256": "dc392d88953504d57a3ecc2e526c575d6ffdaf6a6062f511c2aa1acbdc4cd19e"
+    },
+    "supermicro:amd1": {
+      "artSha256": "ed71a9e0d83128d5d711d9c85b9b9782092bee031797b9444728271b1b492cb7",
+      "illustrationSha256": "f7379c6a4462f5fdd9af60248c57ec6d976ebe816db9c73732ee22ab60f809e2",
+      "protectedRecordSha256": "557e3cae72eaaf9c91e31e54ad372995413384f00e4ac0c734fb90671a783e78"
+    },
+    "supermicro:amd2": {
+      "artSha256": "848727c95993d05136f4f2402f66fa87d660cc58bcc13520fc3ff2d06d0d6698",
+      "illustrationSha256": "4b601b640ca2a8c78ffa4fdbd1aef00a845ca1be400a1b8ce304948dd5b71195",
+      "protectedRecordSha256": "27cff35f2735710a66bb7458371ba02b5019b3b1eeb506ec455343910a971a26"
+    },
+    "supermicro:amdcloud": {
+      "artSha256": "c8c5c5d1ca87a64afa88ed9b6a1bc622ae483e039a6117840c0eabff613302d1",
+      "illustrationSha256": "0f36b6f422d80ec515542d5c2505e4e8896de7d446072b7a1b1d0f39cb6e3db4",
+      "protectedRecordSha256": "3f4c313bd07cf40b5c098de6f1ab8834149926e0ac451d9ebfde35ca4b592bad"
+    },
+    "supermicro:intelcloud": {
+      "artSha256": "e1bbafbb4af7bf8689531de1c3816e955ac2c528dc437d0680f46708fd0378a5",
+      "illustrationSha256": "d7340e9733530e3cacad244e080187a42f61216cbf9dc959111e6eeb1aab8ccd",
+      "protectedRecordSha256": "1616cfe07e7e28f9c325113e76ee61e8118ce0953de6ea1718e09b4b52c56893"
+    },
+    "supermicro:inteltwin": {
+      "artSha256": "87528b60c8860efe37062f40cf864b354dee0a99fcbceb993764329cd537780f",
+      "illustrationSha256": "51266c85ea6a00711ef45a14c153e88769a2dbc203f338ce3e8b3a6242432951",
+      "protectedRecordSha256": "9887aae0ee65e1f2a5a6ae620683b0a47290d2b20c03e84c88db480fafe1caa7"
+    },
+    "supermicro:amdtwin": {
+      "artSha256": "9d0f3cdeb3d1cc8994b2b1639a38721561ef9017e32dd4924223c83d0577580f",
+      "illustrationSha256": "7253b189076d2a2d3866310128e24cebca3a2ec1812d9daac82f08a8516e3f11",
+      "protectedRecordSha256": "4c4e6dc724b1cb7bcf7640f16d40902583bbb70c550d8786ccea3b4c4f0c702f"
+    },
+    "supermicro:h15twin": {
+      "artSha256": "d4f004d76ff833f5fa333a17309061e914237e6b0d30eb5867f3ab49c62698b2",
+      "illustrationSha256": "1ffc999cf08f2047703f3f8ae83d03baa499ef3e8aad6f1e99fd6dc3896f2373",
+      "protectedRecordSha256": "26eacd544fca33510cfbabb52c43601e3d1ce4b8754a5c6323cebfa5433ac02e"
+    },
+    "supermicro:blade": {
+      "artSha256": "80c706ac75b5a5641ec266580e5e38a92ba84fe652affcd233be8394927441f9",
+      "illustrationSha256": "bee6c980468b93aa5984d5940bf1ff379df836802afa26313a1f3ba2bb89c30d",
+      "protectedRecordSha256": "3a5ecf55c364b3e554f39ded6bd105e9d52242cbb1da3c6e06045d3b20ba2471"
+    },
+    "supermicro:amdblade": {
+      "artSha256": "1607ab3bdc11d588d1f2d3c282860cdc0de02efb9706cedf9042f95e4486d858",
+      "illustrationSha256": "fa5b60c5462e7c769221954de0413514de9c7ca64b5c631590caccda7d0a7805",
+      "protectedRecordSha256": "323958ae43b8b2acda809334bc075d993cd8866b942ac19cb9e1effa2670992b"
+    },
+    "supermicro:tower": {
+      "artSha256": "b83d88f93878526e87a70e57161e4db4a1ff491996ba38b8f59d6d39e68609a8",
+      "illustrationSha256": "c284356999538d113a8db164658323a9e279356cec620acf426ab00c8433e74c",
+      "protectedRecordSha256": "17e49214a8e0a9fd5f8f67f34111be3c1bfd4df7e5d7c5978e23301d28e703ff"
+    },
+    "supermicro:edge": {
+      "artSha256": "a4f15ca8b9b3cc2a0555b32993a4926f0038d06408f7edbba2dbc2919b5657e2",
+      "illustrationSha256": "0afddc6e6395afc17c1dbbc70ba7659b6b52e5562fe5a3d89d21b1e6ee1f5b3c",
+      "protectedRecordSha256": "c54ec8aad4110d9515592bd499545da55bfc655da9e2f37052f31c811dd63a0f"
+    },
+    "supermicro:amdentry": {
+      "artSha256": "6dcbec38dd27c3081dacd95f6563295666a947a3f441d70fe3c3a9ba80210e4a",
+      "illustrationSha256": "75bf204d3ea401f00984e8c1db6c18c0ea7f1dc1849eb76365a3470e4a8e61cf",
+      "protectedRecordSha256": "0a9bee012a374ca8cfdbae0dbc1559c5b5228646485fabb62cec0c1bc6e1d2ac"
+    },
+    "supermicro:petascale": {
+      "artSha256": "2ca4fb58e8976ab5e82520662b348a7d84b2545982874fb992285baff41427da",
+      "illustrationSha256": "86a8177628022ec4a9b59ab15a517504f6b2b19d397a839be0ca1bb23a44312d",
+      "protectedRecordSha256": "4f33cc41261a5ad8fb39a2e2ea5e478ae54a6f2adf4a40dbc8c16ff8c9c48168"
+    },
+    "supermicro:capacity": {
+      "artSha256": "4b4d2b72653c2b8a21f84aae30fafa6067eadcdb7e08ceea6cfeb6fd39a8a94f",
+      "illustrationSha256": "f3a45b7587ffd02280b2675da309fbebe57a69c05a6bc9364e00a43f4b0dbef0",
+      "protectedRecordSha256": "be7cf1bb3d768ef989f5fca811fef3bffe089b95bcaa190e7eefcfe96669d325"
+    },
+    "supermicro:pciegpu": {
+      "artSha256": "684ee0c295943552ad25454030af2fc397b3d23e611b8760b6b2320ccc819f96",
+      "illustrationSha256": "12cc61ad365919725ebd37b2836ce355ade2dd647aed6ebc9233342cbd747e53",
+      "protectedRecordSha256": "c4b62ed45a35c73d75733e0f68f18255d833ea50246bdcd46dd1e9ec0c2cb8ea"
+    },
+    "supermicro:amdpcie": {
+      "artSha256": "764dea56ff62a61c62204279b4c4e4863792642b5bf6db9298333d81554e103b",
+      "illustrationSha256": "04793c243bdf98ab3e93fe8cb0ae6c22f4787b65a6e20e1f39b87a0b86097e09",
+      "protectedRecordSha256": "85264cf9e86f6ed69d1356c8071e0801c8357f018312341d569d185c2191b0fb"
+    },
+    "supermicro:instinctair": {
+      "artSha256": "37f18e2e5ca4605849b830dacb92032cb94a1329fd0b73372c3d1feb84cfb908",
+      "illustrationSha256": "96ad48590090a1f0407f56b8a56e2e05754e66053124dc9a1d6c8e909ac56fb6",
+      "protectedRecordSha256": "f94eab762ab1444b3f0e4e4f060389bd9b2c43504de565230ec4950f490b9ce8"
+    },
+    "supermicro:instinctliquid": {
+      "artSha256": "6777134325976e0423d70b289ba376ac82c669a3afab8760f9a1a0d480c6a36a",
+      "illustrationSha256": "a9ada160b02e3b0289d9e51e3cea58f4f0fffa3746050aeb907179eeda21c017",
+      "protectedRecordSha256": "c57a1ac603bcc0b07349362cd1290bc31b75fc215b6fc74deaf03c9fbcaddcd2"
+    },
+    "supermicro:hgx": {
+      "artSha256": "a8dec945f94976d1ef8126b3215411684fdd42fc8a1deff7cfded0cc832c54aa",
+      "illustrationSha256": "d61b982c87e19a5eed8de58bf6e07e937b0a9940424f93166c668c7e8df156b8",
+      "protectedRecordSha256": "e021e8bbae455b69a7454353cf74149f5ed6c0b5c955578ceff807318226f207"
+    },
+    "supermicro:amdhgx": {
+      "artSha256": "7e560a8f7a747707e26ef6084163c698c82550d54e9a2374e82716939a8045e6",
+      "illustrationSha256": "b27e40111f101332bb8fe600336b082740e74dd1dffe45554c8fe9c92c17db77",
+      "protectedRecordSha256": "dbf631574b2b4a997019c0e100a73c00bd64df1d91f7d494d099cd9137d22918"
+    },
+    "supermicro:gaudi": {
+      "artSha256": "1adf452a088cb17343fee3575dae982290c6a23e1a9626efe6e1b51d0413c2ba",
+      "illustrationSha256": "a479baad011513986d29083b0cd5002b3b4b65b991d042edfaeeb283735a0e5c",
+      "protectedRecordSha256": "7fd1ab7e1327274a431ab62e6b5d9062b0e07bb4e239367161bf2e6b80b78b51"
+    },
+    "supermicro:amdlegacy": {
+      "artSha256": "73ecf2f7a83054d684481b03c4fd8b890c4fb21448ea142d5dc1a4f93ed41039",
+      "illustrationSha256": "ddd18484bb0963051752fcf053fdb1d2ed5bd5272a96fba15133afe3a3c98663",
+      "protectedRecordSha256": "1d4e32a24d6c302294ad304cebae240625caea9a4f9ebeaada1c1591053232ac"
+    },
+    "supermicro:mi300x": {
+      "artSha256": "13cef45b86fbb562704ddca151463d968664d5112af5a85815401dcfba5e55bd",
+      "illustrationSha256": "88098abb71eabffef021657b0cf11ca5585ffb98dc99a2c13fd439ccb599c6fa",
+      "protectedRecordSha256": "220bfd3e5db53b8f0980d55386b612a0e2ee18ab15d11588327a4ad8d918b25d"
+    },
+    "supermicro:h15hyper": {
+      "artSha256": "bb6ec0a359f5e7378b935b34f98006b50dceb0138c85473e64feeb16159827c8",
+      "illustrationSha256": "d6fdbce440a8993791574ab3ce32c7e4c94754e53535b16335eb5b3ba9e5d354",
+      "protectedRecordSha256": "4695c490e67e61da20f132fc245ab2dfa66cef0beedf81843a382095d5e89035"
+    }
+  }
+}

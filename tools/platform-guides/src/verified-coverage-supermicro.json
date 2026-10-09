@@ -1,0 +1,342 @@
+{
+  "reviewedAt": "2026-10-09",
+  "vendor": "supermicro",
+  "reviewer": "Supermicro specification specialist",
+  "method": "Fresh exact official pages, exact GPU qualification rows, official generation/model announcements, and OEM memory documentation.",
+  "models": [
+    {
+      "id": "amdlegacy",
+      "name": "AS-2024US-TRT",
+      "claims": {
+        "processors": 2,
+        "DIMMs": 32,
+        "channelsPerCpu": 8,
+        "DPC": [
+          1,
+          2
+        ],
+        "CPU": [
+          "EPYC 7002",
+          "EPYC 7003"
+        ],
+        "GPU": [
+          {
+            "product": "Instinct MI210",
+            "status": "qualified",
+            "availability": "Availability unverified",
+            "cpuFamilies": [
+              "EPYC 7002",
+              "EPYC 7003"
+            ],
+            "conditions": "Supermicro Validated: up to two MI210 cards with two EPYC 7002/7003 CPUs. Matrix notes g9/a3 require the last three drive bays empty, 25°C ambient, a GPU kit and a TDP limit of 200 W; confirm the exact CPU thermal build and required parts.",
+            "sourceIds": [
+              "amdlegacy",
+              "coverageGpuMatrix"
+            ],
+            "verified": "2026-10-09"
+          }
+        ],
+        "chronology": {
+          "generationId": "sm-h12",
+          "modelYear": null,
+          "modelDateKind": null,
+          "note": "H12 began in 2019. This exact model has no independently established first announcement or sale date in this profile; EPYC 7003 and MI210 are later capabilities.",
+          "sourceIds": [
+            "genSmH12Launch",
+            "amdlegacy"
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "title": "AS-2024US-TRT specifications",
+          "url": "https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt",
+          "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+          "scope": "Exact model specifications, conditional configurations and expansion scope.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": null,
+          "date": "reviewed 09 Oct 2026"
+        },
+        {
+          "title": "AS-2024US-TRT Quick Reference Guide",
+          "url": "https://www.supermicro.com/QuickRefs/superserver/2U/QRG-2315.pdf",
+          "loc": "Page 1, Memory table: CPU1/CPU2 channels 1-8, 16-DIMM and 32-DIMM populations",
+          "scope": "Model-specific 1DPC and 2DPC populations across eight channels per CPU.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": null,
+          "date": "reviewed 09 Oct 2026"
+        },
+        {
+          "title": "Supermicro qualified GPU platforms: exact coverage additions",
+          "url": "https://www.supermicro.com/en/support/resources/gpu",
+          "loc": "AS-2024US-TRT / MI210 row (notes g9,a3); AS-8125GS-TNMR2 / MI300X row",
+          "scope": "Exact GPU, CPU family and quantity; preserves vendor notes and blank validation authority.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": null,
+          "date": "reviewed 09 Oct 2026"
+        }
+      ],
+      "memoryEvidence": [
+        {
+          "title": "AS-2024US-TRT specifications",
+          "url": "https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt",
+          "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+          "reviewed": "2026-10-09",
+          "publicationDate": null
+        },
+        {
+          "title": "AS-2024US-TRT Quick Reference Guide",
+          "url": "https://www.supermicro.com/QuickRefs/superserver/2U/QRG-2315.pdf",
+          "loc": "Page 1, Memory table: CPU1/CPU2 channels 1-8, 16-DIMM and 32-DIMM populations",
+          "reviewed": "2026-10-09",
+          "publicationDate": null
+        },
+        {
+          "title": "H12DSU-iN motherboard specifications",
+          "url": "https://www.supermicro.com/en/products/motherboard/h12dsu-in",
+          "loc": "System Memory; Processor/Chipset",
+          "reviewed": "2026-10-09",
+          "publicationDate": null
+        }
+      ],
+      "dateEvidence": [
+        {
+          "title": "Supermicro introduces H12 EPYC 7002 servers",
+          "url": "https://ir.supermicro.com/news/news-details/2019/Supermicro-Now-Offering-AMD-EPYC-7002-Series-Processor-based-Systems-to-Customers-Who-Want-to-Transform-Their-Data-Centers/default.aspx",
+          "loc": "7 August 2019 date; first H12 generation launch paragraph",
+          "scope": "H12 generation introduction, not exact AS-2024US-TRT launch date.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": "2019-08-07",
+          "date": "Published 2019-08-07; reviewed 09 Oct 2026"
+        },
+        {
+          "title": "AS-2024US-TRT specifications",
+          "url": "https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt",
+          "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+          "scope": "Exact model specifications, conditional configurations and expansion scope.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": null,
+          "date": "reviewed 09 Oct 2026"
+        }
+      ],
+      "unknowns": [
+        "Exact current orderability and service lifecycle",
+        "Processor populations other than documented two-CPU configuration",
+        "Exact CPU SKU / firmware / DIMM part / software combination"
+      ]
+    },
+    {
+      "id": "mi300x",
+      "name": "AS-8125GS-TNMR2",
+      "claims": {
+        "processors": 2,
+        "DIMMs": 24,
+        "channelsPerCpu": 12,
+        "DPC": [
+          1
+        ],
+        "CPU": [
+          "EPYC 9004",
+          "EPYC 9005"
+        ],
+        "GPU": [
+          {
+            "product": "Instinct MI300X",
+            "status": "documented",
+            "availability": "Availability unverified",
+            "cpuFamilies": [
+              "EPYC 9004",
+              "EPYC 9005"
+            ],
+            "conditions": "Exact OEM GPU matrix lists eight onboard MI300X accelerators with two EPYC 9004/9005 CPUs. Validation-type cell is blank, so no certification authority is claimed. EPYC 9005 requires motherboard revision 2.x; confirm exact BIOS, cooling and software build.",
+            "sourceIds": [
+              "mi300x",
+              "coverageGpuMatrix"
+            ],
+            "verified": "2026-10-09"
+          }
+        ],
+        "chronology": {
+          "generationId": "sm-h13-9004",
+          "modelYear": 2023,
+          "modelDateKind": "Announced",
+          "note": "The exact MI300X model was named in the 6 December 2023 OEM announcement. H13 started in 2022; current EPYC 9005 support is a later board-revision-dependent option.",
+          "sourceIds": [
+            "genSmH13Launch",
+            "genSmMI300Launch",
+            "mi300x"
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "title": "AS-8125GS-TNMR2 specifications",
+          "url": "https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2",
+          "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+          "scope": "Exact model specifications, conditional configurations and expansion scope.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": null,
+          "date": "reviewed 09 Oct 2026"
+        },
+        {
+          "title": "Supermicro qualified GPU platforms: exact coverage additions",
+          "url": "https://www.supermicro.com/en/support/resources/gpu",
+          "loc": "AS-2024US-TRT / MI210 row (notes g9,a3); AS-8125GS-TNMR2 / MI300X row",
+          "scope": "Exact GPU, CPU family and quantity; preserves vendor notes and blank validation authority.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": null,
+          "date": "reviewed 09 Oct 2026"
+        },
+        {
+          "title": "AS-8125GS-TNMR2 system manual MNL-2671",
+          "url": "https://www.supermicro.com/manuals/superserver/8U/MNL-2671.pdf",
+          "loc": "Section 3.4 Memory Support; Appendix B System Specifications",
+          "scope": "Dual SP5 host memory, 1DPC, board revision requirement and system fans. Product page and manual differ on M.2 wording; exact boot configuration remains to be checked.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": null,
+          "date": "reviewed 09 Oct 2026"
+        }
+      ],
+      "memoryEvidence": [
+        {
+          "title": "AS-8125GS-TNMR2 specifications",
+          "url": "https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2",
+          "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+          "reviewed": "2026-10-09",
+          "publicationDate": null
+        },
+        {
+          "title": "AS-8125GS-TNMR2 system manual MNL-2671",
+          "url": "https://www.supermicro.com/manuals/superserver/8U/MNL-2671.pdf",
+          "loc": "Section 3.4 Memory Support; Appendix B System Specifications",
+          "reviewed": "2026-10-09",
+          "publicationDate": null
+        }
+      ],
+      "dateEvidence": [
+        {
+          "title": "Supermicro H13 / 4th Gen EPYC portfolio introduction",
+          "url": "https://ir.supermicro.com/news/news-details/2022/Supermicro-Expands-Data-Center-Optimized-Total-IT-Solutions-with-4th-Gen-AMD-EPYC-Processors-Delivering-World-Record-Performance-for-Todays-Most-Critical-Workloads/default.aspx",
+          "scope": "Introduction year for the H13 EPYC 9004 platform, not every later H13 model.",
+          "loc": "10 November 2022 date and opening announcement; H13 JumpStart reference",
+          "date": "Published 10 Nov 2022; reviewed 08 Oct 2026"
+        },
+        {
+          "title": "Supermicro introduces MI300 systems including AS-8125GS-TNMR2",
+          "url": "https://ir.supermicro.com/news/news-details/2023/Supermicro-Extends-AI-and-GPU-Rack-Scale-Solutions-with-Support-for-AMD-Instinct-MI300-Series-Accelerators/default.aspx",
+          "loc": "6 December 2023 date; named AS-8125GS-TNMR2 paragraph and final exact model link",
+          "scope": "Exact 8U MI300X model announcement, separate from H13 platform start and later EPYC 9005 support.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": "2023-12-06",
+          "date": "Published 2023-12-06; reviewed 09 Oct 2026"
+        },
+        {
+          "title": "AS-8125GS-TNMR2 specifications",
+          "url": "https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2",
+          "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+          "scope": "Exact model specifications, conditional configurations and expansion scope.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": null,
+          "date": "reviewed 09 Oct 2026"
+        }
+      ],
+      "unknowns": [
+        "Exact current orderability and service lifecycle",
+        "Processor populations other than documented two-CPU configuration",
+        "Exact CPU SKU / firmware / DIMM part / software combination"
+      ]
+    },
+    {
+      "id": "h15hyper",
+      "name": "AS-2127H7-N",
+      "claims": {
+        "processors": 2,
+        "DIMMs": 32,
+        "channelsPerCpu": 16,
+        "DPC": [
+          1
+        ],
+        "CPU": [
+          "EPYC 9006"
+        ],
+        "GPU": [],
+        "chronology": {
+          "generationId": "sm-h15",
+          "modelYear": null,
+          "modelDateKind": null,
+          "note": "H15 was announced in July 2026. The exact model is documented on its live OEM product page; its first announcement and shipping dates are not established here.",
+          "sourceIds": [
+            "genSmH15Launch",
+            "h15hyper"
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "title": "AS-2127H7-N specifications",
+          "url": "https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n",
+          "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+          "scope": "Exact model specifications, conditional configurations and expansion scope.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": null,
+          "date": "reviewed 09 Oct 2026"
+        },
+        {
+          "title": "H15DPH motherboard specifications",
+          "url": "https://www.supermicro.com/en/products/motherboard/h15dph",
+          "loc": "Key Features; System Memory; Optimized Servers links",
+          "scope": "Integrated dual SP7 board: 32 DIMMs at 1DPC; exact AS-2127H7-N link.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": null,
+          "date": "reviewed 09 Oct 2026"
+        }
+      ],
+      "memoryEvidence": [
+        {
+          "title": "AS-2127H7-N specifications",
+          "url": "https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n",
+          "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+          "reviewed": "2026-10-09",
+          "publicationDate": null
+        },
+        {
+          "title": "H15DPH motherboard specifications",
+          "url": "https://www.supermicro.com/en/products/motherboard/h15dph",
+          "loc": "Key Features; System Memory; Optimized Servers links",
+          "reviewed": "2026-10-09",
+          "publicationDate": null
+        }
+      ],
+      "dateEvidence": [
+        {
+          "title": "Supermicro introduces H15 / EPYC 9006",
+          "url": "https://ir.supermicro.com/news/news-details/2026/Supermicro-Introduces-New-Server-Portfolio-with-6th-Gen-AMD-EPYC-9006-Series-CPUs-Delivering-1-7x-Generational-Performance-Improvements/default.aspx",
+          "scope": "July 2026 platform announcement; does not date every individual H15 SKU.",
+          "loc": "23 July 2026 dateline; opening H15 announcement and portfolio descriptions",
+          "date": "Published 23 Jul 2026; reviewed 08 Oct 2026"
+        },
+        {
+          "title": "AS-2127H7-N specifications",
+          "url": "https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n",
+          "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+          "scope": "Exact model specifications, conditional configurations and expansion scope.",
+          "reviewedAt": "2026-10-09",
+          "publishedAt": null,
+          "date": "reviewed 09 Oct 2026"
+        }
+      ],
+      "unknowns": [
+        "Exact current orderability and service lifecycle",
+        "Processor populations other than documented two-CPU configuration",
+        "Exact CPU SKU / firmware / DIMM part / software combination"
+      ]
+    }
+  ],
+  "caveats": [
+    "Only existing confirmed model-level Air support is recorded; rack-scale liquid language in the 2023 announcement does not establish a model liquid option.",
+    "AS-2024US-TRT GPU matrix 200 W TDP note is reproduced without inventing a CPU SKU; exact CPU thermal build remains a verification requirement.",
+    "AS-8125GS-TNMR2 GPU matrix validation-type is blank: option is documented, not labelled independently certified.",
+    "Live product listings do not establish present availability or an exact launch date.",
+    "AS-2024US-TRT full manual exceeds web fetch size; memory population was established from the OEM Quick Reference Guide, not an unread PDF."
+  ]
+}

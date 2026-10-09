@@ -1,0 +1,227 @@
+{
+  "date": "2026-10-09",
+  "version": "1.1.0",
+  "catalogHash": "ed90d4b2538dd7cd13472dfbe7ec3ca7e4097903ee10f3f286b10dae994a0fd5",
+  "buildHash": "4f5eb4d8d9a1c9470491cb86ae53ca820f61e6825313872415206fe54e0c95a5",
+  "verdict": "Strong learning aid; discovery needs corrections",
+  "assessment": "The changes materially improved processor and memory teaching, per-node scope, accelerator lifecycle, and evidence navigation. The broad review found valid supported choices missing from results. Correct those omissions before relying on the Finder to assemble an FAE shortlist. Preserve the visual direction and server illustrations.",
+  "scope": "Independent review by three OEM/data reviewers plus a product and browser review. All 92 catalog records and the shared Finder/guide implementation were inspected. All 22 Supermicro model pages and all 19 Lenovo model guides were reopened; Cisco, HPE and Dell external verification focused on high-risk support, memory, cooling, lifecycle and chronology claims. This was not a fresh certification of every SKU, firmware build, DIMM part number, source record or physical illustration.",
+  "findings": [
+    {
+      "id": "F01",
+      "priority": "P1",
+      "kind": "Confirmed support omission",
+      "title": "Cisco MI210 discovery misses two documented platforms",
+      "observed": "Cisco + Instinct MI210 returns only C845A M8. C245 M8 and X215c M8 have empty accelerator option lists and are excluded.",
+      "impact": "An FAE can miss valid AMD accelerator opportunities in both rack and modular systems.",
+      "action": "Add C245 M8 MI210 and the X215c M8 + X440p MI210 path. Carry the exact GPU PID, quantity, risers, cooling/power parts and firmware scope; do not transfer X440p support to X580p.",
+      "details": "C245 current Table 14 lists up to three MI210 cards. X440p Table 4 lists up to two with the appropriate M8 configuration; UCS Manager release notes explicitly name X215c M8.",
+      "sources": [
+        [
+          "C245 M8 current specification, Table 14",
+          "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-sff-rack-server.pdf"
+        ],
+        [
+          "X440p specification, Table 4",
+          "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-x-series-modular-system/x440p-specsheet.pdf"
+        ],
+        [
+          "UCS Manager 4.3 release notes",
+          "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/release/notes/b_release-notes-ucsm-4_3.html"
+        ]
+      ]
+    },
+    {
+      "id": "F02",
+      "priority": "P1",
+      "kind": "Confirmed filter omissions",
+      "title": "Cooling choices remain incomplete across OEMs",
+      "observed": "At least 13 profiles omit a documented air or facility-liquid option. Lenovo + Liquid returns only SC750 V4 and SD665 V3, excluding four mainstream EPYC V3 racks.",
+      "impact": "Selecting a facility requirement makes valid candidates disappear.",
+      "action": "Complete structured cooling choices for every model, distinguish facility-water cooling from internal liquid-to-air cooling, and keep GPU-specific thermal qualification separate.",
+      "details": "Confirmed: HPE DL325 Gen12, DL345 Gen12, DL525 Gen13; Lenovo SR635/SR645/SR655/SR665 V3, SR630/SR650/SR650a V4; Supermicro SBA-817V7-1N, SYS-222H-TN, SBI-622B-1NE34. Preserve announced status for future platforms.",
+      "sources": [
+        [
+          "HPE DL325 Gen12 QuickSpecs",
+          "https://www.hpe.com/us/en/collaterals/collateral.a50009232enw.html"
+        ],
+        [
+          "HPE DL345 Gen12 QuickSpecs",
+          "https://www.hpe.com/us/en/collaterals/collateral.a50009233enw.html"
+        ],
+        [
+          "Lenovo SR655 V3 cooling options",
+          "https://lenovopress.lenovo.com/lp1610-thinksystem-sr655-v3-server"
+        ],
+        [
+          "Supermicro SBA-817V7-1N cooling",
+          "https://www.supermicro.com/en/aplus/superblade/module/sba-817v7-1n.php"
+        ]
+      ]
+    },
+    {
+      "id": "F03",
+      "priority": "P1",
+      "kind": "Confirmed filter omissions",
+      "title": "The one-processor filter drops documented configurations",
+      "observed": "Six Lenovo and four HPE profiles omit documented one-processor configurations. Even the single-socket ThinkEdge SE455 V3 is absent from a one-processor search because its installed-count field is missing.",
+      "impact": "This undermines one of the user’s most important FAE selection criteria, despite generally correct maximum-socket and DIMM counts.",
+      "action": "Populate installed processor counts from model evidence, with the local DIMM/I/O restrictions. Track whether the recorded list is complete or only an example.",
+      "details": "Lenovo: SE455 V3, SR675 V3, SR630 V4, SR650 V4, SR650a V4, ST650 V3. HPE: DL360 Gen12, DL380 Gen12, ML350 Gen12, Synergy 480 Gen12. Synergy positive support was checked in QuickSpecs v2; access to its current HTML was intermittent.",
+      "sources": [
+        [
+          "ThinkEdge SE455 V3 processors",
+          "https://lenovopress.lenovo.com/lp1724-thinkedge-se455-v3-server"
+        ],
+        [
+          "SR675 V3 processor configurations",
+          "https://lenovopress.lenovo.com/lp1611-thinksystem-sr675-v3-server"
+        ],
+        [
+          "ST650 V3 processor configurations",
+          "https://lenovopress.lenovo.com/lp1604-thinksystem-st650-v3-server"
+        ],
+        [
+          "HPE ML350 Gen12 QuickSpecs",
+          "https://www.hpe.com/us/en/collaterals/collateral.a50006995enw.html"
+        ]
+      ]
+    },
+    {
+      "id": "F04",
+      "priority": "P2",
+      "kind": "Browser-reproduced inconsistency",
+      "title": "Typed accelerator search behaves differently from its selector",
+      "observed": "Typing MI355X and enabling unknown/unsupported pairings returns 4 platforms and zero gaps. Selecting Instinct MI355X from the accelerator menu with the same checkbox returns 92: 4 recorded, 86 unknown and 2 explicitly unsupported.",
+      "impact": "The interface recognizes the typed accelerator but its ordinary text filter still removes every unrecorded pairing. Users cannot explore support gaps consistently.",
+      "action": "Convert recognized product terms into structured request tokens and apply remaining text terms separately. Test typed and selected requests for equivalent results.",
+      "details": "Implementation evidence: work/finder.js textMatch, selectedGPU and filtered. The browser reproduced both cases on release 1.1.0.",
+      "sources": []
+    },
+    {
+      "id": "F05",
+      "priority": "P2",
+      "kind": "Confirmed chronology and presentation defects",
+      "title": "Some dates still look like launch dates when they are not",
+      "observed": "AS-3015A-I displays model 2025 although Supermicro’s May 2024 launch names it. Finder also strips the stored date kind, turning “documented by” dates into apparent model introductions.",
+      "impact": "Learners can misunderstand platform age and refresh timing—the original reason for adding dates.",
+      "action": "Correct AS-3015A-I to the documented 2024 milestone, retain its later CPU refresh separately, and display Announced / Available by / Documented by beside dates. Update the sort wording accordingly.",
+      "details": "The shared Cisco M8 story also groups C245 into June 2024, although its model FAQ dates the first announcement to February 6. The year remains correct. Standalone guides preserve date kinds better than the Finder.",
+      "sources": [
+        [
+          "Supermicro May 21, 2024 launch",
+          "https://www.supermicro.com/en/pressreleases/supermicro-introduces-high-density-efficient-and-cost-optimized-solutions-powered-amd"
+        ],
+        [
+          "Cisco C245 M8 FAQ",
+          "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-rack-server-faq.html"
+        ]
+      ]
+    },
+    {
+      "id": "F06",
+      "priority": "P2",
+      "kind": "Confirmed evidence-link defect",
+      "title": "Some evidence links no longer reach their cited document",
+      "observed": "Three Dell chronology references redirect to a generic press-release archive. The underlying dates have separate corroboration, but the evidence handoff is broken.",
+      "impact": "A fresh review date can imply that an exact claim is readily verifiable when the link no longer provides it.",
+      "action": "Check destination title and claim after redirects, not just a successful HTTP response. Replace the three stored release URLs and add claim-level freshness checks.",
+      "details": "Affected source keys: ageDell17CSP, ageDell17Intel and ageDellXE9785. Across the catalog, 449 source records represent 282 unique URLs; 62 records lack exact locators. Missing publication dates on undated live pages should remain unknown.",
+      "sources": [
+        [
+          "Working official R670/R770 announcement",
+          "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2024~05~20240514-new-dell-poweredge-servers-support-workloads-from-the-data-center-to-the-edge.htm"
+        ]
+      ]
+    },
+    {
+      "id": "F07",
+      "priority": "P2",
+      "kind": "Coverage recommendation",
+      "title": "Installed-base AMD coverage remains uneven",
+      "observed": "HPE, Dell and Supermicro have no EPYC 7002/7003 profiles. HPE also has no single-socket 9004 profile, despite DL325/DL345 Gen11. Important earlier Instinct platforms are missing.",
+      "impact": "An FAE looking at a customer’s existing estate can find little guidance on recognizable AMD generations. The partial-coverage disclosure is honest, but does not fill that need.",
+      "action": "Prioritize HPE DL325/DL345 Gen11 and selected Gen10 Plus variants, Dell R7515/R7525, Cisco C225 M6, and Supermicro AS-2024US-TRT. Add HPE XD675 and Supermicro AS-8125GS-TNMR2 for MI300X history. Preserve exact variant names and source-scoped lifecycle.",
+      "details": "These are recommended additions, not claims that every unlisted configuration is supported. HPE XD295v MI210 and original Lenovo SR665 MI210 merit follow-up extraction of exact configuration rules before qualification labels are changed.",
+      "sources": [
+        [
+          "HPE DL325 Gen11 QuickSpecs",
+          "https://www.hpe.com/psnow/doc/a50004297enw"
+        ],
+        [
+          "Dell R7525 technical specifications",
+          "https://dl.dell.com/topicspdf/poweredge-r7525_owners-manual2_en-us.pdf"
+        ],
+        [
+          "Cisco C225 M6 overview",
+          "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/nb-06-ucs-c225-m6-rack-serv-aag-cte-en.html"
+        ],
+        [
+          "Supermicro AS-2024US-TRT",
+          "https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt"
+        ]
+      ]
+    },
+    {
+      "id": "F08",
+      "priority": "P2",
+      "kind": "Support semantics",
+      "title": "A general no-GPU restriction becomes unknown for NVIDIA",
+      "observed": "ST45 V3 + NVIDIA L4 shows Not established; the same model + an AMD accelerator shows Explicitly unsupported. Its recorded restriction excludes add-in GPUs generally.",
+      "impact": "The same authoritative restriction changes meaning based on accelerator vendor.",
+      "action": "Give exclusions an explicit scope—product, vendor or accelerator class—instead of an AMD-only status field.",
+      "details": "Browser reproduced ST45 + L4 with gaps enabled. The same code path affects SD665 V3. Confirm source scope for each negative before applying it broadly.",
+      "sources": [
+        [
+          "Lenovo ST45 V3 product guide",
+          "https://lenovopress.lenovo.com/lp1994-thinksystem-st45-v3-server"
+        ]
+      ]
+    },
+    {
+      "id": "F09",
+      "priority": "P3",
+      "kind": "Presentation defects",
+      "title": "Counts and guide copy have drifted from the catalog",
+      "observed": "After typing C245, the decoder displays two results but still says “92 exact profiles.” Some source guide copy still describes older 12/15/17/18-profile totals.",
+      "impact": "These small contradictions make it harder to trust the rest of the data.",
+      "action": "Derive counts from data and update the decoder summary on every input. Audit generated learning-guide copy as well as cards.",
+      "details": "Browser reproduced the decoder defect. Source evidence: work/finder.js decodeSearch handler; work/app.js lineup; work/hpe-views.js lineup; work/dell-views.js coverage; work/lenovo-views.js lineup/coverage.",
+      "sources": []
+    },
+    {
+      "id": "F10",
+      "priority": "P2",
+      "kind": "Known evidence not fully integrated",
+      "title": "Some Gen13 fields still say unknown despite cited details",
+      "observed": "DL585a Gen13 restrictions say particular NVIDIA products are unestablished, while its cited launch QuickSpecs names RTX PRO 6000 variants. XD245/XD285 memory type is empty despite the launch detail mentioning MRDIMM support.",
+      "impact": "Useful published facts are lost even though the source is already in the project.",
+      "action": "Reconcile newly added sources against every relevant field. Keep shipping, AMD GPU qualification, and unknown slot/DPC counts separate from the facts that are documented.",
+      "details": "This does not establish AMD accelerator support or availability for DL585a, nor physical memory-slot counts for XD245/XD285.",
+      "sources": [
+        [
+          "DL585a Gen13 launch QuickSpecs",
+          "https://www.hpe.com/no/en/collaterals/collateral.a50014668enw.html"
+        ],
+        [
+          "HPE Gen13 launch detail",
+          "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922"
+        ]
+      ]
+    }
+  ],
+  "strengths": [
+    "Processor/DIMM/channel/DPC facts are far more useful and generally held up in the source checks. Cisco C845A’s unusual eight wired channels per CPU is correctly represented.",
+    "Per-node versus per-chassis counts, fixed accelerator subsystems, and separate host/GPU memory are explained well.",
+    "Known lifecycle constraints remain visible: C885A MI350X last-order timing, Lenovo historical MI210 options, and HPE’s planned MI350P shipment.",
+    "CPU and GPU vendors are separated correctly; Intel-host AMD Instinct examples remain discoverable.",
+    "No new confirmed false-positive AMD accelerator qualification emerged from the configurations checked. This is not a guarantee about every unexamined exact build.",
+    "The visual hierarchy, server illustrations, comparisons and model-specific support handoff are worth retaining."
+  ],
+  "next": [
+    "First: fix documented support omissions and complete cooling/installed-CPU fields; rerun positive-candidate and forbidden-combination cases across all OEMs.",
+    "Next: align typed search with structured filters, preserve date evidence kinds, repair source destinations and remove stale counts.",
+    "Then: expand a representative installed-base set. Show current-reference, installed-base and announced views clearly without implying live stock.",
+    "For ChipIndex integration: add source-backed CPU SKU/variant, TDP, motherboard revision, BIOS minimum and configuration-specific memory speed. A family name or socket match must never imply universal SKU support."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "version": "1.2.0",
+  "builtAt": "2026-10-09T18:20:55.503Z",
+  "reviewedAt": "2026-10-09",
+  "scope": "A curated, source-linked platform reference for learning and FAE shortlisting. Coverage does not represent the full OEM catalog or current inventory.",
+  "modelCount": 102,
+  "claimRecordCount": 550,
+  "uniqueSourceCount": 319,
+  "oemCounts": {
+    "ucs": 14,
+    "hpe": 23,
+    "dell": 21,
+    "lenovo": 19,
+    "supermicro": 25
+  },
+  "contentHash": "3c9c7dcf3716d2a4df87ccb570ca9518341d63c8339d41bbc962b0cadc8214ef",
+  "pageHashes": {
+    "amd-platform-finder.html": "70452984230bd448f8356a6932721d51a9b781b33c74a0fd7c067d6046952ead",
+    "ucs-field-guide.html": "25460b396ef6ec191bef0f3394f2c971464c9b567ea452e5bba3396f61730b39",
+    "hpe-field-guide.html": "8b04f19f14cec46e1bcc4bc30c6878d587e26ef6517aa0913ba90987582ed404",
+    "dell-field-guide.html": "1aa4236155768be40d24e15c80a0655ea2f0c737029d234e5fb7598e1e39f078",
+    "lenovo-field-guide.html": "713787d2d672f30ae53d56b7ba5212af2f08b66baf2198b0984e9a579f47cd32",
+    "supermicro-field-guide.html": "488714c68855af44b414a2f1d101ec90ee9ebfc54a7c3ae833166579af9a8ec8"
+  },
+  "buildHash": "0223347363ce1fe419ed96240e869de62d40d5c072c959bde03ed01775b1bc13"
+}

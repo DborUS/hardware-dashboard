@@ -1,0 +1,71 @@
+Independent broad audit: Supermicro and shared evidence semantics
+Reviewed: 2026-10-09. Release: 1.1.0. Read-only audit; no application changes.
+
+Scope
+Inspected all 22 Supermicro catalog records (CPU families, processor count, DIMM slots, channels, DPC, memory type, GPU choices, cooling, lifecycle, chronology, schema/decoder). Opened every exact Supermicro model page afresh, read CPU/memory sections and searched cooling details; cross-checked high-risk accelerator claims against the OEM qualified platform matrix. Reviewed shared relationship/filter code and evidence inventory. This does not requalify every exact CPU SKU, DIMM part number, option/BIOS combination, or photograph. Previous automated checks were not treated as factual validation.
+
+Confirmed findings
+
+1. P1/P2: Documented cooling choices are still excluded from results for three Supermicro records.
+- SBA-817V7-1N is Configuration-dependent with no supportedCooling; BOTH Air and Liquid searches omit it. Exact OEM page explicitly says air and liquid cooling, up to 600 W subject to conditions. Source: https://www.supermicro.com/en/aplus/superblade/module/sba-817v7-1n.php (Key Features and Processor Note). Catalog source: work/fae-supermicro.json:874.
+- SYS-222H-TN is Air only, but OEM lists air and liquid CPU cooling plus optional D2C cold plate. Source: https://www.supermicro.com/en/products/system/hyper/2u/sys-222h-tn (Processor Note and System Cooling). Local: work/fae-supermicro.json:292.
+- SBI-622B-1NE34 is Air only, but OEM explicitly offers direct liquid cooling. Source: https://www.supermicro.com/en/products/superblade/module/sbi-622b-1ne34.php (Processor Note). Local: work/fae-supermicro.json:823.
+Reproduced with the actual Finder functions executed against the current catalog: Air+SBA gives []; Liquid+SBA gives []; Liquid+SYS-222H-TN gives []. Root cause: work/finder.js:36 coolingOptions and line65 filtering. Recommendation: store model-level supportedCooling from explicit OEM evidence, keep GPU/cooling pair scope distinct, preserve thermal conditions. This is a real discovery defect rather than an unknown qualification.
+
+2. P2: AS-3015A-I's displayed model year is one year too new.
+work/supermicro-generation-data.json:494 sets modelYear2025 and notes original SKU debut unestablished. The exact model is linked in the OEM May21,2024 launch under Tower Servers: https://www.supermicro.com/en/pressreleases/supermicro-introduces-high-density-efficient-and-cost-optimized-solutions-powered-amd . Independent primary corroboration from Supermicro-sponsored SPEC result published May21,2024 gives hardware availability May2024: https://ftp.spec.org/power_ssj2008/results/res2024q2/power_ssj2008-20240422-01404.html . Recommendation: set model introduction/documented-by2024; retain2025 EPYC4005 refresh separately. Finder displays model2025 and uses it in newest model introduction sorting, so the distinction affects learning and ordering.
+
+3. P2: Shared UI loses the evidence kind on model dates.
+work/finder.js:21 modelYears uses modelYear but omits modelDateKind. The sorting control says Newest model introduction, and explanatory text says model year is named server introduction, while several records intentionally contain only Documented by evidence. For example AS-4126GS-NMR-LCC modelYear2025 is explicitly sourced to an accelerator announcement and its data note says this need not be chassis introduction. The safer standalone guide does preserve modelDateKind. Recommendation: show Announced / Documented by / Available by on Finder cards and compare, and avoid calling every documented-by date an introduction. Separate refresh dates from model timing.
+
+4. P2/P3: Authoritative all-GPU exclusions become unknown for non-AMD GPUs.
+Shared catalog notes for Lenovo ST45 V3 and SD665 V3 explicitly say add-in GPUs are unsupported. work/finder.js:54 gates unsupported on amdGPU(gpu), so ST45+NVIDIA L4 returns not-established, while ST45+MI210 returns unsupported. Reproduced against actual Finder functions. This is lower priority for AMD-specific use, but weakens consistency of an interface that offers NVIDIA filters. Recommendation: represent exclusions with product/vendor/class scope rather than an amdGpuStatus shortcut. Root's Lenovo auditor should validate OEM exclusion wording independently before remediation.
+
+Coverage recommendations (not false claims)
+
+5. Prioritize three missing AMD examples before expanding decorative features.
+- AS-2024US-TRT: representative EPYC7002/7003, DDR4/SP3 installed base. Supermicro has zero such profiles in the catalog even after four legacy records were added elsewhere. Exact page: https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt . It explicitly supports7002/7003;7003 with3D V-Cache requires BIOS2.3+. GPU matrix lists MI210. This example would teach H12, DDR4/2DPC, and firmware-scoped upgrades.
+- AS-8125GS-TNMR2: missing MI300X predecessor. Exact page: https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2 . It lists8 MI300X GPUs, EPYC9004/9005, and board rev2.x requirement for9005. Strong teaching contrast with included MI325X/MI350X systems.
+- AS-2127H7-N: mainstream dual-socket H15/EPYC9006 Hyper is absent while only a GrandTwin and announced blade represent9006. Exact page: https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n lists dual9006,32DIMMs,1DPC RDIMM/MRDIMM, air cooling. This prevents learners concluding9006 is only for blade/multinode designs.
+The coverage table correctly calls cells partial or not-researched, so these omissions are scope gaps rather than incorrect incompatibility labels.
+
+6. Make CPU thermal/revision constraints comparable.
+AS-1126HS-TN explicitly requires special conditions for air-cooled CPUs above290W, AS-2015CS-TNR above360W, and AS-2115GT-HNTR above300W. Those are not concrete facts in current restrictions (AS-2126's above400W condition is already captured). Sources are their exact model pages' Processor Note sections. A generic check TDP warning is appropriate but less useful than these known thresholds. Recommend structured maximum TDP plus conditional threshold/ambient and required motherboard revision, available beside CPU family. Do not infer that every9005 SKU works.
+
+Evidence and data-quality assessment
+- 449 source records represent282 unique URLs;62 records lack exact locators;395 lack publishedAt;439 lack revision. These counts are not449 independently checked documents or claims. Many undated live product pages legitimately have no publication date. Do not manufacture dates. Prefer row/section locators and per-claim verification/evidence kind.
+- Normalization correctly distinguishes reviewedAt, publishedAt, revisedAt and revision. The manifest is a build integrity control, not proof of factual correctness.
+- The qualified/documented/announced/historical/unknown model is mostly careful. Exact AS-2126HS-TN MI210 and AS-5126GS-TNRT MI350P claims are confirmed by https://www.supermicro.com/en/support/resources/gpu . Its entries pair exact models, CPU families, card count and validation type. For AS-5126GS-TNRT,8xH200 is Supermicro Validated while4xH200 is NVIDIA-Certified: current UI collapses both to Qualified, so consider exposing validation authority and scoped quantity rather than implying equivalent certification.
+- Product page for AS-8126GS-TNMR explicitly lists MI325X/MI350X, and AS-4126GS-NMR-LCC plus GPU matrix confirms MI325X/MI355X; current model restrictions correctly keep alternative builds separate. No confirmed false positive AMD GPU qualification found in the reviewed Supermicro choices.
+- The catalog correctly avoids treating an empty AMD GPU list as incompatibility. It distinguishes host CPU from accelerator and GPU HBM from host DDR.
+- Naming guidance is sound. The standalone guide correctly decodes AS-2126HS-TN and explains that Supermicro's6 field does not mean sixth-gen EPYC. Official reference: https://www.supermicro.com/en/products/Product_Naming_Convention/Naming_AS_AMD.php . Finder's exact-model decoder is more conservative but less educational than the guide.
+
+All22 core topology checks
+Format: model : maxCPU / DIMMs / channels-perCPU / DPC; scope
+SYS-222H-TN:2/32/8/1,2;server (MRDIMM1DPC P-core only). Cooling gap.
+AS-1126HS-TN:2/24/12/1;server. Thermal threshold should surface.
+AS-2126HS-TN:2/24/12/1;server. MI210 validation confirmed.
+AS-2015CS-TNR:1/12/12/1;server.9005 boardrev2.x condition retained.
+SYS-112C-TN:1/16/8/1,2;server (MRDIMM1DPC P-core only).
+SYS-212GT-HNF:1/16/8/1,2;node,4nodes. OEM typo2Channels is already explicitly reconciled using board manual A-H.
+AS-2115GT-HNTR:1/12/12/1;node,4nodes.9005 boardrev2.x retained.
+AS-2117GT7-DNF:1/16/16/1;node,2nodes;RDIMM/MRDIMM. Announced status conservative.
+SBI-622B-1NE34:2/32/8/1,2;blade (MRDIMM1DPC). Cooling gap.
+SBA-817V7-1N:1/16/16/1;blade;RDIMM/MRDIMM. Coming Soon retained; cooling gap.
+SYS-531R-I:1/4/2/1,2;server;UDIMM.
+AS-1115S-FWTRT:1/6/6/1;server;8004/8005. L4 only documented with8004 appropriately scoped.
+AS-3015A-I:1/4/2/1,2;server;UDIMM;RadeonW7500/W7800 on modelpage. Model date issue.
+SSG-122B-NE316R:2/32/8/1,2;server (MRDIMM1DPC). OEM typo2Channels already reconciled using manual.
+SSG-542B-E1CR90:1/16/8/1,2;server.
+SYS-421GE-TNRT:2/32/8/1,2;server.
+AS-5126GS-TNRT:2/24/12/1;server. MI350P matrix confirmed8GPUs600W configurable450W.
+AS-8126GS-TNMR:2/24/12/1;server.
+AS-4126GS-NMR-LCC:2/24/12/1;server.
+SYS-822GS-NB3RT:2/32/8/1,2;server.
+AS-8126GS-NB3RT:2/24/12/1;server;detailed9005 scope retained despite broader headline.
+SYS-822GA-NGR3:2/24/12/1;server;RDIMM/MRDIMM.
+
+Memory source caveats: Some channel counts are established in platform/board documentation rather than literal system-page wording. Current notes correctly flag known conflicting OEM prose. InstalledCPUCounts lists for dual-socket models often record only the known2CPU configuration; notes explicitly say other populations are unrecorded, not prohibited. This is conservative incompleteness, not a confirmed hardware error. System pages occasionally mention LRDIMM in DDR5 prose; do not add this blindly without reconciling board manuals. No confirmed incorrect CPU/DIMM/DPC total was found in the22-record review.
+
+Product judgment
+Substantially stronger learning/shortlisting foundation than the original dashboard. The best improvements are front-loaded CPU/memory facts, per-node scope, explicit unknowns, and chronological separation. Remaining concrete cooling/date defects and important AMD installed-base coverage omissions mean it is not yet a dependable one-stop answer to every OEM supports AMD question. Fix known false-negative discovery and date-kind rendering first; then expand representative AMD coverage and structured constraints. Preserve current visual direction.

@@ -1,0 +1,221 @@
+[
+  {
+    "id": "c220",
+    "shape": "ucs-c220",
+    "view": "1U · ten SFF carriers · bezel removed",
+    "sourceUrl": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c220-m8-rack-server-ds.html",
+    "sourceTitle": "Cisco UCS C220 M8 Rack Server Data Sheet",
+    "locator": "Product overview · official product photograph",
+    "features": [
+      "Two horizontal rows of five drive carriers",
+      "Low rack profile and side mounting ears"
+    ],
+    "caveat": "Simplified illustration of the referenced exterior. Other drive cages, bezels and accelerator configurations can look different; internal components are not shown.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c220-m8-rack-server-ds.docx/_jcr_content/renditions/ucs-c220-m8-rack-server-ds_0.png"
+  },
+  {
+    "id": "c225",
+    "shape": "ucs-c225",
+    "view": "1U · security bezel fitted",
+    "sourceUrl": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c225-m8-rack-server-ds.html",
+    "sourceTitle": "Cisco UCS C225 M8 Rack Server Data Sheet",
+    "locator": "Product overview · official product photograph",
+    "features": [
+      "Split black mesh windows",
+      "Central Cisco panel and left lock"
+    ],
+    "caveat": "Simplified illustration of the referenced exterior. Other drive cages, bezels and accelerator configurations can look different; internal components are not shown.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c225-m8-rack-server-ds.docx/_jcr_content/renditions/ucs-c225-m8-rack-server-ds_0.png"
+  },
+  {
+    "id": "c240",
+    "shape": "ucs-c240",
+    "view": "2U · 24 SFF carriers · bezel removed",
+    "sourceUrl": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c240-m8-rack-server-ds.html",
+    "sourceTitle": "Cisco UCS C240 M8 Rack Server Data Sheet",
+    "locator": "Product overview · official product photograph",
+    "features": [
+      "One row of 24 vertical carriers",
+      "Full-width rack face"
+    ],
+    "caveat": "Simplified illustration of the referenced exterior. Other drive cages, bezels and accelerator configurations can look different; internal components are not shown.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c240-m8-rack-server-ds.docx/_jcr_content/renditions/ucs-c240-m8-rack-server-ds_0.png"
+  },
+  {
+    "id": "c245",
+    "shape": "ucs-c245",
+    "view": "2U · 24 SFF carriers · bezel removed",
+    "sourceUrl": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-rack-server-ds.html",
+    "sourceTitle": "Cisco UCS C245 M8 Rack Server Data Sheet",
+    "locator": "Product overview · official product photograph",
+    "features": [
+      "24 vertical SFF carriers",
+      "Front status and mounting rails"
+    ],
+    "caveat": "Simplified illustration of the referenced exterior. Other drive cages, bezels and accelerator configurations can look different; internal components are not shown.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-rack-server-ds.docx/_jcr_content/renditions/ucs-c245-m8-rack-server-ds_0.png"
+  },
+  {
+    "id": "c845",
+    "shape": "ucs-c845",
+    "view": "4U · E1.S front · five fan modules",
+    "sourceUrl": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c845a-m8-rack-server-ds.html",
+    "sourceTitle": "Cisco UCS C845A M8 Rack Server Data Sheet",
+    "locator": "Product overview · official product photograph",
+    "features": [
+      "Three upper mesh zones",
+      "20 slim E1.S bays",
+      "Five lower fan modules"
+    ],
+    "caveat": "Simplified illustration of the referenced exterior. Other drive cages, bezels and accelerator configurations can look different; internal components are not shown.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c845a-m8-rack-server-ds.docx/_jcr_content/renditions/ucs-c845a-m8-rack-server-ds_0.png"
+  },
+  {
+    "id": "c880",
+    "shape": "ucs-c880",
+    "view": "10U · grille and lower I/O front",
+    "sourceUrl": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c880a-m8-rack-server-ds.html",
+    "sourceTitle": "Cisco UCS C880A M8 Rack Server Data Sheet",
+    "locator": "Product overview · official product photograph",
+    "features": [
+      "Tall grille stack",
+      "Lower divided I/O and E1.S section"
+    ],
+    "caveat": "Simplified illustration of the referenced exterior. Other drive cages, bezels and accelerator configurations can look different; internal components are not shown.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c880a-m8-rack-server-ds.docx/_jcr_content/renditions/ucs-c880a-m8-rack-server-ds_0.png"
+  },
+  {
+    "id": "c885",
+    "shape": "ucs-c885",
+    "view": "8U · grille front",
+    "sourceUrl": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c885a-m8-ds.html",
+    "sourceTitle": "Cisco UCS C885A M8 Rack Server Data Sheet",
+    "locator": "Product overview · official product photograph",
+    "features": [
+      "Eight horizontal grille bands",
+      "Deep rack chassis"
+    ],
+    "caveat": "Simplified illustration of the referenced exterior. Other drive cages, bezels and accelerator configurations can look different; internal components are not shown.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c885a-m8-ds.docx/_jcr_content/renditions/ucs-c885a-m8-ds_0.png"
+  },
+  {
+    "id": "x210",
+    "shape": "ucs-x210",
+    "view": "Extracted sled · six SFF · X9508 inset",
+    "sourceUrl": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/x/hw/x210c-m8/install/b-x210c-m8-install/m-overview.html",
+    "sourceTitle": "Cisco UCS X210c M8 Compute Node Installation and Service Guide",
+    "locator": "Compute Node Front Panel; Figure 1, Front Loading Drives",
+    "features": [
+      "Six drive carriers in two columns and three rows when installed upright",
+      "Long narrow sled",
+      "Single chassis slot"
+    ],
+    "caveat": "Sled shown upright in its installed orientation; depth is compressed. The smaller X9508 inset shows slot context and is not at the same scale. Other front modules differ.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/td/i/400001-500000/470001-480000/472001-473000/472279.jpg"
+  },
+  {
+    "id": "x215",
+    "shape": "ucs-x215",
+    "view": "Extracted sled · six SFF · X9508 inset",
+    "sourceUrl": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-x-series-modular-system/ucs-x215c-m8-compute-node.pdf",
+    "sourceTitle": "Cisco UCS X215c M8 Compute Node Spec Sheet",
+    "locator": "Page 4 · Figure 2, front view",
+    "features": [
+      "Six vertical SFF carriers in two columns and three rows",
+      "Upper/lower ejector rails and lower status area",
+      "Single chassis slot"
+    ],
+    "caveat": "Sled shown upright in its installed orientation; depth is compressed. The smaller X9508 inset shows slot context and is not at the same scale. Other front modules differ.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "x410",
+    "shape": "ucs-x410",
+    "view": "Double-slot sled · six SFF · X9508 inset",
+    "sourceUrl": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-x-series-modular-system/x410cm8-specsheet.pdf",
+    "sourceTitle": "Cisco UCS X410c M8 Compute Node Spec Sheet",
+    "locator": "Page 4 · Figure 2, front view",
+    "features": [
+      "Drive section occupies one half of double-width front",
+      "Adjacent full-height mesh section",
+      "Two chassis slots"
+    ],
+    "caveat": "Sled shown upright in its installed orientation; depth is compressed. The smaller X9508 inset shows slot context and is not at the same scale. Other front modules differ.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xe130",
+    "shape": "ucs-xe130",
+    "view": "Half-width 1U node · four-drive front",
+    "sourceUrl": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-xe130c-m8-compute-node-spec-sheet.pdf",
+    "sourceTitle": "Cisco UCS XE130c M8 Compute Node Spec Sheet",
+    "locator": "Page 4 · four-drive front-panel figure",
+    "features": [
+      "Two paired E3.S drive stacks",
+      "Two lower-center RJ45 ports",
+      "Upper-right mesh vent"
+    ],
+    "caveat": "Simplified illustration of the referenced exterior. Other drive cages, bezels and accelerator configurations can look different; internal components are not shown.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xe150",
+    "shape": "ucs-xe150",
+    "view": "Half-width 2U node · three-drive I/O front",
+    "sourceUrl": "https://www.cisco.com/site/us/en/products/collateral/computing/unified-edge/ucs-xe150c-m8-compute-node-ds.html",
+    "sourceTitle": "Cisco UCS XE150c M8 Compute Node Data Sheet",
+    "locator": "Overview · UCS XE150c M8 Compute Node image",
+    "features": [
+      "Upper accelerator bracket and port openings",
+      "Three E3.S carriers at lower front",
+      "Two RJ45 ports between drive banks"
+    ],
+    "caveat": "Simplified illustration of the referenced exterior. Other drive cages, bezels and accelerator configurations can look different; internal components are not shown.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.cisco.com/content/dam/cisco-cdc/site/images/photography/products/computing/unified-edge/ucs-xe-150c-m8/ucs-xe150c-m8-compute-node-large.jpg"
+  },
+  {
+    "id": "c245m6",
+    "shape": "installed-c245m6",
+    "view": "2U rack · twenty-four-SFF front, bezel removed",
+    "sourceUrl": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/C245m6/install/c245m6/m_overview.html",
+    "sourceTitle": "Cisco UCS C245 M6 Installation and Service Guide — Overview",
+    "locator": "External Features · Figure 1, Cisco UCS C245 M6 (SFF Drives, 24-Drive) Front Panel",
+    "features": [
+      "Twenty-four vertical SFF carriers across the front",
+      "Power, identification and status indicators at the left",
+      "Vertical KVM connector and rack latch at the right"
+    ],
+    "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/td/i/300001-400000/300001-310000/309001-310000/309481.jpg",
+    "reviewMethod": "Visually inspected official Figure 1 image in the browser; corroborated configuration against the C245 M6 SFF Spec Sheet p7.",
+    "reviewedAt": "2026-10-09"
+  },
+  {
+    "id": "c225m6",
+    "shape": "installed-ucs-c225m6",
+    "features": [
+      "Ten horizontal SFF drive carriers arranged in two rows of five",
+      "Controls and vertical KVM connector at the right of the drive bank",
+      "Cisco-branded left rack latch and matching right latch"
+    ],
+    "view": "1U rack · ten-SFF front, bezel removed",
+    "sourceUrl": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/c225m6/install/c225m6/m_overview.html",
+    "sourceTitle": "Cisco UCS C225 M6 Installation and Service Guide — Overview",
+    "locator": "External Features · Figure 1, Cisco UCS C225 M6 Server Front Panel",
+    "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://www.cisco.com/c/dam/en/us/td/i/300001-400000/300001-310000/309001-310000/309134.jpg",
+    "reviewMethod": "Visually inspected official Figure 1 image in the browser; corroborated configuration against the C225 M6 SFF Spec Sheet p7.",
+    "reviewedAt": "2026-10-09"
+  }
+]

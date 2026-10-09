@@ -1,0 +1,516 @@
+{
+  "c220": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 slots with both processors installed; 16 slots per processor. RDIMMs support 1DPC or 2DPC subject to the DIMM type and population rules. Legacy MRDIMMs are 1DPC only and their Cisco part numbers are now EOS/EOL.",
+    "sources": [
+      {
+        "title": "Cisco UCS Intel M8 Memory Guide — tables 1.0, 1.1 and population rules",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-intel-m8-memory-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "MRDIMM: 1DPC only; legacy EOS/EOL options.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ]
+  },
+  "c240": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 slots with both processors installed; 16 slots per processor. RDIMMs support 1DPC or 2DPC subject to the DIMM type and population rules. Legacy MRDIMMs are 1DPC only and their Cisco part numbers are now EOS/EOL.",
+    "sources": [
+      {
+        "title": "Cisco UCS Intel M8 Memory Guide — tables 1.0, 1.1 and population rules",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-intel-m8-memory-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "MRDIMM: 1DPC only; legacy EOS/EOL options.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ]
+  },
+  "c225": {
+    "maxProcessors": 1,
+    "dimmSlots": 12,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "12 slots on the single processor, one slot per channel. This platform does not support 2DPC.",
+    "sources": [
+      {
+        "title": "Cisco UCS AMD M8 Memory Guide — memory organization and population rules",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-m8-memory-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": "2026-09-07",
+        "loc": "Table 1 Main Memory Features, p4; Table 5 allowed CPU/DIMM counts, p8",
+        "revision": "Rev A.18",
+        "date": "Rev A.18 · 7 Sep 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "installedCPUCounts": [
+      1
+    ],
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    }
+  },
+  "c245": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 slots with both processors installed; 12 per processor. One slot per channel, so 2DPC is not supported.",
+    "sources": [
+      {
+        "title": "Cisco UCS AMD M8 Memory Guide — memory organization and population rules",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-m8-memory-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": "2026-09-07",
+        "loc": "Table 1 Main Memory Features, p4; Table 5 allowed CPU/DIMM counts, p8",
+        "revision": "Rev A.18",
+        "date": "Rev A.18 · 7 Sep 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    }
+  },
+  "c845": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "Two processors are required. 16 slots on 8 wired channels per processor; this board uses eight of the EPYC memory channels. Both 1DPC and 2DPC RDIMM populations are supported.",
+    "sources": [
+      {
+        "title": "Cisco UCS C845A M8 Memory Guide — tables 1, 4, 5 and 6",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c845Am8-memory-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ]
+  },
+  "c880": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      2
+    ],
+    "scope": "server",
+    "note": "Two processors, 16 slots per processor, two slots on each of 8 channels. Published preconfigured systems populate all 32 RDIMMs at 2DPC; an orderable 1DPC configuration is not established.",
+    "sources": [
+      {
+        "title": "Cisco UCS C880A M8 Installation and Service Guide — server features",
+        "url": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/c880Am8/install/b-c880a-m8-hig.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "Cisco UCS C880A M8 Data Sheet — ordering information",
+        "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c880a-m8-rack-server-ds.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "Published configurations: 2DPC",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "c885": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 slots total, 12 channels and one slot per channel for each of two processors. The documented systems use fixed memory configurations; DIMMs are not individually serviceable.",
+    "sources": [
+      {
+        "title": "Cisco UCS C885A M8 Installation and Service Guide — DIMM slot locations",
+        "url": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/c885A/install/b_c885a-m8-server-hig/m_overview.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "DIMM Slot Locations; Summary of Features"
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "Fixed memory configurations; DIMMs not individually serviceable.",
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field.",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    }
+  },
+  "x210": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "blade",
+    "note": "Per compute blade, not X9508 chassis. 32 slots with both processors installed; 16 slots per processor. RDIMMs support 1DPC or 2DPC subject to the DIMM type and population rules. Legacy MRDIMMs are 1DPC only and their Cisco part numbers are now EOS/EOL.",
+    "sources": [
+      {
+        "title": "Cisco UCS Intel M8 Memory Guide — tables 1.0, 1.1 and population rules",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-intel-m8-memory-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "MRDIMM: 1DPC only; legacy EOS/EOL options.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ]
+  },
+  "x215": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "blade",
+    "note": "Per compute blade, not X9508 chassis. 24 slots with both processors installed; 12 per processor, one slot per channel. No 2DPC.",
+    "sources": [
+      {
+        "title": "Cisco UCS AMD M8 Memory Guide — memory organization and population rules",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-m8-memory-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": "2026-09-07",
+        "loc": "Table 1 Main Memory Features, p4; Table 5 allowed CPU/DIMM counts, p8",
+        "revision": "Rev A.18",
+        "date": "Rev A.18 · 7 Sep 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    }
+  },
+  "x410": {
+    "maxProcessors": 4,
+    "dimmSlots": 64,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "blade",
+    "note": "Per two-slot compute blade, not X9508 chassis. Four processors and 64 slots; 16 slots on 8 channels per processor. RDIMM 1DPC or 2DPC; MRDIMM is not supported.",
+    "sources": [
+      {
+        "title": "Cisco UCS Intel M8 Memory Guide — tables 1.0, 1.1 and population rules",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-intel-m8-memory-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      4
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "xe130": {
+    "maxProcessors": 1,
+    "dimmSlots": 8,
+    "channelsPerCpu": 4,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "node",
+    "note": "Per XE130c node: one processor, four memory channels and eight DIMM slots. Qualified 2, 4 or 8 RDIMMs; up to five nodes fit an XE9305 chassis.",
+    "sources": [
+      {
+        "title": "Cisco UCS XE130c M8 Data Sheet — product specifications",
+        "url": "https://www.cisco.com/site/us/en/products/collateral/computing/unified-edge/ucs-xe130c-m8-compute-node-ds.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "Cisco Unified Edge M8 Memory Guide — tables 1, 3, 4, 6 and 7",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/unified-edge/ucs-xe130c-m8-compute-node-memory-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "nodesPerChassis": 5,
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "xe150": {
+    "maxProcessors": 1,
+    "dimmSlots": 8,
+    "channelsPerCpu": 4,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "node",
+    "note": "Per XE150c node: one processor, four memory channels and eight DIMM slots. Qualified 2, 4 or 8 RDIMMs; up to two nodes fit an XE9305 chassis.",
+    "sources": [
+      {
+        "title": "Cisco UCS XE150c M8 Data Sheet — product specifications",
+        "url": "https://www.cisco.com/site/us/en/products/collateral/computing/unified-edge/ucs-xe150c-m8-compute-node-ds.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "Cisco Unified Edge M8 Memory Guide — tables 1, 3, 4, 6 and 7",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/unified-edge/ucs-xe130c-m8-compute-node-memory-guide.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "nodesPerChassis": 2,
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "c245m6": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "memoryTypes": [
+      "DDR4 RDIMM",
+      "DDR4 LRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR4 RDIMM": [
+        1,
+        2
+      ],
+      "DDR4 LRDIMM": [
+        1,
+        2
+      ]
+    },
+    "note": "Sixteen slots per installed CPU; 32 total with two. Eight channels per CPU, up to two DIMMs each. Do not mix RDIMM and LRDIMM.",
+    "sources": [
+      {
+        "title": "Cisco UCS C245 M6 SFF Spec Sheet",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/c245m6-sff-specsheet.pdf",
+        "loc": "Table 5 pp16–17; approved CPU configurations p18; memory pp19–23; front view p7",
+        "scope": "EPYC Rome/Milan/Milan-X CPU choices, 1/2 CPU configurations, 32 DDR4 DIMM slots and chassis shape.",
+        "date": "Rev A.67 · 29 Sep 2026",
+        "publicationDate": "2026-09-29",
+        "reviewed": "2026-10-09",
+        "revision": "Rev A.67 · 29 Sep 2026"
+      }
+    ],
+    "verified": "2026-10-09"
+  },
+  "c225m6": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "16 slots per installed CPU on eight channels. Supported 1DPC and 2DPC populations have different speed limits.",
+    "sources": [
+      {
+        "title": "Cisco UCS C225 M6 SFF Rack Server Spec Sheet",
+        "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/c225-m6-sff-specsheet.pdf",
+        "loc": "Overview p5; CPU tables pp18–20; memory pp21–25; GPU Table15 p38; management p46",
+        "revision": "Rev A.61 · 7 May 2026",
+        "date": "Rev A.61 · 7 May 2026",
+        "publicationDate": "2026-05-07",
+        "reviewed": "2026-10-09",
+        "scope": "Exact model hardware/configuration evidence; availability is separate."
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR4 RDIMM",
+      "DDR4 LRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR4 RDIMM": [
+        1,
+        2
+      ],
+      "DDR4 LRDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsNote": "M6S establishes one- and two-CPU support. M6N has conflicting CPU-population language in the OEM Spec Sheet; verify the exact chassis/BOM."
+  }
+}

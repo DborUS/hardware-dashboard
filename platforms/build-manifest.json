@@ -1,0 +1,37 @@
+{
+  "version": "1.2.0",
+  "reviewedAt": "2026-10-09",
+  "scope": "A curated, source-linked platform reference for learning and FAE shortlisting. Coverage does not represent the full OEM catalog or current inventory.",
+  "modelCount": 102,
+  "claimRecordCount": 550,
+  "uniqueSourceCount": 319,
+  "oemCounts": {
+    "ucs": 14,
+    "hpe": 23,
+    "dell": 21,
+    "lenovo": 19,
+    "supermicro": 25
+  },
+  "contentHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
+  "pageHashes": {
+    "index.html": "1b78fcc7817105fd45bd349f69f176c6029ab012ae0531748ae546f37f261f24",
+    "ucs-field-guide.html": "47cc78a36abc44ee40e16c752148f9d4a2806788ea6f91b72dd9bb231711e5eb",
+    "hpe-field-guide.html": "e588166ccd33f6fe45e6918f26b6bb94f4f591d9bacb76b3d7e6fefba7105eb9",
+    "dell-field-guide.html": "177b1502a928a6f3ac4b25711036ccfabc4ee1889192cfc3a000bc1ae19f96e6",
+    "lenovo-field-guide.html": "6a60503cc39fd80bfb90d7826fa72af70a64578f98d75ef66e12b48eaa2c38e7",
+    "supermicro-field-guide.html": "3a76d7cad73f87e58303a78b83f9ef5c2242e34ceda3df1db35a29389b05aebd"
+  },
+  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "upstreamBuiltAt": "2026-10-09T18:20:55.503Z",
+  "integrationAsOf": "2026-10-09",
+  "integration": {
+    "revision": "chipindex-platforms-art-2",
+    "canonicalRoute": "platforms/index.html",
+    "upstreamBuildHash": "0223347363ce1fe419ed96240e869de62d40d5c072c959bde03ed01775b1bc13",
+    "upstreamCatalogHash": "3c9c7dcf3716d2a4df87ccb570ca9518341d63c8339d41bbc962b0cadc8214ef",
+    "catalogFileSha256": "4a5f0cd4019b290e43b0590e0488036785b88bd970dc351a4cc7679e3aca6d49",
+    "upstreamCatalogFileSha256": "4ca6ec96cd6ce5a74ba9db3c89692c4c3f109f8e0fd667fc6ea27c974233631a",
+    "reviewedArtChanges": 14,
+    "scope": "Reviewed exterior illustrations updated. All hardware, memory, support, generation and lifecycle fields are unchanged."
+  }
+}

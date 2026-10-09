@@ -11,6 +11,9 @@ js/data/amd-gpu-data.json text eol=crlf
 docs/MOBILE-TESTING.md     text eol=crlf
 tools/build-amd-data.py    text eol=crlf
 
+# Generated platform review notes participate in byte-for-byte build checks.
+platforms/*.txt text eol=lf
+
 # Retained official evidence is hashed byte-for-byte; preserve its original bytes.
 tools/spec-import-fixtures/*.csv -text
 

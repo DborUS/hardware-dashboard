@@ -1,0 +1,87 @@
+Independent Cisco/HPE broad AMD FAE audit — 9 October 2026
+Build audited: catalog 1.1.0, reviewed 2026-10-09, 92 total profiles.
+Scope: all 13 Cisco and all 19 HPE records inspected locally for CPU families, processor counts, DIMMs/channels/DPC, GPU options, cooling, lifecycle, dates, sources and coverage. Fresh official-document verification concentrated on AMD platforms, unusual memory topology, accelerator support and lifecycle. This is not a claim that every SKU in every QuickSpecs has been requalified. No app files changed.
+
+P1 — Two Cisco MI210 paths are omitted from supported-product discovery.
+Observed: ucs:c245 and ucs:x215 have gpuOptions=[] and amdGpuStatus=not-established. Catalog lines 6295/6328 and 7329/7363. Finder hides not-established relationships by default for a selected accelerator, so MI210 searches miss both.
+Official evidence:
+1. C245 M8 current spec sheet Rev A.41, 7 September 2026, Table 14, printed page 34: UCSC-GPU-MI210, 300 W / 64 GB, up to three GPUs, slots 2/5/7. Associated text requires GPU low-profile heatsinks, air blocker, air duct, and UCS-P100CBL-240-D power cable. This is the available-option table, not just spare parts.
+https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-sff-rack-server.pdf
+2. X440p spec sheet, Table 4 printed page 9: UCSX-GPU-MI210 on UCSX-440P-D with M8, risers 1A/2A, maximum two; footnote excludes X210c. Requires appropriate X9416 X-Fabric modules and mezzanine adapter.
+https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-x-series-modular-system/x440p-specsheet.pdf
+3. UCS Manager 4.3 release notes explicitly associate UCSX-GPU-MI210 with X215c M8 and UCSC-GPU-MI210 with C245 M8; X215c min 4.3(6a), C245 addition under 4.3(5c).
+https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/release/notes/b_release-notes-ucsm-4_3.html
+4. Intersight 5.3(0.250001) release notes also explicitly support MI210 with X215c.
+https://www.cisco.com/c/en/us/td/docs/unified_computing/Intersight/Server-Firmware/4_3/b_intersight_server_fw_rn_4_3.html
+Recommendation: model both qualified hardware routes, preserve firmware/PID/riser/CPU pairing scope and independently unverified availability. Do not generalize X440p support to the X580p. Existing caution about X580p is useful but does not justify omitting X440p.
+
+P1/P2 — HPE cooling filters still produce false negatives.
+Observed: DL325 Gen12 and DL345 Gen12 are Air-only, with no supportedCooling alternatives. Catalog lines 8465 and 8832; source work/fae-hpe.json lines198/308. Finder coolingOptions (work/finder.js37) therefore excludes both for Liquid.
+Official DL325 QuickSpecs lists Direct Liquid Cooling Cold Plate Module P80827-B21, plus required whole-rack infrastructure; DL345 lists P81123-B21. Both explicitly advertise DLC as an option. DL325 also has a closed-loop internal liquid module, which is different from facility DLC and should not be flattened into an ambiguous liquid label.
+https://www.hpe.com/us/en/collaterals/collateral.a50009232enw.html (Power and Cooling; web lines1589–1607)
+https://www.hpe.com/us/en/collaterals/collateral.a50009233enw.html (Power and Cooling; web lines1603–1607)
+Also DL525 Gen13 is Configuration-dependent with no supportedCooling, even though HPE's product page expressly says Air and DLC. Thus it disappears under either filter despite the announced relationship.
+https://www.hpe.com/be/en/products/compute/proliant/dl525-gen13.html
+Recommendation: audit structured cooling across remaining HPE models, add recorded air/DLC alternatives and exact conditions, preserve announced lifecycle for Gen13. Clearly distinguish facility DLC vs closed-loop liquid cooled with room air.
+
+P2 — Installed-base and some current AMD offerings remain major gaps.
+Catalog coverage HPE (around line24356 onward) is explicitly not-researched for EPYC7002/7003; only DL365/DL385 cover HPE9004. No DL325/DL345 Gen11, no Gen10 Plus variants, no Cray XD675/295v. Cisco C225 M6 also absent. Coverage caveat is honest; nevertheless these are directly relevant to the requested FAE use case.
+Concrete consequences: HPE + 9004 + max1socket yields no HPE result despite DL325/345 Gen11; HPE + MI300X yields none despite XD675; HPE + MI210 yields none despite XD295v documented by HPE; a customer saying DL385 Gen10 Plus v2 cannot be decoded.
+Official missing-profile anchors:
+DL325 Gen11: one CPU, 9004/9005, 12slots/12channels/1DPC.
+https://www.hpe.com/psnow/doc/a50004297enw
+DL345 Gen11: one CPU, 9004/9005, 12slots/12channels/1DPC.
+https://www.hpe.com/us/en/collaterals/collateral.a50004298enw.html
+DL325 Gen10 Plus v2 (7003):
+https://www.hpe.com/psnow/doc/a50002564enw
+DL385 Gen10 Plus v2 (7003 and selected7002):
+https://www.hpe.com/psnow/doc/a50002560enw
+DL365 Gen10 Plus (7003):
+https://www.hpe.com/psnow/doc/a50002558enw
+XD675: official User Guide lists dual9004, MI300X,24RDIMM, air fan system.
+https://support.hpe.com/hpesc/public/docDisplay?docId=sd00004985en_us&docLocale=en_US&page=GUID-EF3D1BF3-4F65-4C58-86D3-744201C1050A.html
+HPE AMD portfolio lists XD295v with MI210 and 4th/5thGenEPYC. Exact QS/configuration still needed before adding a fully qualified record.
+https://www.hpe.com/uk/en/solutions/amd.html
+C225 M6: official AAG says one/two7003,32DIMMslots, DDR4; product release August2021. It is distinct from single-socket C225M8.
+https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/nb-06-ucs-c225-m6-rack-serv-aag-cte-en.html
+Recommendation: prioritize these recognizable AMD paths before more obscure new profiles; retain exact Gen10/Plus/v2 distinctions and explicit partial coverage.
+
+P2 — Documented-installed-processor filter unnecessarily excludes HPE one-CPU configurations.
+Observed: DL360 Gen12, DL380 Gen12, Synergy480 Gen12, ML350 Gen12 record only installedCPUCounts=[2] plus 'other populations not established'. Catalog lines9140,9521,10702,10887; work/memory-hpe.json163,228,424,457. This is logically conservative but materially incomplete because existing OEM sources document one-processor cases.
+DL360 current QS explicitly offers 1P and 2P fan kits and one-CPU SFF/LFF minimum configurations.
+https://www.hpe.com/ie/en/collaterals/collateral.a50006984enw.html
+ML350 current QS memory rules state half slots usable when one processor installed, and SFF/LFF minimum includes one CPU and one DIMM (web1392,1447,1455).
+https://www.hpe.com/us/en/collaterals/collateral.a50006995enw.html
+DL380 QS describes one-CPU OCP lane configurations.
+https://www.hpe.com/nl/en/collaterals/collateral.a00073551enw.html
+Synergy480 QS v2 technical specifications gives minimum one processor + one DIMM; current direct HTML access was intermittent in this audit. This finding is positive documented support, not a new availability assertion.
+https://www.hpe.com/psnow/doc/a50009201enw
+Recommendation: record positive1/2CPU cases with relevant chassis restrictions; do not require2CPU merely because the headline says2socket. Prioritize AMD counts first, then cross-vendor Intel comparison completeness.
+
+P3 — C245 M8 first-announcement month is wrong in shared generation story.
+Observed: shared M8 summary says AMD C225/C245/X215c all announcedJune2024; C245 model note cites June4. Catalog6429, work/ucs-generation-data.json138,189. Year2024 remains correct.
+Cisco's model FAQ explicitly says C245M8 announcedFebruary6,2024, quotes earlyFebruary and ordersMay. June announcement re-listed the platform alongside C225/X215c.
+https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-rack-server-faq.html
+Recommendation: separate earliest C245 announcement from June portfolio expansion; avoid presenting later roundup as first introduction.
+
+P2/P3 — Gen13 evidence was integrated selectively and stale unknown statements remain.
+DL585a record says exact CPU part qualification and particular NVIDIA/AMD accelerator products are not established. The very launch QuickSpecs already cited for its memory lists CPU options and NVIDIA RTX PRO6000 BSE S6A73C / RTX PRO6000D S6W21C,0/1/2/4/8GPU configurations, no mixing. This does not establish AMDGPU or shipping; keep those unknown/announced, but update the explicit 'no particular NVIDIA' statement.
+https://www.hpe.com/no/en/collaterals/collateral.a50014668enw.html (Step2/3, V1 7Oct2026)
+The same HPE launch detail cited for XD245/XD285 explicitly mentions MRDIMM12800 support, but computeMemory has no memoryTypes. Null slots/DPC is appropriate; unknown physical slots need not erase separately documented memory-type support.
+https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922
+
+Important checks that passed:
+- C845A M8's unusual eight wired memory channels per CPU is correct. Cisco spec explicitly says eight channels,2DPC,32slots; do not infer12 from EPYC family architecture.
+https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c845a-m8-rack-server-spec-sheet.pdf
+- Cisco C225/C245/X215cM8 counts and1DPC agree with current AMD M8 Memory Guide, Table1. Model-specific wired topology is handled well.
+https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-m8-memory-guide.pdf
+- C845A MI210/MI350P hardware options match official current data sheet/service guide.
+- C885A MI350X last order15Oct2026 and last support31Oct2029 match amended EOS notice; scoped-not-universal lifecycle approach is good. MI300X/H200 previous last order25Jun2026 correctly separated.
+https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c885a-m8-rs-amd-mi350x-gpus-eol.html
+- DL385 Gen11 MI350P plannedDecember2026 shipment and450W cap match current QuickSpecs (web1859–1860). No fabricated immediate availability.
+- XD685 MI355X S6J64A + S6M06A DLC, two identical CPUs,24slots/12channels/1DPC and3TB current documented limit agree with current QS.
+https://www.hpe.com/us/en/collaterals/collateral.a00073553enw.html
+- DL325/345Gen12 24slots,12channels,1/2DPC agree with QS. An eventual memory-performance enhancement should distinguish DIMM label speed from actual configured speed; these Gen12 systems do not necessarily operate their6400-rated DIMMs at6400.
+- HPE Gen13 is appropriately announced, not implied shipping. XD2451OU/2OU conflict is explicitly disclosed instead of fabricated certainty.
+
+Assessment: substantially better learning and shortlisting experience, with unusually good memory topology and scoped lifecycle treatment. However, the two Cisco MI210 omissions are directly contrary to the core 'which platforms support AMD products' use case; combined with cooling false negatives and missing HPE installed-base profiles, these prevent treating the current catalog as an exhaustive AMD support index. Improve documented coverage/data completeness before more visual work.

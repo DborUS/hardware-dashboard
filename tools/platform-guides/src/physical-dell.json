@@ -1,0 +1,324 @@
+[
+  {
+    "id": "r470",
+    "shape": "physical-r470",
+    "view": "1U · optional security bezel",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-r470",
+    "sourceTitle": "Dell PowerEdge R470 product gallery",
+    "locator": "Left-facing gallery photograph",
+    "features": [
+      "Silver geometric security bezel",
+      "Narrow 1U front and silver rack ears"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "r570",
+    "shape": "physical-r570",
+    "view": "2U · optional security bezel",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-r570",
+    "sourceTitle": "Dell PowerEdge R570 product gallery",
+    "locator": "Forward-facing gallery photograph",
+    "features": [
+      "Silver geometric security bezel over black carrier area",
+      "2U rack front"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "r670",
+    "shape": "physical-r670",
+    "view": "1U · cold-aisle E3.S / I/O layout",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-r670",
+    "sourceTitle": "Dell PowerEdge R670 product gallery",
+    "locator": "Forward-facing gallery photograph",
+    "features": [
+      "Front adapter openings to the left",
+      "Central horizontal E3.S drive stacks",
+      "Right-hand I/O and control area"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "r770",
+    "shape": "physical-r770",
+    "view": "2U · 16 SFF front",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-r770",
+    "sourceTitle": "Dell PowerEdge R770 product gallery",
+    "locator": "Forward-facing gallery photograph",
+    "features": [
+      "Two banks of eight vertical SFF carriers",
+      "Broad central airflow panel",
+      "Silver rack ears"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "r6715",
+    "shape": "physical-r6715",
+    "view": "1U · optional security bezel",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-r6715",
+    "sourceTitle": "Dell PowerEdge R6715 product gallery",
+    "locator": "Forward-facing gallery photograph",
+    "features": [
+      "Silver geometric security bezel",
+      "Narrow 1U chassis proportions"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "r7715",
+    "shape": "physical-r7715",
+    "view": "2U · optional security bezel",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-r7715",
+    "sourceTitle": "Dell PowerEdge R7715 product gallery",
+    "locator": "Forward-facing gallery photograph",
+    "features": [
+      "Silver geometric security bezel",
+      "Taller 2U face with black carriers behind grille"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "r6725",
+    "shape": "physical-r6725",
+    "view": "1U · optional security bezel",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-r6725",
+    "sourceTitle": "Dell PowerEdge R6725 product gallery",
+    "locator": "Forward-facing gallery photograph",
+    "features": [
+      "Silver geometric security bezel",
+      "Narrow 1U chassis proportions"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "r7725",
+    "shape": "physical-r7725",
+    "view": "2U · optional security bezel",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-r7725",
+    "sourceTitle": "Dell PowerEdge R7725 product gallery",
+    "locator": "Forward-facing gallery photograph",
+    "features": [
+      "Silver geometric security bezel",
+      "Taller 2U face with black carriers behind grille"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "mx760",
+    "shape": "physical-mx760",
+    "view": "Single compute sled · 8 E3.S",
+    "sourceUrl": "https://www.dell.com/en-au/shop/ipovw/poweredge-mx760c",
+    "sourceTitle": "Dell PowerEdge MX760C product gallery",
+    "locator": "Forward-facing and left-facing gallery photographs",
+    "features": [
+      "Narrow full-height single-width sled",
+      "Upper ventilation and control panel",
+      "Two groups of four vertical E3.S drives",
+      "Long insertion chassis behind the small front face"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. MX7000 enclosure is required; eight-E3.S and six-SFF fronts are alternatives.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "t560",
+    "shape": "physical-t560",
+    "view": "Tower · optional front bezel",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-t560",
+    "sourceTitle": "Dell PowerEdge T560 product gallery",
+    "locator": "Gallery photograph of tower with bezel",
+    "features": [
+      "Blue-black patterned bezel",
+      "Tall narrow face and deep silver side"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts. Stabilizing feet are omitted from this simplified illustration.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xr8720",
+    "shape": "physical-xr8720",
+    "view": "Half-width 2U node · front I/O",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-xr8720t",
+    "sourceTitle": "Dell PowerEdge XR8720T product gallery",
+    "locator": "Optimized single-node front photograph and side photograph",
+    "features": [
+      "Two upper front adapter rows",
+      "Lower management and network connections",
+      "Removable half-width node distinct from two-node XR8000r chassis"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. XR8000r enclosure is required; this illustration is one node, not the entire chassis.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xe7740",
+    "shape": "physical-xe7740",
+    "view": "4U · security bezel fitted",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-xe7740",
+    "sourceTitle": "Dell PowerEdge XE7740 product gallery",
+    "locator": "Forward-facing gallery photograph",
+    "features": [
+      "Full-height silver geometric security bezel",
+      "Wide 4U chassis",
+      "Bezel hides separate front drive and GPU-service zones"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xe7745",
+    "shape": "physical-xe7745",
+    "view": "4U · security bezel fitted",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-xe7745",
+    "sourceTitle": "Dell PowerEdge XE7745 product gallery",
+    "locator": "Forward-facing and right-facing gallery photographs",
+    "features": [
+      "Full-height silver geometric security bezel",
+      "Wide 4U chassis",
+      "Unbezeled reference shows storage strip above GPU-service zone"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xe9680",
+    "shape": "physical-xe9680",
+    "view": "6U · compute bezel fitted",
+    "sourceUrl": "https://www.dell.com/ja-jp/shop/ipovw/poweredge-xe9680",
+    "sourceTitle": "Dell PowerEdge XE9680 product gallery",
+    "locator": "Forward-facing and right-facing gallery photographs",
+    "features": [
+      "Upper compute/storage section with geometric bezel",
+      "Large lower I/O and ventilation section",
+      "Tall 6U chassis"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xe9780",
+    "shape": "physical-xe9780",
+    "view": "10U · compute bezel fitted",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-xe9780",
+    "sourceTitle": "Dell PowerEdge XE9780 product gallery",
+    "locator": "Forward-facing gallery photograph",
+    "features": [
+      "Large upper air grille",
+      "Service strip above central compute bezel",
+      "Lower adapter and ventilation zone",
+      "Near-square ten-U front"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xe9785",
+    "shape": "physical-xe9785",
+    "view": "10U · compute bezel fitted",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-xe9785",
+    "sourceTitle": "Dell PowerEdge XE9785 product gallery",
+    "locator": "Forward-facing gallery photographs, bezel on and off",
+    "features": [
+      "Large upper air grille",
+      "Service strip above central compute bezel",
+      "Lower adapter and ventilation zone",
+      "Near-square ten-U front"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population. The optional bezel hides configuration-specific bay layouts.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "xe9785l",
+    "shape": "physical-xe9785l",
+    "view": "3 OU · eight-U.2 liquid-cooled node",
+    "sourceUrl": "https://www.dell.com/en-us/shop/ipovw/poweredge-xe9785l",
+    "sourceTitle": "Dell PowerEdge XE9785L product gallery",
+    "locator": "Forward-facing gallery photograph",
+    "features": [
+      "Central two banks of four U.2 drive carriers",
+      "Adapter opening banks on both sides",
+      "Wide shallow-height ORv3 front",
+      "Side cam-lever/handle regions"
+    ],
+    "caveat": "Reference-based exterior schematic; perspective depth, grille pattern and tiny controls are simplified. Illustrated configuration is not a statement of maximum drive or adapter population.",
+    "reviewStatus": "verified"
+  },
+  {
+    "id": "r7625",
+    "shape": "installed-r7625",
+    "view": "2U rack · sixteen-SFF front, bezel removed",
+    "sourceUrl": "https://www.dell.com/support/manuals/en-in/oth-xlr7625/per7625_ism_pub/front-view-of-the-system?guid=guid-dee70ecf-dc1c-439b-824e-d6f4a3cd3477&lang=en-us",
+    "sourceTitle": "Dell PowerEdge R7625 Installation and Service Manual",
+    "locator": "Front view of the system · Figure 2, Front view of 16 × 2.5-inch drive system",
+    "features": [
+      "Eight vertical SFF carriers on either side of a broad central airflow blank",
+      "Dark rack ears with lower recessed latches",
+      "Left status strip and right power, USB, VGA and iDRAC controls"
+    ],
+    "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://dl.dell.com/content/guides/public/Html/per7625_ism_pub/images/GUID-D7160620-E12A-41A0-AE93-79324323D63D-low.jpg",
+    "reviewMethod": "Opened the official manual, followed its front-view image source, and visually inspected the browser-rendered Figure 2.",
+    "reviewedAt": "2026-10-09"
+  },
+  {
+    "id": "r7615",
+    "shape": "installed-r7615",
+    "view": "2U rack · twenty-four-SFF front, bezel removed",
+    "sourceUrl": "https://www.dell.com/support/manuals/en-us/oth-r7615/per7615_ism_pub/front-view-of-the-system?guid=guid-48915c14-dab6-4d5b-a446-80bfb9ea4580&lang=en-us",
+    "sourceTitle": "Dell PowerEdge R7615 Installation and Service Manual",
+    "locator": "Front view of the system · Figure 1, Front view of 24 × 2.5-inch drive system",
+    "features": [
+      "Twenty-four vertical SFF carriers with orange release details",
+      "Dark rack ears with lower recessed latches",
+      "Left status strip and right power, USB, VGA and iDRAC controls"
+    ],
+    "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+    "reviewStatus": "verified",
+    "sourceImageUrl": "https://dl.dell.com/content/guides/public/Html/per7615_ism_pub/images/GUID-BBE1D8F7-ED1A-4AD0-8994-E450B88C1613-low.jpg",
+    "reviewMethod": "Opened the official manual, followed its front-view image source, and visually inspected the browser-rendered Figure 1.",
+    "reviewedAt": "2026-10-09"
+  },
+  {
+    "id": "r7515",
+    "shape": "installed-dell-r7515",
+    "features": [
+      "Twelve horizontal LFF carriers in three rows of four",
+      "Dark rack ears with lower recessed latches",
+      "Left status strip and right power, USB, VGA and iDRAC controls"
+    ],
+    "view": "2U rack · twelve-LFF front, bezel removed",
+    "sourceUrl": "https://i.dell.com/sites/csdocuments/product_docs/en/poweredge-r7515-technical-guide.pdf",
+    "sourceTitle": "Dell EMC PowerEdge R7515 Technical Guide",
+    "locator": "Page 9 · Figure 2, Front view of the 12 × 3.5-inch drive system",
+    "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+    "reviewStatus": "verified",
+    "reviewMethod": "Downloaded the official technical guide, rendered page 9 with Poppler, and visually inspected Figure 2.",
+    "reviewedAt": "2026-10-09"
+  },
+  {
+    "id": "r7525",
+    "shape": "installed-dell-r7525",
+    "features": [
+      "Twenty-four vertical SFF carriers with orange release details",
+      "Dark rack ears with lower recessed latches",
+      "Left status strip and right power, USB, VGA and iDRAC controls"
+    ],
+    "view": "2U rack · twenty-four-SFF front, bezel removed",
+    "sourceUrl": "https://i.dell.com/sites/csdocuments/Product_Docs/en/dell-emc-poweredge-r7525-technical-guide.pdf",
+    "sourceTitle": "Dell EMC PowerEdge R7525 Technical Guide",
+    "locator": "Page 9 · Figure 1, Front view of the 24 × 2.5-inch drive system",
+    "caveat": "Reference-based illustration of the stated front configuration with the bezel removed. Depth, grille texture and tiny controls are simplified. Other supported drive cages and optional bezels look different; pictured bays are not a claim about maximum drive population or a complete bill of materials.",
+    "reviewStatus": "verified",
+    "reviewMethod": "Downloaded the official technical guide, rendered page 9 with Poppler, and visually inspected Figure 1.",
+    "reviewedAt": "2026-10-09"
+  }
+]

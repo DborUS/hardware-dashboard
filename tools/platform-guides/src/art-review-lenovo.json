@@ -1,0 +1,19 @@
+{
+  "reviewedAt": "2026-10-09",
+  "models": [
+    {
+      "id": "lenovo:sr665original",
+      "sourceUrl": "https://lenovopress.lenovo.com/lp1269-thinksystem-sr665-server",
+      "sourceImageUrl": "https://lenovopress.lenovo.com/assets/images/LP1269/SR665%20front%20view%20with%20callouts.png",
+      "observedFeatures": [
+        "Twenty-four narrow vertical SFF carriers across the front",
+        "Diagnostics and optional VGA on the left rack ear",
+        "Operator panel and two USB ports on the right rack ear",
+        "Dark carrier faces, thin red upper accents and lower pull handles"
+      ],
+      "configuration": "2U front \u00b7 representative 24-SFF configuration",
+      "method": "Official front-view image visually inspected; simplified SVG redrawn to match visible carrier and control layout.",
+      "result": "Model-specific SVG replaces generic labeled box; representative configuration caveat retained."
+    }
+  ]
+}

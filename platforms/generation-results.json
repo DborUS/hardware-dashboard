@@ -1,0 +1,46 @@
+{
+  "summaries": [
+    {
+      "vendor": "ucs",
+      "models": 14,
+      "generations": 6,
+      "dateSources": 14,
+      "modelDates": 14
+    },
+    {
+      "vendor": "hpe",
+      "models": 23,
+      "generations": 10,
+      "dateSources": 20,
+      "modelDates": 23
+    },
+    {
+      "vendor": "dell",
+      "models": 21,
+      "generations": 4,
+      "dateSources": 20,
+      "modelDates": 21
+    },
+    {
+      "vendor": "lenovo",
+      "models": 19,
+      "generations": 7,
+      "dateSources": 29,
+      "modelDates": 19
+    },
+    {
+      "vendor": "supermicro",
+      "models": 25,
+      "generations": 9,
+      "dateSources": 38,
+      "modelDates": 13
+    }
+  ],
+  "failures": [],
+  "version": "1.2.0",
+  "catalogHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
+  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "generatedBy": "tools/build-platform-guides.py",
+  "exitCode": 0,
+  "failed": 0
+}

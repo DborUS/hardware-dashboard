@@ -3,7 +3,7 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-10-08 (complete benchmark publication repair)
+**Last updated:** 2026-10-09 (reviewed platform illustrations; publication pending)
 **Current version:** Public beta 0.0.4
 **Previous release:** Public beta 0.0.3 (`fdf51f1`)
 **Publication context:** Repair commits `9edd363` and `1933860` are pushed to `main`. Complete hosted validation passed for `1933860` ([run 37779447987](https://github.com/DborUS/hardware-dashboard/actions/runs/37779447987)), and Pages deployment succeeded ([run 37779446951](https://github.com/DborUS/hardware-dashboard/actions/runs/37779446951)). Live benchmark data and scripts match the repaired local files.
@@ -20,6 +20,113 @@ Existing dashboard small controls and sidebar clipping were observed in the
 layout audit. The benchmark page now also shows catalog CPU specifications
 for all 646 scored CPU models; the latest benchmark and dashboard smoke tests
 pass after this addition.
+
+## 2026-10-09 — Source-reviewed server drawings integrated locally
+
+Fourteen generic installed-base illustrations were replaced: all ten new profiles
+plus four older generic drawings. The design team inspected official OEM photos,
+front-view diagrams and HPE QuickSpecs images before drawing. Source locators,
+review methods and depicted-configuration limits are retained in four
+`art-review-*.json` records and the model illustration metadata. The Finder and
+all five OEM guides share the reviewed drawings. `platforms/illustration-review.html`
+compares the fourteen replacements, six earlier formatting examples and all 102
+platforms; it is linked from the Finder and specification review.
+
+All hardware, CPU/GPU support, memory, generation, lifecycle and source facts are
+unchanged. Original `import-provenance.json` remains untouched. The separate
+`art-review-baseline.json`, `art_revision.py` and `approved-art-revision.json`
+permit only the fourteen explicit drawing/evidence revisions. An independent
+check confirmed the other 88 illustrations are byte-identical and rejected
+seven mutations spanning hardware facts, sources and unapproved artwork.
+
+The prior corrections remain: upright Synergy blade; clean SE100, storage and
+tower geometry; no tower feet; prominent processor/DIMM/DPC blocks with scope;
+separate host-CPU and accelerator qualification; date/evidence distinctions;
+and no Field Exercise tab. HPE XD245/XD285 and Supermicro SBA-817V7-1N remain
+explicitly labeled contextual schematics because the reviewed sources did not
+establish their exact isolated-model exteriors. Do not claim all 102 exteriors
+received a new physical-reference review in this session.
+
+Current verification:
+
+- Five automated platform suites pass, including 50 Finder workflow/regression checks.
+- Fourteen current browser checks pass: revised art, earlier formatting examples,
+  all-card containment, source disclosures, comparison reload, legacy redirects,
+  five OEM guide deep links, and desktop/1280px/390px/320px layouts. All 102 Finder
+  and gallery cards fit 320px without card/page overflow; no duplicate SVG IDs or
+  browser errors were observed.
+- Independent execution of the generated OEM-guide renderers confirms all fourteen
+  drawings and their metadata match the Finder. Hardware-preservation and
+  seven negative mutation checks pass.
+- The full thirteen-stage project validation passed: generated data/order,
+  platform integration, retained-source benchmark replay, all 55 regressions,
+  benchmark smoke, dashboard smoke and layout audit. The main-site audit retains
+  its earlier small-control/sidebar observations; the Platforms review found no
+  card/page overflow. Unknown labels in the new gallery were corrected and
+  rechecked for cell overlap at confirmed 320px and 1280px widths.
+
+Current UI hash: `122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173`.
+Current catalog hash: `bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0`.
+Current integration evaluation: `platforms/implementation-review.html` (PASS).
+Browser evidence: `platforms/integration-browser-results.json` (14 checks).
+The earlier 13-check browser report is retained at
+`tools/platform-guides/reviews/integration-before-artwork.json` as historical evidence.
+Full-suite log: `tmp/platform-art-release-validation.log`.
+Final deterministic/integration gate: `tmp/platform-art-final-integration-check.log`.
+Independent checks: `tmp/check-art-embedding-independent.cjs`,
+`tmp/check-art-protection-independent.py`, `tmp/art-revision-negative-tests.json`.
+Local preview: `http://127.0.0.1:8767/hardware-dashboard/platforms/index.html#finder`.
+
+No commit, push or deployment performed. The existing Platforms visitor entry
+in `docs/UPDATE-QUEUE.md` was revised and remains pending publication. Review and
+commit commands are in `docs/PLATFORM-GUIDES.md`; Daniel owns publication.
+
+## 2026-10-09 — Initial Platforms integration, before artwork revision
+
+The verified v1.2.0 OEM field guides now live in this repository under
+`platforms/index.html`, with Products / Benchmarks / Platforms navigation on the
+main site and all six guide pages. The existing exact-CPU compatibility dialog
+adds a clearly broader Platform Finder link; its original compatibility data is
+unchanged. All 102 reviewed platform records, their server illustrations and the
+550-record source catalog are preserved exactly. HPE QuickSpecs remain the
+primary HPE configuration source; uncertainty and configuration restrictions stay
+visible.
+
+Maintained source and historical reviews are in `tools/platform-guides/`.
+`python tools/build-platform-guides.py` regenerates the static package without
+reading the sibling prototype project. The legacy `amd-platform-finder.html`
+redirect preserves query and fragment state. Relative routes were checked under
+`/hardware-dashboard/`. Shared navigation and the platform dialog use the
+`20261009-platform-integration-1` CSS revision. Generated platform review text
+has an explicit LF checkout rule for Windows/Linux consistency.
+
+Validation completed locally on October 9:
+
+- The complete `python tools/validate-release.py` command passed all 13 stages:
+  compilation/order, integration checks, retained-source benchmark replays, all
+  55 regression tests, benchmark browser smoke, dashboard smoke and layout audit.
+- The final integration gate passed: 34 artifacts regenerate byte-identically,
+  all 102 records and illustrations are unchanged, 189 local references and eight
+  shared navigation surfaces retain the project path, and five automated
+  platform suites match the current UI/catalog hashes.
+- The integrated browser review passed 13 checks covering the existing CPU
+  dialog, shared navigation, five OEM guides, model/evidence links, comparison
+  reloads, legacy filters, and 320px/1024px layouts. No JavaScript errors were
+  observed. Existing small-control and sidebar/text-clipping observations in the
+  main-site layout audit remain; no new page overflow was found in this review.
+
+Initial integrated UI hash: `2f3da376b8b546029b4966ad22edbef8f22f0af27228e58789c110cc07aa3b59`.
+Initial integrated catalog hash: `3c9c7dcf3716d2a4df87ccb570ca9518341d63c8339d41bbc962b0cadc8214ef`.
+Initial integration evaluation passed; the current report now covers the artwork revision above.
+Historical browser evidence: `tools/platform-guides/reviews/integration-before-artwork.json`.
+Local full-suite log: `tmp/platform-integration-release-validation.log`.
+Final package gate log: `tmp/platform-integration-check.log`.
+Maintenance/publication handoff: `docs/PLATFORM-GUIDES.md`.
+
+No commit, push or public deployment was performed. The visitor update remains
+pending in `docs/UPDATE-QUEUE.md`; the published beta 0.0.4 context above remains
+the last confirmed public deployment. Daniel owns the review/commit/publication
+step, followed by hosted validation and live-page confirmation.
 
 ## 2026-10-08 — Complete hosted browser validation
 

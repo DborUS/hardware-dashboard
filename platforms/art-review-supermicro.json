@@ -1,0 +1,96 @@
+{
+  "reviewedAt": "2026-10-09",
+  "scope": "Source-based visual review and original SVG replacement for the three new Supermicro platform profiles. Hardware specifications are unchanged.",
+  "method": "Official product pages were read and their image URLs identified from the page source. All four model reference images were opened and visually inspected in a dedicated browser tab, including the H15 front callout. The corresponding SVG output is separately reviewed by the integration owner.",
+  "implementation": "reviewed-art-supermicro.js",
+  "viewBox": "0 0 400 180",
+  "models": [
+    {
+      "model": "AS-2024US-TRT",
+      "id": "amdlegacy",
+      "shape": "installed-supermicro-amdlegacy",
+      "features": [
+        "Twelve horizontal LFF carrier faces in four columns and three rows",
+        "Black ventilated carriers with burgundy release ends",
+        "Large silver side pull handles and left status/control strip"
+      ],
+      "view": "2U front - twelve horizontal LFF carriers",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt",
+      "sourceTitle": "Supermicro AS-2024US-TRT product gallery",
+      "locator": "Product gallery main image: front face of the open-cover chassis",
+      "caveat": "Original simplified drawing of the photographed front. The source has its top cover open; the illustration closes it and omits hidden internals. Alternative drive interfaces and kits are not distinguished by this exterior.",
+      "reviewStatus": "verified",
+      "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-2024US-TRT_main.jpg",
+      "reviewedAt": "2026-10-09",
+      "visualReferenceInspected": true,
+      "specificationChanges": false,
+      "reviewMethod": "Opened and visually inspected the actual official product photograph in the browser; identified carrier orientation, grille arrangement, controls, handles and chassis proportions."
+    },
+    {
+      "model": "AS-8125GS-TNMR2",
+      "id": "mi300x",
+      "shape": "installed-supermicro-mi300x",
+      "features": [
+        "Broad silver upper mesh panel",
+        "Five separate fan grilles in a horizontal middle row",
+        "Lower vertical carrier/blank bank with yellow then burgundy release accents",
+        "Silver rack handles attached to the sides"
+      ],
+      "view": "8U front - upper mesh, middle fans, lower carrier bank",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2",
+      "sourceTitle": "Supermicro AS-8125GS-TNMR2 product gallery",
+      "locator": "Product gallery main image: complete closed chassis and front face",
+      "caveat": "Original simplified drawing of the OEM gallery chassis face, including carrier/blank positions. Their count is not a drive-support claim: the model specifies 12 standard plus 4 optional NVMe drives and 2 SATA drives. Configuration text remains authoritative; the exterior does not show internal GPUs or all ten system fans.",
+      "reviewStatus": "verified",
+      "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-8125GS-TNMR2_main.jpg",
+      "reviewedAt": "2026-10-09",
+      "visualReferenceInspected": true,
+      "specificationChanges": false,
+      "reviewMethod": "Opened and visually inspected the actual official product photograph in the browser; identified carrier orientation, grille arrangement, controls, handles and chassis proportions."
+    },
+    {
+      "model": "AS-2127H7-N",
+      "id": "h15hyper",
+      "shape": "installed-supermicro-h15hyper",
+      "features": [
+        "Eight vertical SFF carriers in the center, numbered 0-7 in the official callout",
+        "Yellow carrier releases at the bottom of the central bank",
+        "Wide black ventilated blank sections on both sides",
+        "Thin silver rack ears and left control strip"
+      ],
+      "view": "2U front - pictured eight-carrier configuration",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n",
+      "sourceTitle": "Supermicro AS-2127H7-N front-view callout",
+      "locator": "Front View - System: drive positions 0-7 and left power/UID/status controls",
+      "caveat": "Original simplified drawing of the official eight-bay front callout. Other backplanes and drive formats are alternative configurations; the drawing does not establish their support or exact part selection. Cover and depth are simplified.",
+      "reviewStatus": "verified",
+      "sourceImageUrl": "https://www.supermicro.com/files_SYS/images/System/AS%20-2127H7-N_callout_front.jpg",
+      "reviewedAt": "2026-10-09",
+      "visualReferenceInspected": true,
+      "specificationChanges": false,
+      "reviewMethod": "Opened and visually inspected both the official front-view callout (positions 0-7) and the product gallery photograph in the browser."
+    }
+  ],
+  "existingModelReview": {
+    "model": "SBA-817V7-1N",
+    "shape": "sm-amdblade",
+    "sourceUrl": "https://www.supermicro.com/en/aplus/superblade/module/sba-817v7-1n.php",
+    "sourceImageUrl": "https://www.supermicro.com/a_images/products/Aplus/SuperBlade/SBA-817V7-1N_spec.jpg",
+    "observed": "The published spec image shows ten slender blade positions within the full enclosure, with upper perforated sections and burgundy extraction latches, middle horizontal carrier stacks, and lower perforated sections. It does not show an isolated SBA-817V7-1N module.",
+    "unavailableReference": "The front-callout URL linked from the product HTML, https://www.supermicro.com/a_images/products/views/SBA-817V7-1N_callout_front.jpg, redirected to the Supermicro home page when opened on the review date.",
+    "recommendation": "Keep the existing 8U enclosure-context illustration and one-position highlight, clearly labeled representative enclosure context. Do not claim isolated-module or specific drive-option fidelity.",
+    "reviewStatus": "context-image-confirmed; isolated-module-not-established"
+  },
+  "preservedRequirements": [
+    "No invented internal parts",
+    "Connected chassis planes and attached handles",
+    "Correct wide 2U and taller 8U front proportions",
+    "No detached base boxes or tower feet",
+    "Art metadata exposes model-specific view, original OEM reference and configuration caveat"
+  ],
+  "limits": [
+    "Original simplified illustrations, not photographs or installation drawings.",
+    "The AS-8125GS-TNMR2 gallery face is representative; lower carrier/blank positions do not equal model drive support.",
+    "The AS-2127H7-N eight-bay front is one documented configuration, not all alternative backplanes."
+  ]
+}

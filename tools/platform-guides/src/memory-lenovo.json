@@ -1,0 +1,927 @@
+{
+  "sr630": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "Conventional variants have 32 physical slots, 16 local slots per installed CPU. 7DK1 Compute Complex Neptune has 16 physical slots, requires two CPUs and is 1DPC only. MRDIMM requires a qualified P-core CPU and 1DPC.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR630 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; One-processor configurations; Memory options; Compute Complex Neptune Core Module configuration notes; Memory options table 25; GPU adapters > Configuration rules",
+        "revision": "Updated 7 Oct 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "Neptune memory cooling: 16 slots / 1DPC. MRDIMM: 1DPC only.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsComplete": true,
+    "installedCPUCountsNote": "One or two CPUs in conventional variants; one CPU activates 16 local DIMMs with reduced PCIe/OCP I/O. CPU+memory Neptune variant 7DK1 requires two CPUs.",
+    "dimmSlotOptions": [
+      16,
+      32
+    ],
+    "dimmLabel": "16 / 32",
+    "memoryConfigurations": [
+      {
+        "id": "conventional",
+        "label": "32-slot conventional / CPU-only cooling",
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "dimmSlots": 32,
+        "channelsPerCpu": 8,
+        "dpc": [
+          1,
+          2
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM",
+          "DDR5 MRDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1,
+            2
+          ],
+          "DDR5 MRDIMM": [
+            1
+          ]
+        },
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "note": "One CPU activates 16 local slots. RDIMM allows 1DPC/2DPC; qualified P-core MRDIMM is 1DPC. CPU-only Neptune requires facility water and the model I/O layout."
+      },
+      {
+        "id": "neptune-compute",
+        "label": "7DK1 Neptune CPU + memory cooling",
+        "installedCPUCounts": [
+          2
+        ],
+        "dimmSlots": 16,
+        "channelsPerCpu": 8,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM",
+          "DDR5 MRDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1
+          ],
+          "DDR5 MRDIMM": [
+            1
+          ]
+        },
+        "supportedCooling": [
+          "Liquid"
+        ],
+        "note": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM requires a qualified P-core processor. The layout requires two CPUs and excludes processor SKUs limited to one-socket builds. GPUs are not supported in this Compute Complex Neptune configuration.",
+        "gpuSupport": "unsupported",
+        "gpuExclusionNote": "Lenovo prohibits GPUs with Compute Complex Neptune Core 7DK1; other chassis/cooling variants have their own GPU rules."
+      }
+    ]
+  },
+  "sr650": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "Conventional variants have 32 physical slots, 16 local slots per installed CPU. 7DK2 Compute Complex Neptune has 16 physical slots, requires two CPUs and is 1DPC only. MRDIMM requires a qualified P-core CPU and 1DPC.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR650 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; One-processor configurations; Memory options; Compute Complex Neptune Core Module configuration notes; Memory options table 20; GPU adapters > Configuration rules",
+        "revision": "Updated 24 Sep 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "Neptune memory cooling: 16 slots / 1DPC. MRDIMM: 1DPC only.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsNote": "One or two CPUs in conventional variants; one CPU activates 16 local DIMMs, risers 1/2 and OCP 1. CPU+memory Neptune variant 7DK2 requires two CPUs.",
+    "installedCPUCountsComplete": true,
+    "dimmSlotOptions": [
+      16,
+      32
+    ],
+    "dimmLabel": "16 / 32",
+    "memoryConfigurations": [
+      {
+        "id": "conventional",
+        "label": "32-slot conventional / CPU-only cooling",
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "dimmSlots": 32,
+        "channelsPerCpu": 8,
+        "dpc": [
+          1,
+          2
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM",
+          "DDR5 MRDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1,
+            2
+          ],
+          "DDR5 MRDIMM": [
+            1
+          ]
+        },
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "note": "One CPU activates 16 local slots. RDIMM allows 1DPC/2DPC; qualified P-core MRDIMM is 1DPC. CPU-only Neptune requires facility water and the model I/O layout."
+      },
+      {
+        "id": "neptune-compute",
+        "label": "7DK2 Neptune CPU + memory cooling",
+        "installedCPUCounts": [
+          2
+        ],
+        "dimmSlots": 16,
+        "channelsPerCpu": 8,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM",
+          "DDR5 MRDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1
+          ],
+          "DDR5 MRDIMM": [
+            1
+          ]
+        },
+        "supportedCooling": [
+          "Liquid"
+        ],
+        "note": "Two processors required. Sixteen physical slots total, eight per CPU, 1DPC only. Facility water required. MRDIMM requires a qualified P-core processor. The layout requires two CPUs and excludes processor SKUs limited to one-socket builds. GPUs are not supported in this Compute Complex Neptune configuration.",
+        "gpuSupport": "unsupported",
+        "gpuExclusionNote": "Lenovo prohibits GPUs with Compute Complex Neptune Core 7DK2; other chassis/cooling variants have their own GPU rules."
+      }
+    ]
+  },
+  "sr635": {
+    "maxProcessors": 1,
+    "dimmSlots": 12,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "12 RDIMM slots on one EPYC CPU; one slot per channel. Qualified 9004 and 9005 CPUs use different memory options and speeds.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR635 V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1609-thinksystem-sr635-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "sr655": {
+    "maxProcessors": 1,
+    "dimmSlots": 12,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "12 RDIMM slots on one EPYC CPU; one slot per channel. Qualified 9004 and 9005 CPUs use different memory options and speeds.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR655 V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1610-thinksystem-sr655-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "sr645": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 RDIMM slots with two CPUs; 12 per CPU. A one-CPU configuration makes only its local 12 slots available.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR645 V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1607-thinksystem-sr645-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "ThinkSystem SR645 V3: cooling configuration evidence",
+        "url": "https://lenovopress.lenovo.com/lp1607-thinksystem-sr645-v3-server",
+        "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes",
+        "revision": "Updated 6 Oct 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+        "date": "Updated 6 Oct 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "memoryConfigurations": [
+      {
+        "dimmSlots": 24,
+        "channelsPerCpu": 12,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1
+          ]
+        },
+        "id": "air",
+        "label": "Facility-air configuration",
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "supportedCooling": [
+          "Air"
+        ],
+        "note": "One CPU activates 12 local slots. CPU, heatsink, GPU and ambient restrictions still apply."
+      },
+      {
+        "dimmSlots": 24,
+        "channelsPerCpu": 12,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1
+          ]
+        },
+        "id": "neptune-core",
+        "label": "Neptune Core open-loop CPU cooling",
+        "installedCPUCounts": [
+          2
+        ],
+        "supportedCooling": [
+          "Liquid"
+        ],
+        "note": "Two CPUs and facility water required; one-CPU open-loop builds are unsupported. Check the model thermal and I/O rules."
+      }
+    ]
+  },
+  "sr665": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 RDIMM slots with two CPUs; 12 per CPU. A one-CPU configuration makes only its local 12 slots available.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR665 V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1608-thinksystem-sr665-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "ThinkSystem SR665 V3: cooling configuration evidence",
+        "url": "https://lenovopress.lenovo.com/lp1608-thinksystem-sr665-v3-server",
+        "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes; GPU configuration rules",
+        "revision": "Updated 6 Oct 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+        "date": "Updated 6 Oct 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "memoryConfigurations": [
+      {
+        "dimmSlots": 24,
+        "channelsPerCpu": 12,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1
+          ]
+        },
+        "id": "air",
+        "label": "Facility-air configuration",
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "supportedCooling": [
+          "Air"
+        ],
+        "note": "One CPU activates 12 local slots. CPU, heatsink, GPU and ambient restrictions still apply."
+      },
+      {
+        "dimmSlots": 24,
+        "channelsPerCpu": 12,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1
+          ]
+        },
+        "id": "neptune-core",
+        "label": "Neptune Core open-loop CPU cooling",
+        "installedCPUCounts": [
+          2
+        ],
+        "supportedCooling": [
+          "Liquid"
+        ],
+        "note": "Two CPUs and facility water required; one-CPU open-loop builds are unsupported. Check the model thermal and I/O rules."
+      }
+    ]
+  },
+  "sr860": {
+    "maxProcessors": 4,
+    "dimmSlots": 64,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "Two or four CPUs. 64 RDIMM slots with all four CPUs, 16 per CPU. CXL expansion is separate from these DIMM slots.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR860 V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp2231-thinksystem-sr860-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2,
+      4
+    ]
+  },
+  "st45": {
+    "maxProcessors": 1,
+    "dimmSlots": 2,
+    "channelsPerCpu": 2,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "Two DDR5 ECC UDIMM slots; one per channel. Both installed modules must match. This EPYC 4004 / 4005 platform does not use RDIMMs.",
+    "sources": [
+      {
+        "title": "ThinkSystem ST45 V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1994-thinksystem-st45-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 UDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 UDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "st650": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 RDIMM slots with two CPUs, 16 per CPU. 1DPC and 2DPC speeds depend on Xeon generation and qualified DIMM type.",
+    "sources": [
+      {
+        "title": "ThinkSystem ST650 V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1604-thinksystem-st650-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; One-processor configurations; Memory options",
+        "revision": "Updated 4 Aug 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsNote": "Selected one-CPU SKUs and the one-processor section explicitly document 16 active DIMMs and slots 1-4 plus 9, but the same guide contains a conflicting single-processor restriction. Confirm the selected CPU and machine type in the Lenovo configurator; [1,2] records positive configurations, not every CPU SKU.",
+    "installedCPUCountsComplete": true
+  },
+  "se455": {
+    "maxProcessors": 1,
+    "dimmSlots": 6,
+    "channelsPerCpu": 6,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "Six DDR5 RDIMM slots on one EPYC 8004 CPU; one slot per channel.",
+    "sources": [
+      {
+        "title": "ThinkEdge SE455 V3 / SE455i V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1724-thinkedge-se455-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; Processor options, Table 11; Memory options",
+        "revision": "Updated 25 Aug 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ],
+    "installedCPUCountsComplete": true,
+    "installedCPUCountsNote": "Exactly one installed EPYC 8004 CPU; six local DIMM slots and six channels."
+  },
+  "se100": {
+    "maxProcessors": 1,
+    "dimmSlots": 2,
+    "channelsPerCpu": 2,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "One soldered Core Ultra CPU; two SO-DIMM / CSODIMM slots, one per channel. These are non-ECC small-outline modules, not server RDIMMs.",
+    "sources": [
+      {
+        "title": "ThinkEdge SE100 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1995-lenovo-thinkedge-se100-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 SO-DIMM",
+      "DDR5 CSODIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 SO-DIMM": [
+        1
+      ],
+      "DDR5 CSODIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "sd535": {
+    "maxProcessors": 1,
+    "dimmSlots": 12,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "node",
+    "note": "Per independent node: one CPU and 12 RDIMM slots. D3 holds up to four nodes; chassis totals do not form a shared-memory server.",
+    "sources": [
+      {
+        "title": "ThinkSystem SD535 V3 and D3 Chassis Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1892-thinksystem-sd535-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "nodesPerChassis": 4,
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "sd665": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "node",
+    "note": "Per independent node: two CPUs and 24 RDIMM slots. Each tray contains two nodes; DW612S holds six trays / 12 nodes.",
+    "sources": [
+      {
+        "title": "ThinkSystem SD665 V3 Neptune DWC Server Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1612-thinksystem-sd665-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "nodesPerChassis": 12,
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "sc750": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "node",
+    "note": "Per independent node: two CPUs and 24 DIMM slots. A tray contains two nodes. 6900P supports RDIMM or MRDIMM; 6900E+ supports qualified RDIMM; all are 1DPC.",
+    "sources": [
+      {
+        "title": "ThinkSystem SC750 V4 Neptune Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp2009-thinksystem-sc750-v4-neptune-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "sr650a": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 slots with two CPUs; RDIMM supports 1DPC or 2DPC. Qualified MRDIMM configurations are 1DPC only, with 16 populated slots across two CPUs.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR650a V4 / SR650i V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp2128-thinksystem-sr650a-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; One-processor configurations; Memory options",
+        "revision": "Updated 5 Oct 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "MRDIMM: 1DPC only, 16 populated slots.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsNote": "One or two CPUs; one CPU activates 16 DIMMs, front riser 7, rear riser 2 and OCP 1. GPU and drive choices follow the selected riser/CPU layout.",
+    "installedCPUCountsComplete": true
+  },
+  "sr675": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 RDIMM slots with two CPUs; 12 per CPU and one per channel. CPU and DIMM qualification depends on the GPU shuttle configuration.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR675 V3 / SR675i V3 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1611-thinksystem-sr675-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Processors; Memory options; SXM5 minimum-memory rules",
+        "revision": "Updated 8 Oct 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsNote": "One or two CPUs are documented. One CPU provides 12 local DIMM slots; GPU shuttle and minimum-memory requirements still apply.",
+    "installedCPUCountsComplete": true
+  },
+  "sr680a": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 RDIMM slots with both CPUs, 16 per CPU. The supported 1DPC population depends on DIMM capacity; follow the model memory option table.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR680a V4 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp2264-thinksystem-sr680a-v4-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "1DPC availability depends on DIMM capacity.",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "sr685a": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 RDIMM slots with both CPUs, 12 per CPU. Historical withdrawn platform; host DDR5 is separate from accelerator HBM.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR685a V3 Product Guide — withdrawn",
+        "url": "https://lenovopress.lenovo.com/lp1910-thinksystem-sr685a-v3-server",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "sr665original": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "memoryTypes": [
+      "DDR4 RDIMM",
+      "DDR4 3DS RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR4 RDIMM": [
+        1,
+        2
+      ],
+      "DDR4 3DS RDIMM": [
+        1,
+        2
+      ]
+    },
+    "note": "Sixteen DIMM slots per CPU, eight channels and up to two DIMMs per channel. Type, rank and CPU determine the qualified speed.",
+    "sources": [
+      {
+        "title": "ThinkSystem SR665: memory installation rules",
+        "url": "https://pubs.lenovo.com/sr665/memory_module_install_rules",
+        "loc": "Memory population table: processor count, DIMM quantity and slots",
+        "scope": "One/two CPU DDR4 population; exact speed depends on the selected DIMM and CPU.",
+        "date": "Publication date not recorded",
+        "publicationDate": null,
+        "reviewed": "2026-10-09"
+      },
+      {
+        "title": "ThinkSystem SR665 Product Guide",
+        "url": "https://lenovopress.lenovo.com/lp1269-thinksystem-sr665-server",
+        "loc": "Standard specifications; processor options; full change history",
+        "scope": "Original SR665 (no V3 suffix), CPU families, physical form, and withdrawal history.",
+        "date": "Updated 21 Apr 2026; first published 5 May 2020",
+        "publicationDate": "2020-05-05",
+        "reviewed": "2026-10-09",
+        "revision": "Updated 21 Apr 2026; first published 5 May 2020"
+      }
+    ],
+    "verified": "2026-10-09"
+  }
+}

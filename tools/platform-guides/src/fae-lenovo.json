@@ -1,0 +1,1744 @@
+{
+  "vendor": "lenovo",
+  "reviewed": "2026-10-09",
+  "sources": {
+    "faeMI210": {
+      "title": "AMD Instinct MI210 Accelerator Product Guide (withdrawn product)",
+      "url": "https://lenovopress.lenovo.com/lp1862-amd-instinct-mi210-accelerator",
+      "scope": "Historical server qualification and required power kits; MI210 option withdrawn from marketing, not the host servers.",
+      "loc": "May 15 2026 change history; server support; auxiliary power cables",
+      "date": "15 May 2026"
+    },
+    "faeSR675Rules": {
+      "title": "ThinkSystem SR675 V3 and SR675i V3 Servers: GPU configuration rules",
+      "url": "https://lenovopress.lenovo.com/lp1611-thinksystem-sr675-v3-server",
+      "scope": "H200 C3V2/C3V3 and RTX PRO 6000 CBK8 require EPYC 9005 plus C5WW high-performance fan; MI210 historical shuttle options.",
+      "loc": "GPU adapters; configuration rules and field-upgrade requirements",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "sd665": {
+      "title": "ThinkSystem SD665 V3 Neptune DWC Server Product Guide",
+      "url": "https://lenovopress.lenovo.com/lp1612-thinksystem-sd665-v3-server",
+      "scope": "Two AMD sockets per node, two nodes per tray, DW612S enclosure, direct-water cooling and no GPU support.",
+      "loc": "Standard specifications; processors; GPU accelerators; internal storage; cooling",
+      "date": "18 Aug 2026"
+    },
+    "faeSD665History": {
+      "title": "ThinkSystem SD665 V3: publication and CPU-refresh history",
+      "url": "https://lenovopress.lenovo.com/lp1612-thinksystem-sd665-v3-server",
+      "scope": "First documented in November 2022; EPYC 9005 support added October 2024.",
+      "loc": "Full change history: First published 10 November 2022; 10 October 2024 update",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "faeST45CPU": {
+      "title": "ThinkSystem ST45 V3: supported processors and GPU restrictions",
+      "url": "https://lenovopress.lenovo.com/lp1994-thinksystem-st45-v3-server",
+      "scope": "EPYC 4004/4005 processor options; add-in GPUs unsupported.",
+      "loc": "Table 14 Supported processors; GPU adapters; OS support",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "faeSR675Lifecycle": {
+      "title": "ThinkSystem SR675 V3 / SR675i V3 Product Guide — GPU option history",
+      "url": "https://lenovopress.lenovo.com/lp1611-thinksystem-sr675-v3-server",
+      "date": "8 Oct 2026 revision; reviewed 9 Oct 2026",
+      "loc": "GPU adapters Table 36; full change history: 24 Jul 2024, 12 Feb, 24 Mar and 28 Jul 2026",
+      "scope": "Separate PCIe/HGX GPU forms, model-specific option withdrawals, and continued H200 NVL/RTX PRO PCIe configurations; withdrawal of an option does not retire the host model."
+    },
+    "auditSR665": {
+      "title": "ThinkSystem SR665 Product Guide",
+      "url": "https://lenovopress.lenovo.com/lp1269-thinksystem-sr665-server",
+      "loc": "Standard specifications; processor options; full change history",
+      "scope": "Original SR665 (no V3 suffix), CPU families, physical form, and withdrawal history.",
+      "date": "Updated 21 Apr 2026; first published 5 May 2020",
+      "publicationDate": "2020-05-05",
+      "reviewed": "2026-10-09",
+      "revision": "Updated 21 Apr 2026; first published 5 May 2020"
+    },
+    "auditSR665Memory": {
+      "title": "ThinkSystem SR665: memory installation rules",
+      "url": "https://pubs.lenovo.com/sr665/memory_module_install_rules",
+      "loc": "Memory population table: processor count, DIMM quantity and slots",
+      "scope": "One/two CPU DDR4 population; exact speed depends on the selected DIMM and CPU.",
+      "date": "Publication date not recorded",
+      "publicationDate": null,
+      "reviewed": "2026-10-09"
+    },
+    "fixCooling_sr635": {
+      "title": "ThinkSystem SR635 V3: cooling configuration evidence",
+      "url": "https://lenovopress.lenovo.com/lp1609-thinksystem-sr635-v3-server",
+      "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes",
+      "revision": "Updated 6 Oct 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+      "date": "Updated 6 Oct 2026"
+    },
+    "fixCooling_sr645": {
+      "title": "ThinkSystem SR645 V3: cooling configuration evidence",
+      "url": "https://lenovopress.lenovo.com/lp1607-thinksystem-sr645-v3-server",
+      "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes",
+      "revision": "Updated 6 Oct 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+      "date": "Updated 6 Oct 2026"
+    },
+    "fixCooling_sr655": {
+      "title": "ThinkSystem SR655 V3: cooling configuration evidence",
+      "url": "https://lenovopress.lenovo.com/lp1610-thinksystem-sr655-v3-server",
+      "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes",
+      "revision": "Updated 6 Oct 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+      "date": "Updated 6 Oct 2026"
+    },
+    "fixCooling_sr665": {
+      "title": "ThinkSystem SR665 V3: cooling configuration evidence",
+      "url": "https://lenovopress.lenovo.com/lp1608-thinksystem-sr665-v3-server",
+      "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes; GPU configuration rules",
+      "revision": "Updated 6 Oct 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+      "date": "Updated 6 Oct 2026"
+    },
+    "fixCooling_sr630": {
+      "title": "ThinkSystem SR630 V4: cooling configuration evidence",
+      "url": "https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server",
+      "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes; Compute Complex Neptune Core Module; Memory options table",
+      "revision": "Updated 7 Oct 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+      "date": "Updated 7 Oct 2026"
+    },
+    "fixCooling_sr650": {
+      "title": "ThinkSystem SR650 V4: cooling configuration evidence",
+      "url": "https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server",
+      "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes; Compute Complex Neptune Core Module; Memory options table",
+      "revision": "Updated 24 Sep 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+      "date": "Updated 24 Sep 2026"
+    },
+    "fixCooling_sr650a": {
+      "title": "ThinkSystem SR650A V4: cooling configuration evidence",
+      "url": "https://lenovopress.lenovo.com/lp2128-thinksystem-sr650a-v4-server",
+      "loc": "Standard specifications > Cooling; Processors > Processor cooling / Lenovo Processor Neptune Core Module; Configuration notes",
+      "revision": "Updated 5 Oct 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "scope": "Platform air/facility-water choices and constraints; no blanket GPU + cooling qualification.",
+      "date": "Updated 5 Oct 2026"
+    },
+    "fixCooling_sr675": {
+      "title": "ThinkSystem SR675 V3: cooling boundary",
+      "url": "https://lenovopress.lenovo.com/lp1611-thinksystem-sr675-v3-server",
+      "loc": "Did you know; Key features; Cooling",
+      "revision": "Updated 8 Oct 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "scope": "PCIe air-cooled and HGX internal liquid-to-air variants use facility air; does not establish an open-loop facility-water build.",
+      "date": "Updated 8 Oct 2026"
+    },
+    "fixNoGpu_st45": {
+      "title": "Lenovo ST45 V3: GPU exclusion",
+      "url": "https://lenovopress.lenovo.com/lp1994-thinksystem-st45-v3-server",
+      "loc": "GPU adapters",
+      "revision": "Updated 28 Jul 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "scope": "General GPU exclusion for this exact model, independent of accelerator vendor.",
+      "date": "Updated 28 Jul 2026"
+    },
+    "fixNoGpu_sd665": {
+      "title": "Lenovo SD665 V3: GPU exclusion",
+      "url": "https://lenovopress.lenovo.com/lp1612-thinksystem-sd665-v3-server",
+      "loc": "Standard specifications > GPUs; GPU accelerators",
+      "revision": "Updated 18 Aug 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "scope": "General GPU exclusion for this exact model, independent of accelerator vendor.",
+      "date": "Updated 18 Aug 2026"
+    }
+  },
+  "models": {
+    "sr630": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SR630 V4",
+        "SR630V4",
+        "SR630",
+        "Granite Rapids",
+        "Sierra Forest"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "E-core support belongs to this model. Do not assume the larger SR650 V4 offers the same CPU list."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack server"
+        },
+        {
+          "part": "630",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V4",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sr630"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "Documented by: SR630 V4",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_sr630",
+            "ageLenovoV4P"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sr630",
+        "fixCooling_sr630"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingNote": "Air heatsinks or internal L2A; L2A needs no facility water. CTO Neptune Core requires facility water and uses slot 2. The 7DK1 CPU+memory-cooled variant requires two CPUs and has 16 DIMM slots / 1DPC.",
+      "coolingSourceIds": [
+        "fixCooling_sr630"
+      ]
+    },
+    "sr650": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SR650 V4",
+        "SR650V4",
+        "SR650",
+        "Granite Rapids"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Drive and GPU maxima are different layouts. SR650a V4 changes the chassis around front GPUs; it is a distinct platform."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack server"
+        },
+        {
+          "part": "650",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V4",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sr650"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced: SR650 V4",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoV4P",
+            "ageLenovoGuide_sr650"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sr650",
+        "fixCooling_sr650"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingNote": "Air heatsinks or CTO Neptune Core CPU cooling with facility water, using slot 8. The 7DK2 CPU+memory-cooled variant requires two CPUs and has 16 DIMM slots / 1DPC. Verify the selected I/O and thermal layout.",
+      "coolingSourceIds": [
+        "fixCooling_sr650"
+      ]
+    },
+    "sr635": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "SR635 V3",
+        "SR635V3",
+        "SR635",
+        "Turin",
+        "5th Gen EPYC",
+        "Genoa",
+        "4th Gen EPYC"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA L4",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Up to four in the supported low-profile configuration.",
+          "sourceIds": [
+            "sr635"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA A2",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Up to five with the required slot/thermal configuration.",
+          "sourceIds": [
+            "sr635"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "V3 is the Lenovo server generation. This V3 server supports qualified EPYC 9005 CPUs as well as 9004."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack server"
+        },
+        {
+          "part": "635",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V3",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sr635"
+        ]
+      },
+      "events": [
+        {
+          "year": 2023,
+          "label": "Documented by: SR635 V3",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_sr635",
+            "ageLenovoEPYCRefresh"
+          ]
+        },
+        {
+          "year": 2024,
+          "label": "EPYC 9005 processor refresh within the V3 family; check exact CPU and GPU configuration.",
+          "type": "refresh",
+          "sourceIds": [
+            "ageLenovoEPYCRefresh",
+            "sr635"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sr635",
+        "fixCooling_sr635"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingNote": "Air-cooled builds include optional internal L2A; no facility water is needed for L2A. CTO Neptune Core open-loop CPU cooling requires facility water and uses PCIe slot 2. Match the CPU, storage and ambient limits.",
+      "coolingSourceIds": [
+        "fixCooling_sr635"
+      ]
+    },
+    "sr655": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "SR655 V3",
+        "SR655V3",
+        "SR655",
+        "Turin",
+        "5th Gen EPYC",
+        "Genoa",
+        "4th Gen EPYC"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuNote": "AMD accelerator evidence and lifecycle are recorded per GPU option; other Instinct products are not implied.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI210",
+          "status": "historical",
+          "availability": "Withdrawn from marketing",
+          "conditions": "Historical qualification: up to three 300 W MI210 PCIe cards. GPU enablement kit 4X67A86438; check slots, power and OS qualification.",
+          "sourceIds": [
+            "faeMI210",
+            "sr655"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA L4",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Qualified PCIe option; build-specific quantities and thermal limits.",
+          "sourceIds": [
+            "sr655"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA L40S",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Qualified double-wide PCIe option; drive cages compete with slots.",
+          "sourceIds": [
+            "sr655"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "Rear and middle drive cages use space that can otherwise support adapters and airflow. A 40-drive build is not also a maximum-GPU build. MI210 supported up to three cards with the GPU enablement kit; that accelerator option is withdrawn, not this server."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack server"
+        },
+        {
+          "part": "655",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V3",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sr655",
+          "faeMI210"
+        ]
+      },
+      "events": [
+        {
+          "year": 2023,
+          "label": "Documented by: SR655 V3",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_sr655",
+            "ageLenovoEPYCRefresh"
+          ]
+        },
+        {
+          "year": 2026,
+          "label": "MI210 accelerator option withdrawn from marketing on 15 May; host server lifecycle is separate.",
+          "type": "lifecycle",
+          "sourceIds": [
+            "faeMI210"
+          ]
+        },
+        {
+          "year": 2024,
+          "label": "EPYC 9005 processor refresh within the V3 family; check exact CPU and GPU configuration.",
+          "type": "refresh",
+          "sourceIds": [
+            "ageLenovoEPYCRefresh",
+            "sr655"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sr655",
+        "faeMI210",
+        "fixCooling_sr655"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingNote": "Air cooling or CTO Neptune Core open-loop CPU cooling. The latter requires facility water and occupies PCIe slot 6. Exact GPU, drive and ambient limits still apply.",
+      "coolingSourceIds": [
+        "fixCooling_sr655"
+      ]
+    },
+    "sr645": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "SR645 V3",
+        "SR645V3",
+        "SR645",
+        "Turin",
+        "5th Gen EPYC",
+        "Genoa",
+        "4th Gen EPYC"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "SR635 and SR645 share a 1U height. The extra CPU socket changes memory topology and available I/O, not rack height."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack server"
+        },
+        {
+          "part": "645",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V3",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sr645"
+        ]
+      },
+      "events": [
+        {
+          "year": 2022,
+          "label": "Documented by: SR645 V3",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_sr645",
+            "ageLenovoEPYCRefresh"
+          ]
+        },
+        {
+          "year": 2024,
+          "label": "EPYC 9005 processor refresh within the V3 family; check exact CPU and GPU configuration.",
+          "type": "refresh",
+          "sourceIds": [
+            "ageLenovoEPYCRefresh",
+            "sr645"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sr645",
+        "fixCooling_sr645"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingNote": "Air builds can use internal L2A; L2A needs no facility water. CTO Neptune Core open-loop cooling requires facility water, two CPUs and PCIe slot 2. Check thermal and storage rules.",
+      "coolingSourceIds": [
+        "fixCooling_sr645"
+      ]
+    },
+    "sr665": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "SR665 V3",
+        "SR665V3",
+        "SR665",
+        "Turin",
+        "5th Gen EPYC",
+        "Genoa",
+        "4th Gen EPYC"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuNote": "AMD accelerator evidence and lifecycle are recorded per GPU option; other Instinct products are not implied.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI210",
+          "status": "historical",
+          "availability": "Withdrawn from marketing",
+          "conditions": "Historical qualification: up to three 300 W MI210 PCIe cards. Full-length GPU thermal kit 4X67A85856; check slots, power and OS qualification.",
+          "sourceIds": [
+            "faeMI210",
+            "sr665"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA H100 NVL",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Up to three double-wide cards in qualified builds.",
+          "sourceIds": [
+            "sr665"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA L40S",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Up to three double-wide cards in qualified builds.",
+          "sourceIds": [
+            "sr665"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "AMD is the host CPU vendor here. Documented NVIDIA GPU options demonstrate why CPU and GPU branding must be considered separately. Historical MI210 builds supported up to three cards with the GPU thermal kit; accelerator withdrawal does not retire the server."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack server"
+        },
+        {
+          "part": "665",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V3",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sr665",
+          "faeMI210"
+        ]
+      },
+      "events": [
+        {
+          "year": 2022,
+          "label": "Documented by: SR665 V3",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_sr665",
+            "ageLenovoEPYCRefresh"
+          ]
+        },
+        {
+          "year": 2026,
+          "label": "MI210 accelerator option withdrawn from marketing on 15 May; host server lifecycle is separate.",
+          "type": "lifecycle",
+          "sourceIds": [
+            "faeMI210"
+          ]
+        },
+        {
+          "year": 2024,
+          "label": "EPYC 9005 processor refresh within the V3 family; check exact CPU and GPU configuration.",
+          "type": "refresh",
+          "sourceIds": [
+            "ageLenovoEPYCRefresh",
+            "sr665"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sr665",
+        "faeMI210",
+        "fixCooling_sr665"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingNote": "Air cooling or CTO Neptune Core open-loop CPU cooling. DWC requires facility water, two CPUs and slot 6. Three GPUs rated at least 300 W with CPUs at least 320 W require DWC; do not assume every GPU quantity supports Air.",
+      "coolingSourceIds": [
+        "fixCooling_sr665"
+      ]
+    },
+    "sr860": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SR860 V4",
+        "SR860V4",
+        "SR860",
+        "Granite Rapids"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Four CPUs in one server share a system architecture. Four independent nodes in a D3 chassis do not create the same kind of computer."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack server"
+        },
+        {
+          "part": "860",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V4",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sr860"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Documented by: SR860 V4",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_sr860"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sr860"
+      ],
+      "verified": "2026-10-09"
+    },
+    "st45": {
+      "cpuFamilies": [
+        "EPYC 4004",
+        "EPYC 4005"
+      ],
+      "aliases": [
+        "ST45 V3",
+        "ST45V3",
+        "ST45"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "unsupported",
+      "amdGpuNote": "The model guide explicitly states that add-in GPUs are not supported.",
+      "gpuOptions": [],
+      "restrictions": [
+        "EPYC 4004/4005 only; two DDR5 ECC UDIMM channels, no integrated XCC and no add-in GPU support.",
+        "This entry tower has a different management and expansion design. Do not assume it has the XCC controller found in larger ThinkSystem servers."
+      ],
+      "decoder": [
+        {
+          "part": "ST",
+          "meaning": "ThinkSystem tower server"
+        },
+        {
+          "part": "45",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V3",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "st45",
+          "faeST45CPU"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "Documented by: ST45 V3",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_st45"
+          ]
+        },
+        {
+          "year": 2025,
+          "label": "EPYC 4005 options added 28 October; the V3 tower originally documented EPYC 4004.",
+          "type": "refresh",
+          "sourceIds": [
+            "faeST45CPU",
+            "ageLenovoGuide_st45"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "st45",
+        "faeST45CPU",
+        "fixNoGpu_st45"
+      ],
+      "verified": "2026-10-09",
+      "gpuExclusions": [
+        {
+          "scope": "all",
+          "reason": "The OEM guide explicitly states that GPUs are not supported in this model.",
+          "sourceIds": [
+            "fixNoGpu_st45"
+          ]
+        }
+      ]
+    },
+    "st650": {
+      "cpuFamilies": [
+        "Xeon Scalable 4th Gen",
+        "Xeon Scalable 5th Gen"
+      ],
+      "aliases": [
+        "ST650 V3",
+        "ST650V3",
+        "ST650",
+        "Sapphire Rapids",
+        "Emerald Rapids"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Selected one-CPU SKUs and the one-processor section explicitly document 16 active DIMMs and slots 1-4 plus 9, but the same guide contains a conflicting single-processor restriction. Confirm the selected CPU and machine type in the Lenovo configurator; [1,2] records positive configurations, not every CPU SKU.",
+        "The larger ST650 is a different class from ST45: two sockets, registered memory and integrated remote management."
+      ],
+      "decoder": [
+        {
+          "part": "ST",
+          "meaning": "ThinkSystem tower server"
+        },
+        {
+          "part": "650",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V3",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "st650"
+        ]
+      },
+      "events": [
+        {
+          "year": 2023,
+          "label": "Documented by: ST650 V3",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_st650"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "st650"
+      ],
+      "verified": "2026-10-09"
+    },
+    "se455": {
+      "cpuFamilies": [
+        "EPYC 8004"
+      ],
+      "aliases": [
+        "ThinkEdge SE455 V3",
+        "ThinkEdgeSE455V3",
+        "SE455",
+        "Siena",
+        "SE455i V3"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Internal SSDs use carriers but are not hot-swappable. Some NVMe layouts also consume connections otherwise used by PCIe slots. SE455i V3 is a defined inference build."
+      ],
+      "decoder": [
+        {
+          "part": "ThinkEdge",
+          "meaning": "Lenovo edge-computing brand."
+        },
+        {
+          "part": "SE",
+          "meaning": "Edge server family prefix."
+        },
+        {
+          "part": "455",
+          "meaning": "Exact model identifier; use its own CPU, GPU and environmental qualification."
+        },
+        {
+          "part": "V3",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "se455"
+        ]
+      },
+      "events": [
+        {
+          "year": 2023,
+          "label": "Announced: ThinkEdge SE455 V3",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoEdge455",
+            "ageLenovoGuide_se455"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "se455"
+      ],
+      "verified": "2026-10-09"
+    },
+    "se100": {
+      "cpuFamilies": [
+        "Core Ultra Series 2"
+      ],
+      "aliases": [
+        "ThinkEdge SE100",
+        "ThinkEdgeSE100",
+        "SE100"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA RTX 2000E Ada",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "One qualified PCIe card; enclosure and environmental rules apply.",
+          "sourceIds": [
+            "se100"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "Core Ultra, Xeon and EPYC are different CPU platform families. The common Intel logo does not imply common memory modules or server expansion."
+      ],
+      "decoder": [
+        {
+          "part": "ThinkEdge",
+          "meaning": "Lenovo edge-computing brand."
+        },
+        {
+          "part": "SE",
+          "meaning": "Edge server family prefix."
+        },
+        {
+          "part": "100",
+          "meaning": "Exact model identifier; use its own CPU, GPU and environmental qualification."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "se100"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced: ThinkEdge SE100",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoEdge100",
+            "ageLenovoGuide_se100"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "se100"
+      ],
+      "verified": "2026-10-09"
+    },
+    "sd535": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "SD535 V3",
+        "SD535V3",
+        "SD535",
+        "Turin",
+        "5th Gen EPYC",
+        "Genoa",
+        "4th Gen EPYC"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "D3 has no integrated networking or switching and no enclosure-level manager. Each node keeps its own networking, XCC2 and fans."
+      ],
+      "decoder": [
+        {
+          "part": "SD",
+          "meaning": "ThinkSystem dense compute node"
+        },
+        {
+          "part": "535",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V3",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sd535"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "Documented by: SD535 V3",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_sd535"
+          ]
+        },
+        {
+          "year": 2024,
+          "label": "EPYC 9005 processor refresh within the V3 family; check exact CPU and GPU configuration.",
+          "type": "refresh",
+          "sourceIds": [
+            "ageLenovoEPYCRefresh",
+            "sd535"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sd535"
+      ],
+      "verified": "2026-10-09"
+    },
+    "sd665": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "SD665 V3 Neptune",
+        "SD665V3Neptune",
+        "SD665",
+        "Turin",
+        "5th Gen EPYC",
+        "Genoa",
+        "4th Gen EPYC"
+      ],
+      "cooling": "Liquid",
+      "amdGpuStatus": "unsupported",
+      "amdGpuNote": "The model guide explicitly states that add-in GPUs are not supported.",
+      "gpuOptions": [],
+      "restrictions": [
+        "GPUs explicitly unsupported; SD665-N is a separate product. Two CPUs per node required; facility water and DW612S enclosure are required.",
+        "A tray contains two separate two-socket servers; it does not pool their RAM. DW612S supports up to twelve nodes. Internal drives are not hot-swap; two PCIe slots leave only M.2 internal storage. SD665-N is a different GPU platform."
+      ],
+      "decoder": [
+        {
+          "part": "SD",
+          "meaning": "ThinkSystem dense compute node"
+        },
+        {
+          "part": "665",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V3",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        },
+        {
+          "part": "Neptune",
+          "meaning": "Cooling design family; check the exact facility-water and enclosure requirements."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sd665"
+        ]
+      },
+      "events": [
+        {
+          "year": 2022,
+          "label": "Documented by: SD665 V3 Neptune",
+          "type": "introduction",
+          "sourceIds": [
+            "faeSD665History"
+          ]
+        },
+        {
+          "year": 2024,
+          "label": "EPYC 9005 processor refresh within the V3 family; check exact CPU and GPU configuration.",
+          "type": "refresh",
+          "sourceIds": [
+            "faeSD665History"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sd665",
+        "fixNoGpu_sd665"
+      ],
+      "verified": "2026-10-09",
+      "gpuExclusions": [
+        {
+          "scope": "all",
+          "reason": "The OEM guide explicitly states that GPUs are not supported in this model. SD665-N V3 is a separate GPU model.",
+          "sourceIds": [
+            "fixNoGpu_sd665"
+          ]
+        }
+      ]
+    },
+    "sc750": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SC750 V4 Neptune",
+        "SC750V4Neptune",
+        "SC750",
+        "Granite Rapids"
+      ],
+      "cooling": "Liquid",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "N1380 holds up to eight SC750 trays / sixteen nodes. Its midplane carries power and control, not the workload network."
+      ],
+      "decoder": [
+        {
+          "part": "SC",
+          "meaning": "ThinkSystem supercomputing platform"
+        },
+        {
+          "part": "750",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V4",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        },
+        {
+          "part": "Neptune",
+          "meaning": "Cooling design family; check the exact facility-water and enclosure requirements."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sc750"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "Announced: SC750 V4 Neptune",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoNeptuneV4",
+            "ageLenovoGuide_sc750"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sc750"
+      ],
+      "verified": "2026-10-09"
+    },
+    "sr650a": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SR650a V4",
+        "SR650aV4",
+        "SR650A",
+        "Granite Rapids",
+        "SR650i V4"
+      ],
+      "cooling": "Configuration-dependent",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA H100 NVL",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Up to four; qualified population, memory and cooling rules apply.",
+          "sourceIds": [
+            "sr650a"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA H200 NVL",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Up to two; match qualified population and cooling.",
+          "sourceIds": [
+            "sr650a"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA L4",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Up to eight in a different GPU layout.",
+          "sourceIds": [
+            "sr650a"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA RTX PRO 6000 Blackwell",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Two 600 W or four power-capped 450 W cards; distinct configurations.",
+          "sourceIds": [
+            "sr650a"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "RTX PRO 6000 Blackwell: up to two at 600 W or four slot-capped at 450 W. SR650i V4 is a specific inference configuration based on this platform."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack server"
+        },
+        {
+          "part": "650a",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V4",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sr650a"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced: SR650a V4",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoV4P",
+            "ageLenovoGuide_sr650a"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sr650a",
+        "fixCooling_sr650a"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingNote": "Air heatsinks or CTO Neptune Core CPU cooling requiring facility water. Open-loop cooling uses slot 8 and limits OCP 2 to x8. Match the GPU/riser, CPU, drive and thermal configuration.",
+      "coolingSourceIds": [
+        "fixCooling_sr650a"
+      ]
+    },
+    "sr675": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "SR675 V3",
+        "SR675V3",
+        "SR675",
+        "Turin",
+        "5th Gen EPYC",
+        "Genoa",
+        "4th Gen EPYC",
+        "SR675i V3"
+      ],
+      "cooling": "Air",
+      "amdGpuNote": "AMD accelerator evidence and lifecycle are recorded per GPU option; other Instinct products are not implied.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI210",
+          "status": "historical",
+          "availability": "Withdrawn from marketing",
+          "conditions": "Historical four- or eight-card PCIe option; cable kit 4X97A84509 and optional four-GPU Infinity Fabric bridge. SR675 guide records withdrawal March 2026; the option guide records May 2026.",
+          "sourceIds": [
+            "faeMI210",
+            "sr675",
+            "faeSR675Lifecycle"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA H100 PCIe",
+          "status": "historical",
+          "availability": "Withdrawn from marketing",
+          "conditions": "Historical BR9U 80 GB PCIe option: four- or eight-card shuttle; withdrawal documented July 2024.",
+          "sourceIds": [
+            "faeSR675Rules",
+            "faeSR675Lifecycle"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA H100 NVL",
+          "status": "historical",
+          "availability": "Withdrawn from marketing",
+          "conditions": "Historical BXAK 94 GB PCIe option: four- or eight-card shuttle; withdrawn February 2026.",
+          "sourceIds": [
+            "faeSR675Rules",
+            "faeSR675Lifecycle"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA HGX H100",
+          "status": "historical",
+          "availability": "Withdrawn from marketing",
+          "conditions": "Historical BQQV four-GPU SXM5 subsystem with hybrid liquid-to-air cooling; withdrawn February 2026.",
+          "sourceIds": [
+            "faeSR675Rules",
+            "faeSR675Lifecycle"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA H200 NVL",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "C3V3 PCIe: four- or eight-card shuttle. Requires EPYC 9005 and C5WW fans, including field upgrades. Apply memory, cable and bridge rules.",
+          "sourceIds": [
+            "faeSR675Rules",
+            "faeSR675Lifecycle"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9005"
+          ]
+        },
+        {
+          "product": "NVIDIA HGX H200",
+          "status": "historical",
+          "availability": "Withdrawn from marketing",
+          "conditions": "Historical C3V2 four-GPU SXM5 subsystem, withdrawn July 2026. EPYC 9005 and C5WW required, including field upgrades; hybrid liquid-to-air cooling.",
+          "sourceIds": [
+            "faeSR675Rules",
+            "faeSR675Lifecycle"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9005"
+          ]
+        },
+        {
+          "product": "NVIDIA RTX PRO 6000 Blackwell",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "CBK8 requires EPYC 9005 (Turin) and fan C5WW, including field upgrades.",
+          "sourceIds": [
+            "faeSR675Rules"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9005"
+          ]
+        }
+      ],
+      "restrictions": [
+        "H200 C3V2/C3V3 and RTX PRO 6000 CBK8: EPYC 9005 + fan C5WW required. EPYC 9004 support elsewhere in this model does not qualify that pairing.",
+        "SXM uses Neptune hybrid liquid-to-air cooling; PCIe builds use a different shuttle. H200 (C3V2/C3V3) and RTX PRO 6000 (CBK8) require EPYC 9005 and Dual Rotor High Performance Fan C5WW, including field upgrades. MI210 was a historical 4/8-card PCIe option; its withdrawal does not retire SR675 V3.",
+        "H100 PCIe, H100 NVL, HGX H100 and HGX H200 are historical options with separate withdrawal dates; H200 NVL PCIe is a distinct configuration."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack server"
+        },
+        {
+          "part": "675",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V3",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sr675",
+          "faeMI210",
+          "faeSR675Rules"
+        ]
+      },
+      "events": [
+        {
+          "year": 2022,
+          "label": "Documented by: SR675 V3",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_sr675"
+          ]
+        },
+        {
+          "year": 2026,
+          "label": "MI210 accelerator option withdrawn from marketing on 15 May; host server lifecycle is separate.",
+          "type": "lifecycle",
+          "sourceIds": [
+            "faeMI210"
+          ]
+        },
+        {
+          "year": 2024,
+          "label": "EPYC 9005 processor refresh within the V3 family; check exact CPU and GPU configuration.",
+          "type": "refresh",
+          "sourceIds": [
+            "ageLenovoEPYCRefresh",
+            "sr675"
+          ]
+        },
+        {
+          "year": 2026,
+          "label": "SXM5 / HGX H200 configuration withdrawn July 28; PCIe host platform retained",
+          "type": "lifecycle",
+          "sourceIds": [
+            "faeSR675Lifecycle"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sr675",
+        "faeMI210",
+        "faeSR675Rules",
+        "fixCooling_sr675"
+      ],
+      "verified": "2026-10-09",
+      "supportedCooling": [
+        "Air"
+      ],
+      "coolingNote": "Facility-air platform. HGX configurations can use a closed internal liquid-to-air loop; this does not require facility-water plumbing. GPU shuttle and fan requirements remain configuration-specific.",
+      "coolingSourceIds": [
+        "fixCooling_sr675"
+      ]
+    },
+    "sr680a": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SR680a V4",
+        "SR680aV4",
+        "SR680A",
+        "Granite Rapids"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established for this model by this guide; this is not a prohibition.",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA HGX B300",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight-GPU HGX NVL8 integrated subsystem in an 8U air-cooled platform.",
+          "sourceIds": [
+            "sr680a"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "HGX B300 is an integrated eight-GPU platform with dedicated interconnect and networking. These are not ordinary interchangeable PCIe expansion cards."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack server"
+        },
+        {
+          "part": "680a",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V4",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference; local stock, ordering and shipping are not verified.",
+        "sourceIds": [
+          "sr680a"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Documented by: SR680a V4",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_sr680a"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sr680a"
+      ],
+      "verified": "2026-10-09"
+    },
+    "sr685a": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "SR685a V3",
+        "SR685aV3",
+        "SR685A",
+        "Turin",
+        "5th Gen EPYC",
+        "Genoa",
+        "4th Gen EPYC"
+      ],
+      "cooling": "Air",
+      "amdGpuNote": "AMD accelerator evidence and lifecycle are recorded per GPU option; other Instinct products are not implied.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI300X",
+          "status": "historical",
+          "availability": "Withdrawn from marketing",
+          "conditions": "Historical eight-OAM GPU configuration with EPYC hosts; do not infer later Instinct products or mixed GPU subsystems.",
+          "sourceIds": [
+            "sr685a"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA HGX H100",
+          "status": "historical",
+          "availability": "Withdrawn from marketing",
+          "conditions": "Historical eight-GPU HGX configuration; separate build.",
+          "sourceIds": [
+            "sr685a"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA HGX H200",
+          "status": "historical",
+          "availability": "Withdrawn from marketing",
+          "conditions": "Historical eight-GPU HGX configuration; separate build.",
+          "sourceIds": [
+            "sr685a"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "Withdrawn from marketing, documented September 26, 2026. Listed GPU alternatives describe documented past configurations. Withdrawal is not itself an end-of-support date."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack server"
+        },
+        {
+          "part": "685a",
+          "meaning": "Exact model identifier; numeric similarity does not establish option compatibility."
+        },
+        {
+          "part": "V3",
+          "meaning": "Lenovo platform version, separate from the processor generation."
+        }
+      ],
+      "lifecycle": {
+        "status": "withdrawn",
+        "note": "Model withdrawn from marketing in the 26 September 2026 update. This is not an end-of-support date.",
+        "date": "2026-09-26",
+        "sourceIds": [
+          "sr685a"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "Documented by: SR685a V3",
+          "type": "introduction",
+          "sourceIds": [
+            "ageLenovoGuide_sr685a"
+          ]
+        },
+        {
+          "year": 2026,
+          "label": "Model withdrawn from marketing, 26 September.",
+          "type": "lifecycle",
+          "sourceIds": [
+            "sr685a"
+          ]
+        },
+        {
+          "year": 2024,
+          "label": "EPYC 9005 processor refresh within the V3 family; check exact CPU and GPU configuration.",
+          "type": "refresh",
+          "sourceIds": [
+            "ageLenovoEPYCRefresh",
+            "sr685a"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "sr685a"
+      ],
+      "verified": "2026-10-09"
+    },
+    "sr665original": {
+      "cpuFamilies": [
+        "EPYC 7002",
+        "EPYC 7003"
+      ],
+      "aliases": [
+        "ThinkSystem SR665",
+        "SR665 original",
+        "SR665 7D2V",
+        "SR665 7D2W",
+        "Rome",
+        "Milan",
+        "Milan-X"
+      ],
+      "cooling": "Air",
+      "supportedCooling": [
+        "Air"
+      ],
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No exact AMD accelerator qualification has been recorded for this installed-base profile; absence is not a prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "One CPU permits 16 local DIMM slots; two permit 32. Use the model population table.",
+        "DDR4 Performance+ RDIMMs, standard RDIMMs and 3DS RDIMMs have different 2DPC speed limits."
+      ],
+      "decoder": [
+        {
+          "part": "SR",
+          "meaning": "ThinkSystem rack family"
+        },
+        {
+          "part": "665",
+          "meaning": "Original AMD two-socket model; machine types 7D2V / 7D2W."
+        },
+        {
+          "part": "No V suffix",
+          "meaning": "This original SR665 predates SR665 V3; its DDR4 CPU/memory support does not transfer to V3."
+        }
+      ],
+      "lifecycle": {
+        "status": "withdrawn",
+        "date": "2026-04-21",
+        "note": "Lenovo’s 21 April 2026 guide update records withdrawal from marketing; this is not a support-end date.",
+        "sourceIds": [
+          "auditSR665"
+        ]
+      },
+      "events": [
+        {
+          "year": 2021,
+          "date": "2021-03-16",
+          "label": "EPYC 7003 CPU refresh recorded",
+          "type": "refresh",
+          "sourceIds": [
+            "auditSR665"
+          ]
+        },
+        {
+          "year": 2026,
+          "date": "2026-04-21",
+          "label": "Withdrawn from marketing",
+          "type": "lifecycle",
+          "sourceIds": [
+            "auditSR665"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "auditSR665",
+        "auditSR665Memory"
+      ],
+      "verified": "2026-10-09"
+    }
+  }
+}

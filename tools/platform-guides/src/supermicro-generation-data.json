@@ -1,0 +1,619 @@
+{
+  "vendor": "Supermicro",
+  "reviewed": "2026-10-09",
+  "intro": "X and H identify platform generations, while Hyper, CloudDC, Twin and SuperBlade are families that span generations. The year marks the platform's public introduction; a specific model or later CPU/GPU configuration may arrive afterward. X13 and H13 also contain entry and edge branches with different start dates.",
+  "sources": {
+    "genSmH13Launch": {
+      "title": "Supermicro H13 / 4th Gen EPYC portfolio introduction",
+      "url": "https://ir.supermicro.com/news/news-details/2022/Supermicro-Expands-Data-Center-Optimized-Total-IT-Solutions-with-4th-Gen-AMD-EPYC-Processors-Delivering-World-Record-Performance-for-Todays-Most-Critical-Workloads/default.aspx",
+      "scope": "Introduction year for the H13 EPYC 9004 platform, not every later H13 model.",
+      "loc": "10 November 2022 date and opening announcement; H13 JumpStart reference",
+      "date": "Published 10 Nov 2022; reviewed 08 Oct 2026"
+    },
+    "genSmX13Preview": {
+      "title": "Supermicro unveils the X13 Xeon Scalable portfolio",
+      "url": "https://ir.supermicro.com/news/news-details/2022/Supermicro-Unveils-a-Broad-Portfolio-of-Performance-Optimized-and-Energy-Efficient-Air-and-Liquid-Cooled-Systems-Incorporating-4th-Gen-Intel-Xeon-Scalable-Processors/default.aspx",
+      "scope": "Public X13 Xeon Scalable introduction in 2022, before broad availability in 2023.",
+      "loc": "15 November 2022 dateline; X13 portfolio and early-access paragraphs",
+      "date": "Published 15 Nov 2022; reviewed 08 Oct 2026"
+    },
+    "genSmX13Launch": {
+      "title": "Supermicro launches more than 50 X13 models",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-unleashes-new-better-faster-and-greener-x13-server-portfolio-featuring-4th",
+      "scope": "January 2023 broad launch of the X13 Xeon Scalable generation.",
+      "loc": "10 January 2023 dateline; availability headline and opening paragraph",
+      "date": "Published 10 Jan 2023; reviewed 08 Oct 2026"
+    },
+    "genSmX13Refresh": {
+      "title": "Supermicro X13 refresh and Xeon E-2400 server introduction",
+      "url": "https://ir.supermicro.com/news/news-details/2023/Supermicro-Offers-Rack-Scale-Solutions-with-New-5th-Gen-Intel-Xeon-Processors-Optimized-for-AI-Cloud-Service-Providers-Storage-and-Edge-Computing/default.aspx",
+      "scope": "December 2023 Xeon Scalable refresh and separate entry-server E-2400 launch.",
+      "loc": "14 December 2023 dateline; X13 refresh opening; paragraph beginning 'Supermicro is also launching several new servers'",
+      "date": "Published 14 Dec 2023; reviewed 08 Oct 2026"
+    },
+    "genSmEdgeLaunch": {
+      "title": "Supermicro introduces H13 EPYC 8004 edge systems",
+      "url": "https://ir.supermicro.com/news/news-details/2023/Supermicro-Introduces-a-Number-of-Density-and-Power-Optimized-Edge-Platforms-for-Telco-Providers-Based-on-the-New-AMD-EPYC-8004-Series-Processor/default.aspx",
+      "scope": "September 2023 start for H13 EPYC 8004 WIO and short-depth front-I/O systems.",
+      "loc": "18 September 2023 dateline and H13 WIO / short-depth system introduction",
+      "date": "Published 18 Sep 2023; reviewed 08 Oct 2026"
+    },
+    "genSmEdgeSheet": {
+      "title": "H13 Telco/Edge systems data sheet — September 2023",
+      "url": "https://www.supermicro.com/datasheet/datasheet_H13_ShortDepth_Front_IO.pdf",
+      "scope": "Dated documentation explicitly naming AS-1115S-FWTRT.",
+      "loc": "Page 1: AS-1115S-FWTRT (AC) model name and September 2023 footer",
+      "date": "Published Sep 2023; reviewed 08 Oct 2026"
+    },
+    "genSmX14Preview": {
+      "title": "Supermicro announces its upcoming X14 generation",
+      "url": "https://ir.supermicro.com/news/news-details/2024/Supermicro-Announces-Upcoming-X14-Server-Family-with-Future-Support-for-the-Intel-Xeon-6-processor-with-Early-Access-Programs/default.aspx",
+      "scope": "April 2024 public announcement of X14 before staggered CPU and model rollouts.",
+      "loc": "9 April 2024 dateline; opening announcement and early-access program",
+      "date": "Published 09 Apr 2024; reviewed 08 Oct 2026"
+    },
+    "genSmX14Launch": {
+      "title": "Supermicro launches X14 with Xeon 6 E-cores",
+      "url": "https://ir.supermicro.com/news/news-details/2024/Supermicro-Unveils-New-X14-AI-Rackmount-Multi-Node-and-Edge-Server-Families-Based-on-Intel-Xeon-6-Processors-with-E-cores-and-Soon-P-cores-Systems-With-Liquid-Cooling/default.aspx",
+      "scope": "June 2024 initial X14 launch; P-core systems followed rather than all options arriving together.",
+      "loc": "3 June 2024 dateline and opening launch paragraph",
+      "date": "Published 03 Jun 2024; reviewed 08 Oct 2026"
+    },
+    "genSmX14Training": {
+      "title": "New Supermicro X14 Systems — July 2024 portfolio",
+      "url": "https://www.supermicro.com/sites/default/files/content_resources/static_resources/channel_training/X14_Channel_Training_July_2024.pdf",
+      "scope": "Dated model-level evidence for Hyper, CloudDC, GrandTwin, SuperBlade and Petascale examples. A listed model is documented by this date, not necessarily generally available.",
+      "loc": "Slide 1: 31 July 2024; slides 18–19: X14 DP/MP and UP 6700-series product portfolios",
+      "date": "Published 31 Jul 2024; reviewed 08 Oct 2026"
+    },
+    "genSmH14Launch": {
+      "title": "Supermicro introduces H14 with EPYC 9005 and Instinct MI325X",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-introduces-new-servers-and-gpu-accelerated-systems-amd-epyctm-9005-series",
+      "scope": "October 2024 H14 generation introduction, with air and liquid GPU system families.",
+      "loc": "10 October 2024 dateline; H14 introduction; 4U and 8U GPU family descriptions",
+      "date": "Published 10 Oct 2024; reviewed 08 Oct 2026"
+    },
+    "genSmH14Hyper": {
+      "title": "H14 Hyper systems data sheet — October 2024",
+      "url": "https://www.supermicro.com/datasheet/h14/datasheet_H14_Hyper.pdf",
+      "scope": "Dated evidence for AS-1126HS-TN and AS-2126HS-TN in the H14 generation.",
+      "loc": "Page 1: October 2024 footer and both model names; page 2: H14 model table",
+      "date": "Published Oct 2024; reviewed 08 Oct 2026"
+    },
+    "genSmH14Brochure": {
+      "title": "A+ H13/H14 server solutions — October 2024",
+      "url": "https://www.supermicro.com/manuals/brochure/Brochure_H13_H14_Aplus.pdf",
+      "scope": "AS-8126GS-TNMR was publicly documented in October 2024 as coming soon; this is not an availability date.",
+      "loc": "Page 5: H14 8-GPU systems, AS-8126GS-TNMR (Coming soon), October 2024 footer",
+      "date": "Published Oct 2024; reviewed 08 Oct 2026"
+    },
+    "genSmMI350": {
+      "title": "Supermicro introduces MI350-series air and liquid GPU solutions",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-delivers-performance-and-efficiency-optimized-liquid-cooled-and-air-cooled",
+      "scope": "June 2025 accelerator refresh of H14; explicitly links AS-8126GS-TNMR and AS-4126GS-NMR-LCC as available to order.",
+      "loc": "12 June 2025 dateline; final 'available to order' list with exact product links",
+      "date": "Published 12 Jun 2025; reviewed 08 Oct 2026"
+    },
+    "genSmGaudi": {
+      "title": "Supermicro X14 Gaudi 3 system product brief — September 2024",
+      "url": "https://www.supermicro.com/products/brief/Product-Brief-Gaudi3.pdf",
+      "scope": "Dated model-level evidence for SYS-822GA-NGR3.",
+      "loc": "Page 1: executive summary names SYS-822GA-NGR3; September 2024 footer",
+      "date": "Published Sep 2024; reviewed 08 Oct 2026"
+    },
+    "genSmB300": {
+      "title": "Supermicro begins volume shipments of Blackwell Ultra systems",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-begins-volume-shipments-nvidia-blackwell-ultra-systems-and-rack-plug-and",
+      "scope": "September 2025 broad availability of Supermicro HGX B300 systems, including the 8U air-cooled format; distinct from the 2024 X14 CPU platform date.",
+      "loc": "11 September 2025 dateline; opening availability statement; 8U air-cooled HGX B300 paragraph",
+      "date": "Published 11 Sep 2025; reviewed 08 Oct 2026"
+    },
+    "genSmH15Launch": {
+      "title": "Supermicro introduces H15 / EPYC 9006",
+      "url": "https://ir.supermicro.com/news/news-details/2026/Supermicro-Introduces-New-Server-Portfolio-with-6th-Gen-AMD-EPYC-9006-Series-CPUs-Delivering-1-7x-Generational-Performance-Improvements/default.aspx",
+      "scope": "July 2026 platform announcement; does not date every individual H15 SKU.",
+      "loc": "23 July 2026 dateline; opening H15 announcement and portfolio descriptions",
+      "date": "Published 23 Jul 2026; reviewed 08 Oct 2026"
+    },
+    "amdcloud": {
+      "title": "AS-2015CS-TNR specifications",
+      "url": "https://www.supermicro.com/en/products/system/clouddc/2u/as-2015cs-tnr",
+      "scope": "Single-socket CloudDC; EPYC 9005 requires motherboard revision 2.x.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "amdtwin": {
+      "title": "AS-2115GT-HNTR specifications",
+      "url": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2115gt-hntr",
+      "scope": "Four independent AMD nodes; rear I/O and six SFF bays per node.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "h15twin": {
+      "title": "AS-2117GT7-DNF specifications",
+      "url": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2117gt7-dnf",
+      "scope": "H15 two-node GrandTwin; EPYC 9006, SP7, PCIe 6.0 and alternative drive formats.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "tower": {
+      "title": "SYS-531R-I specifications",
+      "url": "https://www.supermicro.com/en/products/system/up%20workstation/mini-tower/sys-531r-i",
+      "scope": "Entry tower with Xeon 6300 / E-2400, ECC UDIMMs and BMC.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "capacity": {
+      "title": "SSG-542B-E1CR90 specifications",
+      "url": "https://www.supermicro.com/en/products/system/storage/4u/ssg-542b-e1cr90",
+      "scope": "Single-node 4U storage server with ninety top-loading drive positions.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "pciegpu": {
+      "title": "SYS-421GE-TNRT specifications",
+      "url": "https://www.supermicro.com/en/products/system/gpu/4u/sys-421ge-tnrt",
+      "scope": "Dual-root PCIe GPU platform, card population and storage options.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "hgx": {
+      "title": "SYS-822GS-NB3RT specifications",
+      "url": "https://www.supermicro.com/en/products/system/gpu/8u/sys-822gs-nb3rt",
+      "scope": "Intel host plus NVIDIA HGX B300, SXM GPUs and ConnectX-8 networking.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "edgeCurrent": {
+      "title": "AS-1115S-FWTRT current specifications",
+      "url": "https://www.supermicro.com/en/products/system/wio/1u/as-1115s-fwtrt",
+      "scope": "Current EPYC 8005/8004 CPU support, core limit, memory, M.2 and GPU positions; not an upgrade guarantee for older builds.",
+      "loc": "Processor; System Memory; GPU; Drive Bays / Storage",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "edgeRefresh": {
+      "title": "Supermicro unveils WIO servers powered by AMD EPYC 8005",
+      "url": "https://learn-more.supermicro.com/data-center-stories/supermicro-wio-amd-epyc-8005-sorano-edge-telco-retail-server",
+      "scope": "2026 EPYC 8005 Sorano refresh explicitly naming AS-1115S-FWTRT; no stock assertion.",
+      "loc": "EPYC 8005 discussion; AS-1115S-FWTRT at MWC Barcelona 2026",
+      "date": "2026 event context; reviewed 09 Oct 2026"
+    },
+    "amdentry": {
+      "title": "AS-3015A-I specifications",
+      "url": "https://www.supermicro.com/en/products/system/mainstream/tower/as-3015a-i",
+      "scope": "EPYC 4004/4005 and Ryzen 7000/9000 tower; UDIMM, storage and qualified Radeon Pro / NVIDIA graphics.",
+      "loc": "Processor; GPU; Memory; Storage; PCIe Configuration",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "amdpcie": {
+      "title": "AS-5126GS-TNRT specifications",
+      "url": "https://www.supermicro.com/en/products/system/gpu/5u/as%20-5126gs-tnrt",
+      "scope": "AMD-host 5U PCIe GPU system; eight qualified MI350P or NVIDIA GPU positions; expansion versus NVMe tradeoff.",
+      "loc": "Processor; GPU; PCIe Configuration; Drive Bays; Power Supply",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "amdhgx": {
+      "title": "AS-8126GS-NB3RT specifications",
+      "url": "https://www.supermicro.com/en/products/system/gpu/8u/as-8126gs-nb3rt",
+      "scope": "AMD EPYC 9005 host with eight NVIDIA HGX B300 SXM GPUs; detailed CPU section takes priority over broader 9004/9005 headline.",
+      "loc": "Detailed Processor; GPU; Memory; Storage; Networking",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "amdblade": {
+      "title": "SBA-817V7-1N specifications",
+      "url": "https://www.supermicro.com/en/aplus/superblade/module/sba-817v7-1n.php",
+      "scope": "H15 SP7 AMD SuperBlade; Coming Soon label, CPU, DIMMs, alternative storage and GPU positions.",
+      "loc": "Coming Soon label; Processor; GPU; Memory; PCIe Configuration; Drive Bays",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "amdbladeFamily": {
+      "title": "SuperBlade enclosure and blade matrix",
+      "url": "https://www.supermicro.com/en/products/superblade",
+      "scope": "SBA-817V7-1N belongs to H15 and the 8U enclosure family; not the selected Intel 6U enclosure.",
+      "loc": "8U enclosure CPU support; Blade Servers table, SBA-817V7-1N row",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "h15board": {
+      "title": "H15SPT-G motherboard specifications and status",
+      "url": "https://www.supermicro.com/en/products/motherboard/h15spt-g",
+      "scope": "Board used by H15 GrandTwin; vendor Coming Soon label is not an exact system shipping commitment.",
+      "loc": "Coming Soon label; CPU; DIMM and expansion specifications",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "genSm4004": {
+      "title": "Supermicro introduces EPYC 4004 H13 systems",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-introduces-high-density-efficient-and-cost-optimized-solutions-powered-amd",
+      "scope": "May 2024 H13 entry branch announcement explicitly links AS-3015A-I under Tower Servers; establishes documented-by timing, not an exact first-sale date.",
+      "loc": "21 May 2024 dateline; systems list > Tower Servers > exact AS-3015A-I product link",
+      "date": "Published 21 May 2024; reviewed 09 Oct 2026",
+      "publishedAt": "2024-05-21",
+      "reviewedAt": "2026-10-09"
+    },
+    "genSm4005": {
+      "title": "Supermicro EPYC 4005 MicroCloud and entry portfolio",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-delivers-best-class-cost-and-density-server-instance-new-microcloud-multi",
+      "scope": "2025 EPYC 4005 refresh explicitly linking AS-3015A-I; MicroCloud is a separate multi-node family.",
+      "loc": "13 May 2025 dateline; systems list and Tower Servers link",
+      "date": "Published 13 May 2025; reviewed 09 Oct 2026"
+    },
+    "genSmH12Launch": {
+      "title": "Supermicro introduces H12 EPYC 7002 servers",
+      "url": "https://ir.supermicro.com/news/news-details/2019/Supermicro-Now-Offering-AMD-EPYC-7002-Series-Processor-based-Systems-to-Customers-Who-Want-to-Transform-Their-Data-Centers/default.aspx",
+      "loc": "7 August 2019 date; first H12 generation launch paragraph",
+      "scope": "H12 generation introduction, not exact AS-2024US-TRT launch date.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": "2019-08-07",
+      "date": "Published 2019-08-07; reviewed 09 Oct 2026"
+    },
+    "genSmMI300Launch": {
+      "title": "Supermicro introduces MI300 systems including AS-8125GS-TNMR2",
+      "url": "https://ir.supermicro.com/news/news-details/2023/Supermicro-Extends-AI-and-GPU-Rack-Scale-Solutions-with-Support-for-AMD-Instinct-MI300-Series-Accelerators/default.aspx",
+      "loc": "6 December 2023 date; named AS-8125GS-TNMR2 paragraph and final exact model link",
+      "scope": "Exact 8U MI300X model announcement, separate from H13 platform start and later EPYC 9005 support.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": "2023-12-06",
+      "date": "Published 2023-12-06; reviewed 09 Oct 2026"
+    },
+    "amdlegacy": {
+      "title": "AS-2024US-TRT specifications",
+      "url": "https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt",
+      "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+      "scope": "Exact model specifications, conditional configurations and expansion scope.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null,
+      "date": "reviewed 09 Oct 2026"
+    },
+    "mi300x": {
+      "title": "AS-8125GS-TNMR2 specifications",
+      "url": "https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2",
+      "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+      "scope": "Exact model specifications, conditional configurations and expansion scope.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null,
+      "date": "reviewed 09 Oct 2026"
+    },
+    "h15hyper": {
+      "title": "AS-2127H7-N specifications",
+      "url": "https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n",
+      "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+      "scope": "Exact model specifications, conditional configurations and expansion scope.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null,
+      "date": "reviewed 09 Oct 2026"
+    }
+  },
+  "generations": [
+    {
+      "id": "sm-h13-9004",
+      "label": "H13 · EPYC 9004",
+      "year": 2022,
+      "summary": "Introduced in November 2022 for AMD's EPYC 9004 platform. Later board revisions in selected systems add EPYC 9005 support without renaming the underlying H13 generation.",
+      "sourceIds": [
+        "genSmH13Launch",
+        "amdcloud"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "sm-x13-scalable",
+      "label": "X13 · Xeon Scalable",
+      "year": 2022,
+      "summary": "Unveiled in November 2022, with broad launch in January 2023. Fifth-generation Xeon support followed in December 2023, within X13.",
+      "sourceIds": [
+        "genSmX13Preview",
+        "genSmX13Launch",
+        "genSmX13Refresh"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "sm-h13-edge",
+      "label": "H13 · EPYC 8004 edge",
+      "year": 2023,
+      "summary": "The EPYC 8004 WIO and short-depth edge branch arrived in September 2023. Its H13 name does not mean this branch launched with EPYC 9004 in 2022. EPYC 8005 support is a later 2026 refresh of the selected model, not a new 2023 capability.",
+      "sourceIds": [
+        "genSmEdgeLaunch",
+        "edgeRefresh"
+      ],
+      "dateLabel": "Platform branch introduced"
+    },
+    {
+      "id": "sm-x13-entry",
+      "label": "X13 · Xeon E-2400 entry",
+      "year": 2023,
+      "summary": "Supermicro introduced its E-2400 entry-server range in December 2023. This branch has its own timing, separate from the earlier X13 Xeon Scalable portfolio.",
+      "sourceIds": [
+        "genSmX13Refresh"
+      ],
+      "dateLabel": "Platform branch introduced"
+    },
+    {
+      "id": "sm-h13-entry",
+      "label": "H13 · EPYC 4004 entry",
+      "year": 2024,
+      "summary": "The EPYC 4004 entry branch was introduced in May 2024. EPYC 4005 configurations followed in May 2025; H13 also labels earlier SP5 and SP6 platforms with different CPU sockets.",
+      "sourceIds": [
+        "genSm4004",
+        "genSm4005"
+      ],
+      "dateLabel": "Platform branch introduced"
+    },
+    {
+      "id": "sm-x14",
+      "label": "X14 · Intel Xeon 6",
+      "year": 2024,
+      "summary": "Announced in April 2024 and initially launched with E-core CPUs in June. P-core models and accelerator variants arrived in later waves; X14 is a platform label, not one universal release date.",
+      "sourceIds": [
+        "genSmX14Preview",
+        "genSmX14Launch"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "sm-h14",
+      "label": "H14 · EPYC 9005 era",
+      "year": 2024,
+      "summary": "Introduced in October 2024. Selected H14 designs also accept EPYC 9004; MI350-series GPU configurations were a later June 2025 addition.",
+      "sourceIds": [
+        "genSmH14Launch",
+        "genSmH14Hyper",
+        "genSmMI350"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "sm-h15",
+      "label": "H15 · EPYC 9006",
+      "year": 2026,
+      "summary": "Announced in July 2026, bringing the EPYC 9006 generation to Supermicro's portfolio. Individual model availability follows its own schedule.",
+      "sourceIds": [
+        "genSmH15Launch"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "sm-h12",
+      "label": "H12 · EPYC 7002 / 7003",
+      "year": 2019,
+      "dateLabel": "Generation introduced",
+      "summary": "H12 debuted with EPYC 7002 in August 2019. Later EPYC 7003 support is model- and BIOS-specific; a generation date is not every system introduction.",
+      "sourceIds": [
+        "genSmH12Launch"
+      ]
+    }
+  ],
+  "models": {
+    "intelhyper": {
+      "generationId": "sm-x14",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "Named in the July 2024 X14 portfolio. The date describes this model's documented existence; its current CPU and GPU choices include later qualifications.",
+      "sourceIds": [
+        "genSmX14Training"
+      ]
+    },
+    "amd1": {
+      "generationId": "sm-h14",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "Explicitly listed in the October 2024 H14 Hyper data sheet. Supporting the older EPYC 9004 CPU does not make this an H13 system.",
+      "sourceIds": [
+        "genSmH14Hyper"
+      ]
+    },
+    "amd2": {
+      "generationId": "sm-h14",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "Explicitly listed in the October 2024 H14 Hyper data sheet. Platform age and the CPU installed in a particular build are separate facts.",
+      "sourceIds": [
+        "genSmH14Hyper"
+      ]
+    },
+    "amdcloud": {
+      "generationId": "sm-h13-9004",
+      "note": "Uses the H13SSW board. The displayed year dates the H13 EPYC 9004 generation, not a verified first-sale date for this SKU. EPYC 9005 requires a later 2.x motherboard revision.",
+      "sourceIds": [
+        "genSmH13Launch",
+        "amdcloud"
+      ]
+    },
+    "intelcloud": {
+      "generationId": "sm-x14",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "Named in the July 2024 X14 portfolio. P-core support shown today is a later CPU option within the same platform generation.",
+      "sourceIds": [
+        "genSmX14Training"
+      ]
+    },
+    "inteltwin": {
+      "generationId": "sm-x14",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "Named in the July 2024 X14 portfolio. GrandTwin is the multi-node family name; X14 identifies this example's platform generation.",
+      "sourceIds": [
+        "genSmX14Training"
+      ]
+    },
+    "amdtwin": {
+      "generationId": "sm-h13-9004",
+      "note": "Uses the H13SST-G board. The displayed year dates the platform generation, not a verified launch date for this exact GrandTwin. Later board revision 2.x enables EPYC 9005.",
+      "sourceIds": [
+        "genSmH13Launch",
+        "amdtwin"
+      ]
+    },
+    "h15twin": {
+      "generationId": "sm-h15",
+      "note": "The H15 portfolio was announced in July 2026. This EPYC 9006 / SP7 model belongs to that generation; a separate exact-SKU launch date has not been established here.",
+      "sourceIds": [
+        "genSmH15Launch",
+        "h15twin"
+      ]
+    },
+    "blade": {
+      "generationId": "sm-x14",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "The July 2024 X14 portfolio explicitly lists SBI-622B-1NE34. This dates the compute-blade generation, not the first appearance of SuperBlade enclosures as a family.",
+      "sourceIds": [
+        "genSmX14Training"
+      ]
+    },
+    "tower": {
+      "generationId": "sm-x13-entry",
+      "note": "This X13SCL-F tower belongs to the E-2400 entry-server branch introduced in December 2023. The platform date is shown because an exact SKU introduction date is not established here; Xeon 6300 support is a later qualification.",
+      "sourceIds": [
+        "genSmX13Refresh",
+        "tower"
+      ]
+    },
+    "edge": {
+      "generationId": "sm-h13-edge",
+      "modelYear": 2023,
+      "modelDateKind": "Documented by",
+      "note": "The September 2023 H13 Telco/Edge data sheet explicitly names AS-1115S-FWTRT. Its EPYC 8004 edge branch started later than the H13 EPYC 9004 branch. Its current EPYC 8005 support is a 2026 CPU refresh; original platform age and current CPU qualification are separate.",
+      "sourceIds": [
+        "genSmEdgeSheet",
+        "genSmEdgeLaunch",
+        "edgeCurrent",
+        "edgeRefresh"
+      ]
+    },
+    "petascale": {
+      "generationId": "sm-x14",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "Named in the July 2024 X14 portfolio. This is the all-flash storage model's documented generation, not the launch year of the wider Petascale family.",
+      "sourceIds": [
+        "genSmX14Training"
+      ]
+    },
+    "capacity": {
+      "generationId": "sm-x14",
+      "note": "An X14 storage platform. The displayed year dates X14's introduction; the exact first announcement or shipment date of this 90-drive SKU is not established here.",
+      "sourceIds": [
+        "genSmX14Preview",
+        "capacity"
+      ]
+    },
+    "pciegpu": {
+      "generationId": "sm-x13-scalable",
+      "note": "This X13 PCIe GPU platform supports 4th and 5th Gen Xeon Scalable. X13 was unveiled in 2022 and broadly launched in 2023; the 5th Gen CPU refresh followed in December 2023. Exact SKU debut is not established here.",
+      "sourceIds": [
+        "genSmX13Preview",
+        "genSmX13Launch",
+        "genSmX13Refresh",
+        "pciegpu"
+      ]
+    },
+    "instinctair": {
+      "generationId": "sm-h14",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "Named as coming soon in the October 2024 H14 brochure. MI350-series configurations were announced in June 2025; the earlier model date does not date every supported GPU.",
+      "sourceIds": [
+        "genSmH14Brochure",
+        "genSmMI350"
+      ]
+    },
+    "instinctliquid": {
+      "generationId": "sm-h14",
+      "modelYear": 2025,
+      "modelDateKind": "Documented by",
+      "note": "Named in the June 2025 MI350-series announcement and listed as available to order. This dates the documented accelerator configuration, not necessarily the chassis’s first introduction or shipment; H14 itself began in 2024.",
+      "sourceIds": [
+        "genSmMI350",
+        "genSmH14Launch"
+      ]
+    },
+    "hgx": {
+      "generationId": "sm-x14",
+      "note": "X14 began in 2024, but Supermicro's HGX B300 systems entered volume shipments in September 2025. Use 2025 to understand this accelerator era rather than assuming B300 was available at the original X14 launch.",
+      "sourceIds": [
+        "genSmB300",
+        "genSmX14Launch",
+        "hgx"
+      ]
+    },
+    "gaudi": {
+      "generationId": "sm-x14",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "Supermicro's September 2024 product brief explicitly introduces SYS-822GA-NGR3 with Xeon 6 hosts and Gaudi 3 accelerators. This is a particular X14 AI design.",
+      "sourceIds": [
+        "genSmGaudi"
+      ]
+    },
+    "amdentry": {
+      "generationId": "sm-h13-entry",
+      "modelYear": 2024,
+      "modelDateKind": "Documented by",
+      "note": "The 21 May 2024 EPYC 4004 announcement explicitly links AS-3015A-I under Tower Servers. This establishes the model by May 2024, not an exact first-sale date. The separate 13 May 2025 announcement documents its EPYC 4005 refresh.",
+      "sourceIds": [
+        "genSm4004",
+        "genSm4005",
+        "amdentry"
+      ]
+    },
+    "amdpcie": {
+      "generationId": "sm-h14",
+      "note": "Uses H14DSG-O-CPU. The 2024 year dates the H14 platform, not this exact SKU or its MI350P qualification; a separate model debut is not established here.",
+      "sourceIds": [
+        "genSmH14Launch",
+        "amdpcie"
+      ]
+    },
+    "amdhgx": {
+      "generationId": "sm-h14",
+      "note": "Uses H14DSG-OM. The 2024 date belongs to H14; HGX B300 is a later accelerator era, with portfolio volume-shipment evidence in September 2025. This does not prove the exact SKU shipped then.",
+      "sourceIds": [
+        "genSmH14Launch",
+        "genSmB300",
+        "amdhgx"
+      ]
+    },
+    "amdblade": {
+      "generationId": "sm-h15",
+      "note": "H15 was announced in July 2026. The current SBA-817V7-1N page says Coming Soon; the generation date is not a shipping date for this 8U-enclosure blade.",
+      "sourceIds": [
+        "genSmH15Launch",
+        "amdblade",
+        "amdbladeFamily"
+      ]
+    },
+    "amdlegacy": {
+      "generationId": "sm-h12",
+      "modelYear": null,
+      "modelDateKind": null,
+      "note": "H12 began in 2019. This exact model has no independently established first announcement or sale date in this profile; EPYC 7003 and MI210 are later capabilities.",
+      "sourceIds": [
+        "genSmH12Launch",
+        "amdlegacy"
+      ]
+    },
+    "mi300x": {
+      "generationId": "sm-h13-9004",
+      "modelYear": 2023,
+      "modelDateKind": "Announced",
+      "note": "The exact MI300X model was named in the 6 December 2023 OEM announcement. H13 started in 2022; current EPYC 9005 support is a later board-revision-dependent option.",
+      "sourceIds": [
+        "genSmH13Launch",
+        "genSmMI300Launch",
+        "mi300x"
+      ]
+    },
+    "h15hyper": {
+      "generationId": "sm-h15",
+      "modelYear": null,
+      "modelDateKind": null,
+      "note": "H15 was announced in July 2026. The exact model is documented on its live OEM product page; its first announcement and shipping dates are not established here.",
+      "sourceIds": [
+        "genSmH15Launch",
+        "h15hyper"
+      ]
+    }
+  },
+  "defaultGeneration": "sm-h15"
+}

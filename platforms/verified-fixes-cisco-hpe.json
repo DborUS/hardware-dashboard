@@ -1,0 +1,1036 @@
+{
+  "reviewed": "2026-10-09",
+  "reviewer": "Cisco/HPE implementation specialist",
+  "scope": "Confirmed support/cooling/processor/date/announced-option omissions only; no new profiles or illustrations. Official sources reopened independently of earlier audit.",
+  "claims": [
+    {
+      "id": "CH-c245-MI210",
+      "model": "c245",
+      "file": "work/fae-ucs.json",
+      "fields": [
+        "gpuOptions",
+        "amdGpuStatus",
+        "amdGpuNote",
+        "restrictions"
+      ],
+      "before": {
+        "gpuOptions": [],
+        "amdGpuStatus": "not-established",
+        "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+        "restrictions": [
+          "At most eight NVMe drives attach directly to CPUs; the 28-drive ceiling requires the appropriate backplanes/controllers.",
+          "Eight-GPU headline is not eight of every GPU; RTX PRO 4500 has a documented three-GPU ceiling.",
+          "With one CPU, only its attached memory and I/O resources are available; validate population and risers."
+        ]
+      },
+      "after": {
+        "gpuOptions": [
+          {
+            "product": "Instinct MI210",
+            "status": "qualified",
+            "availability": "Availability unverified",
+            "conditions": "UCSC-GPU-MI210, up to three 300 W / 64 GB cards: slot 2 (riser 1A/1C), slot 5 (2A/2C), slot 7 (3C). Requires UCSC-HSLP-C45M8 heatsinks, UCSC-RISAB-245M8 airblocker, UCSC-GPUAD-C245M8 duct and UCS-P100CBL-240-D power cable. UCS Manager support added in 4.3(5c); verify current compatible firmware, exact CPU, population, power and software.",
+            "sourceIds": [
+              "verifyC245MI210",
+              "verifyUCSM43MI210"
+            ],
+            "verified": "2026-10-09"
+          }
+        ],
+        "amdGpuStatus": null,
+        "amdGpuNote": "MI210 has a documented model-specific hardware route; exact CPU/GPU pairing and current availability still require confirmation.",
+        "restrictions": [
+          "At most eight NVMe drives attach directly to CPUs; the 28-drive ceiling requires the appropriate backplanes/controllers.",
+          "Eight-GPU headline is not eight of every GPU; RTX PRO 4500 has a documented three-GPU ceiling.",
+          "With one CPU, only its attached memory and I/O resources are available; validate population and risers."
+        ]
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "Available-option tables name exact MI210 PID/count/risers; release notes name the host and firmware. CPU-family pairings intentionally left unscoped.",
+      "sourceIds": [
+        "verifyC245MI210",
+        "verifyUCSM43MI210"
+      ],
+      "sources": [
+        {
+          "title": "Cisco UCS C245 M8 SFF specification: MI210 configuration",
+          "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-sff-rack-server.pdf",
+          "loc": "Table 14, printed pp33-34; accessories below Table 14; risers pp5-6",
+          "revision": "Rev A.41 / 07 Sep 2026",
+          "publicationDate": "2026-09-07",
+          "reviewed": "2026-10-09",
+          "date": "Rev A.41 / 07 Sep 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        },
+        {
+          "title": "UCS Manager 4.3: model-specific MI210 support",
+          "url": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/release/notes/b_release-notes-ucsm-4_3.html",
+          "loc": "New Hardware 4.3(5c): GPU Support; New Hardware 4.3(6a): GPU Support; Table19 X215c MI210 minimum version",
+          "revision": "Release 4.3(6j); revision history updated 09 Oct 2026",
+          "publicationDate": null,
+          "reviewed": "2026-10-09",
+          "date": "Release 4.3(6j); revision history updated 09 Oct 2026",
+          "scope": "MI210 model and firmware support. Does not establish every EPYC 9004/9005 SKU pairing or current availability."
+        }
+      ]
+    },
+    {
+      "id": "CH-x215-MI210",
+      "model": "x215",
+      "file": "work/fae-ucs.json",
+      "fields": [
+        "gpuOptions",
+        "amdGpuStatus",
+        "amdGpuNote",
+        "restrictions"
+      ],
+      "before": {
+        "gpuOptions": [],
+        "amdGpuStatus": "not-established",
+        "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+        "restrictions": [
+          "X580p expansion requires X9516 modules and a qualified X215c M8 pairing.",
+          "AMD host CPUs do not establish AMD GPU qualification in the expansion node.",
+          "The front GPU configuration changes the drive layout."
+        ]
+      },
+      "after": {
+        "gpuOptions": [
+          {
+            "product": "Instinct MI210",
+            "status": "qualified",
+            "availability": "Availability unverified",
+            "conditions": "UCSX-GPU-MI210 through UCSX-440P-D: up to two 300 W / 64 GB cards on Gen4 risers 1A/2A. Both risers, UCSX-F-9416-D X-Fabric modules and a supported rear mezzanine connection are required; risers include GPU cables. UCS Manager minimum 4.3(6a). This is the X440p route, not X580p; confirm exact CPU, power, firmware and software.",
+            "sourceIds": [
+              "verifyX440MI210",
+              "verifyUCSM43MI210"
+            ],
+            "verified": "2026-10-09"
+          }
+        ],
+        "amdGpuStatus": null,
+        "amdGpuNote": "MI210 has a documented model-specific hardware route; exact CPU/GPU pairing and current availability still require confirmation.",
+        "restrictions": [
+          "X580p expansion requires X9516 modules and a qualified X215c M8 pairing.",
+          "The front GPU configuration changes the drive layout.",
+          "MI210 is documented via X440p, maximum two; do not transfer that qualification to X580p or to every EPYC CPU option."
+        ]
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "Available-option tables name exact MI210 PID/count/risers; release notes name the host and firmware. CPU-family pairings intentionally left unscoped.",
+      "sourceIds": [
+        "verifyX440MI210",
+        "verifyUCSM43MI210"
+      ],
+      "sources": [
+        {
+          "title": "Cisco UCS X440p specification: X215c M8 MI210 route",
+          "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-x-series-modular-system/x440p-specsheet.pdf",
+          "loc": "Table 4, printed p9, M8 section; Steps 2/4/5 pp8,11-13",
+          "revision": "Rev A.16 / 13 Apr 2026",
+          "publicationDate": "2026-04-13",
+          "reviewed": "2026-10-09",
+          "date": "Rev A.16 / 13 Apr 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        },
+        {
+          "title": "UCS Manager 4.3: model-specific MI210 support",
+          "url": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/release/notes/b_release-notes-ucsm-4_3.html",
+          "loc": "New Hardware 4.3(5c): GPU Support; New Hardware 4.3(6a): GPU Support; Table19 X215c MI210 minimum version",
+          "revision": "Release 4.3(6j); revision history updated 09 Oct 2026",
+          "publicationDate": null,
+          "reviewed": "2026-10-09",
+          "date": "Release 4.3(6j); revision history updated 09 Oct 2026",
+          "scope": "MI210 model and firmware support. Does not establish every EPYC 9004/9005 SKU pairing or current availability."
+        }
+      ]
+    },
+    {
+      "id": "CH-c245-chronology",
+      "model": "c245",
+      "file": "work/ucs-generation-data.json",
+      "fields": [
+        "note",
+        "sourceIds"
+      ],
+      "before": {
+        "note": "Named in Cisco's 4 June 2024 announcement.",
+        "sourceIds": [
+          "ucsGenM8AMD"
+        ]
+      },
+      "after": {
+        "note": "First announced 6 February 2024. The June portfolio announcement named C245 again alongside C225 and X215c.",
+        "sourceIds": [
+          "verifyC245Launch",
+          "ucsGenM8AMD"
+        ]
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "FAQ explicitly dates announcement6 Feb 2024; June was portfolio expansion. Shared M8 summary corrected too.",
+      "sourceIds": [
+        "verifyC245Launch"
+      ],
+      "sources": [
+        {
+          "title": "Cisco C245 M8 original announcement FAQ",
+          "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-rack-server-faq.html",
+          "loc": "Overview: What did Cisco announce on February6,2024?",
+          "revision": "Updated15 Feb 2024",
+          "publicationDate": "2024-02-15",
+          "reviewed": "2026-10-09",
+          "date": "Updated15 Feb 2024",
+          "scope": "First announcement6 Feb 2024; document update15 Feb is not the announcement date."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl320-cooling",
+      "model": "dl320",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air or facility DLC. P84312-B21 requires matching hoses and a complete rack shipment. Internal closed-loop P76605-B21 uses room air; it is distinct from facility DLC."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "QuickSpecs explicitly list air heatsinks/fans and a separate model-specific DLC kit. Thermal choices are not universal GPU/CPU combination approval.",
+      "sourceIds": [
+        "verifyCoolingDL320"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL320 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004283enw.html",
+          "loc": "Core Options: Power and Cooling, P84312-B21; CLC P76605-B21",
+          "revision": "V21 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V21 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl325-cooling",
+      "model": "dl325",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air or facility DLC P80827-B21; DLC requires the complete rack/CDU/manifold/hose solution. Internal closed-loop liquid-to-air cooling is a separate option and excludes the GPU CTO chassis."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "QuickSpecs explicitly list air heatsinks/fans and a separate model-specific DLC kit. Thermal choices are not universal GPU/CPU combination approval.",
+      "sourceIds": [
+        "verifyCoolingDL325"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL325 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009232enw.html",
+          "loc": "Core Options: Power and Cooling; P80827-B21; closed-loop cooling rules",
+          "revision": "V13 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V13 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl340-cooling",
+      "model": "dl340",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air or facility DLC P84592-B21. DLC requires matching hoses, six performance fans and a complete rack/CDU/manifold solution."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "QuickSpecs explicitly list air heatsinks/fans and a separate model-specific DLC kit. Thermal choices are not universal GPU/CPU combination approval.",
+      "sourceIds": [
+        "verifyCoolingDL340"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL340 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004261enw.html",
+          "loc": "Core Options: Power and Cooling; P84592-B21",
+          "revision": "V16 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V16 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl345-cooling",
+      "model": "dl345",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air or facility DLC P81123-B21. DLC requires six performance fans and a complete rack/CDU/manifold/hose solution; match the chassis configuration."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "QuickSpecs explicitly list air heatsinks/fans and a separate model-specific DLC kit. Thermal choices are not universal GPU/CPU combination approval.",
+      "sourceIds": [
+        "verifyCoolingDL345"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL345 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009233enw.html",
+          "loc": "Core Options: Power and Cooling; P81123-B21",
+          "revision": "V13 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V13 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl360-cooling",
+      "model": "dl360",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air or facility DLC using P74208-B21 or P79273-B21 and compatible rack infrastructure. Internal closed-loop liquid-to-air cooling is separate; location and I/O rules differ."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "QuickSpecs explicitly list air heatsinks/fans and a separate model-specific DLC kit. Thermal choices are not universal GPU/CPU combination approval.",
+      "sourceIds": [
+        "verifyCoolingDL360"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL360 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/ie/en/collaterals/collateral.a50006984enw.html",
+          "loc": "Core Options: cooling, P74208-B21/P79273-B21; Technical Specifications: minimum SFF/LFF",
+          "revision": "V20 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V20 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl365-cooling",
+      "model": "dl365",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air and direct liquid builds are documented; CPU, DIMM capacity, drives and ambient limits must match the thermal matrix."
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air or facility DLC P62032-B21/P62035-B21. CPU, DIMMs, drives and ambient limits must match the thermal matrix; PCIe DLC reduces available PCIe card positions."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "QuickSpecs explicitly list air heatsinks/fans and a separate model-specific DLC kit. Thermal choices are not universal GPU/CPU combination approval.",
+      "sourceIds": [
+        "verifyCoolingDL365"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL365 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004299enw.html",
+          "loc": "Core Options: Cooling Options; CPU/DIMM ambient matrices; P62032-B21/P62035-B21",
+          "revision": "V46 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V46 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl380-cooling",
+      "model": "dl380",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air or facility DLC P74204-B21/P74208-B21 with matching hoses/rack infrastructure. DLC excludes mid-tray storage; the PCIe option consumes slot 6 and requires the secondary riser."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "QuickSpecs explicitly list air heatsinks/fans and a separate model-specific DLC kit. Thermal choices are not universal GPU/CPU combination approval.",
+      "sourceIds": [
+        "verifyCoolingDL380"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL380 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/psnow/doc/a00073551enw.pdf",
+          "loc": "QuickSpecs PDF pp18,32-33: OCP one-processor case and DLC options",
+          "revision": "V20 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V20 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl385-cooling",
+      "model": "dl385",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air and direct liquid builds are documented; CPU, DIMM capacity, drives and ambient limits must match the thermal matrix."
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air or facility DLC P62032-B21/P62035-B21. Apply exact CPU/DIMM/storage thermal rules; this does not establish an MI350P-plus-DLC pairing."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "QuickSpecs explicitly list air heatsinks/fans and a separate model-specific DLC kit. Thermal choices are not universal GPU/CPU combination approval.",
+      "sourceIds": [
+        "verifyCoolingDL385"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL385 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004300enw.html",
+          "loc": "Core Options: Direct Liquid Cooling Solutions, P62032-B21/P62035-B21",
+          "revision": "V49 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V49 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl580-cooling",
+      "model": "dl580",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air or facility DLC P78016-B21 with P62042-B21 tubing. DLC cannot mix with other heatsinks; validate the processor configuration and rack solution."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "QuickSpecs explicitly list air heatsinks/fans and a separate model-specific DLC kit. Thermal choices are not universal GPU/CPU combination approval.",
+      "sourceIds": [
+        "verifyCoolingDL580"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL580 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009226enw.html",
+          "loc": "Core Options: Heat Sinks; Direct Liquid Cooling Module, P78016-B21",
+          "revision": "V11 / 03 Aug 2026",
+          "publicationDate": "2026-08-03",
+          "reviewed": "2026-10-09",
+          "date": "V11 / 03 Aug 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl380a-cooling",
+      "model": "dl380a",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "cooling": "Air",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Air or CPU facility DLC P82520-B21 with P62042-B21 tubing. CPU DLC consumes rear slot 1 and excludes the 10DW FIO configuration and Front Cage Fan Kit; GPU cooling is separately qualified."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "QuickSpecs explicitly list air heatsinks/fans and a separate model-specific DLC kit. Thermal choices are not universal GPU/CPU combination approval.",
+      "sourceIds": [
+        "verifyCoolingDL380A"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL380A QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a00047453enw.html",
+          "loc": "Core Options: P82520-B21 CPU Direct Liquid Cooling FIO Kit",
+          "revision": "V21 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V21 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-xd685-cooling",
+      "model": "xd685",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "cooling": "Configuration-dependent",
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "H200 has air and DLC variants; B200/B300/MI355X require DLC. Accelerator-specific chassis, cooling and power kits control the actual choice."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "QuickSpecs explicitly list air heatsinks/fans and a separate model-specific DLC kit. Thermal choices are not universal GPU/CPU combination approval.",
+      "sourceIds": [
+        "verifyCoolingXD685"
+      ],
+      "sources": [
+        {
+          "title": "HPE XD685 QuickSpecs: cooling choices",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a00073553enw.html",
+          "loc": "Standard Features: Accelerators; Step 2: Choose Accelerator",
+          "revision": "V16 / 03 Aug 2026",
+          "publicationDate": "2026-08-03",
+          "reviewed": "2026-10-09",
+          "date": "V16 / 03 Aug 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl525-cooling",
+      "model": "dl525",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "supportedCooling",
+        "coolingNote",
+        "restrictions"
+      ],
+      "before": {
+        "supportedCooling": null,
+        "coolingNote": null,
+        "restrictions": [
+          "Announced platform; planned availability later in 2026 is not verified shipment.",
+          "No model-specific GPU, drive or thermal qualification is established from the selected launch sources."
+        ]
+      },
+      "after": {
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "coolingNote": "Announced air and facility direct-liquid choices. Availability and exact thermal configurations require confirmation.",
+        "restrictions": [
+          "Announced platform; planned availability later in 2026 is not verified shipment.",
+          "Air and direct liquid cooling are announced; exact GPU, drive and configuration-specific thermal qualification must be checked."
+        ]
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "Official HPE product listing explicitly describes air and DLC alternatives. Lifecycle remains announced.",
+      "sourceIds": [
+        "verifyDL525Cooling"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL525 Gen13 announced cooling choices",
+          "url": "https://buy.hpe.com/uk/en/compute/rack-servers/proliant-dl500-servers/hpe-proliant-dl525-gen13-server/p/1014975892",
+          "loc": "What is New: choice of air and direct liquid cooling",
+          "revision": null,
+          "publicationDate": null,
+          "reviewed": "2026-10-09",
+          "date": "Reviewed 09 Oct 2026",
+          "scope": "Announced design choices; no confirmed shipping status."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl585a-options",
+      "model": "dl585a",
+      "file": "work/fae-hpe.json",
+      "fields": [
+        "gpuOptions",
+        "restrictions",
+        "cooling",
+        "supportedCooling",
+        "coolingNote"
+      ],
+      "before": {
+        "gpuOptions": [],
+        "restrictions": [
+          "Announced platform; planned availability early 2027 is not verified shipment.",
+          "Eight double-wide PCIe GPU positions do not establish any particular AMD or NVIDIA accelerator."
+        ],
+        "cooling": "Configuration-dependent",
+        "supportedCooling": null,
+        "coolingNote": null
+      },
+      "after": {
+        "gpuOptions": [
+          {
+            "product": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+            "status": "announced",
+            "availability": "Platform planned for March 2027; shipment unverified",
+            "conditions": "S6A73C; launch QuickSpecs allow 0/1/2/4/8 GPUs, no mixing of models. Field GPU-cable upgrades use P97059-B21; validate the exact build.",
+            "sourceIds": [
+              "verifyDL585Options",
+              "hpeGen13Details"
+            ],
+            "verified": "2026-10-09",
+            "cpuFamilies": [
+              "EPYC 9006"
+            ],
+            "cooling": [
+              "Air"
+            ]
+          },
+          {
+            "product": "NVIDIA RTX PRO 6000D",
+            "status": "announced",
+            "availability": "Platform planned for March 2027; shipment unverified",
+            "conditions": "S6W21C; launch QuickSpecs allow 0/1/2/4/8 GPUs, no mixing of models. Field GPU-cable upgrades use P97059-B21; validate the exact build.",
+            "sourceIds": [
+              "verifyDL585Options",
+              "hpeGen13Details"
+            ],
+            "verified": "2026-10-09",
+            "cpuFamilies": [
+              "EPYC 9006"
+            ],
+            "cooling": [
+              "Air"
+            ]
+          }
+        ],
+        "restrictions": [
+          "Announced platform; planned availability early 2027 is not verified shipment.",
+          "Launch QuickSpecs name RTX PRO 6000 Blackwell Server Edition and RTX PRO 6000D. No AMD accelerator qualification is established; do not generalize from eight GPU positions."
+        ],
+        "cooling": "Air",
+        "supportedCooling": [
+          "Air"
+        ],
+        "coolingNote": "Announced air-cooled design; expected availability is separate from documented options."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "Current launch QuickSpecs name both NVIDIA PIDs and populations; product technical specification states air-cooled. AMD GPU and shipping remain unknown.",
+      "sourceIds": [
+        "verifyDL585Options",
+        "verifyDL585Cooling",
+        "hpeGen13Details"
+      ],
+      "sources": [
+        {
+          "title": "HPE DL585a Gen13 launch QuickSpecs: supported accelerators",
+          "url": "https://www.hpe.com/no/en/collaterals/collateral.a50014668enw.html",
+          "loc": "Supported Options: processors; Step 3 Choose GPUs; no mixing and population rules",
+          "revision": "V1 / 07 Oct 2026",
+          "publicationDate": "2026-10-07",
+          "reviewed": "2026-10-09",
+          "date": "V1 / 07 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        },
+        {
+          "title": "HPE DL585a Gen13 technical specifications",
+          "url": "https://www.hpe.com/sg/en/products/compute/proliant/dl585a-gen13.html",
+          "loc": "Technical specifications: Cooling",
+          "revision": null,
+          "publicationDate": null,
+          "reviewed": "2026-10-09",
+          "date": "Reviewed 09 Oct 2026",
+          "scope": "Announced air-cooled platform; not a live inventory or shipping assertion."
+        },
+        {
+          "title": "New HPE ProLiant Gen13 Servers - built to protect, designed to automate, proven to deliver",
+          "url": "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922",
+          "date": "07 Oct 2026 · reviewed 09 Oct 2026",
+          "scope": "HPE ComputeExperts launch detail: EPYC 9006 SP7, 10U DL585a and per-node socket counts; XD245 height conflicts with press release.",
+          "loc": "At a glance; HPE ProLiant DL525 / DL585a; XD245 / XD285"
+        }
+      ]
+    },
+    {
+      "id": "CH-dl360-1cpu",
+      "model": "dl360",
+      "file": "work/memory-hpe.json",
+      "fields": [
+        "installedCPUCounts",
+        "installedCPUCountsNote",
+        "installedCPUCountsComplete"
+      ],
+      "before": {
+        "installedCPUCounts": [
+          2
+        ],
+        "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field.",
+        "installedCPUCountsComplete": null
+      },
+      "after": {
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "installedCPUCountsNote": "One- and two-processor configurations documented. SFF/LFF minima use one CPU; the EDSFF minimum uses two. One CPU enables only its memory and I/O resources.",
+        "installedCPUCountsComplete": true
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "Current QuickSpecs explicitly describes1 CPU and2 CPU configurations, including local resource limitations.",
+      "sourceIds": [],
+      "sources": [
+        {
+          "title": "HPE DL360 QuickSpecs: installed processor configurations",
+          "url": "https://www.hpe.com/ie/en/collaterals/collateral.a50006984enw.html",
+          "loc": "Technical Specifications: Weight, SFF/LFF minima and maxima; processor/fan rules",
+          "revision": "V20 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V20 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-dl380-1cpu",
+      "model": "dl380",
+      "file": "work/memory-hpe.json",
+      "fields": [
+        "installedCPUCounts",
+        "installedCPUCountsNote",
+        "installedCPUCountsComplete"
+      ],
+      "before": {
+        "installedCPUCounts": [
+          2
+        ],
+        "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field.",
+        "installedCPUCountsComplete": null
+      },
+      "after": {
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "installedCPUCountsNote": "One- and two-processor configurations documented. With one CPU, one OCP may extend to x16 if the other is unused; CPU 2-attached memory and I/O remain unavailable.",
+        "installedCPUCountsComplete": true
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "Current QuickSpecs explicitly describes1 CPU and2 CPU configurations, including local resource limitations.",
+      "sourceIds": [],
+      "sources": [
+        {
+          "title": "HPE DL380 QuickSpecs: installed processor configurations",
+          "url": "https://www.hpe.com/psnow/doc/a00073551enw.pdf",
+          "loc": "QuickSpecs p18 OCP expansion-slot notes; secondary-riser CPU2 mapping pp16-17",
+          "revision": "V20 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V20 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-sy480-1cpu",
+      "model": "sy480",
+      "file": "work/memory-hpe.json",
+      "fields": [
+        "installedCPUCounts",
+        "installedCPUCountsNote",
+        "installedCPUCountsComplete"
+      ],
+      "before": {
+        "installedCPUCounts": [
+          2
+        ],
+        "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field.",
+        "installedCPUCountsComplete": null
+      },
+      "after": {
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "installedCPUCountsNote": "One- and two-processor modules documented. One CPU requires P68225-B21 front heatsink and enables16 DIMM slots; the second CPU adds the rear heatsink and its local memory/I/O.",
+        "installedCPUCountsComplete": true
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "Current QuickSpecs explicitly describes1 CPU and2 CPU configurations, including local resource limitations.",
+      "sourceIds": [],
+      "sources": [
+        {
+          "title": "HPE SY480 QuickSpecs: installed processor configurations",
+          "url": "https://www.hpe.com/ca/en/collaterals/collateral.a50009201enw.html",
+          "loc": "Step 2 Processor Options; Memory population rules; Technical Specifications minimum",
+          "revision": "V14 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V14 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-ml350-1cpu",
+      "model": "ml350",
+      "file": "work/memory-hpe.json",
+      "fields": [
+        "installedCPUCounts",
+        "installedCPUCountsNote",
+        "installedCPUCountsComplete"
+      ],
+      "before": {
+        "installedCPUCounts": [
+          2
+        ],
+        "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field.",
+        "installedCPUCountsComplete": null
+      },
+      "after": {
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "installedCPUCountsNote": "One- and two-processor configurations documented. One CPU enables16 of 32 DIMM slots; extra CPU-attached I/O requires its processor.",
+        "installedCPUCountsComplete": true
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "Current QuickSpecs explicitly describes1 CPU and2 CPU configurations, including local resource limitations.",
+      "sourceIds": [],
+      "sources": [
+        {
+          "title": "HPE ML350 QuickSpecs: installed processor configurations",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50006995enw.html",
+          "loc": "Memory population rules; Technical Specifications SFF/LFF minimum and maximum",
+          "revision": "V18 / 05 Oct 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "date": "V18 / 05 Oct 2026",
+          "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+        }
+      ]
+    },
+    {
+      "id": "CH-xd245-mrdimm",
+      "model": "xd245",
+      "file": "work/memory-hpe.json",
+      "fields": [
+        "memoryTypes",
+        "dimmSlots",
+        "dpc",
+        "note"
+      ],
+      "before": {
+        "memoryTypes": null,
+        "dimmSlots": null,
+        "dpc": [],
+        "note": "Per node: two processors and 16 announced memory channels per processor. Four nodes per chassis, eight processors total. Physical DIMM slot count and DPC population are not established by the reviewed launch material."
+      },
+      "after": {
+        "memoryTypes": [
+          "DDR5 MRDIMM"
+        ],
+        "dimmSlots": null,
+        "dpc": [],
+        "note": "Per node: two processors and 16 announced memory channels per processor. Four nodes per chassis, eight processors total. Physical DIMM slot count and DPC population are not established by the reviewed launch material. MRDIMM support is announced; this does not establish physical slot count or DPC."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "HPE launch technical overview names MRDIMM support for each node. Slot counts remain null and DPC remains empty.",
+      "sourceIds": [
+        "hpeGen13Details"
+      ],
+      "sources": [
+        {
+          "title": "New HPE ProLiant Gen13 Servers - built to protect, designed to automate, proven to deliver",
+          "url": "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922",
+          "date": "07 Oct 2026 · reviewed 09 Oct 2026",
+          "scope": "HPE ComputeExperts launch detail: EPYC 9006 SP7, 10U DL585a and per-node socket counts; XD245 height conflicts with press release.",
+          "loc": "At a glance; HPE ProLiant DL525 / DL585a; XD245 / XD285"
+        }
+      ]
+    },
+    {
+      "id": "CH-xd285-mrdimm",
+      "model": "xd285",
+      "file": "work/memory-hpe.json",
+      "fields": [
+        "memoryTypes",
+        "dimmSlots",
+        "dpc",
+        "note"
+      ],
+      "before": {
+        "memoryTypes": null,
+        "dimmSlots": null,
+        "dpc": [],
+        "note": "Per node: two processors and 16 announced memory channels per processor. Two nodes per chassis, four processors total. Physical DIMM slot count and DPC population are not established by the reviewed launch material."
+      },
+      "after": {
+        "memoryTypes": [
+          "DDR5 MRDIMM"
+        ],
+        "dimmSlots": null,
+        "dpc": [],
+        "note": "Per node: two processors and 16 announced memory channels per processor. Two nodes per chassis, four processors total. Physical DIMM slot count and DPC population are not established by the reviewed launch material. MRDIMM support is announced; this does not establish physical slot count or DPC."
+      },
+      "verification": "Fresh official source read on 2026-10-09",
+      "proof": "HPE launch technical overview names MRDIMM support for each node. Slot counts remain null and DPC remains empty.",
+      "sourceIds": [
+        "hpeGen13Details"
+      ],
+      "sources": [
+        {
+          "title": "New HPE ProLiant Gen13 Servers - built to protect, designed to automate, proven to deliver",
+          "url": "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922",
+          "date": "07 Oct 2026 · reviewed 09 Oct 2026",
+          "scope": "HPE ComputeExperts launch detail: EPYC 9006 SP7, 10U DL585a and per-node socket counts; XD245 height conflicts with press release.",
+          "loc": "At a glance; HPE ProLiant DL525 / DL585a; XD245 / XD285"
+        }
+      ]
+    }
+  ],
+  "preservedUncertainties": [
+    "MI210 CPU-family pairing intentionally unscoped: listing both families and MI210 is not every-family/SKU certification.",
+    "Cisco GPU availability unverified; X440p evidence does not qualify X580p.",
+    "Gen13 lifecycle remains announced; AMD GPU support unknown where no option is listed.",
+    "XD245/XD285 physical DIMM slots and DPC remain unknown.",
+    "Liquid filter means facility DLC; internal CLC is described separately.",
+    "HPE XD245 1OU/2OU official-source conflict remains disclosed."
+  ],
+  "integration": [
+    "Rebuild Finder and standalone guides after root integrates all edits.",
+    "Root owns hpe-data.js stale DL585a generic GPU/CPU/note text; synchronize it to launch QuickSpecs.",
+    "Run browser regression for newly discoverable MI210, HPE DLC and1 CPU models; preserve CPU/GPU pairing downgrade."
+  ]
+}

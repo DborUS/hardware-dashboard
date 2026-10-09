@@ -1,0 +1,282 @@
+{
+  "reviewed": "2026-10-09",
+  "reviewer": "Independent Supermicro / specification-validation specialist",
+  "scope": "Independent review of every one of 22 Cisco/HPE phase-one claim groups in verified-fixes-cisco-hpe.json. Official sources were reopened; this is a claim review, not certification of every possible configured system.",
+  "sourceMethod": "Official HTML/PDF text and linked current revisions. DL380 PDF reached via Download link from the official viewer. Source locations are sufficient to reproduce each check.",
+  "claims": [
+    {
+      "id": "CH-c245-MI210",
+      "result": "pass",
+      "conclusion": "Cisco C245 M8 Table14 pp33–34 names UCSC-GPU-MI210, three-card maximum, 300W/64GB, risers and accessories. UCS Manager 4.3(5c) release notes name the model. CPU-family pairing remains unscoped, appropriately.",
+      "urls": [
+        "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-sff-rack-server.pdf",
+        "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/release/notes/b_release-notes-ucsm-4_3.html"
+      ]
+    },
+    {
+      "id": "CH-x215-MI210",
+      "result": "pass",
+      "conclusion": "X440p M8 Table4 p9 explicitly lists two MI210 cards on Gen4 risers1A/2A, excludes X210c; Step2 requires both risers and includes cables; Steps4/5 require 9416-D and supported mezzanine. UCS Manager 4.3(6a) identifies X215c support. X440p evidence is not transferred to X580p or all CPU pairings.",
+      "urls": [
+        "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-x-series-modular-system/x440p-specsheet.pdf",
+        "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/release/notes/b_release-notes-ucsm-4_3.html"
+      ]
+    },
+    {
+      "id": "CH-c245-chronology",
+      "result": "pass",
+      "conclusion": "FAQ updated15Feb2024 explicitly dates original announcement6Feb2024. The later June portfolio event is not treated as first launch.",
+      "urls": [
+        "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-rack-server-faq.html"
+      ]
+    },
+    {
+      "id": "CH-dl320-cooling",
+      "result": "pass",
+      "conclusion": "Current QuickSpecs Core Options lists P84312-B21 DLC and compatible hoses/rack solution. P76605-B21 internal closed loop is correctly distinguished from facility DLC.",
+      "urls": [
+        "https://www.hpe.com/us/en/collaterals/collateral.a50004283enw.html"
+      ]
+    },
+    {
+      "id": "CH-dl325-cooling",
+      "result": "pass",
+      "conclusion": "Current QuickSpecs Core Options lists P80827-B21 facility DLC plus full rack/CDU/manifold/hoses. Closed-loop option uses inlet air and excludes GPU CTO.",
+      "urls": [
+        "https://www.hpe.com/us/en/collaterals/collateral.a50009232enw.html"
+      ]
+    },
+    {
+      "id": "CH-dl340-cooling",
+      "result": "pass",
+      "conclusion": "Current QuickSpecs Core Options lists P84592-B21 DLC with matching hoses, six performance fans and rack-level infrastructure.",
+      "urls": [
+        "https://www.hpe.com/us/en/collaterals/collateral.a50004261enw.html"
+      ]
+    },
+    {
+      "id": "CH-dl345-cooling",
+      "result": "pass",
+      "conclusion": "Current QuickSpecs Core Options lists P81123-B21 DLC, six performance fans and complete rack solution. Thermal/chassis specificity retained.",
+      "urls": [
+        "https://www.hpe.com/us/en/collaterals/collateral.a50009233enw.html"
+      ]
+    },
+    {
+      "id": "CH-dl360-cooling",
+      "result": "pass",
+      "conclusion": "Current QuickSpecs Core Options lists P74208-B21 PCIe and P79273-B21 NS204 DLC options, hoses and infrastructure. Internal CLC remains distinct.",
+      "urls": [
+        "https://www.hpe.com/ie/en/collaterals/collateral.a50006984enw.html"
+      ]
+    },
+    {
+      "id": "CH-dl365-cooling",
+      "result": "pass-with-correlation-fix",
+      "conclusion": "Air/DLC positive claims pass. Core Options also requires quantity2processors when DLC selected. Review found missing processor/cooling correlation; root reports applying Air[1,2], Liquid[2] variants.",
+      "urls": [
+        "https://www.hpe.com/us/en/collaterals/collateral.a50004299enw.html"
+      ]
+    },
+    {
+      "id": "CH-dl380-cooling",
+      "result": "pass-with-correlation-caveat",
+      "conclusion": "V20 pp32–33 lists P74204-B21 and P74208-B21 with hoses, excludes mid tray; PCIe option requires secondary riser and consumes slot6. P16 independently requires CPU2 for secondary riser. NS204 DLC CPU population is not explicitly resolved. Root will expose only positively established2CPU+Liquid;1CPU+Liquid remains unestablished, not prohibited.",
+      "urls": [
+        "https://www.hpe.com/psnow/doc/a00073551enw.pdf"
+      ]
+    },
+    {
+      "id": "CH-dl385-cooling",
+      "result": "pass-with-correlation-fix",
+      "conclusion": "Air/DLC positive claims pass. DLC Solutions explicitly requires2processors. Review found missing processor/cooling correlation; root reports applying Air[1,2], Liquid[2] variants.",
+      "urls": [
+        "https://www.hpe.com/us/en/collaterals/collateral.a50004300enw.html"
+      ]
+    },
+    {
+      "id": "CH-dl580-cooling",
+      "result": "pass",
+      "conclusion": "Current QuickSpecs Core Options lists P78016-B21 DLC and P62042-B21 tubes. No mixed heatsinks. Two cold plates per module do not independently establish all processor populations.",
+      "urls": [
+        "https://www.hpe.com/us/en/collaterals/collateral.a50009226enw.html"
+      ]
+    },
+    {
+      "id": "CH-dl380a-cooling",
+      "result": "pass",
+      "conclusion": "Current QuickSpecs Core Options lists P82520-B21 CPU DLC plus tube kit, consumes rearSlot1 and excludes10DW FIO/front drive fan combinations. Model-level choice remains conditional.",
+      "urls": [
+        "https://www.hpe.com/us/en/collaterals/collateral.a00047453enw.html"
+      ]
+    },
+    {
+      "id": "CH-xd685-cooling",
+      "result": "pass",
+      "conclusion": "QuickSpecs Accelerator/Step2 sections show H200 Air or DLC; B200/B300/MI355X DLC. Accelerator-specific chassis and kits remain required.",
+      "urls": [
+        "https://www.hpe.com/us/en/collaterals/collateral.a00073553enw.html"
+      ]
+    },
+    {
+      "id": "CH-dl525-cooling",
+      "result": "pass",
+      "conclusion": "Official HPE product listing What is New names air/DLC alternatives. Announced lifecycle and exact-build uncertainty preserved.",
+      "urls": [
+        "https://buy.hpe.com/uk/en/compute/rack-servers/proliant-dl500-servers/hpe-proliant-dl525-gen13-server/p/1014975892"
+      ]
+    },
+    {
+      "id": "CH-dl585a-options",
+      "result": "pass",
+      "conclusion": "Launch QuickSpecs Step3 lists S6A73C and S6W21C, populations0/1/2/4/8, no mixing, P97059-B21 cable kit. Technical page says air-cooled; HPE launch blog gives March2027 planned availability. Options remain announced, and no AMD GPU claim is inferred.",
+      "urls": [
+        "https://www.hpe.com/no/en/collaterals/collateral.a50014668enw.html",
+        "https://www.hpe.com/sg/en/products/compute/proliant/dl585a-gen13.html",
+        "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922"
+      ]
+    },
+    {
+      "id": "CH-dl360-1cpu",
+      "result": "pass",
+      "conclusion": "QuickSpecs SFF/LFF minimum weight includes oneCPU; EDSFF minimum is twoCPU. The new note preserves this chassis distinction and local-resource restrictions.",
+      "urls": [
+        "https://www.hpe.com/ie/en/collaterals/collateral.a50006984enw.html"
+      ]
+    },
+    {
+      "id": "CH-dl380-1cpu",
+      "result": "pass",
+      "conclusion": "V20 p18 OCP note describes1CPU and2CPU cases; pp16–18 map secondary/tertiary I/O to CPU2. One CPU positive model-level population is supported; cooling combinations require the separate caveat.",
+      "urls": [
+        "https://www.hpe.com/psnow/doc/a00073551enw.pdf"
+      ]
+    },
+    {
+      "id": "CH-sy480-1cpu",
+      "result": "pass",
+      "conclusion": "Current V14 Step3 explicitly permits1/2 matching CPUs, P68225-B21 front heatsink for1CPU and additional P68226-B21 rear for2CPU. Memory/technical sections support16slots per installedCPU and32max.",
+      "urls": [
+        "https://www.hpe.com/ca/en/collaterals/collateral.a50009201enw.html"
+      ]
+    },
+    {
+      "id": "CH-ml350-1cpu",
+      "result": "pass",
+      "conclusion": "Current QuickSpecs technical minima and memory section document1/2CPU and16DIMMs per installedCPU,32max. Local-I/O caveat appropriate.",
+      "urls": [
+        "https://www.hpe.com/us/en/collaterals/collateral.a50006995enw.html"
+      ]
+    },
+    {
+      "id": "CH-xd245-mrdimm",
+      "result": "pass",
+      "conclusion": "HPE technical launch blog names dualCPU per node,16channels/CPU andMRDIMM. Physicalslotcount andDPC remain unknown; no capacity geometry invented.",
+      "urls": [
+        "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922"
+      ]
+    },
+    {
+      "id": "CH-xd285-mrdimm",
+      "result": "pass",
+      "conclusion": "HPE technical launch blog names dualCPU per node,16channels/CPU andMRDIMM. Physicalslotcount andDPC remain unknown; chassis/node scope retained.",
+      "urls": [
+        "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "review-hpe-dlc-population",
+      "models": [
+        "dl365",
+        "dl385"
+      ],
+      "severity": "accuracy",
+      "status": "root-reports-fix-applied; integrated regression pending",
+      "conclusion": "A model supporting1/2CPU and Air/Liquid independently must not automatically become a documented1CPU+Liquid configuration. Exact QuickSpecs require2CPU forDLC.",
+      "recommendedChecks": [
+        "DL365/DL3851CPU+Air remains positive.",
+        "DL365/DL3851CPU+Liquid does not produce a documented match.",
+        "DL365/DL3852CPU+Liquid remains positive without asserting a GPU combination."
+      ]
+    },
+    {
+      "id": "review-dl380-dlc-population",
+      "models": [
+        "dl380"
+      ],
+      "severity": "accuracy",
+      "status": "root-implementing-conservative-positive-scope",
+      "conclusion": "PCIe DLC requires secondary riser; secondary riser requiresCPU2. NS204 DLC count is not explicitly resolved;1CPU+Liquid is unestablished rather than globallyunsupported.",
+      "sourceUrl": "https://www.hpe.com/psnow/downloadDoc/HPE%20ProLiant%20Compute%20DL380%20Gen12%20QuickSpecs-a00073551enw.pdf?contentDisposition=attachment&deepLink=&form=false&hf=regular&id=a00073551enw.pdf&isFutureVersion=true&isLinearized=false&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&utm_campaign=&utm_content=&utm_medium=&utm_source=&utm_term=&ver=20",
+      "locator": "V20/5Oct2026 p16 PCIe expansion-slot notes; pp32–33 DLC modules; p18 oneCPU OCP note."
+    }
+  ],
+  "unresolved": [
+    "No source review here certifies arbitrary CPU SKU/GPU/memory/cooling combinations.",
+    "XD675 official memory-topology conflict is separately reviewed during coverage; channels/DPC should remain unknown.",
+    "Current orderability or shipping is not inferred from current QuickSpecs."
+  ],
+  "coverageReview": {
+    "reviewed": "2026-10-09",
+    "scope": "Independent official-source review of all5 newly proposed Cisco/HPE models in coverage-additions-ucs.json and coverage-additions-hpe.json.",
+    "models": [
+      {
+        "model": "ucs-c225m6",
+        "result": "pass-with-disclosed-chassis-conflict",
+        "verified": "SpecA.61 pp5,11–13,18–25,38,46,49 confirms1U,7002/7003/Milan-X,1/2CPU,32slots,8channels/CPU,1/2DPC,RDIMM/LRDIMM,backplane-dependent10drives,M.2boot,T4max3 andAir. Newsroom15Mar2021 names exactmodel. EOS bulletin confirms18Jun2026lastorder,16Sep2026lastship,30Jun2031entitledsupport.",
+        "caveat": "M6S oneCPU/twoCPU is positive. The same spec conflicts on all-NVMe M6N: p13 says1CPU sufficient, p20 says2identicalCPUs required. Ask OEM for exact chassis; do not generalize model-level1CPU to M6N. Sent to owner for restriction note.",
+        "urls": [
+          "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/c225-m6-sff-specsheet.pdf",
+          "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c225m6-c245m6-rack-servers-eol.html",
+          "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2021/m03/cisco-and-amd-extend-partnership-to-improve-performance-security-and-hybrid-cloud-operations.html"
+        ]
+      },
+      {
+        "model": "hpe-dl325g11",
+        "result": "pass",
+        "verified": "V41 Standard Features/Memory confirms1CPU,9004/9005,12DDR5RDIMMslots,12channels,1DPC,LRDIMMexcluded,iLO6; Platform Information/boot sections confirm1U,SFF/LFF/E3.S andNVMeM.2. Accelerator section namesL4S0K89C,max4,GPUCTO,Slot2ambientandCLCfanrestrictions. DLC section namesP80871/P80876 andrack infrastructure. Changehistory datesfirstQS10Nov2022.",
+        "caveat": "L4 exactCPU andDLC joint scope appropriatelyunasserted. Current reference does not prove orderability.",
+        "urls": [
+          "https://www.hpe.com/us/en/collaterals/collateral.a50004297enw.html"
+        ]
+      },
+      {
+        "model": "hpe-dl345g11",
+        "result": "pass",
+        "verified": "V41 Standard Features/Memory confirms1CPU,9004/9005,12DDR5RDIMMslots,12channels,1DPC,LRDIMMexcluded,iLO6; Platform Information/boot sections confirm2U,SFF/LFF/E3.S andNVMeM.2. Accelerator section namesL4S0K89C requiringGPUCTO. DLC section namesP80871/P80876 andrack infrastructure. Changehistory datesfirstQS10Nov2022.",
+        "caveat": "L4 exactCPU andDLC joint scope appropriatelyunasserted. Current reference does not prove orderability.",
+        "urls": [
+          "https://www.hpe.com/us/en/collaterals/collateral.a50004298enw.html"
+        ]
+      },
+      {
+        "model": "hpe-dl385g10pv2",
+        "result": "pass",
+        "verified": "RetiredV30 pp1–6,20–21,48–49,58,66 confirm2U,7002/7003,1/2CPU,32DDR4slots,8channels/CPU,1/2DPC,RDIMM/LRDIMM,iLO5 and19Apr2021firstQS. ExactMI100R4W72Crow givesmax3,CPU≤240W andstatedchassis/ambientlimits; p49namesP39100cable andrequiresperformancefansforGPUconfigurations. Retirednotice explicitly saysbasesnolongersold.",
+        "caveat": "HistoricalAMD accelerator status is appropriate. CPUfamilypairings remainunscoped; no support-enddate inferred.",
+        "urls": [
+          "https://www.hpe.com/psnow/doc/a50002560enw.pdf"
+        ]
+      },
+      {
+        "model": "hpe-xd675",
+        "result": "pass-with-explicit-source-conflict",
+        "verified": "RetiredV7 pp1,5–8,18 confirms8UAir,2identical9004CPUsfromfive-SKUlist,24DDR5RDIMMslots,8MI300XP69044-B21,16NVMe+8SAS/SATA+2M.2,BMC/Redfish,1Jul2024firstQS. Retirednotice explicitly saysbasesnolongersold.",
+        "caveat": "QuickSpecs p6 states6channels/CPU and2DPC; HPEdatasheet says12channels/CPU. Nullchannels andemptyDPC appropriatelypreserveconflict. OriginalIDENdatasheetURL laterreturned404; officialZAEN/DKENversions independently reproduce12channelclaim.",
+        "urls": [
+          "https://www.hpe.com/psnow/doc/a50009207enw.pdf",
+          "https://www.hpe.com/psnow/generateDDS/HPE%20Cray%20XD675%20data%20sheet-PSN1014835198ZAEN.pdf?cc=ZA&contentDisposition=attachment&deepLink=&isLinearized=false&lc=EN&oid=1014835198&prelaunch=false&prelaunchSection=&print=&section=&softroll=0&softrollSection="
+        ]
+      }
+    ],
+    "illustrationScope": "Only stated chassis/rack height is supported here. Generic schematic label is honest; this review does not certify a model-specific exterior drawing.",
+    "regressionChecks": [
+      "C225M6 surfaces for1CPU andDDR4; EOLdate staysdistinctfromsupport-end.",
+      "DL325/345Gen11 show12slots1DPC versusGen12existing24slots; AMDGPU remainsunestablished.",
+      "DL385Gen10Plusv2 MI100 is historical; CPUfamilycombinedmatch requiresqualifier.",
+      "XD675 MI300X is historical,24slots known,channels/DPCunknown—not inferred1DPC."
+    ]
+  }
+}

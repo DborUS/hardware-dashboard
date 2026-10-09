@@ -1,0 +1,65 @@
+Broad independent FAE audit: Dell and Lenovo
+Date: 2026-10-09. Read-only audit of release 1.1.0; no application changes.
+
+Coverage and limits
+Inspected all 38 Dell/Lenovo catalog records (19 each), including CPU families, max sockets, documented installed CPU counts, memory slots/channels/DPC/type, GPU status/conditions, cooling, lifecycle, model/generation dates, source links and schema decoders. Opened current official product guides for all 19 Lenovo models and targeted processor/memory/cooling/GPU sections where risk or inconsistency existed. Dell external validation concentrated on 17G launch dates, R6715/R7715/R7725 memory, R7725 MI350P qualification and XE9785 MI355X/cooling. Other Dell rows were schema/consistency reviewed, not every option independently recertified. This is not an exhaustive SKU/configurator certification. Original artwork not altered; root handles browser review.
+
+P1/P2 depending on use: cooling filtering still suppresses documented Lenovo candidates
+Catalog records SR635 V3, SR645 V3, SR655 V3, SR665 V3 are encoded Air only, with no supportedCooling array. Each current Lenovo guide explicitly documents Neptune Core open-loop direct-water CPU cooling. SR650a V4 is likewise encoded Air despite open-loop support. SR630 V4 and SR650 V4 are Configuration-dependent without structured choices, so both are excluded from Air and Liquid filters. This causes misleading shortlist omissions even though the filter explains that unrecorded values are excluded. Root reproduced Lenovo + Liquid showing only SC750 V4 and SD665 V3.
+Local: work/fae-lenovo.json lines 191,279,387,454,1049 (Air-only); 79,133 (unstructured). work/finder.js lines37/48 enforce structured cooling match.
+Primary evidence:
+https://lenovopress.lenovo.com/lp1609-thinksystem-sr635-v3-server — Processor Neptune Core Module / open-loop; also distinguishes closed-loop L2A.
+https://lenovopress.lenovo.com/lp1607-thinksystem-sr645-v3-server — Processor Neptune Core Module / open-loop; separate L2A configuration rules.
+https://lenovopress.lenovo.com/lp1610-thinksystem-sr655-v3-server — Standard specifications/Cooling and open-loop CPU module; CTO only. Added 10 October 2024.
+https://lenovopress.lenovo.com/lp1608-thinksystem-sr665-v3-server — open-loop CPU module section.
+https://lenovopress.lenovo.com/lp2128-thinksystem-sr650a-v4-server — Cooling / open-loop processor cooling.
+https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server — four air-cooled and two water-cooled rear configurations; processor cooling options.
+https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server — standard cooling and processor cooling options.
+Recommendation: encode supported platform cooling choices and scope them to configuration. Distinguish facility-water DWC from closed-loop liquid-to-air. Do not assume any GPU and cooling choice are jointly supported. The SR630/SR650 CPU+memory Neptune variant also changes to16 physical slots/1DPC; current prose correctly notes it but structured slot filter does not represent the variant.
+
+P1/P2: documented one-processor filter omits at least six Lenovo models
+SE455 V3 has maxProcessors1 but no installedCPUCounts. SR675 V3, SR630 V4, SR650 V4, SR650a V4 and ST650 V3 record only[2], yet Lenovo explicitly documents one-processor operation. The strict processors=1 filter excludes them; root reproduced omission of the first five before ST650 was added to this audit. SR650a main cpu string also says2x rather than1or2. The positive-only caveat is better than claiming prohibition, but these are readily documented positive configurations and central to the user's FAE priority.
+Local work/memory-lenovo.json: SR630 line35; SR650 line72; ST650 line290; SE455 record line295 (missing property); SR650a line487; SR675 line518. work/finder.js line40 performs strict match.
+Sources:
+https://lenovopress.lenovo.com/lp1724-thinkedge-se455-v3-server — Processors: exactly one installed; six DIMMs/six channels/1DPC.
+https://lenovopress.lenovo.com/lp1611-thinksystem-sr675-v3-server — Processors and processor tables: single-processor configurations supported,1or2 quantities.
+https://lenovopress.lenovo.com/lp1971-thinksystem-sr630-v4-server — One-processor configurations;16 local DIMMs and reduced I/O. Neptune CPU+memory machine type restrictions remain separate.
+https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server — One-processor configurations;16 local DIMMs.
+https://lenovopress.lenovo.com/lp2128-thinksystem-sr650a-v4-server — Processors and One-processor configurations explicitly support1or2.
+https://lenovopress.lenovo.com/lp1604-thinksystem-st650-v3-server — Key features: one or two4th/5th-gen Xeon CPUs.
+Recommendation: complete the installed-count table using model evidence, retain per-configuration I/O and memory constraints, and test legitimate candidates remain discoverable. Do not infer counts solely from socket maximum.
+
+P2: evidence links can silently land on a generic archive
+Fresh web opens show these three stored Dell evidence URLs redirect to https://investors.delltechnologies.com/news-events/press-releases, not the cited release:
+https://investors.delltechnologies.com/news-releases/news-release-details/new-dell-poweredge-servers-support-workloads-data-center-edge
+https://investors.delltechnologies.com/news-releases/news-release-details/dell-technologies-unveils-infrastructure-innovations-built-power
+https://investors.delltechnologies.com/news-releases/news-release-details/dell-technologies-fuels-enterprise-ai-innovation-infrastructure
+Local work/dell-generation-data.json source ageDell17CSP line111, plus ageDell17Intel and ageDellXE9785; catalog ageDell17CSP line2698. Since reviewedAt is2026-10-09, the date can look like the destination was validated, even though it is no longer claim-specific. This does not invalidate the underlying launch dates, but impairs auditability.
+Working official corroboration for R670/R770:
+https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2024~05~20240514-new-dell-poweredge-servers-support-workloads-from-the-data-center-to-the-edge.htm
+Recommendation: verify final destination and title/body claim after redirects, not HTTP success alone. Replace these with current official release locations or official PDF versions.
+
+P2 coverage recommendation: installed-base AMD history still thin
+Dell catalog has no EPYC7002/7003 records. R7515/R7525 are consequential omissions for an AMD FAE discussing installed systems; the added R7615/R7625 help9004 coverage but do not fill DDR4-era history. The UI correctly labels coverage partial/not-researched, so this is a missing scope priority rather than an erroneous incompatibility claim.
+Official source: https://www.amd.com/en/blogs/2025/driving-amd-epyc-cpu-based-storage-solutions-for-enterprise.html describes R7525 with2nd/3rd-gen EPYC. Dell R7525 technical specs: https://dl.dell.com/topicspdf/poweredge-r7525_owners-manual2_en-us.pdf
+Original Lenovo SR665 is now represented with correct2020 model dating and withdrawn lifecycle, but its AMD GPU status remains not-established despite Lenovo guide history documenting MI210. This is safely unknown rather than false-positive, but a worthwhile historical completion.
+https://lenovopress.lenovo.com/lp1269-thinksystem-sr665-server — change history lists MI210 option4X67A81102. Exact historical CPU pairing/withdrawal/kit conditions require further extraction before changing qualification.
+
+Checks that held up
+- R6715/R7715:24slots,12channels,1DPC/2DPC and5200 versus4000/4400 MT/s notes match current Dell service manuals. R7725:24slots/twoCPUs/12channels/1DPC matches.
+- Lenovo mainstream EPYC V3 host-family combinations and12channel1DPC topology hold up in sampled official tables. ST45's twoUDIMM channels, SE455's six RDIMM channels, SE100's two SO-DIMM/CSODIMM slots, SC750's per-node24slots/12channels1DPC, SR680a's32slots/8channels1or2DPC match. SD665's tray/node distinction is correct. No universal main memory-count inversion found.
+- Lenovo SR675 GPU CPU constraints and historical MI210/H100/HGX statuses match guide rules/history. SR685a withdrawn26September2026 and MI300X historical designation hold up. SR685a source explicitly says all listed CPUs work with supported GPU choices, so no9005+MI300X false positive established.
+- Dell MI350P R7725 qualification is substantiated by expansion-card manual, including450W cap; XE9785 air-cooledMI355X is corroborated by current official specs. Existing caution about exact thermal pairing is appropriate.
+- Dell2024 model dates are not a shared-year bug: R470/R570 introductionDecember2024, R670/R770CSP announcementMay2024, XE7740 announcementNovember2024, XE7745 announcementOctober2024. Availability occurred later for some, and the data correctly labels announcement versus availability in notes.
+Official chronology corroboration:
+https://www.dell.com/en-us/blog/dell-poweredge-servers-unmatched-performance-and-energy-efficiency/
+https://www.dell.com/en-us/blog/accelerating-ai-innovation-with-new-servers-and-racksolutions/
+https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2024~10~amd-advancing-ai.htm
+
+Unresolved checks / do not report as proven errors
+- R7725 thermal guide mentions single-processor fan counts, but other Dell public specs say two processors. Did not establish a supported one-CPU build strongly enough to flag Dell installedCPUCounts[2] as incorrect.
+- AMD's solution-catalog PDF contains apparent inconsistencies for some Lenovo GPU model rows. Did not treat that alone as proof of a missing supported configuration; OEM model evidence should govern.
+- No claim that current portfolio is exhaustive; no orderability,regional availability, firmware build or exact DIMM part-number certification performed.
+
+Assessment
+The improvements are substantive and the selected CPU/memory basics are generally reliable. Remaining risk is less about graphic polish and more about data completeness driving strict filters: a real supported option can disappear despite prose elsewhere admitting it exists. Fix that before calling the Finder a dependable shortlist tool. It is already a useful learning aid, with substantially better separation of CPU, GPU and lifecycle concepts.

@@ -1,0 +1,994 @@
+{
+  "dl320": {
+    "maxProcessors": 1,
+    "dimmSlots": 16,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "Single processor, 16 slots on 8 channels. RDIMM 1DPC or 2DPC.",
+    "sources": [
+      {
+        "title": "HPE ProLiant Compute DL320 Gen12 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004283enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "dl325": {
+    "maxProcessors": 1,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "Single processor, 24 slots on 12 channels. Both RDIMM 1DPC and 2DPC supported; populating all slots is 2DPC and can reduce memory speed.",
+    "sources": [
+      {
+        "title": "HPE ProLiant Compute DL325 Gen12 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009232enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "dl340": {
+    "maxProcessors": 1,
+    "dimmSlots": 16,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "Single processor, 16 slots on 8 channels. RDIMM 1DPC or 2DPC.",
+    "sources": [
+      {
+        "title": "HPE ProLiant Compute DL340 Gen12 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004261enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "dl345": {
+    "maxProcessors": 1,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "Single processor, 24 slots on 12 channels. Both RDIMM 1DPC and 2DPC supported; populating all slots is 2DPC and can reduce memory speed.",
+    "sources": [
+      {
+        "title": "HPE ProLiant Compute DL345 Gen12 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009233enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "dl360": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 slots with both processors installed; 16 slots on 8 channels per processor. RDIMM 1DPC or 2DPC, subject to qualified DIMMs and population rules. MRDIMM topology is 1DPC only; QuickSpecs require separate qualification because MRDIMM kits are not publicly available in the shared option portfolio.",
+    "sources": [
+      {
+        "title": "HPE ProLiant Compute DL360 Gen12 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50006984enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "HPE DL360 QuickSpecs: installed processor configurations",
+        "url": "https://www.hpe.com/ie/en/collaterals/collateral.a50006984enw.html",
+        "loc": "Technical Specifications: Weight, SFF/LFF minima and maxima; processor/fan rules",
+        "revision": "V20 / 05 Oct 2026",
+        "publicationDate": "2026-10-05",
+        "reviewed": "2026-10-09",
+        "date": "V20 / 05 Oct 2026",
+        "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "MRDIMM: 1DPC only; separate qualification required.",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsNote": "One- and two-processor configurations documented. SFF/LFF minima use one CPU; the EDSFF minimum uses two. One CPU enables only its memory and I/O resources.",
+    "installedCPUCountsComplete": true
+  },
+  "dl365": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 slots with both processors installed; 12 slots on 12 channels per processor. One DIMM per channel only. A one-processor configuration can use 12 slots.",
+    "sources": [
+      {
+        "title": "HPE ProLiant DL365 Gen11 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004299enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Memory; DIMM slots; memory options and population rules"
+      }
+    ],
+    "verified": "2026-10-09",
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "memoryConfigurations": [
+      {
+        "dimmSlots": 24,
+        "channelsPerCpu": 12,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1
+          ]
+        },
+        "id": "air",
+        "label": "Air-cooled configuration",
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "supportedCooling": [
+          "Air"
+        ],
+        "note": "One or two processors are documented for the air-cooled layout. 24 slots with both processors installed; 12 slots on 12 channels per processor. One DIMM per channel only. A one-processor configuration can use 12 slots.",
+        "sourceIds": [
+          "verifyCoolingDL365"
+        ]
+      },
+      {
+        "dimmSlots": 24,
+        "channelsPerCpu": 12,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1
+          ]
+        },
+        "id": "dlc",
+        "label": "Direct liquid cooling configuration",
+        "installedCPUCounts": [
+          2
+        ],
+        "supportedCooling": [
+          "Liquid"
+        ],
+        "note": "The QuickSpecs require two processors when the DLC module is selected. Use the specified cold plates, plumbing and processor options. 24 slots with both processors installed; 12 slots on 12 channels per processor. One DIMM per channel only. A one-processor configuration can use 12 slots.",
+        "sourceIds": [
+          "verifyCoolingDL365"
+        ]
+      }
+    ],
+    "installedCPUCountsNote": " Direct liquid cooling requires two processors.",
+    "dpcNote": "DLC requires two processors."
+  },
+  "dl380": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 slots with both processors installed; 16 slots on 8 channels per processor. RDIMM 1DPC or 2DPC, subject to qualified DIMMs and population rules.",
+    "sources": [
+      {
+        "title": "HPE ProLiant Compute DL380 Gen12 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/nl/en/collaterals/collateral.a00073551enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "HPE DL380 QuickSpecs: installed processor configurations",
+        "url": "https://www.hpe.com/psnow/doc/a00073551enw.pdf",
+        "loc": "QuickSpecs p18 OCP expansion-slot notes; secondary-riser CPU2 mapping pp16-17",
+        "revision": "V20 / 05 Oct 2026",
+        "publicationDate": "2026-10-05",
+        "reviewed": "2026-10-09",
+        "date": "V20 / 05 Oct 2026",
+        "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+      },
+      {
+        "title": "DL380 Gen12 QuickSpecs — DLC and CPU-connected risers",
+        "url": "https://www.hpe.com/psnow/doc/a00073551enw.pdf",
+        "loc": "V20 / 5 October 2026: p16 secondary-riser CPU2 requirement; pp32–33 DLC module choices",
+        "revision": "V20 / 05 Oct 2026",
+        "reviewed": "2026-10-09",
+        "publicationDate": "2026-10-05"
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsNote": "One- and two-processor configurations documented. With one CPU, one OCP may extend to x16 if the other is unused; CPU 2-attached memory and I/O remain unavailable.",
+    "installedCPUCountsComplete": true,
+    "memoryConfigurations": [
+      {
+        "dimmSlots": 32,
+        "channelsPerCpu": 8,
+        "dpc": [
+          1,
+          2
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1,
+            2
+          ]
+        },
+        "id": "air",
+        "label": "Air-cooled configuration",
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "supportedCooling": [
+          "Air"
+        ],
+        "note": "32 slots with both processors installed; 16 slots on 8 channels per processor. RDIMM 1DPC or 2DPC, subject to qualified DIMMs and population rules."
+      },
+      {
+        "dimmSlots": 32,
+        "channelsPerCpu": 8,
+        "dpc": [
+          1,
+          2
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1,
+            2
+          ]
+        },
+        "id": "documented-dlc",
+        "label": "Documented two-processor DLC configuration",
+        "installedCPUCounts": [
+          2
+        ],
+        "supportedCooling": [
+          "Liquid"
+        ],
+        "note": "The PCIe DLC module needs the secondary riser, which requires CPU 2. One-CPU support with other DLC choices is not established here; Liquid + one CPU is excluded from positive matches, not classified as incompatible."
+      }
+    ],
+    "dpcNote": "DLC: two-CPU configuration recorded; one-CPU DLC remains unconfirmed."
+  },
+  "dl385": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 slots with both processors installed; 12 slots on 12 channels per processor. One DIMM per channel only. A one-processor configuration can use 12 slots.",
+    "sources": [
+      {
+        "title": "HPE ProLiant DL385 Gen11 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004300enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Memory; DIMM slots; memory options and population rules"
+      }
+    ],
+    "verified": "2026-10-09",
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "memoryConfigurations": [
+      {
+        "dimmSlots": 24,
+        "channelsPerCpu": 12,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1
+          ]
+        },
+        "id": "air",
+        "label": "Air-cooled configuration",
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "supportedCooling": [
+          "Air"
+        ],
+        "note": "One or two processors are documented for the air-cooled layout. 24 slots with both processors installed; 12 slots on 12 channels per processor. One DIMM per channel only. A one-processor configuration can use 12 slots.",
+        "sourceIds": [
+          "verifyCoolingDL385"
+        ]
+      },
+      {
+        "dimmSlots": 24,
+        "channelsPerCpu": 12,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "memoryTypeDpc": {
+          "DDR5 RDIMM": [
+            1
+          ]
+        },
+        "id": "dlc",
+        "label": "Direct liquid cooling configuration",
+        "installedCPUCounts": [
+          2
+        ],
+        "supportedCooling": [
+          "Liquid"
+        ],
+        "note": "The QuickSpecs require two processors when the DLC module is selected. Use the specified cold plates, plumbing and processor options. 24 slots with both processors installed; 12 slots on 12 channels per processor. One DIMM per channel only. A one-processor configuration can use 12 slots.",
+        "sourceIds": [
+          "verifyCoolingDL385"
+        ]
+      }
+    ],
+    "installedCPUCountsNote": " Direct liquid cooling requires two processors.",
+    "dpcNote": "DLC requires two processors."
+  },
+  "dl580": {
+    "maxProcessors": 4,
+    "dimmSlots": 64,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "64 slots with four processors installed; 16 slots on 8 channels per processor. A two-processor configuration supports 32 populated slots. RDIMM 1DPC or 2DPC.",
+    "sources": [
+      {
+        "title": "HPE ProLiant Compute DL580 Gen12 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009226enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2,
+      4
+    ]
+  },
+  "dl380a": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 slots with both processors installed; 16 slots on 8 channels per processor. RDIMM 1DPC or 2DPC, subject to qualified DIMMs and population rules.",
+    "sources": [
+      {
+        "title": "HPE ProLiant Compute DL380a Gen12 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a00047453enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field."
+  },
+  "xd685": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "24 slots with both processors installed; 12 slots on 12 channels per processor. One DIMM per channel only.",
+    "sources": [
+      {
+        "title": "HPE ProLiant Compute XD685 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a00073553enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Memory; DIMM slots; memory options and population rules"
+      }
+    ],
+    "verified": "2026-10-09",
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field.",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    }
+  },
+  "xd690": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      2
+    ],
+    "scope": "server",
+    "note": "32 slots with two processors; 16 slots on 8 channels per processor. The board has 1DPC/2DPC topology, but current 64/96 GB DIMM configurations require all 32 DIMMs (2DPC) to meet the 2 TB minimum. A 1DPC configuration is not established with currently listed available DIMMs.",
+    "sources": [
+      {
+        "title": "HPE Compute XD690 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009220enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Memory; DIMM slots; memory options and population rules"
+      }
+    ],
+    "verified": "2026-10-09",
+    "dpcNote": "Current memory configurations: 2DPC",
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field.",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        2
+      ]
+    }
+  },
+  "sy480": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "blade",
+    "note": "Per Synergy 480 compute blade, not the frame. 32 slots with both processors installed; 16 slots on 8 channels per processor. RDIMM 1DPC or 2DPC, subject to qualified DIMMs and population rules.",
+    "sources": [
+      {
+        "title": "HPE Synergy 480 Gen12 Compute Module QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/ie/en/collaterals/collateral.a50009201enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "HPE SY480 QuickSpecs: installed processor configurations",
+        "url": "https://www.hpe.com/ca/en/collaterals/collateral.a50009201enw.html",
+        "loc": "Step 2 Processor Options; Memory population rules; Technical Specifications minimum",
+        "revision": "V14 / 05 Oct 2026",
+        "publicationDate": "2026-10-05",
+        "reviewed": "2026-10-09",
+        "date": "V14 / 05 Oct 2026",
+        "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsNote": "One- and two-processor modules documented. One CPU requires P68225-B21 front heatsink and enables16 DIMM slots; the second CPU adds the rear heatsink and its local memory/I/O.",
+    "installedCPUCountsComplete": true
+  },
+  "ml350": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "32 slots with both processors installed; 16 slots on 8 channels per processor. RDIMM 1DPC or 2DPC, subject to qualified DIMMs and population rules.",
+    "sources": [
+      {
+        "title": "HPE ProLiant Compute ML350 Gen12 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50006995enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      },
+      {
+        "title": "HPE ML350 QuickSpecs: installed processor configurations",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50006995enw.html",
+        "loc": "Memory population rules; Technical Specifications SFF/LFF minimum and maximum",
+        "revision": "V18 / 05 Oct 2026",
+        "publicationDate": "2026-10-05",
+        "reviewed": "2026-10-09",
+        "date": "V18 / 05 Oct 2026",
+        "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ],
+    "installedCPUCountsNote": "One- and two-processor configurations documented. One CPU enables16 of 32 DIMM slots; extra CPU-attached I/O requires its processor.",
+    "installedCPUCountsComplete": true
+  },
+  "dl145": {
+    "maxProcessors": 1,
+    "dimmSlots": 6,
+    "channelsPerCpu": 6,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "Single processor, six slots on six memory channels. One DIMM per channel only.",
+    "sources": [
+      {
+        "title": "HPE ProLiant DL145 Gen11 QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009217enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null,
+        "loc": "Memory; DIMM slots; memory options and population rules"
+      }
+    ],
+    "verified": "2026-10-09",
+    "installedCPUCounts": [
+      1
+    ],
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    }
+  },
+  "dl525": {
+    "maxProcessors": 1,
+    "dimmSlots": 16,
+    "channelsPerCpu": 16,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "Announced Gen13 platform. One processor, 16 slots and 16 memory channels; 1DPC for RDIMM or MRDIMM. Slot count and topology are published in the 7 October 2026 launch QuickSpecs.",
+    "sources": [
+      {
+        "title": "HPE ProLiant DL525 Gen13 Server QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/psnow/doc/a50014669enw.pdf",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "dl585a": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 16,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "Announced Gen13 platform requires two processors. 32 slots total, 16 slots on 16 channels per processor; 1DPC for RDIMM or MRDIMM per launch QuickSpecs.",
+    "sources": [
+      {
+        "title": "HPE ProLiant DL585a Gen13 Server QuickSpecs — memory topology and population",
+        "url": "https://www.hpe.com/no/en/collaterals/collateral.a50014668enw.html",
+        "reviewed": "2026-10-09",
+        "publicationDate": null
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM",
+      "DDR5 MRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ],
+      "DDR5 MRDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      2
+    ]
+  },
+  "xd245": {
+    "maxProcessors": 2,
+    "dimmSlots": null,
+    "channelsPerCpu": 16,
+    "dpc": [],
+    "scope": "node",
+    "note": "Per node: two processors and 16 announced memory channels per processor. Four nodes per chassis, eight processors total. Physical DIMM slot count and DPC population are not established by the reviewed launch material. MRDIMM support is announced; this does not establish physical slot count or DPC.",
+    "sources": [
+      {
+        "title": "HPE Gen13 launch technical overview — XD245 and XD285 node specifications",
+        "url": "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922",
+        "reviewed": "2026-10-09",
+        "publicationDate": "2026-10-07",
+        "loc": "At a glance: XD245 model bullet, MRDIMM support up to12800 MT/s",
+        "revision": "Launch technical overview / 07 Oct 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "nodesPerChassis": 4,
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field.",
+    "memoryTypes": [
+      "DDR5 MRDIMM"
+    ]
+  },
+  "xd285": {
+    "maxProcessors": 2,
+    "dimmSlots": null,
+    "channelsPerCpu": 16,
+    "dpc": [],
+    "scope": "node",
+    "note": "Per node: two processors and 16 announced memory channels per processor. Two nodes per chassis, four processors total. Physical DIMM slot count and DPC population are not established by the reviewed launch material. MRDIMM support is announced; this does not establish physical slot count or DPC.",
+    "sources": [
+      {
+        "title": "HPE Gen13 launch technical overview — XD245 and XD285 node specifications",
+        "url": "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922",
+        "reviewed": "2026-10-09",
+        "publicationDate": "2026-10-07",
+        "loc": "At a glance: XD285 model bullet, MRDIMM support up to12800 MT/s",
+        "revision": "Launch technical overview / 07 Oct 2026"
+      }
+    ],
+    "verified": "2026-10-09",
+    "nodesPerChassis": 2,
+    "installedCPUCounts": [
+      2
+    ],
+    "installedCPUCountsNote": "Recorded positive configuration; other processor populations are not established by this field.",
+    "memoryTypes": [
+      "DDR5 MRDIMM"
+    ]
+  },
+  "dl325g11": {
+    "maxProcessors": 1,
+    "dimmSlots": 12,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "Twelve slots on twelve channels: 1DPC. LRDIMM and persistent memory are not supported.",
+    "sources": [
+      {
+        "title": "HPE ProLiant DL325 Gen11 QuickSpecs",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004297enw.html",
+        "loc": "Platform Information; Processors; Memory; Accelerators; Direct Liquid Cooling; Summary of Changes",
+        "revision": "V41 · 5 October 2026",
+        "date": "V41 · 5 October 2026",
+        "publicationDate": "2026-10-05",
+        "reviewed": "2026-10-09",
+        "scope": "Exact model hardware/configuration evidence; availability is separate."
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "dl345g11": {
+    "maxProcessors": 1,
+    "dimmSlots": 12,
+    "channelsPerCpu": 12,
+    "dpc": [
+      1
+    ],
+    "scope": "server",
+    "note": "Twelve slots on twelve channels: 1DPC. LRDIMM and persistent memory are not supported.",
+    "sources": [
+      {
+        "title": "HPE ProLiant DL345 Gen11 QuickSpecs",
+        "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004298enw.html",
+        "loc": "Platform Information; Processors; Memory; Accelerators; Direct Liquid Cooling; Summary of Changes",
+        "revision": "V41 · 5 October 2026",
+        "date": "V41 · 5 October 2026",
+        "publicationDate": "2026-10-05",
+        "reviewed": "2026-10-09",
+        "scope": "Exact model hardware/configuration evidence; availability is separate."
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR5 RDIMM": [
+        1
+      ]
+    },
+    "installedCPUCounts": [
+      1
+    ]
+  },
+  "dl385g10pv2": {
+    "maxProcessors": 2,
+    "dimmSlots": 32,
+    "channelsPerCpu": 8,
+    "dpc": [
+      1,
+      2
+    ],
+    "scope": "server",
+    "note": "Sixteen slots per CPU on eight channels. One CPU activates 16 slots. DIMM type, rank and capacity affect speed and chassis restrictions.",
+    "sources": [
+      {
+        "title": "HPE ProLiant DL385 Gen10 Plus v2 QuickSpecs — retired",
+        "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20ProLiant%20DL385%20Gen10%20Plus%20v2%20server%20QuickSpecs-a50002560enw.pdf?contentDisposition=attachment&deepLink=&form=false&hf=regular&id=a50002560enw.pdf&isFutureVersion=true&isLinearized=false&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&utm_campaign=&utm_content=&utm_medium=&utm_source=&utm_term=&ver=30",
+        "loc": "Retired notice p1; processors/memory pp4–6; 1P model p20; GPU table p48 and cables p49; population p58; first revision p66",
+        "revision": "V30 · 28 July 2025",
+        "date": "V30 · 28 July 2025",
+        "publicationDate": "2025-07-28",
+        "reviewed": "2026-10-09",
+        "scope": "Exact model hardware/configuration evidence; availability is separate."
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR4 RDIMM",
+      "DDR4 LRDIMM"
+    ],
+    "memoryTypeDpc": {
+      "DDR4 RDIMM": [
+        1,
+        2
+      ],
+      "DDR4 LRDIMM": [
+        1,
+        2
+      ]
+    },
+    "installedCPUCounts": [
+      1,
+      2
+    ]
+  },
+  "xd675": {
+    "maxProcessors": 2,
+    "dimmSlots": 24,
+    "channelsPerCpu": null,
+    "dpc": [],
+    "scope": "server",
+    "note": "Topology conflict: QuickSpecs p6 says 6 channels/CPU and 2DPC; OEM datasheet p1 says 12 channels/CPU. Keep channels/DPC unconfirmed until HPE resolves the discrepancy.",
+    "sources": [
+      {
+        "title": "HPE Cray XD675 QuickSpecs — retired",
+        "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20Cray%20XD675%20QuickSpecs-a50009207enw.pdf?deepLink=&form=false&hf=regular&id=a50009207enw.pdf&isFutureVersion=true&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&ver=7",
+        "loc": "Retired notice/8U air system p1; CPU and MI300X options/memory p6; storage p7; BMC p8; first revision p18",
+        "revision": "V7 · 28 July 2025",
+        "date": "V7 · 28 July 2025",
+        "publicationDate": "2025-07-28",
+        "reviewed": "2026-10-09",
+        "scope": "Exact model hardware/configuration evidence; availability is separate."
+      },
+      {
+        "title": "HPE Cray XD675 data sheet",
+        "url": "https://www.hpe.com/psnow/generateDDS/HPE%20Cray%20XD675%20data%20sheet-PSN1014835198ZAEN.pdf?cc=ZA&contentDisposition=attachment&deepLink=&isLinearized=false&lc=EN&oid=1014835198&prelaunch=false&prelaunchSection=&print=&section=&softroll=0&softrollSection=",
+        "loc": "What is new / memory-channel statement on p1",
+        "revision": "Revision not established; reviewed 9 October 2026",
+        "date": "Revision not established; reviewed 9 October 2026",
+        "publicationDate": null,
+        "reviewed": "2026-10-09",
+        "scope": "Conflicting memory-channel evidence; does not override model QuickSpecs silently.",
+        "retrievalNote": "The ZA English official indexed PDF reproduces the 12-channel claim. The original ID English URL returned 404 during peer review. On 9 October 2026 the ZA URL was readable through indexed source text, but direct automated fetch returned a cache-miss error; live download availability was not established by this reviewer."
+      }
+    ],
+    "verified": "2026-10-09",
+    "memoryTypes": [
+      "DDR5 RDIMM"
+    ],
+    "memoryTypeDpc": {},
+    "installedCPUCounts": [
+      2
+    ]
+  }
+}

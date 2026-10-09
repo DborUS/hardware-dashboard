@@ -1,0 +1,309 @@
+{
+  "vendor": "Cisco UCS",
+  "reviewed": "2026-10-09",
+  "intro": "UCS generations arrive in waves. M8 first appeared in AMD systems in 2024; Intel rack and modular models followed in 2025, and additional edge nodes in 2026. A generation year does not date every model or every CPU/GPU option.",
+  "sources": {
+    "ucsGenM5": {
+      "title": "Cisco announces the UCS M5 generation",
+      "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2017/m07/cisco-delivers-powerful-5th-generation-servers-for-its-unified-computing-system.html",
+      "scope": "M5 generation announcement, including C220, C240 and B200.",
+      "loc": "Opening announcement and M5 model list",
+      "date": "11 Jul 2017"
+    },
+    "ucsGenM6": {
+      "title": "Cisco UCS M6 announcement FAQ",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/q-and-a-c67-2381951.html",
+      "scope": "Announcement of B200 M6, C220 M6 and C240 M6.",
+      "loc": "General · What did Cisco announce on April 6, 2021?",
+      "date": "06 Apr 2021"
+    },
+    "ucsGenM7": {
+      "title": "Cisco introduces its seventh generation of UCS servers",
+      "url": "https://blogs.cisco.com/datacenter/cisco-unveils-its-most-powerful-and-energy-efficient-computing-systems",
+      "scope": "M7 C-Series and X-Series announcement; also dates the X-Series family to June 2021.",
+      "loc": "Opening paragraphs · UCS with 4th Gen Intel Xeon Scalable Processors",
+      "date": "10 Jan 2023"
+    },
+    "ucsGenM8AMD": {
+      "title": "Cisco Compute June 2024 Announcement FAQ",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/compute-june-2024-announcement-faq.html",
+      "scope": "June 4 announcement names C225 M8, C245 M8 and X215c M8.",
+      "loc": "Overview · What did Cisco announce on June 4, 2024?",
+      "date": "Announcement · 04 Jun 2024"
+    },
+    "ucsGenM8Intel": {
+      "title": "Cisco UCS Servers with Intel Xeon 6 CPUs FAQ",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/intel-xeon-6-cpu-faq.html",
+      "scope": "Announcement of C220 M8, C240 M8 and X210c M8.",
+      "loc": "Overview · What did Cisco announce on February 24, 2025?",
+      "date": "Announcement · 24 Feb 2025"
+    },
+    "ucsGenC845": {
+      "title": "Cisco Live Amsterdam 2025 announcements",
+      "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2025/m02/cisco-live-amsterdam-2025.html",
+      "scope": "C845A M8 joins the AI server family.",
+      "loc": "Simplicity, Security and AI Readiness · Expansion of AI Server Family",
+      "date": "11 Feb 2025"
+    },
+    "ucsGenC885": {
+      "title": "Cisco introduces its dedicated AI server family",
+      "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2024/m10/cisco-unveils-plug-and-play-ai-solutions-accelerating-ai-adoption-for-the-enterprise.html",
+      "scope": "C885A M8 announced and orderable in October 2024; shipping was expected by year-end.",
+      "loc": "AI server family; availability",
+      "date": "29 Oct 2024"
+    },
+    "ucsGenRackRelease": {
+      "title": "Cisco UCS C-Series support index: model release dates",
+      "url": "https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-servers/series.html",
+      "scope": "Vendor release-date fields for individual rack models, including C880A M8.",
+      "loc": "Models · C880A M8 · Release Date 25-Aug-2025",
+      "date": "Reviewed 08 Oct 2026"
+    },
+    "ucsGenX410": {
+      "title": "Cisco UCS X410c M8 Compute Node Data Sheet",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-x-series-modular-system/ucs-x410c-m8-compute-node-ds.html",
+      "scope": "Establishes that X410c M8 was documented by December 2025; not an exact launch-date claim.",
+      "loc": "Updated December 4, 2025; Product overview",
+      "date": "04 Dec 2025"
+    },
+    "ucsGenEdge": {
+      "title": "Cisco Unified Edge launch FAQ",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/unified-edge/unified-edge-faq.pdf",
+      "scope": "November 3, 2025 Unified Edge announcement, naming XE9305 and XE130c M8.",
+      "loc": "Page 1 · November 3, 2025 announcement; key components",
+      "date": "Announcement · 03 Nov 2025"
+    },
+    "ucsGenXE150": {
+      "title": "Cisco Unified Edge FAQ: XE150c M8 announcement",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/unified-edge/unified-edge-faq.html",
+      "scope": "XE150c M8 announced March 16, 2026; later orderability is a separate milestone.",
+      "loc": "What did Cisco previously announce on March 16, 2026?",
+      "date": "Announcement · 16 Mar 2026"
+    },
+    "auditC245M6Launch": {
+      "title": "Cisco announces C225 M6 and C245 M6",
+      "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2021/m03/cisco-and-amd-extend-partnership-to-improve-performance-security-and-hybrid-cloud-operations.html",
+      "loc": "15 March 2021 announcement; named server models",
+      "scope": "Model-specific announcement, distinct from later CPU options and review dates.",
+      "date": "2021-03-15",
+      "publicationDate": "2021-03-15",
+      "reviewed": "2026-10-09"
+    },
+    "verifyC245Launch": {
+      "title": "Cisco C245 M8 original announcement FAQ",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-rack-server-faq.html",
+      "loc": "Overview: What did Cisco announce on February6,2024?",
+      "revision": "Updated15 Feb 2024",
+      "publicationDate": "2024-02-15",
+      "reviewed": "2026-10-09",
+      "date": "Updated15 Feb 2024",
+      "scope": "First announcement6 Feb 2024; document update15 Feb is not the announcement date."
+    },
+    "verifyC225M6Launch": {
+      "title": "Cisco and AMD help businesses improve performance, security and hybrid cloud operations",
+      "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2021/m03/cisco-and-amd-extend-partnership-to-improve-performance-security-and-hybrid-cloud-operations.html",
+      "loc": "Opening announcement names C225 M6 and C245 M6",
+      "revision": "15 March 2021",
+      "date": "15 March 2021",
+      "publicationDate": "2021-03-15",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model announcement, not a current shipping claim."
+    }
+  },
+  "generations": [
+    {
+      "id": "ucs-m5",
+      "label": "UCS M5",
+      "year": 2017,
+      "summary": "The M5 rack and blade generation was announced in July 2017.",
+      "sourceIds": [
+        "ucsGenM5"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "ucs-m6",
+      "label": "UCS M6",
+      "year": 2021,
+      "summary": "B200, C220 and C240 M6 were announced in April 2021.",
+      "sourceIds": [
+        "ucsGenM6"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "ucs-xseries",
+      "label": "X-Series family",
+      "year": 2021,
+      "summary": "The modular X-Series began in June 2021. Its chassis family spans multiple compute-node generations.",
+      "sourceIds": [
+        "ucsGenM7"
+      ],
+      "dateLabel": "Family introduced"
+    },
+    {
+      "id": "ucs-m7",
+      "label": "UCS M7",
+      "year": 2023,
+      "summary": "M7 C-Series and X-Series were introduced in January 2023.",
+      "sourceIds": [
+        "ucsGenM7"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "ucs-m8",
+      "label": "UCS M8",
+      "year": 2024,
+      "summary": "C245 M8 was first announced in February 2024; C225 and X215c joined the June 2024 AMD rollout. Intel C220, C240 and X210c M8 followed in February 2025.",
+      "sourceIds": [
+        "verifyC245Launch",
+        "ucsGenM8AMD",
+        "ucsGenM8Intel"
+      ],
+      "dateLabel": "Generation introduced"
+    },
+    {
+      "id": "ucs-edge",
+      "label": "Unified Edge family",
+      "year": 2025,
+      "summary": "The XE9305 platform and XE130c M8 were announced in November 2025; XE150c M8 followed in March 2026.",
+      "sourceIds": [
+        "ucsGenEdge",
+        "ucsGenXE150"
+      ],
+      "dateLabel": "Family introduced"
+    }
+  ],
+  "models": {
+    "c220": {
+      "generationId": "ucs-m8",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced 24 February 2025 as part of the Intel M8 rollout, after M8 began with AMD systems.",
+      "sourceIds": [
+        "ucsGenM8Intel"
+      ]
+    },
+    "c240": {
+      "generationId": "ucs-m8",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced 24 February 2025 in the Intel M8 rollout.",
+      "sourceIds": [
+        "ucsGenM8Intel"
+      ]
+    },
+    "c225": {
+      "generationId": "ucs-m8",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Named in Cisco's 4 June 2024 announcement. Later CPU qualification does not reset the server's introduction year.",
+      "sourceIds": [
+        "ucsGenM8AMD"
+      ]
+    },
+    "c245": {
+      "generationId": "ucs-m8",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "First announced 6 February 2024. The June portfolio announcement named C245 again alongside C225 and X215c.",
+      "sourceIds": [
+        "verifyC245Launch",
+        "ucsGenM8AMD"
+      ]
+    },
+    "c845": {
+      "generationId": "ucs-m8",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "C845A M8 was introduced at Cisco Live Amsterdam on 11 February 2025. Newer GPU options can arrive later.",
+      "sourceIds": [
+        "ucsGenC845"
+      ]
+    },
+    "c880": {
+      "generationId": "ucs-m8",
+      "modelYear": 2025,
+      "modelDateKind": "Vendor release date",
+      "note": "Cisco's support index gives this model a release date of 25 August 2025.",
+      "sourceIds": [
+        "ucsGenRackRelease"
+      ]
+    },
+    "c885": {
+      "generationId": "ucs-m8",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Announced 29 October 2024. Accelerator variants and their lifecycle notices have separate dates.",
+      "sourceIds": [
+        "ucsGenC885"
+      ]
+    },
+    "x210": {
+      "generationId": "ucs-m8",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "Announced 24 February 2025. The X-Series chassis family itself dates to 2021.",
+      "sourceIds": [
+        "ucsGenM8Intel",
+        "ucsGenM7"
+      ]
+    },
+    "x215": {
+      "generationId": "ucs-m8",
+      "modelYear": 2024,
+      "modelDateKind": "Announced",
+      "note": "Announced 4 June 2024. This is a compute-node date, not the X-Series chassis debut.",
+      "sourceIds": [
+        "ucsGenM8AMD"
+      ]
+    },
+    "x410": {
+      "generationId": "ucs-m8",
+      "modelYear": 2025,
+      "modelDateKind": "Documented by",
+      "note": "Cisco's model data sheet is dated 4 December 2025. This establishes documentation by 2025, not an exact first-shipment date.",
+      "sourceIds": [
+        "ucsGenX410"
+      ]
+    },
+    "xe130": {
+      "generationId": "ucs-edge",
+      "modelYear": 2025,
+      "modelDateKind": "Announced",
+      "note": "XE130c M8 was part of the initial Unified Edge announcement on 3 November 2025.",
+      "sourceIds": [
+        "ucsGenEdge"
+      ]
+    },
+    "xe150": {
+      "generationId": "ucs-edge",
+      "modelYear": 2026,
+      "modelDateKind": "Announced",
+      "note": "Announced 16 March 2026. It is a later node in the Unified Edge family, which began in 2025.",
+      "sourceIds": [
+        "ucsGenXE150"
+      ]
+    },
+    "c245m6": {
+      "generationId": "ucs-m6",
+      "modelYear": 2021,
+      "modelDateKind": "Announced",
+      "note": "C245 M6 was named in Cisco’s 15 March 2021 EPYC 7003 announcement.",
+      "sourceIds": [
+        "auditC245M6Launch"
+      ]
+    },
+    "c225m6": {
+      "generationId": "ucs-m6",
+      "modelYear": 2021,
+      "modelDateKind": "Announced",
+      "note": "C225 M6 announced 15 March 2021; independent of the later Intel M6 rollout.",
+      "sourceIds": [
+        "verifyC225M6Launch"
+      ]
+    }
+  },
+  "defaultGeneration": "ucs-m8"
+}

@@ -1,0 +1,2128 @@
+{
+  "vendor": "supermicro",
+  "reviewed": "2026-10-09",
+  "sources": {
+    "genSmH13Launch": {
+      "title": "Supermicro H13 / 4th Gen EPYC portfolio introduction",
+      "url": "https://ir.supermicro.com/news/news-details/2022/Supermicro-Expands-Data-Center-Optimized-Total-IT-Solutions-with-4th-Gen-AMD-EPYC-Processors-Delivering-World-Record-Performance-for-Todays-Most-Critical-Workloads/default.aspx",
+      "scope": "Introduction year for the H13 EPYC 9004 platform, not every later H13 model.",
+      "loc": "10 November 2022 date and opening announcement; H13 JumpStart reference",
+      "date": "Published 10 Nov 2022; reviewed 08 Oct 2026"
+    },
+    "genSmX13Preview": {
+      "title": "Supermicro unveils the X13 Xeon Scalable portfolio",
+      "url": "https://ir.supermicro.com/news/news-details/2022/Supermicro-Unveils-a-Broad-Portfolio-of-Performance-Optimized-and-Energy-Efficient-Air-and-Liquid-Cooled-Systems-Incorporating-4th-Gen-Intel-Xeon-Scalable-Processors/default.aspx",
+      "scope": "Public X13 Xeon Scalable introduction in 2022, before broad availability in 2023.",
+      "loc": "15 November 2022 dateline; X13 portfolio and early-access paragraphs",
+      "date": "Published 15 Nov 2022; reviewed 08 Oct 2026"
+    },
+    "genSmX13Launch": {
+      "title": "Supermicro launches more than 50 X13 models",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-unleashes-new-better-faster-and-greener-x13-server-portfolio-featuring-4th",
+      "scope": "January 2023 broad launch of the X13 Xeon Scalable generation.",
+      "loc": "10 January 2023 dateline; availability headline and opening paragraph",
+      "date": "Published 10 Jan 2023; reviewed 08 Oct 2026"
+    },
+    "genSmX13Refresh": {
+      "title": "Supermicro X13 refresh and Xeon E-2400 server introduction",
+      "url": "https://ir.supermicro.com/news/news-details/2023/Supermicro-Offers-Rack-Scale-Solutions-with-New-5th-Gen-Intel-Xeon-Processors-Optimized-for-AI-Cloud-Service-Providers-Storage-and-Edge-Computing/default.aspx",
+      "scope": "December 2023 Xeon Scalable refresh and separate entry-server E-2400 launch.",
+      "loc": "14 December 2023 dateline; X13 refresh opening; paragraph beginning 'Supermicro is also launching several new servers'",
+      "date": "Published 14 Dec 2023; reviewed 08 Oct 2026"
+    },
+    "genSmEdgeLaunch": {
+      "title": "Supermicro introduces H13 EPYC 8004 edge systems",
+      "url": "https://ir.supermicro.com/news/news-details/2023/Supermicro-Introduces-a-Number-of-Density-and-Power-Optimized-Edge-Platforms-for-Telco-Providers-Based-on-the-New-AMD-EPYC-8004-Series-Processor/default.aspx",
+      "scope": "September 2023 start for H13 EPYC 8004 WIO and short-depth front-I/O systems.",
+      "loc": "18 September 2023 dateline and H13 WIO / short-depth system introduction",
+      "date": "Published 18 Sep 2023; reviewed 08 Oct 2026"
+    },
+    "genSmEdgeSheet": {
+      "title": "H13 Telco/Edge systems data sheet — September 2023",
+      "url": "https://www.supermicro.com/datasheet/datasheet_H13_ShortDepth_Front_IO.pdf",
+      "scope": "Dated documentation explicitly naming AS-1115S-FWTRT.",
+      "loc": "Page 1: AS-1115S-FWTRT (AC) model name and September 2023 footer",
+      "date": "Published Sep 2023; reviewed 08 Oct 2026"
+    },
+    "genSmX14Preview": {
+      "title": "Supermicro announces its upcoming X14 generation",
+      "url": "https://ir.supermicro.com/news/news-details/2024/Supermicro-Announces-Upcoming-X14-Server-Family-with-Future-Support-for-the-Intel-Xeon-6-processor-with-Early-Access-Programs/default.aspx",
+      "scope": "April 2024 public announcement of X14 before staggered CPU and model rollouts.",
+      "loc": "9 April 2024 dateline; opening announcement and early-access program",
+      "date": "Published 09 Apr 2024; reviewed 08 Oct 2026"
+    },
+    "genSmX14Launch": {
+      "title": "Supermicro launches X14 with Xeon 6 E-cores",
+      "url": "https://ir.supermicro.com/news/news-details/2024/Supermicro-Unveils-New-X14-AI-Rackmount-Multi-Node-and-Edge-Server-Families-Based-on-Intel-Xeon-6-Processors-with-E-cores-and-Soon-P-cores-Systems-With-Liquid-Cooling/default.aspx",
+      "scope": "June 2024 initial X14 launch; P-core systems followed rather than all options arriving together.",
+      "loc": "3 June 2024 dateline and opening launch paragraph",
+      "date": "Published 03 Jun 2024; reviewed 08 Oct 2026"
+    },
+    "genSmX14Training": {
+      "title": "New Supermicro X14 Systems — July 2024 portfolio",
+      "url": "https://www.supermicro.com/sites/default/files/content_resources/static_resources/channel_training/X14_Channel_Training_July_2024.pdf",
+      "scope": "Dated model-level evidence for Hyper, CloudDC, GrandTwin, SuperBlade and Petascale examples. A listed model is documented by this date, not necessarily generally available.",
+      "loc": "Slide 1: 31 July 2024; slides 18–19: X14 DP/MP and UP 6700-series product portfolios",
+      "date": "Published 31 Jul 2024; reviewed 08 Oct 2026"
+    },
+    "genSmH14Launch": {
+      "title": "Supermicro introduces H14 with EPYC 9005 and Instinct MI325X",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-introduces-new-servers-and-gpu-accelerated-systems-amd-epyctm-9005-series",
+      "scope": "October 2024 H14 generation introduction, with air and liquid GPU system families.",
+      "loc": "10 October 2024 dateline; H14 introduction; 4U and 8U GPU family descriptions",
+      "date": "Published 10 Oct 2024; reviewed 08 Oct 2026"
+    },
+    "genSmH14Hyper": {
+      "title": "H14 Hyper systems data sheet — October 2024",
+      "url": "https://www.supermicro.com/datasheet/h14/datasheet_H14_Hyper.pdf",
+      "scope": "Dated evidence for AS-1126HS-TN and AS-2126HS-TN in the H14 generation.",
+      "loc": "Page 1: October 2024 footer and both model names; page 2: H14 model table",
+      "date": "Published Oct 2024; reviewed 08 Oct 2026"
+    },
+    "genSmH14Brochure": {
+      "title": "A+ H13/H14 server solutions — October 2024",
+      "url": "https://www.supermicro.com/manuals/brochure/Brochure_H13_H14_Aplus.pdf",
+      "scope": "AS-8126GS-TNMR was publicly documented in October 2024 as coming soon; this is not an availability date.",
+      "loc": "Page 5: H14 8-GPU systems, AS-8126GS-TNMR (Coming soon), October 2024 footer",
+      "date": "Published Oct 2024; reviewed 08 Oct 2026"
+    },
+    "genSmMI350": {
+      "title": "Supermicro introduces MI350-series air and liquid GPU solutions",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-delivers-performance-and-efficiency-optimized-liquid-cooled-and-air-cooled",
+      "scope": "June 2025 accelerator refresh of H14; explicitly links AS-8126GS-TNMR and AS-4126GS-NMR-LCC as available to order.",
+      "loc": "12 June 2025 dateline; final 'available to order' list with exact product links",
+      "date": "Published 12 Jun 2025; reviewed 08 Oct 2026"
+    },
+    "genSmGaudi": {
+      "title": "Supermicro X14 Gaudi 3 system product brief — September 2024",
+      "url": "https://www.supermicro.com/products/brief/Product-Brief-Gaudi3.pdf",
+      "scope": "Dated model-level evidence for SYS-822GA-NGR3.",
+      "loc": "Page 1: executive summary names SYS-822GA-NGR3; September 2024 footer",
+      "date": "Published Sep 2024; reviewed 08 Oct 2026"
+    },
+    "genSmB300": {
+      "title": "Supermicro begins volume shipments of Blackwell Ultra systems",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-begins-volume-shipments-nvidia-blackwell-ultra-systems-and-rack-plug-and",
+      "scope": "September 2025 broad availability of Supermicro HGX B300 systems, including the 8U air-cooled format; distinct from the 2024 X14 CPU platform date.",
+      "loc": "11 September 2025 dateline; opening availability statement; 8U air-cooled HGX B300 paragraph",
+      "date": "Published 11 Sep 2025; reviewed 08 Oct 2026"
+    },
+    "genSmH15Launch": {
+      "title": "Supermicro introduces H15 / EPYC 9006",
+      "url": "https://ir.supermicro.com/news/news-details/2026/Supermicro-Introduces-New-Server-Portfolio-with-6th-Gen-AMD-EPYC-9006-Series-CPUs-Delivering-1-7x-Generational-Performance-Improvements/default.aspx",
+      "scope": "July 2026 platform announcement; does not date every individual H15 SKU.",
+      "loc": "23 July 2026 dateline; opening H15 announcement and portfolio descriptions",
+      "date": "Published 23 Jul 2026; reviewed 08 Oct 2026"
+    },
+    "amdcloud": {
+      "title": "AS-2015CS-TNR specifications",
+      "url": "https://www.supermicro.com/en/products/system/clouddc/2u/as-2015cs-tnr",
+      "scope": "Single-socket CloudDC; EPYC 9005 requires motherboard revision 2.x.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "amdtwin": {
+      "title": "AS-2115GT-HNTR specifications",
+      "url": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2115gt-hntr",
+      "scope": "Four independent AMD nodes; rear I/O and six SFF bays per node.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "h15twin": {
+      "title": "AS-2117GT7-DNF specifications",
+      "url": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2117gt7-dnf",
+      "scope": "H15 two-node GrandTwin; EPYC 9006, SP7, PCIe 6.0 and alternative drive formats.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "tower": {
+      "title": "SYS-531R-I specifications",
+      "url": "https://www.supermicro.com/en/products/system/up%20workstation/mini-tower/sys-531r-i",
+      "scope": "Entry tower with Xeon 6300 / E-2400, ECC UDIMMs and BMC.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "capacity": {
+      "title": "SSG-542B-E1CR90 specifications",
+      "url": "https://www.supermicro.com/en/products/system/storage/4u/ssg-542b-e1cr90",
+      "scope": "Single-node 4U storage server with ninety top-loading drive positions.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "pciegpu": {
+      "title": "SYS-421GE-TNRT specifications",
+      "url": "https://www.supermicro.com/en/products/system/gpu/4u/sys-421ge-tnrt",
+      "scope": "Dual-root PCIe GPU platform, card population and storage options.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "hgx": {
+      "title": "SYS-822GS-NB3RT specifications",
+      "url": "https://www.supermicro.com/en/products/system/gpu/8u/sys-822gs-nb3rt",
+      "scope": "Intel host plus NVIDIA HGX B300, SXM GPUs and ConnectX-8 networking.",
+      "loc": "Key features; processor; memory; storage; GPU and management specifications",
+      "date": "Reviewed 07 Oct 2026"
+    },
+    "edgeCurrent": {
+      "title": "AS-1115S-FWTRT current specifications",
+      "url": "https://www.supermicro.com/en/products/system/wio/1u/as-1115s-fwtrt",
+      "scope": "Current EPYC 8005/8004 CPU support, core limit, memory, M.2 and GPU positions; not an upgrade guarantee for older builds.",
+      "loc": "Processor; System Memory; GPU; Drive Bays / Storage",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "edgeRefresh": {
+      "title": "Supermicro unveils WIO servers powered by AMD EPYC 8005",
+      "url": "https://learn-more.supermicro.com/data-center-stories/supermicro-wio-amd-epyc-8005-sorano-edge-telco-retail-server",
+      "scope": "2026 EPYC 8005 Sorano refresh explicitly naming AS-1115S-FWTRT; no stock assertion.",
+      "loc": "EPYC 8005 discussion; AS-1115S-FWTRT at MWC Barcelona 2026",
+      "date": "2026 event context; reviewed 09 Oct 2026"
+    },
+    "amdentry": {
+      "title": "AS-3015A-I specifications",
+      "url": "https://www.supermicro.com/en/products/system/mainstream/tower/as-3015a-i",
+      "scope": "EPYC 4004/4005 and Ryzen 7000/9000 tower; UDIMM, storage and qualified Radeon Pro / NVIDIA graphics.",
+      "loc": "Processor; GPU; Memory; Storage; PCIe Configuration",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "amdpcie": {
+      "title": "AS-5126GS-TNRT specifications",
+      "url": "https://www.supermicro.com/en/products/system/gpu/5u/as%20-5126gs-tnrt",
+      "scope": "AMD-host 5U PCIe GPU system; eight qualified MI350P or NVIDIA GPU positions; expansion versus NVMe tradeoff.",
+      "loc": "Processor; GPU; PCIe Configuration; Drive Bays; Power Supply",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "amdhgx": {
+      "title": "AS-8126GS-NB3RT specifications",
+      "url": "https://www.supermicro.com/en/products/system/gpu/8u/as-8126gs-nb3rt",
+      "scope": "AMD EPYC 9005 host with eight NVIDIA HGX B300 SXM GPUs; detailed CPU section takes priority over broader 9004/9005 headline.",
+      "loc": "Detailed Processor; GPU; Memory; Storage; Networking",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "amdblade": {
+      "title": "SBA-817V7-1N specifications",
+      "url": "https://www.supermicro.com/en/aplus/superblade/module/sba-817v7-1n.php",
+      "scope": "H15 SP7 AMD SuperBlade; Coming Soon label, CPU, DIMMs, alternative storage and GPU positions.",
+      "loc": "Coming Soon label; Processor; GPU; Memory; PCIe Configuration; Drive Bays",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "amdbladeFamily": {
+      "title": "SuperBlade enclosure and blade matrix",
+      "url": "https://www.supermicro.com/en/products/superblade",
+      "scope": "SBA-817V7-1N belongs to H15 and the 8U enclosure family; not the selected Intel 6U enclosure.",
+      "loc": "8U enclosure CPU support; Blade Servers table, SBA-817V7-1N row",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "h15board": {
+      "title": "H15SPT-G motherboard specifications and status",
+      "url": "https://www.supermicro.com/en/products/motherboard/h15spt-g",
+      "scope": "Board used by H15 GrandTwin; vendor Coming Soon label is not an exact system shipping commitment.",
+      "loc": "Coming Soon label; CPU; DIMM and expansion specifications",
+      "date": "Reviewed 09 Oct 2026"
+    },
+    "genSm4004": {
+      "title": "Supermicro introduces EPYC 4004 H13 systems",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-introduces-high-density-efficient-and-cost-optimized-solutions-powered-amd",
+      "scope": "May 2024 H13 entry branch announcement explicitly links AS-3015A-I under Tower Servers; establishes documented-by timing, not an exact first-sale date.",
+      "loc": "21 May 2024 dateline; systems list > Tower Servers > exact AS-3015A-I product link",
+      "date": "Published 21 May 2024; reviewed 09 Oct 2026",
+      "publishedAt": "2024-05-21",
+      "reviewedAt": "2026-10-09"
+    },
+    "genSm4005": {
+      "title": "Supermicro EPYC 4005 MicroCloud and entry portfolio",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-delivers-best-class-cost-and-density-server-instance-new-microcloud-multi",
+      "scope": "2025 EPYC 4005 refresh explicitly linking AS-3015A-I; MicroCloud is a separate multi-node family.",
+      "loc": "13 May 2025 dateline; systems list and Tower Servers link",
+      "date": "Published 13 May 2025; reviewed 09 Oct 2026"
+    },
+    "amdVenice": {
+      "title": "AMD EPYC 9006, formerly code-named Venice",
+      "url": "https://www.amd.com/en/blogs/2026/agentic-ai-amd-epyc-9005-cpus-wins-today-epyc-9006.html",
+      "date": "2026; reviewed 09 Oct 2026",
+      "loc": "Title and EPYC 9006 introduction",
+      "scope": "Venice search alias for EPYC 9006; does not establish OEM model qualification or availability."
+    },
+    "amdTurin": {
+      "title": "AMD launches fifth-generation EPYC processors",
+      "url": "https://www.amd.com/en/newsroom/press-releases/2024-10-10-amd-launches-5th-gen-amd-epyc-cpus-maintaining-le.html",
+      "date": "Published 10 Oct 2024; reviewed 09 Oct 2026",
+      "loc": "Opening paragraph and product family",
+      "scope": "Turin search alias for EPYC 9005; OEM configuration remains model-specific."
+    },
+    "amdSiena": {
+      "title": "AMD EPYC 8004 processors designed for the intelligent edge",
+      "url": "https://www.amd.com/en/blogs/2023/4th-gen-amd-epyc-8004-series-processors-designed-.html",
+      "date": "Published 2023; reviewed 09 Oct 2026",
+      "loc": "EPYC 8004 introduction",
+      "scope": "Siena search alias for EPYC 8004."
+    },
+    "amdSorano": {
+      "title": "AMD EPYC 8005 server CPUs and vRAN",
+      "url": "https://www.amd.com/en/blogs/2026/advancing-vran-economics-with-amd-epyctm-8005-server-cpus.html",
+      "date": "Published 2026; reviewed 09 Oct 2026",
+      "loc": "EPYC 8005 Sorano introduction",
+      "scope": "Sorano search alias for EPYC 8005; CPU availability does not establish OEM shipping."
+    },
+    "smGpuMatrix": {
+      "title": "Supermicro Qualified Platform List for GPUs",
+      "url": "https://www.supermicro.com/en/support/resources/gpu",
+      "date": "Reviewed 09 Oct 2026",
+      "loc": "AS-2126HS-TN / MI210; AS-5126GS-TNRT / MI350P; AS-4126GS-NMR-LCC / MI325X and MI355X; AS-8126GS-NB3RT / HGX B300 rows",
+      "scope": "Exact model, GPU count, wattage, host processor and vendor validation status."
+    },
+    "amdGenoa": {
+      "title": "Fourth-generation EPYC architectures optimized for enterprise workloads",
+      "url": "https://www.amd.com/en/solutions/data-center/insights/4th-gen-amd-epyc-architectures-optimized-for-enterprise-workloads.html",
+      "date": "Reviewed 09 Oct 2026",
+      "loc": "AMD EPYC 9004 general-purpose processors",
+      "scope": "Genoa search alias for the general-purpose EPYC 9004 family; exact OEM CPU SKUs remain subject to qualification."
+    },
+    "intelhyperCooling": {
+      "title": "SYS-222H-TN CPU cooling specifications",
+      "url": "https://www.supermicro.com/en/products/system/hyper/2u/sys-222h-tn",
+      "scope": "Exact model CPU cooling choices and conditional thermal limits; no GPU/cooling pairing is established.",
+      "loc": "Processor > Note; System Cooling > Liquid Cooling",
+      "date": "Reviewed 09 Oct 2026",
+      "reviewedAt": "2026-10-09"
+    },
+    "bladeCooling": {
+      "title": "SBI-622B-1NE34 CPU cooling specifications",
+      "url": "https://www.supermicro.com/en/products/superblade/module/sbi-622b-1ne34.php",
+      "scope": "Exact model CPU cooling choices and conditional thermal limits; no GPU/cooling pairing is established.",
+      "loc": "Key Features > item 8; Processor > Note",
+      "date": "Reviewed 09 Oct 2026",
+      "reviewedAt": "2026-10-09"
+    },
+    "amdbladeCooling": {
+      "title": "SBA-817V7-1N CPU cooling specifications",
+      "url": "https://www.supermicro.com/en/aplus/superblade/module/sba-817v7-1n.php",
+      "scope": "Exact model CPU cooling choices and conditional thermal limits; no GPU/cooling pairing is established.",
+      "loc": "Key Features > item 2; Processor > Note; Coming Soon status",
+      "date": "Reviewed 09 Oct 2026",
+      "reviewedAt": "2026-10-09"
+    },
+    "amd1Thermal": {
+      "title": "AS-1126HS-TN processor thermal conditions",
+      "url": "https://www.supermicro.com/en/products/system/hyper/1u/as-1126hs-tn",
+      "scope": "Exact model maximum CPU TDP and conditional air-cooling threshold; no universal high-TDP or liquid-cooling qualification.",
+      "loc": "Processor > Note",
+      "date": "Reviewed 09 Oct 2026",
+      "reviewedAt": "2026-10-09"
+    },
+    "amdcloudThermal": {
+      "title": "AS-2015CS-TNR processor thermal conditions",
+      "url": "https://www.supermicro.com/en/products/system/clouddc/2u/as-2015cs-tnr",
+      "scope": "Exact model maximum CPU TDP and conditional air-cooling threshold; no universal high-TDP or liquid-cooling qualification.",
+      "loc": "Processor > Note",
+      "date": "Reviewed 09 Oct 2026",
+      "reviewedAt": "2026-10-09"
+    },
+    "amdtwinThermal": {
+      "title": "AS-2115GT-HNTR processor thermal conditions",
+      "url": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2115gt-hntr",
+      "scope": "Exact model maximum CPU TDP and conditional air-cooling threshold; no universal high-TDP or liquid-cooling qualification.",
+      "loc": "Processor > Note",
+      "date": "Reviewed 09 Oct 2026",
+      "reviewedAt": "2026-10-09"
+    },
+    "amdlegacy": {
+      "title": "AS-2024US-TRT specifications",
+      "url": "https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt",
+      "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+      "scope": "Exact model specifications, conditional configurations and expansion scope.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null,
+      "date": "reviewed 09 Oct 2026"
+    },
+    "mi300x": {
+      "title": "AS-8125GS-TNMR2 specifications",
+      "url": "https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2",
+      "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+      "scope": "Exact model specifications, conditional configurations and expansion scope.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null,
+      "date": "reviewed 09 Oct 2026"
+    },
+    "h15hyper": {
+      "title": "AS-2127H7-N specifications",
+      "url": "https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n",
+      "loc": "Processor; System Memory; Drive Bays / Storage; System Cooling; Management",
+      "scope": "Exact model specifications, conditional configurations and expansion scope.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null,
+      "date": "reviewed 09 Oct 2026"
+    },
+    "coverageGpuMatrix": {
+      "title": "Supermicro qualified GPU platforms: exact coverage additions",
+      "url": "https://www.supermicro.com/en/support/resources/gpu",
+      "loc": "AS-2024US-TRT / MI210 row (notes g9,a3); AS-8125GS-TNMR2 / MI300X row",
+      "scope": "Exact GPU, CPU family and quantity; preserves vendor notes and blank validation authority.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null,
+      "date": "reviewed 09 Oct 2026"
+    },
+    "amdlegacyQrg": {
+      "title": "AS-2024US-TRT Quick Reference Guide",
+      "url": "https://www.supermicro.com/QuickRefs/superserver/2U/QRG-2315.pdf",
+      "loc": "Page 1, Memory table: CPU1/CPU2 channels 1-8, 16-DIMM and 32-DIMM populations",
+      "scope": "Model-specific 1DPC and 2DPC populations across eight channels per CPU.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null,
+      "date": "reviewed 09 Oct 2026"
+    },
+    "amdlegacyBoard": {
+      "title": "H12DSU-iN motherboard specifications",
+      "url": "https://www.supermicro.com/en/products/motherboard/h12dsu-in",
+      "loc": "System Memory; Processor/Chipset",
+      "scope": "Integrated board, 32 DIMMs, eight-channel bus and SP3 CPU qualifications.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null,
+      "date": "reviewed 09 Oct 2026"
+    },
+    "mi300xManual": {
+      "title": "AS-8125GS-TNMR2 system manual MNL-2671",
+      "url": "https://www.supermicro.com/manuals/superserver/8U/MNL-2671.pdf",
+      "loc": "Section 3.4 Memory Support; Appendix B System Specifications",
+      "scope": "Dual SP5 host memory, 1DPC, board revision requirement and system fans. Product page and manual differ on M.2 wording; exact boot configuration remains to be checked.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null,
+      "date": "reviewed 09 Oct 2026"
+    },
+    "h15hyperBoard": {
+      "title": "H15DPH motherboard specifications",
+      "url": "https://www.supermicro.com/en/products/motherboard/h15dph",
+      "loc": "Key Features; System Memory; Optimized Servers links",
+      "scope": "Integrated dual SP7 board: 32 DIMMs at 1DPC; exact AS-2127H7-N link.",
+      "reviewedAt": "2026-10-09",
+      "publishedAt": null,
+      "date": "reviewed 09 Oct 2026"
+    }
+  },
+  "models": {
+    "intelhyper": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SYS222HTN",
+        "Hyper",
+        "X14",
+        "6500P",
+        "6700P",
+        "6700E"
+      ],
+      "cooling": "Configuration-dependent",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA H100 NVL",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Model lists H100 NVL; exact GPU count, riser, airflow and power configuration must be checked.",
+          "sourceIds": [
+            "intelhyper",
+            "gpu"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA L40S",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Model lists L40S; the chassis maximum is not a per-card population guarantee.",
+          "sourceIds": [
+            "intelhyper",
+            "gpu"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "Xeon 6 6500P/6700P or 6700E only as qualified; MRDIMM requires a supported P-core build.",
+        "GPU, DIMM and drive maxima can require different risers, power and thermal configurations.",
+        "Air or optional direct-to-chip liquid CPU cooling is documented, with up to 350 W CPUs. This does not establish a GPU and cooling combination; confirm the exact processor, cold plate, risers, GPU and power configuration."
+      ],
+      "decoder": [
+        {
+          "part": "SYS",
+          "meaning": "SuperServer system prefix; inspect this model's qualified CPU family"
+        },
+        {
+          "part": "222H-TN",
+          "meaning": "Exact model and suffix: 2U rack · two sockets. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "X14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "intelhyper"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "intelhyper",
+        "os",
+        "gpu",
+        "resources",
+        "naming",
+        "intelhyperCooling"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition.",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingNote": "Air or optional direct-to-chip liquid CPU cooling is documented, with up to 350 W CPUs. This does not establish a GPU and cooling combination; confirm the exact processor, cold plate, risers, GPU and power configuration."
+    },
+    "amd1": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "AS1126HSTN",
+        "Hyper",
+        "H14",
+        "Genoa",
+        "Turin",
+        "SP5"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [],
+      "restrictions": [
+        "Confirm exact CPU TDP and model-qualified PCIe adapters; spare slots do not establish GPU qualification.",
+        "CPU TDP is specified up to 500 W; air-cooled CPUs above 290 W require Supermicro-specific conditions. Confirm the exact thermal configuration with Supermicro."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server; AMD host platform"
+        },
+        {
+          "part": "1126HS-TN",
+          "meaning": "Exact model and suffix: 1U rack · two sockets. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "amd1"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "amd1",
+        "os",
+        "gpu",
+        "resources",
+        "amdTurin",
+        "naming",
+        "amdGenoa",
+        "amd1Thermal"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "amd2": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "AS2126HSTN",
+        "Hyper",
+        "H14",
+        "Genoa",
+        "Turin",
+        "SP5"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI210",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Up to three double-width MI210 cards are listed in the model qualification resources; use qualified risers, power and airflow.",
+          "sourceIds": [
+            "amd2",
+            "gpu",
+            "smGpuMatrix"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9004",
+            "EPYC 9005"
+          ]
+        },
+        {
+          "product": "NVIDIA H100 NVL",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Qualified option on the AMD host; check card-specific population.",
+          "sourceIds": [
+            "amd2",
+            "gpu",
+            "smGpuMatrix"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9004",
+            "EPYC 9005"
+          ]
+        },
+        {
+          "product": "NVIDIA L40S",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Qualified option on the AMD host; check card-specific population.",
+          "sourceIds": [
+            "amd2",
+            "gpu",
+            "smGpuMatrix"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9004",
+            "EPYC 9005"
+          ]
+        }
+      ],
+      "restrictions": [
+        "Air-cooled CPU TDP over 400 W is supported only under vendor-specified conditions.",
+        "MI210 qualification does not establish qualification for other Instinct products; confirm the exact GPU population and riser/power configuration.",
+        "24 RDIMM slots are 1DPC; qualified 9005/9004 memory speeds differ."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server; AMD host platform"
+        },
+        {
+          "part": "2126HS-TN",
+          "meaning": "Exact model and suffix: 2U rack · two sockets. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "amd2"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "amd2",
+        "hypermanual",
+        "os",
+        "gpu",
+        "resources",
+        "amdTurin",
+        "naming",
+        "amdGenoa"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuNote": "Only the named AMD GPU options are established here; other Instinct or Radeon products require separate qualification."
+    },
+    "amdcloud": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "AS2015CSTNR",
+        "CloudDC",
+        "H13",
+        "Genoa",
+        "Turin",
+        "SP5"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA L4",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Qualified single-width option; node, riser, power and drive layout apply.",
+          "sourceIds": [
+            "amdcloud",
+            "gpu"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA L40S",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Qualified double-width option; confirm exact configured population.",
+          "sourceIds": [
+            "amdcloud",
+            "gpu"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "EPYC 9005 requires motherboard revision 2.x.",
+        "Additional parts are required for optional SAS or NVMe paths; twelve base SATA bays do not imply simultaneous NVMe/SAS capability.",
+        "CPU TDP is specified up to 400 W; air-cooled CPUs above 360 W require Supermicro-specific conditions. Confirm the exact thermal configuration with Supermicro."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server; AMD host platform"
+        },
+        {
+          "part": "2015CS-TNR",
+          "meaning": "Exact model and suffix: 2U rack · one socket · about 648 mm deep. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H13",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "amdcloud"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "amdcloud",
+        "os",
+        "gpu",
+        "resources",
+        "amdTurin",
+        "naming",
+        "amdGenoa",
+        "amdcloudThermal"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "intelcloud": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SYS112CTN",
+        "CloudDC",
+        "X14",
+        "6500P",
+        "6700P",
+        "6700E"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA L4",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Up to two single-width L4 cards in qualified configurations.",
+          "sourceIds": [
+            "intelcloud",
+            "gpu"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "MRDIMM requires a supported Xeon 6 P-core configuration.",
+        "GPU and storage population are qualified with the exact riser and backplane."
+      ],
+      "decoder": [
+        {
+          "part": "SYS",
+          "meaning": "SuperServer system prefix; inspect this model's qualified CPU family"
+        },
+        {
+          "part": "112C-TN",
+          "meaning": "Exact model and suffix: 1U rack · one socket · DC-MHS design. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "X14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "intelcloud"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "intelcloud",
+        "os",
+        "gpu",
+        "resources",
+        "naming"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "inteltwin": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SYS212GTHNF",
+        "GrandTwin",
+        "X14",
+        "6500P",
+        "6700P",
+        "6700E"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [],
+      "restrictions": [
+        "CPU, memory and storage are per independent node.",
+        "Eight E1.S, four E1.S plus PCIe, and U.2 configurations have different expansion tradeoffs."
+      ],
+      "decoder": [
+        {
+          "part": "SYS",
+          "meaning": "SuperServer system prefix; inspect this model's qualified CPU family"
+        },
+        {
+          "part": "212GT-HNF",
+          "meaning": "Exact model and suffix: 2U chassis · 4 independent single-socket nodes. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "X14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "inteltwin"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "inteltwin",
+        "os",
+        "gpu",
+        "resources",
+        "naming"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "amdtwin": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "AS2115GTHNTR",
+        "GrandTwin",
+        "H13",
+        "Genoa",
+        "Turin",
+        "SP5"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [],
+      "restrictions": [
+        "EPYC 9005 requires motherboard revision 2.x.",
+        "CPU, memory, drives and networking are per node; four nodes remain four separate servers.",
+        "CPU TDP is specified up to 400 W; air-cooled CPUs above 300 W require Supermicro-specific conditions. Confirm the exact thermal configuration with Supermicro."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server; AMD host platform"
+        },
+        {
+          "part": "2115GT-HNTR",
+          "meaning": "Exact model and suffix: 2U chassis · 4 independent single-socket nodes. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H13",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "amdtwin"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "amdtwin",
+        "os",
+        "gpu",
+        "resources",
+        "amdTurin",
+        "naming",
+        "amdGenoa",
+        "amdtwinThermal"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "h15twin": {
+      "cpuFamilies": [
+        "EPYC 9006"
+      ],
+      "aliases": [
+        "AS2117GT7DNF",
+        "H15 GrandTwin",
+        "H15",
+        "SP7",
+        "Venice"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [],
+      "restrictions": [
+        "SP7 / EPYC 9006 is a different platform from H13/H14 SP5.",
+        "Drive formats are alternate node layouts; adapter qualification and model shipping must be confirmed."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server; AMD host platform"
+        },
+        {
+          "part": "2117GT7-DNF",
+          "meaning": "Exact model and suffix: 2U chassis · 2 independent single-socket nodes. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H15",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "announced",
+        "note": "H15 portfolio is announced. Exact system shipping is unverified; the integrated board page says Coming Soon.",
+        "sourceIds": [
+          "h15twin",
+          "h15",
+          "h15board"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "h15twin",
+        "h15",
+        "h15board",
+        "os",
+        "gpu",
+        "resources",
+        "amdVenice",
+        "naming"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "blade": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SBI622B1NE34",
+        "SuperBlade",
+        "X14",
+        "6500P",
+        "6700P",
+        "6700E"
+      ],
+      "cooling": "Configuration-dependent",
+      "gpuOptions": [],
+      "restrictions": [
+        "Requires a compatible 6U SuperBlade enclosure and qualified power, cooling, network and chassis-management modules.",
+        "The Intel 6U enclosure example does not imply compatibility with an AMD 8U blade.",
+        "Air-cooled CPUs are documented up to 250 W. Direct liquid cooling is also available through Supermicro; confirm CPU TDP and enclosure configuration. The 350 W headline is not an air-cooled qualification."
+      ],
+      "decoder": [
+        {
+          "part": "SBI",
+          "meaning": "Intel SuperBlade compute module"
+        },
+        {
+          "part": "622B-1NE34",
+          "meaning": "Exact model and suffix: Single-width blade · compatible 6U SuperBlade enclosure. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "X14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "blade"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "blade",
+        "bladechassis",
+        "os",
+        "gpu",
+        "resources",
+        "naming",
+        "bladeCooling"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition.",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingNote": "Air-cooled CPUs are documented up to 250 W. Direct liquid cooling is also available through Supermicro; confirm CPU TDP and enclosure configuration. The 350 W headline is not an air-cooled qualification."
+    },
+    "amdblade": {
+      "cpuFamilies": [
+        "EPYC 9006"
+      ],
+      "aliases": [
+        "SBA817V71N",
+        "H15 SuperBlade",
+        "H15",
+        "SP7",
+        "Venice"
+      ],
+      "cooling": "Configuration-dependent",
+      "gpuOptions": [],
+      "restrictions": [
+        "Vendor marks this SKU Coming Soon; exact shipping date is unverified.",
+        "Requires a compatible 8U SuperBlade enclosure; not the selected Intel 6U enclosure.",
+        "Front E1.S, E3.S, U.2 and M.2 layouts are alternatives and may need additional controllers/cables.",
+        "Physical GPU positions do not establish a named AMD Instinct qualification.",
+        "Air and liquid CPU cooling are documented with CPU TDP up to 600 W, subject to Supermicro thermal conditions and the compatible 8U enclosure. Coming Soon remains the model status; this is not an orderability or GPU qualification."
+      ],
+      "decoder": [
+        {
+          "part": "SBA",
+          "meaning": "AMD SuperBlade compute module"
+        },
+        {
+          "part": "817V7-1N",
+          "meaning": "Exact model and suffix: Single-socket blade · compatible 8U SuperBlade enclosure. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H15",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "announced",
+        "note": "Vendor model page says Coming Soon; no exact shipping date verified.",
+        "sourceIds": [
+          "amdblade"
+        ]
+      },
+      "events": [
+        {
+          "year": 2026,
+          "label": "Coming Soon on the model page at review; no exact shipping date",
+          "type": "lifecycle",
+          "sourceIds": [
+            "amdblade"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "amdblade",
+        "amdbladeFamily",
+        "h15",
+        "os",
+        "gpu",
+        "resources",
+        "amdVenice",
+        "naming",
+        "amdbladeCooling"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition.",
+      "supportedCooling": [
+        "Air",
+        "Liquid"
+      ],
+      "coolingNote": "Air and liquid CPU cooling are documented with CPU TDP up to 600 W, subject to Supermicro thermal conditions and the compatible 8U enclosure. Coming Soon remains the model status; this is not an orderability or GPU qualification."
+    },
+    "tower": {
+      "cpuFamilies": [
+        "Xeon 6300",
+        "Xeon E-2400"
+      ],
+      "aliases": [
+        "SYS531RI",
+        "Entry tower",
+        "X13"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [],
+      "restrictions": [
+        "Uses ECC UDIMMs, not server RDIMMs.",
+        "CPU BIOS qualification and the single 400 W power supply constrain configuration."
+      ],
+      "decoder": [
+        {
+          "part": "SYS",
+          "meaning": "SuperServer system prefix; inspect this model's qualified CPU family"
+        },
+        {
+          "part": "531R-I",
+          "meaning": "Exact model and suffix: Mini-tower · one socket · single 400 W PSU. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "X13",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "tower"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "tower",
+        "os",
+        "gpu",
+        "resources",
+        "naming"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "edge": {
+      "cpuFamilies": [
+        "EPYC 8004",
+        "EPYC 8005"
+      ],
+      "aliases": [
+        "AS1115SFWTRT",
+        "Compact edge",
+        "H13",
+        "Siena",
+        "Sorano",
+        "SP6"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA L4",
+          "status": "documented",
+          "availability": "Availability unverified",
+          "conditions": "The store documents L4 with EPYC 8004. Current 8005 CPU support does not establish the same GPU/CPU combination without confirmation.",
+          "sourceIds": [
+            "edge",
+            "edgeCurrent"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 8004"
+          ]
+        }
+      ],
+      "restrictions": [
+        "Current model specifications cover EPYC 8005/8004; older listed configurations do not prove 8005 upgrade compatibility.",
+        "Current model memory ceiling is 768 GB; older retail builds list 576 GB. Confirm CPU, board, BIOS and DIMM qualification.",
+        "The L4 example is documented with EPYC 8004; confirm the accelerator combination for an 8005 build.",
+        "FWTRT identifies the AC-powered system; preserve the complete suffix when checking power input."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server; AMD host platform"
+        },
+        {
+          "part": "1115S-FWTRT",
+          "meaning": "Exact model and suffix: 1U rack · about 429 mm deep · redundant AC power. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H13",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "edgeCurrent"
+        ]
+      },
+      "events": [
+        {
+          "year": 2026,
+          "label": "EPYC 8005 refresh documented; original H13 edge platform remains 2023",
+          "type": "refresh",
+          "sourceIds": [
+            "edgeRefresh",
+            "edgeCurrent"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "edgeCurrent",
+        "edgeRefresh",
+        "edge",
+        "edgemanual",
+        "os",
+        "gpu",
+        "resources",
+        "naming",
+        "amdSiena",
+        "amdSorano"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "amdentry": {
+      "cpuFamilies": [
+        "EPYC 4004",
+        "EPYC 4005",
+        "Ryzen 7000",
+        "Ryzen 9000"
+      ],
+      "aliases": [
+        "AS3015AI",
+        "Entry tower",
+        "H13",
+        "Raphael",
+        "Grado",
+        "AM5",
+        "LGA1718"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [
+        {
+          "product": "Radeon Pro W7500",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Current model GPU list names W7500; system supports up to one double-width GPU. Card power and CPU/OS qualification apply.",
+          "sourceIds": [
+            "amdentry",
+            "gpu"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "Radeon Pro W7800",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Current model GPU list names W7800; system supports up to one double-width GPU. This is Radeon Pro, not Instinct.",
+          "sourceIds": [
+            "amdentry",
+            "gpu"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "EPYC 4004/4005 and Ryzen 7000/9000 options have their own CPU and OS qualifications.",
+        "Four ECC/non-ECC UDIMMs across two channels; RDIMMs are not supported memory types for this profile.",
+        "Expansion operates as one x16 or two x8 links; fixed drive bays are not hot-swap bays.",
+        "Radeon Pro qualification does not establish AMD Instinct or ROCm application qualification."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server; AMD host platform"
+        },
+        {
+          "part": "3015A-I",
+          "meaning": "Exact model and suffix: Mini-tower · one socket · single 668 W PSU. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H13",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "amdentry"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "EPYC 4005 configuration announced",
+          "type": "refresh",
+          "sourceIds": [
+            "genSm4005"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "amdentry",
+        "genSm4004",
+        "genSm4005",
+        "os",
+        "gpu",
+        "resources",
+        "naming"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuNote": "Only the named AMD GPU options are established here; other Instinct or Radeon products require separate qualification."
+    },
+    "petascale": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SSG122BNE316R",
+        "Petascale",
+        "X14"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [],
+      "restrictions": [
+        "The system manual establishes eight memory channels per CPU. The product page has conflicting channel/core prose; CPU SKU qualification remains separate.",
+        "A storage I/O slot is not proof of general GPU qualification."
+      ],
+      "decoder": [
+        {
+          "part": "SSG",
+          "meaning": "SuperStorage server system"
+        },
+        {
+          "part": "122B-NE316R",
+          "meaning": "Exact model and suffix: 1U rack · two sockets · sixteen E3.S positions. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "X14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "petascale"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "petascale",
+        "os",
+        "gpu",
+        "resources",
+        "naming"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "capacity": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SSG542BE1CR90",
+        "Top-loading storage",
+        "X14",
+        "6500P",
+        "6700P",
+        "6700E"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [],
+      "restrictions": [
+        "Ninety drives belong to one host, not ninety compute nodes.",
+        "Check rack depth, weight and top-access service clearance; optional NVMe positions need a qualified configuration."
+      ],
+      "decoder": [
+        {
+          "part": "SSG",
+          "meaning": "SuperStorage server system"
+        },
+        {
+          "part": "542B-E1CR90",
+          "meaning": "Exact model and suffix: 4U rack · single node · about 1,099 mm deep. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "X14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "capacity"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "capacity",
+        "os",
+        "gpu",
+        "resources",
+        "naming"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "pciegpu": {
+      "cpuFamilies": [
+        "Xeon Scalable 4th Gen",
+        "Xeon Scalable 5th Gen"
+      ],
+      "aliases": [
+        "SYS421GETNRT",
+        "PCIe GPU system",
+        "X13"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA L40S",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Listed for this PCIe switch system; qualified population, power and cooling apply.",
+          "sourceIds": [
+            "pciegpu",
+            "gpu"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "PCIe switch topology differs from HGX; installing ten cards does not create a single NVLink domain.",
+        "GPU, riser, power, cooling and drive population require exact-model qualification."
+      ],
+      "decoder": [
+        {
+          "part": "SYS",
+          "meaning": "SuperServer system prefix; inspect this model's qualified CPU family"
+        },
+        {
+          "part": "421GE-TNRT",
+          "meaning": "Exact model and suffix: 4U rack · air-cooled · PCIe switch design. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "X13",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "pciegpu"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "pciegpu",
+        "os",
+        "gpu",
+        "resources",
+        "naming"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "amdpcie": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "AS5126GSTNRT",
+        "PCIe GPU system",
+        "H14",
+        "Genoa",
+        "Turin",
+        "SP5"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI350P",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight double-width PCIe MI350P GPUs are Supermicro Validated on this exact model with two EPYC 9005/9004 CPUs. Matrix lists 600 W, configurable to 450 W. Optional links and complete power/cooling build remain qualified choices.",
+          "sourceIds": [
+            "amdpcie",
+            "gpu",
+            "smGpuMatrix"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9004",
+            "EPYC 9005"
+          ]
+        },
+        {
+          "product": "NVIDIA H200 NVL",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Up to eight double-width GPU design; use H200 NVL-specific bridge, power, firmware and population qualification.",
+          "sourceIds": [
+            "amdpcie",
+            "gpu",
+            "smGpuMatrix"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9004",
+            "EPYC 9005"
+          ]
+        }
+      ],
+      "restrictions": [
+        "Current detailed specifications qualify up to eight double-width GPUs; do not infer ten GPUs from nine/ten expansion positions or broader marketing.",
+        "The optional tenth PCIe position redirects lanes from four NVMe bays.",
+        "Direct host attachment and optional GPU bridge/link configurations must match the accelerator qualification.",
+        "Power redundancy is conditional on the configured load; GPU families are qualified alternatives, not permission to mix cards."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server; AMD host platform"
+        },
+        {
+          "part": "5126GS-TNRT",
+          "meaning": "Exact model and suffix: 5U rack · air-cooled · direct CPU-to-GPU PCIe. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "amdpcie"
+        ]
+      },
+      "events": [
+        {
+          "year": 2026,
+          "label": "MI350P qualification documented at review; original qualification date unverified",
+          "type": "refresh",
+          "sourceIds": [
+            "amdpcie",
+            "gpu"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "amdpcie",
+        "gpu",
+        "os",
+        "resources",
+        "amdTurin",
+        "naming",
+        "amdGenoa"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuNote": "Only the named AMD GPU options are established here; other Instinct or Radeon products require separate qualification."
+    },
+    "instinctair": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "AS8126GSTNMR",
+        "AMD Instinct",
+        "H14",
+        "Genoa",
+        "Turin",
+        "SP5"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI325X",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight matching MI325X OAM modules in the air-cooled qualified build.",
+          "sourceIds": [
+            "instinctair",
+            "instinctdesign"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "Instinct MI350X",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight matching MI350X OAM modules in the air-cooled qualified build. June 2025 announcement documents availability to order then, not current stock or shipment.",
+          "sourceIds": [
+            "instinctair",
+            "instinctdesign",
+            "genSmMI350"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "Eight MI325X or eight MI350X OAM modules are separate qualified builds; do not mix the alternatives.",
+        "Air cooling and rack power/airflow requirements must match the GPU build.",
+        "GPU HBM and host DDR5 are separate memory pools."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server; AMD host platform"
+        },
+        {
+          "part": "8126GS-TNMR",
+          "meaning": "Exact model and suffix: 8U rack · air-cooled · eight-GPU OAM platform. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "instinctair"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "MI350X air configuration announced; available-to-order statement is not shipment proof",
+          "type": "refresh",
+          "sourceIds": [
+            "genSmMI350"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "instinctair",
+        "instinctdesign",
+        "os",
+        "gpu",
+        "resources",
+        "amdTurin",
+        "naming",
+        "amdGenoa"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuNote": "Only the named AMD GPU options are established here; other Instinct or Radeon products require separate qualification."
+    },
+    "instinctliquid": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "AS4126GSNMRLCC",
+        "AMD Instinct",
+        "H14",
+        "Genoa",
+        "Turin",
+        "SP5"
+      ],
+      "cooling": "Liquid",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI325X",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight matching MI325X OAM modules; qualified liquid-cooling and service configuration required.",
+          "sourceIds": [
+            "instinctliquid",
+            "instinctdesign",
+            "smGpuMatrix"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9004",
+            "EPYC 9005"
+          ]
+        },
+        {
+          "product": "Instinct MI355X",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight matching MI355X OAM modules; liquid cooling, facility and onsite service requirements apply. The 2025 available-to-order statement is not a shipment claim.",
+          "sourceIds": [
+            "instinctliquid",
+            "instinctdesign",
+            "genSmMI350",
+            "smGpuMatrix"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9004",
+            "EPYC 9005"
+          ]
+        }
+      ],
+      "restrictions": [
+        "Eight MI325X or eight MI355X OAM modules are separate qualified builds; do not mix the alternatives.",
+        "Direct liquid cooling still requires residual airflow, facility compatibility and the vendor-listed onsite service arrangement.",
+        "GPU HBM and host DDR5 are separate memory pools."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server; AMD host platform"
+        },
+        {
+          "part": "4126GS-NMR-LCC",
+          "meaning": "Exact model and suffix: 4U rack · direct-to-chip liquid cooling. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "instinctliquid"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "MI355X liquid configuration announced; available-to-order statement is not shipment proof",
+          "type": "refresh",
+          "sourceIds": [
+            "genSmMI350"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "instinctliquid",
+        "instinctdesign",
+        "os",
+        "gpu",
+        "resources",
+        "amdTurin",
+        "naming",
+        "amdGenoa"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuNote": "Only the named AMD GPU options are established here; other Instinct or Radeon products require separate qualification."
+    },
+    "hgx": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SYS822GSNB3RT",
+        "NVIDIA HGX B300",
+        "X14",
+        "6700P"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA HGX B300",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight B300 SXM modules; Xeon 6700P host configuration. Portfolio shipping announcement does not establish this exact SKU shipping.",
+          "sourceIds": [
+            "hgx",
+            "genSmB300"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "HGX B300 SXM is a fixed accelerator platform, not a general-purpose OAM socket.",
+        "NVLink/NVSwitch is distinct from ConnectX cluster networking."
+      ],
+      "decoder": [
+        {
+          "part": "SYS",
+          "meaning": "SuperServer system prefix; inspect this model's qualified CPU family"
+        },
+        {
+          "part": "822GS-NB3RT",
+          "meaning": "Exact model and suffix: 8U rack · air-cooled · HGX B300. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "X14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "hgx"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "HGX B300 portfolio volume shipments announced; exact SKU timing unverified",
+          "type": "refresh",
+          "sourceIds": [
+            "genSmB300"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "hgx",
+        "os",
+        "gpu",
+        "resources",
+        "naming"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "amdhgx": {
+      "cpuFamilies": [
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "AS8126GSNB3RT",
+        "AMD host",
+        "H14",
+        "Turin",
+        "SP5"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA HGX B300",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight B300 SXM modules with the detailed EPYC 9005 host configuration; H14 board and model-specific network/power qualification.",
+          "sourceIds": [
+            "amdhgx"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9005"
+          ]
+        }
+      ],
+      "restrictions": [
+        "Detailed CPU specifications list EPYC 9005; confirm any 9004 proposal separately despite the broader headline.",
+        "HGX B300 SXM qualification does not establish Instinct OAM compatibility.",
+        "Power redundancy and cluster network configuration depend on the complete qualified build."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server; AMD host platform"
+        },
+        {
+          "part": "8126GS-NB3RT",
+          "meaning": "Exact model and suffix: 8U rack · air-cooled · AMD host and NVIDIA HGX. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "H14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "amdhgx"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "HGX B300 portfolio volume shipments announced; exact SKU timing unverified",
+          "type": "refresh",
+          "sourceIds": [
+            "genSmB300"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "amdhgx",
+        "os",
+        "gpu",
+        "resources",
+        "amdTurin",
+        "naming"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "gaudi": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "SYS822GANGR3",
+        "Intel Gaudi 3",
+        "X14",
+        "6900P"
+      ],
+      "cooling": "Air",
+      "gpuOptions": [
+        {
+          "product": "Intel Gaudi 3",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Eight OAM accelerators in the Xeon 6900P platform; use Gaudi software and Ethernet/RoCE qualification.",
+          "sourceIds": [
+            "gaudi",
+            "gaudidesign"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "Gaudi 3 OAM uses its own baseboard and software stack; OAM does not imply interchangeability with Instinct.",
+        "Use the qualified Xeon 6900P host, firmware, Ethernet/RoCE and software configuration."
+      ],
+      "decoder": [
+        {
+          "part": "SYS",
+          "meaning": "SuperServer system prefix; inspect this model's qualified CPU family"
+        },
+        {
+          "part": "822GA-NGR3",
+          "meaning": "Exact model and suffix: 8U rack · air-cooled · eight-OAM accelerator platform. These characters do not replace CPU, board and option qualification."
+        },
+        {
+          "part": "X14",
+          "meaning": "Platform generation; family design, CPU refresh and accelerator qualification can have later dates."
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current model reference, not evidence of local inventory, orderability or an exact shipping date.",
+        "sourceIds": [
+          "gaudi"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "gaudi",
+        "gaudidesign",
+        "os",
+        "gpu",
+        "resources",
+        "naming"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU established by this guide for this model; this is not a vendor-wide prohibition."
+    },
+    "amdlegacy": {
+      "cpuFamilies": [
+        "EPYC 7002",
+        "EPYC 7003"
+      ],
+      "aliases": [
+        "AS2024USTRT",
+        "Ultra",
+        "H12",
+        "SP3",
+        "Rome",
+        "Milan"
+      ],
+      "cooling": "Air",
+      "supportedCooling": [
+        "Air"
+      ],
+      "gpuOptions": [
+        {
+          "product": "Instinct MI210",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "cpuFamilies": [
+            "EPYC 7002",
+            "EPYC 7003"
+          ],
+          "conditions": "Supermicro Validated: up to two MI210 cards with two EPYC 7002/7003 CPUs. Matrix notes g9/a3 require the last three drive bays empty, 25°C ambient, a GPU kit and a TDP limit of 200 W; confirm the exact CPU thermal build and required parts.",
+          "sourceIds": [
+            "amdlegacy",
+            "coverageGpuMatrix"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "CPU-only specification supports air-cooled TDP up to 280 W; the MI210 GPU configuration has stricter matrix conditions.",
+        "EPYC 7003 with 3D V-Cache requires BIOS 2.3 or newer. Verify the exact CPU BIOS support before upgrade.",
+        "SAS/NVMe drive configurations require matching controller, cables and carriers."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server with AMD host processors"
+        },
+        {
+          "part": "AS-2024US-TRT",
+          "meaning": "Exact model and suffix; CPU, GPU and board qualification must be checked for this system."
+        }
+      ],
+      "lifecycle": {
+        "status": "unverified",
+        "note": "Current orderability, stock and service lifecycle are not established by the referenced specifications.",
+        "sourceIds": [
+          "amdlegacy"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "amdlegacy",
+        "amdlegacyQrg",
+        "coverageGpuMatrix"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuNote": "Only named and scoped AMD accelerator options are established; other products require separate qualification."
+    },
+    "mi300x": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "AS8125GSTNMR2",
+        "MI300X",
+        "H13",
+        "SP5",
+        "Genoa",
+        "Turin"
+      ],
+      "cooling": "Air",
+      "supportedCooling": [
+        "Air"
+      ],
+      "gpuOptions": [
+        {
+          "product": "Instinct MI300X",
+          "status": "documented",
+          "availability": "Availability unverified",
+          "cpuFamilies": [
+            "EPYC 9004",
+            "EPYC 9005"
+          ],
+          "conditions": "Exact OEM GPU matrix lists eight onboard MI300X accelerators with two EPYC 9004/9005 CPUs. Validation-type cell is blank, so no certification authority is claimed. EPYC 9005 requires motherboard revision 2.x; confirm exact BIOS, cooling and software build.",
+          "sourceIds": [
+            "mi300x",
+            "coverageGpuMatrix"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "EPYC 9005 requires motherboard revision 2.x; CPU-only support does not establish every CPU SKU and software combination.",
+        "Product page headline and detailed table differ on M.2 count; confirm the exact boot layout rather than assuming simultaneous positions.",
+        "GPU HBM is separate from 24-slot host DDR5 memory."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server with AMD host processors"
+        },
+        {
+          "part": "AS-8125GS-TNMR2",
+          "meaning": "Exact model and suffix; CPU, GPU and board qualification must be checked for this system."
+        }
+      ],
+      "lifecycle": {
+        "status": "unverified",
+        "note": "Current orderability, stock and service lifecycle are not established by the referenced specifications.",
+        "sourceIds": [
+          "mi300x"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "mi300x",
+        "coverageGpuMatrix",
+        "mi300xManual"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuNote": "Only named and scoped AMD accelerator options are established; other products require separate qualification."
+    },
+    "h15hyper": {
+      "cpuFamilies": [
+        "EPYC 9006"
+      ],
+      "aliases": [
+        "AS2127H7N",
+        "H15",
+        "Hyper",
+        "SP7",
+        "Venice"
+      ],
+      "cooling": "Air",
+      "supportedCooling": [
+        "Air"
+      ],
+      "gpuOptions": [],
+      "restrictions": [
+        "CPU TDP up to 600 W with the exact qualified air-cooled configuration.",
+        "Drive formats are alternative layouts; controllers, cables and risers determine the usable combination.",
+        "No named accelerator qualification is inferred from PCIe 6.0 expansion slots."
+      ],
+      "decoder": [
+        {
+          "part": "AS",
+          "meaning": "A+ Server with AMD host processors"
+        },
+        {
+          "part": "AS-2127H7-N",
+          "meaning": "Exact model and suffix; CPU, GPU and board qualification must be checked for this system."
+        }
+      ],
+      "lifecycle": {
+        "status": "unverified",
+        "note": "Current orderability, stock and service lifecycle are not established by the referenced specifications.",
+        "sourceIds": [
+          "h15hyper"
+        ]
+      },
+      "events": [],
+      "sourceIds": [
+        "h15hyper",
+        "h15hyperBoard"
+      ],
+      "verified": "2026-10-09",
+      "amdGpuNote": "No named AMD accelerator qualification established for this exact model; this is not a prohibition.",
+      "amdGpuStatus": "not-established"
+    }
+  }
+}

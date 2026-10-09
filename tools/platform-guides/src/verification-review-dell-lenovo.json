@@ -1,0 +1,195 @@
+{
+  "reviewedAt": "2026-10-09",
+  "reviewer": "Dell/Lenovo specification specialist (independent of Supermicro author)",
+  "reviewedFiles": [
+    "work/verified-fixes-supermicro.json",
+    "work/coverage-additions-supermicro.json"
+  ],
+  "method": "Fresh reads of exact official model, motherboard, GPU matrix and announcement pages; indexed OEM PDF text used where direct PDF retrieval failed. Claim checks below assess factual support, not just schema.",
+  "result": "PASS_WITH_LIMITATIONS",
+  "fixClaims": [
+    {
+      "id": "intelhyper-cooling",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/hyper/2u/sys-222h-tn",
+      "locator": "Processor > Note; System Cooling > Liquid Cooling",
+      "finding": "350W air/liquid and optional D2C are explicit; no GPU pairing inferred."
+    },
+    {
+      "id": "blade-cooling",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/superblade/module/sbi-622b-1ne34.php",
+      "locator": "Processor > Note",
+      "finding": "250W air ceiling and separate liquid option are explicit. OEM consultation caveat preserved."
+    },
+    {
+      "id": "amdblade-cooling",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/aplus/superblade/module/sba-817v7-1n.php",
+      "locator": "Key Features item 2; Processor > Note; Coming Soon",
+      "finding": "Air/liquid and 600W are stated with conditions; Coming Soon retained."
+    },
+    {
+      "id": "amd1-thermal",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/hyper/1u/as-1126hs-tn",
+      "locator": "Processor > Note",
+      "finding": "500W headline and air cooling above 290W conditional language match."
+    },
+    {
+      "id": "amdcloud-thermal",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/clouddc/2u/as-2015cs-tnr",
+      "locator": "Processor > Note",
+      "finding": "400W maximum and conditional air operation above 360W match."
+    },
+    {
+      "id": "amdtwin-thermal",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2115gt-hntr",
+      "locator": "Processor (per Node) > Note",
+      "finding": "400W maximum and conditional air operation above 300W match."
+    },
+    {
+      "id": "amdcloud-memory-revision",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/clouddc/2u/as-2015cs-tnr",
+      "locator": "System Memory; Processor board-revision note",
+      "finding": "9005 R2.0=6000, R2.01=6400; 9004=4800 MT/s, 12 slots at 1DPC all match."
+    },
+    {
+      "id": "amdtwin-memory-revision",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/grandtwin/2u/as-2115gt-hntr",
+      "locator": "System Memory (per Node); Processor board-revision note",
+      "finding": "Same revision-dependent rates and 12-slot 1DPC scope are explicitly per node."
+    },
+    {
+      "id": "amdentry-model-date",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/pressreleases/supermicro-introduces-high-density-efficient-and-cost-optimized-solutions-powered-amd",
+      "locator": "21 May 2024 dateline; Tower Servers link",
+      "finding": "Exact AS-3015A-I link exists in the 2024 release. Documented by is appropriately weaker than first sale."
+    }
+  ],
+  "coverageClaims": [
+    {
+      "id": "amdlegacy-core",
+      "model": "AS-2024US-TRT",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/ultra/2u/as%20-2024us-trt",
+      "locator": "Key Features; Processor; System Memory; Storage; Management",
+      "finding": "2U dual SP3 7002/7003; 32 DDR4 RDIMM/LRDIMM; 280W air; BIOS2.3 for V-Cache; alternative SATA/SAS/NVMe layouts and Gen4 detailed slots match."
+    },
+    {
+      "id": "amdlegacy-population",
+      "model": "AS-2024US-TRT",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/QuickRefs/superserver/2U/QRG-2315.pdf",
+      "locator": "Memory table, CPU channels 1–8; 16/32-DIMM population rows",
+      "finding": "Fresh indexed OEM QRG text confirms channel A–H and 16/32-population rows. Board page independently confirms 32 slots/eight-channel bus.",
+      "limitation": "Direct QRG PDF open failed. Indexed text, rather than independently rendered table, supported this secondary check.",
+      "corroborationUrl": "https://www.supermicro.com/en/products/motherboard/h12dsu-in"
+    },
+    {
+      "id": "amdlegacy-gpu",
+      "model": "AS-2024US-TRT",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/support/resources/gpu",
+      "locator": "Exact AS-2024US-TRT / MI210 row and notes g9,a3",
+      "finding": "Two MI210; two EPYC7002/7003; Supermicro Validated; last three bays empty,25°C,200W-TDP/GPU-kit note all match. No CPU SKU invented."
+    },
+    {
+      "id": "amdlegacy-age",
+      "model": "AS-2024US-TRT",
+      "status": "pass",
+      "sourceUrl": "https://ir.supermicro.com/news/news-details/2019/Supermicro-Now-Offering-AMD-EPYC-7002-Series-Processor-based-Systems-to-Customers-Who-Want-to-Transform-Their-Data-Centers/default.aspx",
+      "locator": "7 August 2019 dateline; first H12 family launch",
+      "finding": "H12 date verified. Exact model debut correctly left null."
+    },
+    {
+      "id": "mi300x-core",
+      "model": "AS-8125GS-TNMR2",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2",
+      "locator": "Processor; System Memory; GPU; Chassis",
+      "finding": "8U dual 9004/9005, revision2.x for9005; 24 DDR5 slots at1DPC; eight MI300X; host rates4800/6000 match."
+    },
+    {
+      "id": "mi300x-gpu",
+      "model": "AS-8125GS-TNMR2",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/support/resources/gpu",
+      "locator": "Exact AS-8125GS-TNMR2 / MI300X row",
+      "finding": "Eight onboard MI300X with dual9004/9005; validation-type cell blank. Documented status correctly avoids assigning certification authority."
+    },
+    {
+      "id": "mi300x-storage-cooling",
+      "model": "AS-8125GS-TNMR2",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/gpu/8u/as%20-8125gs-tnmr2",
+      "locator": "Key Features; Drive Bays / Storage; System Cooling",
+      "finding": "12+4 optional NVMe, twoSATA, fans and M.2 ambiguity preserved. Rack-scale liquid wording is not promoted to a model liquid option."
+    },
+    {
+      "id": "mi300x-date",
+      "model": "AS-8125GS-TNMR2",
+      "status": "pass",
+      "sourceUrl": "https://ir.supermicro.com/news/news-details/2023/Supermicro-Extends-AI-and-GPU-Rack-Scale-Solutions-with-Support-for-AMD-Instinct-MI300-Series-Accelerators/default.aspx",
+      "locator": "6 December 2023 dateline; exact model paragraph/link",
+      "finding": "Exact MI300X model was named; distinct from2022H13 launch and later9005 support."
+    },
+    {
+      "id": "h15hyper-core",
+      "model": "AS-2127H7-N",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n",
+      "locator": "Processor; System Memory; Chassis; Storage",
+      "finding": "2U dualSP7/9006,600W air;32 RDIMM/MRDIMM slots at1DPC; alternative24SFF/16U.2/16E3.S/12E1.S andtwoM.2 match."
+    },
+    {
+      "id": "h15hyper-memory",
+      "model": "AS-2127H7-N",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/motherboard/h15dph",
+      "locator": "Key Features; System Memory; Optimized Servers",
+      "finding": "Board matches exact system;32slots across dualCPU at1DPC supports16-channel-perCPU topology. Both RDIMM/MRDIMM are explicit."
+    },
+    {
+      "id": "h15hyper-date",
+      "model": "AS-2127H7-N",
+      "status": "pass",
+      "sourceUrl": "https://ir.supermicro.com/news/news-details/2026/Supermicro-Introduces-New-Server-Portfolio-with-6th-Gen-AMD-EPYC-9006-Series-CPUs-Delivering-1-7x-Generational-Performance-Improvements/default.aspx",
+      "locator": "23 July 2026 dateline; H15 introduction",
+      "finding": "Generation date confirmed; exact model introduction and shipping day correctly remain unestablished."
+    },
+    {
+      "id": "all-availability-and-illustrations",
+      "status": "pass",
+      "sourceUrl": "https://www.supermicro.com/en/products/system/hyper/2u/as-2127h7-n",
+      "locator": "Model page; Chassis form factor; linked H15DPH page",
+      "finding": "No live stock/orderability claim is made. Generic2U/8U schematic labels match physical form without claiming physical front-panel fidelity."
+    }
+  ],
+  "uncertain": [
+    {
+      "claim": "QRG full PDF table rendering and MNL-2671 complete manual",
+      "reason": "Direct retrieval failed. Relevant OEM indexed QRG and manual excerpts were retrievable; live model pages corroborate topology. This independent review does not claim every manual page was inspected."
+    },
+    {
+      "claim": "Current orderability and every exact CPU/GPU/DIMM/SKU combination",
+      "reason": "Not established and not asserted by coverage payload."
+    }
+  ],
+  "nonblockingRecommendations": [
+    {
+      "model": "AS-2024US-TRT",
+      "finding": "Live model page also names AMD MI100; current additions intentionally record only the scoped MI210 matrix row. Consider a later documented MI100 option with CPU-pairing unestablished, without inferring validation from its PCIe slot."
+    },
+    {
+      "model": "AS-2127H7-N",
+      "finding": "Integrated H15DPH page footer says Coming Soon. System lifecycle remains unverified, so no contradiction in present payload; avoid promoting this to available without further evidence."
+    }
+  ],
+  "writes": "Review artifact only; no Supermicro source data changed."
+}

@@ -1,0 +1,407 @@
+{
+  "reviewed": "2026-10-09",
+  "reviewer": "Cisco/HPE coverage specialist",
+  "method": "Fresh exact-model OEM specification, lifecycle and date evidence; archived/retired state retained. No exterior detail invented.",
+  "models": [
+    {
+      "id": "ucs:c225m6",
+      "before": "Not represented by an exact catalog profile",
+      "after": {
+        "cpuFamilies": [
+          "EPYC 7002",
+          "EPYC 7003"
+        ],
+        "form": "1U rack",
+        "maxProcessors": 2,
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "dimmSlots": 32,
+        "channelsPerCpu": 8,
+        "dpc": [
+          1,
+          2
+        ],
+        "memoryTypes": [
+          "DDR4 RDIMM",
+          "DDR4 LRDIMM"
+        ],
+        "supportedCooling": [
+          "Air"
+        ],
+        "gpuOptions": [
+          {
+            "product": "NVIDIA T4",
+            "status": "historical",
+            "availability": "Historical platform; no longer for sale",
+            "conditions": "UCSC-GPU-T4-16, up to three using half-height risers 1/2/3, or up to two in full-height risers 1/2. Cards must be procured from Cisco; no GPU mixing. Exact CPU pairing still needs validation.",
+            "sourceIds": [
+              "verifyC225M6"
+            ],
+            "verified": "2026-10-09"
+          }
+        ],
+        "lifecycle": {
+          "status": "end-of-sale",
+          "note": "Last order 18 June 2026; last shipment 16 September 2026. Last entitled support 30 June 2031 requires applicable warranty/service entitlement.",
+          "sourceIds": [
+            "verifyC225M6",
+            "verifyC225M6EOS"
+          ],
+          "date": "2026-06-18",
+          "endOfSale": "2026-06-18",
+          "lastShipDate": "2026-09-16",
+          "supportEnd": "2031-06-30"
+        },
+        "chronology": {
+          "generationId": "ucs-m6",
+          "modelYear": 2021,
+          "modelDateKind": "Announced",
+          "note": "C225 M6 announced 15 March 2021; independent of the later Intel M6 rollout.",
+          "sourceIds": [
+            "verifyC225M6Launch"
+          ]
+        }
+      },
+      "sources": {
+        "verifyC225M6": {
+          "title": "Cisco UCS C225 M6 SFF Rack Server Spec Sheet",
+          "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/c225-m6-sff-specsheet.pdf",
+          "loc": "Overview p5; CPU tables pp18–20; memory pp21–25; GPU Table15 p38; management p46",
+          "revision": "Rev A.61 · 7 May 2026",
+          "date": "Rev A.61 · 7 May 2026",
+          "publicationDate": "2026-05-07",
+          "reviewed": "2026-10-09",
+          "scope": "Exact model hardware/configuration evidence; availability is separate."
+        },
+        "verifyC225M6EOS": {
+          "title": "Cisco UCS C225 M6 / C245 M6 end-of-sale and end-of-life announcement",
+          "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c225m6-c245m6-rack-servers-eol.html",
+          "loc": "Table1 milestones; Table2 affected C225 M6 products",
+          "revision": "Updated 18 December 2025",
+          "date": "Updated 18 December 2025",
+          "publicationDate": "2025-12-18",
+          "reviewed": "2026-10-09",
+          "scope": "Exact model hardware/configuration evidence; availability is separate."
+        }
+      },
+      "uncertainties": [
+        "Current stock, exact orderability, software/firmware matrix and full configured BOM are not established.",
+        "C225 M6N: Spec Sheet p13 CPU1/NVMe statement conflicts with p20 approved two-CPU configuration. Retain one-CPU evidence for M6S; do not infer every backplane supports it. Peer independently identified this."
+      ],
+      "illustration": "Generic labeled form-factor schematic; root supplies artwork."
+    },
+    {
+      "id": "hpe:dl325g11",
+      "before": "Not represented by an exact catalog profile",
+      "after": {
+        "cpuFamilies": [
+          "EPYC 9004",
+          "EPYC 9005"
+        ],
+        "form": "1U rack",
+        "maxProcessors": 1,
+        "installedCPUCounts": [
+          1
+        ],
+        "dimmSlots": 12,
+        "channelsPerCpu": 12,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "gpuOptions": [
+          {
+            "product": "NVIDIA L4",
+            "status": "qualified",
+            "availability": "Availability unverified",
+            "conditions": "S0K89C; GPU CTO chassis required. No CPU-family or DLC pairing is inferred. Up to four cards (two front, two rear). Slot2 with P58462-B21 has 25°C recommended ambient; L4 is not supported in slots1/2 with P59668-B21 liquid-cooling fans.",
+            "sourceIds": [
+              "verifyDL325G11"
+            ],
+            "verified": "2026-10-09"
+          }
+        ],
+        "lifecycle": {
+          "status": "current",
+          "note": "Current reference; orderability and shipping are unverified.",
+          "sourceIds": [
+            "verifyDL325G11"
+          ]
+        },
+        "chronology": {
+          "generationId": "hpe-gen11",
+          "modelYear": 2022,
+          "modelDateKind": "Documented by",
+          "note": "First model QuickSpecs dated 10 November 2022. This dates the model, not every later CPU option.",
+          "sourceIds": [
+            "verifyDL325G11"
+          ]
+        }
+      },
+      "sources": {
+        "verifyDL325G11": {
+          "title": "HPE ProLiant DL325 Gen11 QuickSpecs",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004297enw.html",
+          "loc": "Platform Information; Processors; Memory; Accelerators; Direct Liquid Cooling; Summary of Changes",
+          "revision": "V41 · 5 October 2026",
+          "date": "V41 · 5 October 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "scope": "Exact model hardware/configuration evidence; availability is separate."
+        }
+      },
+      "uncertainties": [
+        "Current stock, exact orderability, software/firmware matrix and full configured BOM are not established."
+      ],
+      "illustration": "Generic labeled form-factor schematic; root supplies artwork."
+    },
+    {
+      "id": "hpe:dl345g11",
+      "before": "Not represented by an exact catalog profile",
+      "after": {
+        "cpuFamilies": [
+          "EPYC 9004",
+          "EPYC 9005"
+        ],
+        "form": "2U rack",
+        "maxProcessors": 1,
+        "installedCPUCounts": [
+          1
+        ],
+        "dimmSlots": 12,
+        "channelsPerCpu": 12,
+        "dpc": [
+          1
+        ],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "supportedCooling": [
+          "Air",
+          "Liquid"
+        ],
+        "gpuOptions": [
+          {
+            "product": "NVIDIA L4",
+            "status": "qualified",
+            "availability": "Availability unverified",
+            "conditions": "S0K89C; GPU CTO chassis required. No CPU-family or DLC pairing is inferred.",
+            "sourceIds": [
+              "verifyDL345G11"
+            ],
+            "verified": "2026-10-09"
+          }
+        ],
+        "lifecycle": {
+          "status": "current",
+          "note": "Current reference; orderability and shipping are unverified.",
+          "sourceIds": [
+            "verifyDL345G11"
+          ]
+        },
+        "chronology": {
+          "generationId": "hpe-gen11",
+          "modelYear": 2022,
+          "modelDateKind": "Documented by",
+          "note": "First model QuickSpecs dated 10 November 2022. This dates the model, not every later CPU option.",
+          "sourceIds": [
+            "verifyDL345G11"
+          ]
+        }
+      },
+      "sources": {
+        "verifyDL345G11": {
+          "title": "HPE ProLiant DL345 Gen11 QuickSpecs",
+          "url": "https://www.hpe.com/us/en/collaterals/collateral.a50004298enw.html",
+          "loc": "Platform Information; Processors; Memory; Accelerators; Direct Liquid Cooling; Summary of Changes",
+          "revision": "V41 · 5 October 2026",
+          "date": "V41 · 5 October 2026",
+          "publicationDate": "2026-10-05",
+          "reviewed": "2026-10-09",
+          "scope": "Exact model hardware/configuration evidence; availability is separate."
+        }
+      },
+      "uncertainties": [
+        "Current stock, exact orderability, software/firmware matrix and full configured BOM are not established."
+      ],
+      "illustration": "Generic labeled form-factor schematic; root supplies artwork."
+    },
+    {
+      "id": "hpe:dl385g10pv2",
+      "before": "Not represented by an exact catalog profile",
+      "after": {
+        "cpuFamilies": [
+          "EPYC 7002",
+          "EPYC 7003"
+        ],
+        "form": "2U rack",
+        "maxProcessors": 2,
+        "installedCPUCounts": [
+          1,
+          2
+        ],
+        "dimmSlots": 32,
+        "channelsPerCpu": 8,
+        "dpc": [
+          1,
+          2
+        ],
+        "memoryTypes": [
+          "DDR4 RDIMM",
+          "DDR4 LRDIMM"
+        ],
+        "supportedCooling": [
+          "Air"
+        ],
+        "gpuOptions": [
+          {
+            "product": "Instinct MI100",
+            "status": "historical",
+            "availability": "Historical platform; no longer for sale",
+            "conditions": "R4W72C, up to three double-wide cards; CPU ≤240 W. 8SFF SAS/SATA: 25°C; 16SFF SAS/SATA: 20°C. No 24SFF or 8/16SFF NVMe/SAS4, no 12LFF. 8LFF with power switch: 20°C and consult HPE. Requires P39100-B21 cable kit and GPU performance-fan configuration. Exact CPU/slot build must be checked.",
+            "sourceIds": [
+              "verifyDL385G10Pv2"
+            ],
+            "verified": "2026-10-09",
+            "cooling": [
+              "Air"
+            ]
+          }
+        ],
+        "lifecycle": {
+          "status": "withdrawn",
+          "note": "HPE marks this QuickSpecs retired and the base products obsolete / no longer for sale. Exact withdrawal and support-end dates are unestablished.",
+          "sourceIds": [
+            "verifyDL385G10Pv2"
+          ]
+        },
+        "chronology": {
+          "generationId": "hpe-gen10plus",
+          "modelYear": 2021,
+          "modelDateKind": "Documented by",
+          "note": "First v2 model QuickSpecs dated 19 April 2021; not the 2019 Gen10 Plus family debut.",
+          "sourceIds": [
+            "verifyDL385G10Pv2"
+          ]
+        }
+      },
+      "sources": {
+        "verifyDL385G10Pv2": {
+          "title": "HPE ProLiant DL385 Gen10 Plus v2 QuickSpecs — retired",
+          "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20ProLiant%20DL385%20Gen10%20Plus%20v2%20server%20QuickSpecs-a50002560enw.pdf?contentDisposition=attachment&deepLink=&form=false&hf=regular&id=a50002560enw.pdf&isFutureVersion=true&isLinearized=false&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&utm_campaign=&utm_content=&utm_medium=&utm_source=&utm_term=&ver=30",
+          "loc": "Retired notice p1; processors/memory pp4–6; 1P model p20; GPU table p48 and cables p49; population p58; first revision p66",
+          "revision": "V30 · 28 July 2025",
+          "date": "V30 · 28 July 2025",
+          "publicationDate": "2025-07-28",
+          "reviewed": "2026-10-09",
+          "scope": "Exact model hardware/configuration evidence; availability is separate."
+        }
+      },
+      "uncertainties": [
+        "Current stock, exact orderability, software/firmware matrix and full configured BOM are not established."
+      ],
+      "illustration": "Generic labeled form-factor schematic; root supplies artwork."
+    },
+    {
+      "id": "hpe:xd675",
+      "before": "Not represented by an exact catalog profile",
+      "after": {
+        "cpuFamilies": [
+          "EPYC 9004"
+        ],
+        "form": "8U air-cooled rack",
+        "maxProcessors": 2,
+        "installedCPUCounts": [
+          2
+        ],
+        "dimmSlots": 24,
+        "channelsPerCpu": null,
+        "dpc": [],
+        "memoryTypes": [
+          "DDR5 RDIMM"
+        ],
+        "supportedCooling": [
+          "Air"
+        ],
+        "gpuOptions": [
+          {
+            "product": "Instinct MI300X",
+            "status": "historical",
+            "availability": "Historical platform; no longer for sale",
+            "conditions": "P69044-B21 eight-way OAM accelerator; air-cooled 8U system, two identical qualified EPYC 9004 CPUs from the five-SKU list. Current software compatibility must be checked separately.",
+            "sourceIds": [
+              "verifyXD675"
+            ],
+            "verified": "2026-10-09",
+            "cpuFamilies": [
+              "EPYC 9004"
+            ],
+            "cooling": [
+              "Air"
+            ]
+          }
+        ],
+        "lifecycle": {
+          "status": "withdrawn",
+          "note": "HPE marks the document retired and its base products obsolete / no longer for sale. Exact retirement and support-end dates are not established.",
+          "sourceIds": [
+            "verifyXD675",
+            "verifyXD675TopologyConflict"
+          ]
+        },
+        "chronology": {
+          "generationId": "hpe-xd675",
+          "modelYear": 2024,
+          "modelDateKind": "Documented by",
+          "note": "First XD675 QuickSpecs dated 1 July 2024; exact announcement date is not established.",
+          "sourceIds": [
+            "verifyXD675"
+          ]
+        }
+      },
+      "sources": {
+        "verifyXD675": {
+          "title": "HPE Cray XD675 QuickSpecs — retired",
+          "url": "https://www.hpe.com/psnow/downloadDoc/HPE%20Cray%20XD675%20QuickSpecs-a50009207enw.pdf?deepLink=&form=false&hf=regular&id=a50009207enw.pdf&isFutureVersion=true&originalObjectName=&prelaunchSection=&preview=false&print=&r=&section=&softrollSection=&ver=7",
+          "loc": "Retired notice/8U air system p1; CPU and MI300X options/memory p6; storage p7; BMC p8; first revision p18",
+          "revision": "V7 · 28 July 2025",
+          "date": "V7 · 28 July 2025",
+          "publicationDate": "2025-07-28",
+          "reviewed": "2026-10-09",
+          "scope": "Exact model hardware/configuration evidence; availability is separate."
+        },
+        "verifyXD675TopologyConflict": {
+          "title": "HPE Cray XD675 data sheet",
+          "url": "https://www.hpe.com/psnow/generateDDS/HPE%20Cray%20XD675%20data%20sheet-PSN1014835198ZAEN.pdf?cc=ZA&contentDisposition=attachment&deepLink=&isLinearized=false&lc=EN&oid=1014835198&prelaunch=false&prelaunchSection=&print=&section=&softroll=0&softrollSection=",
+          "loc": "What is new / memory-channel statement on p1",
+          "revision": "Revision not established; reviewed 9 October 2026",
+          "date": "Revision not established; reviewed 9 October 2026",
+          "publicationDate": null,
+          "reviewed": "2026-10-09",
+          "scope": "Conflicting memory-channel evidence; does not override model QuickSpecs silently.",
+          "retrievalNote": "The ZA English official indexed PDF reproduces the 12-channel claim. The original ID English URL returned 404 during peer review. On 9 October 2026 the ZA URL was readable through indexed source text, but direct automated fetch returned a cache-miss error; live download availability was not established by this reviewer."
+        }
+      },
+      "uncertainties": [
+        "Current stock, exact orderability, software/firmware matrix and full configured BOM are not established.",
+        "Official memory topology conflict; channels/DPC intentionally unknown."
+      ],
+      "illustration": "Generic labeled form-factor schematic; root supplies artwork."
+    }
+  ],
+  "preservedBoundaries": [
+    "No CPU-family scope on C225 T4, DL325/DL345 L4 or DL385 MI100 options; model family listings alone do not prove every CPU/GPU pairing.",
+    "HPE retired profiles use historical accelerator evidence and withdrawn lifecycle without inventing a retirement date.",
+    "XD675 exact MI300X/EPYC9004 joint scope is documented by the integrated system and five-CPU selection list; no EPYC9005 inference.",
+    "DL325/DL345 facility DLC does not establish an L4-plus-DLC pairing.",
+    "Existing profiles and generated outputs are not modified by this coverage bundle."
+  ]
+}

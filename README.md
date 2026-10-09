@@ -37,6 +37,24 @@ families represented in their official specification exports.
 - Shows data provenance and confidence information inside the dashboard.
 - Runs as a responsive, zero-dependency static site.
 
+## Platform learning guides
+
+Open **Platforms** from Products or Benchmarks, or visit `platforms/`. The selected
+102-profile reference spans Cisco UCS, HPE, Dell, Lenovo and Supermicro. It teaches
+server families and generation dates, and compares processor populations, DIMM
+slots, DPC, cooling and accelerator evidence. The five OEM guides and verification
+reports remain available within the section. Unknown values and source conflicts
+stay explicit; this is a curated learning and shortlisting tool.
+
+The server icon beside an individual CPU continues to use the existing exact-CPU
+compatibility snapshot. Its new **Open Platform Finder** link starts broader family
+research and does not infer additional exact-SKU qualification.
+
+Generated static pages are checked in under `platforms/`; source and review inputs
+live under `tools/platform-guides/`. Rebuild with `python tools/build-platform-guides.py`
+and check with `python tools/check-platform-guides-integration.py`. No sibling project
+or runtime build is needed to serve the site. See [platform maintenance](docs/PLATFORM-GUIDES.md).
+
 ## Benchmark explorer
 
 Open **Benchmarks** from any vendor product page or visit `benchmarks/`.

@@ -1,0 +1,120 @@
+{
+  "reviewedAt": "2026-10-09",
+  "scope": "Four new HPE platform exteriors replaced with source-reviewed original SVG drawings. Hardware specifications are unchanged.",
+  "method": "Visual source inspection preceded drawing. DL325 and DL345 QuickSpecs embedded images were inspected in the browser; DL385 Gen10 Plus v2 page 1 and Cray XD675 page 4 were rendered from the official downloadable PDFs. No physical layout was inferred from CPU or drive-capacity totals.",
+  "implementation": "reviewed-art-hpe.js",
+  "viewBox": "0 0 400 180",
+  "models": [
+    {
+      "model": "DL325 Gen11",
+      "id": "dl325g11",
+      "shape": "installed-hpe-dl325g11",
+      "features": [
+        "Ten horizontal SFF carriers arranged in five columns and two rows",
+        "Narrow 1U body with dark rack ears",
+        "Right-hand service ports and stacked status lights",
+        "Optional cage configuration shown in the OEM front view"
+      ],
+      "view": "1U front - 8 SFF plus optional 2 SFF cage",
+      "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50004297enw.html",
+      "sourceTitle": "HPE ProLiant DL325 Gen11 QuickSpecs",
+      "locator": "Overview, IMAGE 1; PDF page 2: Front View - 8 SFF + optional 2 SFF Drive Bay shown",
+      "caveat": "The documented 8 SFF plus optional 2 SFF front is shown. LFF, EDSFF, GPU and optical-drive configurations differ. Perspective and connector detail are simplified; the picture is not a drive-support matrix.",
+      "reviewStatus": "verified",
+      "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50004297enw_block1img2?$crimg$",
+      "reviewedAt": "2026-10-09",
+      "reviewMethod": "Opened and visually inspected the official QuickSpecs front-view image in a dedicated browser tab; reproduced carrier orientation, cage divisions, controls and chassis proportions.",
+      "visualReferenceInspected": true,
+      "specificationChanges": false
+    },
+    {
+      "model": "DL345 Gen11",
+      "id": "dl345g11",
+      "shape": "installed-hpe-dl345g11",
+      "features": [
+        "Three equal front cages, each with eight upright SFF carriers",
+        "Right-hand narrow ventilation column",
+        "Right-hand control and service-port strip",
+        "Black front with silver access cover"
+      ],
+      "view": "2U front - 24 SFF in three eight-carrier cages",
+      "sourceUrl": "https://www.hpe.com/us/en/collaterals/collateral.a50004298enw.html",
+      "sourceTitle": "HPE ProLiant DL345 Gen11 QuickSpecs",
+      "locator": "Overview, IMAGE 1: Front View - 24 SFF chassis shown",
+      "caveat": "The photographed 24 SFF front configuration is shown. LFF, EDSFF, GPU, media-bay and other options change the front; no maximum capacity is implied by this illustration.",
+      "reviewStatus": "verified",
+      "sourceImageUrl": "https://assets.ext.hpe.com/is/image/hpedam/a50004298enw_block1img?$crimg$",
+      "reviewedAt": "2026-10-09",
+      "reviewMethod": "Opened and visually inspected the official QuickSpecs front-view image in a dedicated browser tab; reproduced carrier orientation, cage divisions, controls and chassis proportions.",
+      "visualReferenceInspected": true,
+      "specificationChanges": false
+    },
+    {
+      "model": "DL385 Gen10 Plus v2",
+      "id": "dl385g10pv2",
+      "shape": "installed-hpe-dl385g10pv2",
+      "features": [
+        "Two large square-mesh blank cages occupy left and center",
+        "Eight upright basic-carrier SFF positions in the right cage",
+        "Right-hand status LEDs and iLO/USB service ports",
+        "Silver removable top cover with dark rack ears"
+      ],
+      "view": "2U front - eight SFF right, two blank cages left",
+      "sourceUrl": "https://www.hpe.com/psnow/doc/a50002560enw",
+      "sourceTitle": "HPE ProLiant DL385 Gen10 Plus v2 QuickSpecs, version 30, 28 July 2025 - retired",
+      "locator": "PDF page 1: HPE ProLiant DL385 Gen10 Plus v2 8 SFF Server - Front View",
+      "caveat": "The official eight-SFF example is shown, with two optional cages blank. Other supported chassis and drive configurations differ. The retired QuickSpecs is used as historical visual evidence only.",
+      "reviewStatus": "verified",
+      "reviewedAt": "2026-10-09",
+      "reviewMethod": "Downloaded the official QuickSpecs using its visible HPE Download link, rendered the specified PDF page with Poppler, and visually inspected the front-view photograph before drawing.",
+      "visualReferenceInspected": true,
+      "specificationChanges": false
+    },
+    {
+      "model": "Cray XD675",
+      "id": "xd675",
+      "shape": "installed-hpe-xd675",
+      "features": [
+        "Twelve rectangular front fan modules in four columns and three rows",
+        "Large mesh fan apertures with vertical release handles",
+        "Lower row of three eight-drive cages; NVMe at sides, SAS/SATA center in the referenced configuration",
+        "Silver rack ears and narrow right-side control strip",
+        "Tall 8U rack body with a continuous closed top and side"
+      ],
+      "view": "8U front - twelve fan modules above three SFF cages",
+      "sourceUrl": "https://www.hpe.com/psnow/doc/a50009207enw",
+      "sourceTitle": "HPE Cray XD675 QuickSpecs, version 7, 28 July 2025 - retired",
+      "locator": "PDF page 4: HPE Cray XD675 Server Front View",
+      "caveat": "Shows the published front configuration, not the rear PCIe and power-supply view. Internal GPUs and rear connectors are hidden. The retired QuickSpecs is used as historical visual evidence; source configuration limits remain authoritative.",
+      "reviewStatus": "verified",
+      "reviewedAt": "2026-10-09",
+      "reviewMethod": "Downloaded the official QuickSpecs using its visible HPE Download link, rendered the specified PDF page with Poppler, and visually inspected the front-view photograph before drawing.",
+      "visualReferenceInspected": true,
+      "specificationChanges": false
+    }
+  ],
+  "olderSchematicRecheck": [
+    {
+      "id": "xd245",
+      "reviewStatus": "schematic",
+      "sourceUrl": "https://www.hpe.com/us/en/newsroom/press-release/2026/10/hpe-accelerates-enterprise-ai-innovation-with-next-generation-amd-cpu-powered-servers.html",
+      "additionalSourceUrl": "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922",
+      "result": "The official launch text verifies the shared four-node liquid-cooled architecture, but the checked sources did not provide a model-specific exterior front view. Retain the explicitly labeled node-layout schematic; do not certify exterior fidelity. No specification change."
+    },
+    {
+      "id": "xd285",
+      "reviewStatus": "schematic",
+      "sourceUrl": "https://www.hpe.com/us/en/newsroom/press-release/2026/10/hpe-accelerates-enterprise-ai-innovation-with-next-generation-amd-cpu-powered-servers.html",
+      "additionalSourceUrl": "https://community.hpe.com/t5/servers-systems-the-right/new-hpe-proliant-gen13-servers-built-to-protect-designed-to/ba-p/7272922",
+      "result": "The official launch text verifies two half-width air-cooled nodes, but the checked sources did not provide a model-specific exterior front view. Retain the explicitly labeled node-layout schematic; do not certify exterior fidelity. No specification change."
+    }
+  ],
+  "priorDesignRequirements": {
+    "modelSpecificReference": true,
+    "rackBladeTowerDistinction": "All four are rack servers; correct 1U, 2U, 2U and 8U silhouettes retained.",
+    "towerFeet": "No feet or detached stabilizer boxes are drawn.",
+    "formatting": "Single connected top, side and front surfaces; no placeholder text inside the exterior; explicit title/aria-label per model.",
+    "brand": "HPE dark carrier faces, silver chassis panels and restrained teal control accents.",
+    "limits": "This source review certifies the depicted example front layouts, not every chassis option or photorealistic dimensional reproduction."
+  }
+}

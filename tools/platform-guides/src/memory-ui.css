@@ -1,0 +1,24 @@
+/* CPU and memory topology are the first specifications on every model card. */
+.memory-highlights{border:1px solid #455058;border-top:2px solid #c1a968;border-radius:6px;background:#11161c;margin:12px 0 16px;overflow:hidden;color:#e6edf3}
+.platform-facts{display:grid;grid-template-columns:.9fr .9fr 1.2fr;margin:0;padding:0}
+.platform-facts>div{min-width:0;padding:12px 9px 10px;display:flex;flex-direction:column;gap:8px}
+.platform-facts>div+div{border-left:1px solid #303942}
+.platform-facts dt{font:500 10px/1.4 Consolas,monospace;letter-spacing:0;text-transform:uppercase;color:#b9c7d3;min-height:28px}
+.platform-facts dd{margin:0;font:600 25px/1.2 Consolas,monospace;letter-spacing:-.7px;color:#f4ead1;min-height:30px;display:flex;align-items:center}
+.platform-facts .dpc-value{display:flex;flex-wrap:wrap;gap:5px;font-size:13px;letter-spacing:-.35px}
+.dpc-value span{border:1px solid #566050;background:#1d2b26;color:#b7e6cc;border-radius:3px;padding:3px 4px;white-space:nowrap}
+.platform-facts .fact-unknown{font-size:12px;letter-spacing:0;color:#bac3ce;line-height:1.4}
+.platform-facts .unknown-value{border:0;background:none;color:#bac3ce;padding:0;font-size:22px}
+.memory-scope{border-top:1px solid #303942;color:#a8b7c6;font:10px/1.65 Consolas,monospace;padding:8px 10px;margin:0}
+.memory-scope span{display:block}.memory-scope .memory-condition{color:#e5c98d}
+.memory-legend{color:#afbdca;background:#11161c;border-left:2px solid #c1a968;padding:12px 15px;font-size:12px;line-height:1.65;margin:16px 0}.memory-legend b{color:#e4dcc9}
+.model-grid>.memory-legend{grid-column:1/-1;margin:0}
+.memory-evidence{border:1px solid #38434c;border-radius:6px;padding:10px 14px;margin:8px 0 18px;color:#b7c5d2;font-size:12px;line-height:1.7}
+.memory-evidence summary{cursor:pointer;color:#d8e3ec;font:12px/1.7 Consolas,monospace;min-height:24px}
+.memory-evidence p{margin:12px 0}.memory-source-links{display:flex;flex-wrap:wrap;gap:8px 18px}.memory-source-links a{color:#d7bd80;overflow-wrap:anywhere}
+.memory-detail-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0}.memory-detail-facts dt{font-size:10px;color:#a8b7c6}.memory-detail-facts dd{margin:3px 0;color:#e4dcc9}.memory-source-links small{display:block;color:#a8b7c6;font-size:10px}@media(max-width:480px){.memory-detail-facts{grid-template-columns:1fr}}
+.dialog-content>.memory-highlights,.dialog-body>.memory-highlights{max-width:620px;margin:0 0 18px}
+.dialog-content>.memory-highlights .platform-facts dd,.dialog-body>.memory-highlights .platform-facts dd{font-size:28px}
+.dialog-content>.memory-highlights .platform-facts .dpc-value,.dialog-body>.memory-highlights .platform-facts .dpc-value{font-size:13px}
+.dialog-content>.memory-highlights .platform-facts .fact-unknown,.dialog-body>.memory-highlights .platform-facts .fact-unknown{font-size:13px}
+@media(max-width:620px){.platform-facts>div{padding:11px 7px 9px}.platform-facts dt{font-size:10px;letter-spacing:0}.platform-facts dd{font-size:24px}.platform-facts .dpc-value{font-size:12px;gap:4px}.memory-scope{font-size:10px}.memory-legend{font-size:11px}}

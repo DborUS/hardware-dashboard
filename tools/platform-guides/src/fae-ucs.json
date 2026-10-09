@@ -1,0 +1,1192 @@
+{
+  "vendor": "ucs",
+  "reviewed": "2026-10-09",
+  "sources": {
+    "ucsGenM5": {
+      "title": "Cisco announces the UCS M5 generation",
+      "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2017/m07/cisco-delivers-powerful-5th-generation-servers-for-its-unified-computing-system.html",
+      "scope": "M5 generation announcement, including C220, C240 and B200.",
+      "loc": "Opening announcement and M5 model list",
+      "date": "11 Jul 2017"
+    },
+    "ucsGenM6": {
+      "title": "Cisco UCS M6 announcement FAQ",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/q-and-a-c67-2381951.html",
+      "scope": "Announcement of B200 M6, C220 M6 and C240 M6.",
+      "loc": "General · What did Cisco announce on April 6, 2021?",
+      "date": "06 Apr 2021"
+    },
+    "ucsGenM7": {
+      "title": "Cisco introduces its seventh generation of UCS servers",
+      "url": "https://blogs.cisco.com/datacenter/cisco-unveils-its-most-powerful-and-energy-efficient-computing-systems",
+      "scope": "M7 C-Series and X-Series announcement; also dates the X-Series family to June 2021.",
+      "loc": "Opening paragraphs · UCS with 4th Gen Intel Xeon Scalable Processors",
+      "date": "10 Jan 2023"
+    },
+    "ucsGenM8AMD": {
+      "title": "Cisco Compute June 2024 Announcement FAQ",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/compute-june-2024-announcement-faq.html",
+      "scope": "June 4 announcement names C225 M8, C245 M8 and X215c M8.",
+      "loc": "Overview · What did Cisco announce on June 4, 2024?",
+      "date": "Announcement · 04 Jun 2024"
+    },
+    "ucsGenM8Intel": {
+      "title": "Cisco UCS Servers with Intel Xeon 6 CPUs FAQ",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/intel-xeon-6-cpu-faq.html",
+      "scope": "Announcement of C220 M8, C240 M8 and X210c M8.",
+      "loc": "Overview · What did Cisco announce on February 24, 2025?",
+      "date": "Announcement · 24 Feb 2025"
+    },
+    "ucsGenC845": {
+      "title": "Cisco Live Amsterdam 2025 announcements",
+      "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2025/m02/cisco-live-amsterdam-2025.html",
+      "scope": "C845A M8 joins the AI server family.",
+      "loc": "Simplicity, Security and AI Readiness · Expansion of AI Server Family",
+      "date": "11 Feb 2025"
+    },
+    "ucsGenC885": {
+      "title": "Cisco introduces its dedicated AI server family",
+      "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2024/m10/cisco-unveils-plug-and-play-ai-solutions-accelerating-ai-adoption-for-the-enterprise.html",
+      "scope": "C885A M8 announced and orderable in October 2024; shipping was expected by year-end.",
+      "loc": "AI server family; availability",
+      "date": "29 Oct 2024"
+    },
+    "ucsGenRackRelease": {
+      "title": "Cisco UCS C-Series support index: model release dates",
+      "url": "https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-servers/series.html",
+      "scope": "Vendor release-date fields for individual rack models, including C880A M8.",
+      "loc": "Models · C880A M8 · Release Date 25-Aug-2025",
+      "date": "Reviewed 08 Oct 2026"
+    },
+    "ucsGenX410": {
+      "title": "Cisco UCS X410c M8 Compute Node Data Sheet",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-x-series-modular-system/ucs-x410c-m8-compute-node-ds.html",
+      "scope": "Establishes that X410c M8 was documented by December 2025; not an exact launch-date claim.",
+      "loc": "Updated December 4, 2025; Product overview",
+      "date": "04 Dec 2025"
+    },
+    "ucsGenEdge": {
+      "title": "Cisco Unified Edge launch FAQ",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/unified-edge/unified-edge-faq.pdf",
+      "scope": "November 3, 2025 Unified Edge announcement, naming XE9305 and XE130c M8.",
+      "loc": "Page 1 · November 3, 2025 announcement; key components",
+      "date": "Announcement · 03 Nov 2025"
+    },
+    "ucsGenXE150": {
+      "title": "Cisco Unified Edge FAQ: XE150c M8 announcement",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/unified-edge/unified-edge-faq.html",
+      "scope": "XE150c M8 announced March 16, 2026; later orderability is a separate milestone.",
+      "loc": "What did Cisco previously announce on March 16, 2026?",
+      "date": "Announcement · 16 Mar 2026"
+    },
+    "rocm": {
+      "title": "AMD ROCm compatibility matrix",
+      "url": "https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html",
+      "date": "Reviewed 09 Oct 2026",
+      "loc": "System requirements and information; per-GPU OS / driver / firmware compatibility",
+      "scope": "AMD software-stack compatibility; does not replace OEM system qualification."
+    },
+    "c885hw": {
+      "title": "Cisco UCS C885A M8 Server Installation and Service Guide - Overview",
+      "url": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/c885A/install/b_c885a-m8-server-hig/m_overview.html",
+      "date": "Reviewed 09 Oct 2026",
+      "loc": "Summary of Features; fixed configuration PIDs; System Software",
+      "scope": "EPYC 9004 / 9005 family support and accelerator-specific fixed configurations; apply lifecycle notices separately."
+    },
+    "c845aag": {
+      "title": "Cisco UCS C845A M8 Rack Server At a Glance",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c845a-m8-rack-server-aag.html",
+      "date": "09 Sep 2026",
+      "loc": "Configurations",
+      "scope": "EPYC 9005, qualified PCIe accelerator choices, and AMD Pollara networking."
+    },
+    "auditC2259005": {
+      "title": "Cisco UCS C225 M8 At-a-Glance: October 2024 CPU support",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c225-m8-rack-server-aag.html",
+      "loc": "Updated October 10, 2024; processor description and What it does",
+      "scope": "EPYC 9005 support documented by October 2024. This is a dated support document, not a 2026 product refresh.",
+      "date": "2024-10-10",
+      "publicationDate": "2024-10-10",
+      "reviewed": "2026-10-09"
+    },
+    "auditC2459005": {
+      "title": "Cisco UCS C245 M8 At-a-Glance: October 2024 CPU support",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-rack-server-aag.html",
+      "loc": "Updated October 10, 2024; processor description and What it does",
+      "scope": "EPYC 9005 support documented by October 2024. This is a dated support document, not a 2026 product refresh.",
+      "date": "2024-10-10",
+      "publicationDate": "2024-10-10",
+      "reviewed": "2026-10-09"
+    },
+    "auditC245M6": {
+      "title": "Cisco UCS C245 M6 SFF Spec Sheet",
+      "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/c245m6-sff-specsheet.pdf",
+      "loc": "Table 5 pp16–17; approved CPU configurations p18; memory pp19–23; front view p7",
+      "scope": "EPYC Rome/Milan/Milan-X CPU choices, 1/2 CPU configurations, 32 DDR4 DIMM slots and chassis shape.",
+      "date": "Rev A.67 · 29 Sep 2026",
+      "publicationDate": "2026-09-29",
+      "reviewed": "2026-10-09",
+      "revision": "Rev A.67 · 29 Sep 2026"
+    },
+    "auditC245M6EOS": {
+      "title": "Cisco C225 M6 / C245 M6 lifecycle notice",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c225m6-c245m6-rack-servers-eol.html",
+      "loc": "Table 1 milestones; Table 2 C245-M6SX PIDs",
+      "scope": "Last-order and entitled-support dates for the affected C245 M6 hardware.",
+      "date": "2025-12-18",
+      "publicationDate": "2025-12-18",
+      "reviewed": "2026-10-09"
+    },
+    "verifyC245MI210": {
+      "title": "Cisco UCS C245 M8 SFF specification: MI210 configuration",
+      "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-sff-rack-server.pdf",
+      "loc": "Table 14, printed pp33-34; accessories below Table 14; risers pp5-6",
+      "revision": "Rev A.41 / 07 Sep 2026",
+      "publicationDate": "2026-09-07",
+      "reviewed": "2026-10-09",
+      "date": "Rev A.41 / 07 Sep 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyX440MI210": {
+      "title": "Cisco UCS X440p specification: X215c M8 MI210 route",
+      "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-x-series-modular-system/x440p-specsheet.pdf",
+      "loc": "Table 4, printed p9, M8 section; Steps 2/4/5 pp8,11-13",
+      "revision": "Rev A.16 / 13 Apr 2026",
+      "publicationDate": "2026-04-13",
+      "reviewed": "2026-10-09",
+      "date": "Rev A.16 / 13 Apr 2026",
+      "scope": "Model-specific documented configuration; availability and exact-build qualification are separate."
+    },
+    "verifyUCSM43MI210": {
+      "title": "UCS Manager 4.3: model-specific MI210 support",
+      "url": "https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/release/notes/b_release-notes-ucsm-4_3.html",
+      "loc": "New Hardware 4.3(5c): GPU Support; New Hardware 4.3(6a): GPU Support; Table19 X215c MI210 minimum version",
+      "revision": "Release 4.3(6j); revision history updated 09 Oct 2026",
+      "publicationDate": null,
+      "reviewed": "2026-10-09",
+      "date": "Release 4.3(6j); revision history updated 09 Oct 2026",
+      "scope": "MI210 model and firmware support. Does not establish every EPYC 9004/9005 SKU pairing or current availability."
+    },
+    "verifyC245Launch": {
+      "title": "Cisco C245 M8 original announcement FAQ",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c245-m8-rack-server-faq.html",
+      "loc": "Overview: What did Cisco announce on February6,2024?",
+      "revision": "Updated15 Feb 2024",
+      "publicationDate": "2024-02-15",
+      "reviewed": "2026-10-09",
+      "date": "Updated15 Feb 2024",
+      "scope": "First announcement6 Feb 2024; document update15 Feb is not the announcement date."
+    },
+    "verifyC225M6": {
+      "title": "Cisco UCS C225 M6 SFF Rack Server Spec Sheet",
+      "url": "https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/c225-m6-sff-specsheet.pdf",
+      "loc": "Overview p5; CPU tables pp18–20; memory pp21–25; GPU Table15 p38; management p46",
+      "revision": "Rev A.61 · 7 May 2026",
+      "date": "Rev A.61 · 7 May 2026",
+      "publicationDate": "2026-05-07",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model hardware/configuration evidence; availability is separate."
+    },
+    "verifyC225M6EOS": {
+      "title": "Cisco UCS C225 M6 / C245 M6 end-of-sale and end-of-life announcement",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/ucs-c225m6-c245m6-rack-servers-eol.html",
+      "loc": "Table1 milestones; Table2 affected C225 M6 products",
+      "revision": "Updated 18 December 2025",
+      "date": "Updated 18 December 2025",
+      "publicationDate": "2025-12-18",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model hardware/configuration evidence; availability is separate."
+    },
+    "verifyC225M6Launch": {
+      "title": "Cisco and AMD help businesses improve performance, security and hybrid cloud operations",
+      "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2021/m03/cisco-and-amd-extend-partnership-to-improve-performance-security-and-hybrid-cloud-operations.html",
+      "loc": "Opening announcement names C225 M6 and C245 M6",
+      "revision": "15 March 2021",
+      "date": "15 March 2021",
+      "publicationDate": "2021-03-15",
+      "reviewed": "2026-10-09",
+      "scope": "Exact model announcement, not a current shipping claim."
+    }
+  },
+  "models": {
+    "c220": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "C220 M8",
+        "Cisco UCS C220 M8",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "SFF and E3.S are separate chassis/backplane options; do not combine independent maxima.",
+        "GPU-specific qualification takes precedence over a generic firmware reference to Intel Flex."
+      ],
+      "decoder": [
+        {
+          "part": "C",
+          "meaning": "UCS rack-server family"
+        },
+        {
+          "part": "220",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "c220",
+          "c220gpu"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: C220 M8",
+          "type": "introduction",
+          "sourceIds": [
+            "ucsGenM8Intel"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "c220",
+        "c220gpu"
+      ],
+      "verified": "2026-10-09"
+    },
+    "c240": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "C240 M8",
+        "Cisco UCS C240 M8",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "RTX PRO 4500 / 6000 configurations have a separate three-GPU ceiling and documented power rules.",
+        "Rear storage and GPU/riser choices share physical space; use the exact chassis configuration."
+      ],
+      "decoder": [
+        {
+          "part": "C",
+          "meaning": "UCS rack-server family"
+        },
+        {
+          "part": "240",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "c240"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: C240 M8",
+          "type": "introduction",
+          "sourceIds": [
+            "ucsGenM8Intel"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "c240"
+      ],
+      "verified": "2026-10-09"
+    },
+    "c225": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "C225 M8",
+        "Cisco UCS C225 M8",
+        "9004",
+        "4th Gen AMD EPYC",
+        "Genoa",
+        "9005",
+        "5th Gen AMD EPYC",
+        "Turin"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "One CPU socket in M8; do not copy the older C225 M6 socket count.",
+        "M8S and all-NVMe M8N differ; qualified L4 quantity depends on GPU installation rules."
+      ],
+      "decoder": [
+        {
+          "part": "C",
+          "meaning": "UCS rack-server family"
+        },
+        {
+          "part": "225",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "c225",
+          "c225gpu"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "Announced model milestone: C225 M8",
+          "type": "introduction",
+          "sourceIds": [
+            "ucsGenM8AMD"
+          ]
+        },
+        {
+          "year": 2024,
+          "date": "2024-10-10",
+          "label": "EPYC 9005 support documented by October 2024",
+          "type": "refresh",
+          "sourceIds": [
+            "auditC2259005"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "c225",
+        "c225gpu",
+        "auditC2259005"
+      ],
+      "verified": "2026-10-09"
+    },
+    "c245": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "C245 M8",
+        "Cisco UCS C245 M8",
+        "9004",
+        "4th Gen AMD EPYC",
+        "Genoa",
+        "9005",
+        "5th Gen AMD EPYC",
+        "Turin"
+      ],
+      "cooling": "Air",
+      "amdGpuNote": "MI210 has a documented model-specific hardware route; exact CPU/GPU pairing and current availability still require confirmation.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI210",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "UCSC-GPU-MI210, up to three 300 W / 64 GB cards: slot 2 (riser 1A/1C), slot 5 (2A/2C), slot 7 (3C). Requires UCSC-HSLP-C45M8 heatsinks, UCSC-RISAB-245M8 airblocker, UCSC-GPUAD-C245M8 duct and UCS-P100CBL-240-D power cable. UCS Manager support added in 4.3(5c); verify current compatible firmware, exact CPU, population, power and software.",
+          "sourceIds": [
+            "verifyC245MI210",
+            "verifyUCSM43MI210"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "At most eight NVMe drives attach directly to CPUs; the 28-drive ceiling requires the appropriate backplanes/controllers.",
+        "Eight-GPU headline is not eight of every GPU; RTX PRO 4500 has a documented three-GPU ceiling.",
+        "With one CPU, only its attached memory and I/O resources are available; validate population and risers."
+      ],
+      "decoder": [
+        {
+          "part": "C",
+          "meaning": "UCS rack-server family"
+        },
+        {
+          "part": "245",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "c245"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "C245 M8 first announced 6 February 2024",
+          "type": "introduction",
+          "sourceIds": [
+            "verifyC245Launch"
+          ],
+          "date": "2024-02-06"
+        },
+        {
+          "year": 2024,
+          "date": "2024-10-10",
+          "label": "EPYC 9005 support documented by October 2024",
+          "type": "refresh",
+          "sourceIds": [
+            "auditC2459005"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "c245",
+        "auditC2459005",
+        "verifyC245MI210",
+        "verifyUCSM43MI210",
+        "verifyC245Launch"
+      ],
+      "verified": "2026-10-09"
+    },
+    "c845": {
+      "cpuFamilies": [
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "C845A M8",
+        "Cisco UCS C845A M8",
+        "9005",
+        "5th Gen AMD EPYC",
+        "Turin"
+      ],
+      "cooling": "Air",
+      "amdGpuNote": "AMD accelerator options below are scoped to exact configurations; evidence and availability are separate.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI210",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Qualified PCIe configuration; confirm count, power, firmware and software for the exact order.",
+          "sourceIds": [
+            "c845",
+            "c845hw"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9005"
+          ]
+        },
+        {
+          "product": "Instinct MI350P",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "Qualified PCIe configuration; CAI-CBL-GPU-N power cable; validate exact population, ROCm stack and OEM qualification.",
+          "sourceIds": [
+            "c845",
+            "c845hw",
+            "rocm"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9005"
+          ]
+        }
+      ],
+      "restrictions": [
+        "Use a qualified 2 / 4 / 6 / 8 PCIe-GPU configuration; do not mix GPU models or vendors by inference.",
+        "MI350P requires the specified GPU power cable; complete firmware, GPU driver and ROCm qualification separately."
+      ],
+      "decoder": [
+        {
+          "part": "C",
+          "meaning": "UCS rack-server family"
+        },
+        {
+          "part": "845A",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "c845",
+          "c845hw"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: C845A M8",
+          "type": "introduction",
+          "sourceIds": [
+            "ucsGenC845"
+          ]
+        },
+        {
+          "year": 2026,
+          "label": "MI350P and Pollara options documented in the 2026 platform update",
+          "type": "refresh",
+          "sourceIds": [
+            "c845",
+            "c845aag"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "c845",
+        "c845hw"
+      ],
+      "verified": "2026-10-09"
+    },
+    "c880": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "C880A M8",
+        "Cisco UCS C880A M8",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Eight HGX B300 modules belong to an integrated baseboard; they are not ordinary PCIe cards.",
+        "Host CPU options are the specified Xeon 6776P / 6767P parts."
+      ],
+      "decoder": [
+        {
+          "part": "C",
+          "meaning": "UCS rack-server family"
+        },
+        {
+          "part": "880A",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "c880"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Vendor release date model milestone: C880A M8",
+          "type": "introduction",
+          "sourceIds": [
+            "ucsGenRackRelease"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "c880"
+      ],
+      "verified": "2026-10-09"
+    },
+    "c885": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "C885A M8",
+        "Cisco UCS C885A M8",
+        "9004",
+        "4th Gen AMD EPYC",
+        "Genoa",
+        "9005",
+        "5th Gen AMD EPYC",
+        "Turin"
+      ],
+      "cooling": "Air",
+      "amdGpuNote": "AMD accelerator options below are scoped to exact configurations; evidence and availability are separate.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI350X",
+          "status": "qualified",
+          "availability": "Last order scheduled 15 Oct 2026 for affected variants; availability unverified",
+          "conditions": "Eight OAM GPUs in fixed EPYC 9005 configurations. Last support 31 Oct 2029 under notice terms. Applies only to listed part numbers.",
+          "sourceIds": [
+            "c885",
+            "c885eol"
+          ],
+          "verified": "2026-10-09",
+          "cpuFamilies": [
+            "EPYC 9005"
+          ]
+        },
+        {
+          "product": "Instinct MI300X",
+          "status": "historical",
+          "availability": "Affected variants passed last order 25 Jun 2026",
+          "conditions": "Fixed eight-GPU configurations; match the original CPU sled and full PID. End of sale is separate from support.",
+          "sourceIds": [
+            "c885hw",
+            "c885old"
+          ],
+          "verified": "2026-10-09"
+        },
+        {
+          "product": "NVIDIA HGX H200",
+          "status": "historical",
+          "availability": "Affected variants passed last order 25 Jun 2026",
+          "conditions": "Integrated GPU baseboard; fixed configuration and its original CPU sled.",
+          "sourceIds": [
+            "c885hw",
+            "c885old"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "EPYC 9004 / 9005 is the aggregate family scope; an accelerator selection does not qualify every CPU/GPU combination.",
+        "MI350X uses specified EPYC 9005 fixed configurations; apply the lifecycle notice to its listed part numbers.",
+        "MI300X and HGX H200 variants passed their last-order date; do not treat the platform name as a universal sale/support status."
+      ],
+      "decoder": [
+        {
+          "part": "C",
+          "meaning": "UCS rack-server family"
+        },
+        {
+          "part": "885A",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "unverified",
+        "note": "Variant-specific: affected MI300X / HGX H200 PIDs ended sale 25 Jun 2026; MI350X PIDs approach last order 15 Oct 2026. No unqualified family-wide sale status.",
+        "sourceIds": [
+          "c885eol",
+          "c885old"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "Announced model milestone: C885A M8",
+          "type": "introduction",
+          "sourceIds": [
+            "ucsGenC885"
+          ]
+        },
+        {
+          "year": 2026,
+          "label": "MI300X / HGX H200 affected PIDs: last order 25 June; MI350X affected PIDs: last order 15 October",
+          "type": "lifecycle",
+          "sourceIds": [
+            "c885old",
+            "c885eol"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "c885",
+        "c885eol",
+        "c885old",
+        "c885hw"
+      ],
+      "verified": "2026-10-09"
+    },
+    "x210": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "X210c M8",
+        "Cisco UCS X210c M8",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "X9508 chassis, supported fabric and firmware are required.",
+        "Front GPU option changes storage; X580p requires X9516 modules and a qualified node pairing."
+      ],
+      "decoder": [
+        {
+          "part": "X",
+          "meaning": "X-Series modular family"
+        },
+        {
+          "part": "210c",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "x210",
+          "x580"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: X210c M8",
+          "type": "introduction",
+          "sourceIds": [
+            "ucsGenM8Intel",
+            "ucsGenM7"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "x210",
+        "x580"
+      ],
+      "verified": "2026-10-09"
+    },
+    "x215": {
+      "cpuFamilies": [
+        "EPYC 9004",
+        "EPYC 9005"
+      ],
+      "aliases": [
+        "X215c M8",
+        "Cisco UCS X215c M8",
+        "9004",
+        "4th Gen AMD EPYC",
+        "Genoa",
+        "9005",
+        "5th Gen AMD EPYC",
+        "Turin"
+      ],
+      "cooling": "Air",
+      "amdGpuNote": "MI210 has a documented model-specific hardware route; exact CPU/GPU pairing and current availability still require confirmation.",
+      "gpuOptions": [
+        {
+          "product": "Instinct MI210",
+          "status": "qualified",
+          "availability": "Availability unverified",
+          "conditions": "UCSX-GPU-MI210 through UCSX-440P-D: up to two 300 W / 64 GB cards on Gen4 risers 1A/2A. Both risers, UCSX-F-9416-D X-Fabric modules and a supported rear mezzanine connection are required; risers include GPU cables. UCS Manager minimum 4.3(6a). This is the X440p route, not X580p; confirm exact CPU, power, firmware and software.",
+          "sourceIds": [
+            "verifyX440MI210",
+            "verifyUCSM43MI210"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "X580p expansion requires X9516 modules and a qualified X215c M8 pairing.",
+        "The front GPU configuration changes the drive layout.",
+        "MI210 is documented via X440p, maximum two; do not transfer that qualification to X580p or to every EPYC CPU option."
+      ],
+      "decoder": [
+        {
+          "part": "X",
+          "meaning": "X-Series modular family"
+        },
+        {
+          "part": "215c",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "x215",
+          "x580"
+        ]
+      },
+      "events": [
+        {
+          "year": 2024,
+          "label": "Announced model milestone: X215c M8",
+          "type": "introduction",
+          "sourceIds": [
+            "ucsGenM8AMD"
+          ]
+        },
+        {
+          "year": 2024,
+          "label": "EPYC 9005 qualification documented; separate from initial M8 launch",
+          "type": "refresh",
+          "sourceIds": [
+            "x215"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "x215",
+        "x580",
+        "verifyX440MI210",
+        "verifyUCSM43MI210"
+      ],
+      "verified": "2026-10-09"
+    },
+    "x410": {
+      "cpuFamilies": [
+        "Xeon 6"
+      ],
+      "aliases": [
+        "X410c M8",
+        "Cisco UCS X410c M8",
+        "Intel Xeon 6"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "A node occupies two chassis slots; four CPUs are one shared-memory server.",
+        "No qualified AMD GPU option is established by this guide."
+      ],
+      "decoder": [
+        {
+          "part": "X",
+          "meaning": "X-Series modular family"
+        },
+        {
+          "part": "410c",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "x410"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Documented by model milestone: X410c M8",
+          "type": "introduction",
+          "sourceIds": [
+            "ucsGenX410"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "x410"
+      ],
+      "verified": "2026-10-09"
+    },
+    "xe130": {
+      "cpuFamilies": [
+        "Xeon 6 SoC"
+      ],
+      "aliases": [
+        "XE130c M8",
+        "Cisco UCS XE130c M8",
+        "Intel Xeon 6 SoC",
+        "system on chip"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Requires XE9305 chassis; storage- and I/O-focused layouts have different drive counts.",
+        "The documented dedicated accelerator is a 75 W class card such as NVIDIA L4."
+      ],
+      "decoder": [
+        {
+          "part": "XE",
+          "meaning": "Unified Edge compute-node family"
+        },
+        {
+          "part": "130c",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "xe130"
+        ]
+      },
+      "events": [
+        {
+          "year": 2025,
+          "label": "Announced model milestone: XE130c M8",
+          "type": "introduction",
+          "sourceIds": [
+            "ucsGenEdge"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "xe130"
+      ],
+      "verified": "2026-10-09"
+    },
+    "xe150": {
+      "cpuFamilies": [
+        "Xeon 6 SoC"
+      ],
+      "aliases": [
+        "XE150c M8",
+        "Cisco UCS XE150c M8",
+        "Intel Xeon 6 SoC",
+        "system on chip"
+      ],
+      "cooling": "Air",
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No qualified AMD GPU is established by this guide for this exact model; absence is not a platform-wide prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Requires XE9305; up to two XE150c nodes per chassis.",
+        "RTX PRO 6000 Blackwell is limited to 450 W in this platform."
+      ],
+      "decoder": [
+        {
+          "part": "XE",
+          "meaning": "Unified Edge compute-node family"
+        },
+        {
+          "part": "150c",
+          "meaning": "Exact model identifier; CPU and accelerator options require this model’s qualification"
+        },
+        {
+          "part": "M8",
+          "meaning": "Cisco server generation; not the CPU generation"
+        }
+      ],
+      "lifecycle": {
+        "status": "current",
+        "note": "Current reference, not confirmation of orderability, shipping or local inventory.",
+        "sourceIds": [
+          "xe150"
+        ]
+      },
+      "events": [
+        {
+          "year": 2026,
+          "label": "Announced model milestone: XE150c M8",
+          "type": "introduction",
+          "sourceIds": [
+            "ucsGenXE150"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "xe150"
+      ],
+      "verified": "2026-10-09"
+    },
+    "c245m6": {
+      "cpuFamilies": [
+        "EPYC 7002",
+        "EPYC 7003"
+      ],
+      "aliases": [
+        "Cisco UCS C245 M6",
+        "C245M6",
+        "Rome",
+        "Milan",
+        "Milan-X"
+      ],
+      "cooling": "Air",
+      "supportedCooling": [
+        "Air"
+      ],
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No exact AMD accelerator qualification has been recorded for this installed-base profile; absence is not a prohibition.",
+      "gpuOptions": [],
+      "restrictions": [
+        "Two-CPU builds require matching CPUs. P-suffix parts support one CPU only.",
+        "The 1DPC / 2DPC tables list up to 3200 / 2933 MT/s respectively; DIMM rank and population rules still apply."
+      ],
+      "decoder": [
+        {
+          "part": "C",
+          "meaning": "UCS rack family"
+        },
+        {
+          "part": "245",
+          "meaning": "This model supports one or two CPUs; use its own qualification."
+        },
+        {
+          "part": "M6",
+          "meaning": "Cisco server generation; EPYC 7002/7003 are separate CPU generations."
+        }
+      ],
+      "lifecycle": {
+        "status": "end-of-sale",
+        "date": "2026-06-18",
+        "endOfSale": "2026-06-18",
+        "lastShipDate": "2026-09-16",
+        "supportEnd": "2031-06-30",
+        "note": "Last order 18 June 2026; last entitled support 30 June 2031. Support requires applicable warranty or service entitlement.",
+        "sourceIds": [
+          "auditC245M6EOS"
+        ]
+      },
+      "events": [
+        {
+          "year": 2026,
+          "date": "2026-06-18",
+          "label": "Hardware end of sale",
+          "type": "lifecycle",
+          "sourceIds": [
+            "auditC245M6EOS"
+          ]
+        },
+        {
+          "year": 2031,
+          "date": "2031-06-30",
+          "label": "Last entitled support",
+          "type": "lifecycle",
+          "sourceIds": [
+            "auditC245M6EOS"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "auditC245M6",
+        "auditC245M6EOS"
+      ],
+      "verified": "2026-10-09"
+    },
+    "c225m6": {
+      "cpuFamilies": [
+        "EPYC 7002",
+        "EPYC 7003"
+      ],
+      "aliases": [
+        "Cisco UCS C225 M6",
+        "C225M6",
+        "Rome",
+        "Milan",
+        "Milan-X"
+      ],
+      "cooling": "Air",
+      "supportedCooling": [
+        "Air"
+      ],
+      "amdGpuStatus": "not-established",
+      "amdGpuNote": "No exact AMD accelerator qualification has been established for this profile; absence is not a prohibition.",
+      "gpuOptions": [
+        {
+          "product": "NVIDIA T4",
+          "status": "historical",
+          "availability": "Historical platform; no longer for sale",
+          "conditions": "UCSC-GPU-T4-16, up to three using half-height risers 1/2/3, or up to two in full-height risers 1/2. Cards must be procured from Cisco; no GPU mixing. Exact CPU pairing still needs validation.",
+          "sourceIds": [
+            "verifyC225M6"
+          ],
+          "verified": "2026-10-09"
+        }
+      ],
+      "restrictions": [
+        "Two-CPU builds require matching processors; P-suffix processors are single-socket only.",
+        "One installed CPU activates its 16 DIMM slots. RDIMM and LRDIMM cannot be mixed.",
+        "T4 requires Cisco-procured cards and matching risers; no GPU mixing.",
+        "M6S documents one or two CPUs. M6N CPU requirements conflict within the Spec Sheet: general I/O text says one CPU can attach NVMe, while Approved Configurations requires two identical CPUs. Confirm the exact chassis configuration."
+      ],
+      "decoder": [
+        {
+          "part": "C",
+          "meaning": "UCS rack family"
+        },
+        {
+          "part": "225 M6",
+          "meaning": "Exact generation matters: M6 supports one or two CPUs; M8 is a different platform."
+        }
+      ],
+      "lifecycle": {
+        "status": "end-of-sale",
+        "note": "Last order 18 June 2026; last shipment 16 September 2026. Last entitled support 30 June 2031 requires applicable warranty/service entitlement.",
+        "sourceIds": [
+          "verifyC225M6",
+          "verifyC225M6EOS"
+        ],
+        "date": "2026-06-18",
+        "endOfSale": "2026-06-18",
+        "lastShipDate": "2026-09-16",
+        "supportEnd": "2031-06-30"
+      },
+      "events": [
+        {
+          "year": 2021,
+          "date": "2021-03-15",
+          "label": "C225 M6 announced",
+          "type": "introduction",
+          "sourceIds": [
+            "verifyC225M6Launch"
+          ]
+        },
+        {
+          "year": 2026,
+          "date": "2026-06-18",
+          "label": "Hardware end of sale",
+          "type": "lifecycle",
+          "sourceIds": [
+            "verifyC225M6EOS"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "verifyC225M6",
+        "verifyC225M6EOS"
+      ],
+      "verified": "2026-10-09"
+    }
+  }
+}

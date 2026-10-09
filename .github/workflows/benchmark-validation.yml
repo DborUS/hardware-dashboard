@@ -5,6 +5,7 @@ on:
     paths:
       - '.gitattributes'
       - 'benchmarks/**'
+      - 'platforms/**'
       - 'js/**'
       - 'css/**'
       - 'index.html'
@@ -15,6 +16,7 @@ on:
     paths:
       - '.gitattributes'
       - 'benchmarks/**'
+      - 'platforms/**'
       - 'js/**'
       - 'css/**'
       - 'index.html'
@@ -46,6 +48,9 @@ jobs:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: tools/requirements-benchmarks.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Install browser test dependencies
         run: |
           python -m pip install --disable-pip-version-check -r tools/requirements-benchmarks.txt
