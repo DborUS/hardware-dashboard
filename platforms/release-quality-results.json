@@ -30,7 +30,7 @@
   ],
   "version": "1.2.0",
   "catalogHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
-  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "buildHash": "b2ab22aecc616876917d43bb3c2e5a96d5dcd673c08aa08c0e2a460715c9935c",
   "generatedBy": "tools/build-platform-guides.py",
   "exitCode": 0
 }

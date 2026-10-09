@@ -33,6 +33,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
+- **Cohesive Platforms navigation and public beta 0.0.5 (2026-10-09)** — Products,
+  Benchmarks, the Platform Finder and all five OEM guides now use the same ChipIndex
+  header, section navigation, version and What's new dialog. OEM selection and guide
+  lessons sit below the global header within Platforms. The October 9 release notes
+  summarize the selected 102-system reference and fourteen reviewed illustrations,
+  with earlier updates retained. `css/site-shell.css` and `js/site-updates.js` are
+  shared across all eight pages; their hashes participate in the integrated build
+  fingerprint, so a shell or release-note change invalidates an older browser PASS.
+  The public site version is separate from catalog release 1.2.0. Hardware, support,
+  memory, generation and artwork evidence remain unchanged by this navigation work.
+  Local validation and publication status are recorded in `docs/PROJECT-STATE.md`.
+
 - **OEM server illustration review (2026-10-09)** — Replaced fourteen generic
   drawings, covering all ten recently added platforms and four older installed-base
   profiles, with illustrations based on visually inspected official OEM images

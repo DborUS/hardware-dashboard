@@ -3,9 +3,9 @@
 **Living document.** Read after `CLAUDE.md`; update at the end of every working session.
 This is how a new session picks up without re-deriving everything.
 
-**Last updated:** 2026-10-09 (reviewed platform illustrations; publication pending)
-**Current version:** Public beta 0.0.4
-**Previous release:** Public beta 0.0.3 (`fdf51f1`)
+**Last updated:** 2026-10-09 (cohesive Platforms navigation and public beta 0.0.5; publication pending)
+**Current version:** Public beta 0.0.5 (local; publication unconfirmed)
+**Previous release:** Public beta 0.0.4
 **Publication context:** Repair commits `9edd363` and `1933860` are pushed to `main`. Complete hosted validation passed for `1933860` ([run 37779447987](https://github.com/DborUS/hardware-dashboard/actions/runs/37779447987)), and Pages deployment succeeded ([run 37779446951](https://github.com/DborUS/hardware-dashboard/actions/runs/37779446951)). Live benchmark data and scripts match the repaired local files.
 
 **Current data:** October 7 captures hold 3,863 linked public results for 698 of
@@ -20,6 +20,72 @@ Existing dashboard small controls and sidebar clipping were observed in the
 layout audit. The benchmark page now also shows catalog CPU specifications
 for all 646 scored CPU models; the latest benchmark and dashboard smoke tests
 pass after this addition.
+
+## 2026-10-09 — Cohesive Platforms integration and public beta 0.0.5
+
+The Finder and all five OEM learning guides now use the same ChipIndex header as
+Products and Benchmarks. All eight main pages retain Products / Benchmarks /
+Platforms, the visible public beta version and the shared What's new dialog.
+OEM selection sits in a separate Platforms navigation row beside Find a platform,
+Generations, Decode a model and Support & availability. The guides use an in-flow
+lesson rail, an OEM identity and a breadcrumb within this shared shell. Their
+learning content, OEM accents, illustrations and model dialogs remain intact.
+
+The shared header and release dialog styles live in `css/site-shell.css`, scoped
+to their own containers and loaded last. Guide-specific layout is maintained in
+`tools/platform-guides/src/platforms-shell.css`; the shared page templates and
+OEM disclosure script are also generator inputs. Breakpoint overrides explicitly
+place all three header columns to avoid leaking older Finder grid rules.
+`js/site-updates.js` supplies the common public beta 0.0.5 release label and
+October 9 release notes. Six release-history entries remain available. Catalog
+version 1.2.0 remains separate from the site version.
+
+No hardware, source, chronology, support, memory or illustration records changed
+in this session. Catalog hash remains
+`bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0`.
+Original import provenance and approved-art boundaries remain intact. The
+integrated UI hash now includes the shared CSS and release script as well as all
+six generated pages; `css/site-shell.css` has explicit LF handling for stable
+Windows/Linux verification.
+
+Current verification:
+
+- Thirteen current browser checks cover eight headers at 1024px and 320px,
+  release dialog opening/closing and focus return on all eight pages, all 102
+  OEM lineup cards at 320px and 1280px, lesson-preserving OEM switches, Finder
+  section routing, comparison, matching model deep links and vendor-filtered
+  return navigation. No reviewed page/card overflow or JavaScript errors.
+- The five platform suites pass, including 50 Finder regression checks.
+  Deterministic generation, 437 local references and all eight shared-header
+  contracts pass; unchanged catalog/art facts remain protected.
+- Independent source review found no remaining concrete integration defects.
+  Seven negative integration tests rejected missing controls/routes, stale
+  versions/cache references, lost model anchors and changed shared CSS.
+- Full thirteen-stage release validation passed: generated data/order, platform
+  integration, retained-source benchmark replay, all 55 importer/refresh/AI
+  regressions, benchmark browser smoke, dashboard smoke and layout audit.
+  The main Products layout audit retains its existing small-control and clipped
+  sidebar-label observations; all measured pages had no document overflow.
+  The revised Platforms card/page checks found no overflow.
+
+Current integrated UI hash:
+`b2ab22aecc616876917d43bb3c2e5a96d5dcd673c08aa08c0e2a460715c9935c`.
+Current interface evaluation: `platforms/implementation-review.html` (PASS for
+its five platform suites and current browser review). Measurements are included
+in `platforms/integration-browser-results.json`. Screenshots are retained locally
+at `tmp/cohesive-hpe-guide.jpg` and `tmp/chipindex-release-005.jpg`.
+The full-suite log is `tmp/platform-shell-release-validation.log`.
+
+This is an interface integration review, not another hardware-source audit.
+Prior physical-reference and specification reviews remain historical evidence
+for their recorded scope and hashes; the earlier integrated browser report is
+retained in `tools/platform-guides/reviews/integration-before-cohesive-shell.json`.
+The three explicitly contextual schematics and all prior FAE distinctions remain.
+
+No git command, commit, push or publication was performed. The existing Platforms
+entry in `docs/UPDATE-QUEUE.md` is updated and remains Live: Pending. Owner handoff
+commands are in `docs/PLATFORM-GUIDES.md`; validate the hosted build and an actual
+model deep link after publishing.
 
 ## 2026-10-09 — Source-reviewed server drawings integrated locally
 

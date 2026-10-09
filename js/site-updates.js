@@ -1,16 +1,31 @@
-// Shared ChipIndex release history, rendered on Products and Benchmarks.
-// Keep this as the single source for the What's new dialog on both pages.
+// Shared ChipIndex version and release history across Products, Benchmarks and Platforms.
+// Keep the current version and What's new dialog shared across every site section.
 (() => {
+  const releaseVersion = '0.0.5';
+  const release = Object.freeze({
+    version: releaseVersion,
+    label: `Public beta ${releaseVersion}`,
+    updated: '2026-10-09'
+  });
+  window.ChipIndexRelease = release;
   const dialogMarkup = `<dialog class="dashboard-dialog whats-new-dialog" id="whatsNewDialog" aria-labelledby="whatsNewTitle">
   <div class="dialog-head">
     <div>
-      <div class="dialog-kicker">CHIPINDEX / PUBLIC BETA 0.0.4</div>
+      <div class="dialog-kicker">CHIPINDEX / ${release.label.toUpperCase()}</div>
       <h2 id="whatsNewTitle">What's new</h2>
       <p class="release-period">Current update first · scroll for earlier upgrades ↓</p>
     </div>
     <button class="dialog-close" type="button" data-close-dialog="whatsNewDialog" aria-label="Close what's new">✕</button>
   </div>
   <div class="release-history" id="releaseHistory" role="region" aria-label="Dated public beta update history" tabindex="0">
+    <section class="release-version" aria-labelledby="release005">
+      <div class="release-version-head"><h3 id="release005">${release.label}</h3><time datetime="${release.updated}">Updated October 9, 2026</time></div>
+      <div class="release-notes">
+        <section class="release-note"><span class="release-note-label">PLATFORMS</span><div><h4>Explore OEM server families</h4><p>Browse 102 curated systems and learning guides for Cisco, HPE, Dell, Lenovo, and Supermicro. Processor counts, DIMM slots, and 1DPC/2DPC stay prominent alongside generation dates, CPU and accelerator support, configuration limits, and official sources.</p></div></section>
+        <section class="release-note"><span class="release-note-label">ILLUSTRATIONS</span><div><h4>See the server layout</h4><p>Fourteen generic server drawings now use reviewed OEM photos and diagrams. Each identifies the configuration shown; contextual schematics remain clearly labeled.</p></div></section>
+        <section class="release-note"><span class="release-note-label">NAVIGATION</span><div><h4>Move through one ChipIndex</h4><p>Products, Benchmarks, Platforms, and every OEM guide now share the ChipIndex header, navigation, version, and What's new history. OEM guides sit within Platforms, with a clear route back to the finder.</p></div></section>
+      </div>
+    </section>
     <section class="release-version" aria-labelledby="release20261007">
       <div class="release-version-head"><h3 id="release20261007">October 7 update</h3><time datetime="2026-10-07">Updated October 7, 2026</time></div>
       <div class="release-notes">
@@ -51,6 +66,12 @@
   </div>
 </dialog>`;
   function initSiteUpdates() {
+    document.querySelectorAll('.brand-lockup-version').forEach(label => {
+      label.textContent = release.label;
+    });
+    document.querySelectorAll('.brand-lockup').forEach(brand => {
+      brand.setAttribute('aria-label', `ChipIndex by Dan Bor, ${release.label.toLowerCase()}`);
+    });
     const trigger = document.getElementById('whatsNewBtn');
     if (!trigger) return;
     let dialog = document.getElementById('whatsNewDialog');

@@ -494,8 +494,8 @@ def main():
             if count(".navrow .product-context #vendorPill") != 1:
                 failures.append("Products vendor switcher is outside its product controls")
 
-            if page.locator(".brand-lockup-version").inner_text().strip().lower() != "public beta 0.0.4":
-                failures.append("header does not show public beta 0.0.4")
+            if page.locator(".brand-lockup-version").inner_text().strip().lower() != "public beta 0.0.5":
+                failures.append("header does not show public beta 0.0.5")
             page.click("#whatsNewBtn")
             releases = page.locator("#releaseHistory .release-version")
             release_dates = releases.locator("time").all_inner_texts()
@@ -505,11 +505,11 @@ def main():
                 for term in ("grace hopper", "xeon 6", "epyc 9005")
             ):
                 failures.append("What's new dialog is missing release topics")
-            if (releases.count() != 5 or len(release_dates) != 5 or not all(release_dates) or
-                    releases.first.locator("time").get_attribute("datetime") != "2026-10-07" or
+            if (releases.count() != 6 or len(release_dates) != 6 or not all(release_dates) or
+                    releases.first.locator("time").get_attribute("datetime") != "2026-10-09" or
                     not all(term in " ".join(release_topics).lower()
-                            for term in ("benchmark results", "all manufacturers"))):
-                failures.append("What's new history is missing the October 7 benchmark update")
+                            for term in ("benchmark results", "all manufacturers", "oem server families"))):
+                failures.append("What's new history is missing the October 9 Platforms release")
             if not page.locator("#releaseHistory").evaluate(
                 "el => el.scrollHeight > el.clientHeight"
             ):

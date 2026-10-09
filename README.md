@@ -6,6 +6,9 @@ filters, and cross-vendor comparison in one browser-based dashboard.
 
 **Live dashboard:** <https://dborus.github.io/hardware-dashboard/>
 
+**Current local site version:** Public beta 0.0.5. Publication is not yet confirmed;
+the platform catalog retains its separate 1.2.0 release version.
+
 ## Coverage
 
 | Vendor and tab | Product groups | Models |
@@ -42,9 +45,11 @@ families represented in their official specification exports.
 Open **Platforms** from Products or Benchmarks, or visit `platforms/`. The selected
 102-profile reference spans Cisco UCS, HPE, Dell, Lenovo and Supermicro. It teaches
 server families and generation dates, and compares processor populations, DIMM
-slots, DPC, cooling and accelerator evidence. The five OEM guides and verification
-reports remain available within the section. Unknown values and source conflicts
-stay explicit; this is a curated learning and shortlisting tool.
+slots, DPC, cooling and accelerator evidence. Products, Benchmarks, the Platform
+Finder and all five OEM guides share the ChipIndex header, version and What's new
+history. OEM selection and lesson navigation sit within Platforms, with a route
+back to the finder. Unknown values and source conflicts stay explicit; this is a
+curated learning and shortlisting tool.
 
 The server icon beside an individual CPU continues to use the existing exact-CPU
 compatibility snapshot. Its new **Open Platform Finder** link starts broader family
@@ -58,7 +63,7 @@ or runtime build is needed to serve the site. See [platform maintenance](docs/PL
 ## Benchmark explorer
 
 Open **Benchmarks** from any vendor product page or visit `benchmarks/`.
-Products and Benchmarks share the same site header, navigation and What's new history; the vendor selector remains in Products.
+Products, Benchmarks and Platforms share the same site header, navigation and What's new history; the vendor selector remains in Products.
 Vendor Benchmarks tabs start with all manufacturers; linked CPU table scores open their matching model and test. Choose hardware,
 workload and source version, then read the score unit, tested-system boundary,
 capture date and published result. The AMD-inspired red and black explorer

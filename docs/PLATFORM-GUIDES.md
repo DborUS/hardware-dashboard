@@ -20,6 +20,31 @@ four older installed-base profiles. HPE QuickSpecs remain the preferred
 configuration source. Source uncertainty, retired/announced status and exact-build
 restrictions must not be flattened into unqualified support claims.
 
+## Shared ChipIndex navigation and releases
+
+The local site version is **Public beta 0.0.5**. The platform catalog's **1.2.0**
+release identifies its separate hardware dataset; neither number implies a new
+review date for every source or a confirmed public deployment.
+
+Products, Benchmarks, the Platform Finder and all five OEM guides use one global
+ChipIndex header: Products / Benchmarks / Platforms, the site version, and
+**What's new**. OEM guides no longer occupy the release button's place. Within
+Platforms, secondary navigation contains the finder views and the OEM guide
+selector. Each guide retains its OEM identity and lesson navigation below that
+shared header, with a clear route back to the finder. Existing guide and model
+deep links remain directly addressable.
+
+`css/site-shell.css` owns the shared header and release-dialog presentation.
+`js/site-updates.js` owns the current site version and dated release history;
+its `ChipIndexRelease` export synchronizes the header version and accessible
+label. Static page fallbacks must agree with it. The October 9 entry is first,
+while all earlier release entries remain available.
+
+The platform build records the site version as `siteVersion` and the shared
+stylesheet/script fingerprints as `sharedAssetHashes`. Those hashes contribute
+to `buildHash`, so changing either shared file requires a fresh integrated browser
+review. Keep the CSS/script cache revisions consistent across all eight pages.
+
 ## Server illustration review
 
 `platforms/illustration-review.html` shows the fourteen revised illustrations with
@@ -63,8 +88,11 @@ python tools/check-platform-guides-integration.py
 ```
 
 The generator requires Python and Node.js. Static hosting does not. Edit source
-inputs instead of the generated HTML. Preserve primary source URLs, document
-revisions, review dates and recorded uncertainty when updating specifications.
+inputs instead of the generated HTML. Shared shell changes belong in
+`css/site-shell.css` and `js/site-updates.js`; guide-specific navigation and layout
+belong in the maintained templates and `src/platforms-shell.css`. Preserve primary
+source URLs, document revisions, review dates and recorded uncertainty when
+updating specifications.
 
 Typical inputs include `fae-<oem>.json` for support evidence, `memory-<oem>.json`
 for processor/memory topology, `<oem>-generation-data.json` for chronology and
@@ -89,25 +117,28 @@ The prior standalone release's browser review is historical evidence. A current
 integration browser report must match the integrated build and catalog hashes before
 its evaluation is considered current. Do not carry an old PASS forward after changes.
 
-## Review status after artwork changes
+## Review evidence and current status
 
-The October 9 integration review passed thirteen browser checks and the full
-thirteen-stage release command before this artwork revision. Those results are
-historical for the earlier UI/catalog hashes; they do not establish a current
-PASS for the revised drawings.
+The initial October 9 integration review and the later artwork review are
+historical evidence for their recorded hashes. The artwork review recorded fourteen
+browser checks, including the fourteen replacement drawings, six earlier formatting
+examples, all-card containment, source references, OEM deep links, comparison
+reloads and legacy redirects. Independent checks also protected all 102 hardware
+records, the other 88 illustrations and the approved artwork boundary.
 
-The revised build now has fourteen current browser checks in
-`platforms/integration-browser-results.json`: all fourteen new drawings and the
-six earlier formatting examples were visually inspected; all 102 Finder and
-gallery cards were checked for containment at desktop and 320px. Source
-references, five OEM guide deep links, comparison reloads and legacy redirects
-also passed. The five automated platform suites pass, including 50 Finder
-workflow checks. Independent checks confirmed identical art in both surfaces,
-88 unchanged illustrations, and rejection of seven invalid data/art mutations.
-`platforms/implementation-review.html` reflects this current evidence;
-`platforms/spec-verification.html` retains the separate hardware/source-review
-scope. See `docs/PROJECT-STATE.md` for the broader project validation result.
-Publication and hosted verification remain pending.
+The subsequent cohesive-header revision has thirteen fresh browser checks and a
+passing full thirteen-stage release validation. The browser review covers eight
+main headers and release dialogs, all 102 OEM lineup cards at mobile/desktop
+widths, lesson navigation, comparisons and model deep links. Independent source
+review found no remaining integration defect. The Products layout audit retains
+its earlier small-control and clipped sidebar-label observations; revised
+Platforms checks found no page/card overflow.
+
+Read `platforms/implementation-review.html`, the matching
+`platforms/integration-browser-results.json` and `docs/PROJECT-STATE.md` for the
+recorded scope and current hashes. `platforms/spec-verification.html` retains the
+separate hardware/source-review scope. Publication and hosted verification remain
+unconfirmed; an older passing report never certifies changed files.
 
 Generated review notes use explicit LF endings to keep Windows and Linux checkouts
 consistent. Build checks and reference-based illustrations do not certify every
@@ -123,10 +154,10 @@ To inspect and commit after review:
 
 ```powershell
 cd C:\Users\dbor\dev\hardware-dashboard
-git diff
+git --no-pager diff
 git status --short
 git add -A
-git commit -m "Integrate OEM platform guides into ChipIndex"
+git commit -m "Unify ChipIndex navigation and release public beta 0.0.5"
 ```
 
 Publication is a separate owner decision. Verify both hosted validation and the

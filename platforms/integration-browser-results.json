@@ -1,89 +1,624 @@
 {
   "version": "1.2.0",
-  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "siteVersion": "0.0.5",
+  "buildHash": "b2ab22aecc616876917d43bb3c2e5a96d5dcd673c08aa08c0e2a460715c9935c",
   "catalogHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
-  "reviewedAt": "2026-10-09T19:29:52.522289+00:00",
-  "method": "Manual review through the Codex in-app browser, plus read-only rendered DOM containment checks. Desktop, 1280px, 390px and 320px. Four OEM visual-reference records describe the separate source inspections.",
+  "reviewedAt": "2026-10-09T19:53:53.139Z",
+  "method": "Manual review through the Codex in-app browser, including actual navigation, modal interactions, visual screenshots and read-only rendered DOM measurements. Eight main routes at 1024px and 320px; five OEM lineups at 320px and 1280px. This is an interface integration review, not a fresh hardware-specification or physical-reference audit.",
   "routeScope": "Project deployment prefix /hardware-dashboard/",
-  "passed": 14,
+  "passed": 13,
   "failed": 0,
   "results": [
     {
-      "name": "All 14 revised illustrations visually reviewed in the generated gallery at desktop card scale",
+      "name": "All eight main pages share Products / Benchmarks / Platforms navigation, one ChipIndex header, Public beta 0.0.5 and a 44px What's new control at 1024px.",
       "status": "PASS"
     },
     {
-      "name": "Earlier formatting examples retain upright Synergy, no tower feet, attached SE100 fins and continuous SSG chassis",
+      "name": "All eight main pages fit a confirmed 320px viewport without page or header overflow.",
       "status": "PASS"
     },
     {
-      "name": "All 102 gallery cards render one illustration each with no duplicate SVG IDs, memory-cell overlap or card/page overflow at 1280px",
+      "name": "What's new opens on all eight main pages at 320px with six releases, newest October 9, 2026, and current Public beta 0.0.5.",
       "status": "PASS"
     },
     {
-      "name": "All 102 gallery cards and memory cells fit the confirmed 320px layout; unknown values wrap without overlap",
+      "name": "What's new closes with Escape on all eight pages and returns focus to its trigger; release history fits within its dialog.",
       "status": "PASS"
     },
     {
-      "name": "All 102 actual Finder cards retain one illustration and prominent processor/DIMM/DPC block, with no duplicate IDs or overflow at 320px",
+      "name": "Products to Platforms and HPE guide navigation preserve the shared visual header and separate OEM navigation at 1280px.",
       "status": "PASS"
     },
     {
-      "name": "All 102 actual Finder cards fit the 1280px desktop layout without card or page overflow",
+      "name": "All 102 server profiles across the five OEM lineup pages retain one illustration per card and fit at both 320px and 1280px.",
       "status": "PASS"
     },
     {
-      "name": "AS-2127H7-N now shows the source-inspected eight-carrier front, and its 390px card retains processor, memory, dates and support distinctions",
+      "name": "Switching from HPE to Dell preserves the lineup lesson; the mobile OEM selector closes with Escape and returns focus.",
       "status": "PASS"
     },
     {
-      "name": "AS-2127H7-N illustration disclosure exposes the exact OEM reference, front-view locator and alternative-configuration caveat",
+      "name": "Guide links reach Generations, Decode a model, Support & availability and Finder; Finder section selection follows the active route.",
       "status": "PASS"
     },
     {
-      "name": "HPE XD675 learning-guide details render the reviewed 8U chassis and preserve explicitly unconfirmed DPC",
+      "name": "HPE DL325 Gen11 / Gen12 comparison opens at 320px with processors, DIMMs, DPC, chronology, limits and QuickSpecs references intact.",
       "status": "PASS"
     },
     {
-      "name": "DL325 Gen11/Gen12 comparison preserves CPU, DIMM, DPC, dates, qualification limits and QuickSpecs evidence after reload",
+      "name": "Finder model details open the HPE learning guide at the matching DL325 Gen12 model deep link without page overflow.",
       "status": "PASS"
     },
     {
-      "name": "Saved comparison fits 320px with table scrolling contained inside the dialog",
+      "name": "The OEM model dialog remains functional after opening and closing the independent What's new dialog.",
       "status": "PASS"
     },
     {
-      "name": "Legacy finder URL and removed Field Exercise route redirect to Finder while preserving query string, HPE filter and Synergy search",
+      "name": "The HPE guide returns to the Finder with its HPE filter selected.",
       "status": "PASS"
     },
     {
-      "name": "All five OEM learning guides open revised-model deep links at 320px with illustrations and memory essentials, without page overflow",
-      "status": "PASS"
-    },
-    {
-      "name": "Browser error log remains empty for reviewed integrated routes",
+      "name": "No JavaScript errors were observed in the reviewed integrated browser routes.",
       "status": "PASS"
     }
   ],
   "evaluation": {
-    "verdict": "Reviewed server drawings integrated",
-    "summary": "Fourteen generic drawings were replaced with original illustrations based on inspected OEM photos and front-view diagrams. All 102 profiles retain their hardware facts and FAE distinctions. Current integrated card, source-disclosure, comparison, redirect and responsive checks passed.",
+    "verdict": "Cohesive ChipIndex integration verified",
+    "summary": "Products, Benchmarks, the Finder and five OEM guides now share one ChipIndex header, version and release history. OEM guides sit within Platforms with shared platform tools, lesson navigation and routes back to the Finder. Fresh responsive and interaction checks passed; protected catalog facts and reviewed drawings remain unchanged.",
     "strengths": [
-      "The ten new profiles and four older generic illustrations now show source-inspected example configurations.",
-      "All 102 cards retain prominent processor counts, DIMM slots, DPC and per-server or per-node scope.",
-      "The earlier blade, tower and formatting corrections remain intact. Every non-art catalog field is protected against unintended edits.",
-      "The Finder and all five OEM learning guides use the same reviewed artwork; reference details and configuration limits remain accessible."
+      "Public beta 0.0.5 and What's new remain visible on all eight main pages; six releases are retained in the shared history.",
+      "OEM navigation belongs to Platforms rather than replacing a global header control. Guides retain their learning structure, brand accents and server artwork.",
+      "All 102 profile cards across five OEM lineups fit at desktop and mobile widths, with prominent processor, DIMM and DPC information.",
+      "Existing Finder comparison, OEM model deep links and model dialogs continue to work with the new layout.",
+      "Automated preservation guards and deterministic generation protect the catalog, artwork and shared presentation assets."
     ],
     "limitations": [
-      "HPE ProLiant XD245/XD285 and Supermicro SBA-817V7-1N remain explicitly labeled contextual schematics because exact isolated-model exteriors were not established.",
-      "Drawings represent documented example configurations, not simultaneous storage/CPU/GPU maxima.",
-      "This is a fresh physical-reference review of 14 illustrations and a layout/preservation review across 102 profiles; it is not a fresh source audit of every hardware specification.",
-      "Coverage is curated and partial. Exact configuration and orderability require OEM confirmation; HPE QuickSpecs remain primary HPE configuration evidence.",
-      "Public publication remains a separate owner action."
+      "This review covers interface integration. The earlier specification and physical-reference reviews retain their own recorded scope and dates.",
+      "HPE ProLiant XD245/XD285 and Supermicro SBA-817V7-1N remain explicitly labeled contextual schematics.",
+      "Coverage is curated and partial; exact configuration and orderability require OEM confirmation. HPE QuickSpecs remain primary HPE configuration evidence.",
+      "Public publication and hosted validation remain separate owner actions."
     ]
   },
-  "reviewedPageHashes": {
-    "illustration-review.html": "a9a5a25773a0692e5c8c1f775410f36a86a7e80da22d8befb233cf18517b4814"
+  "measurements": {
+    "reviewedAt": "2026-10-09T19:53:53.139Z",
+    "cohesiveChecks": [
+      {
+        "route": "",
+        "width": 1024,
+        "actualWidth": 1024,
+        "brandRect": {
+          "bottom": 110.4375,
+          "height": 64.96875,
+          "left": 342,
+          "right": 667,
+          "top": 45.46875,
+          "width": 325,
+          "x": 342,
+          "y": 45.46875
+        },
+        "headerCount": 1,
+        "nav": [
+          "Products",
+          "Benchmarks",
+          "Platforms"
+        ],
+        "overflow": false,
+        "toolsRect": {
+          "bottom": 111.921875,
+          "height": 44,
+          "left": 876.296875,
+          "right": 985,
+          "top": 67.921875,
+          "width": 108.703125,
+          "x": 876.296875,
+          "y": 67.921875
+        },
+        "version": "Public beta 0.0.5"
+      },
+      {
+        "route": "benchmarks/",
+        "width": 1024,
+        "actualWidth": 1024,
+        "brandRect": {
+          "bottom": 108.96875,
+          "height": 64.96875,
+          "left": 342,
+          "right": 667,
+          "top": 44,
+          "width": 325,
+          "x": 342,
+          "y": 44
+        },
+        "headerCount": 1,
+        "nav": [
+          "Products",
+          "Benchmarks",
+          "Platforms"
+        ],
+        "overflow": false,
+        "toolsRect": {
+          "bottom": 98.484375,
+          "height": 44,
+          "left": 876.296875,
+          "right": 985,
+          "top": 54.484375,
+          "width": 108.703125,
+          "x": 876.296875,
+          "y": 54.484375
+        },
+        "version": "Public beta 0.0.5"
+      },
+      {
+        "route": "platforms/index.html#finder",
+        "width": 1024,
+        "actualWidth": 1024,
+        "brandRect": {
+          "bottom": 108.96875,
+          "height": 64.96875,
+          "left": 342,
+          "right": 667,
+          "top": 44,
+          "width": 325,
+          "x": 342,
+          "y": 44
+        },
+        "headerCount": 1,
+        "nav": [
+          "Products",
+          "Benchmarks",
+          "Platforms"
+        ],
+        "overflow": false,
+        "toolsRect": {
+          "bottom": 98.484375,
+          "height": 44,
+          "left": 876.296875,
+          "right": 985,
+          "top": 54.484375,
+          "width": 108.703125,
+          "x": 876.296875,
+          "y": 54.484375
+        },
+        "version": "Public beta 0.0.5"
+      },
+      {
+        "route": "platforms/ucs-field-guide.html#overview",
+        "width": 1024,
+        "actualWidth": 1024,
+        "brandRect": {
+          "bottom": 108.96875,
+          "height": 64.96875,
+          "left": 342,
+          "right": 667,
+          "top": 44,
+          "width": 325,
+          "x": 342,
+          "y": 44
+        },
+        "headerCount": 1,
+        "nav": [
+          "Products",
+          "Benchmarks",
+          "Platforms"
+        ],
+        "overflow": false,
+        "toolsRect": {
+          "bottom": 98.484375,
+          "height": 44,
+          "left": 876.296875,
+          "right": 985,
+          "top": 54.484375,
+          "width": 108.703125,
+          "x": 876.296875,
+          "y": 54.484375
+        },
+        "version": "Public beta 0.0.5"
+      },
+      {
+        "route": "platforms/hpe-field-guide.html#overview",
+        "width": 1024,
+        "actualWidth": 1024,
+        "brandRect": {
+          "bottom": 108.96875,
+          "height": 64.96875,
+          "left": 342,
+          "right": 667,
+          "top": 44,
+          "width": 325,
+          "x": 342,
+          "y": 44
+        },
+        "headerCount": 1,
+        "nav": [
+          "Products",
+          "Benchmarks",
+          "Platforms"
+        ],
+        "overflow": false,
+        "toolsRect": {
+          "bottom": 98.484375,
+          "height": 44,
+          "left": 876.296875,
+          "right": 985,
+          "top": 54.484375,
+          "width": 108.703125,
+          "x": 876.296875,
+          "y": 54.484375
+        },
+        "version": "Public beta 0.0.5"
+      },
+      {
+        "route": "platforms/dell-field-guide.html#overview",
+        "width": 1024,
+        "actualWidth": 1024,
+        "brandRect": {
+          "bottom": 108.96875,
+          "height": 64.96875,
+          "left": 342,
+          "right": 667,
+          "top": 44,
+          "width": 325,
+          "x": 342,
+          "y": 44
+        },
+        "headerCount": 1,
+        "nav": [
+          "Products",
+          "Benchmarks",
+          "Platforms"
+        ],
+        "overflow": false,
+        "toolsRect": {
+          "bottom": 98.484375,
+          "height": 44,
+          "left": 876.296875,
+          "right": 985,
+          "top": 54.484375,
+          "width": 108.703125,
+          "x": 876.296875,
+          "y": 54.484375
+        },
+        "version": "Public beta 0.0.5"
+      },
+      {
+        "route": "platforms/lenovo-field-guide.html#overview",
+        "width": 1024,
+        "actualWidth": 1024,
+        "brandRect": {
+          "bottom": 108.96875,
+          "height": 64.96875,
+          "left": 342,
+          "right": 667,
+          "top": 44,
+          "width": 325,
+          "x": 342,
+          "y": 44
+        },
+        "headerCount": 1,
+        "nav": [
+          "Products",
+          "Benchmarks",
+          "Platforms"
+        ],
+        "overflow": false,
+        "toolsRect": {
+          "bottom": 98.484375,
+          "height": 44,
+          "left": 876.296875,
+          "right": 985,
+          "top": 54.484375,
+          "width": 108.703125,
+          "x": 876.296875,
+          "y": 54.484375
+        },
+        "version": "Public beta 0.0.5"
+      },
+      {
+        "route": "platforms/supermicro-field-guide.html#overview",
+        "width": 1024,
+        "actualWidth": 1024,
+        "brandRect": {
+          "bottom": 108.96875,
+          "height": 64.96875,
+          "left": 342,
+          "right": 667,
+          "top": 44,
+          "width": 325,
+          "x": 342,
+          "y": 44
+        },
+        "headerCount": 1,
+        "nav": [
+          "Products",
+          "Benchmarks",
+          "Platforms"
+        ],
+        "overflow": false,
+        "toolsRect": {
+          "bottom": 98.484375,
+          "height": 44,
+          "left": 876.296875,
+          "right": 985,
+          "top": 54.484375,
+          "width": 108.703125,
+          "x": 876.296875,
+          "y": 54.484375
+        },
+        "version": "Public beta 0.0.5"
+      },
+      {
+        "route": "",
+        "width": 320,
+        "actualWidth": 320,
+        "headerOverflow": false,
+        "overflow": false,
+        "updatesHeight": 44,
+        "version": "Public beta 0.0.5",
+        "dialogOverflow": false,
+        "heading": "Public beta 0.0.5",
+        "historyCount": 6,
+        "newest": "2026-10-09",
+        "open": true,
+        "closed": true,
+        "focusReturned": true
+      },
+      {
+        "route": "benchmarks/",
+        "width": 320,
+        "actualWidth": 320,
+        "headerOverflow": false,
+        "overflow": false,
+        "updatesHeight": 44,
+        "version": "Public beta 0.0.5",
+        "dialogOverflow": false,
+        "heading": "Public beta 0.0.5",
+        "historyCount": 6,
+        "newest": "2026-10-09",
+        "open": true,
+        "closed": true,
+        "focusReturned": true
+      },
+      {
+        "route": "platforms/index.html#finder",
+        "width": 320,
+        "actualWidth": 320,
+        "headerOverflow": false,
+        "overflow": false,
+        "updatesHeight": 44,
+        "version": "Public beta 0.0.5",
+        "dialogOverflow": false,
+        "heading": "Public beta 0.0.5",
+        "historyCount": 6,
+        "newest": "2026-10-09",
+        "open": true,
+        "closed": true,
+        "focusReturned": true
+      },
+      {
+        "route": "platforms/ucs-field-guide.html#overview",
+        "width": 320,
+        "actualWidth": 320,
+        "headerOverflow": false,
+        "overflow": false,
+        "updatesHeight": 44,
+        "version": "Public beta 0.0.5",
+        "dialogOverflow": false,
+        "heading": "Public beta 0.0.5",
+        "historyCount": 6,
+        "newest": "2026-10-09",
+        "open": true,
+        "closed": true,
+        "focusReturned": true
+      },
+      {
+        "route": "platforms/hpe-field-guide.html#overview",
+        "width": 320,
+        "actualWidth": 320,
+        "headerOverflow": false,
+        "overflow": false,
+        "updatesHeight": 44,
+        "version": "Public beta 0.0.5",
+        "dialogOverflow": false,
+        "heading": "Public beta 0.0.5",
+        "historyCount": 6,
+        "newest": "2026-10-09",
+        "open": true,
+        "closed": true,
+        "focusReturned": true
+      },
+      {
+        "route": "platforms/dell-field-guide.html#overview",
+        "width": 320,
+        "actualWidth": 320,
+        "headerOverflow": false,
+        "overflow": false,
+        "updatesHeight": 44,
+        "version": "Public beta 0.0.5",
+        "dialogOverflow": false,
+        "heading": "Public beta 0.0.5",
+        "historyCount": 6,
+        "newest": "2026-10-09",
+        "open": true,
+        "closed": true,
+        "focusReturned": true
+      },
+      {
+        "route": "platforms/lenovo-field-guide.html#overview",
+        "width": 320,
+        "actualWidth": 320,
+        "headerOverflow": false,
+        "overflow": false,
+        "updatesHeight": 44,
+        "version": "Public beta 0.0.5",
+        "dialogOverflow": false,
+        "heading": "Public beta 0.0.5",
+        "historyCount": 6,
+        "newest": "2026-10-09",
+        "open": true,
+        "closed": true,
+        "focusReturned": true
+      },
+      {
+        "route": "platforms/supermicro-field-guide.html#overview",
+        "width": 320,
+        "actualWidth": 320,
+        "headerOverflow": false,
+        "overflow": false,
+        "updatesHeight": 44,
+        "version": "Public beta 0.0.5",
+        "dialogOverflow": false,
+        "heading": "Public beta 0.0.5",
+        "historyCount": 6,
+        "newest": "2026-10-09",
+        "open": true,
+        "closed": true,
+        "focusReturned": true
+      }
+    ],
+    "flowChecks": [
+      {
+        "cards": 23,
+        "name": "HPE lineup at320",
+        "overflow": false,
+        "width": 320
+      },
+      {
+        "name": "OEM switch retains lineup lesson",
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/dell-field-guide.html#lineup"
+      },
+      {
+        "closed": true,
+        "focusReturned": true,
+        "name": "Mobile menu Escape"
+      },
+      {
+        "active": "Decode a model",
+        "heading": "Decode the exact model.",
+        "name": "Platform section routing",
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/index.html#decode"
+      },
+      {
+        "active": "Support & availability",
+        "heading": "Support & availability.",
+        "name": "Platform section routing",
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/index.html#qualify"
+      },
+      {
+        "active": "Find a platform",
+        "heading": "Find the platform.Understand the fit.",
+        "name": "Platform section routing",
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/index.html#finder"
+      },
+      {
+        "heading": "Compare 2 platforms",
+        "name": "Mobile comparison",
+        "open": true,
+        "overflow": false
+      },
+      {
+        "dialog": true,
+        "heading": "HPE DL325 Gen12",
+        "name": "Finder to OEM deep model",
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/hpe-field-guide.html#lineup/dl325"
+      },
+      {
+        "heading": "HPE DL325 Gen12",
+        "name": "Model dialog still works after release dialog",
+        "open": true,
+        "releaseClosed": true
+      },
+      {
+        "name": "Guide returns to vendor-filtered Finder",
+        "oem": "hpe",
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/index.html#finder?oem=hpe"
+      }
+    ],
+    "guideGridChecks": [
+      {
+        "art": 14,
+        "cardOverflow": false,
+        "cards": 14,
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/ucs-field-guide.html#lineup",
+        "width": 320
+      },
+      {
+        "art": 23,
+        "cardOverflow": false,
+        "cards": 23,
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/hpe-field-guide.html#lineup",
+        "width": 320
+      },
+      {
+        "art": 21,
+        "cardOverflow": false,
+        "cards": 21,
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/dell-field-guide.html#lineup",
+        "width": 320
+      },
+      {
+        "art": 19,
+        "cardOverflow": false,
+        "cards": 19,
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/lenovo-field-guide.html#lineup",
+        "width": 320
+      },
+      {
+        "art": 25,
+        "cardOverflow": false,
+        "cards": 25,
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/supermicro-field-guide.html#lineup",
+        "width": 320
+      },
+      {
+        "art": 14,
+        "cardOverflow": false,
+        "cards": 14,
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/ucs-field-guide.html#lineup",
+        "width": 1280
+      },
+      {
+        "art": 23,
+        "cardOverflow": false,
+        "cards": 23,
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/hpe-field-guide.html#lineup",
+        "width": 1280
+      },
+      {
+        "art": 21,
+        "cardOverflow": false,
+        "cards": 21,
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/dell-field-guide.html#lineup",
+        "width": 1280
+      },
+      {
+        "art": 19,
+        "cardOverflow": false,
+        "cards": 19,
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/lenovo-field-guide.html#lineup",
+        "width": 1280
+      },
+      {
+        "art": 25,
+        "cardOverflow": false,
+        "cards": 25,
+        "overflow": false,
+        "url": "http://127.0.0.1:8767/hardware-dashboard/platforms/supermicro-field-guide.html#lineup",
+        "width": 1280
+      }
+    ]
   },
-  "proofImage": "../tmp/source-reviewed-supermicro-cards.jpg"
+  "proofImage": "../tmp/cohesive-hpe-guide.jpg"
 }

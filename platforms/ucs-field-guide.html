@@ -222,16 +222,135 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .dialog-content>.memory-highlights .platform-facts .dpc-value,.dialog-body>.memory-highlights .platform-facts .dpc-value{font-size:13px}
 .dialog-content>.memory-highlights .platform-facts .fact-unknown,.dialog-body>.memory-highlights .platform-facts .fact-unknown{font-size:13px}
 @media(max-width:620px){.platform-facts>div{padding:11px 7px 9px}.platform-facts dt{font-size:10px;letter-spacing:0}.platform-facts dd{font-size:24px}.platform-facts .dpc-value{font-size:12px;gap:4px}.memory-scope{font-size:10px}.memory-legend{font-size:11px}}
-</style></head>
-<body>
+
+/* Platforms share the site header while OEM colour remains content context. */
+.platform-page .chipindex-site-header {width:calc(100% - 48px); padding-top:40px}
+.platform-page .platform-section-nav {position:relative; z-index:25; display:flex; align-items:stretch; flex-wrap:wrap; gap:0 24px; max-width:1552px; width:calc(100% - 48px); margin:12px auto 0; padding:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); font-family:'JetBrains Mono',Consolas,monospace}
+.platform-section-nav>a {display:flex; align-items:center; justify-content:center; min-height:52px; padding:10px 0; border-bottom:2px solid transparent; color:var(--muted); font-size:11px; font-weight:500; line-height:1.5; text-decoration:none; white-space:nowrap}
+.platform-section-nav>a:hover {color:var(--text); text-decoration:none}
+.platform-section-nav>a[aria-current=page] {color:var(--text); border-bottom-color:#ed1c24}
+.platform-section-nav .learn-menu {position:relative; z-index:26; margin:0 0 0 auto; min-width:0; align-self:stretch; font:500 11px/1.5 'JetBrains Mono',Consolas,monospace}
+.platform-section-nav .learn-menu summary {display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:52px; padding:10px 12px; border:0; border-bottom:2px solid transparent; border-radius:0; background:transparent; color:var(--muted); cursor:pointer; list-style:none}
+.platform-section-nav .learn-menu summary::-webkit-details-marker {display:none}
+.platform-section-nav .learn-menu summary>span {color:var(--muted)}
+.platform-section-nav .learn-menu summary:hover,.platform-section-nav .learn-menu[open] summary {background:rgba(255,255,255,.035); color:var(--text)}
+.platform-section-nav .learn-menu.is-current summary {border-bottom-color:#ed1c24; color:var(--text)}
+.platform-section-nav .learn-menu[open] summary>span {transform:rotate(180deg)}
+.platform-section-nav .learn-menu-options {position:absolute; top:calc(100% + 8px); right:0; width:286px; max-width:calc(100vw - 32px); padding:8px; border:1px solid var(--line); border-radius:8px; background:var(--panel); box-shadow:0 15px 40px #0009}
+.platform-section-nav .learn-menu-label {display:block; padding:10px; color:var(--dim); font-size:9px; line-height:1.5; letter-spacing:1px}
+.platform-section-nav .learn-menu-options a {display:flex; align-items:center; gap:12px; min-height:44px; padding:10px; margin:0; border:0; border-radius:5px; color:var(--text); font-size:12px; line-height:1.5; text-decoration:none; white-space:normal}
+.platform-section-nav .learn-menu-options a:hover {background:var(--raised); color:var(--text); text-decoration:none}
+.platform-section-nav .learn-menu-options a[aria-current=page] {background:var(--raised); box-shadow:inset 2px 0 var(--accent)}
+.platform-section-nav .learn-menu-options .current-check {margin-left:auto; color:var(--accent)}
+.platform-section-nav .learn-menu-options small {display:block; margin-top:3px; font-family:'DM Sans','Segoe UI',sans-serif; color:var(--muted); font-size:11px}
+.platform-section-nav .learn-menu-options .vendor-option {margin:0; padding:10px; font-size:12px}
+.platform-finder>main {max-width:1600px; padding:30px 24px 75px}
+.platform-finder>footer {max-width:1600px; margin-inline:auto; padding-inline:24px}
+.platform-guide-layout {display:grid; grid-template-columns:208px minmax(0,1fr); gap:28px; max-width:1600px; padding:0 24px; margin:26px auto 0; align-items:start}
+.platform-guide-rail {position:sticky; top:20px; min-width:0; max-height:calc(100vh - 40px); overflow-y:auto; padding:20px 12px; border:1px solid var(--line); border-radius:8px; background:var(--panel); scrollbar-width:thin}
+.platform-guide-rail .guide-vendor-identity {display:flex; align-items:center; gap:12px; min-height:52px; margin:0 4px 23px; padding:0; color:var(--text); text-decoration:none; font-size:27px}
+.platform-guide-rail .guide-vendor-identity .brand-sub {display:block; margin:7px 0 0; font:9px/1.5 'JetBrains Mono',Consolas,monospace; letter-spacing:1.5px; color:var(--dim)}
+.platform-guide-rail .supermicro-wordmark {font-size:17px}
+.platform-guide-rail .rail-label {display:block; margin:0 10px 8px; font:9px/1.5 'JetBrains Mono',Consolas,monospace; letter-spacing:1px; color:var(--dim)}
+.platform-guide-rail #nav {display:block; overflow:visible}
+.platform-guide-rail .nav-item {display:flex; align-items:center; min-height:44px; padding:10px; margin:3px 0; gap:9px; white-space:normal; font-size:12px; line-height:1.5; border-radius:5px; text-decoration:none}
+.platform-guide-rail .nav-item svg {width:17px; height:17px; flex-shrink:0}
+.platform-guide-rail .nav-index {display:none}
+.platform-guide-rail .rail-bottom {display:block; margin-top:22px; padding:17px 10px 0; border-top:1px solid var(--line); font-size:10px; line-height:1.7}
+.platform-guide-rail .rail-bottom p {margin:8px 0 4px}
+.platform-guide-rail .rail-bottom a {font-size:9px; overflow-wrap:anywhere}
+.platform-guide-rail .fae-finder-nav {display:flex; margin:20px 0 0; padding:11px 10px; font-size:10px; line-height:1.6; gap:8px}
+.platform-guide-rail .fae-finder-nav small {margin-top:5px; font-size:10px; line-height:1.5}
+.platform-guide-layout .workspace {min-width:0; margin:0}
+.platform-guide .guide-breadcrumb {display:flex; align-items:center; flex-wrap:wrap; gap:7px 10px; min-height:32px; margin:0; padding:0; color:var(--dim); font:10px/1.7 'JetBrains Mono',Consolas,monospace; letter-spacing:.1px}
+.guide-breadcrumb a {color:var(--muted); text-decoration:none; min-height:32px; display:inline-flex; align-items:center}
+.guide-breadcrumb a:hover {color:var(--text); text-decoration:underline}
+.guide-breadcrumb #crumb {color:var(--text); text-transform:none}
+.platform-guide-layout main {max-width:none; min-width:0; margin:0; padding:21px 0 48px; min-height:calc(100vh - 300px)}
+.platform-guide-layout .footer {padding:21px 0; margin:0; background:transparent; flex-wrap:wrap; line-height:1.75}
+.platform-guide .skip {left:24px}
+@media(max-width:768px) {
+  .platform-page .chipindex-site-header {width:calc(100% - 32px); padding-top:32px}
+  .platform-page .platform-section-nav {width:calc(100% - 32px); gap:0 18px}
+  .platform-section-nav>a {font-size:10px}
+  .platform-section-nav .learn-menu {margin-left:0}
+  .platform-section-nav .learn-menu summary {font-size:10px; padding-inline:0; gap:12px}
+  .platform-section-nav .learn-menu-options {right:auto; left:0}
+  .platform-guide-layout {display:block; padding:0 16px; margin-top:22px}
+  .platform-guide-rail {position:static; max-height:none; overflow:visible; padding:16px; margin-bottom:20px}
+  .platform-guide-rail .guide-vendor-identity {font-size:24px; min-height:40px; margin:0 0 13px}
+  .platform-guide-rail .rail-label,.platform-guide-rail .rail-bottom,.platform-guide-rail .fae-finder-nav {display:none}
+  .platform-guide-rail #nav {display:flex; overflow-x:auto; gap:5px; scrollbar-width:thin; padding-bottom:3px}
+  .platform-guide-rail .nav-item {white-space:nowrap; margin:0; flex-shrink:0; padding:10px; font-size:11px}
+  .platform-guide-rail .nav-item svg {width:15px; height:15px}
+  .platform-guide-layout main {padding:18px 0 40px}
+  .platform-finder>main {padding:25px 16px 65px}
+  .platform-finder>footer {padding-inline:16px}
+}
+@media(max-width:640px) {
+  .platform-page .chipindex-site-header {width:calc(100% - 24px); padding-top:20px}
+  .platform-page .platform-section-nav {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:calc(100% - 24px); gap:0 16px; margin-top:10px}
+  .platform-section-nav>a {min-height:44px; white-space:normal; text-align:center; font-size:10px; padding-block:8px}
+  .platform-section-nav .learn-menu {grid-column:1/-1; width:100%; margin:0; border-top:1px solid var(--line)}
+  .platform-section-nav .learn-menu summary {min-height:44px; justify-content:space-between; padding:8px 4px; font-size:11px}
+  .platform-section-nav .learn-menu-options {width:100%; max-width:none}
+  .platform-guide-layout {padding:0 12px; margin-top:18px}
+  .platform-guide-rail {padding:12px; margin-bottom:15px}
+  .platform-guide .guide-breadcrumb {font-size:9px; gap:5px 8px}
+  .platform-guide-layout .footer {font-size:9px}
+  .platform-finder>main {padding:22px 12px 60px}
+  .platform-finder>footer {padding-inline:12px}
+}
+@media(max-width:375px) {
+  .platform-page .chipindex-site-header {width:calc(100% - 20px); padding-top:16px}
+  .platform-page .platform-section-nav {width:calc(100% - 20px); gap:0 10px}
+  .platform-section-nav>a {font-size:9px}
+  .platform-guide-layout {padding-inline:10px}
+  .platform-finder>main,.platform-finder>footer {padding-inline:10px}
+}
+@media print {
+  .platform-page .chipindex-site-header,.platform-section-nav,.platform-guide-rail,.guide-breadcrumb {display:none}
+  .platform-guide-layout {display:block; margin:0; padding:0}
+}
+</style><link rel="stylesheet" href="../css/site-shell.css?v=20261009-cohesive-platforms-1"></head>
+<body class="platform-page platform-guide">
 <a class="skip" href="#main">Skip to learning content</a>
-<aside class="sidebar">
- <div class="vendor-switch"><button class="brand vendor-trigger" id="vendorTrigger" aria-label="Switch vendor guide, current UCS" aria-expanded="false" aria-controls="vendorMenu"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>UCS<span class="brand-sub">FIELD GUIDE</span></span><svg class="vendor-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></button><div class="vendor-menu" id="vendorMenu" hidden><div class="vendor-menu-label">CHOOSE YOUR FIELD GUIDE</div><a class="vendor-option" href="ucs-field-guide.html#overview" aria-current="page"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>Cisco UCS<small>Unified computing</small></span><span class="current-check" aria-hidden="true">✓</span></a><a class="vendor-option" href="hpe-field-guide.html#overview"><span class="hpe-mark" aria-hidden="true"></span><span>HPE<small>ProLiant, Synergy & AI</small></span></a><a class="vendor-option" href="dell-field-guide.html#overview"><span class="dell-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/><text x="20" y="24" text-anchor="middle" fill="currentColor" font-family="Arial,sans-serif" font-size="11" font-weight="700" font-style="italic">DELL</text></svg></span><span>Dell Technologies<small>PowerEdge, MX & AI</small></span></a><a class="vendor-option" href="lenovo-field-guide.html#overview"><span class="lenovo-mark" aria-hidden="true">Lenovo</span><span>Lenovo<small>ThinkSystem, edge & Neptune</small></span></a><a class="vendor-option" href="supermicro-field-guide.html#overview"><span class="supermicro-mark" aria-hidden="true"><svg viewBox="0 0 42 32"><ellipse cx="20" cy="16" rx="18" ry="11" transform="rotate(-24 20 16)" fill="none" stroke="#62be83" stroke-width="2"/><path d="M13 11h12l-4 5h-8l-3 5h13" fill="none" stroke="#c9e6f1" stroke-width="2"/><circle cx="37" cy="9" r="2.6" fill="#ec4650"/></svg></span><span>Supermicro<small>Hyper, Twin, SuperBlade & AI</small></span></a><div class="vendor-menu-foot">Same learning tools. A different platform.</div></div></div>
- <div class="rail-label">LEARN THE PLATFORM</div>
- <nav aria-label="Learning sections" id="nav"></nav><a class="fae-finder-nav" href="index.html#finder?oem=ucs"><span>AMD Platform Finder<small>CPU, GPU &amp; qualification across OEMs</small></span><span aria-hidden="true">↗</span></a>
- <div class="rail-bottom"><span class="live-dot"></span> A guide, built for understanding<p>Independent educational guide<br>Based on Cisco documentation</p><a href="#sources">Catalog snapshot · 2026-10-09 ↗</a></div>
-</aside>
-<div class="workspace"><header class="topbar"><a class="chipindex-return" href="index.html#finder" aria-label="ChipIndex Platforms — open the AMD Platform Finder"><span class="chipindex-wordmark">ChipIndex<span class="chipindex-signal" aria-hidden="true"></span></span><span class="chipindex-section">Platforms</span></a><nav class="site-primary-nav" aria-label="ChipIndex sections"><a class="site-primary-link" href="../">Products</a><a class="site-primary-link" href="../benchmarks/">Benchmarks</a><a class="site-primary-link" href="./#finder" aria-current="page">Platforms</a></nav><span id="crumb" class="visually-hidden">THE BIG PICTURE</span><a class="top-link" href="#quiz">Check your knowledge <span>↗</span></a></header><main id="main" tabindex="-1"></main><footer class="footer"><span>UCS FIELD GUIDE <b> / </b> Learn the hardware. Understand the system.</span><span>Snapshot: 2026-10-09 · v1.2.0 · <a href="#sources">Evidence & scope</a></span></footer></div>
+<div class="chipindex-site-header">
+  <div class="topbar">
+    <nav class="site-primary-nav" aria-label="Main navigation">
+      <a class="site-primary-link" href="../">Products</a>
+      <a class="site-primary-link" href="../benchmarks/">Benchmarks</a>
+      <a class="site-primary-link active" href="index.html#finder" aria-current="page">Platforms</a>
+    </nav>
+    <div class="brand-lockup" aria-label="ChipIndex by Dan Bor, public beta 0.0.5">
+      <div class="brand-lockup-title" aria-hidden="true"><span class="brand-lockup-name">ChipIndex</span><span class="brand-lockup-by">by Dan Bor</span></div>
+      <div class="brand-lockup-rule" aria-hidden="true"><span class="brand-lockup-rule-start"></span><span class="brand-lockup-rule-end"></span></div>
+      <span class="brand-lockup-version" aria-hidden="true">Public beta 0.0.5</span>
+    </div>
+    <div class="topbar-tools"><button class="whats-new-trigger" id="whatsNewBtn" type="button" aria-haspopup="dialog" aria-controls="whatsNewDialog" aria-expanded="false">What's new</button></div>
+  </div>
+</div>
+<nav class="platform-section-nav" aria-label="Platform guide sections">
+  <a href="index.html#finder">Find a platform</a>
+  <a href="index.html#generations">Generations</a>
+  <a href="index.html#decode">Decode a model</a>
+  <a href="index.html#qualify">Support &amp; availability</a>
+  <details class="learn-menu is-current"><summary>OEM guides <span aria-hidden="true">⌄</span></summary><div class="learn-menu-options"><span class="learn-menu-label">LEARN AN OEM LINEUP</span><a class="vendor-option" href="ucs-field-guide.html#overview" aria-current="page"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>Cisco UCS<small>Unified computing</small></span><span class="current-check" aria-hidden="true">✓</span></a><a class="vendor-option" href="hpe-field-guide.html#overview"><span class="hpe-mark" aria-hidden="true"></span><span>HPE<small>ProLiant, Synergy & AI</small></span></a><a class="vendor-option" href="dell-field-guide.html#overview"><span class="dell-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/><text x="20" y="24" text-anchor="middle" fill="currentColor" font-family="Arial,sans-serif" font-size="11" font-weight="700" font-style="italic">DELL</text></svg></span><span>Dell Technologies<small>PowerEdge, MX & AI</small></span></a><a class="vendor-option" href="lenovo-field-guide.html#overview"><span class="lenovo-mark" aria-hidden="true">Lenovo</span><span>Lenovo<small>ThinkSystem, edge & Neptune</small></span></a><a class="vendor-option" href="supermicro-field-guide.html#overview"><span class="supermicro-mark" aria-hidden="true"><svg viewBox="0 0 42 32"><ellipse cx="20" cy="16" rx="18" ry="11" transform="rotate(-24 20 16)" fill="none" stroke="#62be83" stroke-width="2"/><path d="M13 11h12l-4 5h-8l-3 5h13" fill="none" stroke="#c9e6f1" stroke-width="2"/><circle cx="37" cy="9" r="2.6" fill="#ec4650"/></svg></span><span>Supermicro<small>Hyper, Twin, SuperBlade & AI</small></span></a></div></details>
+</nav>
+<div class="platform-guide-layout">
+  <aside class="platform-guide-rail" aria-label="OEM guide navigation">
+    <a class="brand guide-vendor-identity" href="#overview" aria-label="UCS guide overview"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>UCS<span class="brand-sub">FIELD GUIDE</span></span></a>
+    <div class="rail-label">IN THIS GUIDE</div>
+    <nav aria-label="Learning sections" id="nav"></nav>
+    <a class="fae-finder-nav" href="index.html#finder?oem=ucs"><span>Find UCS platforms<small>Compare CPU, memory and support</small></span><span aria-hidden="true">→</span></a>
+    <div class="rail-bottom"><span class="live-dot"></span> Independent learning guide<p>Based on Cisco documentation</p><a href="#sources">Catalog snapshot · 2026-10-09 ↗</a></div>
+  </aside>
+  <div class="workspace">
+    <div class="guide-breadcrumb" aria-label="Current location"><a href="index.html#finder">Platforms</a><span aria-hidden="true">/</span><a href="#overview">Cisco UCS guide</a><span aria-hidden="true">/</span><span id="crumb">The big picture</span></div>
+    <main id="main" tabindex="-1"></main>
+    <footer class="footer"><span>UCS FIELD GUIDE <b> / </b> Learn the hardware. Understand the system.</span><span>Catalog snapshot: 2026-10-09 · catalog v1.2.0 · <a href="#sources">Evidence &amp; scope</a></span></footer>
+  </div>
+</div>
 <dialog id="modelDialog" aria-labelledby="dialogTitle"><div id="dialogContent"></div></dialog>
 <div class="toast" id="toast" role="status" hidden></div>
 <div class="diagram-tip" id="diagramTip" role="tooltip" hidden></div>
@@ -886,13 +1005,18 @@ $('#modelDialog').addEventListener('close',()=>{const parts=location.hash.slice(
 
 render();
 
-const vendorTrigger=document.getElementById('vendorTrigger'),vendorMenu=document.getElementById('vendorMenu');
-function closeVendorMenu(returnFocus=false){vendorMenu.hidden=true;vendorTrigger.setAttribute('aria-expanded','false');if(returnFocus)vendorTrigger.focus();}
-vendorTrigger.addEventListener('click',()=>{const open=vendorMenu.hidden;vendorMenu.hidden=!open;vendorTrigger.setAttribute('aria-expanded',String(open));});
-vendorTrigger.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){e.preventDefault();vendorMenu.hidden=false;vendorTrigger.setAttribute('aria-expanded','true');vendorMenu.querySelector('a').focus();}});
-document.addEventListener('click',e=>{if(!e.target.closest('.vendor-switch'))closeVendorMenu();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!vendorMenu.hidden){e.preventDefault();closeVendorMenu(true);}});
-document.querySelector('.vendor-switch').addEventListener('focusout',e=>{if(!e.currentTarget.contains(e.relatedTarget))closeVendorMenu();});
-vendorMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{const section=location.hash.slice(1).split('/')[0];if(['overview','lineup','platforms','components','quiz','sources'].includes(section))a.href=a.getAttribute('href').split('#')[0]+'#'+section;}));
+// Native disclosures keep the same OEM navigation available throughout Platforms.
+document.querySelectorAll('.learn-menu').forEach(menu=>{
+  const trigger=menu.querySelector('summary');
+  const close=(returnFocus=false)=>{menu.open=false;if(returnFocus)trigger.focus();};
+  document.addEventListener('click',e=>{if(!menu.contains(e.target))close();});
+  menu.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.open){e.preventDefault();close(true);}});
+  menu.addEventListener('focusout',e=>{if(!menu.contains(e.relatedTarget))close();});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    const section=location.hash.slice(1).split('/')[0];
+    if(document.body.classList.contains('platform-guide')&&['overview','lineup','platforms','components','quiz','sources'].includes(section))a.href=a.getAttribute('href').split('#')[0]+'#'+section;
+  }));
+});
 </script>
+<script src="../js/site-updates.js?v=20261009-release-005"></script>
 </body></html>

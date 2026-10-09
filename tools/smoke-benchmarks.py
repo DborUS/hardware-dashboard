@@ -155,7 +155,7 @@ def check_shared_shell(page, active_section):
     dates = dialog.locator("#releaseHistory .release-version time").evaluate_all(
         "items => items.map(item => item.getAttribute('datetime'))"
     )
-    check(len(dates) == 5 and dates[0] == "2026-10-07" and all(dates),
+    check(len(dates) == 6 and dates[0] == "2026-10-09" and all(dates),
           f"{active_section}: dated release history is incomplete")
     page.keyboard.press("Escape")
     page.wait_for_function(

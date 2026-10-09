@@ -9,7 +9,7 @@ short and plain; the technical details belong in `CHANGELOG.md`.
 ### Explore OEM server families in Platforms
 - Changed: 2026-10-09
 - Live: Pending
-- Update: Platforms now sits beside Products and Benchmarks. Explore 102 selected Cisco, HPE, Dell, Lenovo and Supermicro systems, compare generations, and filter by AMD processor family, accelerator, processor count, DIMM slots and DPC. Server illustrations, configuration limits and primary-source links stay together. Fourteen generic server pictures have been replaced with drawings checked against official OEM photos and diagrams, including all ten newly added models. Each drawing identifies the configuration shown, and remaining contextual schematics stay labeled. The existing CPU compatibility dialog also links to the broader guide, while keeping its exact-CPU evidence separate.
+- Update: Platforms now sits beside Products and Benchmarks. The finder and all five OEM learning guides share the ChipIndex header, navigation, public beta 0.0.5 label and What's new history; guide selection and lessons stay within Platforms. Explore 102 selected Cisco, HPE, Dell, Lenovo and Supermicro systems, compare generations, and filter by AMD processor family, accelerator, processor count, DIMM slots and DPC. Server illustrations, configuration limits and primary-source links stay together. Fourteen generic pictures have been replaced with drawings checked against official OEM photos and diagrams, including all ten newly added models. Each drawing identifies the configuration shown, and contextual schematics stay labeled. The CPU compatibility dialog links to this broader guide while retaining its exact-CPU evidence.
 
 ### Compare NPU capabilities across AMD and Intel
 - Changed: 2026-10-08
@@ -24,7 +24,7 @@ short and plain; the technical details belong in `CHANGELOG.md`.
 ### Browse earlier public beta upgrades
 - Changed: 2026-09-30
 - Live: Pending
-- Update: The What's new panel now leads with the October 7 benchmark update and keeps dated summaries of public beta 0.0.1 through 0.0.4 below it, so visitors can see what each upgrade added.
+- Update: The What's new panel keeps dated summaries of earlier public beta upgrades and the October 7 benchmark update beneath the current release, so visitors can see what each upgrade added.
 
 ### Find OEM platforms from a CPU
 - Changed: 2026-09-30

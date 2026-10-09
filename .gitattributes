@@ -25,3 +25,6 @@ tools/spec-import-fixtures/*.csv -text
 *.pdf  binary
 *.png  binary
 *.webp binary
+
+# Shared shell is included in exact browser-review hashes.
+css/site-shell.css text eol=lf

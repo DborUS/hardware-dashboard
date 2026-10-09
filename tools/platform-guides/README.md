@@ -1,8 +1,10 @@
 # ChipIndex Platforms source package
 
-This directory contains the portable v1.2.0 OEM platform release and its subsequent
-reviewed illustration revisions. It has no runtime dependency on the original
-`oem-field-guides` directory or a local server.
+This directory contains the portable v1.2.0 OEM platform catalog, its reviewed
+illustration revisions, and the guide templates integrated into ChipIndex public
+beta 0.0.5. The site version and catalog version describe different releases.
+It has no runtime dependency on the original `oem-field-guides` directory or a
+local server; the generated pages use this repository's shared site assets.
 
 ## Build and check
 
@@ -16,7 +18,8 @@ python tools/check-platform-guides-integration.py
 
 No npm packages, Python packages, network access, or framework are needed for this
 build. Use `--node PATH` or the `NODE` environment variable to select Node.
-Only ordinary static files under `platforms/` are needed to serve the section.
+Serve the generated `platforms/` files together with the referenced shared
+`css/site-shell.css` and `js/site-updates.js` assets from the site root.
 
 The builder uses an isolated directory under the repository's ignored `tmp/`,
 checks writes, normalizes source newlines, and removes the stage after validating
@@ -59,6 +62,29 @@ addressable. Products, Benchmarks, Platforms, OEM guide menus, and evidence link
 use relative routes and work under a GitHub Pages project prefix or another local
 subpath. No deployment domain or localhost address is needed by runtime navigation.
 
+## Shared site shell and releases
+
+All eight main surfaces — Products, Benchmarks, the Finder and five OEM guides —
+use the same `.chipindex-site-header`, top-level navigation, version display and
+What's new dialog. The Finder/OEM selectors and each guide's lessons are secondary
+navigation inside Platforms. OEM marks and colors remain learning context, and
+existing direct guide/model routes continue to work.
+
+`css/site-shell.css` styles the common header and dialog without loading the
+Products layout into a guide. `js/site-updates.js` provides the frozen
+`ChipIndexRelease` metadata, header-label synchronization and shared dated release
+history. `src/template.html` and `src/finder-template.html` provide matching static
+fallbacks; `src/platforms-shell.css` controls the local guide navigation. Preserve
+this hierarchy when adding another view rather than replacing What's new with a
+section-specific action.
+
+The integrated manifest records `siteVersion` separately from catalog `version`.
+It hashes `../css/site-shell.css` and `../js/site-updates.js` in `sharedAssetHashes`
+and includes those entries in `buildHash`. Changing shared shell styling or release
+content therefore invalidates an older browser review, just as changing a generated
+page does. Bump the appropriate asset cache revisions in all eight surfaces and
+rebuild after shared asset changes.
+
 ## Data integrity and review scope
 
 The original integration preserved all imported facts and artwork. The subsequent
@@ -96,7 +122,8 @@ change the original specification evidence or its review dates.
 
 The published implementation evaluation requires five current automated suite
 reports plus a current integrated browser report. Both `catalogHash` and
-`buildHash` must match. Supplemental pages such as the illustration gallery also
+`buildHash` must match; the latter includes the shared shell and release assets.
+Supplemental pages such as the illustration gallery also
 carry an exact file hash in the browser report's `reviewedPageHashes`; editing
 one makes that recorded browser review stale. A missing or stale browser report produces INCOMPLETE;
 the old source-release PASS is never substituted.
@@ -120,9 +147,11 @@ Browser review input schema:
 }
 ```
 
-The pre-revision integration review is historical after artwork changes. Inspect
-the new gallery and actual finder/guide cards before recording a current browser
-review; the implementation report must not inherit that earlier PASS.
+Prior integration and artwork browser reviews remain historical for their recorded
+hashes. The cohesive-header revision needs its own actual browser review, including
+all eight headers, What's new history, OEM lesson navigation and responsive layouts.
+Hardware and physical-reference evidence remain separate from this presentation
+review; the implementation report must not inherit an earlier UI PASS.
 
 After recording an actual browser review, rerun the build to regenerate the
 evaluation. A repeated build with the same inputs is byte-for-byte deterministic.

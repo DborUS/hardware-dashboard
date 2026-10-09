@@ -111,7 +111,7 @@ def build(stage: Path, node: str) -> Path:
     manifest['upstreamBuiltAt'] = provenance['sourceRelease']['builtAt']
     manifest['integrationAsOf'] = '2026-10-09'
     manifest['integration'] = {
-        'revision': 'chipindex-platforms-art-2', 'canonicalRoute': 'platforms/index.html',
+        'revision': 'chipindex-cohesive-shell-3', 'canonicalRoute': 'platforms/index.html',
         'upstreamBuildHash': provenance['sourceRelease']['buildHash'],
         'upstreamCatalogHash': provenance['sourceRelease']['contentHash'],
         'catalogFileSha256': sha(catalog_bytes),
@@ -120,7 +120,9 @@ def build(stage: Path, node: str) -> Path:
         'scope': 'Reviewed exterior illustrations updated. All hardware, memory, support, generation and lifecycle fields are unchanged.',
     }
     manifest['pageHashes'] = {name: sha((out / name).read_bytes()) for name in PAGES}
-    manifest['buildHash'] = sha('\n'.join(name + '\0' + digest for name, digest in manifest['pageHashes'].items()).encode('utf-8'))
+    manifest['siteVersion'] = '0.0.5'
+    manifest['sharedAssetHashes'] = {name: sha((DESTINATION / name).resolve().read_bytes()) for name in ('../css/site-shell.css', '../js/site-updates.js')}
+    manifest['buildHash'] = sha('\n'.join(name + '\0' + digest for name, digest in [*manifest['pageHashes'].items(), *manifest['sharedAssetHashes'].items()]).encode('utf-8'))
     write_json(out / 'build-manifest.json', manifest)
     run([node, str(work / 'run-release-checks.cjs')], work)
     run([node, str(work / 'build-spec-verification.cjs')], work)

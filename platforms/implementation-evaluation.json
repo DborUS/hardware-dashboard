@@ -2,22 +2,22 @@
   "version": "1.2.0",
   "integrationAsOf": "2026-10-09",
   "catalogHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
-  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "buildHash": "b2ab22aecc616876917d43bb3c2e5a96d5dcd673c08aa08c0e2a460715c9935c",
   "status": "PASS",
-  "verdict": "Reviewed server drawings integrated",
-  "summary": "Fourteen generic drawings were replaced with original illustrations based on inspected OEM photos and front-view diagrams. All 102 profiles retain their hardware facts and FAE distinctions. Current integrated card, source-disclosure, comparison, redirect and responsive checks passed.",
+  "verdict": "Cohesive ChipIndex integration verified",
+  "summary": "Products, Benchmarks, the Finder and five OEM guides now share one ChipIndex header, version and release history. OEM guides sit within Platforms with shared platform tools, lesson navigation and routes back to the Finder. Fresh responsive and interaction checks passed; protected catalog facts and reviewed drawings remain unchanged.",
   "strengths": [
-    "The ten new profiles and four older generic illustrations now show source-inspected example configurations.",
-    "All 102 cards retain prominent processor counts, DIMM slots, DPC and per-server or per-node scope.",
-    "The earlier blade, tower and formatting corrections remain intact. Every non-art catalog field is protected against unintended edits.",
-    "The Finder and all five OEM learning guides use the same reviewed artwork; reference details and configuration limits remain accessible."
+    "Public beta 0.0.5 and What's new remain visible on all eight main pages; six releases are retained in the shared history.",
+    "OEM navigation belongs to Platforms rather than replacing a global header control. Guides retain their learning structure, brand accents and server artwork.",
+    "All 102 profile cards across five OEM lineups fit at desktop and mobile widths, with prominent processor, DIMM and DPC information.",
+    "Existing Finder comparison, OEM model deep links and model dialogs continue to work with the new layout.",
+    "Automated preservation guards and deterministic generation protect the catalog, artwork and shared presentation assets."
   ],
   "limitations": [
-    "HPE ProLiant XD245/XD285 and Supermicro SBA-817V7-1N remain explicitly labeled contextual schematics because exact isolated-model exteriors were not established.",
-    "Drawings represent documented example configurations, not simultaneous storage/CPU/GPU maxima.",
-    "This is a fresh physical-reference review of 14 illustrations and a layout/preservation review across 102 profiles; it is not a fresh source audit of every hardware specification.",
-    "Coverage is curated and partial. Exact configuration and orderability require OEM confirmation; HPE QuickSpecs remain primary HPE configuration evidence.",
-    "Public publication remains a separate owner action."
+    "This review covers interface integration. The earlier specification and physical-reference reviews retain their own recorded scope and dates.",
+    "HPE ProLiant XD245/XD285 and Supermicro SBA-817V7-1N remain explicitly labeled contextual schematics.",
+    "Coverage is curated and partial; exact configuration and orderability require OEM confirmation. HPE QuickSpecs remain primary HPE configuration evidence.",
+    "Public publication and hosted validation remain separate owner actions."
   ],
   "suites": [
     {
@@ -54,7 +54,7 @@
       "name": "Integrated browser review",
       "file": "integration-browser-results.json",
       "status": "PASS",
-      "passed": 14
+      "passed": 13
     }
   ],
   "upstream": {

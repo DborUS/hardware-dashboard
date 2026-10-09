@@ -1,0 +1,89 @@
+{
+  "version": "1.2.0",
+  "buildHash": "122afa85e8e9be26212fb2fe82849ddc19f0a81b280442b1f63dd0a1daf6f173",
+  "catalogHash": "bdaa169dbd45e6287231e3f4b4339f5310626ddfc7b96af076255c213bb54bd0",
+  "reviewedAt": "2026-10-09T19:29:52.522289+00:00",
+  "method": "Manual review through the Codex in-app browser, plus read-only rendered DOM containment checks. Desktop, 1280px, 390px and 320px. Four OEM visual-reference records describe the separate source inspections.",
+  "routeScope": "Project deployment prefix /hardware-dashboard/",
+  "passed": 14,
+  "failed": 0,
+  "results": [
+    {
+      "name": "All 14 revised illustrations visually reviewed in the generated gallery at desktop card scale",
+      "status": "PASS"
+    },
+    {
+      "name": "Earlier formatting examples retain upright Synergy, no tower feet, attached SE100 fins and continuous SSG chassis",
+      "status": "PASS"
+    },
+    {
+      "name": "All 102 gallery cards render one illustration each with no duplicate SVG IDs, memory-cell overlap or card/page overflow at 1280px",
+      "status": "PASS"
+    },
+    {
+      "name": "All 102 gallery cards and memory cells fit the confirmed 320px layout; unknown values wrap without overlap",
+      "status": "PASS"
+    },
+    {
+      "name": "All 102 actual Finder cards retain one illustration and prominent processor/DIMM/DPC block, with no duplicate IDs or overflow at 320px",
+      "status": "PASS"
+    },
+    {
+      "name": "All 102 actual Finder cards fit the 1280px desktop layout without card or page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "AS-2127H7-N now shows the source-inspected eight-carrier front, and its 390px card retains processor, memory, dates and support distinctions",
+      "status": "PASS"
+    },
+    {
+      "name": "AS-2127H7-N illustration disclosure exposes the exact OEM reference, front-view locator and alternative-configuration caveat",
+      "status": "PASS"
+    },
+    {
+      "name": "HPE XD675 learning-guide details render the reviewed 8U chassis and preserve explicitly unconfirmed DPC",
+      "status": "PASS"
+    },
+    {
+      "name": "DL325 Gen11/Gen12 comparison preserves CPU, DIMM, DPC, dates, qualification limits and QuickSpecs evidence after reload",
+      "status": "PASS"
+    },
+    {
+      "name": "Saved comparison fits 320px with table scrolling contained inside the dialog",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy finder URL and removed Field Exercise route redirect to Finder while preserving query string, HPE filter and Synergy search",
+      "status": "PASS"
+    },
+    {
+      "name": "All five OEM learning guides open revised-model deep links at 320px with illustrations and memory essentials, without page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "Browser error log remains empty for reviewed integrated routes",
+      "status": "PASS"
+    }
+  ],
+  "evaluation": {
+    "verdict": "Reviewed server drawings integrated",
+    "summary": "Fourteen generic drawings were replaced with original illustrations based on inspected OEM photos and front-view diagrams. All 102 profiles retain their hardware facts and FAE distinctions. Current integrated card, source-disclosure, comparison, redirect and responsive checks passed.",
+    "strengths": [
+      "The ten new profiles and four older generic illustrations now show source-inspected example configurations.",
+      "All 102 cards retain prominent processor counts, DIMM slots, DPC and per-server or per-node scope.",
+      "The earlier blade, tower and formatting corrections remain intact. Every non-art catalog field is protected against unintended edits.",
+      "The Finder and all five OEM learning guides use the same reviewed artwork; reference details and configuration limits remain accessible."
+    ],
+    "limitations": [
+      "HPE ProLiant XD245/XD285 and Supermicro SBA-817V7-1N remain explicitly labeled contextual schematics because exact isolated-model exteriors were not established.",
+      "Drawings represent documented example configurations, not simultaneous storage/CPU/GPU maxima.",
+      "This is a fresh physical-reference review of 14 illustrations and a layout/preservation review across 102 profiles; it is not a fresh source audit of every hardware specification.",
+      "Coverage is curated and partial. Exact configuration and orderability require OEM confirmation; HPE QuickSpecs remain primary HPE configuration evidence.",
+      "Public publication remains a separate owner action."
+    ]
+  },
+  "reviewedPageHashes": {
+    "illustration-review.html": "a9a5a25773a0692e5c8c1f775410f36a86a7e80da22d8befb233cf18517b4814"
+  },
+  "proofImage": "../tmp/source-reviewed-supermicro-cards.jpg"
+}

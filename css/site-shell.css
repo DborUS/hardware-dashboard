@@ -1,0 +1,240 @@
+/* Shared ChipIndex identity and release dialog. All eight main surfaces load
+   this file last. Page/guide styles stay outside this scoped shell. */
+.chipindex-site-header, #whatsNewDialog {
+  --bg-primary:#0a0e1a; --bg-card:#1a2236;
+  --border-subtle:rgba(255,255,255,.06); --text-primary:#e8ecf4;
+  --text-secondary:#8892a8; --text-muted:#5a6478;
+  color:var(--text-primary); font-family:'DM Sans',sans-serif; font-size:16px; line-height:1.5;
+}
+.chipindex-site-header {max-width:1152px; margin-inline:auto; position:relative; z-index:10;}
+.chipindex-site-header *, #whatsNewDialog * {box-sizing:border-box;}
+.chipindex-site-header .topbar {position:static; height:auto; min-height:0; width:100%; margin:0; border:0; background:none; backdrop-filter:none;}
+.chipindex-site-header .site-primary-nav {margin:0; max-width:100%; grid-column:1; grid-row:1;}
+.chipindex-site-header .brand-lockup {margin:0; padding:0; text-decoration:none; max-width:none; grid-column:2; grid-row:1;}
+.chipindex-site-header .topbar-tools {grid-column:3; grid-row:1;}
+#whatsNewDialog {font-size:16px; line-height:1.5;}
+#whatsNewDialog h2, #whatsNewDialog h3, #whatsNewDialog h4 {font-family:'JetBrains Mono',monospace; font-weight:600; line-height:1.3;}
+#whatsNewDialog p {margin:0; letter-spacing:normal; text-transform:none;}
+.chipindex-site-header .topbar {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) minmax(0, 520px) minmax(300px, 1fr);
+    align-items: center; column-gap: 18px; row-gap: 12px;
+    padding: 4px 0 14px;
+  }
+.chipindex-site-header .site-primary-nav {
+    display: inline-flex; align-items: center; justify-self: start;
+    gap: 2px; min-width: 0; padding: 3px;
+    border: 1px solid var(--border-subtle); border-radius: 7px;
+    background: var(--bg-card);
+  }
+.chipindex-site-header .site-primary-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: 7px 12px;
+    border: 1px solid transparent; border-radius: 5px;
+    color: var(--text-secondary); text-decoration: none; white-space: nowrap;
+    font: 600 0.73rem 'JetBrains Mono', monospace; letter-spacing: 0.35px;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+.chipindex-site-header .site-primary-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+.chipindex-site-header .site-primary-link.active,
+.chipindex-site-header .site-primary-link[aria-current="page"] {
+    border-color: rgba(237,28,36,0.35); background: rgba(237,28,36,0.16);
+    color: var(--text-primary);
+  }
+.chipindex-site-header .site-primary-link:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+.chipindex-site-header .brand-lockup {
+    width: min(100%, 520px); min-width: 0; justify-self: center;
+    color: #fff;
+  }
+.chipindex-site-header .brand-lockup-title {
+    display: flex; align-items: baseline; gap: 16px;
+    min-width: 0; white-space: nowrap;
+  }
+.chipindex-site-header .brand-lockup-name {
+    font-family: 'Arial Black', Impact, 'DM Sans', sans-serif;
+    font-size: clamp(2.05rem, 3.4vw, 3.35rem); font-weight: 900;
+    font-style: italic; line-height: 0.88; letter-spacing: -3px;
+    color: #fff;
+  }
+.chipindex-site-header .brand-lockup-by {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(0.62rem, 1vw, 0.86rem); font-weight: 500;
+    letter-spacing: 0.8px; color: var(--text-secondary);
+  }
+.chipindex-site-header .brand-lockup-rule {
+    position: relative; height: 2px; margin: 9px 0 7px 2px;
+    background: color-mix(in srgb, var(--text-muted) 58%, transparent);
+  }
+.chipindex-site-header .brand-lockup-rule-start,
+.chipindex-site-header .brand-lockup-rule-end {
+    position: absolute; top: 0; height: 2px;
+    box-shadow: 0 0 9px currentColor;
+  }
+.chipindex-site-header .brand-lockup-rule-start { left: 0; width: 19%; color: #f036a4; background: currentColor; }
+.chipindex-site-header .brand-lockup-rule-end { right: 0; width: 20%; color: #4eddf1; background: currentColor; }
+.chipindex-site-header .brand-lockup-version {
+    display: block; margin-left: 2px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.609rem; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase; color: #4eddf1;
+  }
+.chipindex-site-header .topbar #pageHeader.sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+.chipindex-site-header .topbar header { text-align: left; margin: 0; min-width: 0; display: flex; align-items: baseline; gap: 12px; }
+.chipindex-site-header .topbar header h1 { font-size: 1.15rem; margin: 0; letter-spacing: 0.5px; white-space: nowrap; }
+.chipindex-site-header .topbar header p {
+    font-size: 0.713rem; letter-spacing: 1.6px; color: var(--text-muted); margin: 0;
+    
+    max-width: 46ch; min-width: 0; overflow: hidden;
+    text-overflow: ellipsis; white-space: nowrap;
+  }
+.chipindex-site-header .topbar-tools {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end;
+    justify-self: end; width: 240px; gap: 6px; min-width: 0;
+  }
+.chipindex-site-header .topbar .v2-status { flex: 0 0 100%; margin: 0; min-width: 0; text-align: right; white-space: nowrap; }
+.chipindex-site-header .whats-new-trigger {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    flex: 0 0 auto; min-height: 36px; padding: 7px 11px;
+    border: 1px solid rgba(78,221,241,0.29); border-radius: 6px;
+    background: rgba(78,221,241,0.055); color: #a9edf5;
+    font: 700 0.7rem 'JetBrains Mono', monospace; letter-spacing: 0.35px;
+    white-space: nowrap; cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+.chipindex-site-header .whats-new-trigger::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: #4eddf1; box-shadow: 0 0 8px rgba(78,221,241,0.5);
+  }
+.chipindex-site-header .whats-new-trigger:hover,
+.chipindex-site-header .whats-new-trigger[aria-expanded="true"] {
+    border-color: rgba(78,221,241,0.6); background: rgba(78,221,241,0.12);
+    color: #e5fbff;
+  }
+.chipindex-site-header .whats-new-trigger:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+@media (max-width: 980px) {
+.chipindex-site-header .topbar { grid-template-columns: minmax(0, 1fr) max-content; column-gap: 12px; padding-bottom: 10px; }
+.chipindex-site-header .brand-lockup { grid-column: 1 / -1; grid-row: 1; width: min(100%, 520px); justify-self: center; }
+.chipindex-site-header .site-primary-nav { grid-column: 1; grid-row: 2; }
+.chipindex-site-header .topbar-tools { grid-column: 2; grid-row: 2; width: 240px; min-height: 36px; }
+.chipindex-site-header .brand-lockup-title { gap: 11px; }
+.chipindex-site-header .brand-lockup-name { font-size: clamp(1.5rem, 4.7vw, 2.1rem); letter-spacing: -2px; }
+.chipindex-site-header .brand-lockup-by { font-size: clamp(0.56rem, 1.7vw, 0.72rem); }
+.chipindex-site-header .topbar header { gap: 8px; }
+.chipindex-site-header .topbar header h1 { font-size: 1rem; }
+.chipindex-site-header .topbar header p { display: none; }
+.chipindex-site-header .topbar .v2-status { overflow: hidden; text-overflow: ellipsis; }
+}
+@media (max-width: 780px) {
+.chipindex-site-header .brand-lockup { justify-self: start; }
+}
+@media (max-width: 640px) {
+.chipindex-site-header .topbar { grid-template-columns: 1fr; }
+.chipindex-site-header .brand-lockup { grid-column: 1; grid-row: 1; width: 100%; }
+.chipindex-site-header .site-primary-nav { grid-column: 1; grid-row: 2; width: 100%; justify-self: stretch; }
+.chipindex-site-header .site-primary-link { flex: 1; min-width: 0; padding-inline: 8px; letter-spacing: 0; }
+.chipindex-site-header .topbar-tools { grid-column: 1; grid-row: 3; width: 100%; min-height: 36px; justify-content: space-between; }
+.chipindex-site-header .brand-lockup-title { gap: 10px; }
+.chipindex-site-header .brand-lockup-name { font-size: clamp(1.85rem, 9.5vw, 2.45rem); }
+.chipindex-site-header .brand-lockup-by { font-size: clamp(0.58rem, 3.1vw, 0.78rem); }
+.chipindex-site-header .brand-lockup-version { font-size: 0.575rem; }
+.chipindex-site-header .topbar header h1 { font-size: clamp(0.88rem, 3.5vw, 1rem); }
+}
+#whatsNewDialog .dialog-close {
+    border-radius: 6px; min-height: 34px; padding: 7px 12px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.747rem; cursor: pointer;
+  }
+#whatsNewDialog .dialog-close {
+    border: 1px solid var(--border-subtle); background: transparent; color: var(--text-secondary);
+  }
+#whatsNewDialog {
+    width: min(1120px, calc(100vw - 32px)); max-height: calc(100vh - 48px);
+    
+    margin: auto;
+    padding: 0; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px;
+    background: #0d1322; color: var(--text-primary); box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  }
+#whatsNewDialog::backdrop { background: rgba(2,6,14,0.78); backdrop-filter: blur(4px); }
+#whatsNewDialog .dialog-head {
+    position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 20px; padding: 18px 20px;
+    border-bottom: 1px solid var(--border-subtle); background: #0d1322;
+  }
+#whatsNewDialog .dialog-head h2 { margin: 3px 0 0; font-size: 1.1rem; }
+#whatsNewDialog .dialog-kicker {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.644rem;
+    color: #60a5fa; letter-spacing: 1.8px;
+  }
+#whatsNewDialog .dialog-close { padding: 5px 10px; }
+.chipindex-site-header .topbar header h1 {
+    font-size: 1.38rem;
+    line-height: 1.15;
+    letter-spacing: 0.7px;
+  }
+@media (max-width: 900px) {
+.chipindex-site-header .topbar header h1 { font-size: 1.2rem; }
+}
+@media (max-width: 640px) {
+.chipindex-site-header .topbar header h1 { font-size: clamp(0.88rem, 3.5vw, 1rem); }
+}
+#whatsNewDialog {
+    width: min(700px, calc(100vw - 24px));
+    max-height: min(760px, calc(100dvh - 32px));
+    overflow: hidden; background: #101827; border-color: rgba(78,221,241,0.25);
+  }
+#whatsNewDialog[open] { display: flex; flex-direction: column; height: min(760px, calc(100dvh - 32px)); }
+#whatsNewDialog .dialog-head {
+    position: static; flex: 0 0 auto; align-items: flex-start; padding: 23px 26px 20px;
+    background: #101827; border-bottom-color: rgba(78,221,241,0.16);
+  }
+#whatsNewDialog .dialog-kicker { color: #62ddec; }
+#whatsNewDialog .dialog-head h2 { margin-top: 6px; font-size: 1.55rem; letter-spacing: -0.4px; }
+#whatsNewDialog .release-period { margin-top: 6px; color: var(--text-secondary); font-size: 0.85rem; }
+#whatsNewDialog .release-history { flex: 1 1 auto; min-height: 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #467889 #101827; }
+#whatsNewDialog .release-history:focus-visible { outline: 2px solid #62ddec; outline-offset: -3px; }
+#whatsNewDialog .release-history::-webkit-scrollbar { width: 10px; }
+#whatsNewDialog .release-history::-webkit-scrollbar-track { background: #101827; }
+#whatsNewDialog .release-history::-webkit-scrollbar-thumb { background: #467889; border: 2px solid #101827; border-radius: 10px; }
+#whatsNewDialog .release-version { border-bottom: 1px solid rgba(255,255,255,0.1); }
+#whatsNewDialog .release-version:last-child { border-bottom: 0; }
+#whatsNewDialog .release-version-head {
+    position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between;
+    gap: 8px 18px; flex-wrap: wrap; align-items: baseline; padding: 12px 26px;
+    border-bottom: 1px solid rgba(78,221,241,0.14); background: #172637;
+  }
+#whatsNewDialog .release-version:first-child .release-version-head { background: #193545; }
+#whatsNewDialog .release-version-head h3 { margin: 0; color: #d4f7fa; font-size: 0.92rem; letter-spacing: 0.02em; }
+#whatsNewDialog .release-version-head time { color: #a5bfcb; font: 600 0.68rem 'JetBrains Mono', monospace; }
+#whatsNewDialog .release-notes { padding: 3px 26px 14px; }
+#whatsNewDialog .release-note {
+    display: grid; grid-template-columns: 126px minmax(0, 1fr);
+    gap: 18px; align-items: start; padding: 17px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+#whatsNewDialog .release-note:last-child { border-bottom: 0; }
+#whatsNewDialog .release-note-label {
+    padding-top: 3px; color: #62ddec;
+    font: 700 0.65rem 'JetBrains Mono', monospace;
+    line-height: 1.4; letter-spacing: 1.1px;
+  }
+#whatsNewDialog .release-note h4 { margin: 0 0 5px; color: var(--text-primary); font-size: 0.97rem; line-height: 1.3; }
+#whatsNewDialog .release-note p { color: var(--text-secondary); font-size: 0.87rem; line-height: 1.5; }
+@media (max-width: 640px) {
+#whatsNewDialog .dialog-head { gap: 12px; padding: 19px 18px 17px; }
+#whatsNewDialog .dialog-kicker { letter-spacing: 1px; }
+#whatsNewDialog .dialog-head h2 { font-size: 1.35rem; }
+#whatsNewDialog .release-version-head { padding: 11px 18px; }
+#whatsNewDialog .release-notes { padding: 1px 18px 12px; }
+#whatsNewDialog .release-note { grid-template-columns: 1fr; gap: 5px; padding: 14px 0; }
+#whatsNewDialog .release-note-label { padding-top: 0; }
+}
+/* Keep release controls usable and independent of page-specific button styles. */
+.chipindex-site-header .whats-new-trigger {min-height:44px;}
+.chipindex-site-header .site-primary-link:hover {text-decoration:none;}
+#whatsNewDialog:not([open]) {display:none;}
+#whatsNewDialog .dialog-close {display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto; width:44px; height:44px; padding:0; border:1px solid rgba(78,221,241,.3); border-radius:6px; background:#172637; color:#d4f7fa; font:600 18px 'JetBrains Mono',monospace; cursor:pointer;}
+#whatsNewDialog .dialog-close:focus-visible {outline:2px solid #62ddec; outline-offset:2px;}
+#whatsNewDialog .release-period {margin-top:6px;}
+#whatsNewDialog .release-note p {margin:0;}
+@media (prefers-reduced-motion:reduce) {.chipindex-site-header * {transition:none!important;}}

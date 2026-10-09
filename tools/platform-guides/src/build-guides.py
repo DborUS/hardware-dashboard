@@ -17,6 +17,7 @@ fae_css=(root/'fae-guide.css').read_text(encoding='utf-8-sig')
 chipindex_css=(root/'chip-index-guides.css').read_text(encoding='utf-8')
 memory_ui=(root/'memory-ui.js').read_text(encoding='utf-8')
 memory_css=(root/'memory-ui.css').read_text(encoding='utf-8')
+shell_css=(root/'platforms-shell.css').read_text(encoding='utf-8')
 
 def add_generation_context(app):
     changes=[
@@ -66,12 +67,15 @@ def vendor_menu(vendor):
         brand=f'<span class="lenovo-brand">{mark}<span class="brand-sub">FIELD GUIDE</span></span>'
     if vendor=='Supermicro':
         brand='<span class="supermicro-brand"><span class="supermicro-wordmark">SUPERMICRO<i></i></span><span class="brand-sub">FIELD GUIDE</span></span>'
-    return f'<div class="vendor-switch"><button class="brand vendor-trigger" id="vendorTrigger" aria-label="Switch vendor guide, current {vendor}" aria-expanded="false" aria-controls="vendorMenu">{brand}<svg class="vendor-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></button><div class="vendor-menu" id="vendorMenu" hidden><div class="vendor-menu-label">CHOOSE YOUR FIELD GUIDE</div>{opts}<div class="vendor-menu-foot">Same learning tools. A different platform.</div></div></div>'
+    menu=f'<details class="learn-menu is-current"><summary>OEM guides <span aria-hidden="true">⌄</span></summary><div class="learn-menu-options"><span class="learn-menu-label">LEARN AN OEM LINEUP</span>{opts}</div></details>'
+    return menu,brand
 for vendor in ['UCS','HPE','Dell','Lenovo','Supermicro']:
-    html=re.sub(r'<a class="brand".*?</a>',vendor_menu(vendor),template,count=1)
+    menu,brand=vendor_menu(vendor)
+    html=template.replace('<!--__OEM_MENU__-->',menu).replace('<!--__OEM_CONTEXT__-->',brand).replace('<!--__OEM_LABEL__-->','Cisco UCS' if vendor=='UCS' else vendor)
+    html=html.replace('aria-label="UCS guide overview"',f'aria-label="{vendor} guide overview"')
     finder_link=f'index.html#finder?oem={vendor.lower()}'
-    html=html.replace('</nav>',f'</nav><a class="fae-finder-nav" href="{finder_link}"><span>AMD Platform Finder<small>CPU, GPU &amp; qualification across OEMs</small></span><span aria-hidden="true">↗</span></a>',1)
-    html=html.replace('Sources checked · 07 Oct 2026',f'Catalog snapshot · {release["snapshotDate"]}').replace('Snapshot: 07 Oct 2026',f'Snapshot: {release["snapshotDate"]} · v{release["version"]}')
+    html=html.replace('<!--__FINDER_LINK__-->',f'<a class="fae-finder-nav" href="{finder_link}"><span>Find {vendor} platforms<small>Compare CPU, memory and support</small></span><span aria-hidden="true">→</span></a>')
+    html=html.replace('Sources checked · 07 Oct 2026',f'Catalog snapshot · {release["snapshotDate"]}').replace('Snapshot: 07 Oct 2026',f'Catalog snapshot: {release["snapshotDate"]} · catalog v{release["version"]}')
     app=original
     vendor_css=css
     if vendor!='UCS':
@@ -110,7 +114,7 @@ for vendor in ['UCS','HPE','Dell','Lenovo','Supermicro']:
     app=add_fae_context(add_generation_context(app))
     reviewed_art='\n'.join((root/f'reviewed-art-{name}.js').read_text(encoding='utf-8') for name in ('hpe','cisco-dell','supermicro','lenovo'))
     app=reviewed_art+'\n'+(root/'installed-base-art.js').read_text(encoding='utf-8')+'\n'+memory_ui+'\n'+app
-    vendor_css+='\n'+generation_css+'\n'+fae_css+'\n'+chipindex_css+'\n'+memory_css
+    vendor_css+='\n'+generation_css+'\n'+fae_css+'\n'+chipindex_css+'\n'+memory_css+'\n'+shell_css
     (root/f'{vendor.lower()}-app.js').write_text(app,encoding='utf-8',newline='')
     html=html.replace('/*__CSS__*/',vendor_css).replace('/*__DATA__*/',data).replace('/*__APP__*/',app+'\n'+switch)
     out=root.parent/'outputs'/f'{vendor.lower()}-field-guide.html'

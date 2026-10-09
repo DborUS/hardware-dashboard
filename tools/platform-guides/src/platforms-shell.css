@@ -1,0 +1,89 @@
+/* Platforms share the site header while OEM colour remains content context. */
+.platform-page .chipindex-site-header {width:calc(100% - 48px); padding-top:40px}
+.platform-page .platform-section-nav {position:relative; z-index:25; display:flex; align-items:stretch; flex-wrap:wrap; gap:0 24px; max-width:1552px; width:calc(100% - 48px); margin:12px auto 0; padding:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); font-family:'JetBrains Mono',Consolas,monospace}
+.platform-section-nav>a {display:flex; align-items:center; justify-content:center; min-height:52px; padding:10px 0; border-bottom:2px solid transparent; color:var(--muted); font-size:11px; font-weight:500; line-height:1.5; text-decoration:none; white-space:nowrap}
+.platform-section-nav>a:hover {color:var(--text); text-decoration:none}
+.platform-section-nav>a[aria-current=page] {color:var(--text); border-bottom-color:#ed1c24}
+.platform-section-nav .learn-menu {position:relative; z-index:26; margin:0 0 0 auto; min-width:0; align-self:stretch; font:500 11px/1.5 'JetBrains Mono',Consolas,monospace}
+.platform-section-nav .learn-menu summary {display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:52px; padding:10px 12px; border:0; border-bottom:2px solid transparent; border-radius:0; background:transparent; color:var(--muted); cursor:pointer; list-style:none}
+.platform-section-nav .learn-menu summary::-webkit-details-marker {display:none}
+.platform-section-nav .learn-menu summary>span {color:var(--muted)}
+.platform-section-nav .learn-menu summary:hover,.platform-section-nav .learn-menu[open] summary {background:rgba(255,255,255,.035); color:var(--text)}
+.platform-section-nav .learn-menu.is-current summary {border-bottom-color:#ed1c24; color:var(--text)}
+.platform-section-nav .learn-menu[open] summary>span {transform:rotate(180deg)}
+.platform-section-nav .learn-menu-options {position:absolute; top:calc(100% + 8px); right:0; width:286px; max-width:calc(100vw - 32px); padding:8px; border:1px solid var(--line); border-radius:8px; background:var(--panel); box-shadow:0 15px 40px #0009}
+.platform-section-nav .learn-menu-label {display:block; padding:10px; color:var(--dim); font-size:9px; line-height:1.5; letter-spacing:1px}
+.platform-section-nav .learn-menu-options a {display:flex; align-items:center; gap:12px; min-height:44px; padding:10px; margin:0; border:0; border-radius:5px; color:var(--text); font-size:12px; line-height:1.5; text-decoration:none; white-space:normal}
+.platform-section-nav .learn-menu-options a:hover {background:var(--raised); color:var(--text); text-decoration:none}
+.platform-section-nav .learn-menu-options a[aria-current=page] {background:var(--raised); box-shadow:inset 2px 0 var(--accent)}
+.platform-section-nav .learn-menu-options .current-check {margin-left:auto; color:var(--accent)}
+.platform-section-nav .learn-menu-options small {display:block; margin-top:3px; font-family:'DM Sans','Segoe UI',sans-serif; color:var(--muted); font-size:11px}
+.platform-section-nav .learn-menu-options .vendor-option {margin:0; padding:10px; font-size:12px}
+.platform-finder>main {max-width:1600px; padding:30px 24px 75px}
+.platform-finder>footer {max-width:1600px; margin-inline:auto; padding-inline:24px}
+.platform-guide-layout {display:grid; grid-template-columns:208px minmax(0,1fr); gap:28px; max-width:1600px; padding:0 24px; margin:26px auto 0; align-items:start}
+.platform-guide-rail {position:sticky; top:20px; min-width:0; max-height:calc(100vh - 40px); overflow-y:auto; padding:20px 12px; border:1px solid var(--line); border-radius:8px; background:var(--panel); scrollbar-width:thin}
+.platform-guide-rail .guide-vendor-identity {display:flex; align-items:center; gap:12px; min-height:52px; margin:0 4px 23px; padding:0; color:var(--text); text-decoration:none; font-size:27px}
+.platform-guide-rail .guide-vendor-identity .brand-sub {display:block; margin:7px 0 0; font:9px/1.5 'JetBrains Mono',Consolas,monospace; letter-spacing:1.5px; color:var(--dim)}
+.platform-guide-rail .supermicro-wordmark {font-size:17px}
+.platform-guide-rail .rail-label {display:block; margin:0 10px 8px; font:9px/1.5 'JetBrains Mono',Consolas,monospace; letter-spacing:1px; color:var(--dim)}
+.platform-guide-rail #nav {display:block; overflow:visible}
+.platform-guide-rail .nav-item {display:flex; align-items:center; min-height:44px; padding:10px; margin:3px 0; gap:9px; white-space:normal; font-size:12px; line-height:1.5; border-radius:5px; text-decoration:none}
+.platform-guide-rail .nav-item svg {width:17px; height:17px; flex-shrink:0}
+.platform-guide-rail .nav-index {display:none}
+.platform-guide-rail .rail-bottom {display:block; margin-top:22px; padding:17px 10px 0; border-top:1px solid var(--line); font-size:10px; line-height:1.7}
+.platform-guide-rail .rail-bottom p {margin:8px 0 4px}
+.platform-guide-rail .rail-bottom a {font-size:9px; overflow-wrap:anywhere}
+.platform-guide-rail .fae-finder-nav {display:flex; margin:20px 0 0; padding:11px 10px; font-size:10px; line-height:1.6; gap:8px}
+.platform-guide-rail .fae-finder-nav small {margin-top:5px; font-size:10px; line-height:1.5}
+.platform-guide-layout .workspace {min-width:0; margin:0}
+.platform-guide .guide-breadcrumb {display:flex; align-items:center; flex-wrap:wrap; gap:7px 10px; min-height:32px; margin:0; padding:0; color:var(--dim); font:10px/1.7 'JetBrains Mono',Consolas,monospace; letter-spacing:.1px}
+.guide-breadcrumb a {color:var(--muted); text-decoration:none; min-height:32px; display:inline-flex; align-items:center}
+.guide-breadcrumb a:hover {color:var(--text); text-decoration:underline}
+.guide-breadcrumb #crumb {color:var(--text); text-transform:none}
+.platform-guide-layout main {max-width:none; min-width:0; margin:0; padding:21px 0 48px; min-height:calc(100vh - 300px)}
+.platform-guide-layout .footer {padding:21px 0; margin:0; background:transparent; flex-wrap:wrap; line-height:1.75}
+.platform-guide .skip {left:24px}
+@media(max-width:768px) {
+  .platform-page .chipindex-site-header {width:calc(100% - 32px); padding-top:32px}
+  .platform-page .platform-section-nav {width:calc(100% - 32px); gap:0 18px}
+  .platform-section-nav>a {font-size:10px}
+  .platform-section-nav .learn-menu {margin-left:0}
+  .platform-section-nav .learn-menu summary {font-size:10px; padding-inline:0; gap:12px}
+  .platform-section-nav .learn-menu-options {right:auto; left:0}
+  .platform-guide-layout {display:block; padding:0 16px; margin-top:22px}
+  .platform-guide-rail {position:static; max-height:none; overflow:visible; padding:16px; margin-bottom:20px}
+  .platform-guide-rail .guide-vendor-identity {font-size:24px; min-height:40px; margin:0 0 13px}
+  .platform-guide-rail .rail-label,.platform-guide-rail .rail-bottom,.platform-guide-rail .fae-finder-nav {display:none}
+  .platform-guide-rail #nav {display:flex; overflow-x:auto; gap:5px; scrollbar-width:thin; padding-bottom:3px}
+  .platform-guide-rail .nav-item {white-space:nowrap; margin:0; flex-shrink:0; padding:10px; font-size:11px}
+  .platform-guide-rail .nav-item svg {width:15px; height:15px}
+  .platform-guide-layout main {padding:18px 0 40px}
+  .platform-finder>main {padding:25px 16px 65px}
+  .platform-finder>footer {padding-inline:16px}
+}
+@media(max-width:640px) {
+  .platform-page .chipindex-site-header {width:calc(100% - 24px); padding-top:20px}
+  .platform-page .platform-section-nav {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:calc(100% - 24px); gap:0 16px; margin-top:10px}
+  .platform-section-nav>a {min-height:44px; white-space:normal; text-align:center; font-size:10px; padding-block:8px}
+  .platform-section-nav .learn-menu {grid-column:1/-1; width:100%; margin:0; border-top:1px solid var(--line)}
+  .platform-section-nav .learn-menu summary {min-height:44px; justify-content:space-between; padding:8px 4px; font-size:11px}
+  .platform-section-nav .learn-menu-options {width:100%; max-width:none}
+  .platform-guide-layout {padding:0 12px; margin-top:18px}
+  .platform-guide-rail {padding:12px; margin-bottom:15px}
+  .platform-guide .guide-breadcrumb {font-size:9px; gap:5px 8px}
+  .platform-guide-layout .footer {font-size:9px}
+  .platform-finder>main {padding:22px 12px 60px}
+  .platform-finder>footer {padding-inline:12px}
+}
+@media(max-width:375px) {
+  .platform-page .chipindex-site-header {width:calc(100% - 20px); padding-top:16px}
+  .platform-page .platform-section-nav {width:calc(100% - 20px); gap:0 10px}
+  .platform-section-nav>a {font-size:9px}
+  .platform-guide-layout {padding-inline:10px}
+  .platform-finder>main,.platform-finder>footer {padding-inline:10px}
+}
+@media print {
+  .platform-page .chipindex-site-header,.platform-section-nav,.platform-guide-rail,.guide-breadcrumb {display:none}
+  .platform-guide-layout {display:block; margin:0; padding:0}
+}
